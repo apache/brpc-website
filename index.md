@@ -24,6 +24,6 @@ limitations under the License.
 
 {% include JB/setup %}
 
-## Apache brpc (incubator)
+## Apache brpc (incubating)
 
 brpc is an industrial-grade RPC framework for building reliable and high-performance services. 

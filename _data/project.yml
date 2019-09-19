@@ -15,7 +15,7 @@
 #
 # Apache Project configurations
 #
-name: Apache brpc
+name: Apache brpc (incubating)
 short_name: brpc
 unix_name: brpc
 incubator_name: incubator-brpc
@@ -23,7 +23,8 @@ incubator_slash_name: incubator/brpc
 description: Apache brpc is an industrial-grade RPC framework for building reliable and high-performance services.
 
 download: /download
-latest_release: 1.2.0
+latest_release: 0.9.6-rc02
+latest_tarball: apache-brpc-0.9.6.rc02-incubating-src.tar.gz
 
 dev_list: dev@brpc.apache.org
 dev_list_subscribe: dev-subscribe@brpc.apache.org

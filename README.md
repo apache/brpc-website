@@ -7,13 +7,12 @@ We choose master branch to hold all the site source change and asf-site for apac
 Please sent your PR to the master branch instead of asf-site.
 
 # How to run the site locally   
-*  Change to non-root user  
 
 *  Install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Gem](https://rubygems.org/)   
 
 *  Install Jekyll and Bundler   
 
-   `sudo gem install jekyll bundler`  
+   `sudo gem install jekyll bundler github-pages`  
 
 *  Clone the site files
 
@@ -32,7 +31,8 @@ Please sent your PR to the master branch instead of asf-site.
 *  Start web browser to access `http://localhost:4000`   
 
 **Note that tested versions of the tools covered in this section are as following,**    
+(I tested it on Ubuntu)
 
-*  Ruby 2.6 
-*  Gem 3.0   
+*  Ruby 2.5 
+*  Gem 2.7  
 *  Bundler 2.0   

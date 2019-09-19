@@ -26,10 +26,14 @@ limitations under the License.
 
 ## {{ site.data.project.name }} Downloads
 
-{{ site.data.project.name }} is released as a source artifact, and also through Maven.
+{{ site.data.project.name }} is released as a source artifact.
+We are still working on our first apache release, 
+hopefully it will be done in Oct 2019. 
 
-### Release Artifacts
 
+### Release Candidate 
+<!--when pass vote, we can change it back to Release Artifacts
+-->
 <table class="table table-hover sortable">
     <thead>
         <tr>
@@ -42,15 +46,9 @@ limitations under the License.
     <tbody>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (tar.gz)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.incubator_slash_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.incubator_slash_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.incubator_slash_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-bin.tar.gz.asc">ASC</a></td>
-        </tr>
-        <tr>
-            <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (source tar.gz)</td>
-            <td><a href="http://www.apache.org/dyn/closer.lua/{{site.data.project.incubator_slash_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.tar.gz">tar.gz</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.incubator_slash_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="http://www.apache.org/dist/{{site.data.project.incubator_slash_name}}/{{site.data.project.latest_release}}/{{site.data.project.unix_name}}/{{site.data.project.unix_name}}-{{site.data.project.latest_release}}-src.tar.gz.asc">ASC</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/dev/incubator/brpc/0.9.6-rc02/apache-brpc-0.9.6.rc02-incubating-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/dev/incubator/brpc/0.9.6-rc02/apache-brpc-0.9.6.rc02-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/dev/incubator/brpc/0.9.6-rc02/apache-brpc-0.9.6.rc02-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
         <!--tr>
             <td>Release Notes</td>
@@ -65,7 +63,7 @@ limitations under the License.
 Choose a source distribution in either *tar* or *zip* format,
 and [verify](http://www.apache.org/dyn/closer.cgi#verify)
 using the corresponding *pgp* signature (using the committer file in
-[KEYS](http://www.apache.org/dist/{{ site.data.project.incubator_slash_name }}/KEYS)).
+[KEYS](http://dist.apache.org/repos/dist/dev/{{ site.data.project.incubator_slash_name }}/KEYS)).
 If you cannot do that, the *md5* hash file may be used to check that the
 download has completed OK.
 
