@@ -43,7 +43,7 @@
 
 - name: fisherman
   apacheId: fisherman
-  githubId: 
+  githubId: ipconfigme
   org: apache
   role: PPMC
 
