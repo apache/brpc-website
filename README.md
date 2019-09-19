@@ -1,8 +1,38 @@
-This is for brpc‘s website
+# brpc Website
+The Web Site of brpc is based on [Apache Website Template](https://github.com/apache/apache-website-template).
 
-the hostname is brpc.apache.org 
+# NOTE for PR
+As this website is using the [gitpubsub](https://www.apache.org/dev/project-site.html) and we use Jekyll to generate the site.
+We choose master branch to hold all the site source change and asf-site for apache gitpubsub.
+Please sent your PR to the master branch instead of asf-site.
 
-it is under construction, please visit out repo on github.
+# How to run the site locally   
 
-https://github.com/apache/incubator-brpc
+*  Install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Gem](https://rubygems.org/)   
 
+*  Install Jekyll and Bundler   
+
+   `sudo gem install jekyll bundler github-pages`  
+
+*  Clone the site files
+
+   `git clone https://github.com/apache/incubator-brpc-website.git`
+
+* cd incubator-brpc-website
+
+*  Install the gems with bundle
+
+   `sudo bundle install`
+
+*  Start the jekyll server
+
+   `sudo bundle exec jekyll server`
+
+*  Start web browser to access `http://localhost:4000`   
+
+**Note that tested versions of the tools covered in this section are as following,**    
+(I tested it on Ubuntu)
+
+*  Ruby 2.5 
+*  Gem 2.7  
+*  Bundler 2.0   
