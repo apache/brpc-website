@@ -1,30 +1,81 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title></title>
+    <description></description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 19 Sep 2019 14:14:41 +0800</pubDate>
+    <lastBuildDate>Thu, 19 Sep 2019 14:14:41 +0800</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>Release 0.2.0</title>
+        <description>&lt;!--
+
+--&gt;
+
+&lt;p&gt;This is our second release! Thanks to everyone who has contributed to
+it.&lt;/p&gt;
+
+&lt;p&gt;In addition to a large number of bug fixes and minor enhancements,
+this release includes faster-than-light travel and chewing gum that
+never loses its flavor.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 10 Nov 2015 20:00:00 +0800</pubDate>
+        <link>http://localhost:4000/news/2015/11/10/release-0.2.0/</link>
+        <guid isPermaLink="true">http://localhost:4000/news/2015/11/10/release-0.2.0/</guid>
+        
+        <category>v0-2-0</category>
+        
+        
+        <category>release</category>
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Project adds 2 committers</title>
+        <description>&lt;!--
+
+--&gt;
+
+&lt;p&gt;The brpc project management committee today added two new
+committers for their work on the project. Welcome!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Darth Vader&lt;/li&gt;
+  &lt;li&gt;Princess Leia&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 09 Nov 2015 11:03:07 +0800</pubDate>
+        <link>http://localhost:4000/news/2015/11/09/new-committers/</link>
+        <guid isPermaLink="true">http://localhost:4000/news/2015/11/09/new-committers/</guid>
+        
+        
+        <category>team</category>
+        
+      </item>
+    
+      <item>
+        <title>Release 0.1.0</title>
+        <description>&lt;!--
+
+--&gt;
+
+&lt;p&gt;This is our first release!&lt;/p&gt;
+
+&lt;p&gt;We’re so pleased to be in the Apache Incbuator.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 25 Sep 2015 20:00:00 +0800</pubDate>
+        <link>http://localhost:4000/news/2015/09/25/release-0.1.0/</link>
+        <guid isPermaLink="true">http://localhost:4000/news/2015/09/25/release-0.1.0/</guid>
+        
+        <category>v0-1-0</category>
+        
+        
+        <category>release</category>
+        
+      </item>
+    
   </channel>
 </rss>
