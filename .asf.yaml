@@ -1,0 +1,3 @@
+pelican:
+  whoami: master
+  target: asf-site
