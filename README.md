@@ -1,5 +1,5 @@
-# brpc Website
-The Web Site of brpc is based on [Apache Website Template](https://github.com/apache/apache-website-template).
+# brpc Website 
+The Web Site of brpc (http://brpc.apache.org) is based on [Apache Website Template](https://github.com/apache/apache-website-template).
 
 # NOTE for PR
 As this website is using the [gitpubsub](https://www.apache.org/dev/project-site.html) and we use Jekyll to generate the site.
