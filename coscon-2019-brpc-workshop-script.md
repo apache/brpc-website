@@ -8,6 +8,8 @@
 
 # 面向对象：
 * 对rpc有一定了解的C++程序员
+* 使用过docker
+
 
 
 # 要求
@@ -22,18 +24,27 @@
   * cd incubator-brpc
   * docker build -t brpc:0.9.7rc1 .
   * docker image ls |grep brpc
+
+* pull dockder image from hub
+  * docker pull 13718272827/brpc:0.9.7rc1
+
 * 运行docker image
   * docker run -it brpc:0.9.7rc1 /bin/bash
+  or 
+  * docker run -it 13718272827/brpc:0.9.7rc1 /bin/bash
+
 
 
 # 第一个rpc程序
   * server 端
     * docker run -p 8000:8000 -it brpc:0.9.7rc1 /bin/bash
+    * (docker run -p 8000:8000 -it 13718272827/brpc:0.9.7rc1 /bin/bash)
       * cd /brpc/example/echo_c++
       * make
       * ./echo_server
   * 另起一个终端，作为client
     * docker run --network=host -it brpc:0.9.7rc1 /bin/bash
+    * (docker run --network=host -it 1371827287/brpc:0.9.7rc1 /bin/bash)
       * cd /brpc/example/echo_c++
       * make
       * ./echo_client
