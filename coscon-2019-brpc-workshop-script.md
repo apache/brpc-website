@@ -19,7 +19,7 @@
 
 ## Step1 下载brpc Dockerfile
 * mkdir brpc && cd brpc
-* wget https://raw.githubusercontent.com/apache/incubator-brpc/master/Dockerfile > Dockerfile
+* wget https://raw.githubusercontent.com/apache/incubator-brpc/master/Dockerfile --no-check-certificate > Dockerfile
 
 ## Step2 本机build镜像(recommand) or 直接拉现成镜像
 
@@ -100,7 +100,7 @@ server 端
 
 另起一个终端，作为client
 * docker run --network=host -it brpc:0.9.7rc1 /bin/bash
-* (docker run --network=host -it 1371827287/brpc:0.9.7rc1 /bin/bash)
+* (docker run --network=host -it 13718272827/brpc:0.9.7rc1 /bin/bash)
   * cd /brpc/example/streaming_echo_c++/
   * make
   * ./echo_client
