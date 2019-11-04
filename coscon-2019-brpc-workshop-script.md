@@ -54,7 +54,7 @@ server 端
 
 另起一个终端，作为client
 * docker run --network=host -it brpc:0.9.7rc1 /bin/bash
-* (docker run --network=host -it 1371827287/brpc:0.9.7rc1 /bin/bash)
+* (docker run --network=host -it 13718272827/brpc:0.9.7rc1 /bin/bash)
   * cd /brpc/example/echo_c++
   * make
   * ./echo_client
