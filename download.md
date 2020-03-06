@@ -46,9 +46,9 @@ hopefully it will be done in Oct 2019.
     <tbody>
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (tar.gz)</td>
-            <td><a href="https://dist.apache.org/repos/dist/dev/incubator/brpc/0.9.6-rc02/apache-brpc-0.9.6.rc02-incubating-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://dist.apache.org/repos/dist/dev/incubator/brpc/0.9.6-rc02/apache-brpc-0.9.6.rc02-incubating-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://dist.apache.org/repos/dist/dev/incubator/brpc/0.9.6-rc02/apache-brpc-0.9.6.rc02-incubating-src.tar.gz.asc">ASC</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/dev/incubator/brpc/0.9.7-rc03/apache-brpc-0.9.7.rc03-incubating-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/dev/incubator/brpc/0.9.7-rc03/apache-brpc-0.9.7.rc03-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://dist.apache.org/repos/dist/dev/incubator/brpc/0.9.7-rc03/apache-brpc-0.9.7.rc03-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
         <!--tr>
             <td>Release Notes</td>
