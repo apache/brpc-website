@@ -52,4 +52,10 @@
   githubId: tanzhongyibidu
   org: apache
   role: PPMC
+  
+- name: Gaidong Mou
+  apacheId: gydong
+  githubId: gydong
+  org: apache
+  role: PPMC
 # End contributors.yml
