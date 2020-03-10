@@ -58,4 +58,16 @@
   githubId: gydong
   org: apache
   role: PPMC
+
+- name: He Lei
+  apacheId: leander
+  githubId: TousakaRin
+  org: apache
+  role: PPMC
+
+- name: Cai daojing
+  apacheId: caidj
+  githubId: cdjingit
+  org: apache
+  role: PPMC
 # End contributors.yml
