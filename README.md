@@ -1,9 +1,9 @@
 # brpc Website 
-The Web Site of brpc (http://brpc.apache.org) is based on [Apache Website Template](https://github.com/apache/apache-website-template).
+The Web Site of brpc (http://brpc.apache.org) is using the apache template from  [Apache Website Template](https://github.com/apache/apache-website-template).
 
-# NOTE for PR
+# Note for PR
 As this website is using the [gitpubsub](https://www.apache.org/dev/project-site.html) and we use Jekyll to generate the site.
-We choose master branch to hold all the site source change and asf-site for apache gitpubsub.
+We choose master branch to hold all the site source change and asf-site for apache github website.
 Please sent your PR to the master branch instead of asf-site.
 
 # How to run the site locally   
