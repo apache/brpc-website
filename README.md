@@ -1,5 +1,5 @@
 # brpc Website 
-The Web Site of brpc (http://brpc.apache.org) is using the apache template from  [Apache Website Template](https://github.com/apache/apache-website-template).
+The Website of brpc (http://brpc.apache.org) is using the apache.org template from  [Apache Website Template](https://github.com/apache/apache-website-template).
 
 # Note for PR
 As this website is using the [gitpubsub](https://www.apache.org/dev/project-site.html) and we use Jekyll to generate the site.
@@ -9,6 +9,8 @@ Please sent your PR to the master branch instead of asf-site.
 # How to run the site locally   
 
 *  Install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Gem](https://rubygems.org/)   
+
+   `brew install ruby`
 
 *  Install Jekyll and Bundler   
 
@@ -32,14 +34,14 @@ Please sent your PR to the master branch instead of asf-site.
 
 
 # How to contribute
-* Checkout the master branch to get the source, run locally 
+* Checkout the master branch to get the source, run locally to generate html content
 * Modify and  create pull request as usual
-* Switch to asf-site branch, copy the generated html from master branch(it is under target directory), then create pull request for asf-site branch.
+* Switch to asf-site branch, copy the generated html content from master branch( They are under target directory), then create pull request for asf-site branch.
 * Wait for brpc.apache.org auto deploy works
 
 
 **Note that tested versions of the tools covered in this section are as following,**    
-(I tested it on Ubuntu)
-*  Ruby 2.5 
-*  Gem 2.7  
-*  Bundler 2.0   
+(I tested it on MacOS)
+*  Ruby 2.6.3p62 
+*  Gem 3.0.3  
+*  Bundler 2.1.4 
