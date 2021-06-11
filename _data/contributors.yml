@@ -71,4 +71,9 @@
   org: apache
   role: PPMC
 
+- name: Li Lei
+  apacheId: lorinlee
+  githubId: lorinlee
+  org: apache
+  role: Committer
 # End contributors.yml
