@@ -67,18 +67,18 @@ hopefully it will be done in Oct 2019.
 </table>
 
 Choose a source distribution in either *tar* or *zip* format,
-and [verify](http://www.apache.org/dyn/closer.cgi#verify)
+and [verify](https://www.apache.org/dyn/closer.cgi#verify)
 using the corresponding *pgp* signature (using the committer file in
-[KEYS](http://dist.apache.org/repos/dist/dev/{{ site.data.project.incubator_slash_name }}/KEYS)).
+[KEYS](https://downloads.apache.org/{{ site.data.project.incubator_slash_name }}/KEYS)).
 If you cannot do that, the *md5* hash file may be used to check that the
 download has completed OK.
 
 For fast downloads, current source distributions are hosted on mirror servers;
 older source distributions are in the
-[archive](http://archive.apache.org/dist/{{ site.data.project.incubator_slash_name }}/).
+[archive](https://archive.apache.org/dist/{{ site.data.project.incubator_slash_name }}/).
 If a download from a mirror fails, retry, and the second download will likely
 succeed.
 
 For security, hash and signature files are always hosted at
-[Apache](https://www.apache.org/dist).
+[Apache](https://www.apache.org).
 
