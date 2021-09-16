@@ -47,14 +47,14 @@ hopefully it will be done in Oct 2019.
         <tr>
             <td>{{ site.data.project.name }} {{site.data.project.latest_release}} (tar.gz)</td>
             <td><a href="https://www.apache.org/dyn/closer.lua/incubator/brpc/1.0.0-rc02/apache-brpc-1.0.0-rc02-incubating-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/brpc/1.0.0-rc02/apache-brpc-1.0.0-rc02-incubating-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/brpc/1.0.0-rc02/apache-brpc-1.0.0-rc02-incubating-src.tar.gz.asc">ASC</a></td>
+            <td><a href="https://downloads.apache.org/incubator/brpc/1.0.0-rc02/apache-brpc-1.0.0-rc02-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/incubator/brpc/1.0.0-rc02/apache-brpc-1.0.0-rc02-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
             <td>{{ site.data.project.name }} 0.9.7 (tar.gz)</td>
             <td><a href="https://www.apache.org/dyn/closer.lua/incubator/brpc/0.9.7/apache-brpc-0.9.7-incubating-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/brpc/0.9.7/apache-brpc-0.9.7-incubating-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://www.apache.org/dyn/closer.lua/incubator/brpc/0.9.7/apache-brpc-0.9.7-incubating-src.tar.gz.asc">ASC</a></td>
+            <td><a href="http://downloads.apache.org/incubator/brpc/0.9.7/apache-brpc-0.9.7-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="http://downloads.apache.org/incubator/brpc/0.9.7/apache-brpc-0.9.7-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
         <!--tr>
             <td>Release Notes</td>
