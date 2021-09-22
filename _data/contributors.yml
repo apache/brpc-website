@@ -76,4 +76,10 @@
   githubId: lorinlee
   org: apache
   role: Committer
+
+- name: Wang wei
+  apacheId: guodong
+  githubId: guodongxiaren
+  org: apache
+  role: Committer
 # End contributors.yml
