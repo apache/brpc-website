@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.86.0" />
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>记一次在 MOSN 对 Dubbo、dubbo-go-hessian2 的性能优化 | bRPC</title><meta property="og:title" content="记一次在 MOSN 对 Dubbo、dubbo-go-hessian2 的性能优化" />
+<meta property="og:description" content="本文会重点描述在基于 Go 语言库 dubbo-go-hessian2 、Dubbo 协议中对 MOSN 所做的性能优化。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brpc.incubator.apache.org/blog/posts/mosn-dubbo-go-hessian2/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-06-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-27T17:53:02+08:00" /><meta property="og:site_name" content="bRPC" />
+
+<meta itemprop="name" content="记一次在 MOSN 对 Dubbo、dubbo-go-hessian2 的性能优化">
+<meta itemprop="description" content="本文会重点描述在基于 Go 语言库 dubbo-go-hessian2 、Dubbo 协议中对 MOSN 所做的性能优化。"><meta itemprop="datePublished" content="2020-06-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-27T17:53:02+08:00" />
+<meta itemprop="wordCount" content="1733">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="记一次在 MOSN 对 Dubbo、dubbo-go-hessian2 的性能优化"/>
+<meta name="twitter:description" content="本文会重点描述在基于 Go 语言库 dubbo-go-hessian2 、Dubbo 协议中对 MOSN 所做的性能优化。"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-93485976-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<link rel="preload" href="/scss/main.min.6c022a2695e1b7248646a4d8e9854baa2e7b3dec122dbfd8d0a958f44f5392f8.css" as="style">
+<link href="/scss/main.min.6c022a2695e1b7248646a4d8e9854baa2e7b3dec122dbfd8d0a958f44f5392f8.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+    <title>记一次在 MOSN 对 Dubbo、dubbo-go-hessian2 的性能优化 | bRPC</title>
+  </head>
+  <body class="td-page td-blog">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg width="303" height="259" viewBox="0 0 303 259" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>brpc_logo.svg</title><defs><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-2"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-3"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-4"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient></defs><g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="椭圆形" fill="#58b8ff" cx="23.5" cy="62.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="279.5" cy="60.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="119" cy="26" r="26"/><rect id="矩形" fill="#58b8ff" transform="translate(78.021813, 41.967662) rotate(-22.000000) translate(-78.021813, -41.967662)" x="30.0218125" y="35.9676616" width="96" height="12"/><rect id="矩形" fill="#58b8ff" transform="translate(201.451088, 44.299021) rotate(13.000000) translate(-201.451088, -44.299021)" x="138.951088" y="38.2990214" width="125" height="12"/><g id="brpc-logo" transform="translate(11.000000, 104.000000)" fill-rule="nonzero"><g id="编组" transform="translate(138.000000, 77.419111) scale(-1, 1) rotate(-180.000000) translate(-138.000000, -77.419111) translate(0.000000, 0.000000)"><path d="M18.8 154.3C17.8 154.1 17 153.8 17 153.6 17 153.5 13.2 134.3 8.5 111 3.8 87.7-205355861e-22 68-205355861e-22 67.4-205355861e-22 65.9 2.6 65.3 5.7 65.8 7.3 66.1 8.1 67.2 8.6 69.6 9.3 73.5 10 73.8 11.7 71.1 15 65.9 28.8 63.2 36.4 66.4 48.9 71.6 57.7 89.6 56.8 108.1c-.5 10-2.5 14.5-7.8 17.1C44.5 127.5 36.6 127.5 31.4 125.1 27 123.1 20.8814242 116.827994 20 115.8 19.8268414 115.598047 19.5 115 19 115.2 18.3 115.4 18.3 116.5 19 118.7 19.6 120.4 21.6 129 23.4 137.8l3.3 16L24.6 154.4C22.3 155 21.4 155 18.8 154.3zm24.6146505-36.885789c1.7578246-1.326292 2.0864078-1.825452 2.4530432-2.642066S46.8138702 112.705545 47.1008328 111.513935C48.333925 109.104457 47.0101697 95.2413285 45.0724535 89.7736686 41.197021 79.2090375 34.9434822 73 28.2495534 73c-4.5800565.0-7.4866309 1.5754274-11.5382193 6.1163653-1.6734822 1.8534441-1.598743 2.8514069-2.0391331 4.4738936C14.2318109 85.2127457 15.3810952 94.5991493 17.4068894 98.6767262 18.5085881 100.995054 18.5085881 100.995054 20.3179492 104.427606 20.9381193 105.604136 23.3268821 108.69306 24.5063492 109.790864c1.2349847 1.149478 2.6574201 2.834639 3.7432042 3.921533 1.1506404 1.15181600000001 4.2465085 3.084017 5.3028342 3.701814 1.4321645.837608000000003 2.774919 1.362015 4.0282636 1.573221C40.1349135 119.080104 41.2462694 118.670624 43.4146505 117.414211z" id="形状" fill="url(#linearGradient-1)"/><path d="M248.7 148.9C241 147.8 232.2 143 226.1 136.5c-14.2-15-20-43.1-12.1-58.6C216.6 72.9 223.2 67.5 228.5 66 235.2 64.1 249.3 65.1 255.7 67.9 258.6 69.2 261.4 70.8 262.1 71.6 263.7 73.5 265 79.9 263.9 80.6 263.4 80.9 260 79.6 256.3 77.8 243 71.3 230.4 73.3 225.1 82.9 218.5 94.9 223.7 119.3 235.5 131.5 245.8 142 257.4 142.9 271.3 134.2 273.7 132.7 274.2 132.7 275 134 275.5 134.8 276 137.2 276 139.2 276 142.2 275.5 143.2 272.8 144.8 266.2 148.7 257.7 150.2 248.7 148.9z" id="路径" fill="#fff"/><path d="M87.4 148.1C86.2 147.6 84.9 146.7 84.6 146.1 83.6 144.5 68.1 66.6 68.7 65.8c.599999999999994-1 7.5-1 9 0C78.4 66.3 80.6 74.4 82.5 83.9s3.7 17.6 4 18.2C87.5 103.6 96.3 103.1 99.9 101.2 105.7 98.3 107.2 95.2 110 79.7l2.5-14.2L117.3 65.2C123.5 64.8 123.7 65.7 121.6 78.4c-2.5 14.4-4.5 21.2-7.3 24.2C113 104 112 105.3 112.2 105.5 112.4 105.6 114.3 106.7 116.5 107.8 124.5 111.9 129.8 119.6 130.7 128.5 131.7 138 127.9 143.9 119 146.9 114.5 148.4 90.2 149.3 87.4 148.1zm24.9-9.5C117.8 136.3 119.3 133.8 118.8 127.7 117.9 117 111.3 112.1 96.6 111.2L87.7 110.7 88.3 113.1C88.6 114.4 89.8 120.5 91 126.5 92.1 132.6 93.3 138.1 93.5 138.8 94.1 140.5 108.1 140.4 112.3 138.6z" id="形状" fill="#fff"/><path d="M159.5 148.4C158.4 148.1 157.2 147.5 156.7 147.1c-1-1-16.8-80.2-16.1-81.2C141.2 64.8 148 64.7 149.7 65.8 150.3 66.2 152.2 73.3 153.8 81.5L156.7 96.5 167.8 97.1c17.1 1 25.5 5.7 31.2 17.2C206.2 129.1 202.4 143.6 190.5 146.9 186.1 148.1 162.6 149.2 159.5 148.4zm27.2-11C195 131.2 191.3 114.2 180.5 108.6 177.6 107.1 174.2 106.4 167.8 106.2 162.9 106 159 106.2 159 106.7 159 107.1 160.4 114.9 162.1 123.9L165.3 140.2 174.6 139.8C182.1 139.5 184.5 139 186.7 137.4z" id="形状" fill="#fff"/><path d="M52.3 50.7C49 41.2 49.5 37.5 52.9 46.5c1.2 3.1 1.9876864 5.9098389 2.1 6.3S55.4 54.1 55.9 54.9C56.6 56 58.2 55.2 63.5 50.9 67.2 47.9 70.4 45.6 70.6 45.8 71.7 46.5 70.9 47.4 64.1 53.2 60 56.6 58.2983882 57.6981689 57.4 58.2 56.5016118 58.7018311 56.5016118 58.7018311 55.8 58.2 55 57.49737 54 55.4 52.3 50.7z" id="形状" fill="#7e7e7e"/><path d="M84 34.1C84 30.6 82.8 29 80.4 29 78.9 29 78 28.4 78 27.5 78 26.7 78.9 26 80 26 82.4 26 82.4 25.5 80.5 17 79.7 13.4 79.1 8.4 79 5.8 79 1.6 79.3 1 81.4.4 85.1-.5 89.5.3 89.8 2 90 3.1 89.2 3.5 86.8 3.5 83.9 3.5 83.5 3.8 83.3 6.5 83.1 8.2 83.8 13.1 84.8 17.5c1.7 7.9 1.7 8 5.2 8.6L93.5 26.7C94.2848943 26.7875501 94.751561 26.9875501 94.9 27.3 95 28.6 94.2 29 91.1 29h-4L87.7 32.5C88.2 35.6 88 36 86.1 36 84.7 36 84 35.4 84 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M105 34.1C105 30.6 103.8 29 101.4 29 99.9 29 99 28.4 99 27.5 99 26.7 99.9 26 101 26 103.4 26 103.4 25.5 101.5 17 100.7 13.4 100.1 8.4 1e2 5.8 1e2 1.6 100.3 1 102.4.4 106.1-.5 110.5.3 110.8 2 111 3.1 110.2 3.5 107.8 3.5 104.9 3.5 104.5 3.8 104.3 6.5 104.1 8.2 104.8 13.1 105.8 17.5c1.7 7.9 1.7 8 5.2 8.6L114.5 26.7C115.433333 26.8462934 115.9 27.0462934 115.9 27.3 116 28.6 115.2 29 112.1 29h-4L108.7 32.5C109.2 35.6 109 36 107.1 36 105.7 36 105 35.4 105 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M54.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C46.5 1.9 48.6.0 57.2.0 63.6.0 67 1.2 67 3.6 67 4.7 66.6 4.8 65.1 4c-2.7-1.4-10.4-1.3-12.4.3C51.8 4.9 51 6.6 50.9 8 50.4 13.5 50.6 13.7 57.8 14.2 66 14.9 69.5 16.4 71 20 72.3 23.2 71.2 26.3 68 28s-10.2 1.1-13.7-1.1zM67 22.7C67 19 63.6 17 57.3 17 54.4 17 52 17.3 52 17.8c0 1.1 3.1 5.4 5 7C57.9 25.5 60.2 25.9 62.8 25.7 65.1 25.4 67 26.1 67 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M126.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C118.5 1.9 120.6.0 129.2.0 135.6.0 139 1.2 139 3.6 139 4.7 138.6 4.8 137.1 4 134.4 2.6 126.7 2.7 124.7 4.3 123.8 4.9 123 6.6 122.9 8 122.4 13.5 122.6 13.7 129.8 14.2 138 14.9 141.5 16.4 143 20 144.3 23.2 143.2 26.3 140 28s-10.2 1.1-13.7-1.1zM139 22.7C139 19 135.6 17 129.3 17 126.4 17 124 17.3 124 17.8 124 18.9 127.1 23.2 129 24.8 129.9 25.5 132.2 25.9 134.8 25.7 137.1 25.4 139 26.1 139 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M153.7 26.8C151.7 18.4 149.2978 2.90464869 149.2978 2.1 149.2978 1.77371339 148.894918.241544332 150.3.1 151.705082-.0415443324 153 .4 153 2.1 153 3.2 153.7 7.2 154.6 11 156.5 19.3 161 25.2 165.5 25.4 167.5 25.5 168.6 26.1 168.8 27.3 169.1 28.6 168.4 29 165.8 29 163.2 29 161.6 28.2 159.4 25.8L156.5 22.5C155.5 19.6333333 155.133333 18.4333333 155.4 18.9 155.9 19.7 156.5 22.2 156.7 24.6 156.9 27.9 156.7 29 155.6 29 154.8 29 154 28 153.7 26.8z" id="形状" fill="url(#linearGradient-4)"/></g></g></g></svg></span>
+        
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/apache/incubator-brpc/" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>文档</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/blog/" ><span class="active">博客</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/faq/" ><span>FAQ</span></a>
+			</li>
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	中文
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/en/">English</a>
+	
+</div>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    <div class="nav-item dropdown d-block d-lg-none">
+      
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	中文
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/en/">English</a>
+	
+</div>
+    </div>
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">博客</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="blog">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">发布</a>
+  </li>
+  <ul>
+    <li class="collapse " id="blogreleases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0230" href="/blog/releases/v0.23.0/">MOSN v0.23.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0220" href="/blog/releases/v0.22.0/">MOSN v0.22.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0210" href="/blog/releases/v0.21.0/">MOSN v0.21.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0200" href="/blog/releases/v0.20.0/">MOSN v0.20.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0190" href="/blog/releases/v0.19.0/">MOSN v0.19.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0180" href="/blog/releases/v0.18.0/">MOSN v0.18.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0170" href="/blog/releases/v0.17.0/">MOSN v0.17.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0160" href="/blog/releases/v0.16.0/">MOSN v0.16.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0150" href="/blog/releases/v0.15.0/">MOSN v0.15.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0140" href="/blog/releases/v0.14.0/">MOSN v0.14.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0130" href="/blog/releases/v0.13.0/">MOSN v0.13.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0120" href="/blog/releases/v0.12.0/">MOSN v0.12.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0110" href="/blog/releases/v0.11.0/">MOSN v0.11.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0100" href="/blog/releases/v0.10.0/">MOSN v0.10.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesmosn-010-perfermence-report" href="/blog/releases/mosn-0.1.0-perfermence-report/">MOSN 0.1.0 性能报告</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesmosn-021-performance-report" href="/blog/releases/mosn-0.2.1-performance-report/">MOSN 0.2.1 性能报告</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/news/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">新闻</a>
+  </li>
+  <ul>
+    <li class="collapse " id="blognews">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blognewsmosn-channel-1" href="/blog/news/mosn-channel-1/">直播预告：MOSN 的多协议机制解析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blognewsannouncing-mosn-communtiy" href="/blog/news/announcing-mosn-communtiy/">MOSN 社区成立</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/posts/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">分享</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="blogposts">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-wasm-framework" href="/blog/posts/mosn-wasm-framework/">WebAssembly 在 MOSN 中的实践 - 基础框架篇</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-dubbo-integrate" href="/blog/posts/mosn-dubbo-integrate/">在 MOSN 中玩转 dubbo-go</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blogpostsmosn-dubbo-go-hessian2" href="/blog/posts/mosn-dubbo-go-hessian2/">记一次在 MOSN 对 Dubbo、dubbo-go-hessian2 的性能优化</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsskywalking-support" href="/blog/posts/skywalking-support/">MOSN 支持使用 SkyWalking 进行分布式追踪</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-extensions" href="/blog/posts/mosn-extensions/">MOSN 的扩展机制解析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmulti-protocol-deep-dive" href="/blog/posts/multi-protocol-deep-dive/">MOSN 多协议机制解析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsudpa-follow-up" href="/blog/posts/udpa-follow-up/">UDPA 最新进展深度介绍</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-source-code-brief" href="/blog/posts/mosn-source-code-brief/">MOSN 源码浅析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsnginx-envoy-mosn-hot-upgrade" href="/blog/posts/nginx-envoy-mosn-hot-upgrade/">Nginx vs Envoy vs MOSN 平滑升级原理解析</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">源码解析</a>
+  </li>
+  <ul>
+    <li class="collapse " id="blogcode">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-overview" href="/blog/code/mosn-overview/">MOSN 源码解析 - 总览</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-tls" href="/blog/code/mosn-tls/">MOSN 源码解析 - TLS</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-router" href="/blog/code/mosn-router/">MOSN 源码解析 - 路由</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-connection-pool" href="/blog/code/mosn-connection-pool/">MOSN 源码分析 - 连接池</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-http" href="/blog/code/mosn-http/">MOSN 源码解析 - HTTP 系能力</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-log" href="/blog/code/mosn-log/">MOSN 源码解析 - log 系统</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-startup" href="/blog/code/mosn-startup/">MOSN 源码解析 - 启动流程</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-eventloop" href="/blog/code/mosn-eventloop/">MOSN 源码解析 - 协程模型</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-shm" href="/blog/code/mosn-shm/">MOSN 源码解析 - 共享内存模型</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-variable" href="/blog/code/mosn-variable/">MOSN 源码解析 - 变量机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-buffer" href="/blog/code/mosn-buffer/">MOSN 源码解析 - 内存复用机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-plugin" href="/blog/code/mosn-plugin/">MOSN 源码解析 - plugin 机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-xds" href="/blog/code/mosn-xds/">MOSN 源码解析 - xDS</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-filters" href="/blog/code/mosn-filters/">MOSN 源码解析 - filter扩展机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-reconfig-mechanism" href="/blog/code/mosn-reconfig-mechanism/">MOSN 源码解析 - reconfig 机制</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/blog/posts/mosn-dubbo-go-hessian2/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=%e8%ae%b0%e4%b8%80%e6%ac%a1%e5%9c%a8%20MOSN%20%e5%af%b9%20Dubbo%e3%80%81dubbo-go-hessian2%20%e7%9a%84%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+
+
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+
+</div>
+
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#性能优化概述">性能优化概述</a></li>
+        <li><a href="#性能优化工具-pprof">性能优化工具 pprof</a></li>
+        <li><a href="#性能优化思路">性能优化思路</a></li>
+        <li><a href="#未来性能优化思考">未来性能优化思考</a></li>
+        <li><a href="#其他">其他</a></li>
+        <li><a href="#关于作者">关于作者</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5 pr-md-4" role="main">
+            <a class="btn btn-lg -bg-orange td-rss-button d-none d-lg-block" href="https://brpc.incubator.apache.org/blog/posts/index.xml" target="_blank">
+              RSS <i class="fa fa-rss ml-2 "></i>
+            </a>
+            
+<div class="td-content">
+	<h1>记一次在 MOSN 对 Dubbo、dubbo-go-hessian2 的性能优化</h1>
+	<div class="lead">本文会重点描述在基于 Go 语言库 dubbo-go-hessian2 、Dubbo 协议中对 MOSN 所做的性能优化。</div>
+	<div class="td-byline mb-4">
+		作者 <b><a href="https://github.com/zonghaishang">商宗海</a></b> |
+		<time datetime="2020-06-02" class="text-muted">2020年6月2日</time>
+	</div>
+	<p>蚂蚁集团内部对 Service Mesh 的稳定性和性能要求是比较高的，内部 MOSN 广泛用于生产环境。在云上和开源社区，RPC 领域 Dubbo 和 Spring Cloud 同样广泛用于生产环境，我们在 MOSN 基础上，支持了 Dubbo 和 spring cloud 流量代理。我们发现在支持 Dubbo 协议过程中，经过 Mesh 流量代理后，性能有非常大的性能损耗，在大商户落地 Mesh 中也对性能有较高要求，因此本文会重点描述在基于 Go 语言库 <a href="https://github.com/apache/dubbo-go-hessian2">dubbo-go-hessian2</a> 、Dubbo 协议中对 <a href="https://github.com/mosn/mosn">MOSN</a> 所做的性能优化。</p>
+<h3 id="性能优化概述">性能优化概述</h3>
+<p>根据实际业务部署场景，并没有选用高性能机器，使用普通 linux 机器，配置和压测参数如下：</p>
+<ul>
+<li>Intel (R) Xeon (R) Platinum 8163 CPU @ 2.50GHz 4 核 16G 。</li>
+<li>pod 配置 <code>2c、1g</code>，JVM 参数 <code>-server -Xms1024m -Xmx1024m</code>。</li>
+<li>网络延迟 0.23 ms, 2 台 linux 机器，分别部署 server + mosn, 压测程序 <a href="https://github.com/zonghaishang/rpc-performance">rpc-perfomance</a>。</li>
+</ul>
+<p>经过 3 轮性能优化后，使用优化版本 MOSN 将会获得以下性能收益（框架随机 512 和 1k 字节压测）：</p>
+<ul>
+<li>512 字节数据：MOSN + Dubbo 服务调用 TPS 整体提升 55-82.8%，RT 降低 45% 左右，内存占用 40M，</li>
+<li>1k 数据：MOSN + Dubbo 服务调用 TPS 整体提升 51.1-69.3%，RT 降低 41% 左右，内存占用 41M。</li>
+</ul>
+<h3 id="性能优化工具-pprof">性能优化工具 pprof</h3>
+<p>磨刀不误砍柴工，在性能优化前首先要找到性能卡点，找到性能卡点后，另一个难点就是如何用高效代码优化替代 slow code。因为蚂蚁集团 Service Mesh 是基于 go 语言实现的，我们首选 go 自带的 pprof 性能工具，我们简要介绍这个工具如何使用。如果我们 go 库自带 http.Server 时并且在 main 头部导入 <code>import _ &quot;net/http/pprof&quot;</code>，go 会帮我们挂载对应的 handler , 详细可以参考 <a href="https://pkg.go.dev/net/http/pprof?tab=doc">godoc</a> 。</p>
+<p>因为 mosn 默认会在 <code>34902</code> 端口暴露 http 服务，通过以下命令轻松获取 mosn 的性能诊断文件：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go tool pprof -seconds <span style="color:#0000cf;font-weight:bold">60</span> http://benchmark-server-ip:34902/debug/pprof/profile
+<span style="color:#8f5902;font-style:italic"># 会生成类似以下文件，该命令采样cpu 60秒</span>
+<span style="color:#8f5902;font-style:italic"># pprof.mosn.samples.cpu.001.pb.gz</span>
+</code></pre></div><p>然后继续用 pprof 打开诊断文件，方便在浏览器查看，在图 1-1 给出压测后 profiler 火焰图：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># http=:8000代表pprof打开8000端口然后用于web浏览器分析</span>
+<span style="color:#8f5902;font-style:italic"># mosnd代表mosn的二进制可执行文件，用于分析代码符号</span>
+<span style="color:#8f5902;font-style:italic"># pprof.mosn.samples.cpu.001.pb.gz是cpu诊断文件</span>
+go tool pprof -http<span style="color:#ce5c00;font-weight:bold">=</span>:8000 mosnd pprof.mosn.samples.cpu.001.pb.gz
+</code></pre></div><p><img src="007S8ZIlgy1gfm13iq7twj315g0fajxp.jpg" alt="img"></p>
+<p>图 1-1 MOSN 性能压测火焰图</p>
+<p>在获得诊断数据后，可以切到浏览器 Flame Graph（火焰图，go 1.11 以上版本自带），火焰图的 x 轴坐标代表 CPU 消耗情况， y 轴代码方法调用堆栈。在优化开始之前，我们借助 go 工具 pprof 可以诊断出大致的性能卡点在以下几个方面（直接压 server 端 MOSN）：</p>
+<ul>
+<li>MOSN 在接收 Dubbo 请求，CPU 卡点在 streamConnection.Dispatch</li>
+<li>MOSN 在转发 Dubbo 请求，CPU 卡点在 downStream.Receive</li>
+</ul>
+<p>可以点击火焰图任意横条，进去查看长方块耗时和堆栈明细（请参考图 1-2 和 1-3 所示）：</p>
+<p><img src="007S8ZIlgy1gfm13gy31ij31hc0kfdms.jpg" alt="img"></p>
+<p>图 1-2 Dispatch 火焰图明细</p>
+<p><img src="007S8ZIlgy1gfm13hwtidj31hc0gy474.jpg" alt=""></p>
+<p>图 1-3 Receive 火焰图明细</p>
+<h3 id="性能优化思路">性能优化思路</h3>
+<p>本文重点记录优化了哪些 case 才能提升 50% 以上的吞吐量和降低 RT，因此后面直接分析当前优化了哪些 case。在此之前，我们以 Dispatch 为例，看下它为甚么那么吃性能 。在 terminal 中通过以下命令可以查看代码行耗费 CPU 数据（代码有删减）：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go tool pprof mosnd pprof.mosn.samples.cpu.001.pb.gz
+<span style="color:#ce5c00;font-weight:bold">(</span>pprof<span style="color:#ce5c00;font-weight:bold">)</span> list Dispatch
+Total: 1.75mins
+     370ms     37.15s <span style="color:#ce5c00;font-weight:bold">(</span>flat, cum<span style="color:#ce5c00;font-weight:bold">)</span> 35.46% of Total
+      10ms       10ms    123:func <span style="color:#ce5c00;font-weight:bold">(</span>conn *streamConnection<span style="color:#ce5c00;font-weight:bold">)</span> Dispatch<span style="color:#ce5c00;font-weight:bold">(</span>buffer types.IoBuffer<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+      40ms      630ms    125:   log.DefaultLogger.Tracef<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;stream connection dispatch data string = %v&#34;</span>, buffer.String<span style="color:#ce5c00;font-weight:bold">())</span>
+         .          .    126:
+         .          .    127:   // get sub protocol codec
+         .      250ms    128:   requestList :<span style="color:#ce5c00;font-weight:bold">=</span> conn.codec.SplitFrame<span style="color:#ce5c00;font-weight:bold">(</span>buffer.Bytes<span style="color:#ce5c00;font-weight:bold">())</span>
+      20ms       20ms    129:   <span style="color:#204a87;font-weight:bold">for</span> _, request :<span style="color:#ce5c00;font-weight:bold">=</span> range requestList <span style="color:#ce5c00;font-weight:bold">{</span>
+      10ms      160ms    134:       headers :<span style="color:#ce5c00;font-weight:bold">=</span> make<span style="color:#ce5c00;font-weight:bold">(</span>map<span style="color:#ce5c00;font-weight:bold">[</span>string<span style="color:#ce5c00;font-weight:bold">]</span>string<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .    135:       // support dynamic route
+      50ms      920ms    136:       headers<span style="color:#ce5c00;font-weight:bold">[</span>strings.ToLower<span style="color:#ce5c00;font-weight:bold">(</span>protocol.MosnHeaderHostKey<span style="color:#ce5c00;font-weight:bold">)]</span> <span style="color:#ce5c00;font-weight:bold">=</span> conn.connection.RemoteAddr<span style="color:#ce5c00;font-weight:bold">()</span>.String<span style="color:#ce5c00;font-weight:bold">()</span>
+         .          .    149:
+         .          .    150:       // get stream id
+      10ms      440ms    151:       streamID :<span style="color:#ce5c00;font-weight:bold">=</span> conn.codec.GetStreamID<span style="color:#ce5c00;font-weight:bold">(</span>request<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .    156:       // request route
+         .       50ms    157:       requestRouteCodec, ok :<span style="color:#ce5c00;font-weight:bold">=</span> conn.codec.<span style="color:#ce5c00;font-weight:bold">(</span>xprotocol.RequestRouting<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .    158:       <span style="color:#204a87;font-weight:bold">if</span> ok <span style="color:#ce5c00;font-weight:bold">{</span>
+         .     20.11s    159:           routeHeaders :<span style="color:#ce5c00;font-weight:bold">=</span> requestRouteCodec.GetMetas<span style="color:#ce5c00;font-weight:bold">(</span>request<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .    165:       <span style="color:#ce5c00;font-weight:bold">}</span>
+         .          .    166:
+         .          .    167:       // tracing
+      10ms       80ms    168:       tracingCodec, ok :<span style="color:#ce5c00;font-weight:bold">=</span> conn.codec.<span style="color:#ce5c00;font-weight:bold">(</span>xprotocol.Tracing<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .    169:       var span types.Span
+         .          .    170:       <span style="color:#204a87;font-weight:bold">if</span> ok <span style="color:#ce5c00;font-weight:bold">{</span>
+      10ms      1.91s    171:           serviceName :<span style="color:#ce5c00;font-weight:bold">=</span> tracingCodec.GetServiceName<span style="color:#ce5c00;font-weight:bold">(</span>request<span style="color:#ce5c00;font-weight:bold">)</span>
+         .      2.17s    172:           methodName :<span style="color:#ce5c00;font-weight:bold">=</span> tracingCodec.GetMethodName<span style="color:#ce5c00;font-weight:bold">(</span>request<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .    176:
+         .          .    177:           <span style="color:#204a87;font-weight:bold">if</span> trace.IsEnabled<span style="color:#ce5c00;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+         .       50ms    179:               tracer :<span style="color:#ce5c00;font-weight:bold">=</span> trace.Tracer<span style="color:#ce5c00;font-weight:bold">(</span>protocol.Xprotocol<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .    180:               <span style="color:#204a87;font-weight:bold">if</span> tracer !<span style="color:#ce5c00;font-weight:bold">=</span> nil <span style="color:#ce5c00;font-weight:bold">{</span>
+      20ms      1.66s    181:                   <span style="color:#000">span</span> <span style="color:#ce5c00;font-weight:bold">=</span> tracer.Start<span style="color:#ce5c00;font-weight:bold">(</span>conn.context, headers, time.Now<span style="color:#ce5c00;font-weight:bold">())</span>
+         .          .    182:               <span style="color:#ce5c00;font-weight:bold">}</span>
+         .          .    183:           <span style="color:#ce5c00;font-weight:bold">}</span>
+         .          .    184:       <span style="color:#ce5c00;font-weight:bold">}</span>
+         .          .    185:
+         .      110ms    186:       reqBuf :<span style="color:#ce5c00;font-weight:bold">=</span> networkbuffer.NewIoBufferBytes<span style="color:#ce5c00;font-weight:bold">(</span>request<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .    188:       // append sub protocol header
+      10ms      950ms    189:       headers<span style="color:#ce5c00;font-weight:bold">[</span>types.HeaderXprotocolSubProtocol<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> string<span style="color:#ce5c00;font-weight:bold">(</span>conn.subProtocol<span style="color:#ce5c00;font-weight:bold">)</span>
+      10ms      4.96s    190:       conn.OnReceive<span style="color:#ce5c00;font-weight:bold">(</span>ctx, streamID, protocol.CommonHeader<span style="color:#ce5c00;font-weight:bold">(</span>headers<span style="color:#ce5c00;font-weight:bold">)</span>, reqBuf, span, isHearbeat<span style="color:#ce5c00;font-weight:bold">)</span>
+      30ms       60ms    191:       buffer.Drain<span style="color:#ce5c00;font-weight:bold">(</span>requestLen<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .    192:   <span style="color:#ce5c00;font-weight:bold">}</span>
+         .          .    193:<span style="color:#ce5c00;font-weight:bold">}</span>
+</code></pre></div><p>通过上面 <code>list Dispatch</code> 命令，性能卡点主要分布在 <code>159</code> 、 <code>171</code> 、<code>172</code> 、 <code>181</code> 、和 <code>190</code> 等行，主要卡点在解码 dubbo 参数、重复解参数、tracer、发序列化和 log 等。</p>
+<h4 id="1-优化-dubbo-解码-getmetas">1. 优化 dubbo 解码 GetMetas</h4>
+<p>我们通过解码 dubbo 的 body 可以获得以下信息，调用的目标接口（ interface ）和调用方法的服务分组（ group ）等信息，但是需要跳过所有业务方法参数，目前使用开源的 <a href="https://github.com/apache/dubbo-go-hessian2">dubbo-go-hessian2</a> 库，解析 string 和 map 性能较差，提升 hessian 库解码性能，会在本文后面讲解。</p>
+<p><strong>优化思路：</strong></p>
+<p>在 mosn 的 ingress 端（ mosn 直接转发请求给本地 java server 进程）, 我们根据请求的 path 和 version 窥探用户使用的 interface 和 group , 构建正确的 dataID 可以进行无脑转发，无需解码 body，榨取性能提升。</p>
+<p>我们可以在服务注册时，构建服务发布的 path 、version 和 group 到 interface 、group 映射。在 mosn 转发 dubbo 请求时可以通过读锁查 cache + 跳过解码 body，加速 mosn 性能。</p>
+<p>因此我们构建以下 cache 实现（数组 + 链表数据结构）, 可参见 <a href="https://github.com/mosn/mosn/pull/1174/commits/9020ee9995cd15a7a4321a375a9506cf94dc70a8#diff-f5ff30debd68b8318c8236a0b5ccde07R6">优化代码 diff</a> ：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// metadata.go
+</span><span style="color:#8f5902;font-style:italic">// DubboPubMetadata dubbo pub cache metadata
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">DubboPubMetadata</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Metadata</span><span style="color:#000;font-weight:bold">{}</span>
+
+<span style="color:#8f5902;font-style:italic">// DubboSubMetadata dubbo sub cache metadata
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">DubboSubMetadata</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Metadata</span><span style="color:#000;font-weight:bold">{}</span>
+
+<span style="color:#8f5902;font-style:italic">// Metadata cache service pub or sub metadata.
+</span><span style="color:#8f5902;font-style:italic">// speed up for decode or encode dubbo peformance.
+</span><span style="color:#8f5902;font-style:italic">// please do not use outside of the dubbo framwork.
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Metadata</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">data</span> <span style="color:#204a87;font-weight:bold">map</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Node</span>
+    <span style="color:#000">mu</span>   <span style="color:#000">sync</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RWMutex</span> <span style="color:#8f5902;font-style:italic">// protect data internal
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#8f5902;font-style:italic">// Find cached pub or sub metatada.
+</span><span style="color:#8f5902;font-style:italic">// caller should be check match is true
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">m</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Metadata</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Find</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">path</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">version</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">node</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">matched</span> <span style="color:#204a87;font-weight:bold">bool</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#8f5902;font-style:italic">// we found nothing
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">false</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mu</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RLocker</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">Lock</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#8f5902;font-style:italic">// for performance
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// m.mu.RLocker().Unlock() should be called.
+</span><span style="color:#8f5902;font-style:italic"></span>
+    <span style="color:#8f5902;font-style:italic">// we check head node first
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">head</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">path</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">head</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#ce5c00;font-weight:bold">||</span> <span style="color:#000">head</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mu</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RLocker</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">Unlock</span><span style="color:#000;font-weight:bold">()</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">false</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#000">node</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">head</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Next</span>
+    <span style="color:#8f5902;font-style:italic">// just only once, just return
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// for dubbo framwork, that&#39;s what we&#39;re expected.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">head</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mu</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RLocker</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">Unlock</span><span style="color:#000;font-weight:bold">()</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">true</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">count</span> <span style="color:#204a87;font-weight:bold">int</span>
+    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">found</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Node</span>
+
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">;</span> <span style="color:#000">node</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">node</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Next</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">version</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">found</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#000">found</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">node</span>
+            <span style="color:#000;font-weight:bold">}</span>
+            <span style="color:#000">count</span><span style="color:#ce5c00;font-weight:bold">++</span>
+        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mu</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RLocker</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">Unlock</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">found</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">1</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#8f5902;font-style:italic">// Register pub or sub metadata
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">m</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Metadata</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Register</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">path</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">node</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mu</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Lock</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#8f5902;font-style:italic">// for performance
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// m.mu.Unlock() should be called.
+</span><span style="color:#8f5902;font-style:italic"></span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87">make</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">map</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#8f5902;font-style:italic">// we check head node first
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">head</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">path</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">head</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">head</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">count</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#8f5902;font-style:italic">// update head
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">path</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">head</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#000">insert</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Node</span><span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">Service</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000">Version</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Version</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000">Group</span><span style="color:#000;font-weight:bold">:</span>   <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Group</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#000">next</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">head</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Next</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">next</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#8f5902;font-style:italic">// fist insert, just insert to head
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">head</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Next</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">insert</span>
+        <span style="color:#8f5902;font-style:italic">// record last element
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">head</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">last</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">insert</span>
+        <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mu</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Unlock</span><span style="color:#000;font-weight:bold">()</span>
+        <span style="color:#204a87;font-weight:bold">return</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#8f5902;font-style:italic">// we check already exist first
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">;</span> <span style="color:#000">next</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">next</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Next</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#8f5902;font-style:italic">// we found it
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Version</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">next</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Group</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Group</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#8f5902;font-style:italic">// release lock and no nothing
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mu</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Unlock</span><span style="color:#000;font-weight:bold">()</span>
+            <span style="color:#204a87;font-weight:bold">return</span>
+        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#000">head</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">count</span><span style="color:#ce5c00;font-weight:bold">++</span>
+    <span style="color:#8f5902;font-style:italic">// append node to the end of the list
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">head</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">last</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Next</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">insert</span>
+    <span style="color:#8f5902;font-style:italic">// update last element
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">head</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">last</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">insert</span>
+    <span style="color:#000">m</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mu</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Unlock</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>通过服务注册时构建好的 cache，可以在 MOSN 的 stream 做解码时命中 cache , 无需解码参数获取接口和 group 信息，可参见<a href="https://github.com/mosn/mosn/pull/1174/commits/9020ee9995cd15a7a4321a375a9506cf94dc70a8#diff-73d1153005841c788c91116915f460a5R188">优化代码 diff</a> :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// decoder.go
+</span><span style="color:#8f5902;font-style:italic">// for better performance.
+</span><span style="color:#8f5902;font-style:italic">// If the ingress scenario is not using group,
+</span><span style="color:#8f5902;font-style:italic">// we can skip parsing attachment to improve performance
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">listener</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">IngressDubbo</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">matched</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">DubboPubMetadata</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Find</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">path</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">version</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">matched</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">meta</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">ServiceNameHeader</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Service</span>
+        <span style="color:#000">meta</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">GroupNameHeader</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Group</span>
+    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">listener</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">EgressDubbo</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#8f5902;font-style:italic">// for better performance.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// If the egress scenario is not using group,
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// we can skip parsing attachment to improve performance
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">matched</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">DubboSubMetadata</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Find</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">path</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">version</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">matched</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">meta</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">ServiceNameHeader</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Service</span>
+        <span style="color:#000">meta</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">GroupNameHeader</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">node</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Group</span>
+    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>在 MOSN 的 egress 端（ mosn 直接转发请求给本地 java client 进程）, 我们采用类似的思路，我们根据请求的 path 和 version 去窥探用户使用的 interface 和 group , 构建正确的 dataID 可以进行无脑转发，无需解码 body，榨取性能提升。</p>
+<h4 id="2-优化-dubbo-解码参数">2. 优化 dubbo 解码参数</h4>
+<p>在 dubbo 解码参数值的时候 ，MOSN 采用的是 hessian 的正则表达式查找，非常耗费性能。我们先看下优化前后 benchmark 对比，性能提升 50 倍。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go <span style="color:#204a87">test</span> -bench<span style="color:#ce5c00;font-weight:bold">=</span>BenchmarkCountArgCount -run<span style="color:#ce5c00;font-weight:bold">=</span>^$ -benchmem
+BenchmarkCountArgCountByRegex-12    <span style="color:#0000cf;font-weight:bold">200000</span>  <span style="color:#0000cf;font-weight:bold">6236</span> ns/op  <span style="color:#0000cf;font-weight:bold">1472</span> B/op   <span style="color:#0000cf;font-weight:bold">24</span> allocs/op
+BenchmarkCountArgCountOptimized-12  <span style="color:#0000cf;font-weight:bold">10000000</span>    <span style="color:#0000cf;font-weight:bold">124</span> ns/op   <span style="color:#0000cf;font-weight:bold">0</span> B/op  <span style="color:#0000cf;font-weight:bold">0</span> allocs/op
+</code></pre></div><p><strong>优化思路：</strong></p>
+<p>可以消除正则表达式，采用简单字符串解析识别参数类型个数， <a href="https://github.com/zonghaishang/dubbo/blob/e0fd702825a274379fb609229bdb06ca0586122e/dubbo-common/src/main/java/org/apache/dubbo/common/utils/ReflectUtils.java#L370">Dubbo 编码参数个数字符串实现</a> 并不复杂，主要给对象加 L 前缀、数组加 [、primitive 类型有单字符代替。采用 go 可以实现同等解析，可以参考<a href="https://github.com/mosn/mosn/pull/1174/commits/9020ee9995cd15a7a4321a375a9506cf94dc70a8#diff-73d1153005841c788c91116915f460a5R245">优化代码 diff</a> ：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">getArgumentCount</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">desc</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">len</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">desc</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">len</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">args</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">next</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">false</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">_</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">ch</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#204a87;font-weight:bold">range</span> <span style="color:#000">desc</span> <span style="color:#000;font-weight:bold">{</span>
+
+        <span style="color:#8f5902;font-style:italic">// is array ?
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">ch</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;[&#39;</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#204a87;font-weight:bold">continue</span>
+        <span style="color:#000;font-weight:bold">}</span>
+
+        <span style="color:#8f5902;font-style:italic">// is object ?
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">next</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">ch</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#4e9a06">&#39;;&#39;</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#204a87;font-weight:bold">continue</span>
+        <span style="color:#000;font-weight:bold">}</span>
+
+        <span style="color:#204a87;font-weight:bold">switch</span> <span style="color:#000">ch</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#4e9a06">&#39;V&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#8f5902;font-style:italic">// void
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#4e9a06">&#39;Z&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#8f5902;font-style:italic">// boolean
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#4e9a06">&#39;B&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#8f5902;font-style:italic">// byte
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#4e9a06">&#39;C&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#8f5902;font-style:italic">// char
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#4e9a06">&#39;D&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#8f5902;font-style:italic">// double
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#4e9a06">&#39;F&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#8f5902;font-style:italic">// float
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#4e9a06">&#39;I&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#8f5902;font-style:italic">// int
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#4e9a06">&#39;J&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#8f5902;font-style:italic">// long
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#4e9a06">&#39;S&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#8f5902;font-style:italic">// short
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">args</span><span style="color:#ce5c00;font-weight:bold">++</span>
+        <span style="color:#204a87;font-weight:bold">default</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#8f5902;font-style:italic">// we found object
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">ch</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;L&#39;</span> <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#000">args</span><span style="color:#ce5c00;font-weight:bold">++</span>
+                <span style="color:#000">next</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">true</span>
+                <span style="color:#8f5902;font-style:italic">// end of object ?
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">ch</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;;&#39;</span> <span style="color:#000;font-weight:bold">{</span>
+                <span style="color:#000">next</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">false</span>
+            <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">args</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h4 id="3-优化-dubbo-hessian-go-解码-string-性能">3. 优化 dubbo hessian go 解码 string 性能</h4>
+<p>在图 1-2 中可以看到 dubbo hessian go 在解码 string 占比 CPU 采样较高，我们在解码 dubbo 请求时，会解析 dubbo 框架版本、调用 path 、接口版本和方法名，这些都是 string 类型，dubbo hessian go 解析 string 会影响 RPC 性能。</p>
+<p>我们首先跑一下 benchmar k 前后解码 string 性能对比，性能提升 56.11%， 对应到 RPC 中有 5% 左右提升。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">BenchmarkDecodeStringOriginal-12     <span style="color:#0000cf;font-weight:bold">1967202</span>     <span style="color:#0000cf;font-weight:bold">613</span> ns/op     <span style="color:#0000cf;font-weight:bold">272</span> B/op     <span style="color:#0000cf;font-weight:bold">6</span> allocs/op
+BenchmarkDecodeStringOptimized-12     <span style="color:#0000cf;font-weight:bold">4477216</span>     <span style="color:#0000cf;font-weight:bold">269</span> ns/op     <span style="color:#0000cf;font-weight:bold">224</span> B/op     <span style="color:#0000cf;font-weight:bold">5</span> allocs/op
+</code></pre></div><p><strong>优化思路：</strong></p>
+<p>直接使用 UTF-8 byte 解码，性能最高，之前先解码 byte 成 rune , 对 rune 解码成 string ，及其耗费性能。增加批量 string chunk copy ，降低 read 调用，并且使用 unsafe 转换 string （避免一些校验），因为代码优化 diff 较多，这里给出<a href="https://github.com/apache/dubbo-go-hessian2/pull/188">优化代码 PR</a> 。</p>
+<p>go SDK 代码 <code>runtime/string.go#slicerunetostring</code>（ rune 转换成 string ）， 同样是把 rune 转成 byte 数组，这里给了我优化思路启发。</p>
+<h4 id="4-优化-hessian-库编解码对象">4. 优化 hessian 库编解码对象</h4>
+<p>虽然消除了 dubbo 的 body 解码部分，但是 MOSN 在处理 dubbo 请求时，必须要借助 hessian 去 decode 请求头部的框架版本、请求 path 和接口版本值。但是每次在解码的时候都会创建序列化对象，开销非常高，因为 hessian 每次在创建 reader 的时候会 allocate 4k 数据并 reset。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">      10ms       10ms     75:func unSerialize<span style="color:#ce5c00;font-weight:bold">(</span>serializeId int, data <span style="color:#ce5c00;font-weight:bold">[]</span>byte, parseCtl unserializeCtl<span style="color:#ce5c00;font-weight:bold">)</span> *dubboAttr <span style="color:#ce5c00;font-weight:bold">{</span>
+      10ms      140ms     82:   attr :<span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">&amp;</span>dubboAttr<span style="color:#ce5c00;font-weight:bold">{}</span>
+      80ms      2.56s     83:   decoder :<span style="color:#ce5c00;font-weight:bold">=</span> hessian.NewDecoderWithSkip<span style="color:#ce5c00;font-weight:bold">(</span>data<span style="color:#ce5c00;font-weight:bold">[</span>:<span style="color:#ce5c00;font-weight:bold">])</span>
+<span style="color:#000">ROUTINE</span> <span style="color:#ce5c00;font-weight:bold">========================</span> bufio.NewReaderSize in /usr/local/go/src/bufio/bufio.go
+      50ms      2.44s <span style="color:#ce5c00;font-weight:bold">(</span>flat, cum<span style="color:#ce5c00;font-weight:bold">)</span>  2.33% of Total
+         .      220ms     55:   r :<span style="color:#ce5c00;font-weight:bold">=</span> new<span style="color:#ce5c00;font-weight:bold">(</span>Reader<span style="color:#ce5c00;font-weight:bold">)</span>
+      50ms      2.22s     56:   r.reset<span style="color:#ce5c00;font-weight:bold">(</span>make<span style="color:#ce5c00;font-weight:bold">([]</span>byte, size<span style="color:#ce5c00;font-weight:bold">)</span>, rd<span style="color:#ce5c00;font-weight:bold">)</span>
+         .          .     57:   <span style="color:#204a87;font-weight:bold">return</span> r
+         .          .     58:<span style="color:#ce5c00;font-weight:bold">}</span>
+</code></pre></div><p>我们可以写个池化内存前后性能对比，性能提升 85.4% , <a href="https://github.com/zonghaishang/dubbo-go-hessian2/blob/9b418c4e2700964f244e6b982855b4e89b45990d/string_test.go#L161">benchmark 用例</a> ：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">BenchmarkNewDecoder-12  <span style="color:#0000cf;font-weight:bold">1487685</span> <span style="color:#0000cf;font-weight:bold">803</span> ns/op   <span style="color:#0000cf;font-weight:bold">4528</span> B/op   <span style="color:#0000cf;font-weight:bold">9</span> allocs/op
+BenchmarkNewDecoderOptimized-12 <span style="color:#0000cf;font-weight:bold">10564024</span>    <span style="color:#0000cf;font-weight:bold">117</span> ns/op   <span style="color:#0000cf;font-weight:bold">128</span> B/op    <span style="color:#0000cf;font-weight:bold">3</span> allocs/op
+</code></pre></div><p><strong>优化思路：</strong></p>
+<p>在每次编解码时，池化 hessian 的 decoder 对象，新增 NewCheapDecoderWithSkip 并支持 reset 复用 decoder 。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">decodePool</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">sync</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pool</span><span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">New</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">hessian</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">NewCheapDecoderWithSkip</span><span style="color:#000;font-weight:bold">([]</span><span style="color:#204a87;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">{})</span>
+    <span style="color:#000;font-weight:bold">},</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#8f5902;font-style:italic">// 在解码时按照如下方法调用
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">decoder</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">decodePool</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Get</span><span style="color:#000;font-weight:bold">().(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">hessian</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Decoder</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#8f5902;font-style:italic">// fill decode data
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">decoder</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Reset</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">[:])</span>
+<span style="color:#000">hessianPool</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">decoder</span><span style="color:#000;font-weight:bold">)</span>
+</code></pre></div><h4 id="5-优化重复解码-service-和-methodname-值">5. 优化重复解码 service 和 methodName 值</h4>
+<p>xprotocol 在实现 xprotocol.Tracing 获取服务名称和方法时，会触发调用并解析 2 次，调用开销比较大。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">10ms      1.91s    171:           serviceName :<span style="color:#ce5c00;font-weight:bold">=</span> tracingCodec.GetServiceName<span style="color:#ce5c00;font-weight:bold">(</span>request<span style="color:#ce5c00;font-weight:bold">)</span>
+   .      2.17s    172:           methodName :<span style="color:#ce5c00;font-weight:bold">=</span> tracingCodec.GetMethodName<span style="color:#ce5c00;font-weight:bold">(</span>request<span style="color:#ce5c00;font-weight:bold">)</span>
+</code></pre></div><p><strong>优化思路：</strong></p>
+<p>因为在 GetMetas 里面已经解析过一次了，可以把解析过的 headers 传进去，如果 headers 有了就不用再去解析了，并且重构接口名称为一个，返回值为二元组，消除一次调用。</p>
+<h4 id="6-优化-streamid-类型转换">6. 优化 streamID 类型转换</h4>
+<p>在 go 中将 byte 数组和 streamID 进行互转的时候，比较费性能。</p>
+<p><strong>优化思路：</strong></p>
+<p>生产代码中，尽量不要使用 fmt.Sprintf 和 fmt.Printf 去做类型转换和打印信息。可以使用 strconv 去转换。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   .      430ms    147: reqIDStr :<span style="color:#ce5c00;font-weight:bold">=</span> fmt.Sprintf<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;%d&#34;</span>, reqID<span style="color:#ce5c00;font-weight:bold">)</span>
+60ms      4.10s    168: fmt.Printf<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;src=%s, len=%d, reqid:%v\n&#34;</span>, streamID, reqIDStrLen, reqIDStr<span style="color:#ce5c00;font-weight:bold">)</span>
+</code></pre></div><h4 id="7-优化昂贵的系统调用">7. 优化昂贵的系统调用</h4>
+<p>mosn 在解码 dubbo 的请求时，会在 header 中塞一份远程 host 的地址，并且在 for 循环中获取 remote IP，系统调用开销比较高。</p>
+<p><strong>优化思路：</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">50ms      920ms    136:        headers<span style="color:#ce5c00;font-weight:bold">[</span>strings.ToLower<span style="color:#ce5c00;font-weight:bold">(</span>protocol.MosnHeaderHostKey<span style="color:#ce5c00;font-weight:bold">)]</span> <span style="color:#ce5c00;font-weight:bold">=</span> conn.connection.RemoteAddr<span style="color:#ce5c00;font-weight:bold">()</span>.String<span style="color:#ce5c00;font-weight:bold">()</span>
+</code></pre></div><p>在获取远程地址时，尽可能在 streamConnection 中 cache 远程 IP 值，不要每次都去调用 RemoteAddr。</p>
+<h4 id="8-优化-slice-和-map-触发扩容和-rehash">8. 优化 slice 和 map 触发扩容和 rehash</h4>
+<p>在 mosn 处理 dubbo 请求时，会根据接口、版本和分组去构建 dataID ，然后匹配 cluster , 会创建默认 slice 和 map 对象，经过性能诊断，导致不断 allocate slice 和 grow map 容量比较费性能。</p>
+<p><strong>优化思路：</strong></p>
+<p>使用 slice 和 map 时，尽可能预估容量大小，使用 make (type, capacity) 去指定初始大小。</p>
+<h4 id="9-优化-trace-日志级别输出">9. 优化 trace 日志级别输出</h4>
+<p>mosn 中不少代码在处理逻辑时，会打很多 trace 级别的日志，并且会传递不少参数值。</p>
+<p><strong>优化思路：</strong></p>
+<p>调用 trace 输出前，尽量判断一下日志级别，如果有多个 trace 调用，尽可能把所有字符串写到 buf 中，然后把 buf 内容写到日志中，并且尽可能少的调用 trace 日志方法。</p>
+<h4 id="10-优化-tracerlog-和-metrics">10. 优化 tracer、log 和 metrics</h4>
+<p>在大促期间，对机器的性能要求较高，经过性能诊断，tracer、mosn log 和 cloud metrics 写日志（ IO 操作）非常耗费性能。</p>
+<p><strong>优化思路：</strong></p>
+<p>通过配置中心下发配置或者增加大促开关，允许 API 调用这些 feature 的开关。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/api/v1/downgrade/on
+/api/v1/downgrade/off
+</code></pre></div><h4 id="11-优化-route-header-解析">11. 优化 route header 解析</h4>
+<p>MOSN 中在做路由前，需要做大量的 header 的 map 访问，比如 IDC、antvip 等逻辑判断，商业版或者开源 mosn 不需要这些逻辑，这些也会占用一些开销。</p>
+<p><strong>优化思路：</strong></p>
+<p>如果是云上逻辑，主站的逻辑都不走。</p>
+<h4 id="12-优化-featuregate-调用">12. 优化 featuregate 调用</h4>
+<p>在 MOSN 中处理请求时，为了区分主站和商业版路由逻辑，会通过 featuregate 判断逻辑走哪部分。通过 featuregate 调用开销较大，需要频繁的做类型转换和多层 map 去获取。</p>
+<p><strong>优化思路：</strong></p>
+<p>通过一个 bool 变量记录 featuregate 对应开关，如果没有初始化过，就主动调用一下 featuregate。</p>
+<h3 id="未来性能优化思考">未来性能优化思考</h3>
+<p>经过几轮性能优化 ，目前看火焰图，卡点都在 connection 的 read 和 write ，可以优化的空间比较小了。但是可能从以下场景中获得收益：</p>
+<ul>
+<li>减少 connection 的 read 和 write 次数 (syscall) 。</li>
+<li>优化 IO 线程模型，减少携程和上下文切换等。</li>
+</ul>
+<p>作为结束，给出了最终优化后的火焰图 ，大部分卡点都在系统调用和网络读写，请参考图 1-4。</p>
+<p><img src="007S8ZIlgy1gfm13ju486j31hc0kfdms.jpg" alt=""></p>
+<p>图 1-4 优化版本 MOSN + Dubbo 火线图</p>
+<h3 id="其他">其他</h3>
+<p>pprof 工具异常强大，可以诊断 CPU、memory、go 协程、tracer 和死锁等，该工具可以参考 <a href="https://blog.golang.org/pprof">godoc</a>，性能优化参考：</p>
+<ul>
+<li><a href="https://blog.golang.org/pprof">https://blog.golang.org/pprof</a></li>
+<li><a href="https://www.cnblogs.com/Dr-wei/p/11742414.html">https://www.cnblogs.com/Dr-wei/p/11742414.html</a></li>
+</ul>
+<h3 id="关于作者">关于作者</h3>
+<p>商宗海（诣极），GitHub ID zonghaishang，Apache Dubbo PMC，目前就职于蚂蚁集团金服中间件团队，主攻 RPC 和 Service Mesh 方向。 《深入理解 Apache Dubbo 与实战》一书作者。</p>
+
+	
+
+	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
+  <li>
+    <a href="/blog/posts/skywalking-support/" class="btn btn-primary "><span class="mr-1">←</span> 上一页</a>
+  </li>
+    <a href="/blog/posts/mosn-dubbo-integrate/" class="btn btn-primary ">下一页 <span class="ml-1">→</span></a>
+  </li>
+</ul>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-12 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/apache/incubator-brpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 The bRPC Authors 保留所有权利</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="/js/main.min.170adf90fd476d5f9243ed2e727149abe8d9fe364587fe943765d47375bbd1ad.js" integrity="sha256-FwrfkP1HbV&#43;SQ&#43;0ucnFJq&#43;jZ/jZFh/6UN2XUc3W70a0=" crossorigin="anonymous"></script>
+
+
+
+
+
+  </body>
+</html>

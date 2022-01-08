@@ -1,0 +1,15 @@
+// Buttons
+
+@if $enable-rounded {
+    .btn {
+        border-radius: 0rem;
+
+        &-lg {
+            border-radius: 0rem;
+        }
+
+        &-sm {
+            border-radius: 0rem;
+        }
+    }
+}

@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.86.0" />
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>UDPA 最新进展深度介绍 | bRPC</title><meta property="og:title" content="UDPA 最新进展深度介绍" />
+<meta property="og:description" content="在2019年5月，CNCF 筹建通用数据平面API工作组制定UDPA API。本文收集并整理了 UDPA 目前的情况，深入介绍 UDPA 的最新进展。另外 MOSN 已支持 xDS v2，正在向 UDPA 演进。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brpc.incubator.apache.org/blog/posts/udpa-follow-up/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-02-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-27T17:53:02+08:00" /><meta property="og:site_name" content="bRPC" />
+
+<meta itemprop="name" content="UDPA 最新进展深度介绍">
+<meta itemprop="description" content="在2019年5月，CNCF 筹建通用数据平面API工作组制定UDPA API。本文收集并整理了 UDPA 目前的情况，深入介绍 UDPA 的最新进展。另外 MOSN 已支持 xDS v2，正在向 UDPA 演进。
+"><meta itemprop="datePublished" content="2020-02-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-27T17:53:02+08:00" />
+<meta itemprop="wordCount" content="1559">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="UDPA 最新进展深度介绍"/>
+<meta name="twitter:description" content="在2019年5月，CNCF 筹建通用数据平面API工作组制定UDPA API。本文收集并整理了 UDPA 目前的情况，深入介绍 UDPA 的最新进展。另外 MOSN 已支持 xDS v2，正在向 UDPA 演进。
+"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-93485976-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<link rel="preload" href="/scss/main.min.6c022a2695e1b7248646a4d8e9854baa2e7b3dec122dbfd8d0a958f44f5392f8.css" as="style">
+<link href="/scss/main.min.6c022a2695e1b7248646a4d8e9854baa2e7b3dec122dbfd8d0a958f44f5392f8.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+    <title>UDPA 最新进展深度介绍 | bRPC</title>
+  </head>
+  <body class="td-page td-blog">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg width="303" height="259" viewBox="0 0 303 259" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>brpc_logo.svg</title><defs><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-2"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-3"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-4"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient></defs><g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="椭圆形" fill="#58b8ff" cx="23.5" cy="62.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="279.5" cy="60.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="119" cy="26" r="26"/><rect id="矩形" fill="#58b8ff" transform="translate(78.021813, 41.967662) rotate(-22.000000) translate(-78.021813, -41.967662)" x="30.0218125" y="35.9676616" width="96" height="12"/><rect id="矩形" fill="#58b8ff" transform="translate(201.451088, 44.299021) rotate(13.000000) translate(-201.451088, -44.299021)" x="138.951088" y="38.2990214" width="125" height="12"/><g id="brpc-logo" transform="translate(11.000000, 104.000000)" fill-rule="nonzero"><g id="编组" transform="translate(138.000000, 77.419111) scale(-1, 1) rotate(-180.000000) translate(-138.000000, -77.419111) translate(0.000000, 0.000000)"><path d="M18.8 154.3C17.8 154.1 17 153.8 17 153.6 17 153.5 13.2 134.3 8.5 111 3.8 87.7-205355861e-22 68-205355861e-22 67.4-205355861e-22 65.9 2.6 65.3 5.7 65.8 7.3 66.1 8.1 67.2 8.6 69.6 9.3 73.5 10 73.8 11.7 71.1 15 65.9 28.8 63.2 36.4 66.4 48.9 71.6 57.7 89.6 56.8 108.1c-.5 10-2.5 14.5-7.8 17.1C44.5 127.5 36.6 127.5 31.4 125.1 27 123.1 20.8814242 116.827994 20 115.8 19.8268414 115.598047 19.5 115 19 115.2 18.3 115.4 18.3 116.5 19 118.7 19.6 120.4 21.6 129 23.4 137.8l3.3 16L24.6 154.4C22.3 155 21.4 155 18.8 154.3zm24.6146505-36.885789c1.7578246-1.326292 2.0864078-1.825452 2.4530432-2.642066S46.8138702 112.705545 47.1008328 111.513935C48.333925 109.104457 47.0101697 95.2413285 45.0724535 89.7736686 41.197021 79.2090375 34.9434822 73 28.2495534 73c-4.5800565.0-7.4866309 1.5754274-11.5382193 6.1163653-1.6734822 1.8534441-1.598743 2.8514069-2.0391331 4.4738936C14.2318109 85.2127457 15.3810952 94.5991493 17.4068894 98.6767262 18.5085881 100.995054 18.5085881 100.995054 20.3179492 104.427606 20.9381193 105.604136 23.3268821 108.69306 24.5063492 109.790864c1.2349847 1.149478 2.6574201 2.834639 3.7432042 3.921533 1.1506404 1.15181600000001 4.2465085 3.084017 5.3028342 3.701814 1.4321645.837608000000003 2.774919 1.362015 4.0282636 1.573221C40.1349135 119.080104 41.2462694 118.670624 43.4146505 117.414211z" id="形状" fill="url(#linearGradient-1)"/><path d="M248.7 148.9C241 147.8 232.2 143 226.1 136.5c-14.2-15-20-43.1-12.1-58.6C216.6 72.9 223.2 67.5 228.5 66 235.2 64.1 249.3 65.1 255.7 67.9 258.6 69.2 261.4 70.8 262.1 71.6 263.7 73.5 265 79.9 263.9 80.6 263.4 80.9 260 79.6 256.3 77.8 243 71.3 230.4 73.3 225.1 82.9 218.5 94.9 223.7 119.3 235.5 131.5 245.8 142 257.4 142.9 271.3 134.2 273.7 132.7 274.2 132.7 275 134 275.5 134.8 276 137.2 276 139.2 276 142.2 275.5 143.2 272.8 144.8 266.2 148.7 257.7 150.2 248.7 148.9z" id="路径" fill="#fff"/><path d="M87.4 148.1C86.2 147.6 84.9 146.7 84.6 146.1 83.6 144.5 68.1 66.6 68.7 65.8c.599999999999994-1 7.5-1 9 0C78.4 66.3 80.6 74.4 82.5 83.9s3.7 17.6 4 18.2C87.5 103.6 96.3 103.1 99.9 101.2 105.7 98.3 107.2 95.2 110 79.7l2.5-14.2L117.3 65.2C123.5 64.8 123.7 65.7 121.6 78.4c-2.5 14.4-4.5 21.2-7.3 24.2C113 104 112 105.3 112.2 105.5 112.4 105.6 114.3 106.7 116.5 107.8 124.5 111.9 129.8 119.6 130.7 128.5 131.7 138 127.9 143.9 119 146.9 114.5 148.4 90.2 149.3 87.4 148.1zm24.9-9.5C117.8 136.3 119.3 133.8 118.8 127.7 117.9 117 111.3 112.1 96.6 111.2L87.7 110.7 88.3 113.1C88.6 114.4 89.8 120.5 91 126.5 92.1 132.6 93.3 138.1 93.5 138.8 94.1 140.5 108.1 140.4 112.3 138.6z" id="形状" fill="#fff"/><path d="M159.5 148.4C158.4 148.1 157.2 147.5 156.7 147.1c-1-1-16.8-80.2-16.1-81.2C141.2 64.8 148 64.7 149.7 65.8 150.3 66.2 152.2 73.3 153.8 81.5L156.7 96.5 167.8 97.1c17.1 1 25.5 5.7 31.2 17.2C206.2 129.1 202.4 143.6 190.5 146.9 186.1 148.1 162.6 149.2 159.5 148.4zm27.2-11C195 131.2 191.3 114.2 180.5 108.6 177.6 107.1 174.2 106.4 167.8 106.2 162.9 106 159 106.2 159 106.7 159 107.1 160.4 114.9 162.1 123.9L165.3 140.2 174.6 139.8C182.1 139.5 184.5 139 186.7 137.4z" id="形状" fill="#fff"/><path d="M52.3 50.7C49 41.2 49.5 37.5 52.9 46.5c1.2 3.1 1.9876864 5.9098389 2.1 6.3S55.4 54.1 55.9 54.9C56.6 56 58.2 55.2 63.5 50.9 67.2 47.9 70.4 45.6 70.6 45.8 71.7 46.5 70.9 47.4 64.1 53.2 60 56.6 58.2983882 57.6981689 57.4 58.2 56.5016118 58.7018311 56.5016118 58.7018311 55.8 58.2 55 57.49737 54 55.4 52.3 50.7z" id="形状" fill="#7e7e7e"/><path d="M84 34.1C84 30.6 82.8 29 80.4 29 78.9 29 78 28.4 78 27.5 78 26.7 78.9 26 80 26 82.4 26 82.4 25.5 80.5 17 79.7 13.4 79.1 8.4 79 5.8 79 1.6 79.3 1 81.4.4 85.1-.5 89.5.3 89.8 2 90 3.1 89.2 3.5 86.8 3.5 83.9 3.5 83.5 3.8 83.3 6.5 83.1 8.2 83.8 13.1 84.8 17.5c1.7 7.9 1.7 8 5.2 8.6L93.5 26.7C94.2848943 26.7875501 94.751561 26.9875501 94.9 27.3 95 28.6 94.2 29 91.1 29h-4L87.7 32.5C88.2 35.6 88 36 86.1 36 84.7 36 84 35.4 84 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M105 34.1C105 30.6 103.8 29 101.4 29 99.9 29 99 28.4 99 27.5 99 26.7 99.9 26 101 26 103.4 26 103.4 25.5 101.5 17 100.7 13.4 100.1 8.4 1e2 5.8 1e2 1.6 100.3 1 102.4.4 106.1-.5 110.5.3 110.8 2 111 3.1 110.2 3.5 107.8 3.5 104.9 3.5 104.5 3.8 104.3 6.5 104.1 8.2 104.8 13.1 105.8 17.5c1.7 7.9 1.7 8 5.2 8.6L114.5 26.7C115.433333 26.8462934 115.9 27.0462934 115.9 27.3 116 28.6 115.2 29 112.1 29h-4L108.7 32.5C109.2 35.6 109 36 107.1 36 105.7 36 105 35.4 105 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M54.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C46.5 1.9 48.6.0 57.2.0 63.6.0 67 1.2 67 3.6 67 4.7 66.6 4.8 65.1 4c-2.7-1.4-10.4-1.3-12.4.3C51.8 4.9 51 6.6 50.9 8 50.4 13.5 50.6 13.7 57.8 14.2 66 14.9 69.5 16.4 71 20 72.3 23.2 71.2 26.3 68 28s-10.2 1.1-13.7-1.1zM67 22.7C67 19 63.6 17 57.3 17 54.4 17 52 17.3 52 17.8c0 1.1 3.1 5.4 5 7C57.9 25.5 60.2 25.9 62.8 25.7 65.1 25.4 67 26.1 67 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M126.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C118.5 1.9 120.6.0 129.2.0 135.6.0 139 1.2 139 3.6 139 4.7 138.6 4.8 137.1 4 134.4 2.6 126.7 2.7 124.7 4.3 123.8 4.9 123 6.6 122.9 8 122.4 13.5 122.6 13.7 129.8 14.2 138 14.9 141.5 16.4 143 20 144.3 23.2 143.2 26.3 140 28s-10.2 1.1-13.7-1.1zM139 22.7C139 19 135.6 17 129.3 17 126.4 17 124 17.3 124 17.8 124 18.9 127.1 23.2 129 24.8 129.9 25.5 132.2 25.9 134.8 25.7 137.1 25.4 139 26.1 139 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M153.7 26.8C151.7 18.4 149.2978 2.90464869 149.2978 2.1 149.2978 1.77371339 148.894918.241544332 150.3.1 151.705082-.0415443324 153 .4 153 2.1 153 3.2 153.7 7.2 154.6 11 156.5 19.3 161 25.2 165.5 25.4 167.5 25.5 168.6 26.1 168.8 27.3 169.1 28.6 168.4 29 165.8 29 163.2 29 161.6 28.2 159.4 25.8L156.5 22.5C155.5 19.6333333 155.133333 18.4333333 155.4 18.9 155.9 19.7 156.5 22.2 156.7 24.6 156.9 27.9 156.7 29 155.6 29 154.8 29 154 28 153.7 26.8z" id="形状" fill="url(#linearGradient-4)"/></g></g></g></svg></span>
+        
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/apache/incubator-brpc/" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>文档</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/blog/" ><span class="active">博客</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/faq/" ><span>FAQ</span></a>
+			</li>
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	中文
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/en/">English</a>
+	
+</div>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    <div class="nav-item dropdown d-block d-lg-none">
+      
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	中文
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/en/">English</a>
+	
+</div>
+    </div>
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">博客</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="blog">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">发布</a>
+  </li>
+  <ul>
+    <li class="collapse " id="blogreleases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0230" href="/blog/releases/v0.23.0/">MOSN v0.23.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0220" href="/blog/releases/v0.22.0/">MOSN v0.22.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0210" href="/blog/releases/v0.21.0/">MOSN v0.21.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0200" href="/blog/releases/v0.20.0/">MOSN v0.20.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0190" href="/blog/releases/v0.19.0/">MOSN v0.19.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0180" href="/blog/releases/v0.18.0/">MOSN v0.18.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0170" href="/blog/releases/v0.17.0/">MOSN v0.17.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0160" href="/blog/releases/v0.16.0/">MOSN v0.16.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0150" href="/blog/releases/v0.15.0/">MOSN v0.15.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0140" href="/blog/releases/v0.14.0/">MOSN v0.14.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0130" href="/blog/releases/v0.13.0/">MOSN v0.13.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0120" href="/blog/releases/v0.12.0/">MOSN v0.12.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0110" href="/blog/releases/v0.11.0/">MOSN v0.11.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0100" href="/blog/releases/v0.10.0/">MOSN v0.10.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesmosn-010-perfermence-report" href="/blog/releases/mosn-0.1.0-perfermence-report/">MOSN 0.1.0 性能报告</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesmosn-021-performance-report" href="/blog/releases/mosn-0.2.1-performance-report/">MOSN 0.2.1 性能报告</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/news/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">新闻</a>
+  </li>
+  <ul>
+    <li class="collapse " id="blognews">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blognewsmosn-channel-1" href="/blog/news/mosn-channel-1/">直播预告：MOSN 的多协议机制解析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blognewsannouncing-mosn-communtiy" href="/blog/news/announcing-mosn-communtiy/">MOSN 社区成立</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/posts/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">分享</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="blogposts">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-wasm-framework" href="/blog/posts/mosn-wasm-framework/">WebAssembly 在 MOSN 中的实践 - 基础框架篇</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-dubbo-integrate" href="/blog/posts/mosn-dubbo-integrate/">在 MOSN 中玩转 dubbo-go</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-dubbo-go-hessian2" href="/blog/posts/mosn-dubbo-go-hessian2/">记一次在 MOSN 对 Dubbo、dubbo-go-hessian2 的性能优化</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsskywalking-support" href="/blog/posts/skywalking-support/">MOSN 支持使用 SkyWalking 进行分布式追踪</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-extensions" href="/blog/posts/mosn-extensions/">MOSN 的扩展机制解析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmulti-protocol-deep-dive" href="/blog/posts/multi-protocol-deep-dive/">MOSN 多协议机制解析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blogpostsudpa-follow-up" href="/blog/posts/udpa-follow-up/">UDPA 最新进展深度介绍</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-source-code-brief" href="/blog/posts/mosn-source-code-brief/">MOSN 源码浅析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsnginx-envoy-mosn-hot-upgrade" href="/blog/posts/nginx-envoy-mosn-hot-upgrade/">Nginx vs Envoy vs MOSN 平滑升级原理解析</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">源码解析</a>
+  </li>
+  <ul>
+    <li class="collapse " id="blogcode">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-overview" href="/blog/code/mosn-overview/">MOSN 源码解析 - 总览</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-tls" href="/blog/code/mosn-tls/">MOSN 源码解析 - TLS</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-router" href="/blog/code/mosn-router/">MOSN 源码解析 - 路由</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-connection-pool" href="/blog/code/mosn-connection-pool/">MOSN 源码分析 - 连接池</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-http" href="/blog/code/mosn-http/">MOSN 源码解析 - HTTP 系能力</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-log" href="/blog/code/mosn-log/">MOSN 源码解析 - log 系统</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-startup" href="/blog/code/mosn-startup/">MOSN 源码解析 - 启动流程</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-eventloop" href="/blog/code/mosn-eventloop/">MOSN 源码解析 - 协程模型</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-shm" href="/blog/code/mosn-shm/">MOSN 源码解析 - 共享内存模型</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-variable" href="/blog/code/mosn-variable/">MOSN 源码解析 - 变量机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-buffer" href="/blog/code/mosn-buffer/">MOSN 源码解析 - 内存复用机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-plugin" href="/blog/code/mosn-plugin/">MOSN 源码解析 - plugin 机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-xds" href="/blog/code/mosn-xds/">MOSN 源码解析 - xDS</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-filters" href="/blog/code/mosn-filters/">MOSN 源码解析 - filter扩展机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-reconfig-mechanism" href="/blog/code/mosn-reconfig-mechanism/">MOSN 源码解析 - reconfig 机制</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/blog/posts/udpa-follow-up/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=UDPA%20%e6%9c%80%e6%96%b0%e8%bf%9b%e5%b1%95%e6%b7%b1%e5%ba%a6%e4%bb%8b%e7%bb%8d" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+
+
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+
+</div>
+
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#udpa介绍">UDPA介绍</a></li>
+    <li><a href="#udpa和xds的关系">UDPA和xDS的关系</a></li>
+    <li><a href="#udpa-api进展">UDPA API进展</a>
+      <ul>
+        <li><a href="#类型定义">类型定义</a></li>
+        <li><a href="#数据定义">数据定义</a></li>
+        <li><a href="#服务定义">服务定义</a></li>
+        <li><a href="#注解定义">注解定义</a></li>
+        <li><a href="#udpa-api总结">UDPA API总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#udpa设计">UDPA设计</a>
+      <ul>
+        <li><a href="#udpa-tp设计">UDPA-TP设计</a></li>
+        <li><a href="#udpa-tp设计解读">UDPA-TP设计解读</a></li>
+        <li><a href="#udpa的资源定义和设计">UDPA的资源定义和设计</a></li>
+        <li><a href="#udpa-dm设计">UDPA-DM设计</a></li>
+        <li><a href="#routing-api-设计">Routing API 设计</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#附言">附言</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5 pr-md-4" role="main">
+            <a class="btn btn-lg -bg-orange td-rss-button d-none d-lg-block" href="https://brpc.incubator.apache.org/blog/posts/index.xml" target="_blank">
+              RSS <i class="fa fa-rss ml-2 "></i>
+            </a>
+            
+<div class="td-content">
+	<h1>UDPA 最新进展深度介绍</h1>
+	<div class="lead">在2019年5月，CNCF 筹建通用数据平面API工作组制定UDPA API。本文收集并整理了 UDPA 目前的情况，深入介绍 UDPA 的最新进展。另外 MOSN 已支持 xDS v2，正在向 UDPA 演进。</div>
+	<div class="td-byline mb-4">
+		作者 <b><a href="https://skyao.io">敖小剑（蚂蚁集团）</a></b> |
+		<time datetime="2020-02-24" class="text-muted">2020年2月24日</time>
+	</div>
+	<h2 id="前言">前言</h2>
+<p>在2019年5月，CNCF 筹建通用数据平面API工作组（Universal Data Plane API Working Group / UDPA-WG)，以制定数据平面的标准API。</p>
+<p>当时我写了一个博客文章 <a href="https://skyao.io/post/201905-cncf-udpa-wg/">“CNCF正在筹建通用数据平面API工作组，以制定数据平面的标准API”</a> 对此进行了介绍。当时 UDPA 还处于非常早期的筹备阶段，信息非常的少。</p>
+<p>现在9个月过去了，我最近收集并整理了一下 UDPA 目前的情况和信息，给大家介绍一下 UDPA 目前最新的进展（截止2020年2月24日）。</p>
+<h2 id="udpa介绍">UDPA介绍</h2>
+<p>首先快速介绍一下什么是 UDPA：</p>
+<ol>
+<li>UDPA ：“Universal Data Plane API”的缩写， “通用数据平面API”。</li>
+<li>UDPA-WG：”Universal Data Plane API Working Group”的缩写，这是CNCF下的一个工作组，负责制定 UDPA。</li>
+</ol>
+<p>UDPA的目标，援引自 <a href="https://github.com/cncf/udpa">https://github.com/cncf/udpa</a> 的描述：</p>
+<blockquote>
+<p>通用数据平面API工作组（UDPA-WG）的目标是召集对数据平面代理和负载均衡器的通用控制和配置API感兴趣的业界人士。</p>
+</blockquote>
+<p>UDPA的愿景，同样援引：</p>
+<blockquote>
+<p>通用数据平面API（UDPA）的愿景在 <a href="https://blog.envoyproxy.io/the-universal-data-plane-api-d15cec7a">https://blog.envoyproxy.io/the-universal-data-plane-api-d15cec7a</a> 中阐明。 我们将寻求一组API，它们为L4/L7数据平面配置提供事实上的标准，类似于SDN中L2/L3/L4的OpenFlow所扮演的角色。</p>
+<p>这些API将在proto3中规范定义，并通过定义良好的 稳定API版本控制策略，从现有的Envoy xDS API逐步演进。 API将涵盖服务发现，负载均衡分配，路由发现，监听器配置，安全发现，负载报告，运行状况检查委托等。</p>
+<p>我们将对API进行改进和成型，以支持客户端 lookaside 负载均衡（例如gRPC-LB），Envoy之外的数据平面代理，硬件LB，移动客户端以及其他范围。 我们将努力尽可能与供应商和实现无关，同时坚持支持已投入生产的UDPA的项目（到目前为止，Envoy和gRPC-LB）。</p>
+</blockquote>
+<p>对 UDPA 感兴趣的同学，可以通过以下两个途径进一步深入了解：</p>
+<ol>
+<li><a href="https://github.com/cncf/udpa">UDPA @ GitHub</a>：UDPA 在 github 上的项目，UDPA API 定义的代码都在这里</li>
+<li><a href="https://lists.cncf.io/g/udpa-wg">Universal Data Plane API Working Group (UDPA-WG)</a>：CNCF 的 UDPA 工作组，可以通过加入工作组的方式了解更多信息</li>
+</ol>
+<h2 id="udpa和xds的关系">UDPA和xDS的关系</h2>
+<p>在展开 UDPA 的细节之前，有必要先解释清楚 UDPA 和 xDS 的关系，因为这对理解 UDPA 会有很大帮助。</p>
+<p>在2019年11月的 EnvoyCon 上，Envoy 的 开发者，也是目前 UDPA 最主要的负责人之一，来自 Google 的 <a href="https://github.com/htuch">Harvey Tuch</a>，有一个演讲非常详细而清晰的解答了这个问题，这个演讲的标题是：<a href="https://envoycon2019.sched.com/event/UxwL/the-universal-dataplane-api-udpa-envoys-next-generation-apis-harvey-tuch-google">“The Universal Dataplane API (UDPA): Envoy’s Next Generation APIs”</a>。</p>
+<blockquote>
+<p>备注：这里我直接援引这份演讲的部分内容，以下两张图片均出自 [这份演讲的PPT](<a href="https://static.sched.com/hosted_files/envoycon2019/ac/EnvoyCon">https://static.sched.com/hosted_files/envoycon2019/ac/EnvoyCon</a> UDPA 2019.pdf) 。鸣谢 Harvey。</p>
+</blockquote>
+<p>下图展示了近年来 xDS 协议的演进历程和未来规划：</p>
+<p><img src="xds-evolution.png" alt="img"></p>
+<ul>
+<li>2017年，xDS v2 引入 proto3 和 gRPC，同年 Istio 项目启动</li>
+<li>2018和2019年，xDS v2 API继续发展，陆续引入了新的API定义，如 HDS / LRS / SDS 等，尤其是为了改进 Pilot 下发性能，开始引入增量推送机制</li>
+<li>xDS v3 API 原计划于2019年年底推出，但目前看技术推迟，目前 v3 还是 alpha1 状态，预计在即将发布的 Istio 1.5 中会有更多的 v3 API 引入。同时 v3 API 也引入了 UDPA 的部分内容，但是由于 UDPA 目前进展缓慢，对 xDS 的影响并不大，主要还是 xDS 自身的发展，比如对API和技术债务的清理</li>
+<li>但在2020年，预计 UDPA 会有很大的进展，尤其是下面我们将会展开的 UDPA-TP 和 UDPA-DM 的设计开始正式制定为 API 之后。而 xDS v4 预计将基于 UDPA ，因此 xDS v4 可能会迎来比较大的变动。</li>
+</ul>
+<p>简单总结说：<strong>xDS 将逐渐向 UDPA 靠拢，未来将基于 UDPA</strong> 。</p>
+<p>下面的图片则展示了 Envoy 在 xDS 版本支持上的时间线：</p>
+<p><img src="envoy-version-support-timeline.png" alt="img"></p>
+<p>目前看这个计划在执行时稍微有一点点延误，原计划于2019年年底推出的 v3 的 stable 版本实际上是在1月中定稿的。（备注：具体可参考 Envoy PR <a href="https://github.com/envoyproxy/envoy/pull/9694">api: freeze v3 API</a> ）。然后目前正在广泛使用的 v2 API 将被标记为 depreated。而且在2020年底，v3 API 预计被 v4 API 取代（注意v4 API 将会是基于 UDPA），而目前我们最熟悉的 v2 API 将计划在2020年底移除，不再支持！</p>
+<p>上图也展示了未来 xDS 协议的大版本演进和更替的方式，总的来说规律是这样：</p>
+<ol>
+<li>一年一个大版本：2019 v2 -》 2020 v3 -》2021 v4 -》2022 v5</li>
+<li>每个大版本都要经历 alpha -》 stable -》deprecated -》removed 四个阶段，每个阶段历时一年</li>
+<li>稳定后 Envoy 会同时存在三个API大版本：正在使用的稳定版本，已经弃用的上一个稳定版本，准备开发的新的下一个大版本（但只会是Alpha）</li>
+<li>发布一个新的 stable 的大版本，就一定会 deprecated 上一个稳定的大版本，同时 remove 更前一个已经 deprecated 的大版本</li>
+</ol>
+<p>所谓 “长江后浪推前浪，前浪死在沙滩上”，又或者说，“江山代有新版出，各领风骚12个月”。</p>
+<blockquote>
+<p>备注：Envoy 具体的稳定API版本控制策略，可以参见 Envoy 的设计文档 <a href="https://docs.google.com/document/d/1xeVvJ6KjFBkNjVspPbY_PwEDHC7XPi0J5p1SqUXcCl8/">“Stable Envoy API versioning”</a> ，不过这个文档长的有点过分，嫌长的同学可以直接看这个文档的缩减版本 <a href="https://github.com/envoyproxy/envoy/blob/master/api/API_VERSIONING.md">API versioning guidelines</a>。</p>
+</blockquote>
+<h2 id="udpa-api进展">UDPA API进展</h2>
+<p>言归正传，我们来看一下 UDPA 目前的最新进展。</p>
+<p>从 <a href="https://github.com/cncf/udpa">https://github.com/cncf/udpa</a> ，可以看到目前 UDPA 中已经定义好的部分 API 内容：</p>
+<h3 id="类型定义">类型定义</h3>
+<p>目前只定义了一个类型 TypedStruct。</p>
+<p>TypedStruct包含任意 JSON 序列化后的 protocol buffer 消息，以及一个描述序列化消息类型的URL。 这与 google.protobuf.Any 非常相似，它使用 google.protobuf.Struct 作为值，而不是使用 protocol buffer 二进制。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf"><span style="color:#204a87;font-weight:bold">message</span> <span style="color:#000">TypedStruct</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// 用于唯一标识序列化 protocol buffer 消息的类型的URL
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// 这与 google.protobuf.Any 中描述的语义和格式相同：
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">type_url</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
+</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// 上述指定类型的JSON表示形式。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000">google.protobuf.Struct</span> <span style="color:#000">value</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">
+</span></code></pre></div><p>TypedStruct 定义的背景是：如何在 protocol buffer 的静态类型报文中嵌入一个不透明的配置？这是一个普遍需求，涉及 <code>google.protobuf.Any</code> 和 <code>google.protobuf.Struct</code> 的差别和权衡使用。具体内容请见我之前翻译的博客文章 “[<a href="https://skyao.io/post/201909-dynamic-extensibility-and-protocol-buffers/">译] 动态可扩展性和Protocol Buffer</a>”，对此做了非常好的介绍和分析讨论。</p>
+<p>TypedStruct 可以说是到目前为止对此需求的最佳实践，算是为这一话题正式画上了句号。</p>
+<h3 id="数据定义">数据定义</h3>
+<p>数据定义也只定义了一个数据 OrcaLoadReport。</p>
+<p>其中 ORCA 是 Open Request Cost Aggregation 的缩写，OrcaLoadReport 用于提交请求开销汇总的负载报告。</p>
+<p>ORCA的简短介绍：</p>
+<blockquote>
+<p>如今，在Envoy中，可以通过考虑后端负载（例如CPU）的本地或全局知识来做出简单的负载均衡决策。更复杂的负载均衡决策可能需要借助特定于应用的知识，例如队列深度，或组合多个指标。</p>
+<p>这对于可能在多个维度上受到资源限制的服务（例如，CPU和内存都可能成为瓶颈，取决于所应用的负载和执行环境，无法确定是哪个先触及瓶颈），以及这些维度不在预定类别中的位置时很有用（例如，资源可能是“池中的可用线程数”，磁盘IOPS等）。</p>
+</blockquote>
+<p>有关 Orca 的更详细的信息，请见设计文档 <a href="https://docs.google.com/document/d/1NSnK3346BkBo1JUU3I9I5NYYnaJZQPt8_Z_XCBCI3uA/">Open Request Cost Aggregation (ORCA)</a> 。</p>
+<p>目前 Envoy 正在实现对 ORCA 的支持，然后这个特性被作为 UPDA 标准的一部分直接在 UDPA API 中定义。</p>
+<p>以下为 OrcaLoadReport 定义，可以看到包含有CPU/内存的利用率和RPS信息：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf"><span style="color:#204a87;font-weight:bold">message</span> <span style="color:#000">OrcaLoadReport</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// CPU利用率表示为可用CPU资源的一部分。 应该来自最新的样本或测量。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">cpu_utilization</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#000">validate.rules</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">double</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">gte</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">validate.rules</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">double</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">lte</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">];</span><span style="color:#a40000">
+</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// 内存利用率表示为可用内存资源的一部分。 应该来自最新的样本或测量。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">mem_utilization</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#000">validate.rules</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">double</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">gte</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">validate.rules</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">double</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">lte</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">];</span><span style="color:#a40000">
+</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// 端点已服务的总RPS。 应该涵盖端点负责的所有服务。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">uint64</span> <span style="color:#000">rps</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#ce5c00;font-weight:bold">...</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">
+</span></code></pre></div><h3 id="服务定义">服务定义</h3>
+<p>服务定义依然也只定义了一个服务 OpenRcaService。</p>
+<p>OpenRcaService是一个带外（Out-of-band/OOB）负载报告服务，它不在请求路径上。OpenRcaService定期以足够的频率对报告进行采样，以提供与请求的关联。 OOB报告弥补了带内（in-band）报告的局限性。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf"><span style="color:#204a87;font-weight:bold">service</span> <span style="color:#000">OpenRcaService</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#204a87;font-weight:bold">rpc</span> <span style="color:#000">StreamCoreMetrics</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">OrcaLoadReportRequest</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">returns</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">stream</span> <span style="color:#000">udpa.data.orca.v1.OrcaLoadReport</span><span style="color:#000;font-weight:bold">);</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">
+</span></code></pre></div><h3 id="注解定义">注解定义</h3>
+<p>UDPA目前定义了四个注解（Annotation）：</p>
+<ol>
+<li>MigrateAnnotation： 用于标记在前后版本中的和迁移相关的API变更，包括 rename / oneof_promotion / move_to_package 等多种语义。</li>
+<li>SensitiveAnnotation：将某个字段标记为“敏感”字段，例如个人身份信息，密码或私钥</li>
+<li>StatusAnnotation：标记状态，比如将某个文件标记为“work_in_progress/进行中”</li>
+<li>VersioningAnnotation：用于记录版本信息，比如通过 previous_message_type 表示当前message在上一个版本中的类型</li>
+</ol>
+<p>还有一个 ProtodocAnnotation 在提出设计后，存在分歧，暂时还没有正式加入 UDPA。这个注解的目的是标记当前尚未实现的UDPA消息。</p>
+<h3 id="udpa-api总结">UDPA API总结</h3>
+<p>从上面列出的UDPA API列表可以看到，目前 UDPA 中正式推出的API 内容非常的少，也就：</p>
+<ol>
+<li>一个TypedStruct类型定义</li>
+<li>一个OpenRcaService服务定义和配套的OracLoadReport数据定义</li>
+<li>4个注解</li>
+</ol>
+<p>考虑到UDPA推出的时间是 2019年5月份，迄今有9个月的时间，这个进展有些出乎意料。</p>
+<p>翻了一遍 <a href="https://github.com/cncf/udpa">https://github.com/cncf/udpa</a> 上的内容，包括所有的 commit 和 PR ，发现活跃的开发者主要是两位同学：Google 的 htuch 和 Tetrate公司的 Lizan。然后 cncf/UDPA 项目的 star 数量也非常低，才 55 个 star，可以认为社区基本上没什么人关注。</p>
+<p>但是，稍后当我看到 UDPA 的设计文档时，才发现原来 UDPA 的精华都在设计中，只是进度原因还未能正式出成型的API。</p>
+<h2 id="udpa设计">UDPA设计</h2>
+<p>我们来重点看一下 UDPA 的设计，主要的设计文档有两份：</p>
+<ul>
+<li><a href="https://docs.google.com/document/d/1eubmNM2Kynzf7Rpms4nncvTSL6NnANTrpHNWzeIBoZw/">UDPA-TP strawman</a>: UDPA设计之传输协议(TransPort)，是用于UDPA的下一代传输协议</li>
+<li><a href="https://docs.google.com/document/d/1orxTIL9FXtgmyl5TtPRBqGjgp1ekL7oOKDd95wxeCRY/">UDPA-DM: L7 routing strawman</a>: UDPA设计之数据模型(Data Model)，是对通过 UDPA-TP 传输的资源定义</li>
+</ul>
+<p>UDPA对此的解释是：</p>
+<blockquote>
+<p>Envoy v2 xDS API 当前正在转向通用数据平面API（Universal Dataplane API/UDPA）。重点是传输协议与数据模型的关注点分离。</p>
+</blockquote>
+<p>关于传输协议与数据模型的关注点分离，一个典型的例子是“集装箱运输机制”（类比 UDPA-TP ）和 “集装箱中标准规格”（类比 UDPA-DM）。在 UDPA 的设计中，数据模型的定义和传输协议的实现是分离的，这意味着只要设计不同的数据模型，就可以重用一套统一的传输协议。因此，UDPA 的可扩展性就变得非常强大。</p>
+<p>对此，我个人有些惊喜，因为去年年底我和彦林同学在商讨通过 MCP/xDS/UDPA 协议融合注册中心和控制平面时，就发现这三者的工作机制非常类似。考虑到后续可能会有各种不同的资源需要定义并在这个工作机制上做资源同步和分发，当时有过类似的想法，希望能把底层这套资源同步机制标准化，以便重用：</p>
+<p><img src="mcp-xds.png" alt="img"></p>
+<p>目前看来，UDPA-TP 已经在朝这个目标迈出了坚实的步伐。当然如果能再往前迈进一步就更好了：这个底层资源同步的工作机制，没有必要限制在 UDPA 的范畴，完全可以变成一个用途更加广泛的通用机制。</p>
+<p>下面来详细看一下 UDPA-TP 和 UDPA-DM 的设计，以下内容来自 UDPA 的两份设计文档以及个人的解读。</p>
+<h3 id="udpa-tp设计">UDPA-TP设计</h3>
+<p>UDPA-TP的设计文档，在开始部分列出了 UDPA-TP 的关键设计动机，具体包括：</p>
+<ul>
+<li>在保留 Core v2 xDS 中存在的概念性pub-sub模型的同时，还支持高级功能，例如LRS/HDS。</li>
+<li>支持Envoy Mobile和其他DPLB客户端的大规模扩展</li>
+<li>简单的客户端和简单的管理服务器实现。</li>
+<li>使增量更新资源高效而简单。（备注：增量更新是目前 Istio/Envoy 正在努力实现的重点特性）</li>
+<li>支持资源联邦。（备注：和我之前构想的通过MCP协议聚合多个注册中心/配置中心的思路一致，当现实中存在多个资源的来源时，就必须提供机制来聚合这些资源并提供一个全局的视图）</li>
+<li>使API资源的子资源变得简单且实现成本低，并且使其可以增量更新和可联合</li>
+<li>维护对一致性模型的支持</li>
+<li>消除v2 xDS奇怪之处：
+<ul>
+<li>ACK/NACK与订阅消息的合并。在v2 xDS中，DiscoveryRequest既是订阅请求，又是对先前消息的潜在确认。这导致了一些复杂的实现和调试体验。（备注：这会造成 UDPA 交互模式和xDS的不同）</li>
+<li>CDS/LDS是与EDS/RDS不同的API层。在v2 xDS中，EDS/RDS是准增量的，而CDS/LDS是最新状态。</li>
+</ul>
+</li>
+<li>从概念上讲，在Envoy v2 xDS API 基础上小范围变更。我们不希望对UDPA管理服务器实现者造成重大的概念和实现开销。（备注：个人理解，这应该是目前 UDPA 没有大张旗鼓的制定各种API的原因，UDPA 和 xDS，包括和 xDS 的实际实现者 Envoy 的关系过于紧密，因此需要考虑从 xDS 到 UDPA 的过渡，不能简单的推出一套全新的API）</li>
+</ul>
+<p>以下是 UDPA 的术语，对于后面理解 UDPA 非常有帮助：</p>
+<ul>
+<li>DPLB：data plane load balancer的缩写。涵盖诸如代理（例如Envoy）或客户端RPC库（例如gRPC和Envoy Mobile）的用例。 DPLB是UDPA客户端。他们负责启动到管理服务器的UDPA流。（备注：注意，DPLB不仅仅包含以Envoy为代表的service mesh sidecar，也包括了以SDK形式存在的类库如 gRPC，而 gRPC 目前已经在实现 对 xDS 接口的支持）</li>
+<li>Management server/管理服务器：能够提供UDPA服务的实体。管理服务器可以仅是UDPA服务器，也可以是UDPA客户端和服务器（在联邦的情况下）。</li>
+<li>UDPA：通用数据平面API，其中包括数据模型（UDPA-DM）和传输协议（UDPA-TP）。</li>
+<li>UDPA-TP：UDPA API的基准传输协议。</li>
+<li>UDPA-DM：UDPA API的数据模型。</li>
+<li>UaaS：UDPA-as-a-service，云托管的UDPA管理服务。（备注：Google在 GCP 上提供的 Google Traffic Director 和 AWS 提供的 App Mesh，可以视为就是 UaaS 雏形）</li>
+</ul>
+<p>然后是和联邦相关的术语：</p>
+<ul>
+<li>Federation/联邦：多个UDPA管理服务器的互操作以生成UDPA配置资源。</li>
+<li>Direct federation/直接联邦：当DPLB直接连接到多个UDPA管理服务器并能够从这些流中合成其配置资源时。</li>
+<li>Indirect federation/间接联邦：当DPLB一次最多连接一个UDPA管理服务器（对于某些给定的资源类型），并且UDPA管理服务器执行所有与联邦有关的工作时。</li>
+<li>Advanced DPLB/高级DPLB：支持直接联邦的DPLB（需要UDPA-Fed-TP）。</li>
+<li>Simple DPLB/简单DPLB：不支持直接联邦的DPLB，即仅基线UDPA-TP。</li>
+<li>UDPA-Fed-DM：UDPA-DM的超集，具有用于联邦的其他资源类型。</li>
+<li>UDPA-Fed-TP：支持联邦的UDPA-TP的超集。</li>
+</ul>
+<p>下图可以帮助理解这些术语：</p>
+<p><img src="udpa-tp-endpoint.png" alt="img"></p>
+<p>(备注：图中可能有误，simple UDPA management server 和 Advanced UDPA management server 之间应该是 “UDPA-TP”, 而不应该是 “UDPA-Fed-TP”。)</p>
+<p>UDPA-TP 传输协议提供了在管理服务器和 DPLB 客户端之间传输命名和版本化资源的方法。我们称这些实体为 UDPA-TP 端点。 UDPA-TP 端点可以是客户端和管理服务器，也可以是两个管理服务器（例如，在联邦配置时）。 上图说明了使用 UDPA 在 UDPA-TP 端点之间传送资源的各种方式。</p>
+<p>其中，UDPA管理服务器分为两种：</p>
+<ol>
+<li>简单(simple)：实际上只是对不透明资源的缓存（几乎不了解UDPA-DM），主要功能是从上游高级UDPA管理服务器获取资源，并分发资源给 DPLB，自身不产生资源。</li>
+<li>高级(advanced)：对 UDPA-DM 有感知，通常是用来获取信息并转换为标准化的资源（典型如 Istio 中的 Pilot）。可以直接分发资源给到 DPLB，也可以发送资源给简单UDPA管理服务器，然后由简单UDPA管理服务器再分发给 DPLB。</li>
+</ol>
+<p>而对应的 DPLB 客户端也分为两种：</p>
+<ol>
+<li>简单(simple)：对于任何配置源，简单的DPLB在任何时间点最多只能与一台管理服务器进行对话。</li>
+<li>高级(advanced)：将实现对 UDPA-Fed-TP 的支持，并能够直接作为联邦端点参与。</li>
+</ol>
+<p>简单 DPLB 虽然只能连接一台管理服务器，但是也是可以实现联邦的：简单 DPLB 连接的管理服务器可以实现联邦，然后为 DPLB 实现了间接联邦。 （备注：上图中的简单 DPLB就是例子，两个 Advanced UDPA management server 之间做了联邦）</p>
+<h3 id="udpa-tp设计解读">UDPA-TP设计解读</h3>
+<p>在解读 UDPA-TP 的设计之前，我们回顾一下 Istio 经典的组件和架构图，下面分别是 Istio 1.0 和 Istio 1.1 的架构图：</p>
+<p><img src="istio-components.png" alt="img"></p>
+<p>考虑到 Mixer 和 Citadel 两个组件和 UDPA 的关系相比没那么大， 我们重点看 Proxy / Pilot / Galley：</p>
+<ul>
+<li>Proxy在 Istio 中就是 Envoy （我们的MOSN正在努力成为候选方案） ，直接对等 UDPA 中的 DPLB 的概念。但是Istio 中的 Proxy，功能上只和上图中的 Simple DPLB 对齐。相比之下，UDPA-TP 设计中增加了一个能够连接多个 UDPA management server进行联邦的 Advanced DPLB。</li>
+<li>Pilot 和 Galley，从和 DPLB 的连接关系看，分别对应着UDPA-TP 设计中的 Simple UDPA management server 和 Advanced UDPA management server。但从实际实现的功能看，目前Pilot的职责远远超过了 Simple UDPA management server 的设计，而 Galley 的功能则远远少于 Advanced UDPA management server。如果未来 Istio 的架构和组件要向 UDPA 的设计靠拢，则显然 Pilot 和 Galley 的职责要发生巨大调整。</li>
+<li>最大的差异还是在于 UDPA-TP 中引入了联邦的概念，而且同时支持在 DPLB 和 Advanced UDPA management server 上做联邦。尤其是 DPLB 要实现联邦功能，则必然会让 DPLB 的功能大为增加，相应的 DPLB 和 UDPA management server 的通讯协议 （目前是xDS）也将为联邦的实现增加大量内容。</li>
+</ul>
+<p>对照 UDPA-TP 的设计：</p>
+<p><img src="https://skyao.io/post/202002-udpa-follow-up/images/udpa-tp-endpoint.png" alt="img"></p>
+<p>UDPA-TP的设计目前应该还没有对应的具体的实现产品，而且我也还没有找到 UDPA-Fed-TP 的详细的API设计。资料来源太少，所以只能简单的做一些个人的初步解读：</p>
+<ul>
+<li>
+<p>首先，Simple UDPA management server 的引入是一大亮点，功能足够简单而且专注，聚焦在将数据（在UDPA中体现为资源）分发给 DPLB （如大家熟悉的数据平面）。毫无疑问，Simple UDPA management server 的重点必然会在诸如 容量 / 性能 / 下发效率 / 稳定性 等关键性能指标，弥补目前 Istio 设计中 Pilot 下发性能赢弱的短板。从这个角度说，我倾向于将 Simple UDPA management server 理解为一个新的组件，介于 DPLB 和 Pilot 之间。</p>
+<p>小结：<strong>解决容量和性能问题</strong>。</p>
+</li>
+<li>
+<p>其次，Advanced UDPA management server 引入了联邦的概念， 上面的图片显示是为了在两个不同的云供应商（Cloud Provider X 和 Cloud Provider Y）和本地（On-premise）之间进行联邦，这是典型的混合云的场景。而我的理解是，联邦不仅仅用于多云，也可以用于多数据来源，比如打通多个不同的注册中心，解决异构互通问题。</p>
+<p>小结：<strong>解决多数据来源的全局聚合问题</strong>。</p>
+</li>
+<li>
+<p>然后，比较费解的是引入了 Advanced DPLB 的概念，而且从图上看，使用场景还非常复杂：1. 第一个DPLB是间接联邦的典型场景，还比较简单 2. 第二个 DPLB除了以同样的方式做了间接联邦，还直接通过 UDPA-Fed-TP 协议和 On-Premise 的 Advanced UDPA management server 连接，实现了直接联邦 3. 第三个 DPLB 则更复杂，做了三个management server的联邦 。</p>
+<p>小结：<strong>复杂的场景必然带来复杂的机制，背后推动力待查</strong></p>
+</li>
+</ul>
+<p>对于 UDPA-TP 的设计，我个人有些不太理解，主要是对于联邦的使用场景上，我的疑虑在于：真的有这么复杂的场景吗？尤其是将联邦的功能引入到 DPLB，这必然会使得 xDS/UDPA 协议不得不为此提供联邦 API 支持，而 Envoy/MOSN 等的实现难度也要大为提升。因此，除非有特别强烈的需求和场景推动，否则最好能在复杂度和功能性之间做好平衡。</p>
+<p>我个人更倾向于类似下面的设计：</p>
+<p><img src="udpa-tp-simplized.png" alt="img"></p>
+<ul>
+<li>维持 DPLB 和 Simple UDPA management server 的简单性</li>
+<li>DPLB 只对接 Simple UDPA management server，协议固定为 UDPA-TP，联邦对DPLB透明（只实现间接联邦）</li>
+<li>Simple UDPA management server 重点在于容量和性能的提升，包括目前正在进行中的支持各种资源的增量更新。</li>
+<li>Advanced UDPA management server 负责完成联邦，包括和其他环境的Advanced UDPA management server做联邦，以及从本地的其他注册中心聚合数据。</li>
+</ul>
+<p>总之，我个人更倾向于让 DPLB 和 Simple UDPA management server 保持简单和高性能，而将复杂功能交给 Advanced UDPA management server 。后续我会重点关注 UDPA 在联邦功能的实现，如有新进展尽量及时撰文分享。</p>
+<h3 id="udpa的资源定义和设计">UDPA的资源定义和设计</h3>
+<p>在 UDPA-TP 的设计中，根据资源的来源，资源被划分为两类类型：</p>
+<ul>
+<li>Configuration Resources/配置资源：控制平面生成，由管理服务器分发到 DPLB。平常大家熟悉的，通过xDS协议传输的 Listener / Route / Cluster / Endpoint 等资源就属于这种类型。</li>
+<li>Client Resources/客户资源：DPLB生成，准备交给控制平面使用。前面 UDPA 中定义的 OracLoadReport 就是典型例子，这是最近才有的新特性，由 DPLB 收集统计信息和状态，汇报给到控制平面，以便控制平面在决策时可以有多完善的参考信息。</li>
+</ul>
+<p>资源在定义时，将有三个重要属性：</p>
+<ul>
+<li>名称/Name：对于给定类型是唯一的，而且资源名称是结构化的，其路径层次结构如下：<code>/</code> ，例如 <code>com.acme.foo/service-a</code> 。注意 namespace 的引入，是后面的资源联邦和所有权委派的基础。</li>
+<li>类型/Type：资源类型由 Type URL 提供的字符串来表示。</li>
+<li>版本/Version：对于给定的命名资源，它可能在不同的时间点具有不同的版本。在资源定义中带上版本之后，检测资源是否有更新就非常方便了。</li>
+</ul>
+<p>以下是资源定义的实例（只是示意，暂时还没正式成为 UDPA API的内容）：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf"><span style="color:#204a87;font-weight:bold">message</span> <span style="color:#000">Resource</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// 资源的名称，以区别于其他同类型的资源。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// 遵循反向DNS格式，例如 com.acme.foo/listener-a
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
+</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// 资源级别版本
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000">version</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
+</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// 资源有效负载。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// 通过 Any 的 type URL 指定资源类型
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000">google.protobuf.Any</span> <span style="color:#000">resource</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
+</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// 资源的TTL。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// 此时间段后，资源将在DPLB上失效。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// 当管理服务器的连接丢失时，将支持资源的优雅降级，例如端点分配。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// 使用新的TTL接收到相同的资源 name/version/type 将不会导致除了刷新TTL之外的任何状态更改。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// 按需资源可能被允许过期，并且可能在TTL过期时被重新获取。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// TTL刷新消息中的resource字段可能为空，name/version/type用于标识要刷新的资源。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000">google.protobuf.Duration</span> <span style="color:#000">ttl</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span> <span style="color:#a40000">
+</span><span style="color:#a40000"></span>  <span style="color:#8f5902;font-style:italic">// 资源的出处（所有权，来源和完整性）。
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000">Provenance</span> <span style="color:#000">origin_info</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">
+</span></code></pre></div><p>UDPA-TP 设计中的其他内容，如安全 / 错误处理 / 传输 / 用户故事 等，就不一一展开了，这些设计目前看离正式成为 API 还有点远。如有兴趣可以直接翻阅 UDPA-TP 的设计文档。</p>
+<h3 id="udpa-dm设计">UDPA-DM设计</h3>
+<p>UDPA 设计的一个核心内容就是将传输（TransPort）与数据模型（Date Model）的关注点分离，前面介绍了 UDPA-TP 的设计，可以说目前还在进行中，并未完全定型。</p>
+<p>而 UDPA-DM 的设计，感觉进度上比 UDPA-TP 还要更早期，这多少有点出乎意料：原以为 UDPA 会基于 xDS 现有的成熟 API 定义，快速推出一套覆盖常见通用功能的 API ，甚至直接把 xDS 中的部分内容清理干净之后搬过来。但事实是：目前 UDPA-DM 中已经定义的 API 内容非常少，仅有 L7 Routing ，而且还在设计中，其他大家熟悉的 Listener / Cluster / Endpoint / Security / RatingLimit 等API都还没有看到。</p>
+<p>而 UDPA-DM 的设计和实现方式，也因为资料较少而有些不够明朗。在 UDPA-DM 的设计文档的开头，有如下一段描述：</p>
+<blockquote>
+<p>As a starting point, we recognize that the UDPA-DM is not required to be as expressive as any given DPLB client’s full set of capabilities, instead it should be possible to translate from UDPA-DM to various DPLB native configuration formats. We envisage UDPA-DM as a lingua franca that captures a large amount of useful functionality that a DPLB may provide, making it possible to build common control planes and ecosystems around UDPA capable DPLBs.</p>
+<p>首先，我们认识到 UDPA-DM 不需要像任何已有的 DPLB 客户端那样，全部能力都具备表现力，而是应该可以从 UDPA-DM 转换为各种 DPLB 原生配置格式。我们将 UDPA-DM 设想为一种通用语言，它具备大量 DPLB 应该提供的有用的功能，从而有可能在支持 UDPA 的 DPLB 周围构建通用的控制平面和生态系统。</p>
+<p>The UDPA-DM will be a living standard. We anticipate that it will initially cover some obvious common capabilities shared by DPLBs, while leaving other behaviors to proxy specific API fields. Over time, we expect that the UDPA-DM will evolves via a <a href="https://docs.google.com/document/d/1xeVvJ6KjFBkNjVspPbY_PwEDHC7XPi0J5p1SqUXcCl8/edit">stable API versioning policy</a> to accommodate functionalities as we negotiate a common representation.</p>
+<p>UDPA-DM 将成为事实标准。我们期望它最初将涵盖 DPLB 共有的一些显而易见的通用功能，同时将其他行为留给代理特定的API字段。随着时间的推移，我们期望 UDPA-DM 将通过稳定的API版本控制策略来发展，以容纳各种功能，而我们将协商通用的表示形式。</p>
+</blockquote>
+<p>对这两段文字描述的理解，我是有一些困惑的，主要在清楚解 UDPA-DM 的定义和具体的 DPLB 原生实现（典型如 Envoy 的 xDS）之间的关系。下面这张图是我画的：</p>
+<p><img src="udpa-dm-design.png" alt="img"></p>
+<ul>
+<li>左边的图是转换方案：按照第一段文字的描述，UDPA-DM 是做通用定义，然后转换（Translate）为各种 DPLB 的原生配置格式。这意味着 UDPA-DM API 和实际的 DPLB 原生配置格式可能会有非常大的不同，甚至有可能是完全不一样的格式定义。这个关系有点类似 Istio API 和 xDS API 的关系，也类似于 SMI （微软推出的 Service Mesh Interface）和 xDS 的关系。</li>
+<li>右边的图是子集方案：按照第二段文字的描述，UDPA-DM 是做通用定义，但是不会做转换，其他 DPLB 会直接复用这些 UDPA-DM 的 API 定义，然后补充自身特有的 API 定义。 这样 UDPA-DM 会以通用子集的形式出现，逐渐扩大范围，然后其他 API 会逐渐将自身的 API 中和 UDPA-DM 重叠的部分替换为 UDPA-DM API，只保留自身特有的扩展API。</li>
+</ul>
+<p>前面谈到 xDS 的演进路线， v3 / v4 会逐渐向 UDPA 靠拢，尤其 v4 会基于 UDPA 来。目前由于 UDPA API 远未成型，而 xDS v3 中对 UDPA API 的使用非常少（基本只用到了 annotation 定义），因此目前到底是哪个方案尚不明朗。</p>
+<p>以下是 UDPA-DM 设计文档中描述的 UDPA-DM 的关键设计：</p>
+<ul>
+<li>描述L7路由层，该层描述主要 L7 DPLB 之间的常见行为，包括 Envoy，HAproxy，Nginx，Google Cloud Platform URL mapping 和 Linkerd。</li>
+<li>为代理/LB的特有扩展提供灵活性，用于不适合通用抽象的行为。 即 逃生舱口（escape hatch）（备注：类似SQL 方言）</li>
+<li>提供L7路由表的可伸缩性和有效的对数评估（logarithmic evaluation）。 例如，Envoy v2 xDS是严格线性评估的路由表，具有明显的扩展限制。 对于可以支持 UDPA-TP 这个特性的DPLB，应该可以按需获取路由表段。</li>
+<li>在v2 Envoy xDS API中支持线性匹配路由表的旧有用户。</li>
+<li>删除多xDS样式API的需求，例如 RDS，VHDS和SRDS。</li>
+<li>资源的可组合性； 应该有可能支持UDPA联邦用例，带有诸如虚拟主机这种被独立管理的资源等</li>
+</ul>
+<p>下面重点看 L7 Routing 的设计。</p>
+<h3 id="routing-api-设计">Routing API 设计</h3>
+<p>Routing API 中有三个术语：</p>
+<ul>
+<li>服务/Service：描述后端服务的不透明字符串（或在Envoy的术语中，为集群/Cluster）。 当前文档未提供有关服务表示的任何进一步详细说明，这留待以后的工作。</li>
+<li>路由表/Route table：一组匹配条件，用于HTTP请求和相关操作。 操作可以包括重定向或转发到特定服务。</li>
+<li>L7路由/L7 routing：根据路由表评估给定的HTTP请求。</li>
+</ul>
+<p>在 UDPA-DM 的 Routing API 设计中，针对请求匹配的方式，相比 xDS 做了重大的改动，主要体现在除了线性匹配之外，还支持分层匹配。</p>
+<p>这里先解释一下线性匹配和分层匹配这两种路由时需要用到的请求匹配方式：</p>
+<ul>
+<li>线性（Linear）：其中路由表类似于<code>[([Match], Action)]</code> 类型。 在此模型中，路由表是 匹配 criteria-action 条件的有序列表。 每个匹配的 criteria 是匹配 criteria 的逻辑”与”，例如
+<ul>
+<li>If :authority == foo.com AND path == / AND x-foo == bar THEN route to X</li>
+<li>If :authority == bar.com AND x-baz == wh00t THEN route to Y</li>
+</ul>
+</li>
+<li>分层(Hierarchical)：其中路由表类似于树结构，每个节点具有<code>(MatchCriteria, [(Value, Action)])</code> 类型。 通过这种结构，任何给定的节点都会只评估单个匹配条件，例如<code>:authority</code> 的值。分层匹配能提供相对高效的实现。</li>
+</ul>
+<p>目前 xDS v2 API使用的是线性匹配方式，而 UDPA-DM 的 Routing API 会引入分层匹配，形成线性-分层的混合匹配方式，如下图所示：</p>
+<p><img src="upda-hybird-model.png" alt="img"></p>
+<p>设计文档对这个混合匹配模型有如下说明：</p>
+<blockquote>
+<p>The model does not map directly to any given DPLB today but borrows from some Envoy concepts and should have an efficient realization. It may be possible to use HAproxy ACLs to model this topology.</p>
+<p>目前该模型并没有直接映射到任何给定的DPLB，而是借鉴了Envoy的一些概念，这个模型应该会有一个有效的实现。可能会使用HAproxy ACL对这种拓扑进行建模。</p>
+</blockquote>
+<p>由于目前 Routing API 并没有完成设计，也没有正式成为 UDPA 的API，而在最新刚定稿的 xDS v3 协议中，RoutesDiscoveryService 和 ScopedRoutesDiscoveryService 也都没有引入这个新的模型，因此预期这个模型将在2020年继续完成设计和定稿，可能在年底的 xDS v4 中会有所体现。然后，UDPA-DM 和 xDS 之间到底会是转换模型，还是子集模型，届时就清楚了。</p>
+<p>由于 Routing API 尚未设计完成，所以这里不详细展开 Routing API 的定义了。Routing API 的相关资料如下，有兴趣的同学可以关注（然而已经很长时间没有新的进展了）：</p>
+<ul>
+<li>Issue 讨论 [<a href="https://github.com/cncf/udpa/pull/4">WiP] L7 routing straw man</a></li>
+<li>在 PR 中提交的 Routing API 定义文件 <a href="https://github.com/cncf/udpa/pull/4/files#diff-40a6d8a368e77b5a9046c367cb47182b">udpa/config/v1alpha/routing.proto</a>：可以自行和xDS v3 的API 做一个比较</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>UDPA 目前还处于早期设计阶段，关键的 UDPA-TP 和 UDPA-DM 的设计有推出草稿但是远未完成，内容也和我们期望的一个完整的通用数据平面API有很长的距离。</p>
+<p>而且项目进展并不理想，感觉重视程度和人力投入都有限。</p>
+<h2 id="附言">附言</h2>
+<p>最近因为想了解一下 UDPA 的进展，所以做了 UDPA 的调研和学习，比较遗憾的是 UDPA 的资料非常匮乏，除了我本文列出来的几个官方网站和设计文档之外，基本就只有 Harvey 的演讲。</p>
+<p>调研完成之后发现 UDPA 的进展不如人意，尤其是最近的工作几乎停滞，关键的 UDPA-TP 和 UDPA-DM 的设计未能完稿，xDS v3 中也只引用了极少的 UDPA API 定义。这篇总结文章差点因此难产，因为未知/待定/未完成的内容太多，而且由于缺乏资料输入，很多信息也只是我个人的理解和想法，按说这不是一个严谨的深度介绍文章应有的态度。</p>
+<p>但考虑到目前 UDPA 的资料实在是太少，本着“有比没有好”的想法，我硬着头皮完成了这篇文章。后续如果有新的输入，我会及时完善或者修订本文，也欢迎对 UDPA 有兴趣和了解的同学联系我讨论和指导。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://github.com/cncf/udpa">https://github.com/cncf/udpa</a> ：UDPA在 github 的项目，API 定义来自这里</li>
+<li><a href="https://docs.google.com/document/d/1y-H-pQ2mmhBPX_U9pP3mMMUbEpZskxBdEbwd5KlivY4/edit#heading=h.fdi15bvpmxen">Universal Data Plane API Working Group (UDPA-WG)</a>: UDPA设计文档，但是内容很少</li>
+<li><a href="https://lists.cncf.io/g/udpa-wg">Universal Data Plane API Working Group (UDPA-WG)</a>：CNCF 下的 UDPA 工作组，加入之后能看到一些资料</li>
+<li><a href="https://docs.google.com/document/d/1eubmNM2Kynzf7Rpms4nncvTSL6NnANTrpHNWzeIBoZw/">UDPA-TP strawman</a>: UDPA-TP的设计文档</li>
+<li><a href="https://docs.google.com/document/d/1orxTIL9FXtgmyl5TtPRBqGjgp1ekL7oOKDd95wxeCRY/">UDPA-DM: L7 routing strawman</a>: UDPA-DM的设计文档</li>
+<li><a href="https://docs.google.com/document/d/1xeVvJ6KjFBkNjVspPbY_PwEDHC7XPi0J5p1SqUXcCl8/">Stable Envoy API versioning</a> ：Envoy 官方文档，讲述 Envoy 的稳定API版本控制策略</li>
+<li><a href="https://www.servicemesher.com/blog/cncf-udpa-wg/">CNCF正在筹建通用数据平面API工作组，以制定数据平面的标准API</a>：我去年写的 UDPA 介绍文章</li>
+<li><a href="https://envoycon2019.sched.com/event/UxwL/the-universal-dataplane-api-udpa-envoys-next-generation-apis-harvey-tuch-google">The Universal Dataplane API (UDPA): Envoy’s Next Generation APIs</a>：Harvey Tuch 的演讲，帮助理解 xDS 和 UDPA 的关系</li>
+</ul>
+
+	
+
+	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
+  <li>
+    <a href="/blog/posts/mosn-source-code-brief/" class="btn btn-primary "><span class="mr-1">←</span> 上一页</a>
+  </li>
+    <a href="/blog/posts/multi-protocol-deep-dive/" class="btn btn-primary ">下一页 <span class="ml-1">→</span></a>
+  </li>
+</ul>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-12 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/apache/incubator-brpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 The bRPC Authors 保留所有权利</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="/js/main.min.170adf90fd476d5f9243ed2e727149abe8d9fe364587fe943765d47375bbd1ad.js" integrity="sha256-FwrfkP1HbV&#43;SQ&#43;0ucnFJq&#43;jZ/jZFh/6UN2XUc3W70a0=" crossorigin="anonymous"></script>
+
+
+
+
+
+  </body>
+</html>

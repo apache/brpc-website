@@ -1,0 +1,1410 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bRPC – 发布</title>
+    <link>https://brpc.incubator.apache.org/blog/releases/</link>
+    <description>Recent content in 发布 on bRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://brpc.incubator.apache.org/blog/releases/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Blog: MOSN v0.23.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.23.0/</link>
+      <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.23.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.23.0&#34;&gt;MOSN v0.23.0&lt;/a&gt; 发布&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h2 id=&#34;v0230&#34;&gt;v0.23.0&lt;/h2&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;新增 networkfilter:grpc，支持通过 networkfilter 扩展方式在 MOSN 中实现可复用 MOSN 其他能力的 grpc server &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt; &lt;a href=&#34;https://github.com/zhenjunMa&#34;&gt;@zhenjunMa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;StreamFilterChain 新增遍历调用的扩展接口 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;bolt 协议新增 HTTP 403 状态码的映射 &lt;a href=&#34;https://github.com/pxzero&#34;&gt;@pxzero&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增主动关闭 upstream 连接的能力 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;networkfilter 配置解析能力优化 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;proxy 配置解析支持按照协议扩展，配置解析时机优化 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TLS 连接新增证书缓存，减少重复证书的内存占用 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 Quick Start Sample &lt;a href=&#34;https://github.com/nobodyiam&#34;&gt;@nobodyiam&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化默认路由处理时的 context 对象生成 &lt;a href=&#34;https://github.com/alpha-baby&#34;&gt;@alpha-baby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 Subset LoadBalancer 的创建函数接口 &lt;a href=&#34;https://github.com/alpha-baby&#34;&gt;@alpha-baby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增使用 so plugin 扩展方式接入协议扩展的示例 &lt;a href=&#34;https://github.com/yichouchou&#34;&gt;@yichouchou&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 makefile 中获取 GOPATH 环境变量的方式 &lt;a href=&#34;https://github.com/bincherry&#34;&gt;@bincherry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持 darwin + arrch64 架构的编译 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化日志打开方式 &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP1 修复 URL 处理编码问题 &lt;a href=&#34;https://github.com/morefreeze&#34;&gt;@morefreeze&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;HTTP1 修复 URL 处理大小写敏感错误问题 &lt;a href=&#34;https://github.com/GLYASAI&#34;&gt;@GLYASAI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TLS 修复 SM4 套件异常处理时存在的内存泄漏问题 &lt;a href=&#34;https://github.com/william-zk&#34;&gt;@william-zk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.22.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.22.0/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.22.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.22.0&#34;&gt;MOSN v0.22.0&lt;/a&gt; 发布&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h2 id=&#34;v0220&#34;&gt;v0.22.0&lt;/h2&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;新增 Wasm 扩展框架 &lt;a href=&#34;https://github.com/antJack&#34;&gt;@antJack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;XProtocol 协议新增 x-bolt 子协议，支持基于 Wasm 的协议编解码能力 &lt;a href=&#34;https://github.com/zonghaishang&#34;&gt;@zonghaishang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持自动协议识别失败时根据 SO_ORIGINAL_DST 进行自动转发报文的能力 &lt;a href=&#34;https://github.com/antJack&#34;&gt;@antJack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;XProtocol 支持 Go Plugin 模式扩展 &lt;a href=&#34;https://github.com/fdingiit&#34;&gt;@fdingiit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增网络扩展层 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持 Istio xDS v3 API &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt; 所属分支: &lt;a href=&#34;https://github.com/mosn/mosn/tree/istio-1.7.7&#34;&gt;istio-1.7.7&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;去除 StreamFilter 配置解析中多余的路径清洗 &lt;a href=&#34;https://github.com/eliasyaoyc&#34;&gt;@eliasyaoyc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持为 StreamFilterChain 设置统一的回调接口 &lt;a href=&#34;https://github.com/antJack&#34;&gt;@antJack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;FeatureGate 支持不同启动阶段执行, 去除 FeatureGate 状态判断的全局锁 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Http2 模块新增对 trace 能力的支持 &lt;a href=&#34;https://github.com/OrezzerO&#34;&gt;@OrezzerO&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;重构&#34;&gt;重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;新增 StageManager，将 MOSN 启动流程划分为四个可自定义的阶段 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;统一 XProtocol 模块的类型定义，移动至 mosn.io/api 包 &lt;a href=&#34;https://github.com/fdingiit&#34;&gt;@fdingiit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;XProtocol 接口新增 GetTimeout 方法，取代原有的变量获取方式 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug修复&#34;&gt;Bug修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复 Proxy 中请求信息的并发冲突问题 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 URL 处理时的安全漏洞 &lt;a href=&#34;https://github.com/antJack&#34;&gt;@antJack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复配置持久化时 Router 配置的并发冲突问题 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.21.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.21.0/</link>
+      <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.21.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.21.0&#34;&gt;MOSN v0.21.0&lt;/a&gt; 发布，恭喜郑泽超（&lt;a href=&#34;https://github.com/CodingSinger&#34;&gt;@CodingSinger&lt;/a&gt;）成为 MOSN Committer，感谢他为 MOSN 社区所做的贡献。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h2 id=&#34;v0210&#34;&gt;v0.21.0&lt;/h2&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;升级sentinel版本到v1.0.2 &lt;a href=&#34;https://github.com/ansiz&#34;&gt;@ansiz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;读超时收缩tls的read buffer，降低tls内存消耗 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;增加注释，简化xprotocol协议连接池实现 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;更新mosn registry版本 &lt;a href=&#34;https://github.com/cadeeper&#34;&gt;@cadeeper&lt;/a&gt; &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;重构&#34;&gt;重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;优化路由Header匹配逻辑,支持通用的RPC路由匹配 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;删除原有部分常量，新增用于描述变量机制的常量 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;限流模块重构，支持自定义回调扩展，可实现自定义的过滤条件，上下文信息修改等能力 &lt;a href=&#34;https://github.com/ansiz&#34;&gt;@ansiz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug修复&#34;&gt;Bug修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复请求异常时metrics统计错误 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复http场景转发前没有对url进行转义的问题 &lt;a href=&#34;https://github.com/antJack&#34;&gt;@antJack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复HTTP协议中变量注入错误的问题, 修复HTTP2协议中不支持路由Rewrite的bug &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;支持Domain-Specific Language路由实现 &lt;a href=&#34;https://github.com/CodingSinger&#34;&gt;@CodingSinger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;StreamFilter支持go编写的动态链接库加载的方式 &lt;a href=&#34;https://github.com/CodingSinger&#34;&gt;@CodingSinger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;路由配置中VirtualHost支持per_filter_config配置 &lt;a href=&#34;https://github.com/machine3&#34;&gt;@machine3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持dubbo thrift协议 &lt;a href=&#34;https://github.com/cadeeper&#34;&gt;@cadeeper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.20.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.20.0/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.20.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.20.0&#34;&gt;MOSN v0.20.0&lt;/a&gt; 发布，恭喜黄润豪（&lt;a href=&#34;https://github.com/GLYASAI&#34;&gt;@GLYASAI&lt;/a&gt;）成为 MOSN Committer，感谢他为 MOSN 社区所做的贡献。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h2 id=&#34;v0200&#34;&gt;v0.20.0&lt;/h2&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;优化 TCP 地址解析失败默认解析 UDS 地址的问题，地址解析前添加前缀判断 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化连接池获取的尝试间隔 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持通过全局配置关闭循环写模式 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化协议自动识别的配置示例和测试用例 &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;用更高效的变量机制替换请求头 &lt;a href=&#34;https://github.com/CodingSinger&#34;&gt;@CodingSinger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;将 WriteBufferChan 的定时器池化以降低负载 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TraceLog 中新增 MOSN 处理失败的信息 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;HTTP协议处理中，新增读完成channel &lt;a href=&#34;https://github.com/alpha-baby&#34;&gt;@alpha-baby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;日志轮转功能加强 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;重构&#34;&gt;重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;使用的 Go 版本升级到 1.14.13 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;将路由链扩展方式修改为路由Handler扩展方式，支持配置不同的路由Handler &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;MOSN 扩展配置修改，支持按照配置顺序进行解析 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复 doubbo 版本升级至 2.7.3 之后 Provider 不可用的问题 &lt;a href=&#34;https://github.com/cadeeper&#34;&gt;@cadeeper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 netpoll 模式下，错误将UDS连接处理成TCP连接的问题 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 HTTP Header 被设置为空字符串时无法正确 Get 的问题 &lt;a href=&#34;https://github.com/ianwoolf&#34;&gt;@ianwoolf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;支持新旧 MOSN 之间通过 UDS 转移配置，解决 MOSN 使用 XDS 获取配置无法平滑升级的问题 &lt;a href=&#34;https://github.com/alpha-baby&#34;&gt;@alpha-baby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;协议自动识别支持 XProtocol &lt;a href=&#34;https://github.com/cadeeper&#34;&gt;@cadeeper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持配置 XProtocol 的 keepalive 参数 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持更详细的用时追踪 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持度量指标懒加载的方式，以解决服务数目过多 metrics 空间占用过大的问题 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;添加设置 XProtocol 连接池大小默认值的函数 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持 netpoll 模式 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持广播功能 &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持从 LDS 响应中获取 tls 配置 &lt;a href=&#34;https://github.com/wZH-CN&#34;&gt;@wZH-CN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SDS 新增 ACK response &lt;a href=&#34;https://github.com/wZH-CN&#34;&gt;@wZH-CN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.19.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.19.0/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.19.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.19.0&#34;&gt;MOSN v0.19.0&lt;/a&gt; 发布。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h2 id=&#34;v0190&#34;&gt;v0.19.0&lt;/h2&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;使用最新的 TLS 内存优化方案 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;proxy log 优化，减少内存逃逸 &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;增加最大连接数限制 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;AccessLog 获取变量失败时，使用”-”代替 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;MaxProcs 支持配置基于 CPU 使用限制自动识别 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持指定 Istio cluster 的网络 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;重构&#34;&gt;重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;重构了 StreamFilter 框架，减少 streamfilter 框架与 proxy 的耦合，支持其他 network filter 可复用 stream filter 框架 &lt;a href=&#34;https://github.com/antJack&#34;&gt;@antJack&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复 HTTP Trace 获取 URL 错误 &lt;a href=&#34;https://github.com/wzshiming&#34;&gt;@wzshiming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 xds 配置解析时没有解析连接超时的错误 &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复变量获取 Hostname 的错误 &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 tcp proxy 没有正确关闭连接的错误 &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 mixer filter 缺少默认配置，导致空指针问题 &lt;a href=&#34;https://github.com/glyasai&#34;&gt;@glyasai&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 HTTP2 直接响应没有正确地设置 &lt;code&gt;Content-length&lt;/code&gt; 的问题 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 getAPISourceEndpoint 方法空指针问题 &lt;a href=&#34;https://github.com/dylandee&#34;&gt;@dylandee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 Write 堆积时，过多的 Timer 申请导致内存上涨的问题 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 Dubbo Filter 收到非法响应时，stats 统计缺失的问题 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.18.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.18.0/</link>
+      <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.18.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.18.0&#34;&gt;MOSN v0.18.0&lt;/a&gt; 发布。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h2 id=&#34;v0180&#34;&gt;v0.18.0&lt;/h2&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;新增 MOSN 配置文件扩展机制 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增 MOSN 配置工具，提升用户配置体验 &lt;a href=&#34;https://github.com/mosn/configure&#34;&gt;mosn/configure&lt;/a&gt; &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP 协议 stream 处理过程中，避免多次拷贝 HTTP body &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;升级了 &lt;code&gt;github.com/TarsCloud/TarsGo&lt;/code&gt; 包到 v1.1.4 版本 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;补充了连接池的单元测试 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;使用内存池减少了 TLS 连接的内存占用 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;减少 xprotocol stream 处理过程的临界区大小，提升性能 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;删除 &lt;code&gt;network.NewClientConnection&lt;/code&gt; 方法冗余参数，删除 &lt;code&gt;streamConn&lt;/code&gt; 结构体 &lt;code&gt;Dispatch&lt;/code&gt; 方法 &lt;code&gt;ALPN&lt;/code&gt; 检查 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;StreamReceiverFilterHandler&lt;/code&gt; 增加 &lt;code&gt;TerminateStream&lt;/code&gt; API，可在处理流的时候传入 HTTP code 异步关闭流 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;client 端 TLS handshake 失败时增加降级逻辑 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修改 TLS hashvalue 计算方式 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修正 disable_log admin api typo &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复执行 &lt;code&gt;go mod tidy&lt;/code&gt; 失败 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 MOSN 接收 XDS 消息大于 4M 时的 &lt;code&gt;ResourceExhausted: grpc: received message larger than max&lt;/code&gt; 错误 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复容错单元测试用例 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 &lt;code&gt;MOSNConfig.servers[].listeners[].bind_port&lt;/code&gt; 设置为 &lt;code&gt;false&lt;/code&gt; 时热重启出错 &lt;a href=&#34;https://github.com/alpha-baby&#34;&gt;@alpha-baby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;本地写 buffer 增加超时时间，避免本地写失败导致 goroutine 过多 OOM &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 TLS 超时导致死循环 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 &lt;code&gt;dubbo.Frame&lt;/code&gt; struct 使用 &lt;code&gt;SetData&lt;/code&gt; 方法之后数据没有被修改的问题 &lt;a href=&#34;https://github.com/lxd5866&#34;&gt;@lxd5866&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.17.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.17.0/</link>
+      <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.17.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.17.0&#34;&gt;MOSN v0.17.0&lt;/a&gt; 发布。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h2 id=&#34;v0170&#34;&gt;v0.17.0&lt;/h2&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;新增最大 Header 大小限制的配置选项 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持协议实现时选择是否需要 workerpool 模式，在 workerpool 模式下，支持可配置的连接并发度
+&lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Listener 配置新增对 UDS 的支持 &lt;a href=&#34;https://github.com/CodingSinger&#34;&gt;@CodingSinger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;添加在 Dubbo 协议下通过 xDS HTTP 配置进行转换的过滤器 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;优化 http 场景下的 buffer 申请 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 SDS Client 使用读写锁获取 &lt;a href=&#34;https://github.com/chainhelen&#34;&gt;@chainhelen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;更新 hessian2 v1.7.0 库 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修改 NewStream 接口，从回调模式调整为同步调用的模式 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;重构 XProtocol 连接池，支持 pingpong 模式、多路复用模式与连接绑定模式 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 XProtocol 多路复用模式，支持单机 Host 连接数可配置，默认是 1 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化正则路由配置项，避免 dump 过多无用配置 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复 README 蚂蚁 logo 地址失效的问题 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复当请求 header 太长覆盖请求内容的问题 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 Dubbo 协议解析 attachment 异常的问题 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.16.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.16.0/</link>
+      <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.16.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.16.0&#34;&gt;MOSN v0.16.0&lt;/a&gt; 发布。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h2 id=&#34;v0160&#34;&gt;v0.16.0&lt;/h2&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Logger Roller 支持自定义 Roller 的实现 &lt;a href=&#34;https://github.com/wenxuwan&#34;&gt;@wenxuwan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;StreamFilter 新增接口 SendHijackReplyWithBody &lt;a href=&#34;https://github.com/wenxuwan&#34;&gt;@wenxuwan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;配置项新增关闭热升级选项，关闭热升级以后一个机器上可以同时存在多个不同的 MOSN 进程 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 MOSN 集成测试框架，补充单元测试 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt; &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt; &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;xDS 配置解析支持 DirectResponse 的路由配置 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ClusterManager 配置新增 TLSContext &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复在热升级时 UDP 连接超时会导致死循环的 BUG &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复在 SendFilter 中执行 DirectResponse 会触发死循环的 BUG &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 HTTP2 的 Stream 计数并发统计冲突的 BUG &lt;a href=&#34;https://github.com/wenxuwan&#34;&gt;@wenxuwan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 UDP 连接因读超时导致的数据丢失问题 &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复触发重试时因为协议标识丢失导致无法正确记录响应 StatusCode 的 BUG &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 BoltV2 协议解析错误的 BUG &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 Listener Panic 后无法自动 Restart 的 BUG &lt;a href=&#34;https://github.com/alpha-baby&#34;&gt;@alpha-baby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复变量机制中 NoCache 标签无效的 BUG &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 SDS 重连时可能存在并发冲突的 BUG &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.15.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.15.0/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.15.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.15.0&#34;&gt;MOSN v0.15.0&lt;/a&gt; 发布，恭喜邓茜（&lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;）成为 MOSN Committer，感谢她为 MOSN 社区所做的贡献。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;路由 Path Rewrite 支持按照正则表达式的方式配置 Rewrite 的内容 &lt;a href=&#34;https://github.com/liangyuanpeng&#34;&gt;@liangyuanpeng&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;配置新增字段： 扩展配置字段，可通过扩展配置字段自定义启动配置；Dubbo 服务发现配置通过扩展的配置字段实现 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持 DSL 新特性，可以方便的对请求的处理行为进行控制 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;StreamFilter 新增流量镜像功能的扩展实现 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Listener 配置新增对 UDP 的支持 &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;配置格式支持 Yaml 格式解析 &lt;a href=&#34;https://github.com/GLYASAI&#34;&gt;@GLYASAI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;路由支持 HTTP 重定向配置 &lt;a href=&#34;https://github.com/knight42&#34;&gt;@knight42&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;支持 istio 的 stats filter，可以根据匹配条件进行 metrics 的个性化记录 &lt;a href=&#34;https://github.com/wzshiming&#34;&gt;@wzshiming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Metrics 配置支持配置 Histogram 的输出百分比 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;StreamFilter 新增状态用于直接中止请求，并且不响应客户端 &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;XProtocol Hijack 响应支持携带 Body &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Skywalking 升级到 0.5.0 版本 &lt;a href=&#34;https://github.com/arugal&#34;&gt;arugal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Upstream 连接 TLS 状态判断修改，支持通过 TLS 配置的 Hash 判断是否需要重新建立连接 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 DNS cache 逻辑，防止在 DNS 失效时可能引起的 DNS flood 问题 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复开启 TLS 加密场景下，XProtocol 协议在有多个协议的场景下判断协议错误的 BUG &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 AccessLog 中前缀匹配类型的变量不生效的 BUG &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 Listener 配置解析处理不正确的 BUG &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 Router/Cluster 在文件持久化配置类型中，Name 字段包含路径分隔符时会保存失败的 BUG &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.14.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.14.0/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.14.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.14.0&#34;&gt;MOSN v0.14.0&lt;/a&gt; 发布，恭喜&lt;a href=&#34;https://github.com/trainyao&#34;&gt;姚昌宇（@trainyao）&lt;/a&gt;成为 MOSN Committer，感谢他为 MOSN 社区所做的贡献。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;支持 Istio 1.5.X &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt; &lt;a href=&#34;https://github.com/trainyao&#34;&gt;@trainyao&lt;/a&gt; &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;go-control-plane 升级到 0.9.4 版本&lt;/li&gt;
+&lt;li&gt;xDS 支持 ACK，新增 xDS 的 Metrics&lt;/li&gt;
+&lt;li&gt;支持 Istio sourceLabels 过滤功能&lt;/li&gt;
+&lt;li&gt;支持 pilot-agent 的探测接口&lt;/li&gt;
+&lt;li&gt;支持更多的启动参数，适配 Istio agent 启动场景&lt;/li&gt;
+&lt;li&gt;gzip、strict-dns、original-dst 支持 xDS 更新&lt;/li&gt;
+&lt;li&gt;移除 Xproxy 逻辑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Maglev 负载均衡算法支持 &lt;a href=&#34;https://github.com/trainyao&#34;&gt;@trainyao&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增连接池实现，用于支持消息类请求 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增 TLS 连接切换的 Metrics &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增 HTTP StatusCode 的 Metrics &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增 Metrics Admin API 输出 &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;proxy 新增查询当前请求数的接口 &lt;a href=&#34;https://github.com/zonghaishang&#34;&gt;@zonghaishang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持 HostRewrite Header &lt;a href=&#34;https://github.com/liangyuanpeng&#34;&gt;@liangyuanpeng&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;升级 tars 依赖，修复在高版本 Golang 下的编译问题 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;xDS 配置解析升级适配 Istio 1.5.x &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 proxy 的日志输出 &lt;a href=&#34;https://github.com/wenxuwan&#34;&gt;@wenxuwan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;DNS Cache 默认时间修改为 15s &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;HTTP 参数路由匹配优化 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;升级 fasthttp 库 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 Dubbo 请求转发编码 &lt;a href=&#34;https://github.com/zonghaishang&#34;&gt;@zonghaishang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持 HTTP 的请求最大 body 可配置 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复 Dubbo Decode 无法解析 attachment 的 bug &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 HTTP2 连接建立之前就可能创建 stream 的 bug &lt;a href=&#34;https://github.com/dunjut&#34;&gt;@dunjut&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复处理 HTTP2 处理 Trailer 空指针异常 &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 HTTP 请求头默认不标准化处理的 bug &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 HTTP 请求处理时连接断开导致的 panic 异常 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 dubbo registry 的读写锁拷贝问题 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.13.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.13.0/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.13.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.13.0&#34;&gt;MOSN v0.13.0&lt;/a&gt; 发布。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;支持 Strict DNS Cluster &lt;a href=&#34;https://github.com/dengqian&#34;&gt;@dengqian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持 GZip 处理的 Stream Filter &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dubbo 服务发现完成 Beta 版本 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持单机故障隔离的 Stream Filter &lt;a href=&#34;https://github.com/NeGnail&#34;&gt;@NeGnail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;集成 Sentinel 限流能力 &lt;a href=&#34;https://github.com/ansiz&#34;&gt;@ansiz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;优化 EDF LB 的实现，使用 EDF 重新实现 WRR LB &lt;a href=&#34;https://github.com/CodingSinger&#34;&gt;@CodingSinger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;配置获取 ADMIN API 优化，新增 Features 和环境变量相关 ADMIN API &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;更新 Host 时触发健康检查的更新从异步模式修改为同步模式 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;更新了 Dubbo 库，优化了 Dubbo Decode 的性能 &lt;a href=&#34;https://github.com/zonghaishang&#34;&gt;@zonghaishang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 Metrics 在 Prometheus 中的输出，使用正则过滤非法的 Key &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 MOSN 的返回状态码 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复健康检查注册回调函数时的并发冲突问题 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复配置持久化函数没有正确处理空配置的错误 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 ClusterName/RouterName 过长时，以文件形式 DUMP 会失败的问题 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复获取 XProtocol 协议时，无法正确获取协议的问题 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复创建 StreamFilter 时，获取的 context 错误的问题 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.12.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.12.0/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.12.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.12.0&#34;&gt;MOSN v0.12.0&lt;/a&gt; 发布，感谢&lt;a href=&#34;https://github.com/peacocktrain&#34;&gt;孙福泽（@peacocktrain）&lt;/a&gt;对该版本做出的巨大贡献，经 MOSN 社区 Lead 们认证为 &lt;a href=&#34;https://github.com/mosn/community/issues/6&#34;&gt;commiter&lt;/a&gt; 🎉。&lt;/p&gt;
+&lt;p&gt;以下是该版本的变更日志。&lt;/p&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;blog/posts/skywalking-support&#34;&gt;支持 Skywalking&lt;/a&gt; &lt;a href=&#34;https://github.com/arugal&#34;&gt;@arugal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Stream Filter 新增了一个 Receive Filter 执行的阶段，可在 MOSN 路由选择完 Host 以后，再次执行 Receive Filter &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;HTTP2 支持流式 &lt;a href=&#34;https://github.com/peacocktrain&#34;&gt;@peacocktrain&lt;/a&gt; &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;FeatureGate 新增接口 KnownFeatures，可输出当前 FeatureGate 状态 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;提供一种协议透明的方式获取请求资源（PATH、URI、ARG），对于资源的定义由各个协议自身定义 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增负载均衡算法
+&lt;ul&gt;
+&lt;li&gt;支持 ActiveRequest LB &lt;a href=&#34;https://github.com/CodingSinger&#34;&gt;@CodingSinger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持 WRR LB &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;XProtocol 协议引擎优化 &lt;a href=&#34;https://github.com/neverhook&#34;&gt;@neverhook&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;修改 XProtocol 心跳响应接口，支持协议的心跳响应可返回更多的信息&lt;/li&gt;
+&lt;li&gt;优化 connpool 的心跳触发，只有实现了心跳的协议才会发心跳&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dubbo 库依赖版本从 v1.5.0-rc1 更新到 v1.5.0 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;API 调整，HostInfo 新增健康检查相关的接口 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;熔断功能实现优化 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;负责均衡选择逻辑简化，同样地址的 Host 复用相同的健康检查标记 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt; &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 HTTP 建连逻辑，提升 HTTP 建立性能 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;日志轮转逻辑从写日志触发，调整为定时触发 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;typo 调整 &lt;a href=&#34;https://github.com/xujianhai666&#34;&gt;@xujianhai666&lt;/a&gt; &lt;a href=&#34;https://github.com/candyleer&#34;&gt;@candyleer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复 xDS 解析故障注入配置的错误 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 MOSN HTTP HEAD 方法导致的请求 Hold 问题 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 XProtocol 引擎对于 StatusCode 映射缺失的问题 &lt;a href=&#34;https://github.com/neverhook&#34;&gt;@neverhook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修复 DirectReponse 触发重试的 BUG &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.11.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.11.0/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.11.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.11.0&#34;&gt;MOSN v0.11.0&lt;/a&gt; 发布。以下是该版本的变更日志。&lt;/p&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;支持 Listener Filter 的扩展，透明劫持能力基于 Listener Filter 实现 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;变量机制新增 Set 方法 &lt;a href=&#34;https://github.com/neverhook&#34;&gt;@neverhook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增 SDS Client 失败时自动重试和异常处理 &lt;a href=&#34;https://github.com/pxzero&#34;&gt;@pxzero&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;完善 TraceLog，支持注入 context &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;新增 FeatureGate &lt;code&gt;auto_config&lt;/code&gt;，当开启该Feature以后动态更新的配置会保存到启动配置中 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;重构&#34;&gt;重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;重构 XProtocol Engine，并且重新实现了 SofaRPC 协议 &lt;a href=&#34;https://github.com/neverhook&#34;&gt;@neverhook&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;移除了 SofaRpc Healthcheck filter，改为 xprotocol 内建的 heartbeat 实现&lt;/li&gt;
+&lt;li&gt;移除了 SofaRpc 协议原本的协议转换 (protocol conv) 支持，新增了基于 stream filter 的的协议转换扩展实现能力&lt;/li&gt;
+&lt;li&gt;xprotocol 新增 idle free 和 keepalive&lt;/li&gt;
+&lt;li&gt;协议解析优化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;修改 HTTP2 协议的 Encode 方法参数 &lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;精简了 LDS 接口参数 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;修改了路由配置模型，废弃了&lt;code&gt;connection_manager&lt;/code&gt;&lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;优化 Upstream 动态解析域名机制 &lt;a href=&#34;https://github.com/wangfakang&#34;&gt;@wangfakang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化 TLS 封装，新增了错误日志，修改了兼容模式下的超时时间 &lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优化超时时间设置，使用变量机制设置超时时间 &lt;a href=&#34;https://github.com/neverhook&#34;&gt;@neverhook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dubbo 解析库依赖升级到 1.5.0 &lt;a href=&#34;https://github.com/cch123&#34;&gt;@cch123&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;引用路径迁移脚本新增 OS 自适应 &lt;a href=&#34;https://github.com/taomaree&#34;&gt;@taomaree&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复 HTTP2 协议转发时丢失 query string 的问题 &lt;a href=&#34;https://github.com/champly&#34;&gt;@champly&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN v0.10.0 发布</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/v0.10.0/</link>
+      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/v0.10.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;我们很高兴的宣布 &lt;a href=&#34;https://github.com/mosn/mosn/releases/tag/v0.10.0&#34;&gt;MOSN v0.10.0&lt;/a&gt; 发布。以下是该版本的变更日志。&lt;/p&gt;
+&lt;h3 id=&#34;新功能&#34;&gt;新功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;支持多进程插件模式（&lt;a href=&#34;https://github.com/mosn/mosn/pull/979&#34;&gt;#979&lt;/a&gt;，&lt;a href=&#34;https://github.com/taoyuanyuan&#34;&gt;@taoyuanyuan&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;启动参数支持 service-meta参数（&lt;a href=&#34;https://github.com/mosn/mosn/pull/952&#34;&gt;#952&lt;/a&gt;，&lt;a href=&#34;https://github.com/trainyao&#34;&gt;@trainyao&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;支持 abstract uds 模式挂载 sds socket&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;重构&#34;&gt;重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;分离部分 MOSN 基础库代码到 &lt;a href=&#34;https://github.com/mosn/pkg&#34;&gt;mosn.io/pkg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;分离部分 MOSN 接口定义到 &lt;a href=&#34;https://github.com/mosn/api&#34;&gt;mosn.io/api&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;优化&#34;&gt;优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;日志基础模块分离到 &lt;code&gt;mosn.io/pkg&lt;/code&gt;，MOSN 的日志实现优化&lt;/li&gt;
+&lt;li&gt;优化 FeatureGate（&lt;a href=&#34;https://github.com/mosn/mosn/pull/927&#34;&gt;#927&lt;/a&gt;，&lt;a href=&#34;https://github.com/nejisama&#34;&gt;@nejisama&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;新增处理获取 SDS 配置失败时的处理&lt;/li&gt;
+&lt;li&gt;CDS 动态删除 Cluster时，会同步停止对应 Cluster 的健康检查&lt;/li&gt;
+&lt;li&gt;SDS 触发证书更新时的回调函数新增证书配置作为参数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bug-修复&#34;&gt;Bug 修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;修复在 SOFARPC Oneway 请求失败时，导致的内存泄漏问题&lt;/li&gt;
+&lt;li&gt;修复在收到非标准的 HTTP 响应时，返回 502 错误的问题&lt;/li&gt;
+&lt;li&gt;修复 DUMP 配置时可能存在的并发冲突&lt;/li&gt;
+&lt;li&gt;修复 TraceLog 统计的 Request 和 Response Size 错误问题&lt;/li&gt;
+&lt;li&gt;修复因为并发写连接导致写超时失效的问题&lt;/li&gt;
+&lt;li&gt;修复 serialize 序列化的 bug&lt;/li&gt;
+&lt;li&gt;修复连接读取时内存复用保留 buffer 过大导致内存占用过高的问题&lt;/li&gt;
+&lt;li&gt;优化 XProtocol 中 Dubbo 相关实现&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN 0.1.0 性能报告</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/mosn-0.1.0-perfermence-report/</link>
+      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/mosn-0.1.0-perfermence-report/</guid>
+      <description>
+        
+        
+        &lt;p&gt;以下的的性能报告为 MOSN 0.1.0 在做 Bolt 与 HTTP1.x 协议的纯 TCP 转发上与 envoy 的一些性能对比数据，主要表现在 QPS、RTT、失败率/成功率等。&lt;/p&gt;
+&lt;p&gt;这里需要强调的是，为了提高 MOSN 的转发性能，在 0.1.0 版本中，我们做了如下的一些优化手段：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在线程模型优化上，使用 worker 协程池处理 stream 事件，使用两个独立的协程分别处理读写 IO&lt;/li&gt;
+&lt;li&gt;在单核转发优化上，在指定 &lt;code&gt;P=1&lt;/code&gt; 的情况下，我们通过使用 CPU 绑核的形式来提高系统调用的执行效率以及 cache 的 locality affinity&lt;/li&gt;
+&lt;li&gt;在内存优化上，同样是在单核绑核的情况下，我们通过使用 SLAB-style 的回收机制来提高复用，减少内存 copy&lt;/li&gt;
+&lt;li&gt;在 IO 优化上，主要是通过读写 buffer 大小以及读写时机和频率等参数的控制上进行调优&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下为具体的性能测试数据。&lt;/p&gt;
+&lt;h2 id=&#34;tcp-代理性能数据&#34;&gt;TCP 代理性能数据&lt;/h2&gt;
+&lt;p&gt;这里，针对相同的部署模式，我们分别针对上层协议为 &lt;code&gt;&amp;quot;Bolt(SofaRpc相关协议)&amp;quot;&lt;/code&gt; 与 &lt;code&gt;&amp;quot;HTTP1.1&amp;quot;&lt;/code&gt; 来进行对比。&lt;/p&gt;
+&lt;h3 id=&#34;部署模式&#34;&gt;部署模式&lt;/h3&gt;
+&lt;p&gt;压测采用纯代理模式部署，client 进程通过 MOSN 进程作为转发代理访问server进程。其中，client 进程，MOSN 进程，server 进程分别运行在属于不同网段的机器中。client 直连访问 server 网络延时为 2.5ms 左右。&lt;/p&gt;
+&lt;h2 id=&#34;客户端&#34;&gt;客户端&lt;/h2&gt;
+&lt;h3 id=&#34;bolt-协议发送-1k-字符串&#34;&gt;Bolt 协议（发送 1K 字符串）&lt;/h3&gt;
+&lt;p&gt;发送 Bolt 协议数据的客户端使用 &amp;ldquo;蚂蚁集团&amp;quot;内部开发的线上压力机，并部署 sofa rpc client。 通过压力机的性能页面，可反映压测过程中的QPS、成功/失败次数，以及RT等参数。&lt;/p&gt;
+&lt;h3 id=&#34;http11-协议发送-1k-字符串&#34;&gt;HTTP1.1 协议（发送 1K 字符串）&lt;/h3&gt;
+&lt;p&gt;使用 ApacheBench/2.3, 测试指令:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ab -n &lt;span style=&#34;color:#000&#34;&gt;$RPC&lt;/span&gt; -c &lt;span style=&#34;color:#000&#34;&gt;$CPC&lt;/span&gt; -p 1k.txt -T &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;text/plain&amp;#34;&lt;/span&gt; -k http://11.166.161.136:12200/tcp_bench &amp;gt; ab.log.&lt;span style=&#34;color:#000&#34;&gt;$CPU_IDX&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;service-mesh-运行机器规格&#34;&gt;Service mesh 运行机器规格&lt;/h2&gt;
+&lt;p&gt;Service mesh 运行在容器中，其中 CPU 为独占的一个逻辑核，具体规格如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类别&lt;/th&gt;
+&lt;th&gt;信息&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;OS&lt;/td&gt;
+&lt;td&gt;3.10.0-327.ali2008.alios7.x86_64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.60GHz X 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;upstream-运行机器规格&#34;&gt;Upstream 运行机器规格&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类别&lt;/th&gt;
+&lt;th&gt;信息&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;OS&lt;/td&gt;
+&lt;td&gt;2.6.32-431.17.1.el6.FASTSOCKET&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;Intel(R) Xeon(R) CPU E5620  @ 2.40GHz X 16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;bolt-协议测试结果&#34;&gt;Bolt 协议测试结果&lt;/h2&gt;
+&lt;h3 id=&#34;性能数据&#34;&gt;性能数据&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;指标&lt;/th&gt;
+&lt;th&gt;MOSN&lt;/th&gt;
+&lt;th&gt;Envoy&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;QPS&lt;/td&gt;
+&lt;td&gt;103500&lt;/td&gt;
+&lt;td&gt;104000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT&lt;/td&gt;
+&lt;td&gt;16.23ms&lt;/td&gt;
+&lt;td&gt;15.88ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MEM&lt;/td&gt;
+&lt;td&gt;31m&lt;/td&gt;
+&lt;td&gt;18m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;结论&#34;&gt;结论&lt;/h3&gt;
+&lt;p&gt;可以看到，在单核 TCP 转发场景下，MOSN 0.1.0 版本和 Envoy 1.7版本，在满负载情况下的 QPS、RTT、成功数/失败数等性能数据上相差不大，后续版本我们会继续优化。&lt;/p&gt;
+&lt;h2 id=&#34;http11-测试结果&#34;&gt;HTTP/1.1 测试结果&lt;/h2&gt;
+&lt;p&gt;由于 HTTP/1.1 的请求响应模型为 PING-PONG，因此 QPS 与并发数会呈现正相关。下面分别进行不同并发数的测试。&lt;/p&gt;
+&lt;h3 id=&#34;并发20&#34;&gt;并发20&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;指标&lt;/th&gt;
+&lt;th&gt;MOSN&lt;/th&gt;
+&lt;th&gt;Envoy&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;QPS&lt;/td&gt;
+&lt;td&gt;5600&lt;/td&gt;
+&lt;td&gt;5600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(mean)&lt;/td&gt;
+&lt;td&gt;3.549ms&lt;/td&gt;
+&lt;td&gt;3.545ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P99)&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P98)&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P95)&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MEM&lt;/td&gt;
+&lt;td&gt;24m&lt;/td&gt;
+&lt;td&gt;23m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;40%&lt;/td&gt;
+&lt;td&gt;20%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;并发40&#34;&gt;并发40&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;指标&lt;/th&gt;
+&lt;th&gt;MOSN&lt;/th&gt;
+&lt;th&gt;Envoy&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;QPS&lt;/td&gt;
+&lt;td&gt;11150&lt;/td&gt;
+&lt;td&gt;11200&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(mean)&lt;/td&gt;
+&lt;td&gt;3.583ms&lt;/td&gt;
+&lt;td&gt;3.565ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P99)&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P98)&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P95)&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;td&gt;4ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MEM&lt;/td&gt;
+&lt;td&gt;34m&lt;/td&gt;
+&lt;td&gt;24m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;70%&lt;/td&gt;
+&lt;td&gt;40%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;并发200&#34;&gt;并发200&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;指标&lt;/th&gt;
+&lt;th&gt;MOSN&lt;/th&gt;
+&lt;th&gt;Envoy&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;QPS&lt;/td&gt;
+&lt;td&gt;29670&lt;/td&gt;
+&lt;td&gt;38800&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(mean)&lt;/td&gt;
+&lt;td&gt;5.715ms&lt;/td&gt;
+&lt;td&gt;5.068ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P99)&lt;/td&gt;
+&lt;td&gt;16ms&lt;/td&gt;
+&lt;td&gt;7ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P98)&lt;/td&gt;
+&lt;td&gt;13ms&lt;/td&gt;
+&lt;td&gt;7ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P95)&lt;/td&gt;
+&lt;td&gt;11ms&lt;/td&gt;
+&lt;td&gt;6ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MEM&lt;/td&gt;
+&lt;td&gt;96m&lt;/td&gt;
+&lt;td&gt;24m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;td&gt;95%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;并发220&#34;&gt;并发220&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;指标&lt;/th&gt;
+&lt;th&gt;MOSN&lt;/th&gt;
+&lt;th&gt;Envoy&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;QPS&lt;/td&gt;
+&lt;td&gt;30367&lt;/td&gt;
+&lt;td&gt;41070&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(mean)&lt;/td&gt;
+&lt;td&gt;8.201ms&lt;/td&gt;
+&lt;td&gt;5.369ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P99)&lt;/td&gt;
+&lt;td&gt;20ms&lt;/td&gt;
+&lt;td&gt;9ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P98)&lt;/td&gt;
+&lt;td&gt;19ms&lt;/td&gt;
+&lt;td&gt;8ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RT(P95)&lt;/td&gt;
+&lt;td&gt;16ms&lt;/td&gt;
+&lt;td&gt;8ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MEM&lt;/td&gt;
+&lt;td&gt;100m&lt;/td&gt;
+&lt;td&gt;24m&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;结论-1&#34;&gt;结论&lt;/h3&gt;
+&lt;p&gt;可以看到，在上层协议为 HTTP/1.X 时，MOSN 的性能和 Envoy 的性能存在一定差距，对于这种现象我们的初步结论为：在 PING-PONG 的发包模型下，MOSN 无法进行 read/write 系统调用合并，相比 SOFARPC 可以合并的场景，syscall 数量大幅上升，因此导致相比 SOFARPC 的场景，HTTP 性能上相比 Envoy 会存在差距。针对这个问题，在 0.2.0 版本中，我们会进行相应的优化。&lt;/p&gt;
+&lt;h2 id=&#34;附录&#34;&gt;附录&lt;/h2&gt;
+&lt;h2 id=&#34;envoy-版本信息&#34;&gt;Envoy 版本信息&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;version：1.7&lt;/li&gt;
+&lt;li&gt;tag：1ef23d481a4701ad4a414d1ef98036bd2ed322e7&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;envoy-tcp-测试配置&#34;&gt;Envoy TCP 测试配置&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;static_resources&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;listeners&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;socket_address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0.0.0.0&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port_value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12200&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;filter_chains&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;filters&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;envoy.tcp_proxy&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;stat_prefix&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ingress_tcp&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;cluster&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;sofa_server&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clusters&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;sofa_server&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;connect_timeout&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;25s&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;static&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;lb_policy&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;round_robin&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;hosts&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;socket_address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10.210.168.5&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port_value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12222&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;socket_address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10.210.168.5&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port_value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12223&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;socket_address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10.210.168.5&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port_value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12224&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;socket_address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10.210.168.5&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port_value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12225&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;admin&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;access_log_path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/dev/null&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;socket_address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0.0.0.0&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port_value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8001&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: MOSN 0.2.1 性能报告</title>
+      <link>https://brpc.incubator.apache.org/blog/releases/mosn-0.2.1-performance-report/</link>
+      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/blog/releases/mosn-0.2.1-performance-report/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在 0.2.1 版本中，我们进行了如下一些优化手段：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;添加内存复用框架，涵盖 io/protocol/stream/proxy 层级，减少对象分配、内存使用和 GC 压力。&lt;/li&gt;
+&lt;li&gt;针对大量链接场景，新增 Raw Epoll 模式，该模式使用了事件回调机制 + IO 协程池，规避了海量协程带来的堆栈内存消耗以及调度开销。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;需要注意的是，由于目前 SOFARPC 和 H2 的压测工具还没有 pxx 指标的展示，我们在性能报告中选取的数据都为&lt;strong&gt;均值&lt;/strong&gt;。后续需要我们自行进行相关压测环境工具的建设来完善相关指标（P99，P95……）&lt;/p&gt;
+&lt;h2 id=&#34;总览&#34;&gt;总览&lt;/h2&gt;
+&lt;p&gt;本次性能报告在&lt;code&gt;0.1.0 性能报告&lt;/code&gt;的基础上，新增了若干场景的覆盖，总体包含以下几部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单核性能（sidecar场景）
+&lt;ul&gt;
+&lt;li&gt;7层代理
+&lt;ul&gt;
+&lt;li&gt;Bolt（串联）&lt;/li&gt;
+&lt;li&gt;Http/1.1（串联）&lt;/li&gt;
+&lt;li&gt;Http/2（串联）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;多核性能（gateway场景）
+&lt;ul&gt;
+&lt;li&gt;7层代理
+&lt;ul&gt;
+&lt;li&gt;Bolt（直连）&lt;/li&gt;
+&lt;li&gt;Http/1.1（直连）&lt;/li&gt;
+&lt;li&gt;Http/2（直连）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;长连接网关
+&lt;ul&gt;
+&lt;li&gt;Bolt（read/write loop with goroutine/raw epoll）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;单核性能sidecar-场景&#34;&gt;单核性能（sidecar 场景）&lt;/h2&gt;
+&lt;h3 id=&#34;测试环境&#34;&gt;测试环境&lt;/h3&gt;
+&lt;h4 id=&#34;机器信息&#34;&gt;机器信息&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;机器&lt;/th&gt;
+&lt;th&gt;OS&lt;/th&gt;
+&lt;th&gt;CPU&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;11.166.190.224&lt;/td&gt;
+&lt;td&gt;3.10.0-327.ali2010.rc7.alios7.x86_64&lt;/td&gt;
+&lt;td&gt;Intel（R） Xeon（R） CPU E5-2640 v3 @ 2.60GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11.166.136.110&lt;/td&gt;
+&lt;td&gt;3.10.0-327.ali2010.rc7.alios7.x86_64&lt;/td&gt;
+&lt;td&gt;Intel（R） Xeon（R） CPU E5-2430 0 @ 2.20GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bolt client&lt;/td&gt;
+&lt;td&gt;client 为压力平台，有 5 台压力机，共计与client MOSN 之间会建立 500 条链接&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;http1 client（10.210.168.5）&lt;/td&gt;
+&lt;td&gt;ApacheBench/2.3&lt;/td&gt;
+&lt;td&gt;-n 2000000 -c 500 -k&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;http2 client（10.210.168.5）&lt;/td&gt;
+&lt;td&gt;nghttp.h2load&lt;/td&gt;
+&lt;td&gt;-n1000000 -c5 -m100 -t4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;部署结构&#34;&gt;部署结构&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;压测模式&lt;/th&gt;
+&lt;th&gt;部署结构&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;串联&lt;/td&gt;
+&lt;td&gt;client &amp;ndash;&amp;gt; MOSN（11.166.190.224） &amp;ndash;&amp;gt; MOSN（11.166.136.110） &amp;ndash;&amp;gt; server（11.166.136.110）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;网络时延&#34;&gt;网络时延&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;节点&lt;/th&gt;
+&lt;th&gt;PING&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;client &amp;ndash;&amp;gt; MOSN（11.166.190.224）&lt;/td&gt;
+&lt;td&gt;1.356ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MOSN（11.166.190.224） &amp;ndash;&amp;gt; MOSN（11.166.136.110）&lt;/td&gt;
+&lt;td&gt;0.097 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;请求模式&#34;&gt;请求模式&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;请求内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1K req/resp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;7层代理&#34;&gt;7层代理&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;场景&lt;/th&gt;
+&lt;th&gt;QPS&lt;/th&gt;
+&lt;th&gt;RT(ms)&lt;/th&gt;
+&lt;th&gt;MEM(K)&lt;/th&gt;
+&lt;th&gt;CPU(%)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bolt&lt;/td&gt;
+&lt;td&gt;16000&lt;/td&gt;
+&lt;td&gt;15.8&lt;/td&gt;
+&lt;td&gt;77184&lt;/td&gt;
+&lt;td&gt;98&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Http/1.1&lt;/td&gt;
+&lt;td&gt;4610&lt;/td&gt;
+&lt;td&gt;67&lt;/td&gt;
+&lt;td&gt;47336&lt;/td&gt;
+&lt;td&gt;90&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Http/2&lt;/td&gt;
+&lt;td&gt;5219&lt;/td&gt;
+&lt;td&gt;81&lt;/td&gt;
+&lt;td&gt;31244&lt;/td&gt;
+&lt;td&gt;74&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;多核性能gateway-场景&#34;&gt;多核性能（gateway 场景）&lt;/h2&gt;
+&lt;h3 id=&#34;测试环境-1&#34;&gt;测试环境&lt;/h3&gt;
+&lt;h4 id=&#34;机器信息-1&#34;&gt;机器信息&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;机器&lt;/th&gt;
+&lt;th&gt;OS&lt;/th&gt;
+&lt;th&gt;CPU&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;11.166.190.224&lt;/td&gt;
+&lt;td&gt;3.10.0-327.ali2010.rc7.alios7.x86_64&lt;/td&gt;
+&lt;td&gt;Intel（R） Xeon（R） CPU E5-2640 v3 @ 2.60GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11.166.136.110&lt;/td&gt;
+&lt;td&gt;3.10.0-327.ali2010.rc7.alios7.x86_64&lt;/td&gt;
+&lt;td&gt;Intel（R） Xeon（R） CPU E5-2430 0 @ 2.20GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bolt client&lt;/td&gt;
+&lt;td&gt;client为压力平台，有5台压力机，共计与client MOSN之间会建立500条链接&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;http1 client（10.210.168.5）&lt;/td&gt;
+&lt;td&gt;ApacheBench/2.3&lt;/td&gt;
+&lt;td&gt;-n 2000000 -c 500 -k&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;http2 client（10.210.168.5）&lt;/td&gt;
+&lt;td&gt;nghttp.h2load&lt;/td&gt;
+&lt;td&gt;-n1000000 -c5 -m100 -t4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;部署结构-1&#34;&gt;部署结构&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;压测模式&lt;/th&gt;
+&lt;th&gt;部署结构&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;直连&lt;/td&gt;
+&lt;td&gt;client &amp;ndash;&amp;gt; MOSN（11.166.190.224） &amp;ndash;&amp;gt; server（11.166.136.110）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;网络时延-1&#34;&gt;网络时延&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;节点&lt;/th&gt;
+&lt;th&gt;PING&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;client &amp;ndash;&amp;gt; MOSN（11.166.190.224）&lt;/td&gt;
+&lt;td&gt;1.356ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MOSN（11.166.190.224） &amp;ndash;&amp;gt; MOSN（11.166.136.110）&lt;/td&gt;
+&lt;td&gt;0.097 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;请求模式-1&#34;&gt;请求模式&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;请求内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1K req/resp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;7层代理-1&#34;&gt;7层代理&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;场景&lt;/th&gt;
+&lt;th&gt;QPS&lt;/th&gt;
+&lt;th&gt;RT(ms)&lt;/th&gt;
+&lt;th&gt;MEM(K)&lt;/th&gt;
+&lt;th&gt;CPU(%)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bolt&lt;/td&gt;
+&lt;td&gt;45000&lt;/td&gt;
+&lt;td&gt;23.4&lt;/td&gt;
+&lt;td&gt;544732&lt;/td&gt;
+&lt;td&gt;380&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Http/1.1&lt;/td&gt;
+&lt;td&gt;21584&lt;/td&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;td&gt;42768&lt;/td&gt;
+&lt;td&gt;380&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Http/2&lt;/td&gt;
+&lt;td&gt;8180&lt;/td&gt;
+&lt;td&gt;51.7&lt;/td&gt;
+&lt;td&gt;173180&lt;/td&gt;
+&lt;td&gt;300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;长连接网关&#34;&gt;长连接网关&lt;/h2&gt;
+&lt;h3 id=&#34;测试环境-2&#34;&gt;测试环境&lt;/h3&gt;
+&lt;h4 id=&#34;机器信息-2&#34;&gt;机器信息&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;机器&lt;/th&gt;
+&lt;th&gt;OS&lt;/th&gt;
+&lt;th&gt;CPU&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;11.166.190.224&lt;/td&gt;
+&lt;td&gt;3.10.0-327.ali2010.rc7.alios7.x86_64&lt;/td&gt;
+&lt;td&gt;Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11.166.136.110&lt;/td&gt;
+&lt;td&gt;3.10.0-327.ali2010.rc7.alios7.x86_64&lt;/td&gt;
+&lt;td&gt;Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;部署结构-2&#34;&gt;部署结构&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;压测模式&lt;/th&gt;
+&lt;th&gt;部署结构&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;直连&lt;/td&gt;
+&lt;td&gt;client &amp;ndash;&amp;gt; MOSN（11.166.190.224） &amp;ndash;&amp;gt; server（11.166.136.110）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;网络时延-2&#34;&gt;网络时延&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;节点&lt;/th&gt;
+&lt;th&gt;PING&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;client &amp;ndash;&amp;gt; MOSN（11.166.190.224）&lt;/td&gt;
+&lt;td&gt;1.356ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MOSN（11.166.190.224） &amp;ndash;&amp;gt; MOSN（11.166.136.110）&lt;/td&gt;
+&lt;td&gt;0.097 ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;请求模式-2&#34;&gt;请求模式&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;链接数&lt;/th&gt;
+&lt;th&gt;请求内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2 台压力机，每台 5w 链接 + 500 QPS，共计10W链接 + 1000 QPS&lt;/td&gt;
+&lt;td&gt;1K req/resp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;长连接网关-1&#34;&gt;长连接网关&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;场景&lt;/th&gt;
+&lt;th&gt;QPS&lt;/th&gt;
+&lt;th&gt;MEM(g)&lt;/th&gt;
+&lt;th&gt;CPU(%)&lt;/th&gt;
+&lt;th&gt;goroutine&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;RWLoop + goroutine&lt;/td&gt;
+&lt;td&gt;1000&lt;/td&gt;
+&lt;td&gt;3.3&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;200028&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Raw epoll&lt;/td&gt;
+&lt;td&gt;1000&lt;/td&gt;
+&lt;td&gt;2.5&lt;/td&gt;
+&lt;td&gt;18&lt;/td&gt;
+&lt;td&gt;28&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;MOSN &lt;code&gt;0.2.1&lt;/code&gt;引入了&lt;code&gt;内存复用框架&lt;/code&gt;，相比&lt;code&gt;0.1.0&lt;/code&gt;，在 &lt;code&gt;bolt 协议转发&lt;/code&gt;场景性能表现得到了大幅优化。在提升了&lt;strong&gt;20&lt;/strong&gt;% 的 QPS 的同时，还优化了 &lt;strong&gt;30&lt;/strong&gt;% 的内存占用。&lt;/p&gt;
+&lt;p&gt;与此同时，我们对 HTTP/1.1 及 HTTP/2 的场景也进行了初步的性能测试，目前来看性能表现比较一般。这主要是由于目前 HTTP 协议族的 IO、Stream 都由三方库进行处理，与 MOSN 现有的处理框架整合度较差。我们会在后续迭代进行专项优化，提升 MOSN 处理 HTTP 协议族的表现。&lt;/p&gt;
+&lt;p&gt;此外，针对大量链接场景（例如长连接网关），我们引入了 Raw Epoll + 协程池的模式来应对协程暴增的问题，从而大幅优化了该场景下的 QPS 和内存表现。&lt;/p&gt;
+&lt;h2 id=&#34;附录&#34;&gt;附录&lt;/h2&gt;
+&lt;h3 id=&#34;版本对比&#34;&gt;版本对比&lt;/h3&gt;
+&lt;p&gt;对比条件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;页面大小 0~10k，平均5k&lt;/li&gt;
+&lt;li&gt;downstream 链接 1000&lt;/li&gt;
+&lt;li&gt;upstream链接 6&lt;/li&gt;
+&lt;li&gt;单核压测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;版本&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;QPS&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;内存&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0.1.0&lt;/td&gt;
+&lt;td&gt;10500&lt;/td&gt;
+&lt;td&gt;175M&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0.2.1&lt;/td&gt;
+&lt;td&gt;13000&lt;/td&gt;
+&lt;td&gt;122M&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

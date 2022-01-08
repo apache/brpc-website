@@ -1,0 +1,1075 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.86.0" />
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>MOSN 源码解析 - HTTP 系能力 | bRPC</title><meta property="og:title" content="MOSN 源码解析 - HTTP 系能力" />
+<meta property="og:description" content="本文分析的是 MOSN 的 HTTP 系能力。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brpc.incubator.apache.org/blog/code/mosn-http/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-03-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-27T17:53:02+08:00" /><meta property="og:site_name" content="bRPC" />
+
+<meta itemprop="name" content="MOSN 源码解析 - HTTP 系能力">
+<meta itemprop="description" content="本文分析的是 MOSN 的 HTTP 系能力。"><meta itemprop="datePublished" content="2020-03-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-27T17:53:02+08:00" />
+<meta itemprop="wordCount" content="1148">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MOSN 源码解析 - HTTP 系能力"/>
+<meta name="twitter:description" content="本文分析的是 MOSN 的 HTTP 系能力。"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-93485976-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<link rel="preload" href="/scss/main.min.6c022a2695e1b7248646a4d8e9854baa2e7b3dec122dbfd8d0a958f44f5392f8.css" as="style">
+<link href="/scss/main.min.6c022a2695e1b7248646a4d8e9854baa2e7b3dec122dbfd8d0a958f44f5392f8.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+    <title>MOSN 源码解析 - HTTP 系能力 | bRPC</title>
+  </head>
+  <body class="td-page td-blog">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg width="303" height="259" viewBox="0 0 303 259" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>brpc_logo.svg</title><defs><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-2"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-3"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-4"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient></defs><g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="椭圆形" fill="#58b8ff" cx="23.5" cy="62.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="279.5" cy="60.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="119" cy="26" r="26"/><rect id="矩形" fill="#58b8ff" transform="translate(78.021813, 41.967662) rotate(-22.000000) translate(-78.021813, -41.967662)" x="30.0218125" y="35.9676616" width="96" height="12"/><rect id="矩形" fill="#58b8ff" transform="translate(201.451088, 44.299021) rotate(13.000000) translate(-201.451088, -44.299021)" x="138.951088" y="38.2990214" width="125" height="12"/><g id="brpc-logo" transform="translate(11.000000, 104.000000)" fill-rule="nonzero"><g id="编组" transform="translate(138.000000, 77.419111) scale(-1, 1) rotate(-180.000000) translate(-138.000000, -77.419111) translate(0.000000, 0.000000)"><path d="M18.8 154.3C17.8 154.1 17 153.8 17 153.6 17 153.5 13.2 134.3 8.5 111 3.8 87.7-205355861e-22 68-205355861e-22 67.4-205355861e-22 65.9 2.6 65.3 5.7 65.8 7.3 66.1 8.1 67.2 8.6 69.6 9.3 73.5 10 73.8 11.7 71.1 15 65.9 28.8 63.2 36.4 66.4 48.9 71.6 57.7 89.6 56.8 108.1c-.5 10-2.5 14.5-7.8 17.1C44.5 127.5 36.6 127.5 31.4 125.1 27 123.1 20.8814242 116.827994 20 115.8 19.8268414 115.598047 19.5 115 19 115.2 18.3 115.4 18.3 116.5 19 118.7 19.6 120.4 21.6 129 23.4 137.8l3.3 16L24.6 154.4C22.3 155 21.4 155 18.8 154.3zm24.6146505-36.885789c1.7578246-1.326292 2.0864078-1.825452 2.4530432-2.642066S46.8138702 112.705545 47.1008328 111.513935C48.333925 109.104457 47.0101697 95.2413285 45.0724535 89.7736686 41.197021 79.2090375 34.9434822 73 28.2495534 73c-4.5800565.0-7.4866309 1.5754274-11.5382193 6.1163653-1.6734822 1.8534441-1.598743 2.8514069-2.0391331 4.4738936C14.2318109 85.2127457 15.3810952 94.5991493 17.4068894 98.6767262 18.5085881 100.995054 18.5085881 100.995054 20.3179492 104.427606 20.9381193 105.604136 23.3268821 108.69306 24.5063492 109.790864c1.2349847 1.149478 2.6574201 2.834639 3.7432042 3.921533 1.1506404 1.15181600000001 4.2465085 3.084017 5.3028342 3.701814 1.4321645.837608000000003 2.774919 1.362015 4.0282636 1.573221C40.1349135 119.080104 41.2462694 118.670624 43.4146505 117.414211z" id="形状" fill="url(#linearGradient-1)"/><path d="M248.7 148.9C241 147.8 232.2 143 226.1 136.5c-14.2-15-20-43.1-12.1-58.6C216.6 72.9 223.2 67.5 228.5 66 235.2 64.1 249.3 65.1 255.7 67.9 258.6 69.2 261.4 70.8 262.1 71.6 263.7 73.5 265 79.9 263.9 80.6 263.4 80.9 260 79.6 256.3 77.8 243 71.3 230.4 73.3 225.1 82.9 218.5 94.9 223.7 119.3 235.5 131.5 245.8 142 257.4 142.9 271.3 134.2 273.7 132.7 274.2 132.7 275 134 275.5 134.8 276 137.2 276 139.2 276 142.2 275.5 143.2 272.8 144.8 266.2 148.7 257.7 150.2 248.7 148.9z" id="路径" fill="#fff"/><path d="M87.4 148.1C86.2 147.6 84.9 146.7 84.6 146.1 83.6 144.5 68.1 66.6 68.7 65.8c.599999999999994-1 7.5-1 9 0C78.4 66.3 80.6 74.4 82.5 83.9s3.7 17.6 4 18.2C87.5 103.6 96.3 103.1 99.9 101.2 105.7 98.3 107.2 95.2 110 79.7l2.5-14.2L117.3 65.2C123.5 64.8 123.7 65.7 121.6 78.4c-2.5 14.4-4.5 21.2-7.3 24.2C113 104 112 105.3 112.2 105.5 112.4 105.6 114.3 106.7 116.5 107.8 124.5 111.9 129.8 119.6 130.7 128.5 131.7 138 127.9 143.9 119 146.9 114.5 148.4 90.2 149.3 87.4 148.1zm24.9-9.5C117.8 136.3 119.3 133.8 118.8 127.7 117.9 117 111.3 112.1 96.6 111.2L87.7 110.7 88.3 113.1C88.6 114.4 89.8 120.5 91 126.5 92.1 132.6 93.3 138.1 93.5 138.8 94.1 140.5 108.1 140.4 112.3 138.6z" id="形状" fill="#fff"/><path d="M159.5 148.4C158.4 148.1 157.2 147.5 156.7 147.1c-1-1-16.8-80.2-16.1-81.2C141.2 64.8 148 64.7 149.7 65.8 150.3 66.2 152.2 73.3 153.8 81.5L156.7 96.5 167.8 97.1c17.1 1 25.5 5.7 31.2 17.2C206.2 129.1 202.4 143.6 190.5 146.9 186.1 148.1 162.6 149.2 159.5 148.4zm27.2-11C195 131.2 191.3 114.2 180.5 108.6 177.6 107.1 174.2 106.4 167.8 106.2 162.9 106 159 106.2 159 106.7 159 107.1 160.4 114.9 162.1 123.9L165.3 140.2 174.6 139.8C182.1 139.5 184.5 139 186.7 137.4z" id="形状" fill="#fff"/><path d="M52.3 50.7C49 41.2 49.5 37.5 52.9 46.5c1.2 3.1 1.9876864 5.9098389 2.1 6.3S55.4 54.1 55.9 54.9C56.6 56 58.2 55.2 63.5 50.9 67.2 47.9 70.4 45.6 70.6 45.8 71.7 46.5 70.9 47.4 64.1 53.2 60 56.6 58.2983882 57.6981689 57.4 58.2 56.5016118 58.7018311 56.5016118 58.7018311 55.8 58.2 55 57.49737 54 55.4 52.3 50.7z" id="形状" fill="#7e7e7e"/><path d="M84 34.1C84 30.6 82.8 29 80.4 29 78.9 29 78 28.4 78 27.5 78 26.7 78.9 26 80 26 82.4 26 82.4 25.5 80.5 17 79.7 13.4 79.1 8.4 79 5.8 79 1.6 79.3 1 81.4.4 85.1-.5 89.5.3 89.8 2 90 3.1 89.2 3.5 86.8 3.5 83.9 3.5 83.5 3.8 83.3 6.5 83.1 8.2 83.8 13.1 84.8 17.5c1.7 7.9 1.7 8 5.2 8.6L93.5 26.7C94.2848943 26.7875501 94.751561 26.9875501 94.9 27.3 95 28.6 94.2 29 91.1 29h-4L87.7 32.5C88.2 35.6 88 36 86.1 36 84.7 36 84 35.4 84 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M105 34.1C105 30.6 103.8 29 101.4 29 99.9 29 99 28.4 99 27.5 99 26.7 99.9 26 101 26 103.4 26 103.4 25.5 101.5 17 100.7 13.4 100.1 8.4 1e2 5.8 1e2 1.6 100.3 1 102.4.4 106.1-.5 110.5.3 110.8 2 111 3.1 110.2 3.5 107.8 3.5 104.9 3.5 104.5 3.8 104.3 6.5 104.1 8.2 104.8 13.1 105.8 17.5c1.7 7.9 1.7 8 5.2 8.6L114.5 26.7C115.433333 26.8462934 115.9 27.0462934 115.9 27.3 116 28.6 115.2 29 112.1 29h-4L108.7 32.5C109.2 35.6 109 36 107.1 36 105.7 36 105 35.4 105 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M54.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C46.5 1.9 48.6.0 57.2.0 63.6.0 67 1.2 67 3.6 67 4.7 66.6 4.8 65.1 4c-2.7-1.4-10.4-1.3-12.4.3C51.8 4.9 51 6.6 50.9 8 50.4 13.5 50.6 13.7 57.8 14.2 66 14.9 69.5 16.4 71 20 72.3 23.2 71.2 26.3 68 28s-10.2 1.1-13.7-1.1zM67 22.7C67 19 63.6 17 57.3 17 54.4 17 52 17.3 52 17.8c0 1.1 3.1 5.4 5 7C57.9 25.5 60.2 25.9 62.8 25.7 65.1 25.4 67 26.1 67 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M126.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C118.5 1.9 120.6.0 129.2.0 135.6.0 139 1.2 139 3.6 139 4.7 138.6 4.8 137.1 4 134.4 2.6 126.7 2.7 124.7 4.3 123.8 4.9 123 6.6 122.9 8 122.4 13.5 122.6 13.7 129.8 14.2 138 14.9 141.5 16.4 143 20 144.3 23.2 143.2 26.3 140 28s-10.2 1.1-13.7-1.1zM139 22.7C139 19 135.6 17 129.3 17 126.4 17 124 17.3 124 17.8 124 18.9 127.1 23.2 129 24.8 129.9 25.5 132.2 25.9 134.8 25.7 137.1 25.4 139 26.1 139 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M153.7 26.8C151.7 18.4 149.2978 2.90464869 149.2978 2.1 149.2978 1.77371339 148.894918.241544332 150.3.1 151.705082-.0415443324 153 .4 153 2.1 153 3.2 153.7 7.2 154.6 11 156.5 19.3 161 25.2 165.5 25.4 167.5 25.5 168.6 26.1 168.8 27.3 169.1 28.6 168.4 29 165.8 29 163.2 29 161.6 28.2 159.4 25.8L156.5 22.5C155.5 19.6333333 155.133333 18.4333333 155.4 18.9 155.9 19.7 156.5 22.2 156.7 24.6 156.9 27.9 156.7 29 155.6 29 154.8 29 154 28 153.7 26.8z" id="形状" fill="url(#linearGradient-4)"/></g></g></g></svg></span>
+        
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/apache/incubator-brpc/" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>文档</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/blog/" ><span class="active">博客</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/faq/" ><span>FAQ</span></a>
+			</li>
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	中文
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/en/">English</a>
+	
+</div>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    <div class="nav-item dropdown d-block d-lg-none">
+      
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	中文
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/en/">English</a>
+	
+</div>
+    </div>
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">博客</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="blog">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">发布</a>
+  </li>
+  <ul>
+    <li class="collapse " id="blogreleases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0230" href="/blog/releases/v0.23.0/">MOSN v0.23.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0220" href="/blog/releases/v0.22.0/">MOSN v0.22.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0210" href="/blog/releases/v0.21.0/">MOSN v0.21.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0200" href="/blog/releases/v0.20.0/">MOSN v0.20.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0190" href="/blog/releases/v0.19.0/">MOSN v0.19.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0180" href="/blog/releases/v0.18.0/">MOSN v0.18.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0170" href="/blog/releases/v0.17.0/">MOSN v0.17.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0160" href="/blog/releases/v0.16.0/">MOSN v0.16.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0150" href="/blog/releases/v0.15.0/">MOSN v0.15.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0140" href="/blog/releases/v0.14.0/">MOSN v0.14.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0130" href="/blog/releases/v0.13.0/">MOSN v0.13.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0120" href="/blog/releases/v0.12.0/">MOSN v0.12.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0110" href="/blog/releases/v0.11.0/">MOSN v0.11.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesv0100" href="/blog/releases/v0.10.0/">MOSN v0.10.0 发布</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesmosn-010-perfermence-report" href="/blog/releases/mosn-0.1.0-perfermence-report/">MOSN 0.1.0 性能报告</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogreleasesmosn-021-performance-report" href="/blog/releases/mosn-0.2.1-performance-report/">MOSN 0.2.1 性能报告</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/news/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">新闻</a>
+  </li>
+  <ul>
+    <li class="collapse " id="blognews">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blognewsmosn-channel-1" href="/blog/news/mosn-channel-1/">直播预告：MOSN 的多协议机制解析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blognewsannouncing-mosn-communtiy" href="/blog/news/announcing-mosn-communtiy/">MOSN 社区成立</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/posts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">分享</a>
+  </li>
+  <ul>
+    <li class="collapse " id="blogposts">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-wasm-framework" href="/blog/posts/mosn-wasm-framework/">WebAssembly 在 MOSN 中的实践 - 基础框架篇</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-dubbo-integrate" href="/blog/posts/mosn-dubbo-integrate/">在 MOSN 中玩转 dubbo-go</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-dubbo-go-hessian2" href="/blog/posts/mosn-dubbo-go-hessian2/">记一次在 MOSN 对 Dubbo、dubbo-go-hessian2 的性能优化</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsskywalking-support" href="/blog/posts/skywalking-support/">MOSN 支持使用 SkyWalking 进行分布式追踪</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-extensions" href="/blog/posts/mosn-extensions/">MOSN 的扩展机制解析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmulti-protocol-deep-dive" href="/blog/posts/multi-protocol-deep-dive/">MOSN 多协议机制解析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsudpa-follow-up" href="/blog/posts/udpa-follow-up/">UDPA 最新进展深度介绍</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsmosn-source-code-brief" href="/blog/posts/mosn-source-code-brief/">MOSN 源码浅析</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogpostsnginx-envoy-mosn-hot-upgrade" href="/blog/posts/nginx-envoy-mosn-hot-upgrade/">Nginx vs Envoy vs MOSN 平滑升级原理解析</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/blog/code/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">源码解析</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="blogcode">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-overview" href="/blog/code/mosn-overview/">MOSN 源码解析 - 总览</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-tls" href="/blog/code/mosn-tls/">MOSN 源码解析 - TLS</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-router" href="/blog/code/mosn-router/">MOSN 源码解析 - 路由</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-connection-pool" href="/blog/code/mosn-connection-pool/">MOSN 源码分析 - 连接池</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-blogcodemosn-http" href="/blog/code/mosn-http/">MOSN 源码解析 - HTTP 系能力</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-log" href="/blog/code/mosn-log/">MOSN 源码解析 - log 系统</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-startup" href="/blog/code/mosn-startup/">MOSN 源码解析 - 启动流程</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-eventloop" href="/blog/code/mosn-eventloop/">MOSN 源码解析 - 协程模型</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-shm" href="/blog/code/mosn-shm/">MOSN 源码解析 - 共享内存模型</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-variable" href="/blog/code/mosn-variable/">MOSN 源码解析 - 变量机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-buffer" href="/blog/code/mosn-buffer/">MOSN 源码解析 - 内存复用机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-plugin" href="/blog/code/mosn-plugin/">MOSN 源码解析 - plugin 机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-xds" href="/blog/code/mosn-xds/">MOSN 源码解析 - xDS</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-filters" href="/blog/code/mosn-filters/">MOSN 源码解析 - filter扩展机制</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-blogcodemosn-reconfig-mechanism" href="/blog/code/mosn-reconfig-mechanism/">MOSN 源码解析 - reconfig 机制</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/blog/code/mosn-http/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=MOSN%20%e6%ba%90%e7%a0%81%e8%a7%a3%e6%9e%90%20-%20HTTP%20%e7%b3%bb%e8%83%bd%e5%8a%9b" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+
+
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+
+</div>
+
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#mosn-http-报文组成">MOSN HTTP 报文组成</a></li>
+    <li><a href="#mosn-http-处理流程">MOSN HTTP 处理流程</a>
+      <ul>
+        <li><a href="#流程注册">流程注册</a></li>
+        <li><a href="#捕获请求">捕获请求</a></li>
+        <li><a href="#转发请求">转发请求</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他">其他</a>
+      <ul>
+        <li><a href="#连接复用">连接复用</a></li>
+        <li><a href="#内存复用">内存复用</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5 pr-md-4" role="main">
+            <a class="btn btn-lg -bg-orange td-rss-button d-none d-lg-block" href="https://brpc.incubator.apache.org/blog/code/index.xml" target="_blank">
+              RSS <i class="fa fa-rss ml-2 "></i>
+            </a>
+            
+<div class="td-content">
+	<h1>MOSN 源码解析 - HTTP 系能力</h1>
+	<div class="lead">本文分析的是 MOSN 的 HTTP 系能力。</div>
+	<div class="td-byline mb-4">
+		作者 <b>陈爱祥（嘀嘀打车）</b> |
+		<time datetime="2020-03-07" class="text-muted">2020年3月7日</time>
+	</div>
+	<p>本文的目的是分析 MOSN 源码中的 HTTP 系能力，内容基于 MOSN 0.9.0</p>
+<h2 id="概述">概述</h2>
+<p>HTTP 是互联网界最常用的一种协议之一，MOSN 也提供了对其强大的支持。</p>
+<h2 id="mosn-http-报文组成">MOSN HTTP 报文组成</h2>
+<p><img src="message.jpg" alt=""></p>
+<p>上图是<a href="https://book.douban.com/subject/25863515/">图解 HTTP</a> 中关于 HTTP 报文报文的介绍。MOSN 对于 HTTP 报文的处理并没有使用go 官网 <code>net/http</code>中的结构也没有独立设计一套相关结构 而是复用了业界开源的<a href="https://github.com/valyala/fasthttp">fasthttp</a> 的结构。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">stream</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">str</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">BaseStream</span>
+
+	<span style="color:#000">id</span>               <span style="color:#204a87;font-weight:bold">uint64</span>
+	<span style="color:#000">readDisableCount</span> <span style="color:#204a87;font-weight:bold">int32</span>
+	<span style="color:#000">ctx</span>              <span style="color:#000">context</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Context</span>
+    <span style="color:#8f5902;font-style:italic">// 请求报文
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">request</span>  <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">fasthttp</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Request</span>
+    <span style="color:#8f5902;font-style:italic">// 响应报文
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">fasthttp</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Response</span>
+
+	<span style="color:#000">receiver</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StreamReceiveListener</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h2 id="mosn-http-处理流程">MOSN HTTP 处理流程</h2>
+<p><img src="flow.png" alt="流程图"></p>
+<p>上图是HTTP请求在MOSN中的流动过程，下面将具体讲解。</p>
+<h3 id="流程注册">流程注册</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">str</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Register</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">protocol</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">HTTP1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">streamConnFactory</span><span style="color:#000;font-weight:bold">{})</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>在 <code>pkg/stream/http</code> 包加载过程中将包含 HTTP 对于MOSN上下游连接的处理逻辑的结构体值注册到统一的stream处理工厂。</p>
+<h3 id="捕获请求">捕获请求</h3>
+<p><img src="flow1.png" alt="捕获请求"></p>
+<p>由上图可知，MOSN捕捉到一个请求之后会开启一个goroutine读取连接中的数据，也就是
+<code>serverStreamConnection.serve</code> 函数。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">conn</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">serverStreamConnection</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">serve</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#8f5902;font-style:italic">// 1. pre alloc stream-level ctx with bufferCtx
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">ctx</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">contextManager</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Get</span><span style="color:#000;font-weight:bold">()</span>
+		<span style="color:#8f5902;font-style:italic">// 通过sync.Pool 实现实现内存复用
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">buffers</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">httpBuffersByContext</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">)</span>
+		<span style="color:#000">request</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">buffers</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">serverRequest</span>
+
+		<span style="color:#8f5902;font-style:italic">// 2. blocking read using fasthttp.Request.Read
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ReadLimitBody</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">br</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">defaultMaxRequestBodySize</span><span style="color:#000;font-weight:bold">)</span>
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#8f5902;font-style:italic">// 3. &#39;Expect: 100-continue&#39; request handling.
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#8f5902;font-style:italic">// See http://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html for details.
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MayContinue</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#8f5902;font-style:italic">// Send &#39;HTTP/1.1 100 Continue&#39; response.
+</span><span style="color:#8f5902;font-style:italic"></span>				<span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buffer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">NewIoBufferBytes</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">strResponseContinue</span><span style="color:#000;font-weight:bold">))</span>
+
+				<span style="color:#8f5902;font-style:italic">// read request body
+</span><span style="color:#8f5902;font-style:italic"></span>				<span style="color:#000">err</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ContinueReadBody</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">br</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">defaultMaxRequestBodySize</span><span style="color:#000;font-weight:bold">)</span>
+
+				<span style="color:#8f5902;font-style:italic">// remove &#39;Expect&#39; header, so it would not be sent to the upstream
+</span><span style="color:#8f5902;font-style:italic"></span>				<span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Header</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Del</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Expect&#34;</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#8f5902;font-style:italic">// 读取错误的处理
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#8f5902;font-style:italic">// &#34;read timeout with nothing read&#34; is the error of returned by fasthttp v1.2.0
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#8f5902;font-style:italic">// if connection closed with nothing read.
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">errConnClose</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">io</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">EOF</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">err</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Error</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#4e9a06">&#34;read timeout with nothing read&#34;</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#8f5902;font-style:italic">// write error response
+</span><span style="color:#8f5902;font-style:italic"></span>				<span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buffer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">NewIoBufferBytes</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">strErrorResponse</span><span style="color:#000;font-weight:bold">))</span>
+
+				<span style="color:#8f5902;font-style:italic">// close connection with flush
+</span><span style="color:#8f5902;font-style:italic"></span>				<span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Close</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">api</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">FlushWrite</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">api</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">LocalClose</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#204a87;font-weight:bold">return</span>
+		<span style="color:#000;font-weight:bold">}</span>
+
+		<span style="color:#8f5902;font-style:italic">// 数据读取结束
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">id</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">protocol</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GenerateID</span><span style="color:#000;font-weight:bold">()</span>
+		<span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">buffers</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">serverStream</span>
+
+		<span style="color:#8f5902;font-style:italic">// 4. request processing
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stream</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">stream</span><span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#000">id</span><span style="color:#000;font-weight:bold">:</span>       <span style="color:#000">id</span><span style="color:#000;font-weight:bold">,</span>
+			<span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">:</span>      <span style="color:#000">mosnctx</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WithValue</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ContextKeyStreamID</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">),</span>
+			<span style="color:#000">request</span><span style="color:#000;font-weight:bold">:</span>  <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
+			<span style="color:#000">response</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">buffers</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">serverResponse</span><span style="color:#000;font-weight:bold">,</span>
+		<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">connection</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">conn</span>
+		<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">responseDoneChan</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87">make</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">chan</span> <span style="color:#204a87;font-weight:bold">bool</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+		<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">header</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">mosnhttp</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RequestHeader</span><span style="color:#000;font-weight:bold">{</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Header</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">}</span>
+
+		<span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">span</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Span</span>
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">trace</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">IsEnabled</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#000">tracer</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">trace</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Tracer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">protocol</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">HTTP1</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">tracer</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">span</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">tracer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">header</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Now</span><span style="color:#000;font-weight:bold">())</span>
+			<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#000;font-weight:bold">}</span>
+		<span style="color:#8f5902;font-style:italic">// 上下文 中注入链式追踪信息
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stream</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ctx</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">connection</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">contextManager</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">InjectTrace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">span</span><span style="color:#000;font-weight:bold">)</span>
+
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stream</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[stream] [http] new stream detect, requestId = %v&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stream</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+		<span style="color:#000;font-weight:bold">}</span>
+
+		<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">receiver</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">serverStreamConnListener</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">NewStreamDetect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stream</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">span</span><span style="color:#000;font-weight:bold">)</span>
+
+		<span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mutex</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Lock</span><span style="color:#000;font-weight:bold">()</span>
+		<span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stream</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">s</span>
+		<span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">mutex</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Unlock</span><span style="color:#000;font-weight:bold">()</span>
+
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">atomic</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">LoadInt32</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">readDisableCount</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">handleRequest</span><span style="color:#000;font-weight:bold">()</span>
+		<span style="color:#000;font-weight:bold">}</span>
+
+		<span style="color:#8f5902;font-style:italic">// 5. wait for proxy done
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">select</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#ce5c00;font-weight:bold">&lt;-</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">responseDoneChan</span><span style="color:#000;font-weight:bold">:</span>
+		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#ce5c00;font-weight:bold">&lt;-</span><span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">connClosed</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">return</span>
+		<span style="color:#000;font-weight:bold">}</span>
+
+		<span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">contextManager</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Next</span><span style="color:#000;font-weight:bold">()</span>
+	<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>由以上代码可以得知，因为不能判断连接是长连接还是短连接，所以MOSN调用方不主动关闭连接，MOSN也不会主动关闭，除非出现错误。</p>
+<h3 id="转发请求">转发请求</h3>
+<p><img src="flow2.png" alt="转发请求"></p>
+<p>由上图可知，MOSN在捕获请求之后，开启一个goroutine 创建对upstream的连接，并且通过这个连接和upstream进行数据交互，与此同时开启另外一个goroutine对这个连接进行监控用来处理连接返回数据。其主要处理逻辑在downStream.receive中。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">End</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">InitPhase</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;yu&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqTrailers</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">End</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">InitPhase</span><span style="color:#000;font-weight:bold">),</span><span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WaitNofity</span><span style="color:#000;font-weight:bold">)</span>
+		<span style="color:#204a87;font-weight:bold">switch</span> <span style="color:#000">phase</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#8f5902;font-style:italic">// init phase
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">InitPhase</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// downstream filter before route
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DownFilter</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">runReceiveFilters</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqHeaders</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqDataBuf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqTrailers</span><span style="color:#000;font-weight:bold">)</span>
+
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// match route
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MatchRoute</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">matchRoute</span><span style="color:#000;font-weight:bold">()</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// downstream filter after route
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DownFilterAfterRoute</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">runReceiveFilters</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqHeaders</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqDataBuf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqTrailers</span><span style="color:#000;font-weight:bold">)</span>
+
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// downstream receive header
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DownRecvHeader</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqHeaders</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+				<span style="color:#000;font-weight:bold">}</span>
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">receiveHeaders</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqDataBuf</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqTrailers</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">)</span>
+
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+				<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// downstream receive data
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DownRecvData</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqDataBuf</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+				<span style="color:#000;font-weight:bold">}</span>
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqDataBuf</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Count</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">receiveData</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqTrailers</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">)</span>
+
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+				<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// downstream receive trailer
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DownRecvTrailer</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqTrailers</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+				<span style="color:#000;font-weight:bold">}</span>
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">receiveTrailers</span><span style="color:#000;font-weight:bold">()</span>
+
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+				<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// downstream oneway
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Oneway</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">oneway</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+				<span style="color:#000;font-weight:bold">}</span>
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">cleanStream</span><span style="color:#000;font-weight:bold">()</span>
+
+				<span style="color:#8f5902;font-style:italic">// downstreamCleaned has set, return types.End
+</span><span style="color:#8f5902;font-style:italic"></span>				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+				<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000;font-weight:bold">}</span>
+
+			<span style="color:#8f5902;font-style:italic">// no oneway, skip types.Retry
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#000">phase</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WaitNofity</span>
+
+			<span style="color:#8f5902;font-style:italic">// retry request
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Retry</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqDataBuf</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamReqDataBuf</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Count</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">doRetry</span><span style="color:#000;font-weight:bold">()</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// wait for upstreamRequest or reset
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WaitNofity</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">waitNotify</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+			<span style="color:#000;font-weight:bold">}</span>
+
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] OnReceive send downstream response %+v&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespHeaders</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// upstream filter
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">UpFilter</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">runAppendFilters</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespHeaders</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespDataBuf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespTrailers</span><span style="color:#000;font-weight:bold">)</span>
+
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+			<span style="color:#000;font-weight:bold">}</span>
+
+			<span style="color:#8f5902;font-style:italic">// maybe direct response
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">upstreamRequest</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">fakeUpstreamRequest</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">upstreamRequest</span><span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#000">downStream</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">,</span>
+				<span style="color:#000;font-weight:bold">}</span>
+
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">upstreamRequest</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">fakeUpstreamRequest</span>
+			<span style="color:#000;font-weight:bold">}</span>
+
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// upstream receive header
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">UpRecvHeader</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#8f5902;font-style:italic">// send downstream response
+</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespHeaders</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+				<span style="color:#000;font-weight:bold">}</span>
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">upstreamRequest</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">receiveHeaders</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespDataBuf</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespTrailers</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">)</span>
+
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+				<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// upstream receive data
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">UpRecvData</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespDataBuf</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+				<span style="color:#000;font-weight:bold">}</span>
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">upstreamRequest</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">receiveData</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespTrailers</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">)</span>
+
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+				<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// upstream receive triler
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">UpRecvTrailer</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">downstreamRespTrailers</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetLogLevel</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DEBUG</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Debugf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] enter phase %d, proxyId = %d  &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span>
+				<span style="color:#000;font-weight:bold">}</span>
+				<span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">upstreamRequest</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">receiveTrailers</span><span style="color:#000;font-weight:bold">()</span>
+
+				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">processError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+					<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span>
+				<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#000">phase</span><span style="color:#ce5c00;font-weight:bold">++</span>
+
+			<span style="color:#8f5902;font-style:italic">// process end
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">End</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">End</span>
+
+		<span style="color:#204a87;font-weight:bold">default</span><span style="color:#000;font-weight:bold">:</span>
+			<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Errorf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] unexpected phase: %d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">phase</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">End</span>
+		<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000;font-weight:bold">}</span>
+
+	<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Proxy</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Errorf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;[proxy] [downstream] unexpected phase cycle time&#34;</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">End</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+</code></pre></div><p>这个函数是处理转发逻辑的核心函数规定在处理的各个阶段需要做的事情。比如在<code>case types.UpRecvHeader</code>的时候进行连接创建以及对下游数据的初步读取。</p>
+<h2 id="其他">其他</h2>
+<h3 id="连接复用">连接复用</h3>
+<p>在MOSN处理 HTTP 请求的过程中我们可以很明显的看到，针对可能频繁使用的连接，MOSN实现了一套复用机制。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">connPool</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">MaxConn</span> <span style="color:#204a87;font-weight:bold">int</span>
+
+	<span style="color:#000">host</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Host</span>
+
+	<span style="color:#000">statReport</span> <span style="color:#204a87;font-weight:bold">bool</span>
+
+	<span style="color:#000">clientMux</span>        <span style="color:#000">sync</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Mutex</span>
+	<span style="color:#000">availableClients</span> <span style="color:#000;font-weight:bold">[]</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">activeClient</span> <span style="color:#8f5902;font-style:italic">// available clients
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">totalClientCount</span> <span style="color:#204a87;font-weight:bold">uint64</span>          <span style="color:#8f5902;font-style:italic">// total clients
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">connPool</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">getAvailableClient</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ctx</span> <span style="color:#000">context</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Context</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">activeClient</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">PoolFailureReason</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">clientMux</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Lock</span><span style="color:#000;font-weight:bold">()</span>
+	<span style="color:#204a87;font-weight:bold">defer</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">clientMux</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Unlock</span><span style="color:#000;font-weight:bold">()</span>
+
+	<span style="color:#000">n</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">availableClients</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#8f5902;font-style:italic">// no available client
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">n</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#8f5902;font-style:italic">// max conns is 0 means no limit
+</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">maxConns</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">host</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ClusterInfo</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">ResourceManager</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">Connections</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">Max</span><span style="color:#000;font-weight:bold">()</span>
+		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">maxConns</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#ce5c00;font-weight:bold">||</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">totalClientCount</span> <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#000">maxConns</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#000">ac</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">reason</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">newActiveClient</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">ac</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">reason</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#34;&#34;</span> <span style="color:#000;font-weight:bold">{</span>
+				<span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">totalClientCount</span><span style="color:#ce5c00;font-weight:bold">++</span>
+			<span style="color:#000;font-weight:bold">}</span>
+			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">ac</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">reason</span>
+		<span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">host</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">HostStats</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">UpstreamRequestPendingOverflow</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Inc</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">host</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ClusterInfo</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">Stats</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">UpstreamRequestPendingOverflow</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Inc</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">types</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Overflow</span>
+		<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#000">n</span><span style="color:#ce5c00;font-weight:bold">--</span>
+		<span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">availableClients</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">n</span><span style="color:#000;font-weight:bold">]</span>
+		<span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">availableClients</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">n</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">nil</span>
+		<span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">availableClients</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">availableClients</span><span style="color:#000;font-weight:bold">[:</span><span style="color:#000">n</span><span style="color:#000;font-weight:bold">]</span>
+		<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">c</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;&#34;</span>
+	<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>由上述代码可知，MOSN 维护了一个有效长连接的栈，当栈中还有有效连接则从栈顶取出有效的长连接，如果不存在则新建一个tcp长连接。MOSN通过这种方式维护了连接池来实现高效的连接复用。</p>
+<h3 id="内存复用">内存复用</h3>
+<p>HTTP 的处理过程中会频繁的申请空间来解析 HTTP 报文，为了减少频繁的内存申请，常规的做法是内存复用，MOSN也不例外，其基于sync.pool 设计了内存复用模块。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">httpBuffersByContext</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">context</span> <span style="color:#000">context</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Context</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">httpBuffers</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">ctx</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">buffer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">PoolContext</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Find</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ins</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">).(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">httpBuffers</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h2 id="总结">总结</h2>
+<p>本文简单的分析了MOSN中对于HTTP请求的处理过程，其中优化方式主要如下：</p>
+<ol>
+<li>tcp 黏包：使用fasthttp 的request和response来解析报文。</li>
+<li>实现连接复用：连接池。</li>
+<li>实现内存复用：sync.pool。</li>
+</ol>
+
+	
+
+	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
+  <li>
+    <a href="/blog/code/mosn-log/" class="btn btn-primary "><span class="mr-1">←</span> 上一页</a>
+  </li>
+    <a href="/blog/code/mosn-connection-pool/" class="btn btn-primary ">下一页 <span class="ml-1">→</span></a>
+  </li>
+</ul>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-12 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/apache/incubator-brpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 The bRPC Authors 保留所有权利</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="/js/main.min.170adf90fd476d5f9243ed2e727149abe8d9fe364587fe943765d47375bbd1ad.js" integrity="sha256-FwrfkP1HbV&#43;SQ&#43;0ucnFJq&#43;jZ/jZFh/6UN2XUc3W70a0=" crossorigin="anonymous"></script>
+
+
+
+
+
+  </body>
+</html>

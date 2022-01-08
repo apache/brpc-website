@@ -1,0 +1,137 @@
++++
+title = "bRPC"
+linkTitle = "bRPC"
++++
+
+{{< blocks/cover image_anchor="top" height="max" color="primary" >}}
+<img src="/images/brpc_logo_w.svg" class="brpc-logo" height="180"/>
+<h3 style="margin:20px" >An industrial-grade RPC framework for building reliable and high-performance services.</h3>
+<div class="mx-auto">
+	<a class="btn btn-lg btn-primary font-weight-bold my-4" href="{{< relref "/docs" >}}">
+		Learn More
+	</a>
+  <a class="btn btn-lg btn-primary font-weight-bold my-4" href="{{< relref "/docs/downloadbrpc" >}}">
+		Download bRPC
+	</a>
+</div>
+<div class="mx-auto">
+  <a class="h3 mt-1">
+    Get started!
+  </a>
+  <!--
+  <div class="h3 mt-1">Get started!</div>
+	<a class="btn btn-lg btn-primary mr-3 mb-4 my-3" href="{{< relref "/docs" >}}">
+		Get bRPC
+	</a>
+  
+  <a class="btn btn-lg btn-primary mr-3 mb-4 my-3" href="https://github.com/apache/incubator-brpc">
+		<i class="fas fa-ellipsis-h"></i>
+	</a>
+  -->
+</div>
+
+{{< /blocks/cover >}}
+
+<div id="overview">
+  <div class="contain" style="width: auto; margin: 0 auto">
+    <h2 class="section-head">Why bRPC?</h2>
+    <p>
+    bRPC is an open source industrial-grade RPC framework used throughout Baidu, 
+    with 1,000,000+ instances(not counting clients) and thousands kinds of services.
+    </p>
+    <h3 class="section-head">You can use it to:</h3>
+    <p>
+      <li style="text-align:left">Build a server that can talk in multiple protocols (on same port), or access all sorts of services.</li>
+      <ol style="text-align:left">
+        <li>
+          restful http/https, h2/gRPC. using http/h2 in brpc is much more friendly than libcurl. Access protobuf-based protocols with HTTP/h2+json, probably from another language.
+        </li>
+        <li>redis and memcached, thread-safe, more friendly and performant than the official clients.</li>
+        <li>rtmp/flv/hls, for building streaming services.</li>
+        <li>hadoop_rpc (may be opensourced)</li>
+        <li>rdma support (will be opensourced)</li>
+        <li>thrift support, thread-safe, more friendly and performant than the official clients.</li>
+        <li>all sorts of protocols used in Baidu: baidu_std, streaming_rpc, hulu_pbrpc, sofa_pbrpc, nova_pbrpc, public_pbrpc, ubrpc and nshead-based ones.</li>
+        <li>Build HA distributed services using an industrial-grade implementation of RAFT consensus algorithm which is opensourced at braft</li>
+      </ol> 
+      <li style="text-align:left">Servers can handle requests synchronously or asynchronously.</li>
+      <li style="text-align:left">Clients can access servers synchronously, asynchronously, semi-synchronously, or use combo channels to simplify sharded or parallel accesses declaratively.</li>
+      <li style="text-align:left">Debug services via http, and run cpu, heap and contention profilers.</li>
+      <li style="text-align:left">Get better latency and throughput.</li>
+      <li style="text-align:left">Extend brpc with the protocols used in your organization quickly, or customize components, including naming services (dns, zk, etcd), load balancers (rr, random, consistent hashing)</li>
+    </p>
+  </div>
+</div>
+
+<div id="overview">
+  <div class="contain" style="width: auto; margin: 0 auto">
+    <h2 class="section-head">Used by</h2>
+    <h3>Providing your info on <a href="https://github.com/apache/incubator-brpc-website/issues/1307">Wanted: who’s using bRPC</a> to help improving bRPC better</h3>
+
+    <td align="center"  valign="middle">
+      <a href="http://home.baidu.com/index.html" target="_blank">
+        <img width="222px"  src="/images/community/baidu_logo.svg">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.iqiyi.com" target="_blank">
+        <img width="222px"  src="/images/community/iqiyi_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://bytedance.com/zh/" target="_blank">
+        <img width="222px"  src="/images/community/bytedance_logo.svg">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.bilibili.com/" target="_blank">
+        <img width="222px"  src="/images/community/bilibili_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://bigo.tv/" target="_blank">
+        <img width="222px"  src="/images/community/bigo_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.didiglobal.com/" target="_blank">
+        <img width="222px"  src="/images/community/didi_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.capitalonline.net/" target="_blank">
+        <img width="222px"  src="/images/community/cdsshouyun_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.amap.com/" target="_blank">
+        <img width="222px"  src="/images/community/gaode_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.weibo.com" target="_blank">
+        <img width="222px"  src="/images/community/weibo_logo.svg">
+      </a>
+    </td>
+  </div>
+</div>
+
+<div id="overview">
+  <div class="contain">
+    <p>
+      <img src="/images/egg-logo.png" width="400px" alt="Cloud Native Computing Foundation" title="Cloud Native Computing Foundation">
+    </p>
+    <p>
+      bRPC is an <a href="http://incubator.apache.org/">Apache</a> incubation project.
+    </p>
+  </div>
+</div>
+
+
+<!--
+{{< blocks/section >}}
+<div class="col">
+<h1 class="text-center">This is the second Section</h1>
+</div>
+{{< /blocks/section >}}
+-->

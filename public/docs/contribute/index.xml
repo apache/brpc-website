@@ -1,0 +1,150 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bRPC – 贡献文档</title>
+    <link>https://brpc.incubator.apache.org/docs/contribute/</link>
+    <description>Recent content in 贡献文档 on bRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://brpc.incubator.apache.org/docs/contribute/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 文档贡献指南</title>
+      <link>https://brpc.incubator.apache.org/docs/contribute/github/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/docs/contribute/github/</guid>
+      <description>
+        
+        
+        &lt;p&gt;要处理 MOSN 文档，您需要：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个 &lt;a href=&#34;https://github.com/&#34;&gt;GitHub 账户&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该文档是根据 &lt;a href=&#34;https://github.com/apache/incubator-brpc-website/blob/master/LICENSE&#34;&gt;Apache 2.0&lt;/a&gt; 协议许可发布的。&lt;/p&gt;
+&lt;h2 id=&#34;how-to&#34;&gt;如何贡献&lt;/h2&gt;
+&lt;p&gt;您可以通过以下三种方式为 MOSN 文档做出贡献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果您想要编辑现有页面，可以在浏览器中打开页面，然后点击页面右侧的&lt;strong&gt;编辑本页&lt;/strong&gt;选项，这将带您到 GitHub 页面进行编辑操作并提交相应的更改。&lt;/li&gt;
+&lt;li&gt;如果您想使用通用的方式，请遵循我们的&lt;a href=&#34;#add&#34;&gt;如何添加内容&lt;/a&gt;中的步骤。&lt;/li&gt;
+&lt;li&gt;如果您想对现有的 pull request（PR）进行 review，请参考&lt;a href=&#34;#review&#34;&gt;如何 review&lt;/a&gt; 中的步骤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PR 合并后会立即显示在 &lt;a href=&#34;https://mosn.io&#34;&gt;https://mosn.io&lt;/a&gt; 上。&lt;/p&gt;
+&lt;h2 id=&#34;add&#34;&gt;如何添加内容&lt;/h2&gt;
+&lt;p&gt;要添加内容，您必须创建存储库的分支，并从该分支向文档主存储库提交 PR。以下步骤描述了该过程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;访问 GitHub MOSN 官网仓库 &lt;a href=&#34;https://github.com/apache/incubator-brpc-website&#34;&gt;https://github.com/apache/incubator-brpc-website&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;单击屏幕右上角的 &lt;strong&gt;Fork&lt;/strong&gt; 按钮，以在您的 GitHub 帐户中创建 MOSN 官网仓库的副本。&lt;/li&gt;
+&lt;li&gt;克隆您的 fork 到本地，然后进行所需的任何更改。&lt;/li&gt;
+&lt;li&gt;当您准备将这些更改发送给我们时，请将更改推送到您的 fork 仓库。&lt;/li&gt;
+&lt;li&gt;进入 fork 仓库的索引页面，然后单击 &lt;strong&gt;New Pull Request&lt;/strong&gt; 提交 PR。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;review&#34;&gt;如何 review&lt;/h2&gt;
+&lt;p&gt;请直接在 PR 上发表评论。如果您评论的内容很详细，请按照以下步骤操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在 PR 中评论具体信息。如果可以的话，请在受影响的文件和文件行上直接评论特定的具体信息。&lt;/li&gt;
+&lt;li&gt;适当的时候，在评论中向 PR 提交者与参与者提供建议。&lt;/li&gt;
+&lt;li&gt;发布您的评论，与 PR 参与者分享您的评论和建议。&lt;/li&gt;
+&lt;li&gt;发布评论后，大家经过讨论一致同意合并 PR。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;preview&#34;&gt;如何预览&lt;/h2&gt;
+&lt;p&gt;您可以根据需要，选择在线预览，或者在本地使用 Hugo 命令行运行本站实时预览。&lt;/p&gt;
+&lt;h3 id=&#34;在线预览&#34;&gt;在线预览&lt;/h3&gt;
+&lt;p&gt;在提交 PR 后，GitHub 上对应的 PR 页面会显示一系列检查选项，其中 &lt;code&gt;deploy/netlify&lt;/code&gt; 选项将会生成 MOSN 官网的预览页面，点击 &lt;strong&gt;Details&lt;/strong&gt; 可以跳转到预览界面。对于同一个 PR 每次提交都会触发一次构建预览。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;website-preview.png&#34; alt=&#34;预览&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这个是个临时网站，可以确保本次 PR 合并后的页面显示正常。&lt;/p&gt;
+&lt;h3 id=&#34;本地预览&#34;&gt;本地预览&lt;/h3&gt;
+&lt;p&gt;除了在页面上预览以外，您还可以使用 &lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;Hugo&lt;/a&gt;（建议使用 v0.55.5 extended 版本），在代码仓库的根目录下执行 &lt;code&gt;hugo server&lt;/code&gt;，即可在浏览器中打开 &lt;code&gt;http://localhost:1313&lt;/code&gt; 预览。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 创建页面</title>
+      <link>https://brpc.incubator.apache.org/docs/contribute/creating-pages/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/docs/contribute/creating-pages/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;开始之前&#34;&gt;开始之前&lt;/h2&gt;
+&lt;p&gt;在开始编写 MOSN 文档之前，首先需要你创建一个 MOSN 文档存储库，和熟悉 MOSN 的文档结构。&lt;/p&gt;
+&lt;h2 id=&#34;页面类型&#34;&gt;页面类型&lt;/h2&gt;
+&lt;h3 id=&#34;文档&#34;&gt;文档&lt;/h3&gt;
+&lt;p&gt;系统化介绍 MOSN 使用的文档，由 MOSN 团队官方维护。&lt;/p&gt;
+&lt;h3 id=&#34;博客&#34;&gt;博客&lt;/h3&gt;
+&lt;p&gt;周期化发布的 MOSN 博客，来自社区贡献。&lt;/p&gt;
+&lt;h3 id=&#34;新闻&#34;&gt;新闻&lt;/h3&gt;
+&lt;p&gt;关于 MOSN 社区的新闻信息。&lt;/p&gt;
+&lt;h3 id=&#34;发布&#34;&gt;发布&lt;/h3&gt;
+&lt;p&gt;MOSN 的新版本发布信息。&lt;/p&gt;
+&lt;h2 id=&#34;文档结构&#34;&gt;文档结构&lt;/h2&gt;
+&lt;p&gt;所有文档都位于 &lt;code&gt;content&lt;/code&gt; 目录下，&lt;code&gt;content/zh&lt;/code&gt; 为中文文档，&lt;code&gt;content/en&lt;/code&gt; 为英文文档，要想在某一层级的文档下再创建一个新的文档需要先创建一个目录，并根据：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有没有子目录的文档都以 &lt;code&gt;index.md&lt;/code&gt; 命名。&lt;/li&gt;
+&lt;li&gt;所有包含子目录的文档都以 &lt;code&gt;_index.md&lt;/code&gt; 命名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文档元数据&#34;&gt;文档元数据&lt;/h2&gt;
+&lt;p&gt;每个文档都有元数据信息，元数据信息是介于两个 YAML 块之间通过 3 个“-”分割的信息。下面就是你必须填写的元数据信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;标题&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;linkTitle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;标题&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;date&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;2020-02-11&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;weight&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;关于本页内容的简介。&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下是详细介绍：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;title：即本文章的标题。&lt;/li&gt;
+&lt;li&gt;linkTitle：显示在侧边栏的文档标题，一般写成跟 &lt;code&gt;title&lt;/code&gt; 的内容一致即可。&lt;/li&gt;
+&lt;li&gt;date：该文档的创作日期，格式为 &lt;code&gt;YYYY-MM-dd&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;weight：在同一文档层级，weight 数字越小的文档在侧边栏中显示约靠前，对于非 &lt;code&gt;docs&lt;/code&gt; 目录下的文章不需要设置。&lt;/li&gt;
+&lt;li&gt;description：对本文档的简介。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于博客、发布、新闻文档，还需要填写作者信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;author&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;作者信息&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意：作者信息的值支持 Markdown。&lt;/p&gt;
+&lt;h2 id=&#34;文档命名&#34;&gt;文档命名&lt;/h2&gt;
+&lt;p&gt;文档的 URL 是根据该篇文档所在的目录层级而确定的，文档的目录名称规范：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用英文单词命名&lt;/li&gt;
+&lt;li&gt;不同的单词间使用连字符连接&lt;/li&gt;
+&lt;li&gt;不得出现其他标点符号&lt;/li&gt;
+&lt;li&gt;名称尽量简短&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 样式指南</title>
+      <link>https://brpc.incubator.apache.org/docs/contribute/style-guide/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/docs/contribute/style-guide/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;格式标准&#34;&gt;格式标准&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;必须使用 Markdown 格式编辑文档正文。&lt;/li&gt;
+&lt;li&gt;文档正文标题从二级标题开始。&lt;/li&gt;
+&lt;li&gt;图片使用本地图片，跟 &lt;code&gt;index.md&lt;/code&gt; 文件放在同一个目录下，使用相对位置引用。&lt;/li&gt;
+&lt;li&gt;所有代码都需要指定代码语言。&lt;/li&gt;
+&lt;li&gt;中英文之间要加空格，如果句子末尾是英文则不需要。&lt;/li&gt;
+&lt;li&gt;请不要将有序列表和无序列表穿插混用，容易造成格式混乱。&lt;/li&gt;
+&lt;li&gt;对于直接出现的 URL 链接请使用 &lt;code&gt;&amp;lt;URL&amp;gt;&lt;/code&gt; 包裹起来。&lt;/li&gt;
+&lt;li&gt;对于非通用词汇、代码中词组的引用请使用反括号包裹起来。&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
