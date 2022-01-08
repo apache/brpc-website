@@ -1,0 +1,149 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bRPC – Document contribution</title>
+    <link>https://brpc.incubator.apache.org/en/docs/contribute/</link>
+    <description>Recent content in Document contribution on bRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://brpc.incubator.apache.org/en/docs/contribute/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Documentation contribution guide</title>
+      <link>https://brpc.incubator.apache.org/en/docs/contribute/github/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/contribute/github/</guid>
+      <description>
+        
+        
+        &lt;p&gt;To contribute to MOSN&amp;rsquo;s documentation, you need to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a &lt;a href=&#34;https://github.com/&#34;&gt;GitHub account&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This documentation is published in compliance with &lt;a href=&#34;https://github.com/apache/incubator-brpc-website/blob/master/LICENSE&#34;&gt;Apache 2.0&lt;/a&gt; license.&lt;/p&gt;
+&lt;h2 id=&#34;how-to&#34;&gt;How to contribute&lt;/h2&gt;
+&lt;p&gt;You can contribute to MOSN&amp;rsquo;s documentation in the following three ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To edit an existing topic, open the page with your browser, click &lt;strong&gt;Edit This Page&lt;/strong&gt; on the upper-right side, edit the GitHub page that appears, and submit the modifications.&lt;/li&gt;
+&lt;li&gt;To make general edits, follow the procedure in &lt;a href=&#34;#add&#34;&gt;Add content&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;To review an existing pull request (PR), follow the procedure in the &lt;a href=&#34;#review&#34;&gt;Review PRs&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PRs are immediately displayed on &lt;a href=&#34;https://mosn.io&#34;&gt;https://mosn.io&lt;/a&gt; after being merged.&lt;/p&gt;
+&lt;h2 id=&#34;add&#34;&gt;Add content&lt;/h2&gt;
+&lt;p&gt;To add content, you need to create a repository branch and submit a PR to the mater repository from the branch. Perform the following steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Access the MOSN repository at GitHub &lt;a href=&#34;https://github.com/apache/incubator-brpc-website&#34;&gt;https://github.com/apache/incubator-brpc-website&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Fork&lt;/strong&gt; in the upper-right corner to fork a copy of the MOSN repository to your GitHub account.&lt;/li&gt;
+&lt;li&gt;Clone your fork to your computer and make modifications as required.&lt;/li&gt;
+&lt;li&gt;Upload the modifications to your fork repository when you are ready to submit them to us.&lt;/li&gt;
+&lt;li&gt;Go to the index page of your fork repository and click &lt;strong&gt;New pull request&lt;/strong&gt; to submit a PR.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;review&#34;&gt;Review PRs&lt;/h2&gt;
+&lt;p&gt;You can directly comment on a PR. To add detailed comments, perform the following steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Add detailed comments to the PR. If possible, directly add comments to the corresponding files and file lines.&lt;/li&gt;
+&lt;li&gt;Provide suggestions to the PR authors and contributors in the comments as appropriate.&lt;/li&gt;
+&lt;li&gt;Publish and share your comments with the PR contributors.&lt;/li&gt;
+&lt;li&gt;Merge the PR after publishing the comments and reaching an agreement with the contributors.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;preview&#34;&gt;Preview PRs&lt;/h2&gt;
+&lt;p&gt;You can preview your PR online or run Hugo on your computer to access the MOSN website for real-time preview.&lt;/p&gt;
+&lt;h3 id=&#34;online-preview&#34;&gt;Online preview&lt;/h3&gt;
+&lt;p&gt;After you submit a PR, a series of check items are displayed on the corresponding PR page at GitHub. The &lt;code&gt;deploy/netlify&lt;/code&gt; step generates the preview page on the MOSN official website. You can click &lt;strong&gt;Details&lt;/strong&gt; to go to the preview page. A preview page is constructed each time you submit the same PR.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;website-preview.png&#34; alt=&#34;Preview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This temporary website ensures normal page display after the PR is merged.&lt;/p&gt;
+&lt;h3 id=&#34;local-preview&#34;&gt;Local preview&lt;/h3&gt;
+&lt;p&gt;In addition to online preview, you can also preview your PR with &lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;Hugo&lt;/a&gt; (the v0.55.5 extended version is recommended). You can run &lt;code&gt;hugo server&lt;/code&gt; at the root directory of your code repository and then access &lt;code&gt;http://localhost:1313&lt;/code&gt; with your browser.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Create a page</title>
+      <link>https://brpc.incubator.apache.org/en/docs/contribute/creating-pages/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/contribute/creating-pages/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Before you start to write a MOSN document, create a MOSN document repository and be familiar with the MOSN document structure.&lt;/p&gt;
+&lt;h2 id=&#34;page-types&#34;&gt;Page types&lt;/h2&gt;
+&lt;h3 id=&#34;documentation&#34;&gt;Documentation&lt;/h3&gt;
+&lt;p&gt;The documentation that systematically describe how to use MOSN are maintained by the MOSN team.&lt;/p&gt;
+&lt;h3 id=&#34;blogs&#34;&gt;Blogs&lt;/h3&gt;
+&lt;p&gt;The periodically published MOSN blogs are contributed by the community.&lt;/p&gt;
+&lt;h3 id=&#34;news&#34;&gt;News&lt;/h3&gt;
+&lt;p&gt;The news about the MOSN community.&lt;/p&gt;
+&lt;h3 id=&#34;releases&#34;&gt;Releases&lt;/h3&gt;
+&lt;p&gt;Release notes about new versions of MOSN.&lt;/p&gt;
+&lt;h2 id=&#34;topic-structure&#34;&gt;Topic structure&lt;/h2&gt;
+&lt;p&gt;All topics of the MOSN documentation are saved under the &lt;code&gt;content&lt;/code&gt; directory: &lt;code&gt;content/zh&lt;/code&gt; for Chinese topics, and &lt;code&gt;content/en&lt;/code&gt; for English topics. To create a topic under an existing one, you need to first create a directory and comply with the following naming rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Name all topics without sub-directories as &lt;code&gt;index.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Name all topics with sub-directories as &lt;code&gt;_index.md&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;topic-metadata&#34;&gt;Topic metadata&lt;/h2&gt;
+&lt;p&gt;Each topic has its metadata, which is separated by three hyphens (&amp;quot;-&amp;quot;) between two YAML blocks. The following metadata is required:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;title=&amp;#34;Title&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;linkTitle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Title&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;date&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;2020-02-11&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;weight&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;The brief description of the page.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Details are described as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;title&lt;/code&gt;: The title of the topic.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;linkTitle&lt;/code&gt;: The topic title displayed in the left-side content pane, which is usually consistent with &lt;code&gt;title&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;date&lt;/code&gt;: The date when the topic was created, in the &lt;code&gt;YYYY-MM-dd&lt;/code&gt; format.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weight&lt;/code&gt;: Among topics of the same level, the one with the smallest weight is displayed at the top in the left-side content pane.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;description&lt;/code&gt;: The brief description of the document.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Author information is required for blogs, releases notes, and news articles:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;author&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Author information&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note: The value of author can be edited in the Markdown format.&lt;/p&gt;
+&lt;h2 id=&#34;naming-conventions&#34;&gt;Naming conventions&lt;/h2&gt;
+&lt;p&gt;The URL of a document is determined based on the level of its directory. Document directories are named according to the following conventions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use English names&lt;/li&gt;
+&lt;li&gt;Connect words with hyphens&lt;/li&gt;
+&lt;li&gt;Avoid punctuation marks&lt;/li&gt;
+&lt;li&gt;Minimize the name&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Format guide</title>
+      <link>https://brpc.incubator.apache.org/en/docs/contribute/style-guide/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/contribute/style-guide/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;format-standard&#34;&gt;Format standard&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Edit the document body in the Markdown format.&lt;/li&gt;
+&lt;li&gt;Start with Heading 2 in the document body.&lt;/li&gt;
+&lt;li&gt;Use local images, save them to the same directory as that of the &lt;code&gt;index.md&lt;/code&gt; file, and use relative paths for references.&lt;/li&gt;
+&lt;li&gt;Specify the languages for all code.&lt;/li&gt;
+&lt;li&gt;Use ordered and unordered lists separately, to avoid format confusion.&lt;/li&gt;
+&lt;li&gt;Enclose a separate URL with &lt;code&gt;&amp;lt;URL&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Enclose uncommon terms and code phrases with grave accents (`).&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

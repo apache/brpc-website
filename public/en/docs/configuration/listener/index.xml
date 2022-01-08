@@ -1,0 +1,80 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bRPC – Listener configurations</title>
+    <link>https://brpc.incubator.apache.org/en/docs/configuration/listener/</link>
+    <description>Recent content in Listener configurations on bRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://brpc.incubator.apache.org/en/docs/configuration/listener/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: FilterChain</title>
+      <link>https://brpc.incubator.apache.org/en/docs/configuration/listener/filter-chain/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/configuration/listener/filter-chain/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This topic describes the FilterChain configurations of MOSN.&lt;/p&gt;
+&lt;p&gt;FilterChain configurations are core logic configurations for MOSN listeners. Different FilterChain configurations describe how a listener handles requests.&lt;/p&gt;
+&lt;p&gt;Currently, a MOSN listener supports only one FilterChain.&lt;/p&gt;
+&lt;p&gt;The FilterChain configuration structure is shown as follows.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;tls_context&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{},&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;tls_context_set&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[],&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;filters&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;tls_context_set&#34;&gt;tls_context_set&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Settings for a group of &lt;code&gt;tls_context&lt;/code&gt;. MOSN uses &lt;code&gt;tls_context_set&lt;/code&gt; to describe the TLS certificate information of a listener by default.&lt;/li&gt;
+&lt;li&gt;A listener supports multiple TLS certificates simultaneously.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;tls_context&#34;&gt;tls_context&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Setting a single &lt;code&gt;tls_context&lt;/code&gt; instead of &lt;code&gt;tls_context_set&lt;/code&gt; is required for backward compatibility of MOSN (for earlier versions that support configuring only one certificate). This setting method will be gradually abandoned.&lt;/li&gt;
+&lt;li&gt;For details about the tls_context configuration, see the &lt;a href=&#34;../../custom#tls-context&#34;&gt;tls_context&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;filters&#34;&gt;filters&lt;/h3&gt;
+&lt;p&gt;Settings of a group of network filters.&lt;/p&gt;
+&lt;h3 id=&#34;network-filter&#34;&gt;network filter&lt;/h3&gt;
+&lt;p&gt;network filter specifies how MOSN processes connection data at layer 4 after a connection is established.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;type&lt;/code&gt; is a string that describes the filter type.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config&lt;/code&gt; can be any json values that describe configurations of different filters.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;network filter&lt;/code&gt; supports custom extensions. The following types are supported by default: &lt;code&gt;proxy&lt;/code&gt;, &lt;code&gt;tcp proxy&lt;/code&gt;, and &lt;code&gt;connection_manager&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;connection_manager&lt;/code&gt; is a special filter used with &lt;code&gt;proxy&lt;/code&gt;. It describes the router configurations of &lt;code&gt;proxy&lt;/code&gt; and may be modified subsequently as a compatibility configuration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Network Filter</title>
+      <link>https://brpc.incubator.apache.org/en/docs/configuration/listener/network-filter/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/configuration/listener/network-filter/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
