@@ -64,6 +64,12 @@
   githubId: TousakaRin
   org: apache
   role: PPMC
+  
+- name: Weibing Wang
+  apacheId: wwbmmm
+  githubId: wwbmmm
+  org: apache
+  role: PPMC
 
 - name: Cai daojing
   apacheId: caidj
