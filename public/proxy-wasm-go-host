@@ -1,5 +1,0 @@
-<html>
-  <head>
-    <meta name="go-import" content="mosn.io/proxy-wasm-go-host git https://github.com/mosn/proxy-wasm-go-host">
-  </head>
-</html>
