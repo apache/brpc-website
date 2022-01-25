@@ -39,6 +39,7 @@ linkTitle = "bRPC"
       百度内最常使用的工业级RPC框架, 有1,000,000+个实例(不包含client)和上千种多种服务。
     </p>
     <h3 class="section-head">你可以使用它：</h3>
+<<<<<<< HEAD
     <div class="father" style="display: flex; justify-content: center;">
       <div class="child">
         <li style="text-align:left">搭建能在一个端口支持多协议的服务, 或访问各种服务。</li>
@@ -61,6 +62,28 @@ linkTitle = "bRPC"
         <li style="text-align:left">把你组织中使用的协议快速地加入brpc，或定制各类组件, 包括命名服务(dns, zk, etcd), 负载均衡(rr, random, consistent hashing)。</li>
       </div>
     </div>
+=======
+    <p>
+      <li style="text-align:left">搭建能在一个端口支持多协议的服务, 或访问各种服务。</li>
+      <ol style="text-align:left">
+        <li>
+          restful http/https, h2/gRPC. 使用brpc的http实现比libcurl方便多了。从其他语言通过HTTP/h2+json访问基于protobuf的协议.
+        </li>
+        <li>redis and memcached, 线程安全，比官方client更方便。</li>
+        <li>rtmp/flv/hls, 可用于搭建流媒体服务。</li>
+        <li>hadoop_rpc (可能开源)</li>
+        <li>支持rdma(即将开源)</li>
+        <li>支持thrift, 线程安全，比官方client更方便。</li>
+        <li>各种百度内使用的协议: baidu_std, streaming_rpc, hulu_pbrpc, sofa_pbrpc], nova_pbrpc, public_pbrpc, ubrpc和使用nshead的各种协议。</li>
+        <li>基于工业级的RAFT算法实现搭建高可用分布式系统，已在braft开源。</li>
+      </ol> 
+      <li style="text-align:left">Server能同步或异步处理请求。</li>
+      <li style="text-align:left">Client支持同步、异步、半同步，或使用组合channels简化复杂的分库或并发访问。</li>
+      <li style="text-align:left">通过http界面调试服务, 使用cpu, heap, contention profilers.</li>
+      <li style="text-align:left">获得更好的延时和吞吐。</li>
+      <li style="text-align:left">把你组织中使用的协议快速地加入brpc，或定制各类组件, 包括命名服务(dns, zk, etcd), 负载均衡(rr, random, consistent hashing)。</li>
+    </p>
+>>>>>>> 3195043b4e9b37127fd9dfa7ca54b3aa98d299d7
   </div>
 </div>
 
