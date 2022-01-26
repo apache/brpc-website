@@ -1,3 +1,3 @@
-# mosn.github.io
+# brpc.github.io
 
-MOSN Github Pages build with [mosn.io](https://github.com/apache/incubator-brpc-website).
+bRPC Github Pages build with [brpc.io](https://github.com/apache/incubator-brpc-website).
