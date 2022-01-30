@@ -1042,4 +1042,4 @@ This is not a valid json string, which must be a json object enclosed with brace
 
 # PS:Workflow at server-side
 
-![img](../images/server_side.png)
+![img](/images/docs/server_side.png)

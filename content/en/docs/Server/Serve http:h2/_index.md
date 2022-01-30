@@ -191,11 +191,11 @@ More about mapping rules:
 
 The path after asterisk can be obtained by `cntl.http_request().unresolved_path()`, which is always normalized, namely no slashes at the beginning or the end, and no repeated slashes in the middle. For example:
 
-![img](../images/restful_1.png)
+![img](/images/docs/restful_1.png)
 
 or:
 
-![img](../images/restful_2.png)
+![img](/images/docs/restful_2.png)
 
 in which unresolved_path are both `foo/bar`. The extra slashes at the left, the right, or the middle are removed.
 
@@ -203,7 +203,7 @@ Note that `cntl.http_request().uri().path()` is not ensured to be normalized, wh
 
 The built-in service page of `/status` shows customized URLs after the methods, in form of `@URL1 @URL2` ...
 
-![img](../images/restful_3.png)
+![img](/images/docs/restful_3.png)
 
 # HTTP Parameters
 
@@ -271,7 +271,7 @@ cntl->http_response().set_status_code(brpc::HTTP_STATUS_FOUND);
 cntl->http_response().SetHeader("Location", "http://bj.bs.bae.baidu.com/family/image001(4979).jpg");
 ```
 
-![img](../images/302.png)
+![img](/images/docs/302.png)
 
 ## Query String
 

@@ -18,9 +18,9 @@ r31658后，brpc能随机地把一部分请求写入一些文件中，并通过r
 
 brpc通过如下flags打开和控制如何保存请求，包含(R)后缀的flag都可以动态设置。
 
-![img](../images/rpc_replay_1.png)
+![img](/images/docs/rpc_replay_1.png)
 
-![img](../images/rpc_replay_2.png)
+![img](/images/docs/rpc_replay_2.png)
 
 参数说明：
 
@@ -33,7 +33,7 @@ brpc通过一个[bvar::Collector](https://github.com/brpc/brpc/blob/master/src/b
 
 写出的内容依次存放在rpc_dump_dir目录下的多个文件内，这个目录默认在./rpc_dump_<app>，其中<app>是程序名。不同程序在同一个目录下同时采样时会写入不同的目录。如果程序启动时rpc_dump_dir已经存在了，目录将被清空。目录中的每个文件以requests.yyyymmdd_hhmmss_uuuuus命名，以保证按时间有序方便查找，比如：
 
-![img](../images/rpc_replay_3.png)
+![img](/images/docs/rpc_replay_3.png)
 
 目录下的文件数不超过rpc_dump_max_files，超过后最老的文件被删除从而给新文件腾出位置。
 
@@ -69,7 +69,7 @@ for (brpc::SampledRequest* req = it->Next(); req != NULL; req = it->Next()) {
 
 brpc在[tools/rpc_replay](https://github.com/brpc/brpc/tree/master/tools/rpc_replay/)提供了默认的回放工具。运行方式如下：
 
-![img](../images/rpc_replay_4.png)
+![img](/images/docs/rpc_replay_4.png)
 
 主要参数说明：
 
@@ -86,7 +86,7 @@ brpc在[tools/rpc_replay](https://github.com/brpc/brpc/tree/master/tools/rpc_rep
 
 rpc_replay会默认启动一个仅监控用的dummy server。打开后可查看回放的状况。其中rpc_replay_error是回放失败的次数。
 
-![img](../images/rpc_replay_5.png)
+![img](/images/docs/rpc_replay_5.png)
 
 如果你无法打开浏览器，命令行中也会定期打印信息：
 

@@ -43,16 +43,16 @@ QA测试结论：通过
 | 极限QPS    | 3000                | 9000          | 提升**3**倍     | 线下使用Geoconv和Geocoder服务测试 |
 
 **CPU使用率(%)**（红色为升级前，蓝色为升级后）
-![img](../images/apicontrol_compare_1.png)
+![img](/images/docs/apicontrol_compare_1.png)
 
 **内存使用量(KB)**（红色为升级前，蓝色为升级后）
-![img](../images/apicontrol_compare_2.png)
+![img](/images/docs/apicontrol_compare_2.png)
 
 **鉴权平响(ms)**（红色为升级前，蓝色为升级后）
-![img](../images/apicontrol_compare_3.png)
+![img](/images/docs/apicontrol_compare_3.png)
 
 **转发平响(ms)**（红色为升级前，蓝色为升级后）
-![img](../images/apicontrol_compare_4.png)
+![img](/images/docs/apicontrol_compare_4.png)
 
 **总线程数(个)**（红色为升级前，蓝色为升级后）
-![img](../images/apicontrol_compare_5.png)
+![img](/images/docs/apicontrol_compare_5.png)

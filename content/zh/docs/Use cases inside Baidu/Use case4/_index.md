@@ -17,7 +17,7 @@ brpc改造后的connecter收益明显，可以用较少的机器提供更优质�
 # 相同配置的机器qps和latency的比较 
 
 通过逐渐缩容，不断增加connecter的压力，获得单机qps和latency的对应数据如下： 
-![img](../images/ubrpc_compare_1.png)
+![img](/images/docs/ubrpc_compare_1.png)
 
 机器配置：cpu: 24 Intel(R) Xeon(R) CPU  E5645  @ 2.40GHz || mem: 64G 
 
@@ -45,7 +45,7 @@ qps固定为6500，观察延时。
 
 机器配置：cpu： 24 Intel(R) Xeon(R) CPU  E5645  @ 2.40GHz || mem：64G 
 
-![img](../images/ubrpc_compare_2.png)
+![img](/images/docs/ubrpc_compare_2.png)
 
 在线上缩容 不断增大压力过程中：
 

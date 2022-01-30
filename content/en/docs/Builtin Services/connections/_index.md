@@ -52,8 +52,8 @@ channel_short_socket_count: 0
 
 典型截图分别如下所示：
 
-单连接：![img](../images/single_conn.png)
+单连接：![img](/images/docs/single_conn.png)
 
-连接池：![img](../images/pooled_conn.png)
+连接池：![img](/images/docs/pooled_conn.png)
 
-短连接：![img](../images/short_conn.png)
+短连接：![img](/images/docs/short_conn.png)

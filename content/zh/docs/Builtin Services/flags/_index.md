@@ -77,37 +77,37 @@ flagfile中可以使用`--flagfile包含另一个flagfile。`
 
 为了防止误修改，需要动态修改的gflag必须有validator，显示此类gflag名字时有(R)后缀。
 
-![img](../images/reloadable_flags.png)
+![img](/images/docs/reloadable_flags.png)
 
 *修改成功后会显示如下信息*：
 
-![img](../images/flag_setvalue.png)
+![img](/images/docs/flag_setvalue.png)
 
 *尝试修改不允许修改的gflag会显示如下错误信息*：
 
-![img](../images/set_flag_reject.png)
+![img](/images/docs/set_flag_reject.png)
 
 *设置一个不允许的值会显示如下错误（flag值不会变化）*：
 
-![img](../images/set_flag_invalid_value.png)
+![img](/images/docs/set_flag_invalid_value.png)
 
  
 
 r31658之后支持可视化地修改，在浏览器上访问时将看到(R)下多了下划线：
 
-![img](../images/the_r_after_flag.png)
+![img](/images/docs/the_r_after_flag.png)
 
 点击后在一个独立页面可视化地修改对应的flag：
 
-![img](../images/set_flag_with_form.png)
+![img](/images/docs/set_flag_with_form.png)
 
 填入true后确定：
 
-![img](../images/set_flag_with_form_2.png)
+![img](/images/docs/set_flag_with_form_2.png)
 
 返回/flags可以看到对应的flag已经被修改了：
 
-![img](../images/set_flag_with_form_3.png)
+![img](/images/docs/set_flag_with_form_3.png)
 
  
 

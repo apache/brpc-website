@@ -59,7 +59,7 @@ url加上?seconds=秒数，如/hotspots/cpu?seconds=5
 
 cpu profiler的原理是在定期被调用的SIGPROF handler中采样所在线程的栈，由于handler（在linux 2.6后）会被随机地摆放于活跃线程的栈上运行，cpu profiler在运行一段时间后能以很大的概率采集到所有活跃线程中的活跃函数，最后根据栈代表的函数调用关系汇总为调用图，并把地址转换成符号，这就是我们看到的结果图了。采集频率由环境变量CPUPROFILE_FREQUENCY控制，默认100，即每秒钟100次或每10ms一次。在实践中cpu profiler对原程序的影响不明显。
 
-![img](../images/echo_cpu_profiling.png)
+![img](/images/docs/echo_cpu_profiling.png)
 
 在Linux下，你也可以使用[pprof](https://github.com/brpc/brpc/blob/master/tools/pprof)或gperftools中的pprof进行profiling。
 

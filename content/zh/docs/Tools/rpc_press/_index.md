@@ -75,11 +75,11 @@ TRACE: 01-30 16:10:04:   * 0 src/brpc/server.cpp:742] Check out http://xxx.com:8
 
 dummy_server启动时会在终端打印日志，一般按住ctrl点击那个链接可以直接打开对应的内置服务页面，就像这样：
 
-![img](../images/rpc_press_1.png)
+![img](/images/docs/rpc_press_1.png)
 
 切换到vars页面，在Search框中输入rpc_press可以看到当前压力的延时分布情况:
 
-![img](../images/rpc_press_2.png)
+![img](/images/docs/rpc_press_2.png)
 
 你可以通过-dummy_port参数修改dummy_server的端口，请确保端口可以在浏览器中访问。
 

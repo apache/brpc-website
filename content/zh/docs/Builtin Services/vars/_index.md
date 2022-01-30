@@ -20,11 +20,11 @@ description: >
 
 以下动画演示了如何使用过滤功能。你可以把包含过滤表达式的url复制粘贴给他人，他们点开后将看到相同的计数器条目。(数值可能随运行变化)
 
-![img](../images/vars_1.gif)
+![img](/images/docs/vars_1.gif)
 
 /vars左上角有一个搜索框能加快寻找特定bvar的速度，在这个搜索框你只需键入bvar名称的一部分，框架将补上*进行模糊查找。不同的名称间可以逗号、分号或空格分隔。
 
-![img](../images/vars_2.gif)
+![img](/images/docs/vars_2.gif)
 
 你也可以在命令行中访问vars：
 
@@ -50,7 +50,7 @@ bthread_worker_usage : 1.01056
 
 点击大部分数值型的bvar会显示其历史趋势。每个可点击的bvar记录了过去60秒，60分钟，24小时，30天总计174个值。当有1000个可点击bvar时大约会占1M内存。
 
-![img](../images/vars_3.gif)
+![img](/images/docs/vars_3.gif)
 
 ## 统计和查看分位值
 
@@ -60,7 +60,7 @@ x%分位值（percentile）是指把一段时间内的N个统计值排序，排�
 
 **下图是分位值的CDF**，横轴是比例(排序位置/总数)，纵轴是对应的分位值。比如横轴=50%处对应的纵轴值便是50%分位值。如果系统要求的性能指标是"99.9%的请求在xx毫秒内完成“，那么你就得看下99.9%那儿的值。
 
-![img](../images/vars_4.png)
+![img](/images/docs/vars_4.png)
 
 为什么叫它[CDF](https://en.wikipedia.org/wiki/Cumulative_distribution_function)? 当选定一个纵轴值y时，对应横轴的含义是"数值 <= y的比例”，由于数值一般来自随机采样，横轴也可以理解为“数值 <= y的概率”，或P(数值 <= y)，这就是CDF的定义。
 
@@ -75,13 +75,13 @@ CDF的导数是[概率密度函数](https://en.wikipedia.org/wiki/Probability_de
 
 **下图是按分位值按时间变化的曲线**，包含了4条曲线，横轴是时间，纵轴从上到下分别对应99.9%，99%，90%，50%分位值。颜色从上到下也越来越浅（从橘红到土黄）。
 
-![img](../images/vars_5.png)
+![img](/images/docs/vars_5.png)
 
 滑动鼠标可以阅读对应数据点的值，上图中显示的是”39秒种前的99%分位值是330**微秒**”。这幅图中不包含99.99%的曲线，因为99.99%分位值常明显大于99.9%及以下的分位值，画在一起的话会使得其他曲线变得很”矮“，难以辨认。你可以点击以"\_latency\_9999"结尾的bvar独立查看99.99%曲线。按时间变化曲线可以看到分位值的变化趋势，对分析系统的性能变化很实用。
 
 brpc的服务都会自动统计延时分布，用户不用自己加了。如下图所示：
 
-![img](../images/vars_6.png)
+![img](/images/docs/vars_6.png)
 
 你可以用bvar::LatencyRecorder统计任何代码的延时，这么做(更具体的使用方法请查看[bvar-c++](bvar_c++.md)):
 
@@ -100,7 +100,7 @@ void foo() {
 
 如果这个程序使用了brpc server，那么你应该已经可以在/vars看到client_latency, client_latency_cdf等变量，点击便可查看动态曲线。如下图所示：
 
-![img](../images/vars_7.png)
+![img](/images/docs/vars_7.png)
 
 ## 非brpc server
 

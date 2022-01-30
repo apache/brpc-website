@@ -31,7 +31,7 @@ A sub channel can be added to the same `ParallelChannel` more than once, which i
 
 Following picture shows internal structure of `ParallelChannel` (Chinese in red: can be different from request/response respectively)
 
-![img](../images/pchan.png)
+![img](/images/docs/pchan.png)
 
 ## Add sub channel
 

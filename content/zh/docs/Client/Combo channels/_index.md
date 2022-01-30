@@ -31,7 +31,7 @@ ParallelChannel (有时被称为“pchan”)同时访问其包含的sub channel�
 
 ParallelChannel的内部结构大致如下：
 
-![img](../images/pchan.png)
+![img](/images/docs/pchan.png)
 
 ## 插入sub channel
 

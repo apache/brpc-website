@@ -101,7 +101,7 @@ server一样的[内置服务](builtin_service.md)。
 
 （X轴是用户数据的字节数，Y轴是对应的QPS）
 
-![img](../images/qps_vs_reqsize.png)
+![img](/images/docs/qps_vs_reqsize.png)
 
 以_mc结尾的曲线代表client和server保持多个连接（线程数个），在本测试中会有更好的表现。
 
@@ -119,7 +119,7 @@ server一样的[内置服务](builtin_service.md)。
 
 （X轴是线程数，Y轴是对应的QPS）
 
-![img](../images/qps_vs_threadnum.png)
+![img](/images/docs/qps_vs_threadnum.png)
 
 **分析**
 
@@ -136,7 +136,7 @@ gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程�
 
 （X轴是延时（微秒），Y轴是小于X轴延时的请求比例）
 
-![img](../images/latency_cdf.png)
+![img](/images/docs/latency_cdf.png)
 
 **分析**
 - brpc: 平均延时短，几乎没有被长尾影响。
@@ -151,7 +151,7 @@ gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程�
 
 （X轴是client数，Y轴是对应的QPS）
 
-![img](../images/qps_vs_multi_client.png)
+![img](/images/docs/qps_vs_multi_client.png)
 
 **分析**
 * brpc: 随着cilent增加，server的QPS在快速增加，有不错的client扩展性。
@@ -169,7 +169,7 @@ gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程�
 
 （X轴是延时（微秒），Y轴是小于X轴延时的请求比例）
 
-![img](../images/multi_client_latency_cdf.png)
+![img](/images/docs/multi_client_latency_cdf.png)
 
 **分析**
 - brpc: 平均延时短，几乎没有被长尾影响。
@@ -186,7 +186,7 @@ gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程�
 
 （X轴是延时（微秒），Y轴是小于X轴延时的请求比例）
 
-![img](../images/multi_server_latency_cdf.png)
+![img](/images/docs/multi_server_latency_cdf.png)
 
 **分析**
 - brpc和UB: 平均延时短，几乎没有被长尾影响。
@@ -202,7 +202,7 @@ gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程�
 
 （X轴是延时（微秒），Y轴是小于X轴延时的请求比例）
 
-![img](../images/twolevel_server_latency_cdf.png)
+![img](/images/docs/twolevel_server_latency_cdf.png)
 
 **分析**
 - brpc: 平均延时短，几乎没有被长尾影响。

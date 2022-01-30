@@ -14,11 +14,11 @@ Following 2 screenshots show accesses to builtin services from a web browser and
 
 **From a web browser**
 
-![img](../images/builtin_service_more.png)
+![img](/images/docs/builtin_service_more.png)
 
 **From a terminal**
 
-![img](../images/builtin_service_from_console.png)
+![img](/images/docs/builtin_service_from_console.png)
 
 # Security Mode
 
@@ -46,19 +46,19 @@ To avoid potential attacks and information leaks, builtin services **must** be h
 
 [/version](http://brpc.baidu.com:8765/version) shows version of the server. Call Server::set_version() to specify version of the server, or brpc would generate a default version like `brpc_server_<service-name1>_<service-name2> ...`
 
-![img](../images/version_service.png)
+![img](/images/docs/version_service.png)
 
 [/health](http://brpc.baidu.com:8765/health) shows whether this server is alive or not.
 
-![img](../images/health_service.png)
+![img](/images/docs/health_service.png)
 
 [/protobufs](http://brpc.baidu.com:8765/protobufs) shows scheme of all protobuf messages inside the server.
 
-![img](../images/protobufs_service.png)
+![img](/images/docs/protobufs_service.png)
 
 [/vlog](http://brpc.baidu.com:8765/vlog) shows all the [VLOG](streaming_log.md#VLOG) that can be enabled(not working with glog).
 
-![img](../images/vlog_service.png)
+![img](/images/docs/vlog_service.png)
 
 /dir: browses all files on the server, convenient but too dangerous, disabled by default.
 

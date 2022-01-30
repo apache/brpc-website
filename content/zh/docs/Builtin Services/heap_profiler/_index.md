@@ -43,13 +43,13 @@ WARNING: 12-26 10:01:25:   * 0 [src/brpc/input_messenger.cpp:132][4294969345] Au
 
 # 图示
 
-![img](../images/heap_profiler_1.png)
+![img](/images/docs/heap_profiler_1.png)
 
 左上角是当前程序通过malloc分配的内存总量，顺着箭头上的数字可以看到内存来自哪些函数。
 
 点击左上角的text选择框可以查看文本格式的结果，有时候这种按分配量排序的形式更方便。
 
-![img](../images/heap_profiler_2.png)
+![img](/images/docs/heap_profiler_2.png)
 
 左上角的两个选择框作用分别是：
 
@@ -58,7 +58,7 @@ WARNING: 12-26 10:01:25:   * 0 [src/brpc/input_messenger.cpp:132][4294969345] Au
 
 下图演示了勾选Diff和Text的效果。
 
-![img](../images/heap_profiler_3.gif)
+![img](/images/docs/heap_profiler_3.gif)
 
 在Linux下，你也可以使用pprof脚本（tools/pprof）在命令行中查看文本格式结果：
 
@@ -109,7 +109,7 @@ Total: 38.9 MB
 
 brpc还提供一个类似的growth profiler分析内存的分配去向（不考虑释放）。 
 
-![img](../images/growth_profiler.png)
+![img](/images/docs/growth_profiler.png)
 
 # MacOS的额外配置
 

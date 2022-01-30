@@ -191,11 +191,11 @@ if (server.AddService(&queue_svc,
 
 `cntl.http_request().unresolved_path()` 对应星号(*)匹配的部分，保证normalized：开头结尾都不包含斜杠(/)，中间斜杠不重复。比如：
 
-![img](../images/restful_1.png)
+![img](/images/docs/restful_1.png)
 
 或
 
-![img](../images/restful_2.png)
+![img](/images/docs/restful_2.png)
 
 unresolved_path都是`"foo/bar"`，左右、中间多余的斜杠被移除了。
 
@@ -203,7 +203,7 @@ unresolved_path都是`"foo/bar"`，左右、中间多余的斜杠被移除了。
 
 /status页面上的方法名后会加上所有相关的URL，形式是：@URL1 @URL2 ...
 
-![img](../images/restful_3.png)
+![img](/images/docs/restful_3.png)
 
 # HTTP参数
 
@@ -270,7 +270,7 @@ cntl->http_response().set_status_code(brpc::HTTP_STATUS_FOUND);
 cntl->http_response().SetHeader("Location", "http://bj.bs.bae.baidu.com/family/image001(4979).jpg");
 ```
 
-![img](../images/302.png)
+![img](/images/docs/302.png)
 
 ## Query String
 

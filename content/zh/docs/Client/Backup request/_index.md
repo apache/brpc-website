@@ -16,19 +16,19 @@ Channel开启backup request。这个Channel会先向其中一个server发送请�
 
 运行后，client端和server端的日志分别如下，“index”是请求的编号。可以看到server端在收到第一个请求后会故意sleep 20ms，client端之后发送另一个同样index的请求，最终的延时并没有受到故意sleep的影响。
 
-![img](../images/backup_request_1.png)
+![img](/images/docs/backup_request_1.png)
 
-![img](../images/backup_request_2.png)
+![img](/images/docs/backup_request_2.png)
 
 /rpcz也显示client在2ms后触发了backup超时并发出了第二个请求。
 
-![img](../images/backup_request_3.png)
+![img](/images/docs/backup_request_3.png)
 
 ## 选择合理的backup_request_ms
 
 可以观察brpc默认提供的latency_cdf图，或自行添加。cdf图的y轴是延时（默认微秒），x轴是小于y轴延时的请求的比例。在下图中，选择backup_request_ms=2ms可以大约覆盖95.5%的请求，选择backup_request_ms=10ms则可以覆盖99.99%的请求。
 
-![img](../images/backup_request_4.png)
+![img](/images/docs/backup_request_4.png)
 
 自行添加的方法：
 

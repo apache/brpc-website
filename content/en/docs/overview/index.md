@@ -18,7 +18,7 @@ Most machines on internet communicate with each other via [TCP/IP](https://en.wi
 * ...
 
 [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) addresses the above issues by abstracting network communications as "clients accessing functions on servers": client sends a request to server, wait until server receives -> processes -> responds to the request, then do actions according to the result. 
-![rpc.png](../images/rpc.png)
+![rpc.png](/images/docs/rpc.png)
 
 Let's see how the issues are solved.
 

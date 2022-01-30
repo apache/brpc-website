@@ -239,7 +239,7 @@ dump功能由如下gflags控制：
 
 比如我们把所有的gflags修改为下图：
 
-![img](../images/bvar_dump_flags_2.png)
+![img](/images/docs/bvar_dump_flags_2.png)
 
 导出文件为：
 

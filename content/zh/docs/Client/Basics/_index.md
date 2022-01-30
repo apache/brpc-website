@@ -76,7 +76,7 @@ int Init(const char* naming_service_url,
 
 命名服务把一个名字映射为可修改的机器列表，在client端的位置如下：
 
-![img](../images/ns.png)
+![img](/images/docs/ns.png)
 
 有了命名服务后client记录的是一个名字，而不是每一台下游机器。而当下游机器变化时，就只需要修改命名服务中的列表，而不需要逐台修改每个上游。这个过程也常被称为“解耦上下游”。当然在具体实现上，上游会记录每一台下游机器，并定期向命名服务请求或被推送最新的列表，以避免在RPC请求时才去访问命名服务。使用命名服务一般不会对访问性能造成影响，对命名服务的压力也很小。
 
@@ -84,7 +84,7 @@ int Init(const char* naming_service_url,
 
 ### bns://\<bns-name\>
 
-BNS是百度内常用的命名服务，比如bns://rdev.matrix.all，其中"bns"是protocol，"rdev.matrix.all"是service-name。相关一个gflag是-ns_access_interval: ![img](../images/ns_access_interval.png)
+BNS是百度内常用的命名服务，比如bns://rdev.matrix.all，其中"bns"是protocol，"rdev.matrix.all"是service-name。相关一个gflag是-ns_access_interval: ![img](/images/docs/ns_access_interval.png)
 
 如果BNS中显示不为空，但Channel却说找不到服务器，那么有可能BNS列表中的机器状态位（status）为非0，含义为机器不可用，所以不会被加入到server候选集中．状态位可通过命令行查看：
 
@@ -164,7 +164,7 @@ VIP一般是4层负载均衡器的公网ip，背后有多个RS。当客户端连
 
 当命名服务获得机器列表后，可以自定义一个过滤器进行筛选，最后把结果传递给负载均衡：
 
-![img](../images/ns_filter.jpg)
+![img](/images/docs/ns_filter.jpg)
 
 过滤器的接口如下：
 ```c++
@@ -208,7 +208,7 @@ int main() {
 
 当下游机器超过一台时，我们需要分割流量，此过程一般称为负载均衡，在client端的位置如下图所示：
 
-![img](../images/lb.png)
+![img](/images/docs/lb.png)
 
 理想的算法是每个请求都得到及时的处理，且任意机器crash对全局影响较小。但由于client端无法及时获得server端的延迟或拥塞，而且负载均衡算法不能耗费太多的cpu，一般来说用户得根据具体的场景选择合适的算法，目前rpc提供的算法有（通过load_balancer_name指定）：
 
@@ -827,7 +827,7 @@ http/h2 body的压缩方法见[client压缩request body](http_client.md#压缩re
 
 ### Q: 经常遇到至另一个机房的Connection timedout
 
-![img](../images/connection_timedout.png)
+![img](/images/docs/connection_timedout.png)
 
 这个就是连接超时了，调大连接和RPC超时：
 
@@ -875,7 +875,7 @@ FATAL 04-07 20:00:03 7778 src/brpc/channel.cpp:123] Invalid address=`bns://group
 
 # 附:Client端基本流程
 
-![img](../images/client_side.png)
+![img](/images/docs/client_side.png)
 
 主要步骤：
 

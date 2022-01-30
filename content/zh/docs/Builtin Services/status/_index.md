@@ -8,7 +8,7 @@ description: >
 ---
 [/status](http://brpc.baidu.com:8765/status)可以访问服务的主要统计信息。这些信息和/vars是同源的，但按服务重新组织方便查看。
 
-![img](../images/status.png)
+![img](/images/docs/status.png)
 
 上图中字段的含义分别是：
 
@@ -40,4 +40,4 @@ public:
 
 比如:
 
-![img](../images/status_2.png)
+![img](/images/docs/status_2.png)

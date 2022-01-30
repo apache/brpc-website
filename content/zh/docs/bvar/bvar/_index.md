@@ -14,7 +14,7 @@ description: >
 
 下图是bvar和原子变量，静态UbMonitor，动态UbMonitor在被多个线程同时使用时的开销。可以看到bvar的耗时基本和线程数无关，一直保持在极低的水平（~20纳秒）。而动态UbMonitor在24核时每次累加的耗时达7微秒，这意味着使用300次bvar的开销才抵得上使用一次动态UbMonitor变量。
 
-![img](../images/bvar_perf.png)
+![img](/images/docs/bvar_perf.png)
 
 # 新增bvar
 
@@ -78,8 +78,8 @@ process_username : "gejun"
 
 监控系统应定期搜集每台单机导出的数据，并把它们汇总到一起。这里以百度内的noah为例，bvar定义的变量会出现在noah的指标项中，用户可勾选并查看历史曲线。
 
-![img](../images/bvar_noah2.png)
-![img](../images/bvar_noah3.png)
+![img](/images/docs/bvar_noah2.png)
+![img](/images/docs/bvar_noah3.png)
 
 # 导出到Prometheus
 

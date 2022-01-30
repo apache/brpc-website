@@ -18,7 +18,7 @@ description: >
 
 单线程reactor的运行方式及问题如下图所示：
 
-![img](../images/threading_overview_1.png)
+![img](/images/docs/threading_overview_1.png)
 
 ## N:1线程库
 
@@ -30,7 +30,7 @@ description: >
 
 多线程reactor的运行方式及问题如下：
 
-![img](../images/threading_overview_2.png)
+![img](/images/docs/threading_overview_2.png)
 
 ## M:N线程库
 

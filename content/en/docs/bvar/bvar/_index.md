@@ -14,7 +14,7 @@ To understand how bvar works, read [explaining cacheline](atomic_instructions.md
 
 Following graph compares overhead of bvar, atomics, static UbMonitor, dynamic UbMonitor when they're accessed by multiple threads simultaneously. We can see that overhead of bvar is not related to number of threads basically, and being constantly low (~20 nanoseconds). As a contrast, dynamic UbMonitor costs 7 microseconds on each operation when there're 24 threads, which is the overhead of using the bvar for 300 times.
 
-![img](../images/bvar_perf.png)
+![img](/images/docs/bvar_perf.png)
 
 # Adding new bvar
 
@@ -78,9 +78,9 @@ process_username : "gejun"
 
 The monitoring system should combine data on every single machine periodically and merge them together to provide on-demand queries. Take the "noah" system inside Baidu as an example, variables defined by bvar appear as metrics in noah, which can be checked by users to view historical curves.
 
-![img](../images/bvar_noah2.png)
+![img](/images/docs/bvar_noah2.png)
 
-![img](../images/bvar_noah3.png)
+![img](/images/docs/bvar_noah3.png)
 
 # Export to Prometheus
 

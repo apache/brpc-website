@@ -20,11 +20,11 @@ description: >
 
 Following animation shows how to find bvars with wildcard patterns. You can copy and paste the URL to others who will see same bvars that you see. (values may change)
 
-![img](../images/vars_1.gif)
+![img](/images/docs/vars_1.gif)
 
 There's a search box in the upper-left corner on /vars page, in which you can type part of the names to locate bvars. Different patterns are separated by `,` `:` or space.
 
-![img](../images/vars_2.gif)
+![img](/images/docs/vars_2.gif)
 
 /vars is accessible from terminal as well:
 
@@ -50,7 +50,7 @@ bthread_worker_usage : 1.01056
 
 Clicking on most of the numerical bvars shows historical trends. Each clickable bvar records values in recent *60 seconds, 60 minutes, 24 hours and 30 days*, which are *174* numbers in total. 1000 clickable bvars take roughly 1M memory.
 
-![img](../images/vars_3.gif)
+![img](/images/docs/vars_3.gif)
 
 ## Calculate and view percentiles
 
@@ -60,7 +60,7 @@ Percentiles can be plotted as a CDF or percentiles-over-time curve.
 
 **Following diagram plots percentiles as CDF**, where the X-axis is the ratio(ranked-position/total-number) and the Y-axis is the corresponding percentile. E.g. The Y value corresponding to X=50% is 50-ile. If a system requires that "99.9% requests need to be processed within Y milliseconds", you should check the Y at 99.9%.
 
-![img](../images/vars_4.png)
+![img](/images/docs/vars_4.png)
 
 Why do we call it [CDF](https://en.wikipedia.org/wiki/Cumulative_distribution_function) ? When a Y=y is chosen, the corresponding X means "percentage of values <= y". Since values are sampled randomly (and uniformly), the X can be viewed as "probability of values <= y", or P(values <= y), which is just the definition of CDF.
 
@@ -75,13 +75,13 @@ A CDF with slowly ascending curve and small long-tail area is great in practice.
 
 **Following diagram plots percentiles over time** and has four curves. The X-axis is time and Y-axis from top to bottom are 99.9% 99% 90% 50% percentiles respectively, plotted in lighter and lighter colors (from orange to yellow). 
 
-![img](../images/vars_5.png)
+![img](/images/docs/vars_5.png)
 
 Hovering mouse over the curves shows corresponding values at the time. The tooltip in above diagram means "The 99% percentile of latency before 39 seconds is 330 **microseconds**". The diagram does not include the 99.99-ile curve which is usually significantly higher than others, making others hard to read. You may click bvars ended with "\_latency\_9999" to read the 99.99-ile curve separately. This diagram shows how percentiles change over time, which is helpful to analyze performance regressions of systems.
 
 brpc calculates latency distributions of services automatically, which do not need users to add manually. The metrics are as follows:
 
-![img](../images/vars_6.png)
+![img](/images/docs/vars_6.png)
 
 `bvar::LatencyRecorder` is able to calculate latency distributions of any code, as depicted below. (checkout [bvar-c++](bvar_c++.md) for details):
 
@@ -100,7 +100,7 @@ void foo() {
 
 If the application already starts a brpc server, values like `client_latency`, `client_latency_cdf` can be viewed from `/vars` as follows. Clicking them to see (dynamically-updated) curves:
 
-![img](../images/vars_7.png)
+![img](/images/docs/vars_7.png)
 
 ## Non brpc server
 

@@ -323,7 +323,7 @@ Comparing to ptmalloc embedded in glibc, tcmalloc often improves performance. Ho
 
 Code compiled with gcc 4.8.2 and linked to a tcmalloc compiled with earlier GCC may crash or deadlock before main(), E.g:
 
-![img](../images/tcmalloc_stuck.png)
+![img](/images/docs/tcmalloc_stuck.png)
 
 When you meet the issue, compile tcmalloc with the same GCC.
 

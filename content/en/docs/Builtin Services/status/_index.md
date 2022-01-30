@@ -8,7 +8,7 @@ description: >
 ---
 [/status](http://brpc.baidu.com:8765/status) shows primary statistics of services inside the server. The data sources are same with [/vars](vars.md), but stats are grouped differently.
 
-![img](../images/status.png)
+![img](/images/docs/status.png)
 
 Meanings of the fields above:
 
@@ -40,4 +40,4 @@ public:
 
 For example:
 
-![img](../images/status_2.png)
+![img](/images/docs/status_2.png)

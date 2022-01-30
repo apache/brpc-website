@@ -14,9 +14,9 @@ description: >
 
 **从浏览器访问**
 
-![img](../images/builtin_service_more.png)
+![img](/images/docs/builtin_service_more.png)
 
-**从命令行访问** ![img](../images/builtin_service_from_console.png)
+**从命令行访问** ![img](/images/docs/builtin_service_from_console.png)
 
 # 安全模式
 
@@ -44,19 +44,19 @@ description: >
 
 [/version](http://brpc.baidu.com:8765/version): 查看服务器的版本。用户可通过Server::set_version()设置Server的版本，如果用户没有设置，框架会自动为用户生成，规则：`brpc_server_<service-name1>_<service-name2> ...`
 
-![img](../images/version_service.png)
+![img](/images/docs/version_service.png)
 
 [/health](http://brpc.baidu.com:8765/health): 探测服务的存活情况。
 
-![img](../images/health_service.png)
+![img](/images/docs/health_service.png)
 
 [/protobufs](http://brpc.baidu.com:8765/protobufs): 查看程序中所有的protobuf结构体。
 
-![img](../images/protobufs_service.png)
+![img](/images/docs/protobufs_service.png)
 
 [/vlog](http://brpc.baidu.com:8765/vlog): 查看程序中当前可开启的[VLOG](streaming_log.md#VLOG) (对glog无效)。
 
-![img](../images/vlog_service.png)
+![img](/images/docs/vlog_service.png)
 
 /dir: 浏览服务器上的所有文件，方便但非常危险，默认关闭。
 

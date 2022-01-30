@@ -30,7 +30,7 @@ A message is a bounded binary data written to a connection, which may be a respo
 
 This method makes the writing contentions wait-free. Although the thread that gets the right to write is not wait-free nor lock-free in principle and may be blocked by a node that is still UNCONNECTED(the thread issuing write is swapped out by OS just after atomic exchange and before setting the next pointer, within execution time of just one instruction), the blocking rarely happens in practice. In current implementations, if the data cannot be written fully in one call, a KeepWrite bthread is created to write the remaining data. This mechanism is pretty complicated and the principle is depicted below. Read [socket.cpp](https://github.com/brpc/brpc/blob/master/src/brpc/socket.cpp) for more details.
 
-![img](../images/write.png)
+![img](/images/docs/write.png)
 
 Since writes in brpc always complete within short time, the calling thread can handle new tasks more quickly and background KeepWrite threads also get more tasks to write in one batch, forming pipelines and increasing the efficiency of IO at high throughputs.
 
@@ -52,4 +52,4 @@ In fact, Socket manages not only the native fd but also other resources, such as
 
 # The full picture
 
-![img](../images/rpc_flow.png)
+![img](/images/docs/rpc_flow.png)

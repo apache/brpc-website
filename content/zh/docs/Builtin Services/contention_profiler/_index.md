@@ -28,12 +28,12 @@ r31906后brpc支持contention profiler，可以分析在等待锁上花费了多
 
 我们通过实际例子来看下如何使用contention profiler，点击“contention”按钮（more左侧）后就会开启默认10秒的分析过程。下图是libraft中的一个示例程序的锁状况，这个程序是3个节点复制组的leader，qps在10-12万左右。左上角的**Total seconds: 2.449**是采集时间内（10秒）在锁上花费的所有等待时间。注意是“等待”，无竞争的锁不会被采集也不会出现在下图中。顺着箭头往下走能看到每份时间来自哪些函数。
 
-![img](../images/raft_contention_1.png)
+![img](/images/docs/raft_contention_1.png)
 
  上图有点大，让我们放大一个局部看看。下图红框中的0.768是这个局部中最大的数字，它代表raft::LogManager::get_entry在等待涉及到bvar::detail::UniqueLockBase的函数上共等待了0.768秒（10秒内）。我们如果觉得这个时间不符合预期，就可以去排查代码。
 
-![img](../images/raft_contention_2.png)
+![img](/images/docs/raft_contention_2.png)
 
 点击上方的count选择框，可以查看锁的竞争次数。选择后左上角变为了**Total samples: 439026**，代表采集时间内总共的锁竞争次数（估算）。图中箭头上的数字也相应地变为了次数，而不是时间。对比同一份结果的时间和次数，可以更深入地理解竞争状况。
 
-![img](../images/raft_contention_3.png)
+![img](/images/docs/raft_contention_3.png)

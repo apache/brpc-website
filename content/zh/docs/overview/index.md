@@ -20,7 +20,7 @@ description: >
 
 [RPC](http://en.wikipedia.org/wiki/Remote_procedure_call)可以解决这些问题，它把网络交互类比为“client访问server上的函数”：client向server发送request后开始等待，直到server收到、处理、回复client后，client又再度恢复并根据response做出反应。
 
-![rpc.png](../images/rpc.png)
+![rpc.png](/images/docs/rpc.png)
 
 我们来看看上面的一些问题是如何解决的：
 
@@ -42,7 +42,7 @@ RPC不是万能的抽象，否则我们也不需要TCP/IP这一层了。但是�
 - 我传输的是流数据，RPC表达不了。事实上brpc中很多协议支持传递流式数据，包括[http中的ProgressiveReader](http_client.md#持续下载), h2的streams, [streaming rpc](streaming_rpc.md), 和专门的流式协议RTMP。
 - 我的场景不需要回复。简单推理可知，你的场景中请求可丢可不丢，可处理也可不处理，因为client总是无法感知，你真的确认这是OK的？即使场景真的不需要，我们仍然建议用最小的结构体回复，因为这不大会是瓶颈，并且追查复杂bug时可能是很有价值的线索。
 
-# 什么是![brpc](../images/logo.png)?
+# 什么是![brpc](/images/docs/logo.png)?
 
 百度内最常使用的工业级RPC框架, 有1,000,000+个实例(不包含client)和上千种服务, 在百度内叫做"**baidu-rpc**". 目前只开源C++版本。
 

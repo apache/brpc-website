@@ -30,7 +30,7 @@ http://<url>                 # Domain Naming Service, aka DNS.
 
 这套方式是可扩展的，实现了新的NamingService后在[global.cpp](https://github.com/brpc/brpc/blob/master/src/brpc/global.cpp)中依葫芦画瓢注册下就行了，如下图所示：
 
-![img](../images/register_ns.png)
+![img](/images/docs/register_ns.png)
 
 看到这些熟悉的字符串格式，容易联想到ftp:// zk:// galileo://等等都是可以支持的。用户在新建Channel时传入这类NamingService描述，并能把这些描述写在各类配置文件中。
 
@@ -42,7 +42,7 @@ Load balancer最重要的是如何让不同线程中的负载均衡不互斥，�
 
 和NamingService类似，我们使用字符串来指代一个load balancer，在global.cpp中注册：
 
-![img](../images/register_lb.png)
+![img](/images/docs/register_lb.png)
 
 # 健康检查
 

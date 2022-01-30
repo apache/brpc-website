@@ -18,7 +18,7 @@ Event-loop libraries such as [libevent](http://libevent.org/), [libev](http://so
 
 How single-threaded reactors work and the problems related are demonstrated below: (The Chinese characters in red: "Uncontrollable! unless the service is specialized")
 
-![img](../images/threading_overview_1.png)
+![img](/images/docs/threading_overview_1.png)
 
 ## N:1 threading library
 
@@ -30,7 +30,7 @@ Also known as [Fiber](http://en.wikipedia.org/wiki/Fiber_(computer_science)). Ty
 
 How multi-threaded reactors work and problems related are demonstrated below:
 
-![img](../images/threading_overview_2.png)
+![img](/images/docs/threading_overview_2.png)
 
 ## M:N threading library
 

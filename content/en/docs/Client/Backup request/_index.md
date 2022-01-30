@@ -16,19 +16,19 @@ Read [example/backup_request_c++](https://github.com/brpc/brpc/blob/master/examp
 
 After running, the log in client and server is as following. "Index" is the number of request. After the server receives the first request, it will sleep for 20ms on purpose. Then the client sends the request with the same index. The final delay is not affected by the intentional sleep.
 
-![img](../images/backup_request_1.png)
+![img](/images/docs/backup_request_1.png)
 
-![img](../images/backup_request_2.png)
+![img](/images/docs/backup_request_2.png)
 
 /rpcz also shows that the client triggers backup request after 2ms and sends the second request.
 
-![img](../images/backup_request_3.png)
+![img](/images/docs/backup_request_3.png)
 
 ## Choose proper backup_request_ms
 
 You can look the default cdf(Cumulative Distribution Function) graph of latency provided by brpc, or add it by your own. The y-axis of the cdf graph is a latency(us by default), and the x-axis is the proportion of requests whose latencies are less than the corresponding value in y-aixs. In the following graph, Choosing backup_request_ms=2ms could approximately cover 95.5% of the requests, while choosing backup_request_ms=10ms could cover 99.99% of the requests.
 
-![img](../images/backup_request_4.png)
+![img](/images/docs/backup_request_4.png)
 
 The way of adding it by yourself:
 

@@ -76,7 +76,7 @@ If `load_balancer_name` is NULL or empty, this Init() is just the one for connec
 
 Naming service maps a name to a modifiable list of servers. It's positioned as follows at client-side:
 
-![img](../images/ns.png)
+![img](/images/docs/ns.png)
 
 With the help of naming service, the client remembers a name instead of every concrete server. When the servers are added or removed, only mapping in the naming service is changed, rather than telling every client that may access the cluster. This process is called "decoupling up and downstreams". Back to implementation details, the client does remember every server and will access NamingService periodically or be pushed with latest server list. The impl. has minimal impact on RPC latencies and very small pressure on the system providing naming service.
 
@@ -84,7 +84,7 @@ General form of `naming_service_url`  is "**protocol://service_name**".
 
 ### bns://\<bns-name\>
 
-BNS is the most common naming service inside Baidu. In "bns://rdev.matrix.all", "bns" is protocol and "rdev.matrix.all" is service-name. A related gflag is -ns_access_interval: ![img](../images/ns_access_interval.png)
+BNS is the most common naming service inside Baidu. In "bns://rdev.matrix.all", "bns" is protocol and "rdev.matrix.all" is service-name. A related gflag is -ns_access_interval: ![img](/images/docs/ns_access_interval.png)
 
 If the list in BNS is non-empty, but Channel says "no servers", the status bit of the machine in BNS is probably non-zero, which means the machine is unavailable and as a correspondence not added as server candidates of the Channel. Status bits can be checked by:
 
@@ -166,7 +166,7 @@ If higher performance is demanded, or number of connections is limited (in a lar
 
 Users can filter servers got from the NamingService before pushing to LoadBalancer.
 
-![img](../images/ns_filter.jpg)
+![img](/images/docs/ns_filter.jpg)
 
 Interface of the filter:
 ```c++
@@ -210,7 +210,7 @@ int main() {
 
 When there're more than one server to access, we need to divide the traffic. The process is called load balancing, which is positioned as follows at client-side.
 
-![img](../images/lb.png)
+![img](/images/docs/lb.png)
 
 The ideal algorithm is to make every request being processed in-time, and crash of any server makes minimal impact. However clients are not able to know delays or congestions happened at servers in realtime, and load balancing algorithms should be light-weight generally, users need to choose proper algorithms for their use cases. Algorithms provided by brpc (specified by `load_balancer_name`):
 
@@ -833,7 +833,7 @@ The remote server does not serve any more (probably crashed).
 
 ### Q: often met Connection timedout to another IDC
 
-![img](../images/connection_timedout.png)
+![img](/images/docs/connection_timedout.png)
 
 The TCP connection is not established within connection_timeout_ms, you have to tweak options:
 
@@ -881,7 +881,7 @@ Check if the C++ version turns on compression (Controller::set_compress_type), C
 
 # PS: Workflow at Client-side
 
-![img](../images/client_side.png)
+![img](/images/docs/client_side.png)
 
 Steps:
 

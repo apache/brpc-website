@@ -1041,4 +1041,4 @@ process_io_write_second
 
 # 附:Server端基本流程
 
-![img](../images/server_side.png)
+![img](/images/docs/server_side.png)

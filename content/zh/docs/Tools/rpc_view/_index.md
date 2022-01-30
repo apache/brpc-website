@@ -28,7 +28,7 @@ TRACE: 02-14 12:12:20:   * 0 src/brpc/server.cpp:771] Check out http://XXX.com:8
 
 打开rpc_view在8888端口提供的页面（在secureCRT中按住ctrl点url）：
 
-![img](../images/rpc_view_1.png)
+![img](/images/docs/rpc_view_1.png)
 
 这个页面正是目标server的内置服务，右下角的提示告诉我们这是rpc_view提供的。这个页面和真实的内置服务基本是一样的，你可以做任何操作。
 
@@ -38,8 +38,8 @@ TRACE: 02-14 12:12:20:   * 0 src/brpc/server.cpp:771] Check out http://XXX.com:8
 
 假如我们之前停留在原目标server的/connections页面：
 
-![img](../images/rpc_view_2.png)
+![img](/images/docs/rpc_view_2.png)
 
 加上?changetarge后就跳到新目标server的/connections页面了。接下来点击其他tab都会显示新目标server的。
 
-![img](../images/rpc_view_3.png)
+![img](/images/docs/rpc_view_3.png)

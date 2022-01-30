@@ -24,8 +24,8 @@ baidu-dsp是联盟基于Ad Exchange和RTB模式的需求方平台，服务大客
 
 |          | ubrpc                                    | brpc                                |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-| 流量       | ![img](../images/baidu_dsp_compare_1.png) | ![img](../images/baidu_dsp_compare_2.png) |
-| bs成功率    | ![img](../images/baidu_dsp_compare_3.png) | ![img](../images/baidu_dsp_compare_4.png) |
-| cpu_idle | ![img](../images/baidu_dsp_compare_5.png) | ![img](../images/baidu_dsp_compare_6.png) |
-| ctr成功率   | ![img](../images/baidu_dsp_compare_7.png) | ![img](../images/baidu_dsp_compare_8.png) |
-| cvr成功率   | ![img](../images/baidu_dsp_compare_9.png) | ![img](../images/baidu_dsp_compare_10.png) |
+| 流量       | ![img](/images/docs/baidu_dsp_compare_1.png) | ![img](/images/docs/baidu_dsp_compare_2.png) |
+| bs成功率    | ![img](/images/docs/baidu_dsp_compare_3.png) | ![img](/images/docs/baidu_dsp_compare_4.png) |
+| cpu_idle | ![img](/images/docs/baidu_dsp_compare_5.png) | ![img](/images/docs/baidu_dsp_compare_6.png) |
+| ctr成功率   | ![img](/images/docs/baidu_dsp_compare_7.png) | ![img](/images/docs/baidu_dsp_compare_8.png) |
+| cvr成功率   | ![img](/images/docs/baidu_dsp_compare_9.png) | ![img](/images/docs/baidu_dsp_compare_10.png) |

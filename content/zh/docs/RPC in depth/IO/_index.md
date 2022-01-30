@@ -30,7 +30,7 @@ linux一般使用non-blocking IO提高IO并发度。当IO并发度很低时，no
 
 这套方法可以让写竞争是wait-free的，而获得写权利的线程虽然在原理上不是wait-free也不是lock-free，可能会被一个值仍为UNCONNECTED的节点锁定（这需要发起写的线程正好在原子交换后，在设置next指针前，仅仅一条指令的时间内被OS换出），但在实践中很少出现。在当前的实现中，如果获得写权利的线程一下子无法写出所有的数据，会启动一个KeepWrite线程继续写，直到所有的数据都被写出。这套逻辑非常复杂，大致原理如下图，细节请阅读[socket.cpp](https://github.com/brpc/brpc/blob/master/src/brpc/socket.cpp)。
 
-![img](../images/write.png)
+![img](/images/docs/write.png)
 
 由于brpc的写出总能很快地返回，调用线程可以更快地处理新任务，后台KeepWrite写线程也能每次拿到一批任务批量写出，在大吞吐时容易形成流水线效应而提高IO效率。
 
@@ -52,4 +52,4 @@ linux一般使用non-blocking IO提高IO并发度。当IO并发度很低时，no
 
 # The full picture
 
-![img](../images/rpc_flow.png)
+![img](/images/docs/rpc_flow.png)

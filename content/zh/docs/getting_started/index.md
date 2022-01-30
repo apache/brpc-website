@@ -323,7 +323,7 @@ brpc默认**不**链接 [tcmalloc](http://goog-perftools.sourceforge.net/doc/tcm
 
 用gcc4.8.2编译然后链接更早版本GCC编译的tcmalloc，可能会让程序中main()函数之前挂掉或者死锁，例如：
 
-![img](../images/tcmalloc_stuck.png)
+![img](/images/docs/tcmalloc_stuck.png)
 
 当你遇到这个问题的时候，请用同一个GCC重新编译tcmalloc。
 
