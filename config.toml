@@ -77,7 +77,7 @@ time_format_blog = "2006年1月2日"
 # Everything below this are Site Params
 
 [params]
-copyright = "The bRPC Authors"
+copyright = "The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation."
 qrcode = "https://gw.alipayobjects.com/mdn/rms_91f3e6/afts/img/A*NyEzRp3Xq28AAAAAAAAAAABkARQnAQ"
 #privacy_policy = "https://policies.google.com/privacy"
 
