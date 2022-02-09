@@ -1,7 +1,7 @@
 {{ $links := .Site.Params.links }}
-<footer class="bg-dark py-5 row d-print-none">
+<footer class="bg-dark py-5 row d-print-none" style="display: flex; align-items: center; padding: 0 !important;">
   <div class="container-fluid mx-sm-5">
-    <div class="row">
+    <div class="row" style="display: flex; align-items: center;">
       <div class="col-12 col-sm-4 text-xs-center order-sm-2">
         {{ with $links }}
         {{ with index . "user"}}
@@ -22,6 +22,12 @@
 	{{ if not .Site.Params.ui.footer_about_disable }}
 		{{ with .Site.GetPage "about" }}<p class="mt-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>{{ end }}
 	{{ end }}
+        <div style="font-size: 12.8px; color: rgb(117, 116, 116);">
+          <a href="https://www.apache.org/foundation/how-it-works.html" target="_blank" rel="noopener">Foundation</a> |
+          <a href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a> |
+          <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Sponsorship</a> |
+          <a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+        </div>
       </div>
     </div>
   </div>
