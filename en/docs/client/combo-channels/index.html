@@ -1,0 +1,2537 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.86.0" />
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="alternate" type="application/rss&#43;xml" href="https://brpc.incubator.apache.org/en/docs/client/combo-channels/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Combo channels | bRPC</title><meta property="og:title" content="Combo channels" />
+<meta property="og:description" content="What is channel in bRPC?
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://brpc.incubator.apache.org/en/docs/client/combo-channels/" /><meta property="og:site_name" content="bRPC" />
+
+<meta itemprop="name" content="Combo channels">
+<meta itemprop="description" content="What is channel in bRPC?
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Combo channels"/>
+<meta name="twitter:description" content="What is channel in bRPC?
+"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-93485976-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<link rel="preload" href="/scss/main.min.3ec220ee970bc505bab687924141abfe4d5e51807105a3b107b0cad6e3c0efc6.css" as="style">
+<link href="/scss/main.min.3ec220ee970bc505bab687924141abfe4d5e51807105a3b107b0cad6e3c0efc6.css" rel="stylesheet" integrity="">
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+
+
+
+    <title>Combo channels | bRPC</title>
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/en/">
+		<span class="navbar-logo"><svg width="303" height="259" viewBox="0 0 303 259" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>brpc_logo.svg</title><defs><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-2"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-3"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-4"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient></defs><g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="椭圆形" fill="#58b8ff" cx="23.5" cy="62.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="279.5" cy="60.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="119" cy="26" r="26"/><rect id="矩形" fill="#58b8ff" transform="translate(78.021813, 41.967662) rotate(-22.000000) translate(-78.021813, -41.967662)" x="30.0218125" y="35.9676616" width="96" height="12"/><rect id="矩形" fill="#58b8ff" transform="translate(201.451088, 44.299021) rotate(13.000000) translate(-201.451088, -44.299021)" x="138.951088" y="38.2990214" width="125" height="12"/><g id="brpc-logo" transform="translate(11.000000, 104.000000)" fill-rule="nonzero"><g id="编组" transform="translate(138.000000, 77.419111) scale(-1, 1) rotate(-180.000000) translate(-138.000000, -77.419111) translate(0.000000, 0.000000)"><path d="M18.8 154.3C17.8 154.1 17 153.8 17 153.6 17 153.5 13.2 134.3 8.5 111 3.8 87.7-205355861e-22 68-205355861e-22 67.4-205355861e-22 65.9 2.6 65.3 5.7 65.8 7.3 66.1 8.1 67.2 8.6 69.6 9.3 73.5 10 73.8 11.7 71.1 15 65.9 28.8 63.2 36.4 66.4 48.9 71.6 57.7 89.6 56.8 108.1c-.5 10-2.5 14.5-7.8 17.1C44.5 127.5 36.6 127.5 31.4 125.1 27 123.1 20.8814242 116.827994 20 115.8 19.8268414 115.598047 19.5 115 19 115.2 18.3 115.4 18.3 116.5 19 118.7 19.6 120.4 21.6 129 23.4 137.8l3.3 16L24.6 154.4C22.3 155 21.4 155 18.8 154.3zm24.6146505-36.885789c1.7578246-1.326292 2.0864078-1.825452 2.4530432-2.642066S46.8138702 112.705545 47.1008328 111.513935C48.333925 109.104457 47.0101697 95.2413285 45.0724535 89.7736686 41.197021 79.2090375 34.9434822 73 28.2495534 73c-4.5800565.0-7.4866309 1.5754274-11.5382193 6.1163653-1.6734822 1.8534441-1.598743 2.8514069-2.0391331 4.4738936C14.2318109 85.2127457 15.3810952 94.5991493 17.4068894 98.6767262 18.5085881 100.995054 18.5085881 100.995054 20.3179492 104.427606 20.9381193 105.604136 23.3268821 108.69306 24.5063492 109.790864c1.2349847 1.149478 2.6574201 2.834639 3.7432042 3.921533 1.1506404 1.15181600000001 4.2465085 3.084017 5.3028342 3.701814 1.4321645.837608000000003 2.774919 1.362015 4.0282636 1.573221C40.1349135 119.080104 41.2462694 118.670624 43.4146505 117.414211z" id="形状" fill="url(#linearGradient-1)"/><path d="M248.7 148.9C241 147.8 232.2 143 226.1 136.5c-14.2-15-20-43.1-12.1-58.6C216.6 72.9 223.2 67.5 228.5 66 235.2 64.1 249.3 65.1 255.7 67.9 258.6 69.2 261.4 70.8 262.1 71.6 263.7 73.5 265 79.9 263.9 80.6 263.4 80.9 260 79.6 256.3 77.8 243 71.3 230.4 73.3 225.1 82.9 218.5 94.9 223.7 119.3 235.5 131.5 245.8 142 257.4 142.9 271.3 134.2 273.7 132.7 274.2 132.7 275 134 275.5 134.8 276 137.2 276 139.2 276 142.2 275.5 143.2 272.8 144.8 266.2 148.7 257.7 150.2 248.7 148.9z" id="路径" fill="#fff"/><path d="M87.4 148.1C86.2 147.6 84.9 146.7 84.6 146.1 83.6 144.5 68.1 66.6 68.7 65.8c.599999999999994-1 7.5-1 9 0C78.4 66.3 80.6 74.4 82.5 83.9s3.7 17.6 4 18.2C87.5 103.6 96.3 103.1 99.9 101.2 105.7 98.3 107.2 95.2 110 79.7l2.5-14.2L117.3 65.2C123.5 64.8 123.7 65.7 121.6 78.4c-2.5 14.4-4.5 21.2-7.3 24.2C113 104 112 105.3 112.2 105.5 112.4 105.6 114.3 106.7 116.5 107.8 124.5 111.9 129.8 119.6 130.7 128.5 131.7 138 127.9 143.9 119 146.9 114.5 148.4 90.2 149.3 87.4 148.1zm24.9-9.5C117.8 136.3 119.3 133.8 118.8 127.7 117.9 117 111.3 112.1 96.6 111.2L87.7 110.7 88.3 113.1C88.6 114.4 89.8 120.5 91 126.5 92.1 132.6 93.3 138.1 93.5 138.8 94.1 140.5 108.1 140.4 112.3 138.6z" id="形状" fill="#fff"/><path d="M159.5 148.4C158.4 148.1 157.2 147.5 156.7 147.1c-1-1-16.8-80.2-16.1-81.2C141.2 64.8 148 64.7 149.7 65.8 150.3 66.2 152.2 73.3 153.8 81.5L156.7 96.5 167.8 97.1c17.1 1 25.5 5.7 31.2 17.2C206.2 129.1 202.4 143.6 190.5 146.9 186.1 148.1 162.6 149.2 159.5 148.4zm27.2-11C195 131.2 191.3 114.2 180.5 108.6 177.6 107.1 174.2 106.4 167.8 106.2 162.9 106 159 106.2 159 106.7 159 107.1 160.4 114.9 162.1 123.9L165.3 140.2 174.6 139.8C182.1 139.5 184.5 139 186.7 137.4z" id="形状" fill="#fff"/><path d="M52.3 50.7C49 41.2 49.5 37.5 52.9 46.5c1.2 3.1 1.9876864 5.9098389 2.1 6.3S55.4 54.1 55.9 54.9C56.6 56 58.2 55.2 63.5 50.9 67.2 47.9 70.4 45.6 70.6 45.8 71.7 46.5 70.9 47.4 64.1 53.2 60 56.6 58.2983882 57.6981689 57.4 58.2 56.5016118 58.7018311 56.5016118 58.7018311 55.8 58.2 55 57.49737 54 55.4 52.3 50.7z" id="形状" fill="#7e7e7e"/><path d="M84 34.1C84 30.6 82.8 29 80.4 29 78.9 29 78 28.4 78 27.5 78 26.7 78.9 26 80 26 82.4 26 82.4 25.5 80.5 17 79.7 13.4 79.1 8.4 79 5.8 79 1.6 79.3 1 81.4.4 85.1-.5 89.5.3 89.8 2 90 3.1 89.2 3.5 86.8 3.5 83.9 3.5 83.5 3.8 83.3 6.5 83.1 8.2 83.8 13.1 84.8 17.5c1.7 7.9 1.7 8 5.2 8.6L93.5 26.7C94.2848943 26.7875501 94.751561 26.9875501 94.9 27.3 95 28.6 94.2 29 91.1 29h-4L87.7 32.5C88.2 35.6 88 36 86.1 36 84.7 36 84 35.4 84 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M105 34.1C105 30.6 103.8 29 101.4 29 99.9 29 99 28.4 99 27.5 99 26.7 99.9 26 101 26 103.4 26 103.4 25.5 101.5 17 100.7 13.4 100.1 8.4 1e2 5.8 1e2 1.6 100.3 1 102.4.4 106.1-.5 110.5.3 110.8 2 111 3.1 110.2 3.5 107.8 3.5 104.9 3.5 104.5 3.8 104.3 6.5 104.1 8.2 104.8 13.1 105.8 17.5c1.7 7.9 1.7 8 5.2 8.6L114.5 26.7C115.433333 26.8462934 115.9 27.0462934 115.9 27.3 116 28.6 115.2 29 112.1 29h-4L108.7 32.5C109.2 35.6 109 36 107.1 36 105.7 36 105 35.4 105 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M54.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C46.5 1.9 48.6.0 57.2.0 63.6.0 67 1.2 67 3.6 67 4.7 66.6 4.8 65.1 4c-2.7-1.4-10.4-1.3-12.4.3C51.8 4.9 51 6.6 50.9 8 50.4 13.5 50.6 13.7 57.8 14.2 66 14.9 69.5 16.4 71 20 72.3 23.2 71.2 26.3 68 28s-10.2 1.1-13.7-1.1zM67 22.7C67 19 63.6 17 57.3 17 54.4 17 52 17.3 52 17.8c0 1.1 3.1 5.4 5 7C57.9 25.5 60.2 25.9 62.8 25.7 65.1 25.4 67 26.1 67 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M126.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C118.5 1.9 120.6.0 129.2.0 135.6.0 139 1.2 139 3.6 139 4.7 138.6 4.8 137.1 4 134.4 2.6 126.7 2.7 124.7 4.3 123.8 4.9 123 6.6 122.9 8 122.4 13.5 122.6 13.7 129.8 14.2 138 14.9 141.5 16.4 143 20 144.3 23.2 143.2 26.3 140 28s-10.2 1.1-13.7-1.1zM139 22.7C139 19 135.6 17 129.3 17 126.4 17 124 17.3 124 17.8 124 18.9 127.1 23.2 129 24.8 129.9 25.5 132.2 25.9 134.8 25.7 137.1 25.4 139 26.1 139 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M153.7 26.8C151.7 18.4 149.2978 2.90464869 149.2978 2.1 149.2978 1.77371339 148.894918.241544332 150.3.1 151.705082-.0415443324 153 .4 153 2.1 153 3.2 153.7 7.2 154.6 11 156.5 19.3 161 25.2 165.5 25.4 167.5 25.5 168.6 26.1 168.8 27.3 169.1 28.6 168.4 29 165.8 29 163.2 29 161.6 28.2 159.4 25.8L156.5 22.5C155.5 19.6333333 155.133333 18.4333333 155.4 18.9 155.9 19.7 156.5 22.2 156.7 24.6 156.9 27.9 156.7 29 155.6 29 154.8 29 154 28 153.7 26.8z" id="形状" fill="url(#linearGradient-4)"/></g></g></g></svg></span>
+        
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/apache/incubator-brpc/" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/en/docs/" ><span class="active">Docs</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/en/community/" ><span>Community</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/en/docs/faq/" ><span>FAQ</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/en/docs/users/" ><span>Users</span></a>
+			</li>
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/docs/client/combo-channels/">中文</a>
+	
+</div>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    <div class="nav-item dropdown d-block d-lg-none">
+      
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/docs/client/combo-channels/">中文</a>
+	
+</div>
+    </div>
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Docs</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="endocs">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsoverview" href="/en/docs/overview/">Overview</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsgetting_started" href="/en/docs/getting_started/">Getting started</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsbenchmark" href="/en/docs/benchmark/">Performance benchmark</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bvar/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bvar</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbvar">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bvar/bvar/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bvar</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbvarbvar">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bvar/bvar-c&#43;&#43;/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bvar c&#43;&#43;</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbvarbvar-c">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthread">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/bthread/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthreadbthread">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/bthread-or-not/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread or not</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthreadbthread-or-not">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/execution-queue/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Execution Queue</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthreadexecution-queue">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/thread-local/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">thread-local</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthreadthread-local">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Client</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="endocsclient">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientbasics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclienterror-code">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/combo-channels/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Combo channels</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="endocsclientcombo-channels">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-httph2">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-grpc">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access thrift</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-thrift">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-ub">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access redis</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-redis">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-memcached">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientstreaming-rpc">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/backup-request/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Backup request</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientbackup-request">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/dummy-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Dummy server</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientdummy-server">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserver">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverbasics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserve-httph2">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserve-grpc">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserve-thrift">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserve-nshead">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserver-push">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserveravalanche">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverdebug-server-issues">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverauto-concurrencylimiter">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsservermedia-server">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/json2pb/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">json2pb</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverjson2pb">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-services">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/buildin_services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">builtin services</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesbuildin_services">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/status/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">status</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesstatus">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/vars/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">vars</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesvars">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/connections/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">connections</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesconnections">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/flags/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">flags</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesflags">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/rpcz/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpcz</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesrpcz">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/cpu_profiler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">cpu profiler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicescpu_profiler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/heap_profiler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">heap profiler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesheap_profiler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/contention_profiler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">contention profiler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicescontention_profiler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstools">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/rpc_press/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpc_press</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsrpc_press">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/rpc_replay/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpc_replay</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsrpc_replay">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/rpc_view/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpc_view</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsrpc_view">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/benchmark_http/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">benchmark_http</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsbenchmark_http">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/parallel_http/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">parallel_http</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsparallel_http">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-base">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/iobuf/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">IOBuf</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-baseiobuf">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/streaming-log/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming Log</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-basestreaming-log">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/flatmap/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">FlatMap</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-baseflatmap">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-basebrpc-training-materials">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">RPC in depth</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depth">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthnew-protocol">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthatomic-instructions">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/io/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">IO</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthio">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depththreading-overview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthload-balancing">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/locality-aware/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Locality-aware</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthlocality-aware">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthconsistent-hashing">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthmemory-management">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/timer-keeping/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Timer keeping</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthtimer-keeping">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/bthread_id/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread_id</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthbthread_id">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baidu">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/use-case1/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">百度地图api入口</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baiduuse-case1">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/use-case2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">联盟DSP</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baiduuse-case2">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/use-case3/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">ELF学习框架</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baiduuse-case3">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/use-case4/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">云平台代理服务</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baiduuse-case4">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsdownloadbrpc" href="/en/docs/downloadbrpc/">Download bRPC</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsfaq" href="/en/docs/faq/">FAQ</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsusers" href="/en/docs/users/">Users</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/Client/Combo%20channels/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=Combo%20channels" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#add-sub-channel">Add sub channel</a></li>
+    <li><a href="#callmapper">CallMapper</a></li>
+    <li><a href="#responsemerger">ResponseMerger</a></li>
+    <li><a href="#get-the-controller-to-each-sub-channel">Get the controller to each sub channel</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#using-selectivechannel">Using SelectiveChannel</a></li>
+    <li><a href="#example-divide-traffic-to-multiple-naming-services">Example: divide traffic to multiple naming services</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#using-partitionchannel">Using PartitionChannel</a></li>
+    <li><a href="#using-dynamicpartitionchannel">Using DynamicPartitionChannel</a></li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/en/en/docs/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/en/en/docs/client/">Client</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/en/en/docs/client/combo-channels/">Combo channels</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+            
+<div class="td-content">
+	<h1>Combo channels</h1>
+	<div class="lead">What is channel in bRPC?</div>
+	<p>With the growth of services, access patterns to downstream servers become increasingly complicated and often contain multiple RPCs in parallel or layered accesses. The complications could easily introduce tricky bugs around multi-threaded programming, which may even not be sensed by users and difficult to debug and reproduce. Moreover, implementations either support synchronous patterns only, or have totally different code for asynchronous patterns. Take running some code after completions of multiple asynchronous RPCs as an example, the synchronous pattern is often implemented as issuing multiple RPCs asynchronously and waiting for the completions respectively, while the asynchronous pattern is often implemented by a callback plus a referential count, which is decreased by one when one RPC completes. The callback is called when the count hits zero. Let&rsquo;s see drawbacks of the solution:</p>
+<ul>
+<li>The code is inconsistent between synchronous and asynchronous pattern and it&rsquo;s not trivial for users to move from one pattern to another. From the designing point of view, inconsistencies implies that  the essence is probably not grasped yet.</li>
+<li>Cancellation is unlikely to be supported. It&rsquo;s not easy to cancel a single RPC correctly, let alone combinations of RPC. However cancellations are necessary to end pointless waiting in many scenarios.</li>
+<li>Not composable. It&rsquo;s hard to enclose the implementations above as one part of a &ldquo;larger&rdquo; pattern. The code can hardly be reused in a different scenario.</li>
+</ul>
+<p>We need a better abstraction. If several channels are combined into a larger one with different access patterns enclosed, users would be able to do synchronous, asynchronous, cancelling operations with consistent and unified interfaces. The kind of channels are called combo channels in brpc.</p>
+<h1 id="parallelchannel">ParallelChannel</h1>
+<p><code>ParallelChannel</code> (referred to as &ldquo;pchan&rdquo; sometimes) sends requests to all internal sub channels in parallel and merges the responses. Users can modify requests via <code>CallMapper</code> and merge responses with <code>ResponseMerger</code>. <code>ParallelChannel</code> looks like a <code>Channel</code>:</p>
+<ul>
+<li>Support synchronous and asynchronous accesses.</li>
+<li>Can be destroyed immediately after initiating an asynchronous operation.</li>
+<li>Support cancellation.</li>
+<li>Support timeout.</li>
+</ul>
+<p>Check <a href="https://github.com/brpc/brpc/tree/master/example/parallel_echo_c++/">example/parallel_echo_c++</a> for an example.</p>
+<p>Any subclasses of <code>brpc::ChannelBase</code> can be added into <code>ParallelChannel</code>, including <code>ParallelChannel</code> and other combo channels. Set <code>ParallelChannelOptions.fail_limit</code> to control maximum number of failures. When number of failed responses reaches the limit, the RPC is ended immediately rather than waiting for timeout.</p>
+<p>A sub channel can be added to the same <code>ParallelChannel</code> more than once, which is useful when you need to initiate multiple asynchronous RPC to the same service and wait for their completions.</p>
+<p>Following picture shows internal structure of <code>ParallelChannel</code> (Chinese in red: can be different from request/response respectively)</p>
+<p><img src="/images/docs/pchan.png" alt="img"></p>
+<h2 id="add-sub-channel">Add sub channel</h2>
+<p>A sub channel can be added into <code>ParallelChannel</code> by following API:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">AddChannel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ChannelBase</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sub_channel</span><span style="color:#000;font-weight:bold">,</span>
+               <span style="color:#000">ChannelOwnership</span> <span style="color:#000">ownership</span><span style="color:#000;font-weight:bold">,</span>
+               <span style="color:#000">CallMapper</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">call_mapper</span><span style="color:#000;font-weight:bold">,</span>
+               <span style="color:#000">ResponseMerger</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">response_merger</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>When <code>ownership</code> is <code>brpc::OWNS_CHANNEL</code>, <code>sub_channel</code> is destroyed when the <code>ParallelChannel</code> destructs. Although a sub channel may be added into a <code>ParallelChannel</code> multiple times, it&rsquo;s deleted for at most once when <code>ownership</code> in one of the additions is <code>brpc::OWNS_CHANNEL</code>.</p>
+<p>Calling <code> AddChannel</code> during a RPC over <code>ParallelChannel</code> is <strong>NOT thread safe</strong>.</p>
+<h2 id="callmapper">CallMapper</h2>
+<p>This class converts RPCs to <code>ParallelChannel</code>  to the ones to <code>sub channel</code>. If <code>call_mapper</code> is NULL, requests to the sub channel is just the ones to <code>ParallelChannel</code>, and responses are created by calling <code>New()</code> on the responses to <code>ParallelChannel</code>. <code>call_mapper</code> is deleted when <code>ParallelChannel</code> destructs. Due to the reference counting inside, one <code>call_mapper</code> can be associated with multiple sub channels.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">CallMapper</span> <span style="color:#000;font-weight:bold">{</span>
+<span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">virtual</span> <span style="color:#ce5c00;font-weight:bold">~</span><span style="color:#000">CallMapper</span><span style="color:#000;font-weight:bold">();</span>
+ 
+    <span style="color:#204a87;font-weight:bold">virtual</span> <span style="color:#000">SubCall</span> <span style="color:#000">Map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">channel_index</span><span style="color:#8f5902;font-style:italic">/*starting from 0*/</span><span style="color:#000;font-weight:bold">,</span>
+                        <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MethodDescriptor</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">method</span><span style="color:#000;font-weight:bold">,</span>
+                        <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Message</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
+                        <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Message</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">};</span>
+</code></pre></div><p><code>channel_index</code>: The position of the sub channel inside <code>ParallelChannel</code>, starting from zero.</p>
+<p><code>method/request/response</code>: Parameters to <code>ParallelChannel::CallMethod()</code>.</p>
+<p>The returned <code>SubCall</code> configures the calls to the corresponding sub channel and has two special values:</p>
+<ul>
+<li><code>SubCall::Bad()</code>: The call to ParallelChannel fails immediately and <code>Controller::ErrorCode()</code> is set to <code>EREQUEST</code>.</li>
+<li><code>SubCall::Skip()</code>: Skip the call to this sub channel. If all sub channels are skipped, the call to ParallelChannel fails immediately and <code>Controller::ErrorCode()</code> is set to <code>ECANCELED</code>.</li>
+</ul>
+<p>Common implementations of <code>Map()</code> are listed below:</p>
+<ul>
+<li>Broadcast the request. This is also the behavior when <code>call_mapper</code> is NULL:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">  <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Broadcaster</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">CallMapper</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
+      <span style="color:#000">SubCall</span> <span style="color:#000">Map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">channel_index</span><span style="color:#8f5902;font-style:italic">/*starting from 0*/</span><span style="color:#000;font-weight:bold">,</span>
+                  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MethodDescriptor</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">method</span><span style="color:#000;font-weight:bold">,</span>
+                  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Message</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
+                  <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Message</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#8f5902;font-style:italic">// Use the method/request to pchan.
+</span><span style="color:#8f5902;font-style:italic"></span>          <span style="color:#8f5902;font-style:italic">// response is created by `new` and the last flag tells pchan to delete response after completion of the RPC
+</span><span style="color:#8f5902;font-style:italic"></span>          <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">SubCall</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">method</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">New</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#000">DELETE_RESPONSE</span><span style="color:#000;font-weight:bold">);</span>
+      <span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#000;font-weight:bold">};</span>
+</code></pre></div><ul>
+<li>Modify some fields in the request before sending:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">  <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">ModifyRequest</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">CallMapper</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
+    <span style="color:#000">SubCall</span> <span style="color:#000">Map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">channel_index</span><span style="color:#8f5902;font-style:italic">/*starting from 0*/</span><span style="color:#000;font-weight:bold">,</span>
+                <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MethodDescriptor</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">method</span><span style="color:#000;font-weight:bold">,</span>
+                <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Message</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
+                <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Message</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">FooRequest</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">copied_req</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Clone</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">FooRequest</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">request</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#000">copied_req</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">set_xxx</span><span style="color:#000;font-weight:bold">(...);</span>
+        <span style="color:#8f5902;font-style:italic">// Copy and modify the request
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">// The last flag tells pchan to delete the request and response after completion of the RPC
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">SubCall</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">method</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">copied_req</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">New</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#000">DELETE_REQUEST</span> <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">DELETE_RESPONSE</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#000;font-weight:bold">};</span>
+</code></pre></div><ul>
+<li>request/response already contains sub requests/responses, use them directly.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">  <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">UseFieldAsSubRequest</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">CallMapper</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
+    <span style="color:#000">SubCall</span> <span style="color:#000">Map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">channel_index</span><span style="color:#8f5902;font-style:italic">/*starting from 0*/</span><span style="color:#000;font-weight:bold">,</span>
+                <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MethodDescriptor</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">method</span><span style="color:#000;font-weight:bold">,</span>
+                <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Message</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
+                <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Message</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel_index</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">request</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">sub_request_size</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#8f5902;font-style:italic">// Not enough sub_request. The caller doesn&#39;t provide same number of requests as number of sub channels in pchan
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#8f5902;font-style:italic">// Return Bad() to end this RPC immediately
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">SubCall</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Bad</span><span style="color:#000;font-weight:bold">();</span>
+        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#8f5902;font-style:italic">// Fetch the sub request and add a new sub response.
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">// The last flag(0) tells pchan that there is nothing to delete.
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">SubCall</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">sub_method</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">sub_request</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel_index</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">response</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">add_sub_response</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#000;font-weight:bold">};</span>
+</code></pre></div><h2 id="responsemerger">ResponseMerger</h2>
+<p><code>response_merger</code> merges responses from all sub channels into one for the <code>ParallelChannel</code>. When it&rsquo;s NULL, <code>response-&gt;MergeFrom(*sub_response)</code> is used instead, whose behavior can be summarized as &ldquo;merge repeated fields and overwrite the rest&rdquo;. If you need more complex behavior, implement <code>ResponseMerger</code>. Multiple <code>response_merger</code> are called one by one to merge sub responses so that you do not need to consider the race conditions between merging multiple responses simultaneously. The object is deleted when <code>ParallelChannel </code> destructs. Due to the reference counting inside, <code>response_merger </code> can be associated with multiple sub channels.</p>
+<p>Possible values of <code>Result</code> are:</p>
+<ul>
+<li>MERGED: Successfully merged.</li>
+<li>FAIL: The <code>sub_response</code> was not merged successfully, counted as one failure. For example, there are 10 sub channels and <code>fail_limit</code> is 4, if 4 merges return FAIL, the RPC would reach fail_limit and end soon.</li>
+<li>FAIL_ALL: Directly fail the RPC.</li>
+</ul>
+<h2 id="get-the-controller-to-each-sub-channel">Get the controller to each sub channel</h2>
+<p>Sometimes users may need to know the details around sub calls. <code>Controller.sub(i)</code> gets the controller corresponding to a sub channel.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Get the controllers for accessing sub channels in combo channels.
+</span><span style="color:#8f5902;font-style:italic">// Ordinary channel:
+</span><span style="color:#8f5902;font-style:italic">//   sub_count() is 0 and sub() is always NULL.
+</span><span style="color:#8f5902;font-style:italic">// ParallelChannel/PartitionChannel:
+</span><span style="color:#8f5902;font-style:italic">//   sub_count() is #sub-channels and sub(i) is the controller for
+</span><span style="color:#8f5902;font-style:italic">//   accessing i-th sub channel inside ParallelChannel, if i is outside
+</span><span style="color:#8f5902;font-style:italic">//    [0, sub_count() - 1], sub(i) is NULL.
+</span><span style="color:#8f5902;font-style:italic">//   NOTE: You must test sub() against NULL, ALWAYS. Even if i is inside
+</span><span style="color:#8f5902;font-style:italic">//   range, sub(i) can still be NULL:
+</span><span style="color:#8f5902;font-style:italic">//   * the rpc call may fail and terminate before accessing the sub channel
+</span><span style="color:#8f5902;font-style:italic">//   * the sub channel was skipped
+</span><span style="color:#8f5902;font-style:italic">// SelectiveChannel/DynamicPartitionChannel:
+</span><span style="color:#8f5902;font-style:italic">//   sub_count() is always 1 and sub(0) is the controller of successful
+</span><span style="color:#8f5902;font-style:italic">//   or last call to sub channels.
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">sub_count</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">const</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sub</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">const</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><h1 id="selectivechannel">SelectiveChannel</h1>
+<p><a href="https://github.com/brpc/brpc/blob/master/src/brpc/selective_channel.h">SelectiveChannel</a> (referred to as &ldquo;schan&rdquo; sometimes) accesses one of the internal sub channels with a load balancing algorithm. It&rsquo;s more high-level compared to ordinary channels: The requests are sent to sub channels instead of servers directly. <code>SelectiveChannel</code> is mainly for load balancing between groups of machines and shares basic properties of <code>Channel</code>:</p>
+<ul>
+<li>Support synchronous and asynchronous accesses.</li>
+<li>Can be destroyed immediately after initiating an asynchronous operation.</li>
+<li>Support cancellation.</li>
+<li>Support timeout.</li>
+</ul>
+<p>Check <a href="https://github.com/brpc/brpc/tree/master/example/selective_echo_c++/">example/selective_echo_c++</a> for an example.</p>
+<p>Any subclasses of <code>brpc::ChannelBase</code> can be added into <code>SelectiveChannel</code>, including <code>SelectiveChannel</code> and other combo channels.</p>
+<p>Retries done by <code>SelectiveChannel</code> are independent from the ones in its sub channels. When a call to one of the sub channels fails(which may have been retried), other sub channels are retried.</p>
+<p>Currently <code>SelectiveChannel</code> requires <strong>the request remains valid before completion of the RPC</strong>, while other combo or regular channels do not. If you plan to use <code>SelectiveChannel</code> asynchronously, make sure that the request is deleted inside <code>done</code>.</p>
+<h2 id="using-selectivechannel">Using SelectiveChannel</h2>
+<p>The initialization of <code>SelectiveChannel</code> is almost the same as regular <code>Channel</code>, except that it doesn&rsquo;t need a naming service in <code>Init</code>, because <code>SelectiveChannel</code> adds sub channels dynamically by <code>AddChannel</code>, while regular <code>Channel</code> adds servers in the naming service.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/selective_channel.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SelectiveChannel</span> <span style="color:#000">schan</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ChannelOptions</span> <span style="color:#000">schan_options</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">schan_options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">timeout_ms</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">...;</span>
+<span style="color:#000">schan_options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">backup_request_ms</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">...;</span>
+<span style="color:#000">schan_options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">max_retry</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">...;</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">schan</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Init</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">load_balancer</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">schan_options</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to init SelectiveChannel&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>After successful initialization, add sub channels with <code>AddChannel</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// The second parameter ChannelHandle is used to delete sub channel,
+</span><span style="color:#8f5902;font-style:italic">// which can be NULL if this isn&#39;t necessary.
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">schan</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddChannel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">sub_channel</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#8f5902;font-style:italic">/*ChannelHandle*/</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to add sub_channel&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>Note that:</p>
+<ul>
+<li>Unlike <code>ParallelChannel</code>, <code>SelectiveChannel::AddChannel</code> can be called at any time, even if a RPC over the SelectiveChannel is going on. (newly added channels take effects at the next RPC).</li>
+<li><code>SelectiveChannel</code> always owns sub channels, which is different from <code>ParallelChannel</code>&rsquo;s configurable ownership.</li>
+<li>If the second parameter to <code>AddChannel</code> is not NULL, it&rsquo;s filled with a value typed <code>brpc::SelectiveChannel::ChannelHandle</code>, which can be used as the parameter to <code>RemoveAndDestroyChannel</code> to remove and destroy a channel dynamically.</li>
+<li><code>SelectiveChannel</code> overrides timeouts in sub channels. For example, having timeout set to 100ms for a sub channel and 500ms for <code>SelectiveChannel</code>, the actual timeout is 500ms.</li>
+</ul>
+<p><code>SelectiveChannel</code>s are accessed same as regular channels.</p>
+<h2 id="example-divide-traffic-to-multiple-naming-services">Example: divide traffic to multiple naming services</h2>
+<p>Sometimes we need to divide traffic to multiple naming services, because:</p>
+<ul>
+<li>Machines for one service are listed in multiple naming services.</li>
+<li>Machines are split into multiple groups. Requests are sent to one of the groups and then routed to one of the machines inside the group, and traffic are divided differently between groups and machines in a group.</li>
+</ul>
+<p>Above requirements can be achieved by <code>SelectiveChannel</code>.</p>
+<p>Following code creates a <code>SelectiveChannel</code> and inserts 3 regular channels for different naming services respectively.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SelectiveChannel</span> <span style="color:#000">channel</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ChannelOptions</span> <span style="color:#000">schan_options</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">schan_options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">timeout_ms</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">FLAGS_timeout_ms</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">schan_options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">max_retry</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">FLAGS_max_retry</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Init</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;c_murmurhash&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">schan_options</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to init SelectiveChannel&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+ 
+<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Channel</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sub_channel</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Channel</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">sub_channel</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">Init</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ns_node_name</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#4e9a06">&#34;rr&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to init sub channel &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddChannel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">sub_channel</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#8f5902;font-style:italic">/*handle for removal*/</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to add sub_channel to channel&#34;</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span> 
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">...</span>
+<span style="color:#000">XXXService_Stub</span> <span style="color:#000">stub</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">stub</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">FooMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000;font-weight:bold">...</span>
+</code></pre></div><h1 id="partitionchannel">PartitionChannel</h1>
+<p><a href="https://github.com/brpc/brpc/blob/master/src/brpc/partition_channel.h">PartitionChannel</a> is a specialized <code>ParallelChannel</code> to add sub channels automatically based on tags defined in the naming service. As a result, users can list all machines in one naming service and partition them by tags. Check <a href="https://github.com/brpc/brpc/tree/master/example/partition_echo_c++/">example/partition_echo_c++</a> for an example.</p>
+<p><code>ParititonChannel</code> only supports one kind to partitioning method. When multiple methods need to coexist, or one method needs to be changed to another smoothly, try <code>DynamicPartitionChannel</code>, which creates corresponding sub <code>PartitionChannel</code> for different partitioning methods, and divide traffic to partitions according to capacities of servers. Check <a href="https://github.com/brpc/brpc/tree/master/example/dynamic_partition_echo_c++/">example/dynamic_partition_echo_c++</a> for an example.</p>
+<p>If partitions are listed in different naming services, users have to implement the partitioning by <code>ParallelChannel</code> and include sub channels to corresponding naming services respectively. Refer to <a href="#ParallelChannel">the previous section</a> for usages of <code>ParellelChannel</code>.</p>
+<h2 id="using-partitionchannel">Using PartitionChannel</h2>
+<p>First of all, implement your own <code>PartitionParser</code>. In this example, the tag&rsquo;s format is <code>N/M</code>, where N is index of the partition and M is total number of partitions. <code>0/3</code> means that there&rsquo;re 3 partitions and this is the first one of them.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/partition_channel.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">MyPartitionParser</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PartitionParser</span> <span style="color:#000;font-weight:bold">{</span>
+<span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">ParseFromTag</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">tag</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Partition</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">out</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#8f5902;font-style:italic">// &#34;N/M&#34; : #N partition of M partitions.
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">size_t</span> <span style="color:#000">pos</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">tag</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">find_first_of</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;/&#39;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">pos</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">npos</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Invalid tag=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">tag</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">false</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">endptr</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#000">out</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">strtol</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tag</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">endptr</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">endptr</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">tag</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">pos</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Invalid index=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tag</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#000">pos</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">false</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#000">out</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">num_partition_kinds</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">strtol</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tag</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">pos</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">endptr</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">endptr</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">tag</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">tag</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">size</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Invalid num=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">tag</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">pos</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">false</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#000;font-weight:bold">}</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">};</span>
+</code></pre></div><p>Then initialize the <code>PartitionChannel</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/partition_channel.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PartitionChannel</span> <span style="color:#000">channel</span><span style="color:#000;font-weight:bold">;</span>
+ 
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PartitionChannelOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">protocol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">...;</span>   <span style="color:#8f5902;font-style:italic">// PartitionChannelOptions inherits ChannelOptions
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">timeout_ms</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">...;</span> <span style="color:#8f5902;font-style:italic">// Same as above
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fail_limit</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>   <span style="color:#8f5902;font-style:italic">// PartitionChannel&#39;s own settting, which means the same as that of
+</span><span style="color:#8f5902;font-style:italic"></span>                          <span style="color:#8f5902;font-style:italic">// ParalellChannel. fail_limit=1 means the overall RPC will fail 
+</span><span style="color:#8f5902;font-style:italic"></span>                          <span style="color:#8f5902;font-style:italic">// as long as only 1 paratition fails
+</span><span style="color:#8f5902;font-style:italic"></span> 
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Init</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">num_partition_kinds</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">MyPartitionParser</span><span style="color:#000;font-weight:bold">(),</span>
+                 <span style="color:#000">server_address</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">load_balancer</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to init PartitionChannel&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#8f5902;font-style:italic">// The RPC interface is the same as regular Channel
+</span></code></pre></div><h2 id="using-dynamicpartitionchannel">Using DynamicPartitionChannel</h2>
+<p><code>DynamicPartitionChannel</code> and <code>PartitionChannel</code> are basically same on usages. Implement <code>PartitionParser</code> first then initialize the channel, which does not need <code>num_partition_kinds</code> since <code>DynamicPartitionChannel</code> dynamically creates sub <code>PartitionChannel</code> for each partition.</p>
+<p>Following sections demonstrate how to use <code>DynamicPartitionChannel</code> to migrate from 3 partitions to 4 partitions smoothly.</p>
+<p>First of all, start 3 servers serving on port 8004, 8005, 8006 respectively.</p>
+<pre><code>$ ./echo_server -server_num 3
+TRACE: 09-06 10:40:39:   * 0 server.cpp:159] EchoServer is serving on port=8004
+TRACE: 09-06 10:40:39:   * 0 server.cpp:159] EchoServer is serving on port=8005
+TRACE: 09-06 10:40:39:   * 0 server.cpp:159] EchoServer is serving on port=8006
+TRACE: 09-06 10:40:40:   * 0 server.cpp:192] S[0]=0 S[1]=0 S[2]=0 [total=0]
+TRACE: 09-06 10:40:41:   * 0 server.cpp:192] S[0]=0 S[1]=0 S[2]=0 [total=0]
+TRACE: 09-06 10:40:42:   * 0 server.cpp:192] S[0]=0 S[1]=0 S[2]=0 [total=0]
+</code></pre><p>Note that each server prints summaries on traffic received in last second, which is all 0 now.</p>
+<p>Start a client using <code>DynamicPartitionChannel</code>, which is initialized as follows:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">    <span style="color:#000;font-weight:bold">...</span>
+    <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">DynamicPartitionChannel</span> <span style="color:#000">channel</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PartitionChannelOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#8f5902;font-style:italic">// Failure on any single partition fails the RPC immediately. You can use a more relaxed value
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">fail_limit</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>                         
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Init</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">MyPartitionParser</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#4e9a06">&#34;file://server_list&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;rr&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to init channel&#34;</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">...</span>
+</code></pre></div><p>The content inside the naming service <code>file://server_list</code> is:</p>
+<pre><code>0.0.0.0:8004  0/3  # The first partition of the three
+0.0.0.0:8004  1/3  # and so forth
+0.0.0.0:8004  2/3
+</code></pre><p>All 3 partitions are put on the server on port 8004, so the client begins to send requests to 8004 once started.</p>
+<pre><code>$ ./echo_client            
+TRACE: 09-06 10:51:10:   * 0 src/brpc/policy/file_naming_service.cpp:83] Got 3 unique addresses from `server_list'
+TRACE: 09-06 10:51:10:   * 0 src/brpc/socket.cpp:779] Connected to 0.0.0.0:8004 via fd=3 SocketId=0 self_port=46544
+TRACE: 09-06 10:51:11:   * 0 client.cpp:226] Sending EchoRequest at qps=132472 latency=371
+TRACE: 09-06 10:51:12:   * 0 client.cpp:226] Sending EchoRequest at qps=132658 latency=370
+TRACE: 09-06 10:51:13:   * 0 client.cpp:226] Sending EchoRequest at qps=133208 latency=369
+</code></pre><p>At the same time, the server on 8004 received tripled traffic due to the 3 partitions.</p>
+<pre><code>TRACE: 09-06 10:51:11:   * 0 server.cpp:192] S[0]=398866 S[1]=0 S[2]=0 [total=398866]
+TRACE: 09-06 10:51:12:   * 0 server.cpp:192] S[0]=398117 S[1]=0 S[2]=0 [total=398117]
+TRACE: 09-06 10:51:13:   * 0 server.cpp:192] S[0]=398873 S[1]=0 S[2]=0 [total=398873]
+</code></pre><p>Add new 4 partitions on the server on port 8005.</p>
+<pre><code>0.0.0.0:8004  0/3
+0.0.0.0:8004  1/3   
+0.0.0.0:8004  2/3 
+ 
+0.0.0.0:8005  0/4        
+0.0.0.0:8005  1/4        
+0.0.0.0:8005  2/4        
+0.0.0.0:8005  3/4
+</code></pre><p>Notice how summaries change. The client is aware of the modification to <code>server_list</code> and reloads it, but the QPS hardly changes.</p>
+<pre><code>TRACE: 09-06 10:57:10:   * 0 src/brpc/policy/file_naming_service.cpp:83] Got 7 unique addresses from `server_list'
+TRACE: 09-06 10:57:10:   * 0 src/brpc/socket.cpp:779] Connected to 0.0.0.0:8005 via fd=7 SocketId=768 self_port=39171
+TRACE: 09-06 10:57:11:   * 0 client.cpp:226] Sending EchoRequest at qps=135346 latency=363
+TRACE: 09-06 10:57:12:   * 0 client.cpp:226] Sending EchoRequest at qps=134201 latency=366
+TRACE: 09-06 10:57:13:   * 0 client.cpp:226] Sending EchoRequest at qps=137627 latency=356
+TRACE: 09-06 10:57:14:   * 0 client.cpp:226] Sending EchoRequest at qps=136775 latency=359
+TRACE: 09-06 10:57:15:   * 0 client.cpp:226] Sending EchoRequest at qps=139043 latency=353
+</code></pre><p>The server-side summary changes more obviously. The server on port 8005 has received requests and the proportion between traffic to 8004 and 8005 is roughly 3:4.</p>
+<pre><code>TRACE: 09-06 10:57:09:   * 0 server.cpp:192] S[0]=398597 S[1]=0 S[2]=0 [total=398597]
+TRACE: 09-06 10:57:10:   * 0 server.cpp:192] S[0]=392839 S[1]=0 S[2]=0 [total=392839]
+TRACE: 09-06 10:57:11:   * 0 server.cpp:192] S[0]=334704 S[1]=83219 S[2]=0 [total=417923]
+TRACE: 09-06 10:57:12:   * 0 server.cpp:192] S[0]=206215 S[1]=273873 S[2]=0 [total=480088]
+TRACE: 09-06 10:57:13:   * 0 server.cpp:192] S[0]=204520 S[1]=270483 S[2]=0 [total=475003]
+TRACE: 09-06 10:57:14:   * 0 server.cpp:192] S[0]=207055 S[1]=273725 S[2]=0 [total=480780]
+TRACE: 09-06 10:57:15:   * 0 server.cpp:192] S[0]=208453 S[1]=276803 S[2]=0 [total=485256]
+</code></pre><p>The traffic proportion between 8004 and 8005 is 3:4,  considering that each RPC needs 3 calls to 8004 or 4 calls to 8005, the client issues requests to both partitioning methods in 1:1 manner, which depends on capacities calculated recursively:</p>
+<ul>
+<li>The capacity of a regular <code>Channel</code> is sum of capacities of servers that it addresses. Capacity of a server is 1 by default if the naming services does not configure weights.</li>
+<li>The capacity of <code>ParallelChannel</code> or <code>PartitionChannel</code> is the minimum of all its sub channel&rsquo;s.</li>
+<li>The capacity of <code>SelectiveChannel</code> is the sum of all its sub channel&rsquo;s.</li>
+<li>The capacity of <code>DynamicPartitionChannel</code> is the sum of all its sub <code>PartitionChannel</code>&rsquo;s.</li>
+</ul>
+<p>In this example, capacities of the 3-partition method and the 4-partition method are both 1, since the 3 partitions are all on the server on 8004 and the 4 partitions are all on the server on 8005.</p>
+<p>Add the server on 8006 to the 4-partition method:</p>
+<pre><code>0.0.0.0:8004  0/3
+0.0.0.0:8004  1/3   
+0.0.0.0:8004  2/3
+ 
+0.0.0.0:8005  0/4   
+0.0.0.0:8005  1/4   
+0.0.0.0:8005  2/4   
+0.0.0.0:8005  3/4    
+ 
+0.0.0.0:8006 0/4
+0.0.0.0:8006 1/4
+0.0.0.0:8006 2/4
+0.0.0.0:8006 3/4
+</code></pre><p>The client still hardly changes.</p>
+<pre><code>TRACE: 09-06 11:11:51:   * 0 src/brpc/policy/file_naming_service.cpp:83] Got 11 unique addresses from `server_list'
+TRACE: 09-06 11:11:51:   * 0 src/brpc/socket.cpp:779] Connected to 0.0.0.0:8006 via fd=8 SocketId=1280 self_port=40759
+TRACE: 09-06 11:11:51:   * 0 client.cpp:226] Sending EchoRequest at qps=131799 latency=372
+TRACE: 09-06 11:11:52:   * 0 client.cpp:226] Sending EchoRequest at qps=136217 latency=361
+TRACE: 09-06 11:11:53:   * 0 client.cpp:226] Sending EchoRequest at qps=133531 latency=368
+TRACE: 09-06 11:11:54:   * 0 client.cpp:226] Sending EchoRequest at qps=136072 latency=361
+</code></pre><p>Notice the traffic on 8006 at the server side. The capacity of the 3-partition method is still 1 while capacity of the 4-partition method increases to 2 due to the addition of the server on 8006, thus the overall proportion between the methods becomes 3:8. Each partition inside the 4-partition method has 2 instances on 8005 and 8006 respectively, between which the round-robin load balancing is applied to split the traffic. As a result, the traffic proportion between the 3 servers becomes 3:4:4.</p>
+<pre><code>TRACE: 09-06 11:11:51:   * 0 server.cpp:192] S[0]=199625 S[1]=263226 S[2]=0 [total=462851]
+TRACE: 09-06 11:11:52:   * 0 server.cpp:192] S[0]=143248 S[1]=190717 S[2]=159756 [total=493721]
+TRACE: 09-06 11:11:53:   * 0 server.cpp:192] S[0]=133003 S[1]=178328 S[2]=178325 [total=489656]
+TRACE: 09-06 11:11:54:   * 0 server.cpp:192] S[0]=135534 S[1]=180386 S[2]=180333 [total=496253]
+</code></pre><p>See what happens if one partition in the 3-partition method is removed: (You can comment one line in file://server_list by #)</p>
+<pre><code> 0.0.0.0:8004  0/3
+ 0.0.0.0:8004  1/3
+#0.0.0.0:8004  2/3
+ 
+ 0.0.0.0:8005  0/4   
+ 0.0.0.0:8005  1/4   
+ 0.0.0.0:8005  2/4   
+ 0.0.0.0:8005  3/4    
+ 
+ 0.0.0.0:8006 0/4
+ 0.0.0.0:8006 1/4
+ 0.0.0.0:8006 2/4
+ 0.0.0.0:8006 3/4
+</code></pre><p>The client senses the change in <code>server_list</code>:</p>
+<pre><code>TRACE: 09-06 11:17:47:   * 0 src/brpc/policy/file_naming_service.cpp:83] Got 10 unique addresses from `server_list'
+TRACE: 09-06 11:17:47:   * 0 client.cpp:226] Sending EchoRequest at qps=131653 latency=373
+TRACE: 09-06 11:17:48:   * 0 client.cpp:226] Sending EchoRequest at qps=120560 latency=407
+TRACE: 09-06 11:17:49:   * 0 client.cpp:226] Sending EchoRequest at qps=124100 latency=395
+TRACE: 09-06 11:17:50:   * 0 client.cpp:226] Sending EchoRequest at qps=123743 latency=397
+</code></pre><p>The traffic on 8004 drops to zero quickly at the server side. The reason is that the 3-partition method is not complete anymore once the last 2/3 partition has been removed. The capacity becomes zero and no requests are sent to the server on 8004 anymore.</p>
+<pre><code>TRACE: 09-06 11:17:47:   * 0 server.cpp:192] S[0]=130864 S[1]=174499 S[2]=174548 [total=479911]
+TRACE: 09-06 11:17:48:   * 0 server.cpp:192] S[0]=20063 S[1]=230027 S[2]=230098 [total=480188]
+TRACE: 09-06 11:17:49:   * 0 server.cpp:192] S[0]=0 S[1]=245961 S[2]=245888 [total=491849]
+TRACE: 09-06 11:17:50:   * 0 server.cpp:192] S[0]=0 S[1]=250198 S[2]=250150 [total=500348]
+</code></pre><p>In real online environments, we gradually increase the number of instances on the 4-partition method and removes instances on the 3-partition method. <code>DynamicParititonChannel</code> divides the traffic based on capacities of all partitions dynamically. When capacity of the 3-partition method drops to 0, we&rsquo;ve smoothly migrated all servers from 3 partitions to 4 partitions without changing the client-side code.</p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none" style="display: flex; align-items: center; padding: 0 !important;">
+  <div class="container-fluid mx-sm-5">
+    <div class="row" style="display: flex; align-items: center;">
+      <div class="col-12 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/apache/incubator-brpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
+        
+	
+        <div style="font-size: 12.8px; color: rgb(117, 116, 116);">
+          <a href="https://www.apache.org/foundation/how-it-works.html" target="_blank" rel="noopener">Foundation</a> |
+          <a href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a> |
+          <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Sponsorship</a> |
+          <a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="/js/main.min.170adf90fd476d5f9243ed2e727149abe8d9fe364587fe943765d47375bbd1ad.js" integrity="sha256-FwrfkP1HbV&#43;SQ&#43;0ucnFJq&#43;jZ/jZFh/6UN2XUc3W70a0=" crossorigin="anonymous"></script>
+
+
+
+
+
+  </body>
+</html>
