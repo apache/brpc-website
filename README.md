@@ -37,7 +37,7 @@ hugo server
 ```
 4. Navigate to `http://localhost:1313`
 
-5. If you want to generate the static pages, just run
+5. If you want to generate the static pages in /public folder, just run
 ```sh
 hugo
 ```

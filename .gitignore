@@ -12,12 +12,32 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-.idea
-.sass-cache
-.jekyll-metadata
-Gemfile.lock
-target
-*.iml
-*~
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/npm-debug.log*
+/yarn-error.log
+/yarn.lock
+/package-lock.json
+
+# production
+/public
+
+# misc
+.DS_Store
+.idea/
+.vscode/
+
+# hugo resources
+/resources
+/hugo
+
+# lint site
+.htmlproofer
+
+# webpack output
+/static/js
+/static/css
 
