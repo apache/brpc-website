@@ -24,23 +24,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-## Apache brpc (incubating) Downloads
+## 下载 Apache bRPC (incubating) 
 
-Apache brpc (incubating) is released as a source artifact.
-We are still working on our first apache release, 
-hopefully it will be done in Oct 2019. 
+Apache brpc（孵化）作为源工件发布。我们很高兴宣布我们的1.0.0版本已经发布如下了！
 
 
-### Release Candidate 
+### 候选版本 
 <!--when pass vote, we can change it back to Release Artifacts
 -->
 <table class="table table-hover sortable">
     <thead>
         <tr>
-            <th><b>Name</b></th>
-            <th><b>Archive</b></th>
-            <th><b>SHA-512</b></th>
-            <th><b>Signature</b></th>
+            <th><b>名字</b></th>
+            <th><b>存档</b></th>
+            <th><b>加密算法</b></th>
+            <th><b>签名</b></th>
         </tr>
     </thead>
     <tbody>
@@ -66,18 +64,8 @@ hopefully it will be done in Oct 2019.
     </tbody>
 </table>
 
-Choose a source distribution in either *tar* or *zip* format,
-and [verify](https://www.apache.org/dyn/closer.cgi#verify)
-using the corresponding *pgp* signature (using the committer file in
-[KEYS](https://downloads.apache.org/incubator/brpc/KEYS)).
-If you cannot do that, the *md5* hash file may be used to check that the
-download has completed OK.
+选择*tar*或*zip*格式的源发行版，并使用相应的*pgp*签名（使用[密钥](https://downloads.apache.org/incubator/brpc/KEYS)中的提交者文件）进行[验证](https://www.apache.org/dyn/closer.cgi#verify)。如果您无法做到这一点，可以使用*md5*哈希文件检查下载是否已完成。
 
-For fast downloads, current source distributions are hosted on mirror servers;
-older source distributions are in the
-[archive](https://archive.apache.org/dist/incubator/brpc/).
-If a download from a mirror fails, retry, and the second download will likely
-succeed.
+为了快速下载，当前的源发行版托管在镜像服务器上；较旧的源发行版在[存档](https://archive.apache.org/dist/incubator/brpc/)中。如果从镜像下载失败，请重试，第二次下载可能会成功。
 
-For security, hash and signature files are always hosted at
-[Apache](https://www.apache.org).
+为了安全起见，哈希文件和签名文件始终托管在[Apache](https://www.apache.org)上。

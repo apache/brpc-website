@@ -6,63 +6,6 @@ menu:
   main:
     weight: 40
 description: About bRPC community.
-
-main_channels:
-  - title: >
-      <a href="https://twitter.com/grpcio" target="_blank" rel="noopener"><i class="fab
-      fa-twitter"></i>&nbsp;Twitter</a>
-    desc: >
-      Follow us at [@grpcio][] for real-time news on blogs posts, events, and
-      more.
-  - title: >
-      <a href="https://groups.google.com/forum/#!forum/grpc-io" target="_blank" rel="noopener"><i class="fab fa-google"></i>&nbsp;Google Group</a>
-    desc: >
-      Join the [grpc-io][] forum to ask questions and get the latest
-      developer news, including [gRFCs][].
-other_channels:
-  - title: >
-      <a href="https://gitter.im/grpc/grpc"
-        target="_blank" rel="noopener"><i class="fab
-        fa-gitter"></i>&nbsp;Gitter</a>
-    desc: >
-      Chat with other gRPC developers in the
-      [`grpc/grpc`](https://gitter.im/grpc/grpc) community.
-  - title: >
-      <a href="https://stackoverflow.com/questions/tagged/grpc+protoc"
-        target="_blank" rel="noopener"><i class="fab
-        fa-stack-overflow"></i>&nbsp;Stack Overflow</a>
-    desc: >
-      Ask technical questions about [gRPC][grpc-tag] & [protoc,][protoc-tag] and
-      find answers.
-  - title: >
-      <a href="https://www.reddit.com/r/grpc/"
-        target="_blank" rel="noopener"><i class="fab
-        fa-reddit"></i>&nbsp;Reddit</a>
-    desc: >
-      Consult the [`r/grpc`](https://www.reddit.com/r/grpc/) subreddit for
-      discussions related to gRPC.
-community_resources:
-  - title: >
-      <a href="https://www.meetup.com/gRPCio/"
-        target="_blank" rel="noopener"><i class="fab
-        fa-meetup"></i>&nbsp;Meetup</a>
-    desc: >
-      Mark your [calendars][calendar] and
-      join us [online][gRPCio] for project updates, live demos, and more.
-  - title: >
-      <a href="https://bit.ly/grpcmeetings"
-        target="_blank" rel="noopener"><i class="fas
-        fa-file-alt"></i>&nbsp;Meeting doc</a>
-    desc: >
-      Consult the [gRPC Community Meeting Working Doc][meeting-doc] for meeting
-      details.
-  - title: >
-      <a href="https://www.youtube.com/channel/UCrnk1HWelWnYtF78YZX80fg"
-        target="_blank" rel="noopener"><i class="fab
-        fa-youtube"></i>&nbsp;YouTube</a>
-    desc: >
-      Missed a meeting? No problem. Visit the [gRPC channel][grpc-youtube] for
-      meeting videos.
 ---
 <!--
 {% comment %}
@@ -82,9 +25,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-
-<br/><br/><br/>
-
 
 ## Apache brpc (incubating) Community
 
@@ -117,7 +57,7 @@ Before submitting an issue, please:
 
 * Verify that the bug does in fact exist.
 * Search the issue tracker to verify there is no existing issue reporting the bug you've found.
-* Consider tracking down the bug yourself in the Wink's source and submitting a patch along with your bug report. This is a great time saver for the Wink developers and helps ensure the bug will be fixed quickly.
+* Consider tracking down the bug yourself in the bRPC's source and submitting a patch along with your bug report. This is a great time saver for the bRPC developers and helps ensure the bug will be fixed quickly.
 
 
 

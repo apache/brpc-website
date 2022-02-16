@@ -55,16 +55,16 @@ The following is the structure of the /content folder in which the files you wil
 incubator-brpc-website
 - content
 | - en
-| | - community
-| | | - index.md
 | | - docs
+| | | - community
+| | | | - index.md
 | | | - DownloadBRPC
 | | | | - index.md
 | | | - ...
 | - zh
-| | - community
-| | | - index.md
 | | - docs
+| | | - community
+| | | | - index.md
 | | | - DownloadBRPC
 | | | | - index.md
 | | | - ...

@@ -8,63 +8,6 @@ menu:
   main:
     weight: 40
 description: 关于Apache bRPC社区。
-
-main_channels:
-  - title: >
-      <a href="https://twitter.com/grpcio" target="_blank" rel="noopener"><i class="fab
-      fa-twitter"></i>&nbsp;Twitter</a>
-    desc: >
-      Follow us at [@grpcio][] for real-time news on blogs posts, events, and
-      more.
-  - title: >
-      <a href="https://groups.google.com/forum/#!forum/grpc-io" target="_blank" rel="noopener"><i class="fab fa-google"></i>&nbsp;Google Group</a>
-    desc: >
-      Join the [grpc-io][] forum to ask questions and get the latest
-      developer news, including [gRFCs][].
-other_channels:
-  - title: >
-      <a href="https://gitter.im/grpc/grpc"
-        target="_blank" rel="noopener"><i class="fab
-        fa-gitter"></i>&nbsp;Gitter</a>
-    desc: >
-      Chat with other gRPC developers in the
-      [`grpc/grpc`](https://gitter.im/grpc/grpc) community.
-  - title: >
-      <a href="https://stackoverflow.com/questions/tagged/grpc+protoc"
-        target="_blank" rel="noopener"><i class="fab
-        fa-stack-overflow"></i>&nbsp;Stack Overflow</a>
-    desc: >
-      Ask technical questions about [gRPC][grpc-tag] & [protoc,][protoc-tag] and
-      find answers.
-  - title: >
-      <a href="https://www.reddit.com/r/grpc/"
-        target="_blank" rel="noopener"><i class="fab
-        fa-reddit"></i>&nbsp;Reddit</a>
-    desc: >
-      Consult the [`r/grpc`](https://www.reddit.com/r/grpc/) subreddit for
-      discussions related to gRPC.
-community_resources:
-  - title: >
-      <a href="https://www.meetup.com/gRPCio/"
-        target="_blank" rel="noopener"><i class="fab
-        fa-meetup"></i>&nbsp;Meetup</a>
-    desc: >
-      Mark your [calendars][calendar] and
-      join us [online][gRPCio] for project updates, live demos, and more.
-  - title: >
-      <a href="https://bit.ly/grpcmeetings"
-        target="_blank" rel="noopener"><i class="fas
-        fa-file-alt"></i>&nbsp;Meeting doc</a>
-    desc: >
-      Consult the [gRPC Community Meeting Working Doc][meeting-doc] for meeting
-      details.
-  - title: >
-      <a href="https://www.youtube.com/channel/UCrnk1HWelWnYtF78YZX80fg"
-        target="_blank" rel="noopener"><i class="fab
-        fa-youtube"></i>&nbsp;YouTube</a>
-    desc: >
-      Missed a meeting? No problem. Visit the [gRPC channel][grpc-youtube] for
-      meeting videos.
 ---
 <!--
 {% comment %}
@@ -85,61 +28,58 @@ limitations under the License.
 {% endcomment %}
 -->
 
-<br/><br/><br/>
+## Apache brpc (孵化) 社区
+
+每个志愿者项目的力量都来自参与其中的人。我们邀请您尽可能多或少地参与。
+
+你可以：
+
+* 使用我们的项目并提供反馈。
+* 向我们提供用例。
+* 报告错误并提交补丁。
+* 贡献代码、测试用例和文档。
+
+更多有关信息，请访问[贡献]页面。
+
+### 邮件列表
+
+使用bRPC获取帮助或在我们的邮件列表中为项目做出贡献：
+
+* [dev@brpc.apache.org](dev@brpc.apache.org)适用于希望为bRPC贡献代码的人。[订阅](mailto:dev-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe), [取消订阅](mailto:dev-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe), [存档](https://www.mail-archive.com/dev@brpc.apache.org/)
+* [commits@brpc.apache.org](commits@brpc.apache.org)用于向bRPC提交消息和修补程序。[订阅](mailto:commits-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe), [取消订阅](mailto:commits-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe), [存档](https://www.mail-archive.com/commits@brpc.apache.org/)
 
 
-## Apache brpc (incubating) Community
+### 问题追踪
 
-Every volunteer project obtains its strength from the people involved in it. We invite you to participate as much or as little as you choose.
+#### Bug报告
 
-You can:
+发现bug? 在[问题追踪](https://github.com/apache/incubator-brpc/issues)页面中提交问题。
 
-* Use our project and provide a feedback.
-* Provide us with the use-cases.
-* Report bugs and submit patches.
-* Contribute code, testcase, documentation.
+在提交问题之前，请：
 
-Visit the [Contributing] page for more information.
-
-### Mailing list
-
-Get help using bRPC or contribute to the project on our mailing lists:
-
-* [dev@brpc.apache.org](dev@brpc.apache.org) is for people who want to contribute code to bRPC. [subscribe](mailto:dev-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe), [unsubscribe](mailto:dev-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe), [archives](https://www.mail-archive.com/dev@brpc.apache.org/)
-* [commits@brpc.apache.org](commits@brpc.apache.org) is for commit messages and patches to bRPC. [subscribe](mailto:commits-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe), [unsubscribe](mailto:commits-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe), [archives](https://www.mail-archive.com/commits@brpc.apache.org/)
-
-
-### Issue tracker
-
-#### Bug Reports
-
-Found bug? Enter an issue in the [Issue Tracker](https://github.com/apache/incubator-brpc/issues).
-
-Before submitting an issue, please:
-
-* Verify that the bug does in fact exist.
-* Search the issue tracker to verify there is no existing issue reporting the bug you've found.
-* Consider tracking down the bug yourself in the Wink's source and submitting a patch along with your bug report. This is a great time saver for the Wink developers and helps ensure the bug will be fixed quickly.
+* 验证该错误是否确实存在。
+* 搜索问题追踪器，以确认没有报告您发现的错误的现有问题。
+* 考虑自己在bRPC的源代码中跟踪bug并提交一个补丁和bug报告。这对bRPC开发人员来说是一个很好的省时方法，并且有助于确保bug能够快速修复。
 
 
 
-#### Feature Requests
+#### 功能请求
 
-Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.
+我们也欢迎对新功能的增强请求。请求越具体，理由越充分，它被纳入未来版本的可能性就越大。
 
   [https://github.com/apache/incubator-brpc/issues](https://github.com/apache/incubator-brpc/issues)
 
 
-### Source Code
+### 源代码
 
-The project sources are accessible via the [source code repository](https://github.com/apache/incubator-brpc) which is on github.
+可以通过github上的[源代码库](https://github.com/apache/incubator-brpc)访问项目源代码。
 
 
-### Website Source Code
+### 网站源代码
 
-The project website sources are accessible via the [website source code repository](https://github.com/apache/incubator-brpc-website) which is on github also.
+可以通过github上的[网站源代码库](https://github.com/apache/incubator-brpc-website)访问项目网站源代码。
 
-### bRPC Team Members
+### bRPC团队成员
 
 <table class="table table-hover">
     <tr>
