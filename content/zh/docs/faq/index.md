@@ -7,6 +7,6 @@ menu:
   main:
     weight: 50
 description: >
-  bRPC Issues.
+  bRPC 常见问题
 ---
-See https://github.com/apache/incubator-brpc/issues
+查看 https://github.com/apache/incubator-brpc/issues

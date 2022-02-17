@@ -1,10 +1,10 @@
 ---
-title: "Streaming RPC"
-linkTitle: "Streaming RPC"
+title: "流式RPC"
+linkTitle: "流式RPC"
 weight: 12
 date: 2021-08-12
 description: >
-  学习如何使用streaming rpc.
+  学习如何使用流式rpc.
 ---
 # 概述
 

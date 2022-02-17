@@ -1,10 +1,10 @@
 ---
-title: "Access memcached"
-linkTitle: "Access memcached"
+title: "访问memcached"
+linkTitle: "访问memcached"
 weight: 11
 date: 2021-08-12
 description: >
-  Learn how to access memcached.
+  学习如何访问memcached。
 ---
 [memcached](http://memcached.org/)是常用的缓存服务，为了使用户更快捷地访问memcached并充分利用bthread的并发能力，brpc直接支持memcache协议。示例程序：[example/memcache_c++](https://github.com/brpc/brpc/tree/master/example/memcache_c++/)
 

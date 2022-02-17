@@ -49,7 +49,7 @@ Please sent your PR to the master branch instead of asf-site.
 
 ## How to modify the website pages
 
-The following is the structure of the /content folder in which the files you will mainly modify. Take adding a new committer to the **Community** page and adding a new bRPC release version to **Download bRPC** page as an example, just find the corresponding `index.md` documents in /content folder then modify them. Modifying other files or pages is similar.
+The structure of /content folder is as follows in which the files you will mainly modify. Take adding a new committer info to the **Community** page and adding a new bRPC release version info to **Download bRPC** page as an example, just find the `index.md` documents in their corresponding subfolder of /content then modify them. Or just click the **Edit this page/编辑本页** button on their pages and modify them directly. Modifying other files or pages is similar.
 
 ```
 incubator-brpc-website
