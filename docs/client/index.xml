@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bRPC – Client</title>
+    <title>bRPC – 客户端</title>
     <link>https://brpc.incubator.apache.org/docs/client/</link>
-    <description>Recent content in Client on bRPC</description>
+    <description>Recent content in 客户端 on bRPC</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
     
@@ -2562,7 +2562,7 @@ redis 127.0.0.1:6379&amp;gt; client getname
     </item>
     
     <item>
-      <title>Docs: Access memcached</title>
+      <title>Docs: 访问memcached</title>
       <link>https://brpc.incubator.apache.org/docs/client/access-memcached/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
@@ -2653,7 +2653,7 @@ redis 127.0.0.1:6379&amp;gt; client getname
     </item>
     
     <item>
-      <title>Docs: Streaming RPC</title>
+      <title>Docs: 流式RPC</title>
       <link>https://brpc.incubator.apache.org/docs/client/streaming-rpc/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       

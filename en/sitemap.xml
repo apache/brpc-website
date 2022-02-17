@@ -573,7 +573,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/server/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -693,7 +693,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/server/serve-nshead/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -1008,7 +1008,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -1038,7 +1038,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/downloadbrpc/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-16T21:38:34+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -1187,19 +1187,19 @@
                 href="https://brpc.incubator.apache.org/en/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/en/community/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/en/docs/community/</loc>
+    <lastmod>2022-02-16T21:38:34+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/community/"
+                href="https://brpc.incubator.apache.org/docs/community/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/community/"
+                href="https://brpc.incubator.apache.org/en/docs/community/"
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/search/</loc>

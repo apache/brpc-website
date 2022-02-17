@@ -497,8 +497,7 @@ limitations under the License.
 --&gt;
 &lt;h2 id=&#34;apache-brpc-incubating-downloads&#34;&gt;Apache brpc (incubating) Downloads&lt;/h2&gt;
 &lt;p&gt;Apache brpc (incubating) is released as a source artifact.
-We are still working on our first apache release,
-hopefully it will be done in Oct 2019.&lt;/p&gt;
+We are pleased to announce our 1.0.0 release as below.&lt;/p&gt;
 &lt;h3 id=&#34;release-candidate&#34;&gt;Release Candidate&lt;/h3&gt;
 &lt;!--when pass vote, we can change it back to Release Artifacts
 --&gt;
@@ -624,6 +623,176 @@ succeed.&lt;/p&gt;
     &lt;/td&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Community</title>
+      <link>https://brpc.incubator.apache.org/en/docs/community/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/community/</guid>
+      <description>
+        
+        
+        &lt;!--
+{% comment %}
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to you under the Apache License, Version 2.0
+(the &#34;License&#34;); you may not use this file except in compliance with
+the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+{% endcomment %}
+--&gt;
+&lt;h2 id=&#34;apache-brpc-incubating-community&#34;&gt;Apache brpc (incubating) Community&lt;/h2&gt;
+&lt;p&gt;Every volunteer project obtains its strength from the people involved in it. We invite you to participate as much or as little as you choose.&lt;/p&gt;
+&lt;p&gt;You can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use our project and provide a feedback.&lt;/li&gt;
+&lt;li&gt;Provide us with the use-cases.&lt;/li&gt;
+&lt;li&gt;Report bugs and submit patches.&lt;/li&gt;
+&lt;li&gt;Contribute code, testcase, documentation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Visit the [Contributing] page for more information.&lt;/p&gt;
+&lt;h3 id=&#34;mailing-list&#34;&gt;Mailing list&lt;/h3&gt;
+&lt;p&gt;Get help using bRPC or contribute to the project on our mailing lists:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;dev@brpc.apache.org&#34;&gt;dev@brpc.apache.org&lt;/a&gt; is for people who want to contribute code to bRPC. &lt;a href=&#34;mailto:dev-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe&#34;&gt;subscribe&lt;/a&gt;, &lt;a href=&#34;mailto:dev-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe&#34;&gt;unsubscribe&lt;/a&gt;, &lt;a href=&#34;https://www.mail-archive.com/dev@brpc.apache.org/&#34;&gt;archives&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;commits@brpc.apache.org&#34;&gt;commits@brpc.apache.org&lt;/a&gt; is for commit messages and patches to bRPC. &lt;a href=&#34;mailto:commits-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe&#34;&gt;subscribe&lt;/a&gt;, &lt;a href=&#34;mailto:commits-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe&#34;&gt;unsubscribe&lt;/a&gt;, &lt;a href=&#34;https://www.mail-archive.com/commits@brpc.apache.org/&#34;&gt;archives&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;issue-tracker&#34;&gt;Issue tracker&lt;/h3&gt;
+&lt;h4 id=&#34;bug-reports&#34;&gt;Bug Reports&lt;/h4&gt;
+&lt;p&gt;Found bug? Enter an issue in the &lt;a href=&#34;https://github.com/apache/incubator-brpc/issues&#34;&gt;Issue Tracker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Before submitting an issue, please:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Verify that the bug does in fact exist.&lt;/li&gt;
+&lt;li&gt;Search the issue tracker to verify there is no existing issue reporting the bug you&amp;rsquo;ve found.&lt;/li&gt;
+&lt;li&gt;Consider tracking down the bug yourself in the bRPC&amp;rsquo;s source and submitting a patch along with your bug report. This is a great time saver for the bRPC developers and helps ensure the bug will be fixed quickly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;feature-requests&#34;&gt;Feature Requests&lt;/h4&gt;
+&lt;p&gt;Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/apache/incubator-brpc/issues&#34;&gt;https://github.com/apache/incubator-brpc/issues&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;source-code&#34;&gt;Source Code&lt;/h3&gt;
+&lt;p&gt;The project sources are accessible via the &lt;a href=&#34;https://github.com/apache/incubator-brpc&#34;&gt;source code repository&lt;/a&gt; which is on github.&lt;/p&gt;
+&lt;h3 id=&#34;website-source-code&#34;&gt;Website Source Code&lt;/h3&gt;
+&lt;p&gt;The project website sources are accessible via the &lt;a href=&#34;https://github.com/apache/incubator-brpc-website&#34;&gt;website source code repository&lt;/a&gt; which is on github also.&lt;/p&gt;
+&lt;h3 id=&#34;brpc-team-members&#34;&gt;bRPC Team Members&lt;/h3&gt;
+&lt;table class=&#34;table table-hover&#34;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;&lt;b&gt;Photo&lt;/b&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;b&gt;Full Name&lt;/b&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;b&gt;Apache ID&lt;/b&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;b&gt;GitHub&lt;/b&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;b&gt;Role&lt;/b&gt;&lt;/th&gt;
+        &lt;th&gt;&lt;b&gt;Affiliation&lt;/b&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/jamesge&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/6566535?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;James Ge&lt;/td&gt;
+        &lt;td&gt;jamesge&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/jamesge&#34;&gt;jamesge&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;PPMC&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/zyearn&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/4475779?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Jiashun Zhu&lt;/td&gt;
+        &lt;td&gt;jiashunzhu&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/zyearn&#34;&gt;zyearn&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;PPMC&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/chenzhangyi&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/6805583?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Zhangyi Chen&lt;/td&gt;
+        &lt;td&gt;zychen&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/chenzhangyi&#34;&gt;chenzhangyi&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;PPMC&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/old-bear&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/1525532?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Bear Jiang&lt;/td&gt;
+        &lt;td&gt;jrjbear&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/old-bear&#34;&gt;old-bear&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;PPMC&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/ipconfigme&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/2500750?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;fisherman&lt;/td&gt;
+        &lt;td&gt;fisherman&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/ipconfigme&#34;&gt;ipconfigme&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;PPMC&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/tanzhongyi003&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/20179982?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Jerry Tan&lt;/td&gt;
+        &lt;td&gt;jerrytan&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/tanzhongyi003&#34;&gt;tanzhongyi003&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;PPMC&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/gydong&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/3294444?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Gaidong Mou&lt;/td&gt;
+        &lt;td&gt;gydong&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/gydong&#34;&gt;gydong&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;PPMC&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/TousakaRin&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/8801314?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;He Lei&lt;/td&gt;
+        &lt;td&gt;leander&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/TousakaRin&#34;&gt;TousakaRin&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;PPMC&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/cdjingit&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/31362185?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Cai daojing&lt;/td&gt;
+        &lt;td&gt;caidj&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/cdjingit&#34;&gt;cdjingit&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;PPMC&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/lorinlee&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/16054841?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Li Lei&lt;/td&gt;
+        &lt;td&gt;lorinlee&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/lorinlee&#34;&gt;lorinlee&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Committer&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/guodongxiaren&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/5945107?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Wang wei&lt;/td&gt;
+        &lt;td&gt;guodong&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/guodongxiaren&#34;&gt;guodongxiaren&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Committer&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/wwbmmm&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/3894631?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Weibing Wang&lt;/td&gt;
+        &lt;td&gt;weibingwang&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&#34;http://github.com/wwbmmm&#34;&gt;wwbmmm&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;Committer&lt;/td&gt;
+        &lt;td&gt;apache&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
 
       </description>
     </item>

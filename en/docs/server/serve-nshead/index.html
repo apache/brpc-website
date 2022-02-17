@@ -95,7 +95,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/en/community/" ><span>Community</span></a>
+				<a class="nav-link" href="/en/docs/community/" ><span>Community</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -1837,6 +1837,12 @@ if (!doNotTrack) {
       <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsusers" href="/en/docs/users/">Users</a>
       
       
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocscommunity" href="/en/docs/community/">Community</a>
+      
+      
     </li>
   </ul>
 </ul>
@@ -1925,7 +1931,7 @@ if (!doNotTrack) {
 <div class="td-content">
 	<h1>Serve Nshead</h1>
 	<div class="lead">Learn how to serve nshead.</div>
-	<p>ub是百度内广泛使用的老RPC框架，在迁移ub服务时不可避免地需要<a href="ub_client.md">访问ub-server</a>或被ub-client访问。ub使用的协议种类很多，但都以nshead作为二进制包的头部，这类服务在brpc中统称为**“nshead service”**。</p>
+	<p>ub是百度内广泛使用的老RPC框架，在迁移ub服务时不可避免地需要<a href="ub_client.md">访问ub-server</a>或被ub-client访问。ub使用的协议种类很多，但都以nshead作为二进制包的头部，这类服务在brpc中统称为&quot;<strong>nshead service</strong>&quot;。</p>
 <p>nshead后大都使用mcpack/compack作为序列化格式，注意这不是“协议”。&ldquo;协议&quot;除了序列化格式，还涉及到各种特殊字段的定义，一种序列化格式可能会衍生出很多协议。ub没有定义标准协议，所以即使都使用mcpack或compack，产品线的通信协议也是五花八门，无法互通。鉴于此，我们提供了一套接口，让用户能够灵活的处理自己产品线的协议，同时享受brpc提供的builtin services等一系列框架福利。</p>
 <h1 id="使用ubrpc的服务">使用ubrpc的服务</h1>
 <p>ubrpc协议的基本形式是nshead+compack或mcpack2，但compack或mcpack2中包含一些RPC过程需要的特殊字段。</p>
@@ -2274,12 +2280,14 @@ if (!doNotTrack) {
         
             
         
+            
+        
     
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/306a9070cb26d194a6657de26133608a94c3e398">brpc website 1.0 fix some pages (306a907)</a>
 </div>
 </div>
 

@@ -377,21 +377,6 @@
                 href="https://brpc.incubator.apache.org/docs/client/error-code/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/client/"
-                />
-  </url><url>
     <loc>https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case3/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
@@ -465,6 +450,21 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/vars/"
+                />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/docs/client/</loc>
+    <lastmod>2022-02-17T11:13:36+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/en/docs/client/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/docs/client/"
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/docs/server/serve-grpc/</loc>
@@ -542,21 +542,6 @@
                 href="https://brpc.incubator.apache.org/docs/builtin-services/connections/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/server/"
-                />
-  </url><url>
     <loc>https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case4/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
@@ -585,6 +570,21 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/serve-thrift/"
+                />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/docs/server/</loc>
+    <lastmod>2022-02-17T11:13:36+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/en/docs/server/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/docs/server/"
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/threading-overview/</loc>
@@ -663,7 +663,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/docs/server/serve-nshead/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -947,21 +947,6 @@
                 href="https://brpc.incubator.apache.org/docs/client/access-redis/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/access-memcached/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/access-memcached/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/client/access-memcached/"
-                />
-  </url><url>
     <loc>https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
@@ -1022,6 +1007,21 @@
                 href="https://brpc.incubator.apache.org/docs/server/media-server/"
                 />
   </url><url>
+    <loc>https://brpc.incubator.apache.org/docs/client/access-memcached/</loc>
+    <lastmod>2022-02-17T11:13:36+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/en/docs/client/access-memcached/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/docs/client/access-memcached/"
+                />
+  </url><url>
     <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/bthread_id/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
@@ -1052,23 +1052,8 @@
                 href="https://brpc.incubator.apache.org/docs/server/json2pb/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/streaming-rpc/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/streaming-rpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/client/streaming-rpc/"
-                />
-  </url><url>
     <loc>https://brpc.incubator.apache.org/docs/downloadbrpc/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-16T21:38:34+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -1080,6 +1065,21 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/downloadbrpc/"
+                />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/docs/client/streaming-rpc/</loc>
+    <lastmod>2022-02-17T11:13:36+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/en/docs/client/streaming-rpc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/docs/client/streaming-rpc/"
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/docs/client/backup-request/</loc>
@@ -1128,7 +1128,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/docs/faq/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -1202,19 +1202,19 @@
                 href="https://brpc.incubator.apache.org/search/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/community/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/docs/community/</loc>
+    <lastmod>2022-02-16T21:38:34+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/community/"
+                href="https://brpc.incubator.apache.org/en/docs/community/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/community/"
+                href="https://brpc.incubator.apache.org/docs/community/"
                 />
   </url>
 </urlset>

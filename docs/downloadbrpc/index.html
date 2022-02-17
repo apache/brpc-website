@@ -24,13 +24,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/downloadbrpc/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-09T01:13:37+08:00" /><meta property="og:site_name" content="bRPC" />
+<meta property="article:modified_time" content="2022-02-16T21:38:34+08:00" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="下载bRPC">
 <meta itemprop="description" content="下载bRPC发行版。
 "><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-09T01:13:37+08:00" />
-<meta itemprop="wordCount" content="144">
+<meta itemprop="dateModified" content="2022-02-16T21:38:34+08:00" />
+<meta itemprop="wordCount" content="35">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="下载bRPC"/>
 <meta name="twitter:description" content="下载bRPC发行版。
@@ -99,7 +99,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/community/" ><span>社区</span></a>
+				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -407,7 +407,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Client</a>
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">客户端</a>
   </li>
   <ul>
     <li class="collapse " id="docsclient">
@@ -608,7 +608,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问memcached</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-memcached">
@@ -631,7 +631,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流式RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientstreaming-rpc">
@@ -706,7 +706,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server</a>
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">服务端</a>
   </li>
   <ul>
     <li class="collapse " id="docsserver">
@@ -1841,6 +1841,12 @@ if (!doNotTrack) {
       <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
       
       
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
+      
+      
     </li>
   </ul>
 </ul>
@@ -1879,9 +1885,9 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#apache-brpc-incubating-downloads">Apache brpc (incubating) Downloads</a>
+    <li><a href="#下载-apache-brpc-incubating">下载 Apache bRPC (incubating)</a>
       <ul>
-        <li><a href="#release-candidate">Release Candidate</a></li>
+        <li><a href="#候选版本">候选版本</a></li>
       </ul>
     </li>
   </ul>
@@ -1938,20 +1944,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-<h2 id="apache-brpc-incubating-downloads">Apache brpc (incubating) Downloads</h2>
-<p>Apache brpc (incubating) is released as a source artifact.
-We are still working on our first apache release,
-hopefully it will be done in Oct 2019.</p>
-<h3 id="release-candidate">Release Candidate</h3>
+<h2 id="下载-apache-brpc-incubating">下载 Apache bRPC (incubating)</h2>
+<p>Apache brpc（孵化）作为源工件发布。我们很高兴宣布我们的1.0.0版本已经发布如下了！</p>
+<h3 id="候选版本">候选版本</h3>
 <!--when pass vote, we can change it back to Release Artifacts
 -->
 <table class="table table-hover sortable">
     <thead>
         <tr>
-            <th><b>Name</b></th>
-            <th><b>Archive</b></th>
-            <th><b>SHA-512</b></th>
-            <th><b>Signature</b></th>
+            <th><b>名字</b></th>
+            <th><b>存档</b></th>
+            <th><b>加密算法</b></th>
+            <th><b>签名</b></th>
         </tr>
     </thead>
     <tbody>
@@ -1976,23 +1980,13 @@ hopefully it will be done in Oct 2019.</p>
         </tr-->
     </tbody>
 </table>
-<p>Choose a source distribution in either <em>tar</em> or <em>zip</em> format,
-and <a href="https://www.apache.org/dyn/closer.cgi#verify">verify</a>
-using the corresponding <em>pgp</em> signature (using the committer file in
-<a href="https://downloads.apache.org/incubator/brpc/KEYS">KEYS</a>).
-If you cannot do that, the <em>md5</em> hash file may be used to check that the
-download has completed OK.</p>
-<p>For fast downloads, current source distributions are hosted on mirror servers;
-older source distributions are in the
-<a href="https://archive.apache.org/dist/incubator/brpc/">archive</a>.
-If a download from a mirror fails, retry, and the second download will likely
-succeed.</p>
-<p>For security, hash and signature files are always hosted at
-<a href="https://www.apache.org">Apache</a>.</p>
+<p>选择<em>tar</em>或<em>zip</em>格式的源发行版，并使用相应的<em>pgp</em>签名（使用<a href="https://downloads.apache.org/incubator/brpc/KEYS">密钥</a>中的提交者文件）进行<a href="https://www.apache.org/dyn/closer.cgi#verify">验证</a>。如果您无法做到这一点，可以使用<em>md5</em>哈希文件检查下载是否已完成。</p>
+<p>为了快速下载，当前的源发行版托管在镜像服务器上；较旧的源发行版在<a href="https://archive.apache.org/dist/incubator/brpc/">存档</a>中。如果从镜像下载失败，请重试，第二次下载可能会成功。</p>
+<p>为了安全起见，哈希文件和签名文件始终托管在<a href="https://www.apache.org">Apache</a>上。</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月9日: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年2月16日: <a  href="https://github.com/apache/incubator-brpc-website/commit/e93153b9f79306cbb29c16c829339ba0106e308c">brpc website 1.0 improve zh pages (e93153b)</a>
 </div>
 </div>
 
