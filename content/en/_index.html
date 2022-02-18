@@ -1,0 +1,85 @@
++++
+title = "bRPC"
+linkTitle = "bRPC"
++++
+
+{{< blocks/cover image_anchor="top" height="max" color="primary" >}}
+<img src="/images/brpc_logo_w.svg" class="brpc-logo" style="max-width:95%" />
+<h3 style="margin:20px" >An industrial-grade RPC framework for building reliable and high-performance services.</h3>
+<div class="mx-auto">
+	<a class="btn btn-lg btn-primary font-weight-bold my-4" href="{{< relref "/docs" >}}">
+		Learn More
+	</a>
+  <a class="btn btn-lg btn-primary font-weight-bold my-4" href="{{< relref "/docs/downloadbrpc" >}}">
+		Download bRPC
+	</a>
+</div>
+<div class="mx-auto">
+  <a class="h3 mt-1">
+    Get started!
+  </a>
+  <!--
+  <div class="h3 mt-1">Get started!</div>
+	<a class="btn btn-lg btn-primary mr-3 mb-4 my-3" href="{{< relref "/docs" >}}">
+		Get bRPC
+	</a>
+  
+  <a class="btn btn-lg btn-primary mr-3 mb-4 my-3" href="https://github.com/apache/incubator-brpc">
+		<i class="fas fa-ellipsis-h"></i>
+	</a>
+  -->
+</div>
+
+{{< /blocks/cover >}}
+
+<div id="overview">
+  <div class="contain" style="width: auto; margin: 0 auto">
+    <h2 class="section-head">Why bRPC?</h2>
+    <p>
+    bRPC is an open source high performance industrial-grade Remote Procedure Call(RPC) framework, 
+    with 1,000,000+ instances(not counting clients) and thousands kinds of services.
+    </p>
+    <h3 class="section-head">You can use it to:</h3>
+    <div class="father" style="display: flex; justify-content: center; margin: 0 20px">
+      <div class="child">
+        <li style="text-align:left">Build a server that can talk in multiple protocols (on same port), or access all sorts of services.</li>
+        <ol style="text-align:left">
+          <li>
+            restful http/https, h2/gRPC. using http/h2 in brpc is much more friendly than libcurl. Access protobuf-based protocols with HTTP/h2+json, probably from another language.
+          </li>
+          <li>redis and memcached, thread-safe, more friendly and performant than the official clients.</li>
+          <li>rtmp/flv/hls, for building streaming services.</li>
+          <li>hadoop_rpc (may be opensourced)</li>
+          <li>rdma support (will be opensourced)</li>
+          <li>thrift support, thread-safe, more friendly and performant than the official clients.</li>
+          <li>all sorts of protocols used in Baidu: baidu_std, streaming_rpc, hulu_pbrpc, sofa_pbrpc, nova_pbrpc, public_pbrpc, ubrpc and nshead-based ones.</li>
+          <li>Build HA distributed services using an industrial-grade implementation of RAFT consensus algorithm which is opensourced at braft</li>
+        </ol> 
+        <li style="text-align:left">Servers can handle requests synchronously or asynchronously.</li>
+        <li style="text-align:left">Clients can access servers synchronously, asynchronously, semi-synchronously, or use combo channels to simplify sharded or parallel accesses declaratively.</li>
+        <li style="text-align:left">Debug services via http, and run cpu, heap and contention profilers.</li>
+        <li style="text-align:left">Get better latency and throughput.</li>
+        <li style="text-align:left">Extend brpc with the protocols used in your organization quickly, or customize components, including naming services (dns, zk, etcd), load balancers (rr, random, consistent hashing)</li>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="overview">
+  <div class="contain">
+    <p>
+      <img src="/images/egg-logo.png" style="max-width:100%" alt="The Apache Software Foundation" title="The Apache Software Foundation">
+    </p>
+    <h4>
+      bRPC is an <a href="http://incubator.apache.org/">Apache</a> incubation project.
+    </h4>
+  </div>
+</div>
+
+<!--
+{{< blocks/section >}}
+<div class="col">
+<h1 class="text-center">This is the second Section</h1>
+</div>
+{{< /blocks/section >}}
+-->

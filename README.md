@@ -1,47 +1,88 @@
-# brpc Website 
-The Website of brpc (http://brpc.apache.org) is using the apache.org template from  [Apache Website Template](https://github.com/apache/apache-website-template).
+# bRPC Official Website
+ 
+This project keeps all sources used for building up bRPC official website which's served at https://brpc.apache.org.
+
+## Overview
+
+The Apache bRPC docs are built using [Hugo](https://gohugo.io/) with the [Docsy](https://docsy.dev) theme.
+This project contains the hugo project, markdown files, and theme configurations.
+
+## Pre-requisites
+
+- [Hugo extended version](https://gohugo.io/getting-started/installing)
+- [Node.js](https://nodejs.org/en/)
+
+## Environment setup
+
+Install pre-requisites
+```sh
+$ sudo apt install npm
+$ npm install
+```
+
+## Run local server
+
+
+1. Clone this repository
+```sh
+git clone https://github.com/apache/incubator-brpc-website.git
+```
+2. Change to root directory: 
+```sh
+cd incubator-brpc-website
+```
+3. Run 
+```sh
+hugo server
+```
+4. Navigate to `http://localhost:1313`
+
+5. If you want to generate the static pages in /public folder, just run
+```sh
+hugo
+```
 
 # Note for PR
-As this website is using the [gitpubsub](https://www.apache.org/dev/project-site.html) and we use Jekyll to generate the site.
+
 We choose master branch to hold all the site source change and asf-site for apache github website.
 Please sent your PR to the master branch instead of asf-site.
 
-# How to run the site locally   
+## How to modify the website pages
 
-*  Install [Ruby](https://www.ruby-lang.org/en/downloads/) and [Gem](https://rubygems.org/)   
+The structure of /content folder is as follows in which the files you will mainly modify. Take adding a new committer info to the **Community** page and adding a new bRPC release version info to **Download bRPC** page as an example, just find the `index.md` documents in their corresponding subfolder of /content then modify them. Or just click the **Edit this page/编辑本页** button on their pages and modify them directly. Modifying other files or pages is similar.
 
-   `brew install ruby`
+```
+incubator-brpc-website
+- content
+| - en
+| | - docs
+| | | - community
+| | | | - index.md
+| | | - DownloadBRPC
+| | | | - index.md
+| | | - ...
+| - zh
+| | - docs
+| | | - community
+| | | | - index.md
+| | | - DownloadBRPC
+| | | | - index.md
+| | | - ...
+```
 
-*  Install Jekyll and Bundler   
+## Update docs
+1. Create new branch
+2. Commit and push changes to content
+3. Submit pull request to **master** branch
+4. Generate static pagas and Submit pull request to **asf-site** branch
+5. Staging site will automatically get created and linked to PR to review and test
 
-   `sudo gem install jekyll bundler github-pages`  
+## Trouble shooting
 
-*  Clone the site files
-
-   `git clone https://github.com/apache/incubator-brpc-website.git`
-
-* cd incubator-brpc-website
-
-*  Install the gems with bundle
-
-   `sudo bundle install`
-
-*  Start the jekyll server
-
-   `sudo bundle exec jekyll server`
-
-*  Start web browser to access `http://localhost:4000`   
-
-
-# How to contribute
-* Checkout the master branch to get the source, run locally to generate html content
-* Modify and  create pull request as usual
-* Switch to asf-site branch, copy the generated html content from master branch( They are under target directory), then create pull request for asf-site branch.
-* Wait for brpc.apache.org auto deploy works
-
-
-**Note that tested versions of the tools covered in this section are as following,**    
-(I tested it on MacOS)
-*  Ruby 2.6.3p62 
-*  Gem 3.0.3  
-*  Bundler 2.1.4 
+You may encounter the **Piped Failed** problem when you execute the `hugo server` or `hugo` command, the solution is as follows.
+``` sh
+sudo launchctl limit maxfiles 65535 200000
+ulimit -n 65535
+sudo sysctl -w kern.maxfiles=100000
+sudo sysctl -w kern.maxfilesperproc=65535
+```
