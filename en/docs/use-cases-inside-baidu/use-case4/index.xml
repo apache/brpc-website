@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bRPC – 云平台代理服务</title>
+    <link>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case4/</link>
+    <description>Recent content in 云平台代理服务 on bRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

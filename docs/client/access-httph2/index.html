@@ -1,0 +1,2332 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.86.0" />
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="alternate" type="application/rss&#43;xml" href="https://brpc.incubator.apache.org/docs/client/access-httph2/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>访问http:h2 | bRPC</title><meta property="og:title" content="访问http:h2" />
+<meta property="og:description" content="学习如何访问Http2。
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://brpc.incubator.apache.org/docs/client/access-httph2/" /><meta property="og:site_name" content="bRPC" />
+
+<meta itemprop="name" content="访问http:h2">
+<meta itemprop="description" content="学习如何访问Http2。
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="访问http:h2"/>
+<meta name="twitter:description" content="学习如何访问Http2。
+"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-93485976-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<link rel="preload" href="/scss/main.min.3ec220ee970bc505bab687924141abfe4d5e51807105a3b107b0cad6e3c0efc6.css" as="style">
+<link href="/scss/main.min.3ec220ee970bc505bab687924141abfe4d5e51807105a3b107b0cad6e3c0efc6.css" rel="stylesheet" integrity="">
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+
+
+
+    <title>访问http:h2 | bRPC</title>
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg width="303" height="259" viewBox="0 0 303 259" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>brpc_logo.svg</title><defs><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-2"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-3"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-4"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient></defs><g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="椭圆形" fill="#58b8ff" cx="23.5" cy="62.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="279.5" cy="60.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="119" cy="26" r="26"/><rect id="矩形" fill="#58b8ff" transform="translate(78.021813, 41.967662) rotate(-22.000000) translate(-78.021813, -41.967662)" x="30.0218125" y="35.9676616" width="96" height="12"/><rect id="矩形" fill="#58b8ff" transform="translate(201.451088, 44.299021) rotate(13.000000) translate(-201.451088, -44.299021)" x="138.951088" y="38.2990214" width="125" height="12"/><g id="brpc-logo" transform="translate(11.000000, 104.000000)" fill-rule="nonzero"><g id="编组" transform="translate(138.000000, 77.419111) scale(-1, 1) rotate(-180.000000) translate(-138.000000, -77.419111) translate(0.000000, 0.000000)"><path d="M18.8 154.3C17.8 154.1 17 153.8 17 153.6 17 153.5 13.2 134.3 8.5 111 3.8 87.7-205355861e-22 68-205355861e-22 67.4-205355861e-22 65.9 2.6 65.3 5.7 65.8 7.3 66.1 8.1 67.2 8.6 69.6 9.3 73.5 10 73.8 11.7 71.1 15 65.9 28.8 63.2 36.4 66.4 48.9 71.6 57.7 89.6 56.8 108.1c-.5 10-2.5 14.5-7.8 17.1C44.5 127.5 36.6 127.5 31.4 125.1 27 123.1 20.8814242 116.827994 20 115.8 19.8268414 115.598047 19.5 115 19 115.2 18.3 115.4 18.3 116.5 19 118.7 19.6 120.4 21.6 129 23.4 137.8l3.3 16L24.6 154.4C22.3 155 21.4 155 18.8 154.3zm24.6146505-36.885789c1.7578246-1.326292 2.0864078-1.825452 2.4530432-2.642066S46.8138702 112.705545 47.1008328 111.513935C48.333925 109.104457 47.0101697 95.2413285 45.0724535 89.7736686 41.197021 79.2090375 34.9434822 73 28.2495534 73c-4.5800565.0-7.4866309 1.5754274-11.5382193 6.1163653-1.6734822 1.8534441-1.598743 2.8514069-2.0391331 4.4738936C14.2318109 85.2127457 15.3810952 94.5991493 17.4068894 98.6767262 18.5085881 100.995054 18.5085881 100.995054 20.3179492 104.427606 20.9381193 105.604136 23.3268821 108.69306 24.5063492 109.790864c1.2349847 1.149478 2.6574201 2.834639 3.7432042 3.921533 1.1506404 1.15181600000001 4.2465085 3.084017 5.3028342 3.701814 1.4321645.837608000000003 2.774919 1.362015 4.0282636 1.573221C40.1349135 119.080104 41.2462694 118.670624 43.4146505 117.414211z" id="形状" fill="url(#linearGradient-1)"/><path d="M248.7 148.9C241 147.8 232.2 143 226.1 136.5c-14.2-15-20-43.1-12.1-58.6C216.6 72.9 223.2 67.5 228.5 66 235.2 64.1 249.3 65.1 255.7 67.9 258.6 69.2 261.4 70.8 262.1 71.6 263.7 73.5 265 79.9 263.9 80.6 263.4 80.9 260 79.6 256.3 77.8 243 71.3 230.4 73.3 225.1 82.9 218.5 94.9 223.7 119.3 235.5 131.5 245.8 142 257.4 142.9 271.3 134.2 273.7 132.7 274.2 132.7 275 134 275.5 134.8 276 137.2 276 139.2 276 142.2 275.5 143.2 272.8 144.8 266.2 148.7 257.7 150.2 248.7 148.9z" id="路径" fill="#fff"/><path d="M87.4 148.1C86.2 147.6 84.9 146.7 84.6 146.1 83.6 144.5 68.1 66.6 68.7 65.8c.599999999999994-1 7.5-1 9 0C78.4 66.3 80.6 74.4 82.5 83.9s3.7 17.6 4 18.2C87.5 103.6 96.3 103.1 99.9 101.2 105.7 98.3 107.2 95.2 110 79.7l2.5-14.2L117.3 65.2C123.5 64.8 123.7 65.7 121.6 78.4c-2.5 14.4-4.5 21.2-7.3 24.2C113 104 112 105.3 112.2 105.5 112.4 105.6 114.3 106.7 116.5 107.8 124.5 111.9 129.8 119.6 130.7 128.5 131.7 138 127.9 143.9 119 146.9 114.5 148.4 90.2 149.3 87.4 148.1zm24.9-9.5C117.8 136.3 119.3 133.8 118.8 127.7 117.9 117 111.3 112.1 96.6 111.2L87.7 110.7 88.3 113.1C88.6 114.4 89.8 120.5 91 126.5 92.1 132.6 93.3 138.1 93.5 138.8 94.1 140.5 108.1 140.4 112.3 138.6z" id="形状" fill="#fff"/><path d="M159.5 148.4C158.4 148.1 157.2 147.5 156.7 147.1c-1-1-16.8-80.2-16.1-81.2C141.2 64.8 148 64.7 149.7 65.8 150.3 66.2 152.2 73.3 153.8 81.5L156.7 96.5 167.8 97.1c17.1 1 25.5 5.7 31.2 17.2C206.2 129.1 202.4 143.6 190.5 146.9 186.1 148.1 162.6 149.2 159.5 148.4zm27.2-11C195 131.2 191.3 114.2 180.5 108.6 177.6 107.1 174.2 106.4 167.8 106.2 162.9 106 159 106.2 159 106.7 159 107.1 160.4 114.9 162.1 123.9L165.3 140.2 174.6 139.8C182.1 139.5 184.5 139 186.7 137.4z" id="形状" fill="#fff"/><path d="M52.3 50.7C49 41.2 49.5 37.5 52.9 46.5c1.2 3.1 1.9876864 5.9098389 2.1 6.3S55.4 54.1 55.9 54.9C56.6 56 58.2 55.2 63.5 50.9 67.2 47.9 70.4 45.6 70.6 45.8 71.7 46.5 70.9 47.4 64.1 53.2 60 56.6 58.2983882 57.6981689 57.4 58.2 56.5016118 58.7018311 56.5016118 58.7018311 55.8 58.2 55 57.49737 54 55.4 52.3 50.7z" id="形状" fill="#7e7e7e"/><path d="M84 34.1C84 30.6 82.8 29 80.4 29 78.9 29 78 28.4 78 27.5 78 26.7 78.9 26 80 26 82.4 26 82.4 25.5 80.5 17 79.7 13.4 79.1 8.4 79 5.8 79 1.6 79.3 1 81.4.4 85.1-.5 89.5.3 89.8 2 90 3.1 89.2 3.5 86.8 3.5 83.9 3.5 83.5 3.8 83.3 6.5 83.1 8.2 83.8 13.1 84.8 17.5c1.7 7.9 1.7 8 5.2 8.6L93.5 26.7C94.2848943 26.7875501 94.751561 26.9875501 94.9 27.3 95 28.6 94.2 29 91.1 29h-4L87.7 32.5C88.2 35.6 88 36 86.1 36 84.7 36 84 35.4 84 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M105 34.1C105 30.6 103.8 29 101.4 29 99.9 29 99 28.4 99 27.5 99 26.7 99.9 26 101 26 103.4 26 103.4 25.5 101.5 17 100.7 13.4 100.1 8.4 1e2 5.8 1e2 1.6 100.3 1 102.4.4 106.1-.5 110.5.3 110.8 2 111 3.1 110.2 3.5 107.8 3.5 104.9 3.5 104.5 3.8 104.3 6.5 104.1 8.2 104.8 13.1 105.8 17.5c1.7 7.9 1.7 8 5.2 8.6L114.5 26.7C115.433333 26.8462934 115.9 27.0462934 115.9 27.3 116 28.6 115.2 29 112.1 29h-4L108.7 32.5C109.2 35.6 109 36 107.1 36 105.7 36 105 35.4 105 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M54.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C46.5 1.9 48.6.0 57.2.0 63.6.0 67 1.2 67 3.6 67 4.7 66.6 4.8 65.1 4c-2.7-1.4-10.4-1.3-12.4.3C51.8 4.9 51 6.6 50.9 8 50.4 13.5 50.6 13.7 57.8 14.2 66 14.9 69.5 16.4 71 20 72.3 23.2 71.2 26.3 68 28s-10.2 1.1-13.7-1.1zM67 22.7C67 19 63.6 17 57.3 17 54.4 17 52 17.3 52 17.8c0 1.1 3.1 5.4 5 7C57.9 25.5 60.2 25.9 62.8 25.7 65.1 25.4 67 26.1 67 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M126.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C118.5 1.9 120.6.0 129.2.0 135.6.0 139 1.2 139 3.6 139 4.7 138.6 4.8 137.1 4 134.4 2.6 126.7 2.7 124.7 4.3 123.8 4.9 123 6.6 122.9 8 122.4 13.5 122.6 13.7 129.8 14.2 138 14.9 141.5 16.4 143 20 144.3 23.2 143.2 26.3 140 28s-10.2 1.1-13.7-1.1zM139 22.7C139 19 135.6 17 129.3 17 126.4 17 124 17.3 124 17.8 124 18.9 127.1 23.2 129 24.8 129.9 25.5 132.2 25.9 134.8 25.7 137.1 25.4 139 26.1 139 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M153.7 26.8C151.7 18.4 149.2978 2.90464869 149.2978 2.1 149.2978 1.77371339 148.894918.241544332 150.3.1 151.705082-.0415443324 153 .4 153 2.1 153 3.2 153.7 7.2 154.6 11 156.5 19.3 161 25.2 165.5 25.4 167.5 25.5 168.6 26.1 168.8 27.3 169.1 28.6 168.4 29 165.8 29 163.2 29 161.6 28.2 159.4 25.8L156.5 22.5C155.5 19.6333333 155.133333 18.4333333 155.4 18.9 155.9 19.7 156.5 22.2 156.7 24.6 156.9 27.9 156.7 29 155.6 29 154.8 29 154 28 153.7 26.8z" id="形状" fill="url(#linearGradient-4)"/></g></g></g></svg></span>
+        
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/apache/incubator-brpc/" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/docs/" ><span class="active">文档</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/faq/" ><span>FAQ</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
+			</li>
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	中文
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/en/docs/client/access-httph2/">English</a>
+	
+</div>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    <div class="nav-item dropdown d-block d-lg-none">
+      
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	中文
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/en/docs/client/access-httph2/">English</a>
+	
+</div>
+    </div>
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">文档</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">简介</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">开始</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">性能基准</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/bvar/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bvar</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbvar">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/bvar/bvar/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bvar</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbvarbvar">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/bvar/bvar-c&#43;&#43;/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bvar c&#43;&#43;</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbvarbvar-c">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/bthread/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbthread">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/bthread/bthread/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbthreadbthread">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/bthread/bthread-or-not/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread or not</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbthreadbthread-or-not">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/bthread/execution-queue/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Execution Queue</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbthreadexecution-queue">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/bthread/thread-local/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">thread-local</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbthreadthread-local">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">客户端</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsclient">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientbasics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">错误码</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclienterror-code">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">组合channels</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientcombo-channels">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">访问http:h2</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsclientaccess-httph2">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问gRPC</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientaccess-grpc">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问thrift</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientaccess-thrift">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问UB</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientaccess-ub">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问redis</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientaccess-redis">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问memcached</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientaccess-memcached">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流式RPC</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientstreaming-rpc">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/backup-request/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Backup request</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientbackup-request">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/client/dummy-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Dummy server</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsclientdummy-server">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">服务端</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserver">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserverbasics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建http:h2服务</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserverserve-httph2">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建gRPC服务</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserverserve-grpc">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建thrift服务</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserverserve-thrift">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建Nshead服务</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserverserve-nshead">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">推送</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserverserver-push">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">雪崩</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserveravalanche">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">高效率排查server卡顿</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserverdebug-server-issues">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">自适应限流</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserverauto-concurrencylimiter">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流媒体服务</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsservermedia-server">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/server/json2pb/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">json2pb</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsserverjson2pb">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内置服务</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-services">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/buildin_services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">builtin services</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-servicesbuildin_services">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/status/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">status</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-servicesstatus">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/vars/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">vars</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-servicesvars">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/connections/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">connections</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-servicesconnections">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/flags/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">flags</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-servicesflags">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/rpcz/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpcz</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-servicesrpcz">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/cpu_profiler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">cpu profiler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-servicescpu_profiler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/heap_profiler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">heap profiler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-servicesheap_profiler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/builtin-services/contention_profiler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">contention profiler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsbuiltin-servicescontention_profiler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">工具</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docstools">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/tools/rpc_press/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpc_press</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docstoolsrpc_press">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/tools/rpc_replay/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpc_replay</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docstoolsrpc_replay">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/tools/rpc_view/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpc_view</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docstoolsrpc_view">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/tools/benchmark_http/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">benchmark_http</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docstoolsbenchmark_http">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/tools/parallel_http/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">parallel_http</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docstoolsparallel_http">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43;基础</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsc-base">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/c&#43;&#43;-base/iobuf/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">IOBuf</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsc-baseiobuf">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/c&#43;&#43;-base/streaming-log/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming Log</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsc-basestreaming-log">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/c&#43;&#43;-base/flatmap/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">FlatMap</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsc-baseflatmap">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC培训材料</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsc-basebrpc-training-materials">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">深入RPC</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depth">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">支持新协议</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depthnew-protocol">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">原子指令</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depthatomic-instructions">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/io/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">IO</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depthio">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">线程模型简介</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depththreading-overview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">负载均衡</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depthload-balancing">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/locality-aware/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Locality-aware</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depthlocality-aware">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">一致性哈希</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depthconsistent-hashing">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内存管理</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depthmemory-management">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/timer-keeping/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Timer keeping</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depthtimer-keeping">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/rpc-in-depth/bthread_id/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread_id</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsrpc-in-depthbthread_id">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC在百度内部的应用</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsuse-cases-inside-baidu">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/use-cases-inside-baidu/use-case1/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">百度地图api入口</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsuse-cases-inside-baiduuse-case1">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/use-cases-inside-baidu/use-case2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">联盟DSP</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsuse-cases-inside-baiduuse-case2">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/use-cases-inside-baidu/use-case3/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">ELF学习框架</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsuse-cases-inside-baiduuse-case3">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/use-cases-inside-baidu/use-case4/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">云平台代理服务</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsuse-cases-inside-baiduuse-case4">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">下载bRPC</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsfaq" href="/docs/faq/">FAQ</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/docs/Client/Access%20http:h2/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=%e8%ae%bf%e9%97%aehttp:h2" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+
+
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+
+</div>
+
+
+
+
+
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/">文档</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/client/">客户端</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/docs/client/access-httph2/">访问http:h2</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+            
+<div class="td-content">
+	<h1>访问http:h2</h1>
+	<div class="lead">学习如何访问Http2。</div>
+	<h1 id="示例">示例</h1>
+<p><a href="https://github.com/brpc/brpc/blob/master/example/http_c++/http_client.cpp">example/http_c++</a></p>
+<h1 id="关于h2">关于h2</h1>
+<p>brpc把HTTP/2协议统称为&quot;h2&quot;，不论是否加密。然而未开启ssl的HTTP/2连接在/connections中会按官方名称h2c显示，而开启ssl的会显示为h2。</p>
+<p>brpc中http和h2的编程接口基本没有区别。除非特殊说明，所有提到的http特性都同时对h2有效。</p>
+<h1 id="创建channel">创建Channel</h1>
+<p>brpc::Channel可访问http/h2服务，ChannelOptions.protocol须指定为PROTOCOL_HTTP或PROTOCOL_H2。</p>
+<p>设定好协议后，<code>Channel::Init</code>的第一个参数可为任意合法的URL。注意：允许任意URL是为了省去用户取出host和port的麻烦，<code>Channel::Init</code>只用其中的host及port，其他部分都会丢弃。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ChannelOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">protocol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PROTOCOL_HTTP</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// or brpc::PROTOCOL_H2
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Init</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;www.baidu.com&#34;</span> <span style="color:#8f5902;font-style:italic">/*any url*/</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+     <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to initialize channel&#34;</span><span style="color:#000;font-weight:bold">;</span>
+     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>http/h2 channel也支持bns地址或其他NamingService。</p>
+<h1 id="get">GET</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span> <span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">uri</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;www.baidu.com/index.html&#34;</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// 设置为待访问的URL
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CallMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#8f5902;font-style:italic">/*done*/</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>HTTP/h2和protobuf关系不大，所以除了Controller和done，CallMethod的其他参数均为NULL。如果要异步操作，最后一个参数传入done。</p>
+<p><code>cntl.response_attachment()</code>是回复的body，类型也是butil::IOBuf。IOBuf可通过to_string()转化为std::string，但是需要分配内存并拷贝所有内容，如果关注性能，处理过程应直接支持IOBuf，而不要求连续内存。</p>
+<h1 id="post">POST</h1>
+<p>默认的HTTP Method为GET，可设置为POST或<a href="https://github.com/brpc/brpc/blob/master/src/brpc/http_method.h">更多http method</a>。待POST的数据应置入request_attachment()，它(<a href="https://github.com/brpc/brpc/blob/master/src/butil/iobuf.h">butil::IOBuf</a>)可以直接append std::string或char*。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span> <span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">uri</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;...&#34;</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// 设置为待访问的URL
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_method</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">HTTP_METHOD_POST</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">request_attachment</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;{</span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">message</span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">hello world!</span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">}&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CallMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#8f5902;font-style:italic">/*done*/</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>需要大量打印过程的body建议使用butil::IOBufBuilder，它的用法和std::ostringstream是一样的。对于有大量对象要打印的场景，IOBufBuilder简化了代码，效率也可能比c-style printf更高。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span> <span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">uri</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;...&#34;</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// 设置为待访问的URL
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_method</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">HTTP_METHOD_POST</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">IOBufBuilder</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">os</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;A lot of printing&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">printable_objects</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000;font-weight:bold">...;</span>
+<span style="color:#000">os</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">move_to</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">request_attachment</span><span style="color:#000;font-weight:bold">());</span>
+<span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CallMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#8f5902;font-style:italic">/*done*/</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><h1 id="控制http版本">控制HTTP版本</h1>
+<p>brpc的http行为默认是http/1.1。</p>
+<p>http/1.0相比http/1.1缺少长连接功能，brpc client与一些古老的http server通信时可能需要按如下方法设置为1.0。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_version</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>设置http版本对h2无效，但是client收到的h2 response和server收到的h2 request中的version会被设置为(2, 0)。</p>
+<p>brpc server会自动识别HTTP版本，并相应回复，无需用户设置。</p>
+<h1 id="url">URL</h1>
+<p>URL的一般形式如下图：</p>
+<pre><code>// URI scheme : http://en.wikipedia.org/wiki/URI_scheme
+//
+//  foo://username:password@example.com:8042/over/there/index.dtb?type=animal&amp;name=narwhal#nose
+//  \_/   \_______________/ \_________/ \__/            \___/ \_/ \______________________/ \__/
+//   |           |               |       |                |    |            |                |
+//   |       userinfo           host    port              |    |          query          fragment
+//   |    \________________________________/\_____________|____|/ \__/        \__/
+// scheme                 |                          |    |    |    |          |
+//                    authority                      |    |    |    |          |
+//                                                 path   |    |    interpretable as keys
+//                                                        |    |
+//        \_______________________________________________|____|/       \____/     \_____/
+//                             |                          |    |          |           |
+//                     hierarchical part                  |    |    interpretable as values
+//                                                        |    |
+//                                   interpretable as filename |
+//                                                             |
+//                                                             |
+//                                               interpretable as extension
+</code></pre><p>在上面例子中可以看到，Channel.Init()和cntl.http_request().uri()被设置了相同的URL。为什么Channel为什么不直接利用Init时传入的URL，而需要给uri()再设置一次？</p>
+<p>确实，在简单使用场景下，这两者有所重复，但在复杂场景中，两者差别很大，比如：</p>
+<ul>
+<li>访问命名服务(如BNS)下的多个http/h2 server。此时Channel.Init传入的是对该命名服务有意义的名称（如BNS中的节点名称），对uri()的赋值则是包含Host的完整URL(比如&quot;www.foo.com/index.html?name=value&quot;)。</li>
+<li>通过http/h2 proxy访问目标server。此时Channel.Init传入的是proxy server的地址，但uri()填入的是目标server的URL。</li>
+</ul>
+<h2 id="host字段">Host字段</h2>
+<p>若用户自己填写了&quot;host&quot;字段(大小写不敏感)，框架不会修改。</p>
+<p>若用户没有填且URL中包含host，比如http://www.foo.com/path，则http request中会包含&quot;Host: <a href="http://www.foo.com">www.foo.com</a>&quot;。</p>
+<p>若用户没有填且URL不包含host，比如&quot;/index.html?name=value&quot;，但如果Channel初始化的地址包含域名，则框架会以域名作为Host，比如&quot;http://www.foo.com&quot;，该http server将会看到&quot;Host: <a href="http://www.foo.com">www.foo.com</a>&quot;。如果地址是&quot;http://www.foo.com:8989&quot;，则该http server将会看到&quot;Host: <a href="http://www.foo.com">www.foo.com</a>:8989&quot;。</p>
+<p>若用户没有填且URL不包含host，比如&quot;/index.html?name=value&quot;，如果Channel初始化的地址也不包含域名，则框架会以目标server的ip和port为Host，地址为10.46.188.39:8989的http server将会看到&quot;Host: 10.46.188.39:8989&quot;。</p>
+<p>对应的字段在h2中叫&quot;:authority&quot;。</p>
+<h1 id="常见设置">常见设置</h1>
+<p>以http request为例 (对response的操作自行替换), 常见操作方式如下所示：</p>
+<p>访问名为Foo的header</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">value</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">GetHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Foo&#34;</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">//不存在为NULL
+</span></code></pre></div><p>设置名为Foo的header</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">SetHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Foo&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;value&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>访问名为Foo的query</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">value</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">uri</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">GetQuery</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Foo&#34;</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// 不存在为NULL
+</span></code></pre></div><p>设置名为Foo的query</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">uri</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">SetQuery</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Foo&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;value&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>设置HTTP Method</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_method</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">HTTP_METHOD_POST</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>设置url</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">uri</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;http://www.baidu.com&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><p>设置content-type</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_content_type</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;text/plain&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>访问body</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">IOBuf</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">buf</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">request_attachment</span><span style="color:#000;font-weight:bold">();</span>
+<span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span> <span style="color:#000">str</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">request_attachment</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">to_string</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">// 有拷贝
+</span></code></pre></div><p>设置body</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">request_attachment</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;....&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">IOBufBuilder</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">os</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;....&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">os</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">move_to</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">request_attachment</span><span style="color:#000;font-weight:bold">());</span>
+</code></pre></div><p>Notes on http header:</p>
+<ul>
+<li>根据<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">rfc2616</a>，http header的field_name不区分大小写。brpc支持大小写不敏感，同时会在打印时保持用户传入的大小写。</li>
+<li>若http header中出现了相同的field_name, 根据<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2">rfc2616</a>，value应合并到一起，用逗号(,)分隔，用户自行处理.</li>
+<li>query之间用&quot;&amp;&ldquo;分隔, key和value之间用&rdquo;=&ldquo;分隔, value可以省略，比如key1=value1&amp;key2&amp;key3=value3中key2是合理的query，值为空字符串。</li>
+</ul>
+<h1 id="查看http消息">查看HTTP消息</h1>
+<p>打开<a href="http://brpc.baidu.com:8765/flags/http_verbose">-http_verbose</a>即可看到所有的http/h2 request和response，注意这应该只用于线下调试，而不是线上程序。</p>
+<h1 id="http错误">HTTP错误</h1>
+<p>当Server返回的http status code不是2xx时，该次http/h2访问被视为失败，client端会把<code>cntl-&gt;ErrorCode()</code>设置为EHTTP，用户可通过<code>cntl-&gt;http_response().status_code()</code>获得具体的http错误。同时server端可以把代表错误的html或json置入<code>cntl-&gt;response_attachment()</code>作为http body传递回来。</p>
+<h1 id="压缩request-body">压缩request body</h1>
+<p>调用Controller::set_request_compress_type(brpc::COMPRESS_TYPE_GZIP)将尝试用gzip压缩http body。</p>
+<p>“尝试”指的是压缩有可能不发生，条件有：</p>
+<ul>
+<li>body尺寸小于-http_body_compress_threshold指定的字节数，默认是512。这是因为gzip并不是一个很快的压缩算法，当body较小时，压缩增加的延时可能比网络传输省下的还多。</li>
+</ul>
+<h1 id="解压response-body">解压response body</h1>
+<p>出于通用性考虑brpc不会自动解压response body，解压代码并不复杂，用户可以自己做，方法如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/policy/gzip_compress.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
+<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">encoding</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">GetHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Content-Encoding&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">encoding</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87">NULL</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">encoding</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#34;gzip&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">IOBuf</span> <span style="color:#000">uncompressed</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">policy</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">GzipDecompress</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">response_attachment</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">uncompressed</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to un-gzip response body&#34;</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#204a87;font-weight:bold">return</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">response_attachment</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">swap</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">uncompressed</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#8f5902;font-style:italic">// cntl-&gt;response_attachment()中已经是解压后的数据了
+</span></code></pre></div><h1 id="持续下载">持续下载</h1>
+<p>http client往往需要等待到body下载完整才结束RPC，这个过程中body都会存在内存中，如果body超长或无限长（比如直播用的flv文件），那么内存会持续增长，直到超时。这样的http client不适合下载大文件。</p>
+<p>brpc client支持在读取完body前就结束RPC，让用户在RPC结束后再读取持续增长的body。注意这个功能不等同于“支持http chunked mode”，brpc的http实现一直支持解析chunked mode，这里的问题是如何让用户处理超长或无限长的body，和body是否以chunked mode传输无关。</p>
+<p>使用方法如下：</p>
+<ol>
+<li>
+<p>首先实现ProgressiveReader，接口如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/progressive_reader.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">ProgressiveReader</span> <span style="color:#000;font-weight:bold">{</span>
+<span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
+    <span style="color:#8f5902;font-style:italic">// Called when one part was read.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// Error returned is treated as *permenant* and the socket where the
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// data was read will be closed.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// A temporary error may be handled by blocking this function, which
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// may block the HTTP parsing on the socket.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">virtual</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span> <span style="color:#000">OnReadOnePart</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">size_t</span> <span style="color:#000">length</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+
+    <span style="color:#8f5902;font-style:italic">// Called when there&#39;s nothing to read anymore. The `status&#39; is a hint for
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// why this method is called.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// - status.ok(): the message is complete and successfully consumed.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// - otherwise: socket was broken or OnReadOnePart() failed.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// This method will be called once and only once. No other methods will
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// be called after. User can release the memory of this object inside.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">virtual</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">OnEndOfMessage</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">status</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">};</span>
+</code></pre></div><p>OnReadOnePart在每读到一段数据时被调用，OnEndOfMessage在数据结束或连接断开时调用，实现前仔细阅读注释。</p>
+</li>
+<li>
+<p>发起RPC前设置<code>cntl.response_will_be_read_progressively();</code>
+这告诉brpc在读取http response时只要读完header部分RPC就可以结束了。</p>
+</li>
+<li>
+<p>RPC结束后调用<code>cntl.ReadProgressiveAttachmentBy(new MyProgressiveReader);</code>
+MyProgressiveReader就是用户实现ProgressiveReader的实例。用户可以在这个实例的OnEndOfMessage接口中删除这个实例。</p>
+</li>
+</ol>
+<h1 id="持续上传">持续上传</h1>
+<p>目前Post的数据必须是完整生成好的，不适合POST超长的body。</p>
+<h1 id="访问带认证的server">访问带认证的Server</h1>
+<p>根据Server的认证方式生成对应的auth_data，并设置为http header &ldquo;Authorization&quot;的值。比如用的是curl，那就加上选项<code>-H &quot;Authorization : &lt;auth_data&gt;&quot;。</code></p>
+<h1 id="发送https请求">发送https请求</h1>
+<p>https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启客户端SSL的一般性方法见<a href="client.md#%E5%BC%80%E5%90%AFssl">这里</a>。为方便使用，brpc会对https开头的uri自动开启SSL。</p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月9日: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none" style="display: flex; align-items: center; padding: 0 !important;">
+  <div class="container-fluid mx-sm-5">
+    <div class="row" style="display: flex; align-items: center;">
+      <div class="col-12 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/apache/incubator-brpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
+        
+	
+        <div style="font-size: 12.8px; color: rgb(117, 116, 116);">
+          <a href="https://www.apache.org/foundation/how-it-works.html" target="_blank" rel="noopener">Foundation</a> |
+          <a href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a> |
+          <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Sponsorship</a> |
+          <a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="/js/main.min.170adf90fd476d5f9243ed2e727149abe8d9fe364587fe943765d47375bbd1ad.js" integrity="sha256-FwrfkP1HbV&#43;SQ&#43;0ucnFJq&#43;jZ/jZFh/6UN2XUc3W70a0=" crossorigin="anonymous"></script>
+
+
+
+
+
+  </body>
+</html>
