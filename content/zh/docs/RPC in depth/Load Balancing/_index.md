@@ -38,7 +38,7 @@ http://<url>                 # Domain Naming Service, aka DNS.
 
 brpc中[LoadBalancer](https://github.com/brpc/brpc/blob/master/src/brpc/load_balancer.h)从多个服务节点中选择一个节点，目前的实现见[负载均衡](client.md#负载均衡)。
 
-Load balancer最重要的是如何让不同线程中的负载均衡不互斥，解决这个问题的技术是[DoublyBufferedData](lalb.md#doublybuffereddata)。
+Load balancer最重要的是如何让不同线程中的负载均衡不互斥，解决这个问题的技术是[DoublyBufferedData](../locality-aware/#doublybuffereddata)。
 
 和NamingService类似，我们使用字符串来指代一个load balancer，在global.cpp中注册：
 

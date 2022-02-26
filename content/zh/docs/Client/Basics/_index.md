@@ -234,7 +234,7 @@ int main() {
 
 ### la
 
-locality-aware，优先选择延时低的下游，直到其延时高于其他机器，无需其他设置。实现原理请查看[Locality-aware load balancing](lalb.md)。
+locality-aware，优先选择延时低的下游，直到其延时高于其他机器，无需其他设置。实现原理请查看[Locality-aware load balancing](../../rpc-in-depth/locality-aware/)。
 
 ### c_murmurhash or c_md5
 
@@ -280,7 +280,7 @@ stub.some_method(controller, request, response, done);
 ```c++
 XXX_Stub(&channel).some_method(controller, request, response, done);
 ```
-一个例外是http/h2 client。访问http服务和protobuf没什么关系，直接调用CallMethod即可，除了Controller和done均为NULL，详见[访问http/h2服务](http_client.md)。
+一个例外是http/h2 client。访问http服务和protobuf没什么关系，直接调用CallMethod即可，除了Controller和done均为NULL，详见[访问http/h2服务](../access-httph2/)。
 
 ## 同步访问
 
@@ -623,10 +623,10 @@ Channel的默认协议是baidu_std，可通过设置ChannelOptions.protocol换�
 
 - PROTOCOL_BAIDU_STD 或 “baidu_std"，即[百度标准协议](baidu_std.md)，默认为单连接。
 - PROTOCOL_HTTP 或 ”http", http/1.0或http/1.1协议，默认为连接池(Keep-Alive)。
-  - 访问普通http服务的方法见[访问http/h2服务](http_client.md)
+  - 访问普通http服务的方法见[访问http/h2服务](../access-httph2/)
   - 通过http:json或http:proto访问pb服务的方法见[http/h2衍生协议](http_derivatives.md)
 - PROTOCOL_H2 或 ”h2", http/2协议，默认是单连接。
-  - 访问普通h2服务的方法见[访问http/h2服务](http_client.md)。
+  - 访问普通h2服务的方法见[访问http/h2服务](../access-httph2/)。
   - 通过h2:json或h2:proto访问pb服务的方法见[http/h2衍生协议](http_derivatives.md)
 - "h2:grpc", [gRPC](https://grpc.io)的协议，也是h2的衍生协议，默认为单连接，具体见[h2:grpc](http_derivatives.md#h2grpc)。
 - PROTOCOL_THRIFT 或 "thrift"，[apache thrift](https://thrift.apache.org)的协议，默认为连接池, 具体方法见[访问thrift](thrift.md)。
@@ -773,7 +773,7 @@ set_request_compress_type()设置request的压缩方式，默认不压缩。
 
 注意：附件不会被压缩。
 
-http/h2 body的压缩方法见[client压缩request body](http_client.md#压缩request-body)。
+http/h2 body的压缩方法见[client压缩request body](../access-httph2/#压缩request-body)。
 
 支持的压缩方法有：
 

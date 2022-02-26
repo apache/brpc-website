@@ -129,7 +129,7 @@ UB和thrift: 8个线程下高于brpc，但超过8个线程后被brpc迅速超过
 
 gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程时只有1倍的提升，多线程扩展性不佳。
 
-## 同机单client→单server在固定QPS下的延时[CDF](vars.md#统计和查看分位值)（越左越好，越直越好）
+## 同机单client→单server在固定QPS下的延时[CDF](../builtin-services/vars/#统计和查看分位值)（越左越好，越直越好）
 本测试运行在[单机1](#环境)上。考虑到不同RPC的处理能力，我们选择了一个较低、在不少系统中会达到的的QPS: 1万。
 
 本测试中有1%的长尾请求耗时5毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。
@@ -161,7 +161,7 @@ gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程�
 * thrift: 平均QPS低于UB，增加client几乎不能增加server的QPS。
 * gRPC: 垫底、增加client几乎不能增加server的QPS。
 
-## 跨机多client→单server在固定QPS下的延时[CDF](vars.md#统计和查看分位值)（越左越好，越直越好）
+## 跨机多client→单server在固定QPS下的延时[CDF](../builtin-services/vars/#统计和查看分位值)（越左越好，越直越好）
 
 本测试运行在[多机1](#环境)上。负载均衡算法为round-robin或RPC默认提供的。由于有32个client且一些RPC的单client能力不佳，我们为每个client仅设定了2500QPS，这是一个真实业务系统能达到的数字。
 
@@ -178,7 +178,7 @@ gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程�
 - hulu-pbrpc: 15%的普通请求被长尾严重干扰。
 - gRPC: 已经完全失控，非常糟糕。
 
-## 跨机多client→多server在固定QPS下的延时[CDF](vars.md#统计和查看分位值)（越左越好，越直越好）
+## 跨机多client→多server在固定QPS下的延时[CDF](../builtin-services/vars/#统计和查看分位值)（越左越好，越直越好）
 
 本测试运行在[多机2](#环境)上。20台每台运行4个client，多线程同步访问10台server。负载均衡算法为round-robin或RPC默认提供的。由于gRPC访问多server较麻烦且有很大概率仍表现不佳，这个测试不包含gRPC。
 
@@ -194,7 +194,7 @@ gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程�
 - sofa-pbrpc: 2.5%的普通请求被长尾严重干扰。
 - hulu-pbrpc: 22%的普通请求被长尾严重干扰。
 
-## 跨机多client→多server→多server在固定QPS下的延时[CDF](vars.md#统计和查看分位值)（越左越好，越直越好）
+## 跨机多client→多server→多server在固定QPS下的延时[CDF](../builtin-services/vars/#统计和查看分位值)（越左越好，越直越好）
 
 本测试运行在[多机2](#环境)上。14台每台运行4个client，多线程同步访问8台server，这些server还会同步访问另外8台server。负载均衡算法为round-robin或RPC默认提供的。由于gRPC访问多server较麻烦且有很大概率仍表现不佳，这个测试不包含gRPC。
 

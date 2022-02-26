@@ -6,7 +6,7 @@ date: 2021-08-12
 description: >
   Learn about status service.
 ---
-[/status](http://brpc.baidu.com:8765/status) shows primary statistics of services inside the server. The data sources are same with [/vars](vars.md), but stats are grouped differently.
+[/status](http://brpc.baidu.com:8765/status) shows primary statistics of services inside the server. The data sources are same with [/vars](../vars/), but stats are grouped differently.
 
 ![img](/images/docs/status.png)
 
