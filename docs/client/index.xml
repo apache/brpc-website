@@ -174,7 +174,7 @@
 &lt;p&gt;即weighted random, 根据服务器列表配置的权重值来选择服务器，服务器被选到的机会正比于其权重值。&lt;/p&gt;
 &lt;p&gt;实例tag的要求同wrr。&lt;/p&gt;
 &lt;h3 id=&#34;la&#34;&gt;la&lt;/h3&gt;
-&lt;p&gt;locality-aware，优先选择延时低的下游，直到其延时高于其他机器，无需其他设置。实现原理请查看&lt;a href=&#34;lalb.md&#34;&gt;Locality-aware load balancing&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;locality-aware，优先选择延时低的下游，直到其延时高于其他机器，无需其他设置。实现原理请查看&lt;a href=&#34;../../rpc-in-depth/locality-aware/&#34;&gt;Locality-aware load balancing&lt;/a&gt;。&lt;/p&gt;
 &lt;h3 id=&#34;c_murmurhash-or-c_md5&#34;&gt;c_murmurhash or c_md5&lt;/h3&gt;
 &lt;p&gt;一致性哈希，与简单hash的不同之处在于增加或删除机器时不会使分桶结果剧烈变化，特别适合cache类服务。&lt;/p&gt;
 &lt;p&gt;发起RPC前需要设置Controller.set_request_code()，否则RPC会失败。request_code一般是请求中主键部分的32位哈希值，&lt;strong&gt;不需要和负载均衡使用的哈希算法一致&lt;/strong&gt;。比如用c_murmurhash算法也可以用md5计算哈希值。&lt;/p&gt;
@@ -213,7 +213,7 @@
 &lt;span style=&#34;color:#000&#34;&gt;stub&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;some_method&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;request&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;response&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;甚至&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;XXX_Stub&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;channel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;some_method&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;request&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;response&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一个例外是http/h2 client。访问http服务和protobuf没什么关系，直接调用CallMethod即可，除了Controller和done均为NULL，详见&lt;a href=&#34;http_client.md&#34;&gt;访问http/h2服务&lt;/a&gt;。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一个例外是http/h2 client。访问http服务和protobuf没什么关系，直接调用CallMethod即可，除了Controller和done均为NULL，详见&lt;a href=&#34;../access-httph2/&#34;&gt;访问http/h2服务&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;同步访问&#34;&gt;同步访问&lt;/h2&gt;
 &lt;p&gt;指的是：CallMethod会阻塞到收到server端返回response或发生错误（包括超时）。&lt;/p&gt;
 &lt;p&gt;同步访问中的response/controller不会在CallMethod后被框架使用，它们都可以分配在栈上。注意，如果request/response字段特别多字节数特别大的话，还是更适合分配在堆上。&lt;/p&gt;
@@ -473,13 +473,13 @@
 &lt;li&gt;PROTOCOL_BAIDU_STD 或 “baidu_std&amp;quot;，即&lt;a href=&#34;baidu_std.md&#34;&gt;百度标准协议&lt;/a&gt;，默认为单连接。&lt;/li&gt;
 &lt;li&gt;PROTOCOL_HTTP 或 ”http&amp;quot;, http/1.0或http/1.1协议，默认为连接池(Keep-Alive)。
 &lt;ul&gt;
-&lt;li&gt;访问普通http服务的方法见&lt;a href=&#34;http_client.md&#34;&gt;访问http/h2服务&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;访问普通http服务的方法见&lt;a href=&#34;../access-httph2/&#34;&gt;访问http/h2服务&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;通过http:json或http:proto访问pb服务的方法见&lt;a href=&#34;http_derivatives.md&#34;&gt;http/h2衍生协议&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;PROTOCOL_H2 或 ”h2&amp;quot;, http/2协议，默认是单连接。
 &lt;ul&gt;
-&lt;li&gt;访问普通h2服务的方法见&lt;a href=&#34;http_client.md&#34;&gt;访问http/h2服务&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;访问普通h2服务的方法见&lt;a href=&#34;../access-httph2/&#34;&gt;访问http/h2服务&lt;/a&gt;。&lt;/li&gt;
 &lt;li&gt;通过h2:json或h2:proto访问pb服务的方法见&lt;a href=&#34;http_derivatives.md&#34;&gt;http/h2衍生协议&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -700,7 +700,7 @@
 &lt;h2 id=&#34;压缩&#34;&gt;压缩&lt;/h2&gt;
 &lt;p&gt;set_request_compress_type()设置request的压缩方式，默认不压缩。&lt;/p&gt;
 &lt;p&gt;注意：附件不会被压缩。&lt;/p&gt;
-&lt;p&gt;http/h2 body的压缩方法见&lt;a href=&#34;http_client.md#%E5%8E%8B%E7%BC%A9request-body&#34;&gt;client压缩request body&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;http/h2 body的压缩方法见&lt;a href=&#34;../access-httph2/#%E5%8E%8B%E7%BC%A9request-body&#34;&gt;client压缩request body&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;支持的压缩方法有：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;brpc::CompressTypeSnappy : &lt;a href=&#34;http://google.github.io/snappy/&#34;&gt;snappy压缩&lt;/a&gt;，压缩和解压显著快于其他压缩方法，但压缩率最低。&lt;/li&gt;
@@ -1768,7 +1768,7 @@ MyProgressiveReader就是用户实现ProgressiveReader的实例。用户可以�
       <description>
         
         
-        &lt;p&gt;http/h2协议的基本用法见&lt;a href=&#34;http_client.md&#34;&gt;http_client&lt;/a&gt;和&lt;a href=&#34;http_service.md&#34;&gt;http_service&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;http/h2协议的基本用法见&lt;a href=&#34;../access-httph2/&#34;&gt;http_client&lt;/a&gt;和&lt;a href=&#34;../../server/serve-httph2/&#34;&gt;http_service&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;下文中的小节名均为可填入ChannelOptions.protocol中的协议名。冒号后的内容是协议参数，用于动态选择衍生行为，但基本协议仍然是http/1.x或http/2，故这些协议在服务端只会被显示为http或h2/h2c。&lt;/p&gt;
 &lt;h1 id=&#34;httpjson-h2json&#34;&gt;http:json, h2:json&lt;/h1&gt;
 &lt;p&gt;如果pb request不为空，则会被转为json并作为http/h2请求的body，此时Controller.request_attachment()必须为空否则报错。&lt;/p&gt;

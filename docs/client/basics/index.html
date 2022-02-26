@@ -2163,7 +2163,7 @@ if (!doNotTrack) {
 <p>即weighted random, 根据服务器列表配置的权重值来选择服务器，服务器被选到的机会正比于其权重值。</p>
 <p>实例tag的要求同wrr。</p>
 <h3 id="la">la</h3>
-<p>locality-aware，优先选择延时低的下游，直到其延时高于其他机器，无需其他设置。实现原理请查看<a href="lalb.md">Locality-aware load balancing</a>。</p>
+<p>locality-aware，优先选择延时低的下游，直到其延时高于其他机器，无需其他设置。实现原理请查看<a href="../../rpc-in-depth/locality-aware/">Locality-aware load balancing</a>。</p>
 <h3 id="c_murmurhash-or-c_md5">c_murmurhash or c_md5</h3>
 <p>一致性哈希，与简单hash的不同之处在于增加或删除机器时不会使分桶结果剧烈变化，特别适合cache类服务。</p>
 <p>发起RPC前需要设置Controller.set_request_code()，否则RPC会失败。request_code一般是请求中主键部分的32位哈希值，<strong>不需要和负载均衡使用的哈希算法一致</strong>。比如用c_murmurhash算法也可以用md5计算哈希值。</p>
@@ -2202,7 +2202,7 @@ if (!doNotTrack) {
 <span style="color:#000">stub</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">some_method</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">controller</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">done</span><span style="color:#000;font-weight:bold">);</span>
 </code></pre></div><p>甚至</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">XXX_Stub</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">some_method</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">controller</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">done</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p>一个例外是http/h2 client。访问http服务和protobuf没什么关系，直接调用CallMethod即可，除了Controller和done均为NULL，详见<a href="http_client.md">访问http/h2服务</a>。</p>
+</code></pre></div><p>一个例外是http/h2 client。访问http服务和protobuf没什么关系，直接调用CallMethod即可，除了Controller和done均为NULL，详见<a href="../access-httph2/">访问http/h2服务</a>。</p>
 <h2 id="同步访问">同步访问</h2>
 <p>指的是：CallMethod会阻塞到收到server端返回response或发生错误（包括超时）。</p>
 <p>同步访问中的response/controller不会在CallMethod后被框架使用，它们都可以分配在栈上。注意，如果request/response字段特别多字节数特别大的话，还是更适合分配在堆上。</p>
@@ -2462,13 +2462,13 @@ if (!doNotTrack) {
 <li>PROTOCOL_BAIDU_STD 或 “baidu_std&quot;，即<a href="baidu_std.md">百度标准协议</a>，默认为单连接。</li>
 <li>PROTOCOL_HTTP 或 ”http&quot;, http/1.0或http/1.1协议，默认为连接池(Keep-Alive)。
 <ul>
-<li>访问普通http服务的方法见<a href="http_client.md">访问http/h2服务</a></li>
+<li>访问普通http服务的方法见<a href="../access-httph2/">访问http/h2服务</a></li>
 <li>通过http:json或http:proto访问pb服务的方法见<a href="http_derivatives.md">http/h2衍生协议</a></li>
 </ul>
 </li>
 <li>PROTOCOL_H2 或 ”h2&quot;, http/2协议，默认是单连接。
 <ul>
-<li>访问普通h2服务的方法见<a href="http_client.md">访问http/h2服务</a>。</li>
+<li>访问普通h2服务的方法见<a href="../access-httph2/">访问http/h2服务</a>。</li>
 <li>通过h2:json或h2:proto访问pb服务的方法见<a href="http_derivatives.md">http/h2衍生协议</a></li>
 </ul>
 </li>
@@ -2689,7 +2689,7 @@ if (!doNotTrack) {
 <h2 id="压缩">压缩</h2>
 <p>set_request_compress_type()设置request的压缩方式，默认不压缩。</p>
 <p>注意：附件不会被压缩。</p>
-<p>http/h2 body的压缩方法见<a href="http_client.md#%E5%8E%8B%E7%BC%A9request-body">client压缩request body</a>。</p>
+<p>http/h2 body的压缩方法见<a href="../access-httph2/#%E5%8E%8B%E7%BC%A9request-body">client压缩request body</a>。</p>
 <p>支持的压缩方法有：</p>
 <ul>
 <li>brpc::CompressTypeSnappy : <a href="http://google.github.io/snappy/">snappy压缩</a>，压缩和解压显著快于其他压缩方法，但压缩率最低。</li>
@@ -3166,7 +3166,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年2月26日: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 

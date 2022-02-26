@@ -1162,7 +1162,7 @@ process_io_write_second
       <description>
         
         
-        &lt;p&gt;http/h2协议的基本用法见&lt;a href=&#34;http_client.md&#34;&gt;http_client&lt;/a&gt;和&lt;a href=&#34;http_service.md&#34;&gt;http_service&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;http/h2协议的基本用法见&lt;a href=&#34;../../client/access-httph2/&#34;&gt;http_client&lt;/a&gt;和&lt;a href=&#34;../serve-httph2/&#34;&gt;http_service&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;下文中的小节名均为可填入ChannelOptions.protocol中的协议名。冒号后的内容是协议参数，用于动态选择衍生行为，但基本协议仍然是http/1.x或http/2，故这些协议在服务端只会被显示为http或h2/h2c。&lt;/p&gt;
 &lt;h1 id=&#34;httpjson-h2json&#34;&gt;http:json, h2:json&lt;/h1&gt;
 &lt;p&gt;如果pb request不为空，则会被转为json并作为http/h2请求的body，此时Controller.request_attachment()必须为空否则报错。&lt;/p&gt;

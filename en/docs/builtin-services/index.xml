@@ -24,23 +24,23 @@
         
         
         &lt;h1 id=&#34;builtin-services&#34;&gt;Builtin Services&lt;/h1&gt;
-&lt;p&gt;Builtin services expose internal status of servers in different pespectives, making development and debugging over brpc more efficient. brpc serves builting services via HTTP, which can be easily accessed through curl and web browsers. Servers respond plain text or html according to &lt;code&gt;User-Agent&lt;/code&gt; in the request header, or you may append &lt;code&gt;?console=1&lt;/code&gt; to the uri to force the server to respond in plain text. Check the &lt;a href=&#34;http://brpc.baidu.com:8765/&#34;&gt;example&lt;/a&gt; running on our dev machine(only accessible from Baidu internal) for more details. If the port is forbidden from where you run curl or web browser (e.g. not all ports are accessible from a web browser inside Baidu), you can use &lt;a href=&#34;rpc_view.md&#34;&gt;rpc_view&lt;/a&gt; for proxying.&lt;/p&gt;
+&lt;p&gt;Builtin services expose internal status of servers in different pespectives, making development and debugging over brpc more efficient. brpc serves builting services via HTTP, which can be easily accessed through curl and web browsers. Servers respond plain text or html according to &lt;code&gt;User-Agent&lt;/code&gt; in the request header, or you may append &lt;code&gt;?console=1&lt;/code&gt; to the uri to force the server to respond in plain text. Check the &lt;a href=&#34;http://brpc.baidu.com:8765/&#34;&gt;example&lt;/a&gt; running on our dev machine(only accessible from Baidu internal) for more details. If the port is forbidden from where you run curl or web browser (e.g. not all ports are accessible from a web browser inside Baidu), you can use &lt;a href=&#34;../../tools/rpc_view/&#34;&gt;rpc_view&lt;/a&gt; for proxying.&lt;/p&gt;
 &lt;p&gt;Following 2 screenshots show accesses to builtin services from a web browser and a terminal respectively.  Note that the logo is the codename inside Baidu, and being modified to brpc in opensourced version.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;From a web browser&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/builtin_service_more.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;From a terminal&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/builtin_service_from_console.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;security-mode&#34;&gt;Security Mode&lt;/h1&gt;
-&lt;p&gt;To avoid potential attacks and information leaks, builtin services &lt;strong&gt;must&lt;/strong&gt; be hidden on servers that may be accessed from public, including the ones proxied by nginx or other http servers. Click &lt;a href=&#34;server.md#security-mode&#34;&gt;here&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;p&gt;To avoid potential attacks and information leaks, builtin services &lt;strong&gt;must&lt;/strong&gt; be hidden on servers that may be accessed from public, including the ones proxied by nginx or other http servers. Click &lt;a href=&#34;../../server/basics/#security-mode&#34;&gt;here&lt;/a&gt; for more details.&lt;/p&gt;
 &lt;h1 id=&#34;main-services&#34;&gt;Main services:&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;status.md&#34;&gt;/status&lt;/a&gt;: displays brief status of all services.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;vars.md&#34;&gt;/vars&lt;/a&gt;: lists user-customizable counters on miscellaneous metrics.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../cn/connections.md&#34;&gt;/connections&lt;/a&gt;: lists all connections and their stats.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../cn/flags.md&#34;&gt;/flags&lt;/a&gt;: lists all gflags, some of them are modifiable at run-time.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../cn/rpcz.md&#34;&gt;/rpcz&lt;/a&gt;: traces all RPCs.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../cn/cpu_profiler.md&#34;&gt;cpu profiler&lt;/a&gt;: analyzes CPU hotspots.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../cn/heap_profiler.md&#34;&gt;heap profiler&lt;/a&gt;: shows how memory are allocated.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../cn/contention_profiler.md&#34;&gt;contention profiler&lt;/a&gt;: analyzes lock contentions.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../status/&#34;&gt;/status&lt;/a&gt;: displays brief status of all services.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../vars/&#34;&gt;/vars&lt;/a&gt;: lists user-customizable counters on miscellaneous metrics.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../connections/&#34;&gt;/connections&lt;/a&gt;: lists all connections and their stats.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../flags/&#34;&gt;/flags&lt;/a&gt;: lists all gflags, some of them are modifiable at run-time.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../rpcz/&#34;&gt;/rpcz&lt;/a&gt;: traces all RPCs.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../cpu_profiler/&#34;&gt;cpu profiler&lt;/a&gt;: analyzes CPU hotspots.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../heap_profiler/&#34;&gt;heap profiler&lt;/a&gt;: shows how memory are allocated.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../contention_profiler/&#34;&gt;contention profiler&lt;/a&gt;: analyzes lock contentions.&lt;/p&gt;
 &lt;h1 id=&#34;other-services&#34;&gt;Other services&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/version&#34;&gt;/version&lt;/a&gt; shows version of the server. Call Server::set_version() to specify version of the server, or brpc would generate a default version like &lt;code&gt;brpc_server_&amp;lt;service-name1&amp;gt;_&amp;lt;service-name2&amp;gt; ...&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/version_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
@@ -48,7 +48,7 @@
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/health_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/protobufs&#34;&gt;/protobufs&lt;/a&gt; shows scheme of all protobuf messages inside the server.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/protobufs_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vlog&#34;&gt;/vlog&lt;/a&gt; shows all the &lt;a href=&#34;streaming_log.md#VLOG&#34;&gt;VLOG&lt;/a&gt; that can be enabled(not working with glog).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vlog&#34;&gt;/vlog&lt;/a&gt; shows all the &lt;a href=&#34;../../c++-base/streaming-log/#vlog&#34;&gt;VLOG&lt;/a&gt; that can be enabled(not working with glog).&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vlog_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;/dir: browses all files on the server, convenient but too dangerous, disabled by default.&lt;/p&gt;
 &lt;p&gt;/threads: displays information of all threads of the process, hurting performance significantly when being turned on, disabled by default.&lt;/p&gt;
@@ -65,7 +65,7 @@
       <description>
         
         
-        &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/status&#34;&gt;/status&lt;/a&gt; shows primary statistics of services inside the server. The data sources are same with &lt;a href=&#34;vars.md&#34;&gt;/vars&lt;/a&gt;, but stats are grouped differently.&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/status&#34;&gt;/status&lt;/a&gt; shows primary statistics of services inside the server. The data sources are same with &lt;a href=&#34;../vars/&#34;&gt;/vars&lt;/a&gt;, but stats are grouped differently.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/status.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Meanings of the fields above:&lt;/p&gt;
 &lt;ul&gt;

@@ -1927,7 +1927,7 @@ if (!doNotTrack) {
 <ul>
 <li>Thread safety. No need to set up separate clients for each thread.</li>
 <li>Support synchronous, asynchronous, semi-synchronous accesses etc. Support <a href="combo_channel.md">ParallelChannel etc</a> to define access patterns declaratively.</li>
-<li>Support various <a href="client.md#connection-type">connection types</a>. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.</li>
+<li>Support various <a href="../client/basics/#connection-type">connection types</a>. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.</li>
 <li>All brpc clients in a process share a single connection to one redis-server, which is more efficient when multiple threads access one redis-server simultaneously (see <a href="#Performance">performance</a>). Memory is allocated in blocks regardless of complexity of the reply, and short string optimization (SSO) is implemented to further improve performance.</li>
 </ul>
 <p>Similarly with http, brpc guarantees that the time complexity of parsing redis replies is O(N) in worst cases rather than O(N^2) , where N is the number of bytes of reply. This is important when the reply consists of large arrays.</p>
@@ -2306,7 +2306,7 @@ redis 127.0.0.1:6379&gt; client getname
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 

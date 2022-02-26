@@ -175,7 +175,7 @@ If you need weighted round-robin, you should consider using &lt;a href=&#34;#wrr
 &lt;p&gt;which is weighted random. Choose the next server according to the configured weight. The chances a server is selected is consistent with its weight.&lt;/p&gt;
 &lt;p&gt;Requirements of instance tag is the same as wrr.&lt;/p&gt;
 &lt;h3 id=&#34;la&#34;&gt;la&lt;/h3&gt;
-&lt;p&gt;which is locality-aware. Perfer servers with lower latencies, until the latency is higher than others, no other settings. Check out &lt;a href=&#34;lalb.md&#34;&gt;Locality-aware load balancing&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;p&gt;which is locality-aware. Perfer servers with lower latencies, until the latency is higher than others, no other settings. Check out &lt;a href=&#34;../../rpc-in-depth/locality-aware/&#34;&gt;Locality-aware load balancing&lt;/a&gt; for more details.&lt;/p&gt;
 &lt;h3 id=&#34;c_murmurhash-or-c_md5&#34;&gt;c_murmurhash or c_md5&lt;/h3&gt;
 &lt;p&gt;which is consistent hashing. Adding or removing servers does not make destinations of requests change as dramatically as in simple hashing. It&amp;rsquo;s especially suitable for caching services.&lt;/p&gt;
 &lt;p&gt;Need to set Controller.set_request_code() before RPC otherwise the RPC will fail. request_code is often a 32-bit hash code of &amp;ldquo;key part&amp;rdquo; of the request, and the hashing algorithm does not need to be same with the one used by load balancer. Say &lt;code&gt;c_murmurhash&lt;/code&gt;  can use md5 to compute request_code of the request as well.&lt;/p&gt;
@@ -214,7 +214,7 @@ If you need weighted round-robin, you should consider using &lt;a href=&#34;#wrr
 &lt;span style=&#34;color:#000&#34;&gt;stub&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;some_method&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;request&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;response&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or even:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;XXX_Stub&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;channel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;some_method&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;controller&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;request&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;response&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A exception is http/h2 client, which is not related to protobuf much. Call CallMethod directly to make a http call, setting all parameters to NULL except for &lt;code&gt;Controller&lt;/code&gt; and &lt;code&gt;done&lt;/code&gt;, check &lt;a href=&#34;http_client.md&#34;&gt;Access http/h2&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A exception is http/h2 client, which is not related to protobuf much. Call CallMethod directly to make a http call, setting all parameters to NULL except for &lt;code&gt;Controller&lt;/code&gt; and &lt;code&gt;done&lt;/code&gt;, check &lt;a href=&#34;../access-httph2/&#34;&gt;Access http/h2&lt;/a&gt; for details.&lt;/p&gt;
 &lt;h2 id=&#34;synchronous-call&#34;&gt;Synchronous call&lt;/h2&gt;
 &lt;p&gt;CallMethod blocks until response from server is received or error occurred (including timedout).&lt;/p&gt;
 &lt;p&gt;response/controller in synchronous call will not be used by brpc again after CallMethod, they can be put on stack safely. Note: if request/response has many fields and being large on size, they&amp;rsquo;d better be allocated on heap.&lt;/p&gt;
@@ -474,13 +474,13 @@ If you need weighted round-robin, you should consider using &lt;a href=&#34;#wrr
 &lt;li&gt;PROTOCOL_BAIDU_STD or &amp;ldquo;baidu_std&amp;rdquo;, which is &lt;a href=&#34;baidu_std.md&#34;&gt;the standard binary protocol inside Baidu&lt;/a&gt;, using single connection by default.&lt;/li&gt;
 &lt;li&gt;PROTOCOL_HTTP or &amp;ldquo;http&amp;rdquo;, which is http/1.0 or http/1.1, using pooled connection by default (Keep-Alive).
 &lt;ul&gt;
-&lt;li&gt;Methods for accessing ordinary http services are listed in &lt;a href=&#34;http_client.md&#34;&gt;Access http/h2&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Methods for accessing ordinary http services are listed in &lt;a href=&#34;../access-httph2/&#34;&gt;Access http/h2&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Methods for accessing pb services by using http:json or http:proto are listed in &lt;a href=&#34;http_derivatives.md&#34;&gt;http/h2 derivatives&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;PROTOCOL_H2 or ”h2&amp;quot;, which is http/2, using single connection by default.
 &lt;ul&gt;
-&lt;li&gt;Methods for accessing ordinary h2 services are listed in &lt;a href=&#34;http_client.md&#34;&gt;Access http/h2&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Methods for accessing ordinary h2 services are listed in &lt;a href=&#34;../access-httph2/&#34;&gt;Access http/h2&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Methods for accessing pb services by using h2:json or h2:proto are listed in &lt;a href=&#34;http_derivatives.md&#34;&gt;http/h2 derivatives&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -702,7 +702,7 @@ Set ChannelOptions.mutable_ssl_options() to enable SSL. Refer to &lt;a href=&#34
 &lt;h2 id=&#34;compression&#34;&gt;Compression&lt;/h2&gt;
 &lt;p&gt;set_request_compress_type() sets compress-type of the request, no compression by default.&lt;/p&gt;
 &lt;p&gt;NOTE: Attachment is not compressed by brpc.&lt;/p&gt;
-&lt;p&gt;Check out &lt;a href=&#34;http_client.md#compress-request-body&#34;&gt;compress request body&lt;/a&gt; to compress http/h2 body.&lt;/p&gt;
+&lt;p&gt;Check out &lt;a href=&#34;../access-httph2/#compress-request-body&#34;&gt;compress request body&lt;/a&gt; to compress http/h2 body.&lt;/p&gt;
 &lt;p&gt;Supported compressions:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;brpc::CompressTypeSnappy : &lt;a href=&#34;http://google.github.io/snappy/&#34;&gt;snanpy&lt;/a&gt;, compression and decompression are very fast, but compression ratio is low.&lt;/li&gt;
@@ -1772,7 +1772,7 @@ TRACE: 09-06 11:17:50:   * 0 server.cpp:192] S[0]=0 S[1]=250198 S[2]=250150 [tot
       <description>
         
         
-        &lt;p&gt;Basics for accessing and serving http/h2 in brpc are listed in &lt;a href=&#34;http_client.md&#34;&gt;http_client&lt;/a&gt; and &lt;a href=&#34;http_service.md&#34;&gt;http_service&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;Basics for accessing and serving http/h2 in brpc are listed in &lt;a href=&#34;../access-httph2/&#34;&gt;http_client&lt;/a&gt; and &lt;a href=&#34;../../server/serve-httph2/&#34;&gt;http_service&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Following section names are protocol names that can be directly set to ChannelOptions.protocol. The content after colon is parameters for the protocol to select derivative behaviors dynamically, but the base protocol is still http/1.x or http/2. As a result, these protocols are displayed at server-side as http or h2/h2c only.&lt;/p&gt;
 &lt;h1 id=&#34;httpjson-h2json&#34;&gt;http:json, h2:json&lt;/h1&gt;
 &lt;p&gt;Non-empty pb request is serialized to json and set to the body of the http/h2 request. The Controller.request_attachment() must be empty otherwise the RPC fails.&lt;/p&gt;
@@ -2350,7 +2350,7 @@ service EchoService {
 &lt;ul&gt;
 &lt;li&gt;Thread safety. No need to set up separate clients for each thread.&lt;/li&gt;
 &lt;li&gt;Support synchronous, asynchronous, semi-synchronous accesses etc. Support &lt;a href=&#34;combo_channel.md&#34;&gt;ParallelChannel etc&lt;/a&gt; to define access patterns declaratively.&lt;/li&gt;
-&lt;li&gt;Support various &lt;a href=&#34;client.md#connection-type&#34;&gt;connection types&lt;/a&gt;. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.&lt;/li&gt;
+&lt;li&gt;Support various &lt;a href=&#34;../client/basics/#connection-type&#34;&gt;connection types&lt;/a&gt;. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.&lt;/li&gt;
 &lt;li&gt;All brpc clients in a process share a single connection to one redis-server, which is more efficient when multiple threads access one redis-server simultaneously (see &lt;a href=&#34;#Performance&#34;&gt;performance&lt;/a&gt;). Memory is allocated in blocks regardless of complexity of the reply, and short string optimization (SSO) is implemented to further improve performance.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Similarly with http, brpc guarantees that the time complexity of parsing redis replies is O(N) in worst cases rather than O(N^2) , where N is the number of bytes of reply. This is important when the reply consists of large arrays.&lt;/p&gt;
@@ -2579,7 +2579,7 @@ redis 127.0.0.1:6379&amp;gt; client getname
 &lt;ul&gt;
 &lt;li&gt;Thread safety. No need to set up separate clients for each thread.&lt;/li&gt;
 &lt;li&gt;Support synchronous, asynchronous, semi-synchronous accesses etc. Support &lt;a href=&#34;combo_channel.md&#34;&gt;ParallelChannel etc&lt;/a&gt; to define access patterns declaratively.&lt;/li&gt;
-&lt;li&gt;Support various &lt;a href=&#34;client.md#connection-type&#34;&gt;connection types&lt;/a&gt;. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.&lt;/li&gt;
+&lt;li&gt;Support various &lt;a href=&#34;../client/basics/#connection-type&#34;&gt;connection types&lt;/a&gt;. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.&lt;/li&gt;
 &lt;li&gt;Have the concept of requests and responses while libmemcached don&amp;rsquo;t. Users have to do extra bookkeepings to associate received messages with sent messages, which is not trivial.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The current implementation takes full advantage of the RPC concurrency mechanism and avoids copying as much as possible. A single client can easily pushes a memcached instance (version 1.4.15) on the same machine to its limit: 90,000 QPS for single connection, 330,000 QPS for multiple connections. In most cases, brpc is able to make full use of memcached&amp;rsquo;s capabilities.&lt;/p&gt;
