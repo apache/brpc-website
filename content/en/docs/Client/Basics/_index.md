@@ -236,7 +236,7 @@ Requirements of instance tag is the same as wrr.
 
 ### la
 
-which is locality-aware. Perfer servers with lower latencies, until the latency is higher than others, no other settings. Check out [Locality-aware load balancing](lalb.md) for more details.
+which is locality-aware. Perfer servers with lower latencies, until the latency is higher than others, no other settings. Check out [Locality-aware load balancing](../../rpc-in-depth/locality-aware/) for more details.
 
 ### c_murmurhash or c_md5
 
@@ -282,7 +282,7 @@ Or even:
 ```c++
 XXX_Stub(&channel).some_method(controller, request, response, done);
 ```
-A exception is http/h2 client, which is not related to protobuf much. Call CallMethod directly to make a http call, setting all parameters to NULL except for `Controller` and `done`, check [Access http/h2](http_client.md) for details.
+A exception is http/h2 client, which is not related to protobuf much. Call CallMethod directly to make a http call, setting all parameters to NULL except for `Controller` and `done`, check [Access http/h2](../access-httph2/) for details.
 
 ## Synchronous call
 
@@ -626,10 +626,10 @@ The default protocol used by Channel is baidu_std, which is changeable by settin
 
 - PROTOCOL_BAIDU_STD or "baidu_std", which is [the standard binary protocol inside Baidu](baidu_std.md), using single connection by default.
 - PROTOCOL_HTTP or "http", which is http/1.0 or http/1.1, using pooled connection by default (Keep-Alive).
-  - Methods for accessing ordinary http services are listed in [Access http/h2](http_client.md).
+  - Methods for accessing ordinary http services are listed in [Access http/h2](../access-httph2/).
   - Methods for accessing pb services by using http:json or http:proto are listed in [http/h2 derivatives](http_derivatives.md)
 - PROTOCOL_H2 or ”h2", which is http/2, using single connection by default.
-  - Methods for accessing ordinary h2 services are listed in [Access http/h2](http_client.md).
+  - Methods for accessing ordinary h2 services are listed in [Access http/h2](../access-httph2/).
   - Methods for accessing pb services by using h2:json or h2:proto are listed in [http/h2 derivatives](http_derivatives.md)
 - "h2:grpc", which is the protocol of [gRPC](https://grpc.io) and based on h2, using single connection by default, check out [h2:grpc](http_derivatives.md#h2grpc) for details.
 - PROTOCOL_THRIFT or "thrift", which is the protocol of [apache thrift](https://thrift.apache.org), using pooled connection by default, check out [Access thrift](thrift.md) for details.
@@ -779,7 +779,7 @@ set_request_compress_type() sets compress-type of the request, no compression by
 
 NOTE: Attachment is not compressed by brpc.
 
-Check out [compress request body](http_client.md#compress-request-body) to compress http/h2 body.
+Check out [compress request body](../access-httph2/#compress-request-body) to compress http/h2 body.
 
 Supported compressions:
 

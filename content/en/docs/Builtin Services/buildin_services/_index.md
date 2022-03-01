@@ -8,7 +8,7 @@ description: >
 ---
 # Builtin Services
 
-Builtin services expose internal status of servers in different pespectives, making development and debugging over brpc more efficient. brpc serves builting services via HTTP, which can be easily accessed through curl and web browsers. Servers respond plain text or html according to `User-Agent` in the request header, or you may append `?console=1` to the uri to force the server to respond in plain text. Check the [example](http://brpc.baidu.com:8765/) running on our dev machine(only accessible from Baidu internal) for more details. If the port is forbidden from where you run curl or web browser (e.g. not all ports are accessible from a web browser inside Baidu), you can use [rpc_view](rpc_view.md) for proxying.
+Builtin services expose internal status of servers in different pespectives, making development and debugging over brpc more efficient. brpc serves builting services via HTTP, which can be easily accessed through curl and web browsers. Servers respond plain text or html according to `User-Agent` in the request header, or you may append `?console=1` to the uri to force the server to respond in plain text. Check the [example](http://brpc.baidu.com:8765/) running on our dev machine(only accessible from Baidu internal) for more details. If the port is forbidden from where you run curl or web browser (e.g. not all ports are accessible from a web browser inside Baidu), you can use [rpc_view](../../tools/rpc_view/) for proxying.
 
 Following 2 screenshots show accesses to builtin services from a web browser and a terminal respectively.  Note that the logo is the codename inside Baidu, and being modified to brpc in opensourced version.
 
@@ -22,25 +22,25 @@ Following 2 screenshots show accesses to builtin services from a web browser and
 
 # Security Mode
 
-To avoid potential attacks and information leaks, builtin services **must** be hidden on servers that may be accessed from public, including the ones proxied by nginx or other http servers. Click [here](server.md#security-mode) for more details.
+To avoid potential attacks and information leaks, builtin services **must** be hidden on servers that may be accessed from public, including the ones proxied by nginx or other http servers. Click [here](../../server/basics/#security-mode) for more details.
 
 # Main services:
 
-[/status](status.md): displays brief status of all services.
+[/status](../status/): displays brief status of all services.
 
-[/vars](vars.md): lists user-customizable counters on miscellaneous metrics.
+[/vars](../vars/): lists user-customizable counters on miscellaneous metrics.
 
-[/connections](../cn/connections.md): lists all connections and their stats.
+[/connections](../connections/): lists all connections and their stats.
 
-[/flags](../cn/flags.md): lists all gflags, some of them are modifiable at run-time.
+[/flags](../flags/): lists all gflags, some of them are modifiable at run-time.
 
-[/rpcz](../cn/rpcz.md): traces all RPCs.
+[/rpcz](../rpcz/): traces all RPCs.
 
-[cpu profiler](../cn/cpu_profiler.md): analyzes CPU hotspots.
+[cpu profiler](../cpu_profiler/): analyzes CPU hotspots.
 
-[heap profiler](../cn/heap_profiler.md): shows how memory are allocated.
+[heap profiler](../heap_profiler/): shows how memory are allocated.
 
-[contention profiler](../cn/contention_profiler.md): analyzes lock contentions.
+[contention profiler](../contention_profiler/): analyzes lock contentions.
 
 # Other services
 
@@ -56,7 +56,7 @@ To avoid potential attacks and information leaks, builtin services **must** be h
 
 ![img](/images/docs/protobufs_service.png)
 
-[/vlog](http://brpc.baidu.com:8765/vlog) shows all the [VLOG](streaming_log.md#VLOG) that can be enabled(not working with glog).
+[/vlog](http://brpc.baidu.com:8765/vlog) shows all the [VLOG](../../c++-base/streaming-log/#vlog) that can be enabled(not working with glog).
 
 ![img](/images/docs/vlog_service.png)
 

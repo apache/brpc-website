@@ -197,9 +197,9 @@ int expose_as(const butil::StringPiece& prefix, const butil::StringPiece& name);
 
 # Export all variables
 
-最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过[/vars](vars.md)服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：
+最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过[/vars](../../builtin-services/vars/)服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：
 
-- 用[gflags](flags.md)解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过[/flags](flags.md)服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:
+- 用[gflags](../../builtin-services/flags/)解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过[/flags](../../builtin-services/flags/)服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:
 
 ```c++
   #include <gflags/gflags.h>

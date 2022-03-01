@@ -26,7 +26,7 @@ description: >
 
 ## 多线程reactor
 
-以[boost::asio](http://www.boost.org/doc/libs/1_56_0/doc/html/boost_asio.html)为典型。一般由一个或多个线程分别运行event dispatcher，待事件发生后把event handler交给一个worker线程执行。 这个模型是单线程reactor的自然扩展，可以利用多核。由于共用地址空间使得线程间交互变得廉价，worker thread间一般会更及时地均衡负载，而多进程一般依赖更前端的服务来分割流量，一个设计良好的多线程reactor程序往往能比同一台机器上的多个单线程reactor进程更均匀地使用不同核心。不过由于[cache一致性](atomic_instructions.md#cacheline)的限制，多线程reactor并不能获得线性于核心数的性能，在特定的场景中，粗糙的多线程reactor实现跑在24核上甚至没有精致的单线程reactor实现跑在1个核上快。由于多线程reactor包含多个worker线程，单个event handler阻塞未必会延缓其他handler，所以event handler未必得非阻塞，除非所有的worker线程都被阻塞才会影响到整体进展。事实上，大部分RPC框架都使用了这个模型，且回调中常有阻塞部分，比如同步等待访问下游的RPC返回。
+以[boost::asio](http://www.boost.org/doc/libs/1_56_0/doc/html/boost_asio.html)为典型。一般由一个或多个线程分别运行event dispatcher，待事件发生后把event handler交给一个worker线程执行。 这个模型是单线程reactor的自然扩展，可以利用多核。由于共用地址空间使得线程间交互变得廉价，worker thread间一般会更及时地均衡负载，而多进程一般依赖更前端的服务来分割流量，一个设计良好的多线程reactor程序往往能比同一台机器上的多个单线程reactor进程更均匀地使用不同核心。不过由于[cache一致性](../atomic-instructions/#cacheline)的限制，多线程reactor并不能获得线性于核心数的性能，在特定的场景中，粗糙的多线程reactor实现跑在24核上甚至没有精致的单线程reactor实现跑在1个核上快。由于多线程reactor包含多个worker线程，单个event handler阻塞未必会延缓其他handler，所以event handler未必得非阻塞，除非所有的worker线程都被阻塞才会影响到整体进展。事实上，大部分RPC框架都使用了这个模型，且回调中常有阻塞部分，比如同步等待访问下游的RPC返回。
 
 多线程reactor的运行方式及问题如下：
 

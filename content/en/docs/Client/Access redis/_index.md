@@ -12,7 +12,7 @@ Advantages compared to [hiredis](https://github.com/redis/hiredis) (the official
 
 - Thread safety. No need to set up separate clients for each thread.
 - Support synchronous, asynchronous, semi-synchronous accesses etc. Support [ParallelChannel etc](combo_channel.md) to define access patterns declaratively.
-- Support various [connection types](client.md#connection-type). Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.
+- Support various [connection types](../client/basics/#connection-type). Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.
 - All brpc clients in a process share a single connection to one redis-server, which is more efficient when multiple threads access one redis-server simultaneously (see [performance](#Performance)). Memory is allocated in blocks regardless of complexity of the reply, and short string optimization (SSO) is implemented to further improve performance.
 
 Similarly with http, brpc guarantees that the time complexity of parsing redis replies is O(N) in worst cases rather than O(N^2) , where N is the number of bytes of reply. This is important when the reply consists of large arrays.
