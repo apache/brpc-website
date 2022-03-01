@@ -1879,6 +1879,27 @@ if (!doNotTrack) {
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#log">LOG</a></li>
+    <li><a href="#plog">PLOG</a></li>
+    <li><a href="#noflush">noflush</a></li>
+    <li><a href="#log_if">LOG_IF</a></li>
+    <li><a href="#xxx_every_second">XXX_EVERY_SECOND</a></li>
+    <li><a href="#xxx_every_n">XXX_EVERY_N</a></li>
+    <li><a href="#xxx_first_n">XXX_FIRST_N</a></li>
+    <li><a href="#xxx_once">XXX_ONCE</a></li>
+    <li><a href="#vlog">VLOG</a></li>
+    <li><a href="#dlog">DLOG</a></li>
+    <li><a href="#check">CHECK</a></li>
+    <li><a href="#logsink">LogSink</a>
+      <ul>
+        <li><a href="#stringsink">StringSink</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
           </div>
@@ -1922,7 +1943,208 @@ if (!doNotTrack) {
 <div class="td-content">
 	<h1>Streaming Log</h1>
 	<div class="lead">Learn about bRPC Streaming Log.</div>
-	
+	<h1 id="name">Name</h1>
+<p>streaming_log - Print log to std::ostreams</p>
+<h1 id="synopsis">SYNOPSIS</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;butil/logging.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FATAL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fatal error occurred! contexts=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000;font-weight:bold">...;</span>
+<span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">WARNING</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Unusual thing happened ...&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000;font-weight:bold">...;</span>
+<span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TRACE</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Something just took place...&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000;font-weight:bold">...;</span>
+<span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TRACE</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Items:&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">noflush</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">LOG_IF</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">NOTICE</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">n</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;This log will only be printed when n &gt; 10&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">PLOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FATAL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to call function setting errno&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">VLOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;verbose log tier 1&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">CHECK_GT</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;1 can&#39;t be greater than 2&#34;</span><span style="color:#000;font-weight:bold">;</span>
+ 
+<span style="color:#000">LOG_EVERY_SECOND</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;High-frequent logs&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">LOG_EVERY_N</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;High-frequent logs&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">LOG_FIRST_N</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">20</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Logs that prints for at most 20 times&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">LOG_ONCE</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">WARNING</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Logs that only prints once&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><h1 id="description">DESCRIPTION</h1>
+<p>Streaming log is the best choice for printing complex objects or template objects. As most objects are complicate, user needs to convert all the fields to string first in order to use <code>printf</code> with <code>%s</code>. However it&rsquo;s very inconvenient (can&rsquo;t append numbers) and needs lots of temporary memory (caused by string). The solution in C++ is to send the log as a stream to the <code>std::ostream</code> object. For example, in order to print object A, we need to implement the following interface:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ostream</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#204a87;font-weight:bold">operator</span><span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ostream</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">A</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>The signature of the function means to print object <code>a</code> to <code>os</code> and then return <code>os</code>. The return value of <code>os</code> enables us to combine binary operator <code>&lt;&lt;</code> (left-combine). As a result, <code>os &lt;&lt; a &lt;&lt; b &lt;&lt; c;</code> means  <code>operator&lt;&lt;(operator&lt;&lt;(operator&lt;&lt;(os, a), b), c);</code>. Apparently <code>operator&lt;&lt;</code> needs a returning reference to complete this process, which is also called chaining. In languages that don&rsquo;t support operator overloading, you will see a more tedious form, such as <code>os.print(a).print(b).print(c)</code>.</p>
+<p>You should also use chaining in your own implementation of <code>operator&lt;&lt;</code>. In fact, printing a complex object is like DFS a  tree: Call <code>operator&lt;&lt;</code> on each child node, and then each child node invokes the function on the grandchild node, and so forth. For example, object A has two member variables: B and C. Printing A becomes the process of putting B and C ostream:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000">A</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">B</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">C</span> <span style="color:#000">c</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">};</span>
+<span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ostream</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#204a87;font-weight:bold">operator</span><span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ostream</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">A</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">os</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;A{b=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;, c=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;}&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>Data structure of B and C along with the print function：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000">B</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">};</span>
+<span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ostream</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#204a87;font-weight:bold">operator</span><span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ostream</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">B</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">os</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;B{value=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">value</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;}&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+ 
+<span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000">C</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">string</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">};</span>
+<span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ostream</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#204a87;font-weight:bold">operator</span><span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ostream</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">C</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">c</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">os</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;C{name=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">c</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;}&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>Finally the result of printing object A is:</p>
+<pre><code>A{b=B{value=10}, c=C{name=tom}}
+</code></pre><p>This way we don&rsquo;t need to allocate temporary memory since objects are directly passed into the ostream object. Of course, the memory management of ostream itself is another topic.</p>
+<p>OK, now we connect the whole printing process by ostream. The most common ostream objects are  <code>std::cout</code> and <code>std::cerr</code>, so objects implement the above function can be directly sent to <code>std::cout</code> and <code>std::cerr</code>. In other words, if a log stream also inherits ostream, then these objects can be written into log. Streaming log is such a log stream that inherits <code>std::ostream</code> to send the object into the log. In the current implementation, the logs are recorded in a thread-local buffer, which will be flushed into screen or <code> logging::LogSink</code> after a complete log record. Of course, the implementation is thread safe.</p>
+<h2 id="log">LOG</h2>
+<p>If you have ever used glog before, you should find it easy to start. The log macro is the same as glog. For example, to print a FATAL log (Note that there is no <code>std::endl</code>):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FATAL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fatal error occurred! contexts=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000;font-weight:bold">...;</span>
+<span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">WARNING</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Unusual thing happened ...&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000;font-weight:bold">...;</span>
+<span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TRACE</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Something just took place...&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000;font-weight:bold">...;</span>
+</code></pre></div><p>The log level of streaming log in accordance with glog：</p>
+<table>
+<thead>
+<tr>
+<th>streaming log</th>
+<th>glog</th>
+<th>Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FATAL</td>
+<td>FATAL (coredump)</td>
+<td>Fatal error. Since most fatal log inside baidu is not fatal actually, it won&rsquo;t trigger coredump directly as glog, unless you turn on <a href="http://brpc.baidu.com:8765/flags/crash_on_fatal_log">-crash_on_fatal_log</a></td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>ERROR</td>
+<td>Non-fatal error.</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>WARNING</td>
+<td>Unusual branches</td>
+</tr>
+<tr>
+<td>NOTICE</td>
+<td>-</td>
+<td>Generally you should not use NOTICE as it&rsquo;s intended for important business logs. Make sure to check with other developers. glog doesn&rsquo;t have NOTICE.</td>
+</tr>
+<tr>
+<td>INFO, TRACE</td>
+<td>INFO</td>
+<td>Important side effects such as open/close some resources.</td>
+</tr>
+<tr>
+<td>VLOG(n)</td>
+<td>INFO</td>
+<td>Detailed log that support multiple layers.</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td>INFOVLOG(1) (NDEBUG)</td>
+<td>Just for compatibility. Print logs only when <code>NDEBUG</code> is not defined. See DLOG/DPLOG/DVLOG for more reference.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="plog">PLOG</h2>
+<p>The difference of PLOG and LOG is that it will append error information at the end of log. It&rsquo;s kind of  like <code>%m</code> in <code>printf</code>. Under POSIX environment, the error code is <code>errno</code>。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">fd</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;foo.conf&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">O_RDONLY</span><span style="color:#000;font-weight:bold">);</span>   <span style="color:#8f5902;font-style:italic">// foo.conf does not exist, errno was set to ENOENT
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">fd</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+    <span style="color:#000">PLOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FATAL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to open foo.conf&#34;</span><span style="color:#000;font-weight:bold">;</span>    <span style="color:#8f5902;font-style:italic">// &#34;Fail to open foo.conf: No such file or directory&#34;
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h2 id="noflush">noflush</h2>
+<p>If you don&rsquo;t want to flush the log at once, append <code>noflush</code>. It&rsquo;s commonly used inside a loop:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TRACE</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Items:&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">noflush</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">iterator</span> <span style="color:#000">it</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">items</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">begin</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000">it</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">items</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">end</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000">it</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TRACE</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#39; &#39;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">it</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">noflush</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TRACE</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>The first two LOG(TRACE) doesn&rsquo;t flush the log to the screen. They are recorded inside the thread-local buffer. The third LOG(TRACE) flush all logs into the screen. If there are 3 elements inside items and we don&rsquo;t append <code>noflush</code>, the result would be:</p>
+<pre><code>TRACE: ... Items:
+TRACE: ...  item1
+TRACE: ...  item2
+TRACE: ...  item3
+</code></pre><p>After we add <code>noflush</code>:</p>
+<pre><code>TRACE: ... Items: item1 item2 item3 
+</code></pre><p>The <code>noflush</code> feature also support bthread so that we can push lots of logs from the server&rsquo;s bthreads without actually print them (using <code>noflush</code>), and flush the whole log at the end of RPC. Note that you should not use <code>noflush</code> when implementing an asynchronous method since it will change the underlying bthread, leaving <code>noflush</code> out of function.</p>
+<h2 id="log_if">LOG_IF</h2>
+<p><code>LOG_IF(log_level, condition)</code> prints only when condition is true. It&rsquo;s the same as <code>if (condition) { LOG() &lt;&lt; ...; }</code> with shorter code：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG_IF</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">NOTICE</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">n</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;This log will only be printed when n &gt; 10&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><h2 id="xxx_every_second">XXX_EVERY_SECOND</h2>
+<p>XXX represents for LOG, LOG_IF, PLOG, SYSLOG, VLOG, DLOG, and so on. These logging macros print log at most once per second. You can use these to check running status inside hotspot area. The first call to this macro prints the log immediately, and costs additional 30ns (caused by gettimeofday) compared to normal LOG.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG_EVERY_SECOND</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;High-frequent logs&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><h2 id="xxx_every_n">XXX_EVERY_N</h2>
+<p>XXX represents for LOG, LOG_IF, PLOG, SYSLOG, VLOG, DLOG, and so on. These logging macros print log every N times. You can use these to check running status inside hotspot area. The first call to this macro prints the log immediately, and costs an additional atomic operation (relaxed order) compared to normal LOG. This macro is thread safe which means counting from multiple threads is also accurate while glog is not.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG_EVERY_N</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;High-frequent logs&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><h2 id="xxx_first_n">XXX_FIRST_N</h2>
+<p>XXX represents for LOG, LOG_IF, PLOG, SYSLOG, VLOG, DLOG, and so on. These logging macros print log at most N times. It costs an additional atomic operation (relaxed order) compared to normal LOG before N, and zero cost after.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG_FIRST_N</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">20</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Logs that prints for at most 20 times&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><h2 id="xxx_once">XXX_ONCE</h2>
+<p>XX represents for LOG, LOG_IF, PLOG, SYSLOG, VLOG, DLOG, and so on. These logging macros print log at most once. It&rsquo;s the same as <code>XXX_FIRST_N(..., 1)</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG_ONCE</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Logs that only prints once&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><h2 id="vlog">VLOG</h2>
+<p>VLOG(verbose_level) is detail log that support multiple layers. It uses 2 gflags: <em>&ndash;verbose</em> and <em>&ndash;verbose_module</em> to control the logging layer you want (Note that glog uses <em>&ndash;v</em> and <em>&ndash;vmodule</em>). The log will be printed only when <code>--verbose</code> &gt;= <code>verbose_level</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">VLOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;verbose log tier 0&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">VLOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;verbose log tier 1&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">VLOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;verbose log tier 2&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><p>When <code>--verbose=1</code>, the first 2 log will be printed while the last won&rsquo;t. Module means a file or file path without the extension name, and value of <code>--verbose_module</code> will overwrite <code>--verbose</code>. For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">--verbose<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span> --verbose_module<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;channel=2,server=3&#34;</span>    <span style="color:#8f5902;font-style:italic"># print VLOG of those with verbose value:</span>
+                                                     <span style="color:#8f5902;font-style:italic"># channel.cpp &lt;= 2</span>
+                                                     <span style="color:#8f5902;font-style:italic"># server.cpp &lt;= 3</span>
+                                                     <span style="color:#8f5902;font-style:italic"># other files &lt;= 1</span>
+--verbose<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span> --verbose_module<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;src/brpc/channel=2,server=3&#34;</span>
+                                                    <span style="color:#8f5902;font-style:italic"># For files with same names, add paths</span>
+</code></pre></div><p>You can set <code>--verbose</code> and <code>--verbose_module</code> through <code>google::SetCommandLineOption</code> dynamically.</p>
+<p>VLOG has another form VLOG2, which allows user to specify virtual path:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// public/foo/bar.cpp
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">VLOG2</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;a/b/c&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;being filtered by a/b/c rather than public/foo/bar&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><blockquote>
+<p>VLOG and VLOG2 also have corresponding VLOG_IF and VLOG2_IF.</p>
+</blockquote>
+<h2 id="dlog">DLOG</h2>
+<p>All log macros have debug versions, starting with D, such as DLOG, DVLOG. When NDEBUG is defined, these logs will not be printed.</p>
+<p><strong>Do not put important side effects inside the log streams beginning with D.</strong></p>
+<p><em>No printing</em> means that even the parameters are not evaluated. If your parameters have side effects, they won&rsquo;t happend when NDEBUG is defined. For example, <code>DLOG(FATAL) &lt;&lt; foo();</code> where foo is a function or it changes a dictionary, anyway, it&rsquo;s essential. However, it won&rsquo;t be evaluated when NDEBUG is defined.</p>
+<h2 id="check">CHECK</h2>
+<p>Another import variation of logging is <code>CHECK(expression)</code>. When expression evaluates to false, it will print a fatal log. It&rsquo;s kind of like <code>ASSERT</code> in gtest, and has other form such as CHECK_EQ, CHECK_GT, and so on. When check fails, the message after will be printed.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">CHECK_LT</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;This is definitely true, this log will never be seen&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">CHECK_GT</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;1 can&#39;t be greater than 2&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><p>Run the above code you should see a fatal log and the calling stack：</p>
+<pre><code>FATAL: ... Check failed: 1 &gt; 2 (1 vs 2). 1 can't be greater than 2
+#0 0x000000afaa23 butil::debug::StackTrace::StackTrace()
+#1 0x000000c29fec logging::LogStream::FlushWithoutReset()
+#2 0x000000c2b8e6 logging::LogStream::Flush()
+#3 0x000000c2bd63 logging::DestroyLogStream()
+#4 0x000000c2a52d logging::LogMessage::~LogMessage()
+#5 0x000000a716b2 (anonymous namespace)::StreamingLogTest_check_Test::TestBody()
+#6 0x000000d16d04 testing::internal::HandleSehExceptionsInMethodIfSupported&lt;&gt;()
+#7 0x000000d19e96 testing::internal::HandleExceptionsInMethodIfSupported&lt;&gt;()
+#8 0x000000d08cd4 testing::Test::Run()
+#9 0x000000d08dfe testing::TestInfo::Run()
+#10 0x000000d08ec4 testing::TestCase::Run()
+#11 0x000000d123c7 testing::internal::UnitTestImpl::RunAllTests()
+#12 0x000000d16d94 testing::internal::HandleSehExceptionsInMethodIfSupported&lt;&gt;()
+</code></pre><p>The second column of the callstack is the address of the code segment. You can use <code>addr2line</code> to check the corresponding file and line:</p>
+<pre><code>$ addr2line -e ./test_base 0x000000a716b2 
+/home/gejun/latest_baidu_rpc/public/common/test/test_streaming_log.cpp:223
+</code></pre><p>You <strong>should</strong> use <code>CHECK_XX</code> for arithmetic condition so that you can see more detailed information when check failed.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">CHECK_GT</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">);</span>  <span style="color:#8f5902;font-style:italic">// Check failed: x &gt; y (1 vs 2).
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">CHECK</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">);</span>    <span style="color:#8f5902;font-style:italic">// Check failed: x &gt; y.
+</span></code></pre></div><p>Like DLOG, you should NOT include important side effects inside DCHECK.</p>
+<h2 id="logsink">LogSink</h2>
+<p>The default destination of streaming log is the screen. You can change it through <code>logging::SetLogSink</code>. Users can inherit LogSink and implement their own output logic. We provide an internal LogSink as an example:</p>
+<h3 id="stringsink">StringSink</h3>
+<p>Inherit both LogSink and string. Store log content inside string and mainly aim for unit test. The following case shows a classic usage of StringSink:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">TEST_F</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">StreamingLogTest</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">log_at</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringSink</span> <span style="color:#000">log_str</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">LogSink</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">old_sink</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SetLogSink</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">log_str</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000">LOG_AT</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FATAL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;specified_file.cc&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">12345</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;file/line is specified&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#8f5902;font-style:italic">// the file:line part should be using the argument given by us.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">ASSERT_NE</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">npos</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">log_str</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">find</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;specified_file.cc:12345&#34;</span><span style="color:#000;font-weight:bold">));</span>
+    <span style="color:#8f5902;font-style:italic">// restore the old sink.
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SetLogSink</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">old_sink</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div>
         <div class="section-index">
     
     
@@ -2091,7 +2313,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 

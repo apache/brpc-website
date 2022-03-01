@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://brpc.incubator.apache.org/en/docs/overview/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -33,7 +33,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/benchmark/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -48,7 +48,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/client/basics/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -78,7 +78,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/builtin-services/buildin_services/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -108,7 +108,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/bvar/bvar/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -123,7 +123,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/bvar/bvar-c&#43;&#43;/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -318,7 +318,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/builtin-services/status/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -333,7 +333,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/c&#43;&#43;-base/streaming-log/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -423,7 +423,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/c&#43;&#43;-base/flatmap/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -438,7 +438,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/rpc-in-depth/io/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -468,7 +468,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/server/serve-grpc/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -588,7 +588,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/rpc-in-depth/threading-overview/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -618,7 +618,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/client/access-grpc/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -663,7 +663,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/rpc-in-depth/load-balancing/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -828,7 +828,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/rpc-in-depth/consistent-hashing/</loc>
-    <lastmod>2022-01-30T19:27:29+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -873,7 +873,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/client/access-redis/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -948,7 +948,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/en/docs/client/access-memcached/</loc>
-    <lastmod>2022-01-09T01:13:37+08:00</lastmod>
+    <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link

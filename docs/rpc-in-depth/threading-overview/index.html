@@ -1947,7 +1947,7 @@ if (!doNotTrack) {
 <h2 id="n1线程库">N:1线程库</h2>
 <p>又称为<a href="http://en.wikipedia.org/wiki/Fiber_(computer_science)">Fiber</a>，以<a href="http://www.gnu.org/software/pth/pth-manual.html">GNU Pth</a>, <a href="http://state-threads.sourceforge.net/index.html">StateThreads</a>等为典型，一般是把N个用户线程映射入一个系统线程。同时只运行一个用户线程，调用阻塞函数时才会切换至其他用户线程。N:1线程库与单线程reactor在能力上等价，但事件回调被替换为了上下文(栈,寄存器,signals)，运行回调变成了跳转至上下文。和event loop库一样，单个N:1线程库无法充分发挥多核性能，只适合一些特定的程序。只有一个系统线程对CPU cache较为友好，加上舍弃对signal mask的支持的话，用户线程间的上下文切换可以很快(100~200ns)。N:1线程库的性能一般和event loop库差不多，扩展性也主要靠多进程。</p>
 <h2 id="多线程reactor">多线程reactor</h2>
-<p>以<a href="http://www.boost.org/doc/libs/1_56_0/doc/html/boost_asio.html">boost::asio</a>为典型。一般由一个或多个线程分别运行event dispatcher，待事件发生后把event handler交给一个worker线程执行。 这个模型是单线程reactor的自然扩展，可以利用多核。由于共用地址空间使得线程间交互变得廉价，worker thread间一般会更及时地均衡负载，而多进程一般依赖更前端的服务来分割流量，一个设计良好的多线程reactor程序往往能比同一台机器上的多个单线程reactor进程更均匀地使用不同核心。不过由于<a href="atomic_instructions.md#cacheline">cache一致性</a>的限制，多线程reactor并不能获得线性于核心数的性能，在特定的场景中，粗糙的多线程reactor实现跑在24核上甚至没有精致的单线程reactor实现跑在1个核上快。由于多线程reactor包含多个worker线程，单个event handler阻塞未必会延缓其他handler，所以event handler未必得非阻塞，除非所有的worker线程都被阻塞才会影响到整体进展。事实上，大部分RPC框架都使用了这个模型，且回调中常有阻塞部分，比如同步等待访问下游的RPC返回。</p>
+<p>以<a href="http://www.boost.org/doc/libs/1_56_0/doc/html/boost_asio.html">boost::asio</a>为典型。一般由一个或多个线程分别运行event dispatcher，待事件发生后把event handler交给一个worker线程执行。 这个模型是单线程reactor的自然扩展，可以利用多核。由于共用地址空间使得线程间交互变得廉价，worker thread间一般会更及时地均衡负载，而多进程一般依赖更前端的服务来分割流量，一个设计良好的多线程reactor程序往往能比同一台机器上的多个单线程reactor进程更均匀地使用不同核心。不过由于<a href="../atomic-instructions/#cacheline">cache一致性</a>的限制，多线程reactor并不能获得线性于核心数的性能，在特定的场景中，粗糙的多线程reactor实现跑在24核上甚至没有精致的单线程reactor实现跑在1个核上快。由于多线程reactor包含多个worker线程，单个event handler阻塞未必会延缓其他handler，所以event handler未必得非阻塞，除非所有的worker线程都被阻塞才会影响到整体进展。事实上，大部分RPC框架都使用了这个模型，且回调中常有阻塞部分，比如同步等待访问下游的RPC返回。</p>
 <p>多线程reactor的运行方式及问题如下：</p>
 <p><img src="/images/docs/threading_overview_2.png" alt="img"></p>
 <h2 id="mn线程库">M:N线程库</h2>
@@ -2128,7 +2128,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年2月26日: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 

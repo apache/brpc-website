@@ -2088,9 +2088,9 @@ rpc_socket_count : 6                            # 模块=rpc     类名=socket  
 </span><span style="color:#8f5902;font-style:italic">//   }  // bar
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">expose_as</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">prefix</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">);</span>
 </code></pre></div><h1 id="export-all-variables">Export all variables</h1>
-<p>最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过<a href="vars.md">/vars</a>服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：</p>
+<p>最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过<a href="../../builtin-services/vars/">/vars</a>服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：</p>
 <ul>
-<li>用<a href="flags.md">gflags</a>解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过<a href="flags.md">/flags</a>服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:</li>
+<li>用<a href="../../builtin-services/flags/">gflags</a>解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过<a href="../../builtin-services/flags/">/flags</a>服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">  <span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;gflags/gflags.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000;font-weight:bold">...</span>
@@ -2523,7 +2523,7 @@ rpc_server_8002_uptime_ms : 14740954
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年2月26日: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 

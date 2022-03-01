@@ -1923,23 +1923,23 @@ if (!doNotTrack) {
 	<h1>builtin services</h1>
 	<div class="lead">Learn about bRPC builtin services.</div>
 	<h1 id="builtin-services">Builtin Services</h1>
-<p>Builtin services expose internal status of servers in different pespectives, making development and debugging over brpc more efficient. brpc serves builting services via HTTP, which can be easily accessed through curl and web browsers. Servers respond plain text or html according to <code>User-Agent</code> in the request header, or you may append <code>?console=1</code> to the uri to force the server to respond in plain text. Check the <a href="http://brpc.baidu.com:8765/">example</a> running on our dev machine(only accessible from Baidu internal) for more details. If the port is forbidden from where you run curl or web browser (e.g. not all ports are accessible from a web browser inside Baidu), you can use <a href="rpc_view.md">rpc_view</a> for proxying.</p>
+<p>Builtin services expose internal status of servers in different pespectives, making development and debugging over brpc more efficient. brpc serves builting services via HTTP, which can be easily accessed through curl and web browsers. Servers respond plain text or html according to <code>User-Agent</code> in the request header, or you may append <code>?console=1</code> to the uri to force the server to respond in plain text. Check the <a href="http://brpc.baidu.com:8765/">example</a> running on our dev machine(only accessible from Baidu internal) for more details. If the port is forbidden from where you run curl or web browser (e.g. not all ports are accessible from a web browser inside Baidu), you can use <a href="../../tools/rpc_view/">rpc_view</a> for proxying.</p>
 <p>Following 2 screenshots show accesses to builtin services from a web browser and a terminal respectively.  Note that the logo is the codename inside Baidu, and being modified to brpc in opensourced version.</p>
 <p><strong>From a web browser</strong></p>
 <p><img src="/images/docs/builtin_service_more.png" alt="img"></p>
 <p><strong>From a terminal</strong></p>
 <p><img src="/images/docs/builtin_service_from_console.png" alt="img"></p>
 <h1 id="security-mode">Security Mode</h1>
-<p>To avoid potential attacks and information leaks, builtin services <strong>must</strong> be hidden on servers that may be accessed from public, including the ones proxied by nginx or other http servers. Click <a href="server.md#security-mode">here</a> for more details.</p>
+<p>To avoid potential attacks and information leaks, builtin services <strong>must</strong> be hidden on servers that may be accessed from public, including the ones proxied by nginx or other http servers. Click <a href="../../server/basics/#security-mode">here</a> for more details.</p>
 <h1 id="main-services">Main services:</h1>
-<p><a href="status.md">/status</a>: displays brief status of all services.</p>
-<p><a href="vars.md">/vars</a>: lists user-customizable counters on miscellaneous metrics.</p>
-<p><a href="../cn/connections.md">/connections</a>: lists all connections and their stats.</p>
-<p><a href="../cn/flags.md">/flags</a>: lists all gflags, some of them are modifiable at run-time.</p>
-<p><a href="../cn/rpcz.md">/rpcz</a>: traces all RPCs.</p>
-<p><a href="../cn/cpu_profiler.md">cpu profiler</a>: analyzes CPU hotspots.</p>
-<p><a href="../cn/heap_profiler.md">heap profiler</a>: shows how memory are allocated.</p>
-<p><a href="../cn/contention_profiler.md">contention profiler</a>: analyzes lock contentions.</p>
+<p><a href="../status/">/status</a>: displays brief status of all services.</p>
+<p><a href="../vars/">/vars</a>: lists user-customizable counters on miscellaneous metrics.</p>
+<p><a href="../connections/">/connections</a>: lists all connections and their stats.</p>
+<p><a href="../flags/">/flags</a>: lists all gflags, some of them are modifiable at run-time.</p>
+<p><a href="../rpcz/">/rpcz</a>: traces all RPCs.</p>
+<p><a href="../cpu_profiler/">cpu profiler</a>: analyzes CPU hotspots.</p>
+<p><a href="../heap_profiler/">heap profiler</a>: shows how memory are allocated.</p>
+<p><a href="../contention_profiler/">contention profiler</a>: analyzes lock contentions.</p>
 <h1 id="other-services">Other services</h1>
 <p><a href="http://brpc.baidu.com:8765/version">/version</a> shows version of the server. Call Server::set_version() to specify version of the server, or brpc would generate a default version like <code>brpc_server_&lt;service-name1&gt;_&lt;service-name2&gt; ...</code></p>
 <p><img src="/images/docs/version_service.png" alt="img"></p>
@@ -1947,7 +1947,7 @@ if (!doNotTrack) {
 <p><img src="/images/docs/health_service.png" alt="img"></p>
 <p><a href="http://brpc.baidu.com:8765/protobufs">/protobufs</a> shows scheme of all protobuf messages inside the server.</p>
 <p><img src="/images/docs/protobufs_service.png" alt="img"></p>
-<p><a href="http://brpc.baidu.com:8765/vlog">/vlog</a> shows all the <a href="streaming_log.md#VLOG">VLOG</a> that can be enabled(not working with glog).</p>
+<p><a href="http://brpc.baidu.com:8765/vlog">/vlog</a> shows all the <a href="../../c++-base/streaming-log/#vlog">VLOG</a> that can be enabled(not working with glog).</p>
 <p><img src="/images/docs/vlog_service.png" alt="img"></p>
 <p>/dir: browses all files on the server, convenient but too dangerous, disabled by default.</p>
 <p>/threads: displays information of all threads of the process, hurting performance significantly when being turned on, disabled by default.</p>
@@ -2120,7 +2120,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 

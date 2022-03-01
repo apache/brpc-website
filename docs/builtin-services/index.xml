@@ -24,22 +24,22 @@
         
         
         &lt;h1 id=&#34;什么是内置服务&#34;&gt;什么是内置服务？&lt;/h1&gt;
-&lt;p&gt;内置服务以多种形式展现服务器内部状态，提高你开发和调试服务的效率。brpc通过HTTP协议提供内置服务，可通过浏览器或curl访问，服务器会根据User-Agent返回纯文本或html，你也可以添加?console=1要求返回纯文本。我们在自己的开发机上启动了&lt;a href=&#34;http://brpc.baidu.com:8765/&#34;&gt;一个长期运行的例子&lt;/a&gt;(只能百度内访问)，你可以点击后随便看看。如果服务端口被限（比如百度内不是所有的端口都能被笔记本访问到），可以使用&lt;a href=&#34;rpc_view.md&#34;&gt;rpc_view&lt;/a&gt;转发。&lt;/p&gt;
+&lt;p&gt;内置服务以多种形式展现服务器内部状态，提高你开发和调试服务的效率。brpc通过HTTP协议提供内置服务，可通过浏览器或curl访问，服务器会根据User-Agent返回纯文本或html，你也可以添加?console=1要求返回纯文本。我们在自己的开发机上启动了&lt;a href=&#34;http://brpc.baidu.com:8765/&#34;&gt;一个长期运行的例子&lt;/a&gt;(只能百度内访问)，你可以点击后随便看看。如果服务端口被限（比如百度内不是所有的端口都能被笔记本访问到），可以使用&lt;a href=&#34;../../tools/rpc_view/&#34;&gt;rpc_view&lt;/a&gt;转发。&lt;/p&gt;
 &lt;p&gt;下面是分别从浏览器和终端访问的截图，注意其中的logo是百度内部的名称，在开源版本中是brpc。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;从浏览器访问&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/builtin_service_more.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;从命令行访问&lt;/strong&gt; &lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/builtin_service_from_console.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;安全模式&#34;&gt;安全模式&lt;/h1&gt;
-&lt;p&gt;出于安全考虑，直接对外服务需要隐藏内置服务（包括经过nginx或其他http server转发流量的），具体方法请阅读&lt;a href=&#34;server.md#%E5%AE%89%E5%85%A8%E6%A8%A1%E5%BC%8F&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;出于安全考虑，直接对外服务需要隐藏内置服务（包括经过nginx或其他http server转发流量的），具体方法请阅读&lt;a href=&#34;../../server/basics/#%E5%AE%89%E5%85%A8%E6%A8%A1%E5%BC%8F&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;h1 id=&#34;主要服务&#34;&gt;主要服务&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;status.md&#34;&gt;/status&lt;/a&gt;: 显示所有服务的主要状态。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;vars.md&#34;&gt;/vars&lt;/a&gt;: 用户可定制的，描绘各种指标的计数器。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;connections.md&#34;&gt;/connections&lt;/a&gt;: 所有连接的统计信息。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;flags.md&#34;&gt;/flags&lt;/a&gt;: 所有gflags的状态，可动态修改。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;rpcz.md&#34;&gt;/rpcz&lt;/a&gt;: 查看所有的RPC的细节。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;cpu_profiler.md&#34;&gt;cpu profiler&lt;/a&gt;: 分析cpu热点。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;heap_profiler.md&#34;&gt;heap profiler&lt;/a&gt;: 分析内存占用。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;contention_profiler.md&#34;&gt;contention profiler&lt;/a&gt;: 分析锁竞争。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../status/&#34;&gt;/status&lt;/a&gt;: 显示所有服务的主要状态。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../vars/&#34;&gt;/vars&lt;/a&gt;: 用户可定制的，描绘各种指标的计数器。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../connections/&#34;&gt;/connections&lt;/a&gt;: 所有连接的统计信息。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../flags/&#34;&gt;/flags&lt;/a&gt;: 所有gflags的状态，可动态修改。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../rpcz&#34;&gt;/rpcz&lt;/a&gt;: 查看所有的RPC的细节。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../cpu_profiler&#34;&gt;cpu profiler&lt;/a&gt;: 分析cpu热点。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../heap_profiler&#34;&gt;heap profiler&lt;/a&gt;: 分析内存占用。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../contention_profiler&#34;&gt;contention profiler&lt;/a&gt;: 分析锁竞争。&lt;/p&gt;
 &lt;h1 id=&#34;其他服务&#34;&gt;其他服务&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/version&#34;&gt;/version&lt;/a&gt;: 查看服务器的版本。用户可通过Server::set_version()设置Server的版本，如果用户没有设置，框架会自动为用户生成，规则：&lt;code&gt;brpc_server_&amp;lt;service-name1&amp;gt;_&amp;lt;service-name2&amp;gt; ...&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/version_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
@@ -47,7 +47,7 @@
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/health_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/protobufs&#34;&gt;/protobufs&lt;/a&gt;: 查看程序中所有的protobuf结构体。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/protobufs_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vlog&#34;&gt;/vlog&lt;/a&gt;: 查看程序中当前可开启的&lt;a href=&#34;streaming_log.md#VLOG&#34;&gt;VLOG&lt;/a&gt; (对glog无效)。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vlog&#34;&gt;/vlog&lt;/a&gt;: 查看程序中当前可开启的&lt;a href=&#34;../../c++-base/streaming-log#vlog&#34;&gt;VLOG&lt;/a&gt; (对glog无效)。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vlog_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;/dir: 浏览服务器上的所有文件，方便但非常危险，默认关闭。&lt;/p&gt;
 &lt;p&gt;/threads: 查看进程内所有线程的运行状况，调用时对程序性能影响较大，默认关闭。&lt;/p&gt;

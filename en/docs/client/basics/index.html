@@ -2164,7 +2164,7 @@ If you need weighted round-robin, you should consider using <a href="#wrr">wrr a
 <p>which is weighted random. Choose the next server according to the configured weight. The chances a server is selected is consistent with its weight.</p>
 <p>Requirements of instance tag is the same as wrr.</p>
 <h3 id="la">la</h3>
-<p>which is locality-aware. Perfer servers with lower latencies, until the latency is higher than others, no other settings. Check out <a href="lalb.md">Locality-aware load balancing</a> for more details.</p>
+<p>which is locality-aware. Perfer servers with lower latencies, until the latency is higher than others, no other settings. Check out <a href="../../rpc-in-depth/locality-aware/">Locality-aware load balancing</a> for more details.</p>
 <h3 id="c_murmurhash-or-c_md5">c_murmurhash or c_md5</h3>
 <p>which is consistent hashing. Adding or removing servers does not make destinations of requests change as dramatically as in simple hashing. It&rsquo;s especially suitable for caching services.</p>
 <p>Need to set Controller.set_request_code() before RPC otherwise the RPC will fail. request_code is often a 32-bit hash code of &ldquo;key part&rdquo; of the request, and the hashing algorithm does not need to be same with the one used by load balancer. Say <code>c_murmurhash</code>  can use md5 to compute request_code of the request as well.</p>
@@ -2203,7 +2203,7 @@ If you need weighted round-robin, you should consider using <a href="#wrr">wrr a
 <span style="color:#000">stub</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">some_method</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">controller</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">done</span><span style="color:#000;font-weight:bold">);</span>
 </code></pre></div><p>Or even:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">XXX_Stub</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">some_method</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">controller</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">done</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p>A exception is http/h2 client, which is not related to protobuf much. Call CallMethod directly to make a http call, setting all parameters to NULL except for <code>Controller</code> and <code>done</code>, check <a href="http_client.md">Access http/h2</a> for details.</p>
+</code></pre></div><p>A exception is http/h2 client, which is not related to protobuf much. Call CallMethod directly to make a http call, setting all parameters to NULL except for <code>Controller</code> and <code>done</code>, check <a href="../access-httph2/">Access http/h2</a> for details.</p>
 <h2 id="synchronous-call">Synchronous call</h2>
 <p>CallMethod blocks until response from server is received or error occurred (including timedout).</p>
 <p>response/controller in synchronous call will not be used by brpc again after CallMethod, they can be put on stack safely. Note: if request/response has many fields and being large on size, they&rsquo;d better be allocated on heap.</p>
@@ -2463,13 +2463,13 @@ If you need weighted round-robin, you should consider using <a href="#wrr">wrr a
 <li>PROTOCOL_BAIDU_STD or &ldquo;baidu_std&rdquo;, which is <a href="baidu_std.md">the standard binary protocol inside Baidu</a>, using single connection by default.</li>
 <li>PROTOCOL_HTTP or &ldquo;http&rdquo;, which is http/1.0 or http/1.1, using pooled connection by default (Keep-Alive).
 <ul>
-<li>Methods for accessing ordinary http services are listed in <a href="http_client.md">Access http/h2</a>.</li>
+<li>Methods for accessing ordinary http services are listed in <a href="../access-httph2/">Access http/h2</a>.</li>
 <li>Methods for accessing pb services by using http:json or http:proto are listed in <a href="http_derivatives.md">http/h2 derivatives</a></li>
 </ul>
 </li>
 <li>PROTOCOL_H2 or ”h2&quot;, which is http/2, using single connection by default.
 <ul>
-<li>Methods for accessing ordinary h2 services are listed in <a href="http_client.md">Access http/h2</a>.</li>
+<li>Methods for accessing ordinary h2 services are listed in <a href="../access-httph2/">Access http/h2</a>.</li>
 <li>Methods for accessing pb services by using h2:json or h2:proto are listed in <a href="http_derivatives.md">http/h2 derivatives</a></li>
 </ul>
 </li>
@@ -2691,7 +2691,7 @@ Set ChannelOptions.mutable_ssl_options() to enable SSL. Refer to <a href="https:
 <h2 id="compression">Compression</h2>
 <p>set_request_compress_type() sets compress-type of the request, no compression by default.</p>
 <p>NOTE: Attachment is not compressed by brpc.</p>
-<p>Check out <a href="http_client.md#compress-request-body">compress request body</a> to compress http/h2 body.</p>
+<p>Check out <a href="../access-httph2/#compress-request-body">compress request body</a> to compress http/h2 body.</p>
 <p>Supported compressions:</p>
 <ul>
 <li>brpc::CompressTypeSnappy : <a href="http://google.github.io/snappy/">snanpy</a>, compression and decompression are very fast, but compression ratio is low.</li>
@@ -3168,7 +3168,7 @@ Set ChannelOptions.mutable_ssl_options() to enable SSL. Refer to <a href="https:
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 

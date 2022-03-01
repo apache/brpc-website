@@ -1943,7 +1943,7 @@ http://&lt;url&gt;                 # Domain Naming Service, aka DNS.
 <p>看到这些熟悉的字符串格式，容易联想到ftp:// zk:// galileo://等等都是可以支持的。用户在新建Channel时传入这类NamingService描述，并能把这些描述写在各类配置文件中。</p>
 <h1 id="负载均衡">负载均衡</h1>
 <p>brpc中<a href="https://github.com/brpc/brpc/blob/master/src/brpc/load_balancer.h">LoadBalancer</a>从多个服务节点中选择一个节点，目前的实现见<a href="client.md#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">负载均衡</a>。</p>
-<p>Load balancer最重要的是如何让不同线程中的负载均衡不互斥，解决这个问题的技术是<a href="lalb.md#doublybuffereddata">DoublyBufferedData</a>。</p>
+<p>Load balancer最重要的是如何让不同线程中的负载均衡不互斥，解决这个问题的技术是<a href="../locality-aware/#doublybuffereddata">DoublyBufferedData</a>。</p>
 <p>和NamingService类似，我们使用字符串来指代一个load balancer，在global.cpp中注册：</p>
 <p><img src="/images/docs/register_lb.png" alt="img"></p>
 <h1 id="健康检查">健康检查</h1>
@@ -2123,7 +2123,7 @@ http://&lt;url&gt;                 # Domain Naming Service, aka DNS.
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 
