@@ -2042,7 +2042,7 @@ if (!doNotTrack) {
 </ul>
 <p>原子指令的例子可以看boost.atomic的<a href="http://www.boost.org/doc/libs/1_56_0/doc/html/atomic/usage_examples.html">Example</a>，atomic的官方描述可以看<a href="http://en.cppreference.com/w/cpp/atomic/atomic">这里</a>。</p>
 <h1 id="wait-free--lock-free">wait-free &amp; lock-free</h1>
-<p>原子指令能为我们的服务赋予两个重要属性：<a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom">wait-free</a>和<a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Lock-freedom">lock-free</a>。前者指不管OS如何调度线程，每个线程都始终在做有用的事；后者比前者弱一些，指不管OS如何调度线程，至少有一个线程在做有用的事。如果我们的服务中使用了锁，那么OS可能把一个刚获得锁的线程切换出去，这时候所有依赖这个锁的线程都在等待，而没有做有用的事，所以用了锁就不是lock-free，更不会是wait-free。为了确保一件事情总在确定时间内完成，实时系统的关键代码至少是lock-free的。在百度广泛又多样的在线服务中，对时效性也有着严苛的要求，如果RPC中最关键的部分满足wait-free或lock-free，就可以提供更稳定的服务质量。事实上，brpc中的读写都是wait-free的，具体见<a href="io.md">IO</a>。</p>
+<p>原子指令能为我们的服务赋予两个重要属性：<a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom">wait-free</a>和<a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Lock-freedom">lock-free</a>。前者指不管OS如何调度线程，每个线程都始终在做有用的事；后者比前者弱一些，指不管OS如何调度线程，至少有一个线程在做有用的事。如果我们的服务中使用了锁，那么OS可能把一个刚获得锁的线程切换出去，这时候所有依赖这个锁的线程都在等待，而没有做有用的事，所以用了锁就不是lock-free，更不会是wait-free。为了确保一件事情总在确定时间内完成，实时系统的关键代码至少是lock-free的。在百度广泛又多样的在线服务中，对时效性也有着严苛的要求，如果RPC中最关键的部分满足wait-free或lock-free，就可以提供更稳定的服务质量。事实上，brpc中的读写都是wait-free的，具体见<a href="../io">IO</a>。</p>
 <p>值得提醒的是，常见想法是lock-free或wait-free的算法会更快，但事实可能相反，因为：</p>
 <ul>
 <li>lock-free和wait-free必须处理更多更复杂的race condition和ABA problem，完成相同目的的代码比用锁更复杂。代码越多，耗时就越长。</li>
@@ -2218,7 +2218,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月9日: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年4月11日: <a  href="https://github.com/apache/incubator-brpc-website/commit/eeeb79fc8e6ec4e045cf044065fcbdfb9e7b5ed1">site search bugfix and update community info (eeeb79f)</a>
 </div>
 </div>
 

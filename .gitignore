@@ -20,3 +20,11 @@ Gemfile.lock
 *.iml
 *~
 
+# dependencies
+/node_modules
+
+# hugo resources
+/resources
+
+# misc
+.DS_Store
