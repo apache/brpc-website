@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.86.0" />
+<meta name="generator" content="Hugo 0.79.0" />
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
@@ -22,16 +22,20 @@
 <meta property="og:description" content="快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://brpc.incubator.apache.org/docs/getting_started/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://brpc.incubator.apache.org/docs/getting_started/" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-30T19:27:29+08:00" /><meta property="og:site_name" content="bRPC" />
-
 <meta itemprop="name" content="开始">
 <meta itemprop="description" content="快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
-"><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
+">
+<meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-30T19:27:29+08:00" />
 <meta itemprop="wordCount" content="449">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="开始"/>
 <meta name="twitter:description" content="快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
 "/>
@@ -50,8 +54,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.3ec220ee970bc505bab687924141abfe4d5e51807105a3b107b0cad6e3c0efc6.css" as="style">
-<link href="/scss/main.min.3ec220ee970bc505bab687924141abfe4d5e51807105a3b107b0cad6e3c0efc6.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.3171427d1ab3bbcec150e9ed357b453a520c70f008bc02c9c0c97ab3474f7f94.css" as="style">
+<link href="/scss/main.min.3171427d1ab3bbcec150e9ed357b453a520c70f008bc02c9c0c97ab3474f7f94.css" rel="stylesheet" integrity="">
 
 
 <script src="/js/jquery-3.3.1.min.js"></script>
@@ -67,7 +71,7 @@ if (!doNotTrack) {
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
         <a class="navbar-brand" href="/">
-		<span class="navbar-logo"><svg width="303" height="259" viewBox="0 0 303 259" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>brpc_logo.svg</title><defs><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-2"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-3"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-4"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient></defs><g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="椭圆形" fill="#58b8ff" cx="23.5" cy="62.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="279.5" cy="60.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="119" cy="26" r="26"/><rect id="矩形" fill="#58b8ff" transform="translate(78.021813, 41.967662) rotate(-22.000000) translate(-78.021813, -41.967662)" x="30.0218125" y="35.9676616" width="96" height="12"/><rect id="矩形" fill="#58b8ff" transform="translate(201.451088, 44.299021) rotate(13.000000) translate(-201.451088, -44.299021)" x="138.951088" y="38.2990214" width="125" height="12"/><g id="brpc-logo" transform="translate(11.000000, 104.000000)" fill-rule="nonzero"><g id="编组" transform="translate(138.000000, 77.419111) scale(-1, 1) rotate(-180.000000) translate(-138.000000, -77.419111) translate(0.000000, 0.000000)"><path d="M18.8 154.3C17.8 154.1 17 153.8 17 153.6 17 153.5 13.2 134.3 8.5 111 3.8 87.7-205355861e-22 68-205355861e-22 67.4-205355861e-22 65.9 2.6 65.3 5.7 65.8 7.3 66.1 8.1 67.2 8.6 69.6 9.3 73.5 10 73.8 11.7 71.1 15 65.9 28.8 63.2 36.4 66.4 48.9 71.6 57.7 89.6 56.8 108.1c-.5 10-2.5 14.5-7.8 17.1C44.5 127.5 36.6 127.5 31.4 125.1 27 123.1 20.8814242 116.827994 20 115.8 19.8268414 115.598047 19.5 115 19 115.2 18.3 115.4 18.3 116.5 19 118.7 19.6 120.4 21.6 129 23.4 137.8l3.3 16L24.6 154.4C22.3 155 21.4 155 18.8 154.3zm24.6146505-36.885789c1.7578246-1.326292 2.0864078-1.825452 2.4530432-2.642066S46.8138702 112.705545 47.1008328 111.513935C48.333925 109.104457 47.0101697 95.2413285 45.0724535 89.7736686 41.197021 79.2090375 34.9434822 73 28.2495534 73c-4.5800565.0-7.4866309 1.5754274-11.5382193 6.1163653-1.6734822 1.8534441-1.598743 2.8514069-2.0391331 4.4738936C14.2318109 85.2127457 15.3810952 94.5991493 17.4068894 98.6767262 18.5085881 100.995054 18.5085881 100.995054 20.3179492 104.427606 20.9381193 105.604136 23.3268821 108.69306 24.5063492 109.790864c1.2349847 1.149478 2.6574201 2.834639 3.7432042 3.921533 1.1506404 1.15181600000001 4.2465085 3.084017 5.3028342 3.701814 1.4321645.837608000000003 2.774919 1.362015 4.0282636 1.573221C40.1349135 119.080104 41.2462694 118.670624 43.4146505 117.414211z" id="形状" fill="url(#linearGradient-1)"/><path d="M248.7 148.9C241 147.8 232.2 143 226.1 136.5c-14.2-15-20-43.1-12.1-58.6C216.6 72.9 223.2 67.5 228.5 66 235.2 64.1 249.3 65.1 255.7 67.9 258.6 69.2 261.4 70.8 262.1 71.6 263.7 73.5 265 79.9 263.9 80.6 263.4 80.9 260 79.6 256.3 77.8 243 71.3 230.4 73.3 225.1 82.9 218.5 94.9 223.7 119.3 235.5 131.5 245.8 142 257.4 142.9 271.3 134.2 273.7 132.7 274.2 132.7 275 134 275.5 134.8 276 137.2 276 139.2 276 142.2 275.5 143.2 272.8 144.8 266.2 148.7 257.7 150.2 248.7 148.9z" id="路径" fill="#fff"/><path d="M87.4 148.1C86.2 147.6 84.9 146.7 84.6 146.1 83.6 144.5 68.1 66.6 68.7 65.8c.599999999999994-1 7.5-1 9 0C78.4 66.3 80.6 74.4 82.5 83.9s3.7 17.6 4 18.2C87.5 103.6 96.3 103.1 99.9 101.2 105.7 98.3 107.2 95.2 110 79.7l2.5-14.2L117.3 65.2C123.5 64.8 123.7 65.7 121.6 78.4c-2.5 14.4-4.5 21.2-7.3 24.2C113 104 112 105.3 112.2 105.5 112.4 105.6 114.3 106.7 116.5 107.8 124.5 111.9 129.8 119.6 130.7 128.5 131.7 138 127.9 143.9 119 146.9 114.5 148.4 90.2 149.3 87.4 148.1zm24.9-9.5C117.8 136.3 119.3 133.8 118.8 127.7 117.9 117 111.3 112.1 96.6 111.2L87.7 110.7 88.3 113.1C88.6 114.4 89.8 120.5 91 126.5 92.1 132.6 93.3 138.1 93.5 138.8 94.1 140.5 108.1 140.4 112.3 138.6z" id="形状" fill="#fff"/><path d="M159.5 148.4C158.4 148.1 157.2 147.5 156.7 147.1c-1-1-16.8-80.2-16.1-81.2C141.2 64.8 148 64.7 149.7 65.8 150.3 66.2 152.2 73.3 153.8 81.5L156.7 96.5 167.8 97.1c17.1 1 25.5 5.7 31.2 17.2C206.2 129.1 202.4 143.6 190.5 146.9 186.1 148.1 162.6 149.2 159.5 148.4zm27.2-11C195 131.2 191.3 114.2 180.5 108.6 177.6 107.1 174.2 106.4 167.8 106.2 162.9 106 159 106.2 159 106.7 159 107.1 160.4 114.9 162.1 123.9L165.3 140.2 174.6 139.8C182.1 139.5 184.5 139 186.7 137.4z" id="形状" fill="#fff"/><path d="M52.3 50.7C49 41.2 49.5 37.5 52.9 46.5c1.2 3.1 1.9876864 5.9098389 2.1 6.3S55.4 54.1 55.9 54.9C56.6 56 58.2 55.2 63.5 50.9 67.2 47.9 70.4 45.6 70.6 45.8 71.7 46.5 70.9 47.4 64.1 53.2 60 56.6 58.2983882 57.6981689 57.4 58.2 56.5016118 58.7018311 56.5016118 58.7018311 55.8 58.2 55 57.49737 54 55.4 52.3 50.7z" id="形状" fill="#7e7e7e"/><path d="M84 34.1C84 30.6 82.8 29 80.4 29 78.9 29 78 28.4 78 27.5 78 26.7 78.9 26 80 26 82.4 26 82.4 25.5 80.5 17 79.7 13.4 79.1 8.4 79 5.8 79 1.6 79.3 1 81.4.4 85.1-.5 89.5.3 89.8 2 90 3.1 89.2 3.5 86.8 3.5 83.9 3.5 83.5 3.8 83.3 6.5 83.1 8.2 83.8 13.1 84.8 17.5c1.7 7.9 1.7 8 5.2 8.6L93.5 26.7C94.2848943 26.7875501 94.751561 26.9875501 94.9 27.3 95 28.6 94.2 29 91.1 29h-4L87.7 32.5C88.2 35.6 88 36 86.1 36 84.7 36 84 35.4 84 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M105 34.1C105 30.6 103.8 29 101.4 29 99.9 29 99 28.4 99 27.5 99 26.7 99.9 26 101 26 103.4 26 103.4 25.5 101.5 17 100.7 13.4 100.1 8.4 1e2 5.8 1e2 1.6 100.3 1 102.4.4 106.1-.5 110.5.3 110.8 2 111 3.1 110.2 3.5 107.8 3.5 104.9 3.5 104.5 3.8 104.3 6.5 104.1 8.2 104.8 13.1 105.8 17.5c1.7 7.9 1.7 8 5.2 8.6L114.5 26.7C115.433333 26.8462934 115.9 27.0462934 115.9 27.3 116 28.6 115.2 29 112.1 29h-4L108.7 32.5C109.2 35.6 109 36 107.1 36 105.7 36 105 35.4 105 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M54.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C46.5 1.9 48.6.0 57.2.0 63.6.0 67 1.2 67 3.6 67 4.7 66.6 4.8 65.1 4c-2.7-1.4-10.4-1.3-12.4.3C51.8 4.9 51 6.6 50.9 8 50.4 13.5 50.6 13.7 57.8 14.2 66 14.9 69.5 16.4 71 20 72.3 23.2 71.2 26.3 68 28s-10.2 1.1-13.7-1.1zM67 22.7C67 19 63.6 17 57.3 17 54.4 17 52 17.3 52 17.8c0 1.1 3.1 5.4 5 7C57.9 25.5 60.2 25.9 62.8 25.7 65.1 25.4 67 26.1 67 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M126.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C118.5 1.9 120.6.0 129.2.0 135.6.0 139 1.2 139 3.6 139 4.7 138.6 4.8 137.1 4 134.4 2.6 126.7 2.7 124.7 4.3 123.8 4.9 123 6.6 122.9 8 122.4 13.5 122.6 13.7 129.8 14.2 138 14.9 141.5 16.4 143 20 144.3 23.2 143.2 26.3 140 28s-10.2 1.1-13.7-1.1zM139 22.7C139 19 135.6 17 129.3 17 126.4 17 124 17.3 124 17.8 124 18.9 127.1 23.2 129 24.8 129.9 25.5 132.2 25.9 134.8 25.7 137.1 25.4 139 26.1 139 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M153.7 26.8C151.7 18.4 149.2978 2.90464869 149.2978 2.1 149.2978 1.77371339 148.894918.241544332 150.3.1 151.705082-.0415443324 153 .4 153 2.1 153 3.2 153.7 7.2 154.6 11 156.5 19.3 161 25.2 165.5 25.4 167.5 25.5 168.6 26.1 168.8 27.3 169.1 28.6 168.4 29 165.8 29 163.2 29 161.6 28.2 159.4 25.8L156.5 22.5C155.5 19.6333333 155.133333 18.4333333 155.4 18.9 155.9 19.7 156.5 22.2 156.7 24.6 156.9 27.9 156.7 29 155.6 29 154.8 29 154 28 153.7 26.8z" id="形状" fill="url(#linearGradient-4)"/></g></g></g></svg></span>
+		<span class="navbar-logo"><svg width="303" height="259" viewBox="0 0 303 259" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>brpc_logo.svg</title><defs><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-2"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-3"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-4"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient></defs><g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="椭圆形" fill="#58b8ff" cx="23.5" cy="62.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="279.5" cy="60.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="119" cy="26" r="26"/><rect id="矩形" fill="#58b8ff" transform="translate(78.021813, 41.967662) rotate(-22.000000) translate(-78.021813, -41.967662)" x="30.0218125" y="35.9676616" width="96" height="12"/><rect id="矩形" fill="#58b8ff" transform="translate(201.451088, 44.299021) rotate(13.000000) translate(-201.451088, -44.299021)" x="138.951088" y="38.2990214" width="125" height="12"/><g id="brpc-logo" transform="translate(11.000000, 104.000000)" fill-rule="nonzero"><g id="编组" transform="translate(138.000000, 77.419111) scale(-1, 1) rotate(-180.000000) translate(-138.000000, -77.419111) translate(0.000000, 0.000000)"><path d="M18.8 154.3C17.8 154.1 17 153.8 17 153.6 17 153.5 13.2 134.3 8.5 111 3.8 87.7-205355861e-22 68-205355861e-22 67.4-205355861e-22 65.9 2.6 65.3 5.7 65.8 7.3 66.1 8.1 67.2 8.6 69.6 9.3 73.5 10 73.8 11.7 71.1 15 65.9 28.8 63.2 36.4 66.4 48.9 71.6 57.7 89.6 56.8 108.1 56.3 118.1 54.3 122.6 49 125.2 44.5 127.5 36.6 127.5 31.4 125.1 27 123.1 20.8814242 116.827994 20 115.8 19.8268414 115.598047 19.5 115 19 115.2 18.3 115.4 18.3 116.5 19 118.7 19.6 120.4 21.6 129 23.4 137.8L26.7 153.8 24.6 154.4C22.3 155 21.4 155 18.8 154.3zM43.4146505 117.414211C45.1724751 116.087919 45.5010583 115.588759 45.8676937 114.772145S46.8138702 112.705545 47.1008328 111.513935C48.333925 109.104457 47.0101697 95.2413285 45.0724535 89.7736686 41.197021 79.2090375 34.9434822 73 28.2495534 73 23.6694969 73 20.7629225 74.5754274 16.7113341 79.1163653 15.0378519 80.9698094 15.1125911 81.9677722 14.672201 83.5902589 14.2318109 85.2127457 15.3810952 94.5991493 17.4068894 98.6767262 18.5085881 100.995054 18.5085881 100.995054 20.3179492 104.427606 20.9381193 105.604136 23.3268821 108.69306 24.5063492 109.790864 25.7413339 110.940342 27.1637693 112.625503 28.2495534 113.712397 29.4001938 114.864213 32.4960619 116.796414 33.5523876 117.414211 34.9845521 118.251819 36.3273066 118.776226 37.5806512 118.987432 40.1349135 119.080104 41.2462694 118.670624 43.4146505 117.414211z" id="形状" fill="url(#linearGradient-1)"/><path d="M248.7 148.9C241 147.8 232.2 143 226.1 136.5 211.9 121.5 206.1 93.4 214 77.9 216.6 72.9 223.2 67.5 228.5 66 235.2 64.1 249.3 65.1 255.7 67.9 258.6 69.2 261.4 70.8 262.1 71.6 263.7 73.5 265 79.9 263.9 80.6 263.4 80.9 260 79.6 256.3 77.8 243 71.3 230.4 73.3 225.1 82.9 218.5 94.9 223.7 119.3 235.5 131.5 245.8 142 257.4 142.9 271.3 134.2 273.7 132.7 274.2 132.7 275 134 275.5 134.8 276 137.2 276 139.2 276 142.2 275.5 143.2 272.8 144.8 266.2 148.7 257.7 150.2 248.7 148.9z" id="路径" fill="#fff"/><path d="M87.4 148.1C86.2 147.6 84.9 146.7 84.6 146.1 83.6 144.5 68.1 66.6 68.7 65.8 69.3 64.8 76.2 64.8 77.7 65.8 78.4 66.3 80.6 74.4 82.5 83.9S86.2 101.5 86.5 102.1C87.5 103.6 96.3 103.1 99.9 101.2 105.7 98.3 107.2 95.2 110 79.7L112.5 65.5 117.3 65.2C123.5 64.8 123.7 65.7 121.6 78.4 119.1 92.8 117.1 99.6 114.3 102.6 113 104 112 105.3 112.2 105.5 112.4 105.6 114.3 106.7 116.5 107.8 124.5 111.9 129.8 119.6 130.7 128.5 131.7 138 127.9 143.9 119 146.9 114.5 148.4 90.2 149.3 87.4 148.1zM112.3 138.6C117.8 136.3 119.3 133.8 118.8 127.7 117.9 117 111.3 112.1 96.6 111.2L87.7 110.7 88.3 113.1C88.6 114.4 89.8 120.5 91 126.5 92.1 132.6 93.3 138.1 93.5 138.8 94.1 140.5 108.1 140.4 112.3 138.6z" id="形状" fill="#fff"/><path d="M159.5 148.4C158.4 148.1 157.2 147.5 156.7 147.1 155.7 146.1 139.9 66.9 140.6 65.9 141.2 64.8 148 64.7 149.7 65.8 150.3 66.2 152.2 73.3 153.8 81.5L156.7 96.5 167.8 97.1C184.9 98.1 193.3 102.8 199 114.3 206.2 129.1 202.4 143.6 190.5 146.9 186.1 148.1 162.6 149.2 159.5 148.4zM186.7 137.4C195 131.2 191.3 114.2 180.5 108.6 177.6 107.1 174.2 106.4 167.8 106.2 162.9 106 159 106.2 159 106.7 159 107.1 160.4 114.9 162.1 123.9L165.3 140.2 174.6 139.8C182.1 139.5 184.5 139 186.7 137.4z" id="形状" fill="#fff"/><path d="M52.3 50.7C49 41.2 49.5 37.5 52.9 46.5 54.1 49.6 54.8876864 52.4098389 55 52.8S55.4 54.1 55.9 54.9C56.6 56 58.2 55.2 63.5 50.9 67.2 47.9 70.4 45.6 70.6 45.8 71.7 46.5 70.9 47.4 64.1 53.2 60 56.6 58.2983882 57.6981689 57.4 58.2 56.5016118 58.7018311 56.5016118 58.7018311 55.8 58.2 55 57.49737 54 55.4 52.3 50.7z" id="形状" fill="#7e7e7e"/><path d="M84 34.1C84 30.6 82.8 29 80.4 29 78.9 29 78 28.4 78 27.5 78 26.7 78.9 26 80 26 82.4 26 82.4 25.5 80.5 17 79.7 13.4 79.1 8.4 79 5.8 79 1.6 79.3 1 81.4.4 85.1-.5 89.5.3 89.8 2 90 3.1 89.2 3.5 86.8 3.5 83.9 3.5 83.5 3.8 83.3 6.5 83.1 8.2 83.8 13.1 84.8 17.5 86.5 25.4 86.5 25.5 90 26.1L93.5 26.7C94.2848943 26.7875501 94.751561 26.9875501 94.9 27.3 95 28.6 94.2 29 91.1 29h-4L87.7 32.5C88.2 35.6 88 36 86.1 36 84.7 36 84 35.4 84 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M105 34.1C105 30.6 103.8 29 101.4 29 99.9 29 99 28.4 99 27.5 99 26.7 99.9 26 101 26 103.4 26 103.4 25.5 101.5 17 100.7 13.4 100.1 8.4 1e2 5.8 1e2 1.6 100.3 1 102.4.4 106.1-.5 110.5.3 110.8 2 111 3.1 110.2 3.5 107.8 3.5 104.9 3.5 104.5 3.8 104.3 6.5 104.1 8.2 104.8 13.1 105.8 17.5 107.5 25.4 107.5 25.5 111 26.1L114.5 26.7C115.433333 26.8462934 115.9 27.0462934 115.9 27.3 116 28.6 115.2 29 112.1 29h-4L108.7 32.5C109.2 35.6 109 36 107.1 36 105.7 36 105 35.4 105 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M54.3 26.9C49.8 24 46.6 16.9 46.5 9.7 46.5 1.9 48.6.0 57.2.0 63.6.0 67 1.2 67 3.6 67 4.7 66.6 4.8 65.1 4 62.4 2.6 54.7 2.7 52.7 4.3 51.8 4.9 51 6.6 50.9 8 50.4 13.5 50.6 13.7 57.8 14.2 66 14.9 69.5 16.4 71 20 72.3 23.2 71.2 26.3 68 28S57.8 29.1 54.3 26.9zM67 22.7C67 19 63.6 17 57.3 17 54.4 17 52 17.3 52 17.8 52 18.9 55.1 23.2 57 24.8 57.9 25.5 60.2 25.9 62.8 25.7 65.1 25.4 67 26.1 67 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M126.3 26.9C121.8 24 118.6 16.9 118.5 9.7 118.5 1.9 120.6.0 129.2.0 135.6.0 139 1.2 139 3.6 139 4.7 138.6 4.8 137.1 4 134.4 2.6 126.7 2.7 124.7 4.3 123.8 4.9 123 6.6 122.9 8 122.4 13.5 122.6 13.7 129.8 14.2 138 14.9 141.5 16.4 143 20 144.3 23.2 143.2 26.3 140 28S129.8 29.1 126.3 26.9zM139 22.7C139 19 135.6 17 129.3 17 126.4 17 124 17.3 124 17.8 124 18.9 127.1 23.2 129 24.8 129.9 25.5 132.2 25.9 134.8 25.7 137.1 25.4 139 26.1 139 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M153.7 26.8C151.7 18.4 149.2978 2.90464869 149.2978 2.1 149.2978 1.77371339 148.894918.241544332 150.3.1 151.705082-.0415443324 153 .4 153 2.1 153 3.2 153.7 7.2 154.6 11 156.5 19.3 161 25.2 165.5 25.4 167.5 25.5 168.6 26.1 168.8 27.3 169.1 28.6 168.4 29 165.8 29 163.2 29 161.6 28.2 159.4 25.8L156.5 22.5C155.5 19.6333333 155.133333 18.4333333 155.4 18.9 155.9 19.7 156.5 22.2 156.7 24.6 156.9 27.9 156.7 29 155.6 29 154.8 29 154 28 153.7 26.8z" id="形状" fill="url(#linearGradient-4)"/></g></g></g></svg></span>
         
 	</a>
 	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
@@ -1980,75 +1984,75 @@ if (!doNotTrack) {
 <h2 id="ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL</h2>
 <h3 id="依赖准备">依赖准备</h3>
 <p>安装通用依赖，<a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y git g++ make libssl-dev libgflags-dev libprotobuf-dev libprotoc-dev protobuf-compiler libleveldb-dev
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y git g++ make libssl-dev libgflags-dev libprotobuf-dev libprotoc-dev protobuf-compiler libleveldb-dev
 </code></pre></div><p>如果你需要静态链接leveldb：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y libsnappy-dev
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y libsnappy-dev
 </code></pre></div><p>如果你要在样例中启用cpu/heap的profiler：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y libgoogle-perftools-dev
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y libgoogle-perftools-dev
 </code></pre></div><p>如果你要运行测试，那么要安装并编译libgtest-dev（它没有被默认编译）：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y cmake libgtest-dev <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> /usr/src/gtest <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> sudo cmake . <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> sudo make <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> sudo mv libgtest* /usr/lib/ <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> -
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y cmake libgtest-dev <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> /usr/src/gtest <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> sudo cmake . <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> sudo make <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> sudo mv libgtest* /usr/lib/ <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> -
 </code></pre></div><p>gtest源码目录可能变动，如果<code>/usr/src/gtest</code>不存在，请尝试<code>/usr/src/googletest/googletest</code>。</p>
 <h3 id="使用config_brpcsh编译brpc">使用config_brpc.sh编译brpc</h3>
 <p>git克隆brpc，进入到项目目录，然后运行</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/lib
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/lib
 $ make
 </code></pre></div><p>修改编译器为clang，添加选项<code>--cxx=clang++ --cc=clang</code>。</p>
 <p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
 <p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
 <p>要启用 <a href="../en/thrift.md">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
 <p><strong>运行样例</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
 $ ./echo_server <span style="color:#000;font-weight:bold">&amp;</span>
 $ ./echo_client
 </code></pre></div><p>上述操作会链接brpc的静态库到样例中，如果你想链接brpc的共享库，请依次执行：<code>make clean</code>和<code>LINK_SO=1 make</code></p>
 <p><strong>运行测试</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> <span style="color:#204a87">test</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> <span style="color:#204a87">test</span>
 $ make
 $ sh run_tests.sh
 </code></pre></div><h3 id="使用cmake编译brpc">使用cmake编译brpc</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cmake -B build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake --build build -j6
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cmake -B build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake --build build -j6
 </code></pre></div><p>要帮助VSCode或Emacs(LSP)去正确地理解代码，添加<code>-DCMAKE_EXPORT_COMPILE_COMMANDS=ON</code>选项去生成<code>compile_commands.json</code>。</p>
 <p>要修改编译器为clang，请修改环境变量<code>CC</code>和<code>CXX</code>为<code>clang</code>和<code>clang++</code>。</p>
 <p>不想链接调试符号，请移除<code>build/CMakeCache.txt</code>，然后用<code>-DWITH_DEBUG_SYMBOLS=OFF</code>选项执行cmake。</p>
 <p>想要让brpc使用glog，用<code>-DWITH_GLOG=ON</code>选项执行cmake。</p>
 <p>要启用 <a href="../en/thrift.md">thrift 支持</a>，先安装thrift，然后用<code>-DWITH_THRIFT=ON</code>选项执行cmake。</p>
 <p><strong>用cmake运行样例</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ cmake -B build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake --build build -j4
 $ ./echo_server <span style="color:#000;font-weight:bold">&amp;</span>
 $ ./echo_client
 </code></pre></div><p>上述操作会链接brpc的静态库到样例中，如果你想链接brpc的共享库，请先移除<code>CMakeCache.txt</code>，然后用<code>-DLINK_SO=ON</code>选项重新执行cmake。</p>
 <p><strong>运行测试</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake -DBUILD_UNIT_TESTS<span style="color:#ce5c00;font-weight:bold">=</span>ON .. <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make <span style="color:#204a87">test</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake -DBUILD_UNIT_TESTS<span style="color:#ce5c00;font-weight:bold">=</span>ON .. <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make <span style="color:#204a87">test</span>
 </code></pre></div><h2 id="fedoracentos">Fedora/CentOS</h2>
 <h3 id="依赖准备-1">依赖准备</h3>
 <p>CentOS一般需要安装EPEL，否则很多包都默认不可用。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install epel-release
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install epel-release
 </code></pre></div><p>安装通用依赖：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install git gcc-c++ make openssl-devel
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install git gcc-c++ make openssl-devel
 </code></pre></div><p>安装 <a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gflags-devel protobuf-devel protobuf-compiler leveldb-devel
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gflags-devel protobuf-devel protobuf-compiler leveldb-devel
 </code></pre></div><p>如果你要在样例中启用cpu/heap的profiler：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gperftools-devel
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gperftools-devel
 </code></pre></div><p>如果你要运行测试，那么要安装ligtest-dev:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gtest-devel
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gtest-devel
 </code></pre></div><h3 id="使用config_brpcsh编译brpc-1">使用config_brpc.sh编译brpc</h3>
 <p>git克隆brpc，进入项目目录然后执行：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/usr/include&#34;</span> --libs<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/usr/lib64 /usr/bin&#34;</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/usr/include&#34;</span> --libs<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/usr/lib64 /usr/bin&#34;</span>
 $ make
 </code></pre></div><p>修改编译器为clang，添加选项<code>--cxx=clang++ --cc=clang</code>。</p>
 <p>不想链接调试符号，添加选项<code>--nodebugsymbols</code> 然后编译将会得到更轻量的二进制文件。</p>
 <p>想要让brpc使用glog，添加选项：<code>--with-glog</code>。</p>
 <p>要启用 <a href="../en/thrift.md">thrift 支持</a>，先安装thrift，然后添加选项：<code>--with-thrift</code>。</p>
 <p><strong>运行样例</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
 $ ./echo_server <span style="color:#000;font-weight:bold">&amp;</span>
 $ ./echo_client
 </code></pre></div><p>上述操作会链接brpc的静态库到样例中，如果你想链接brpc的共享库，请依次执行：<code>make clean</code>和<code>LINK_SO=1 make</code></p>
 <p><strong>运行测试</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> <span style="color:#204a87">test</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> <span style="color:#204a87">test</span>
 $ make
 $ sh run_tests.sh
 </code></pre></div><h3 id="使用cmake编译brpc-1">使用cmake编译brpc</h3>
@@ -2057,19 +2061,19 @@ $ sh run_tests.sh
 <h3 id="依赖准备-2">依赖准备</h3>
 <p>brpc默认会构建出静态库和共享库，因此它也需要依赖有静态库和共享库两个版本。</p>
 <p>以<a href="https://github.com/gflags/gflags">gflags</a>为例，它默认不够尖共享库，你需要给<code>cmake</code>指定选项去改变这一行为：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cmake . -DBUILD_SHARED_LIBS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span> -DBUILD_STATIC_LIBS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cmake . -DBUILD_SHARED_LIBS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span> -DBUILD_STATIC_LIBS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span>
 $ make
 </code></pre></div><h3 id="编译brpc">编译brpc</h3>
 <p>还以gflags为例，<code>../gflags_dev</code>表示gflags被克隆的位置。</p>
 <p>git克隆brpc。进入到项目目录然后运行：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;../gflags_dev /usr/include&#34;</span> --libs<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;../gflags_dev /usr/lib64&#34;</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;../gflags_dev /usr/include&#34;</span> --libs<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;../gflags_dev /usr/lib64&#34;</span>
 $ make
 </code></pre></div><p>这里我们给<code>--headers</code>和<code>--libs</code>传递多个路径使得脚本能够在多个地方进行检索。你也可以打包所有依赖和brpc一起放到一个目录中，然后把目录传递给 &ndash;headers/&ndash;libs选项，它会递归搜索所有子目录直到找到必须的文件。</p>
 <p>修改编译器为clang，添加选项<code>--cxx=clang++ --cc=clang</code>。</p>
 <p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
 <p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
 <p>要启用<a href="../en/thrift.md">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ls my_dev
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ls my_dev
 gflags_dev protobuf_dev leveldb_dev brpc_dev
 $ <span style="color:#204a87">cd</span> brpc_dev
 $ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>.. --libs<span style="color:#ce5c00;font-weight:bold">=</span>..
@@ -2080,29 +2084,29 @@ $ make
 <p>注意：在相同运行环境下，当前Mac版brpc的性能比Linux版差2.5倍。如果你的服务是性能敏感的，请不要使用MacOs作为你的生产环境。</p>
 <h3 id="依赖准备-3">依赖准备</h3>
 <p>安装通用依赖：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install openssl git gnu-getopt coreutils
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install openssl git gnu-getopt coreutils
 </code></pre></div><p>安装<a href="https://github.com/gflags/gflags">gflags</a>，<a href="https://github.com/google/protobuf">protobuf</a>，<a href="https://github.com/google/leveldb">leveldb</a>：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gflags protobuf leveldb
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gflags protobuf leveldb
 </code></pre></div><p>如果你要在样例中启用cpu/heap的profiler：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gperftools
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gperftools
 </code></pre></div><p>如果你要运行测试，那么要安装并编译googletest（它没有被默认编译）：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/google/googletest -b release-1.10.0 <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> googletest/googletest <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake -DCMAKE_CXX_FLAGS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-std=c++11&#34;</span> .. <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/google/googletest -b release-1.10.0 <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> googletest/googletest <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake -DCMAKE_CXX_FLAGS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-std=c++11&#34;</span> .. <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make
 </code></pre></div><p>在编译完成后，复制include/和lib/目录到/usr/local/include和/usr/local/lib目录中，以便于让所有应用都能使用gtest。</p>
 <h3 id="使用config_brpcsh编译brpc-2">使用config_brpc.sh编译brpc</h3>
 <p>git克隆brpc，进入到项目目录然后运行：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/lib --cc<span style="color:#ce5c00;font-weight:bold">=</span>clang --cxx<span style="color:#ce5c00;font-weight:bold">=</span>clang++
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/lib --cc<span style="color:#ce5c00;font-weight:bold">=</span>clang --cxx<span style="color:#ce5c00;font-weight:bold">=</span>clang++
 $ make
 </code></pre></div><p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
 <p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
 <p>要启用<a href="../en/thrift.md">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
 <p><strong>运行样例</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
 $ ./echo_server <span style="color:#000;font-weight:bold">&amp;</span>
 $ ./echo_client
 </code></pre></div><p>上述操作会链接brpc的静态库到样例中，如果你想链接brpc的共享库，请依次执行：<code>make clean</code>和<code>LINK_SO=1 make</code></p>
 <p><strong>运行测试</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> <span style="color:#204a87">test</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> <span style="color:#204a87">test</span>
 $ make
 $ sh run_tests.sh
 </code></pre></div><h3 id="使用cmake编译brpc-3">使用cmake编译brpc</h3>
@@ -2206,7 +2210,7 @@ $ sh run_tests.sh
 
 
 
-<script src="/js/main.min.170adf90fd476d5f9243ed2e727149abe8d9fe364587fe943765d47375bbd1ad.js" integrity="sha256-FwrfkP1HbV&#43;SQ&#43;0ucnFJq&#43;jZ/jZFh/6UN2XUc3W70a0=" crossorigin="anonymous"></script>
+<script src="/js/main.min.66cea372833bfeb4fac36a68f0f5c1535ad08fe1bdef7d9237dbaaabbb4e2f5f.js" integrity="sha256-Zs6jcoM7/rT6w2po8PXBU1rQj&#43;G9732SN9uqq7tOL18=" crossorigin="anonymous"></script>
 
 
 
