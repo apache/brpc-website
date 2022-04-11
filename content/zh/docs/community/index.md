@@ -163,6 +163,14 @@ limitations under the License.
         <td>apache</td>
     </tr>
     <tr>
+        <td><a href="http://github.com/wwbmmm"><img width="64" src="https://avatars.githubusercontent.com/u/3894631?v=4"></a></td>
+        <td>Weibing Wang</td>
+        <td>wwbmmm</td>
+        <td><a href="http://github.com/wwbmmm">wwbmmm</a></td>
+        <td>PPMC</td>
+        <td>apache</td>
+    </tr>
+    <tr>
         <td><a href="http://github.com/lorinlee"><img width="64" src="https://avatars.githubusercontent.com/u/16054841?v=4"></a></td>
         <td>Li Lei</td>
         <td>lorinlee</td>
@@ -179,10 +187,10 @@ limitations under the License.
         <td>apache</td>
     </tr>
     <tr>
-        <td><a href="http://github.com/wwbmmm"><img width="64" src="https://avatars.githubusercontent.com/u/3894631?v=4"></a></td>
-        <td>Weibing Wang</td>
-        <td>weibingwang</td>
-        <td><a href="http://github.com/wwbmmm">wwbmmm</a></td>
+        <td><a href="http://github.com/serverglen"><img width="64" src="https://avatars.githubusercontent.com/u/38067377?v=4"></a></td>
+        <td>Liu shuai</td>
+        <td>serverglen</td>
+        <td><a href="http://github.com/serverglen">serverglen</a></td>
         <td>Committer</td>
         <td>apache</td>
     </tr>
