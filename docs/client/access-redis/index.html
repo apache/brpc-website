@@ -2081,7 +2081,7 @@ $ ./client -use_bthread -thread_num 200
 TRACE: 02-13 19:43:48:   * 0 client.cpp:180] Accessing redis server at qps=411669 latency=483
 TRACE: 02-13 19:43:49:   * 0 client.cpp:180] Accessing redis server at qps=411679 latency=483
 TRACE: 02-13 19:43:50:   * 0 client.cpp:180] Accessing redis server at qps=412583 latency=482
-</code></pre><p>200个线程后qps基本到极限了。这里的极限qps比hiredis高很多，原因在于brpc默认以单链接访问redis-server，多个线程在写出时会<a href="io.md#%E5%8F%91%E6%B6%88%E6%81%AF">以wait-free的方式合并</a>，从而让redis-server就像被批量访问一样，每次都能从那个连接中读出一批请求，从而获得远高于非批量时的qps。下面通过连接池访问redis-server时qps的大幅回落是另外一个证明。</p>
+</code></pre><p>200个线程后qps基本到极限了。这里的极限qps比hiredis高很多，原因在于brpc默认以单链接访问redis-server，多个线程在写出时会<a href="../../rpc-in-depth/io#%E5%8F%91%E6%B6%88%E6%81%AF">以wait-free的方式合并</a>，从而让redis-server就像被批量访问一样，每次都能从那个连接中读出一批请求，从而获得远高于非批量时的qps。下面通过连接池访问redis-server时qps的大幅回落是另外一个证明。</p>
 <p>分别使用1，50，200个bthread一次发送10个同步压测同机redis-server，延时单位均为微秒。</p>
 <pre><code>$ ./client -use_bthread -thread_num 1 -batch 10  
 TRACE: 02-13 19:46:45:   * 0 client.cpp:180] Accessing redis server at qps=15880 latency=59
@@ -2306,7 +2306,7 @@ redis 127.0.0.1:6379&gt; client getname
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月9日: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年4月11日: <a  href="https://github.com/apache/incubator-brpc-website/commit/eeeb79fc8e6ec4e045cf044065fcbdfb9e7b5ed1">site search bugfix and update community info (eeeb79f)</a>
 </div>
 </div>
 

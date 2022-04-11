@@ -24,12 +24,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/en/docs/benchmark/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-26T20:29:18+08:00" /><meta property="og:site_name" content="bRPC" />
+<meta property="article:modified_time" content="2022-04-11T18:56:48+08:00" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="Performance benchmark">
 <meta itemprop="description" content="A comparison between brpc and other implementations.
 "><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-26T20:29:18+08:00" />
+<meta itemprop="dateModified" content="2022-04-11T18:56:48+08:00" />
 <meta itemprop="wordCount" content="220">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Performance benchmark"/>
@@ -1941,7 +1941,7 @@ if (!doNotTrack) {
 	<div class="lead">A comparison between brpc and other implementations.</div>
 	<h1 id="序言">序言</h1>
 <p>在多核的前提下，性能和线程是紧密联系在一起的。线程间的跳转对高频IO操作的性能有决定性作用: 一次跳转意味着至少3-20微秒的延时，由于每个核心的L1 cache独立（我们的cpu L2 cache也是独立的），随之而来是大量的cache miss，一些变量的读取、写入延时会从纳秒级上升几百倍至微秒级: 等待cpu把对应的cacheline同步过来。有时这带来了一个出乎意料的结果，当每次的处理都很简短时，一个多线程程序未必比一个单线程程序更快。因为前者可能在每次付出了大的切换代价后只做了一点点“正事”，而后者在不停地做“正事”。不过单线程也是有代价的，它工作良好的前提是“正事”都很快，否则一旦某次变慢就使后续的所有“正事”都被延迟了。在一些处理时间普遍较短的程序中，使用（多个不相交的）单线程能最大程度地”做正事“，由于每个请求的处理时间确定，延时表现也很稳定，各种http server正是这样。但我们的检索服务要做的事情可就复杂多了，有大量的后端服务需要访问，广泛存在的长尾请求使每次处理的时间无法确定，排序策略也越来越复杂。如果还是使用（多个不相交的）单线程的话，一次难以预计的性能抖动，或是一个大请求可能导致后续一堆请求被延迟。</p>
-<p>为了避免请求之间相互影响，请求级的线程跳转是brpc必须付出的代价，我们能做的是使<a href="io.md#the-full-picture">线程跳转最优化</a>。不过，对服务的性能测试还不能很好地体现这点。测试中的处理往往极为简单，使得线程切换的影响空前巨大，通过控制多线程和单线程处理的比例，我们可以把一个测试服务的qps从100万到500万操纵自如（同机），这损伤了性能测试结果的可信度。要知道，真实的服务并不是在累加一个数字，或者echo一个字符串，一个qps几百万的echo程序没有指导意义。鉴于此，在发起性能测试一年后（15年底），在brpc又经历了1200多次改动后，我们需要review所有的测试，加强其中的线程因素，以获得对真实场景有明确意义的结果。具体来说:</p>
+<p>为了避免请求之间相互影响，请求级的线程跳转是brpc必须付出的代价，我们能做的是使<a href="../rpc-in-depth/io#the-full-picture">线程跳转最优化</a>。不过，对服务的性能测试还不能很好地体现这点。测试中的处理往往极为简单，使得线程切换的影响空前巨大，通过控制多线程和单线程处理的比例，我们可以把一个测试服务的qps从100万到500万操纵自如（同机），这损伤了性能测试结果的可信度。要知道，真实的服务并不是在累加一个数字，或者echo一个字符串，一个qps几百万的echo程序没有指导意义。鉴于此，在发起性能测试一年后（15年底），在brpc又经历了1200多次改动后，我们需要review所有的测试，加强其中的线程因素，以获得对真实场景有明确意义的结果。具体来说:</p>
 <ul>
 <li>请求不应等长，要有长尾。这能考察RPC能否让请求并发，否则一个慢请求会影响大量后续请求。</li>
 <li>要有多级server的场景。server内用client访问下游server，这能考察server和client的综合表现。</li>
@@ -1958,7 +1958,7 @@ if (!doNotTrack) {
 <li>nova_pbrpc: 百度网盟团队在12年基于UB开发的RPC框架，用protobuf代替mcpack作为序列化方法，协议是nshead + user&rsquo;s protobuf。</li>
 <li>public_pbrpc: 百度在13年初基于UB开发的RPC框架，用protobuf代替mcpack作为序列化方法，但协议与nova_pbrpc不同，大致是nshead + meta protobuf。meta protobuf中有个string字段包含user&rsquo;s protobuf。由于用户数据要序列化两次，这个RPC的性能很差，没有被推广开来。</li>
 </ul>
-<p>我们以在百度网盟团队广泛使用的nova_pbrpc为UB的代表。测试时其代码为r10500。早期的UB支持CPOOL和XPOOL，分别使用<a href="http://linux.die.net/man/2/select">select</a>和<a href="http://kircher-schwanninger.de/michael/publications/lf.pdf">leader-follower模型</a>，后来提供了EPOLL，使用<a href="http://man7.org/linux/man-pages/man7/epoll.7.html">epoll</a>处理多路连接。鉴于产品线大都是用EPOLL模型，我们的UB配置也使用EPOLL。UB只支持<a href="client.md#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F">连接池</a>，结果用“<strong>ubrpc_mc</strong>&ldquo;指代（mc代表&quot;multiple
+<p>我们以在百度网盟团队广泛使用的nova_pbrpc为UB的代表。测试时其代码为r10500。早期的UB支持CPOOL和XPOOL，分别使用<a href="http://linux.die.net/man/2/select">select</a>和<a href="http://kircher-schwanninger.de/michael/publications/lf.pdf">leader-follower模型</a>，后来提供了EPOLL，使用<a href="http://man7.org/linux/man-pages/man7/epoll.7.html">epoll</a>处理多路连接。鉴于产品线大都是用EPOLL模型，我们的UB配置也使用EPOLL。UB只支持<a href="../client/basics/#connection-type">连接池</a>，结果用“<strong>ubrpc_mc</strong>&ldquo;指代（mc代表&quot;multiple
 connection&rdquo;）。虽然这个名称不太准确（见上文对ubrpc的介绍），但在本文的语境下，请默认ubrpc = UB。</p>
 <h2 id="hulu-pbrpc">hulu-pbrpc</h2>
 <p>百度在13年基于saber(kylin变种)和protobuf实现的RPC框架，hulu在多线程实现上有较多问题，已被brpc代替，测试时其代码为<code>pbrpc_2-0-15-27959_PD_BL</code>。hulu-pbrpc只支持单连接，结果用“<strong>hulu-pbrpc</strong>&ldquo;指代。</p>
@@ -1974,7 +1974,7 @@ connection&rdquo;）。虽然这个名称不太准确（见上文对ubrpc的介�
 <p>如序言中解释的那样，性能数字有巨大的调整空间。这里的关键在于，我们对RPC的底线要求是什么，脱离了这个底线，测试中的表现就严重偏离真实环境中的了。</p>
 <p>这个底线我们认为是<strong>RPC必须能处理长尾</strong>。</p>
 <p>在百度的环境中，这是句大白话，哪个产品线，哪个系统没有长尾呢？作为承载大部分服务的RPC框架自然得处理好长尾，减少长尾对正常请求的影响。但在实现层面，这个问题对设计的影响太大了。如果测试中没有长尾，那么RPC实现就可以假设每个请求都差不多快，这时候最优的方法是用多个线程独立地处理请求。由于没有上下文切换和cache一致性同步，程序的性能会显著高于多个线程协作时的表现。</p>
-<p>比如简单的echo程序，处理一个请求只需要200-300纳秒，单个线程可以达到300-500万的吞吐。但如果多个线程协作，即使在极其流畅的系统中，也要付出3-5微秒的上下文切换代价和1微秒的cache同步代价，这还没有考虑多个线程间的其他互斥逻辑，一般来说单个线程的吞吐很难超过10万，即使24核全部用满，吞吐也只有240万，不及一个线程。这正是以http server为典型的服务选用<a href="threading_overview.md#%E5%8D%95%E7%BA%BF%E7%A8%8Breactor">单线程模型</a>的原因（多个线程独立运行eventloop）: 大部分http请求的处理时间是可预测的，对下游的访问也不会有任何阻塞代码。这个模型可以最大化cpu利用率，同时提供可接受的延时。</p>
+<p>比如简单的echo程序，处理一个请求只需要200-300纳秒，单个线程可以达到300-500万的吞吐。但如果多个线程协作，即使在极其流畅的系统中，也要付出3-5微秒的上下文切换代价和1微秒的cache同步代价，这还没有考虑多个线程间的其他互斥逻辑，一般来说单个线程的吞吐很难超过10万，即使24核全部用满，吞吐也只有240万，不及一个线程。这正是以http server为典型的服务选用<a href="../rpc-in-depth/threading-overview/#single-threaded-reactorhttpenwikipediaorgwikireactor_pattern">单线程模型</a>的原因（多个线程独立运行eventloop）: 大部分http请求的处理时间是可预测的，对下游的访问也不会有任何阻塞代码。这个模型可以最大化cpu利用率，同时提供可接受的延时。</p>
 <p>多线程付出这么大的代价是为了<strong>隔离请求间的影响</strong>。一个计算复杂或索性阻塞的过程不会影响到其他请求，1%的长尾最终只会影响到1%的性能。而多个独立的线程是保证不了这点的，一个请求进入了一个线程就等于“定了终生”，如果前面的请求慢了一下，那也只能跟着慢了。1%的长尾会影响远超1%的请求，最终表现不佳。换句话说，乍看上去多线程模型“慢”了，但在真实应用中反而会获得更好的综合性能。</p>
 <p>延时能精确地体现出长尾的干扰作用，如果普通请求的延时没有被长尾请求干扰，就说明RPC成功地隔离了请求。而QPS无法体现这点，只要CPU都在忙，即使一个正常请求进入了挤满长尾的队列而被严重延迟，最终的QPS也变化不大。为了测量长尾的干扰作用，我们在涉及到延时的测试中都增加了1%的长尾请求。</p>
 <h1 id="开始测试">开始测试</h1>
@@ -2006,7 +2006,7 @@ server一样的<a href="builtin_service.md">内置服务</a>。</p>
 <p>以_mc结尾的曲线代表client和server保持多个连接（线程数个），在本测试中会有更好的表现。</p>
 <p><strong>分析</strong></p>
 <ul>
-<li>brpc: 当请求包小于16KB时，单连接下的吞吐超过了多连接的ubrpc_mc和thrift_mc，随着请求包变大，内核对单个连接的写入速度成为瓶颈。而多连接下的brpc则达到了测试中最高的2.3GB/s。注意: 虽然使用连接池的brpc在发送大包时吞吐更高，但也会耗费更多的CPU（UB和thrift也是这样）。下图中的单连接brpc已经可以提供800多兆的吞吐，足以打满万兆网卡，而使用的CPU可能只有多链接下的1/2(写出过程是<a href="io.md#%E5%8F%91%E6%B6%88%E6%81%AF">wait-free的</a>)，真实系统中请优先使用单链接。</li>
+<li>brpc: 当请求包小于16KB时，单连接下的吞吐超过了多连接的ubrpc_mc和thrift_mc，随着请求包变大，内核对单个连接的写入速度成为瓶颈。而多连接下的brpc则达到了测试中最高的2.3GB/s。注意: 虽然使用连接池的brpc在发送大包时吞吐更高，但也会耗费更多的CPU（UB和thrift也是这样）。下图中的单连接brpc已经可以提供800多兆的吞吐，足以打满万兆网卡，而使用的CPU可能只有多链接下的1/2(写出过程是<a href="../rpc-in-depth/io#sending-messages">wait-free的</a>)，真实系统中请优先使用单链接。</li>
 <li>thrift: 初期明显低于brpc，随着包变大超过了单连接的brpc。</li>
 <li>UB:和thrift类似的曲线，但平均要低4-5万QPS，在32K包时超过了单连接的brpc。整个过程中QPS几乎没变过。</li>
 <li>gRPC: 初期几乎与UB平行，但低1万左右，超过8K开始下降。</li>
@@ -2094,7 +2094,7 @@ server一样的<a href="builtin_service.md">内置服务</a>。</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified April 11, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/eeeb79fc8e6ec4e045cf044065fcbdfb9e7b5ed1">site search bugfix and update community info (eeeb79f)</a>
 </div>
 </div>
 

@@ -1937,7 +1937,7 @@ if (!doNotTrack) {
 	<h1>Execution Queue</h1>
 	<div class="lead">一个高性能的执行队列。</div>
 	<h1 id="概述">概述</h1>
-<p>类似于kylin的ExecMan, <a href="https://github.com/brpc/brpc/blob/master/src/bthread/execution_queue.h">ExecutionQueue</a>提供了异步串行执行的功能。ExecutionQueue的相关技术最早使用在RPC中实现<a href="io.md#%E5%8F%91%E6%B6%88%E6%81%AF">多线程向同一个fd写数据</a>. 在r31345之后加入到bthread。 ExecutionQueue 提供了如下基本功能:</p>
+<p>类似于kylin的ExecMan, <a href="https://github.com/brpc/brpc/blob/master/src/bthread/execution_queue.h">ExecutionQueue</a>提供了异步串行执行的功能。ExecutionQueue的相关技术最早使用在RPC中实现<a href="../../rpc-in-depth/io#%E5%8F%91%E6%B6%88%E6%81%AF">多线程向同一个fd写数据</a>. 在r31345之后加入到bthread。 ExecutionQueue 提供了如下基本功能:</p>
 <ul>
 <li>异步有序执行: 任务在另外一个单独的线程中执行, 并且执行顺序严格和提交顺序一致.</li>
 <li>Multi Producer: 多个线程可以同时向一个ExecutionQueue提交任务</li>
@@ -2259,7 +2259,7 @@ int execution_queue_cancel(const TaskHandle&amp; h);
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月9日: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年4月11日: <a  href="https://github.com/apache/incubator-brpc-website/commit/eeeb79fc8e6ec4e045cf044065fcbdfb9e7b5ed1">site search bugfix and update community info (eeeb79f)</a>
 </div>
 </div>
 

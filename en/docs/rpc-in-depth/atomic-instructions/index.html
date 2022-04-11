@@ -2042,7 +2042,7 @@ if (!doNotTrack) {
 </ul>
 <p>More examples can be found in <a href="http://www.boost.org/doc/libs/1_56_0/doc/html/atomic/usage_examples.html">boost.atomic</a>. Official descriptions of atomics can be found <a href="http://en.cppreference.com/w/cpp/atomic/atomic">here</a>.</p>
 <h1 id="wait-free--lock-free">wait-free &amp; lock-free</h1>
-<p>Atomic instructions provide two important properties: <a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom">wait-free</a> and <a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Lock-freedom">lock-free</a>. Wait-free means no matter how OS schedules, all threads are doing useful jobs; lock-free, which is weaker than wait-free, means no matter how OS schedules, at least one thread is doing useful jobs. If locks are used, the thread holding the lock might be paused by OS, in which case all threads trying to hold the lock are blocked. So code using locks are neither lock-free nor wait-free. To make tasks done within given time, critical paths in real-time OS is at least lock-free. Miscellaneous online services inside Baidu also pose serious restrictions on running time. If the critical path in brpc is wait-free or lock-free, many services are benefited from better and stable QoS. Actually, both read(in the sense of even dispatching) and write in brpc are wait-free, check <a href="io.md">IO</a> for details.</p>
+<p>Atomic instructions provide two important properties: <a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom">wait-free</a> and <a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Lock-freedom">lock-free</a>. Wait-free means no matter how OS schedules, all threads are doing useful jobs; lock-free, which is weaker than wait-free, means no matter how OS schedules, at least one thread is doing useful jobs. If locks are used, the thread holding the lock might be paused by OS, in which case all threads trying to hold the lock are blocked. So code using locks are neither lock-free nor wait-free. To make tasks done within given time, critical paths in real-time OS is at least lock-free. Miscellaneous online services inside Baidu also pose serious restrictions on running time. If the critical path in brpc is wait-free or lock-free, many services are benefited from better and stable QoS. Actually, both read(in the sense of even dispatching) and write in brpc are wait-free, check <a href="../io">IO</a> for details.</p>
 <p>Note that it is common to think that wait-free or lock-free algorithms are faster, which may not be true, because:</p>
 <ul>
 <li>More complex race conditions and ABA problems must be handled in lock-free and wait-free algorithms, which means the code is often much more complicated than the one using locks. More code, more running time.</li>
@@ -2218,7 +2218,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified April 11, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/eeeb79fc8e6ec4e045cf044065fcbdfb9e7b5ed1">site search bugfix and update community info (eeeb79f)</a>
 </div>
 </div>
 

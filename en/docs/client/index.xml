@@ -2504,7 +2504,7 @@ $ ./client -use_bthread -thread_num 200
 TRACE: 02-13 19:43:48:   * 0 client.cpp:180] Accessing redis server at qps=411669 latency=483
 TRACE: 02-13 19:43:49:   * 0 client.cpp:180] Accessing redis server at qps=411679 latency=483
 TRACE: 02-13 19:43:50:   * 0 client.cpp:180] Accessing redis server at qps=412583 latency=482
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The peak QPS at 200 threads is much higher than hiredis since brpc uses a single connection to redis-server by default and requests from multiple threads are &lt;a href=&#34;io.md#sending-messages&#34;&gt;merged in a wait-free way&lt;/a&gt;, making the redis-server receive requests in batch and reach a much higher QPS. The lower QPS in following test that uses pooled connections is another proof.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The peak QPS at 200 threads is much higher than hiredis since brpc uses a single connection to redis-server by default and requests from multiple threads are &lt;a href=&#34;../../rpc-in-depth/io#sending-messages&#34;&gt;merged in a wait-free way&lt;/a&gt;, making the redis-server receive requests in batch and reach a much higher QPS. The lower QPS in following test that uses pooled connections is another proof.&lt;/p&gt;
 &lt;p&gt;Start a client to send requests in batch (10 commands per request) to redis-server on the same machine using 1, 50, 200 bthreads synchronously. The latency is in microseconds.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ./client -use_bthread -thread_num 1 -batch 10  
 TRACE: 02-13 19:46:45:   * 0 client.cpp:180] Accessing redis server at qps=15880 latency=59

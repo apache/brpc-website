@@ -2501,7 +2501,7 @@ $ ./client -use_bthread -thread_num 200
 TRACE: 02-13 19:43:48:   * 0 client.cpp:180] Accessing redis server at qps=411669 latency=483
 TRACE: 02-13 19:43:49:   * 0 client.cpp:180] Accessing redis server at qps=411679 latency=483
 TRACE: 02-13 19:43:50:   * 0 client.cpp:180] Accessing redis server at qps=412583 latency=482
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;200个线程后qps基本到极限了。这里的极限qps比hiredis高很多，原因在于brpc默认以单链接访问redis-server，多个线程在写出时会&lt;a href=&#34;io.md#%E5%8F%91%E6%B6%88%E6%81%AF&#34;&gt;以wait-free的方式合并&lt;/a&gt;，从而让redis-server就像被批量访问一样，每次都能从那个连接中读出一批请求，从而获得远高于非批量时的qps。下面通过连接池访问redis-server时qps的大幅回落是另外一个证明。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;200个线程后qps基本到极限了。这里的极限qps比hiredis高很多，原因在于brpc默认以单链接访问redis-server，多个线程在写出时会&lt;a href=&#34;../../rpc-in-depth/io#%E5%8F%91%E6%B6%88%E6%81%AF&#34;&gt;以wait-free的方式合并&lt;/a&gt;，从而让redis-server就像被批量访问一样，每次都能从那个连接中读出一批请求，从而获得远高于非批量时的qps。下面通过连接池访问redis-server时qps的大幅回落是另外一个证明。&lt;/p&gt;
 &lt;p&gt;分别使用1，50，200个bthread一次发送10个同步压测同机redis-server，延时单位均为微秒。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ./client -use_bthread -thread_num 1 -batch 10  
 TRACE: 02-13 19:46:45:   * 0 client.cpp:180] Accessing redis server at qps=15880 latency=59
