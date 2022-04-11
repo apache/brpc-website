@@ -97,7 +97,7 @@ github_project_repo = "https://github.com/apache/incubator-brpc"
 # github_subdir = ""
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "012737790962522169780:7puelwzrjok"
+gcs_engine_id = "44e881350651564b6"
 
 # Enable Algolia DocSearch
 algolia_docsearch = true

@@ -103,7 +103,7 @@ if (ready.load(std::memory_order_acquire)) {
 
 # wait-free & lock-free
 
-原子指令能为我们的服务赋予两个重要属性：[wait-free](http://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom)和[lock-free](http://en.wikipedia.org/wiki/Non-blocking_algorithm#Lock-freedom)。前者指不管OS如何调度线程，每个线程都始终在做有用的事；后者比前者弱一些，指不管OS如何调度线程，至少有一个线程在做有用的事。如果我们的服务中使用了锁，那么OS可能把一个刚获得锁的线程切换出去，这时候所有依赖这个锁的线程都在等待，而没有做有用的事，所以用了锁就不是lock-free，更不会是wait-free。为了确保一件事情总在确定时间内完成，实时系统的关键代码至少是lock-free的。在百度广泛又多样的在线服务中，对时效性也有着严苛的要求，如果RPC中最关键的部分满足wait-free或lock-free，就可以提供更稳定的服务质量。事实上，brpc中的读写都是wait-free的，具体见[IO](io.md)。
+原子指令能为我们的服务赋予两个重要属性：[wait-free](http://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom)和[lock-free](http://en.wikipedia.org/wiki/Non-blocking_algorithm#Lock-freedom)。前者指不管OS如何调度线程，每个线程都始终在做有用的事；后者比前者弱一些，指不管OS如何调度线程，至少有一个线程在做有用的事。如果我们的服务中使用了锁，那么OS可能把一个刚获得锁的线程切换出去，这时候所有依赖这个锁的线程都在等待，而没有做有用的事，所以用了锁就不是lock-free，更不会是wait-free。为了确保一件事情总在确定时间内完成，实时系统的关键代码至少是lock-free的。在百度广泛又多样的在线服务中，对时效性也有着严苛的要求，如果RPC中最关键的部分满足wait-free或lock-free，就可以提供更稳定的服务质量。事实上，brpc中的读写都是wait-free的，具体见[IO](../io)。
 
 值得提醒的是，常见想法是lock-free或wait-free的算法会更快，但事实可能相反，因为：
 
