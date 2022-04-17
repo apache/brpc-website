@@ -27,7 +27,7 @@ limitations under the License.
 ## Apache brpc (incubating) Downloads
 
 Apache brpc (incubating) is released as a source artifact.
-We are pleased to announce our 1.0.0 release as below.
+We are pleased to announce our 1.1.0 release as below.
 
 
 ### Release Candidate 
