@@ -26,7 +26,7 @@ limitations under the License.
 -->
 ## 下载 Apache bRPC (incubating) 
 
-Apache brpc（孵化）作为源工件发布。我们很高兴宣布我们的1.0.0版本已经发布如下了！
+Apache brpc（孵化）作为源工件发布。我们很高兴宣布我们的1.1.0版本已经发布如下了！
 
 
 ### 候选版本 
