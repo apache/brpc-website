@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,15 +20,15 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>bRPC</title><meta property="og:title" content="bRPC" />
-<meta property="og:description" content="用于构建可靠和高性能服务的工业级RPC框架" />
+<meta property="og:description" content="An industrial-grade RPC framework for building reliable and high-performance services." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/" /><meta property="og:image" content="https://brpc.incubator.apache.org/featured-background.jpg"/><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="bRPC">
-<meta itemprop="description" content="用于构建可靠和高性能服务的工业级RPC框架"><meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="description" content="An industrial-grade RPC framework for building reliable and high-performance services."><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://brpc.incubator.apache.org/featured-background.jpg"/>
 <meta name="twitter:title" content="bRPC"/>
-<meta name="twitter:description" content="用于构建可靠和高性能服务的工业级RPC框架"/>
+<meta name="twitter:description" content="An industrial-grade RPC framework for building reliable and high-performance services."/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -82,7 +82,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/" ><span>文档</span></a>
+				<a class="nav-link" href="/docs/" ><span>Docs</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -92,7 +92,17 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+				<a class="nav-link" href="/docs/blogs/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>Community</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -112,7 +122,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
+				<a class="nav-link" href="/docs/users/" ><span>Users</span></a>
 			</li>
 			
 			
@@ -121,11 +131,11 @@ if (!doNotTrack) {
 				
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/">English</a>
+	<a class="dropdown-item" href="/zh/">中文</a>
 	
 </div>
 			</li>
@@ -133,7 +143,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 </div>
 </nav>
 
@@ -176,19 +186,19 @@ if (!doNotTrack) {
           
           
           <div class="pt-3 lead">
-            <img src="/images/brpc_logo_w.svg" class="brpc-logo" style="max-width:95%"/>
-<h3 style="margin:20px" >用于构建可靠和高性能服务的工业级RPC框架</h3>
+            <p><img src="/images/brpc_logo_w.svg" class="brpc-logo" style="max-width:95%" /></p>
+<h3 style="margin:20px" >An industrial-grade RPC framework for building reliable and high-performance services.</h3>
 <div class="mx-auto">
 	<a class="btn btn-lg btn-primary font-weight-bold my-4" href="/docs/">
-		了解更多
+		Learn More
 	</a>
   <a class="btn btn-lg btn-primary font-weight-bold my-4" href="/docs/downloadbrpc/">
-		下载 bRPC
+		Download bRPC
 	</a>
 </div>
 <div class="mx-auto">
   <a class="h3 mt-1">
-    让我们开始吧!
+    Get started!
   </a>
   <!--
   <div class="h3 mt-1">Get started!</div>
@@ -211,31 +221,32 @@ if (!doNotTrack) {
 
 <div id="overview">
   <div class="contain" style="width: auto; margin: 0 auto">
-    <h2 class="section-head">为什么选择 bRPC?</h2>
+    <h2 class="section-head">Why bRPC?</h2>
     <p>
-      bRPC是一个开源高性能的工业级RPC框架, 拥有1,000,000+个实例(不包含client)和上千种服务。
+    bRPC is an open source high performance industrial-grade Remote Procedure Call(RPC) framework, 
+    with 1,000,000+ instances(not counting clients) and thousands kinds of services.
     </p>
-    <h3 class="section-head">你可以使用它：</h3>
+    <h3 class="section-head">You can use it to:</h3>
     <div class="father" style="display: flex; justify-content: center; margin: 0 20px">
       <div class="child">
-        <li style="text-align:left">搭建能在一个端口支持多协议的服务, 或访问各种服务。</li>
+        <li style="text-align:left">Build a server that can talk in multiple protocols (on same port), or access all sorts of services.</li>
         <ol style="text-align:left">
           <li>
-            restful http/https, h2/gRPC. 使用brpc的http实现比libcurl方便多了。从其他语言通过HTTP/h2+json访问基于protobuf的协议.
+            restful http/https, h2/gRPC. using http/h2 in brpc is much more friendly than libcurl. Access protobuf-based protocols with HTTP/h2+json, probably from another language.
           </li>
-          <li>redis and memcached, 线程安全，比官方client更方便。</li>
-          <li>rtmp/flv/hls, 可用于搭建流媒体服务。</li>
-          <li>hadoop_rpc (可能开源)</li>
-          <li>支持rdma(即将开源)</li>
-          <li>支持thrift, 线程安全，比官方client更方便。</li>
-          <li>各种百度内使用的协议: baidu_std, streaming_rpc, hulu_pbrpc, sofa_pbrpc], nova_pbrpc, public_pbrpc, ubrpc和使用nshead的各种协议。</li>
-          <li>基于工业级的RAFT算法实现搭建高可用分布式系统，已在braft开源。</li>
+          <li>redis and memcached, thread-safe, more friendly and performant than the official clients.</li>
+          <li>rtmp/flv/hls, for building streaming services.</li>
+          <li>hadoop_rpc (may be opensourced)</li>
+          <li>rdma support (will be opensourced)</li>
+          <li>thrift support, thread-safe, more friendly and performant than the official clients.</li>
+          <li>all sorts of protocols used in Baidu: baidu_std, streaming_rpc, hulu_pbrpc, sofa_pbrpc, nova_pbrpc, public_pbrpc, ubrpc and nshead-based ones.</li>
+          <li>Build HA distributed services using an industrial-grade implementation of RAFT consensus algorithm which is opensourced at braft</li>
         </ol> 
-        <li style="text-align:left">Server能同步或异步处理请求。</li>
-        <li style="text-align:left">Client支持同步、异步、半同步，或使用组合channels简化复杂的分库或并发访问。</li>
-        <li style="text-align:left">通过http界面调试服务, 使用cpu, heap, contention profilers.</li>
-        <li style="text-align:left">获得更好的延时和吞吐。</li>
-        <li style="text-align:left">把你组织中使用的协议快速地加入brpc，或定制各类组件, 包括命名服务(dns, zk, etcd), 负载均衡(rr, random, consistent hashing)。</li>
+        <li style="text-align:left">Servers can handle requests synchronously or asynchronously.</li>
+        <li style="text-align:left">Clients can access servers synchronously, asynchronously, semi-synchronously, or use combo channels to simplify sharded or parallel accesses declaratively.</li>
+        <li style="text-align:left">Debug services via http, and run cpu, heap and contention profilers.</li>
+        <li style="text-align:left">Get better latency and throughput.</li>
+        <li style="text-align:left">Extend brpc with the protocols used in your organization quickly, or customize components, including naming services (dns, zk, etcd), load balancers (rr, random, consistent hashing)</li>
       </div>
     </div>
   </div>
@@ -251,7 +262,6 @@ if (!doNotTrack) {
     </h4>
   </div>
 </div>
-
 
 <!--
 
@@ -302,7 +312,7 @@ if (!doNotTrack) {
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
         
 	
         <div style="font-size: 12.8px; color: rgb(117, 116, 116);">

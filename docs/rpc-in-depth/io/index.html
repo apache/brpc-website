@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,16 +20,16 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>IO | bRPC</title><meta property="og:title" content="IO" />
-<meta property="og:description" content="学习bRPC IO。
+<meta property="og:description" content="Learn about bRPC IO.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/rpc-in-depth/io/" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="IO">
-<meta itemprop="description" content="学习bRPC IO。
+<meta itemprop="description" content="Learn about bRPC IO.
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="IO"/>
-<meta name="twitter:description" content="学习bRPC IO。
+<meta name="twitter:description" content="Learn about bRPC IO.
 "/>
 
 <script type="application/javascript">
@@ -85,7 +85,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/docs/" ><span class="active">文档</span></a>
+				<a class="nav-link active" href="/docs/" ><span class="active">Docs</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -95,7 +95,17 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+				<a class="nav-link" href="/docs/blogs/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>Community</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -115,7 +125,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
+				<a class="nav-link" href="/docs/users/" ><span>Users</span></a>
 			</li>
 			
 			
@@ -124,11 +134,11 @@ if (!doNotTrack) {
 				
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/rpc-in-depth/io/">English</a>
+	<a class="dropdown-item" href="/zh/docs/rpc-in-depth/io/">中文</a>
 	
 </div>
 			</li>
@@ -136,7 +146,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 </div>
 </nav>
 
@@ -154,7 +164,7 @@ if (!doNotTrack) {
   
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -166,11 +176,11 @@ if (!doNotTrack) {
       
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/rpc-in-depth/io/">English</a>
+	<a class="dropdown-item" href="/zh/docs/rpc-in-depth/io/">中文</a>
 	
 </div>
     </div>
@@ -184,7 +194,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">文档</a>
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Docs</a>
   </li>
   <ul>
     <li class="collapse show" id="docs">
@@ -194,19 +204,19 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">简介</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">Overview</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">开始</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">Getting started</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">性能基准</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">Performance benchmark</a>
       
       
       
@@ -403,7 +413,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">客户端</a>
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Client</a>
   </li>
   <ul>
     <li class="collapse " id="docsclient">
@@ -420,7 +430,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientbasics">
@@ -443,7 +453,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">错误码</a>
+    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
   </li>
   <ul>
     <li class="collapse " id="docsclienterror-code">
@@ -466,7 +476,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">组合channels</a>
+    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Combo channels</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientcombo-channels">
@@ -489,7 +499,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问http:h2</a>
+    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-httph2">
@@ -512,7 +522,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问gRPC</a>
+    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-grpc">
@@ -535,7 +545,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问thrift</a>
+    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-thrift">
@@ -558,7 +568,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问UB</a>
+    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-ub">
@@ -581,7 +591,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问redis</a>
+    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access redis</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-redis">
@@ -604,7 +614,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问memcached</a>
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-memcached">
@@ -627,7 +637,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流式RPC</a>
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientstreaming-rpc">
@@ -702,7 +712,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">服务端</a>
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsserver">
@@ -719,7 +729,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverbasics">
@@ -742,7 +752,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建http:h2服务</a>
+    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-httph2">
@@ -765,7 +775,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建gRPC服务</a>
+    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-grpc">
@@ -788,7 +798,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建thrift服务</a>
+    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-thrift">
@@ -811,7 +821,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建Nshead服务</a>
+    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-nshead">
@@ -834,7 +844,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">推送</a>
+    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserver-push">
@@ -857,7 +867,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">雪崩</a>
+    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
   </li>
   <ul>
     <li class="collapse " id="docsserveravalanche">
@@ -880,7 +890,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">高效率排查server卡顿</a>
+    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverdebug-server-issues">
@@ -903,7 +913,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">自适应限流</a>
+    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverauto-concurrencylimiter">
@@ -926,7 +936,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流媒体服务</a>
+    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsservermedia-server">
@@ -978,7 +988,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内置服务</a>
+    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
   </li>
   <ul>
     <li class="collapse " id="docsbuiltin-services">
@@ -1208,7 +1218,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">工具</a>
+    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
   </li>
   <ul>
     <li class="collapse " id="docstools">
@@ -1346,7 +1356,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43;基础</a>
+    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-base">
@@ -1432,7 +1442,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC培训材料</a>
+    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-basebrpc-training-materials">
@@ -1461,7 +1471,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">深入RPC</a>
+    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">RPC in depth</a>
   </li>
   <ul>
     <li class="collapse show" id="docsrpc-in-depth">
@@ -1478,7 +1488,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">支持新协议</a>
+    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthnew-protocol">
@@ -1501,7 +1511,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">原子指令</a>
+    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthatomic-instructions">
@@ -1547,7 +1557,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">线程模型简介</a>
+    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depththreading-overview">
@@ -1570,7 +1580,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">负载均衡</a>
+    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthload-balancing">
@@ -1616,7 +1626,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">一致性哈希</a>
+    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthconsistent-hashing">
@@ -1639,7 +1649,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内存管理</a>
+    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthmemory-management">
@@ -1714,7 +1724,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC在百度内部的应用</a>
+    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
   </li>
   <ul>
     <li class="collapse " id="docsuse-cases-inside-baidu">
@@ -1822,7 +1832,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">下载bRPC</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">Download bRPC</a>
       
       
       
@@ -1834,13 +1844,71 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">Users</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Blog</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogs">
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Release</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogsreleases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases110" href="/docs/blogs/releases/1.1.0/">bRPC 1.1.0</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases100" href="/docs/blogs/releases/1.0.0/">bRPC 1.0.0</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">Community</a>
       
       
     </li>
@@ -1866,11 +1934,11 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/docs/RPC%20in%20depth/IO/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=IO" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/RPC%20in%20depth/IO/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=IO" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
-<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
 
 </div>
 
@@ -1897,14 +1965,14 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/">文档</a>
+	<a href="/docs/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/rpc-in-depth/">深入RPC</a>
+	<a href="/docs/rpc-in-depth/">RPC in depth</a>
 </li>
 
 
@@ -1921,35 +1989,35 @@ if (!doNotTrack) {
             
 <div class="td-content">
 	<h1>IO</h1>
-	<div class="lead">学习bRPC IO。</div>
-	<p>一般有三种操作IO的方式：</p>
+	<div class="lead">Learn about bRPC IO.</div>
+	<p>There are three mechanisms to operate IO in general:</p>
 <ul>
-<li>blocking IO: 发起IO操作后阻塞当前线程直到IO结束，标准的同步IO，如默认行为的posix <a href="http://linux.die.net/man/2/read">read</a>和<a href="http://linux.die.net/man/2/write">write</a>。</li>
-<li>non-blocking IO: 发起IO操作后不阻塞，用户可阻塞等待多个IO操作同时结束。non-blocking也是一种同步IO：“批量的同步”。如linux下的<a href="http://linux.die.net/man/2/poll">poll</a>,<a href="http://linux.die.net/man/2/select">select</a>, <a href="http://linux.die.net/man/4/epoll">epoll</a>，BSD下的<a href="https://www.freebsd.org/cgi/man.cgi?query=kqueue&amp;sektion=2">kqueue</a>。</li>
-<li>asynchronous IO: 发起IO操作后不阻塞，用户得递一个回调待IO结束后被调用。如windows下的<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684342(v=vs.85).aspx">OVERLAPPED</a> + <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa365198(v=vs.85).aspx">IOCP</a>。linux的native AIO只对文件有效。</li>
+<li>Blocking IO: once an IO operation is issued, the calling thread is blocked until the IO ends, which is a kind of synchronous IO, such as default actions of posix <a href="http://linux.die.net/man/2/read">read</a> and <a href="http://linux.die.net/man/2/write">write</a>.</li>
+<li>Non-blocking IO: If there is nothing to read or too much to write, APIs that would block return immediately with an error code. Non-blocking IO is often used with IO multiplexing(<a href="http://linux.die.net/man/2/poll">poll</a>, <a href="http://linux.die.net/man/2/select">select</a>, <a href="http://linux.die.net/man/4/epoll">epoll</a> in Linux or <a href="https://www.freebsd.org/cgi/man.cgi?query=kqueue&amp;sektion=2">kqueue</a> in BSD).</li>
+<li>Asynchronous IO: Start a read or write operation with a callback, which will be called when the IO is done, such as <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684342(v=vs.85).aspx">OVERLAPPED</a> + <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa365198(v=vs.85).aspx">IOCP</a> in Windows. Native AIO in Linux only supports files.</li>
 </ul>
-<p>linux一般使用non-blocking IO提高IO并发度。当IO并发度很低时，non-blocking IO不一定比blocking IO更高效，因为后者完全由内核负责，而read/write这类系统调用已高度优化，效率显然高于一般得多个线程协作的non-blocking IO。但当IO并发度愈发提高时，blocking IO阻塞一个线程的弊端便显露出来：内核得不停地在线程间切换才能完成有效的工作，一个cpu core上可能只做了一点点事情，就马上又换成了另一个线程，cpu cache没得到充分利用，另外大量的线程会使得依赖thread-local加速的代码性能明显下降，如tcmalloc，一旦malloc变慢，程序整体性能往往也会随之下降。而non-blocking IO一般由少量event dispatching线程和一些运行用户逻辑的worker线程组成，这些线程往往会被复用（换句话说调度工作转移到了用户态），event dispatching和worker可以同时在不同的核运行（流水线化），内核不用频繁的切换就能完成有效的工作。线程总量也不用很多，所以对thread-local的使用也比较充分。这时候non-blocking IO就往往比blocking IO快了。不过non-blocking IO也有自己的问题，它需要调用更多系统调用，比如<a href="http://man7.org/linux/man-pages/man2/epoll_ctl.2.html">epoll_ctl</a>，由于epoll实现为一棵红黑树，epoll_ctl并不是一个很快的操作，特别在多核环境下，依赖epoll_ctl的实现往往会面临棘手的扩展性问题。non-blocking需要更大的缓冲，否则就会触发更多的事件而影响效率。non-blocking还得解决不少多线程问题，代码比blocking复杂很多。</p>
-<h1 id="收消息">收消息</h1>
-<p>“消息”指从连接读入的有边界的二进制串，可能是来自上游client的request或来自下游server的response。brpc使用一个或多个<a href="https://github.com/brpc/brpc/blob/master/src/brpc/event_dispatcher.h">EventDispatcher</a>(简称为EDISP)等待任一fd发生事件。和常见的“IO线程”不同，EDISP不负责读取。IO线程的问题在于一个线程同时只能读一个fd，当多个繁忙的fd聚集在一个IO线程中时，一些读取就被延迟了。多租户、复杂分流算法，<a href="../../client/streaming-rpc/">Streaming RPC</a>等功能会加重这个问题。高负载下常见的某次读取卡顿会拖慢一个IO线程中所有fd的读取，对可用性的影响幅度较大。</p>
-<p>由于epoll的<a href="https://patchwork.kernel.org/patch/1970231/">一个bug</a>(开发brpc时仍有)及epoll_ctl较大的开销，EDISP使用Edge triggered模式。当收到事件时，EDISP给一个原子变量加1，只有当加1前的值是0时启动一个bthread处理对应fd上的数据。在背后，EDISP把所在的pthread让给了新建的bthread，使其有更好的cache locality，可以尽快地读取fd上的数据。而EDISP所在的bthread会被偷到另外一个pthread继续执行，这个过程即是bthread的work stealing调度。要准确理解那个原子变量的工作方式可以先阅读<a href="../atomic-instructions/">atomic instructions</a>，再看<a href="https://github.com/brpc/brpc/blob/master/src/brpc/socket.cpp">Socket::StartInputEvent</a>。这些方法使得brpc读取同一个fd时产生的竞争是<a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom">wait-free</a>的。</p>
-<p><a href="https://github.com/brpc/brpc/blob/master/src/brpc/input_messenger.h">InputMessenger</a>负责从fd上切割和处理消息，它通过用户回调函数理解不同的格式。Parse一般是把消息从二进制流上切割下来，运行时间较固定；Process则是进一步解析消息(比如反序列化为protobuf)后调用用户回调，时间不确定。若一次从某个fd读取出n个消息(n &gt; 1)，InputMessenger会启动n-1个bthread分别处理前n-1个消息，最后一个消息则会在原地被Process。InputMessenger会逐一尝试多种协议，由于一个连接上往往只有一种消息格式，InputMessenger会记录下上次的选择，而避免每次都重复尝试。</p>
-<p>可以看到，fd间和fd内的消息都会在brpc中获得并发，这使brpc非常擅长大消息的读取，在高负载时仍能及时处理不同来源的消息，减少长尾的存在。</p>
-<h1 id="发消息">发消息</h1>
-<p>&ldquo;消息”指向连接写出的有边界的二进制串，可能是发向上游client的response或下游server的request。多个线程可能会同时向一个fd发送消息，而写fd又是非原子的，所以如何高效率地排队不同线程写出的数据包是这里的关键。brpc使用一种wait-free MPSC链表来实现这个功能。所有待写出的数据都放在一个单链表节点中，next指针初始化为一个特殊值(Socket::WriteRequest::UNCONNECTED)。当一个线程想写出数据前，它先尝试和对应的链表头(Socket::_write_head)做原子交换，返回值是交换前的链表头。如果返回值为空，说明它获得了写出的权利，它会在原地写一次数据。否则说明有另一个线程在写，它把next指针指向返回的头以让链表连通。正在写的线程之后会看到新的头并写出这块数据。</p>
-<p>这套方法可以让写竞争是wait-free的，而获得写权利的线程虽然在原理上不是wait-free也不是lock-free，可能会被一个值仍为UNCONNECTED的节点锁定（这需要发起写的线程正好在原子交换后，在设置next指针前，仅仅一条指令的时间内被OS换出），但在实践中很少出现。在当前的实现中，如果获得写权利的线程一下子无法写出所有的数据，会启动一个KeepWrite线程继续写，直到所有的数据都被写出。这套逻辑非常复杂，大致原理如下图，细节请阅读<a href="https://github.com/brpc/brpc/blob/master/src/brpc/socket.cpp">socket.cpp</a>。</p>
+<p>Non-blocking IO is usually used for increasing IO concurrency in Linux. When the IO concurrency is low, non-blocking IO is not necessarily more efficient than blocking IO, which is handled completely by the kernel. System calls like read/write are highly optimized and probably more efficient. But when IO concurrency increases, the drawback of blocking-one-thread in blocking IO arises: the kernel keeps switching between threads to do effective jobs, and a CPU core may only do a little bit of work before being replaced by another thread, causing CPU cache not fully utilized. In addition a large number of threads decrease performance of code dependent on thread-local variables, such as tcmalloc. Once malloc slows down, the overall performance of the program decreases as well. As a contrast, non-blocking IO is typically composed with a relatively small number of event dispatching threads and worker threads(running user code), which are reused by different tasks (in another word, part of scheduling work is moved to userland). Event dispatchers and workers run on different CPU cores simultaneously without frequent switches in the kernel. There&rsquo;s no need to have many threads, so the use of thread-local variables is also more adequate. All these factors make non-blocking IO faster than blocking IO. But non-blocking IO also has its own problems, one of which is more system calls, such as <a href="http://man7.org/linux/man-pages/man2/epoll_ctl.2.html">epoll_ctl</a>. Since epoll is implemented as a red-black tree, epoll_ctl is not a very fast operation, especially in multi-threaded environments. Implementations heavily dependent on epoll_ctl is often confronted with multi-core scalability issues. Non-blocking IO also has to solve a lot of multi-threaded problems, producing more complex code than blocking IO.</p>
+<h1 id="receiving-messages">Receiving messages</h1>
+<p>A message is a bounded binary data read from a connection, which may be a request from upstream clients or a response from downstream servers. brpc uses one or several <a href="https://github.com/brpc/brpc/blob/master/src/brpc/event_dispatcher.cpp">EventDispatcher</a>(referred to as EDISP) to wait for events from file descriptors. Unlike the common &ldquo;IO threads&rdquo;, EDISP is not responsible for reading or writing. The problem of IO threads is that one thread can only read one fd at a given time, other reads may be delayed when many fds in one IO thread are busy. Multi-tenancy, complicated load balancing and <a href="../../client/streaming-rpc/">Streaming RPC</a> worsen the problem. Under high workloads, regular long delays on one fd may slow down all fds in the IO thread, causing more long tails.</p>
+<p>Because of a <a href="https://patchwork.kernel.org/patch/1970231/">bug</a> of epoll (at the time of developing brpc) and overhead of epoll_ctl, edge triggered mode is used in EDISP. After receiving an event, an atomic variable associated with the fd is added by one atomically. If the variable is zero before addition, a bthread is started to handle the data from the fd. The pthread worker in which EDISP runs is yielded to the newly created bthread to make it start reading ASAP and have a better cache locality. The bthread in which EDISP runs will be stolen to another pthread and keep running, this mechanism is work stealing used in bthreads. To understand exactly how that atomic variable works, you can read <a href="../atomic-instructions/">atomic instructions</a> first, then check <a href="https://github.com/brpc/brpc/blob/master/src/brpc/socket.cpp">Socket::StartInputEvent</a>. These methods make contentions on dispatching events of one fd <a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom">wait-free</a>.</p>
+<p><a href="https://github.com/brpc/brpc/blob/master/src/brpc/input_messenger.h">InputMessenger</a> cuts messages and uses customizable callbacks to handle different format of data. <code>Parse</code> callback cuts messages from binary data and has relatively stable running time; <code>Process</code> parses messages further(such as parsing by protobuf) and calls users' callbacks, which vary in running time. If n(n &gt; 1) messages are read from the fd, InputMessenger launches n-1 bthreads to handle first n-1 messages respectively, and processes the last message in-place. InputMessenger tries protocols one by one. Since one connections often has only one type of messages, InputMessenger remembers current protocol to avoid trying for protocols next time.</p>
+<p>It can be seen that messages from different fds or even same fd are processed concurrently in brpc, which makes brpc good at handling large messages and reducing long tails on processing messages from different sources under high workloads.</p>
+<h1 id="sending-messages">Sending Messages</h1>
+<p>A message is a bounded binary data written to a connection, which may be a response to upstream clients or a request to downstream servers. Multiple threads may send messages to a fd at the same time, however writing to a fd is non-atomic, so how to queue writes from different thread efficiently is a key technique. brpc uses a special wait-free MPSC list to solve the issue. All data ready to write is put into a node of a singly-linked list, whose next pointer points to a special value(<code>Socket::WriteRequest::UNCONNECTED</code>). When a thread wants to write out some data, it tries to atomically exchange the node with the list head(Socket::_write_head) first. If the head before exchange is empty, the caller gets the right to write and writes out the data in-place once. Otherwise there must be another thread writing. The caller points the next pointer to the head returned to make the linked list connected. The thread that is writing will see the new head later and write new data.</p>
+<p>This method makes the writing contentions wait-free. Although the thread that gets the right to write is not wait-free nor lock-free in principle and may be blocked by a node that is still UNCONNECTED(the thread issuing write is swapped out by OS just after atomic exchange and before setting the next pointer, within execution time of just one instruction), the blocking rarely happens in practice. In current implementations, if the data cannot be written fully in one call, a KeepWrite bthread is created to write the remaining data. This mechanism is pretty complicated and the principle is depicted below. Read <a href="https://github.com/brpc/brpc/blob/master/src/brpc/socket.cpp">socket.cpp</a> for more details.</p>
 <p><img src="/images/docs/write.png" alt="img"></p>
-<p>由于brpc的写出总能很快地返回，调用线程可以更快地处理新任务，后台KeepWrite写线程也能每次拿到一批任务批量写出，在大吞吐时容易形成流水线效应而提高IO效率。</p>
+<p>Since writes in brpc always complete within short time, the calling thread can handle new tasks more quickly and background KeepWrite threads also get more tasks to write in one batch, forming pipelines and increasing the efficiency of IO at high throughputs.</p>
 <h1 id="socket">Socket</h1>
-<p>和fd相关的数据均在<a href="https://github.com/brpc/brpc/blob/master/src/brpc/socket.h">Socket</a>中，是rpc最复杂的结构之一，这个结构的独特之处在于用64位的SocketId指代Socket对象以方便在多线程环境下使用fd。常用的三个方法：</p>
+<p><a href="https://github.com/brpc/brpc/blob/master/src/brpc/socket.h">Socket</a> contains data structures related to fd and is one of the most complex structure in brpc. The unique feature of this structure is that it uses 64-bit SocketId to refer to a Socket object to facilitate usages of fd in multi-threaded environments. Commonly used methods:</p>
 <ul>
-<li>Create：创建Socket，并返回其SocketId。</li>
-<li>Address：取得id对应的Socket，包装在一个会自动释放的unique_ptr中(SocketUniquePtr)，当Socket被SetFailed后，返回指针为空。只要Address返回了非空指针，其内容保证不会变化，直到指针自动析构。这个函数是wait-free的。</li>
-<li>SetFailed：标记一个Socket为失败，之后所有对那个SocketId的Address会返回空指针（直到健康检查成功）。当Socket对象没人使用后会被回收。这个函数是lock-free的。</li>
+<li>Create: create a Socket and return its SocketId.</li>
+<li>Address: retrieve Socket from an id, and wrap it into a unique_ptr(SocketUniquePtr) that will be automatically released. When Socket is set failed, the pointer returned is empty. As long as Address returns a non-null pointer, the contents are guaranteed to not change until the pointer is destructed. This function is wait-free.</li>
+<li>SetFailed: Mark a Socket as failed and Address() on corresponding SocketId will return empty pointer (until health checking resumes the socket). Sockets are recycled when no one is referencing it anymore. This function is lock-free.</li>
 </ul>
-<p>可以看到Socket类似<a href="http://en.cppreference.com/w/cpp/memory/shared_ptr">shared_ptr</a>，SocketId类似<a href="http://en.cppreference.com/w/cpp/memory/weak_ptr">weak_ptr</a>，但Socket独有的SetFailed可以在需要时确保Socket不能被继续Address而最终引用计数归0，单纯使用shared_ptr/weak_ptr则无法保证这点，当一个server需要退出时，如果请求仍频繁地到来，对应Socket的引用计数可能迟迟无法清0而导致server无法退出。另外weak_ptr无法直接作为epoll的data，而SocketId可以。这些因素使我们设计了Socket，这个类的核心部分自14年完成后很少改动，非常稳定。</p>
-<p>存储SocketUniquePtr还是SocketId取决于是否需要强引用。像Controller贯穿了RPC的整个流程，和Socket中的数据有大量交互，它存放的是SocketUniquePtr。epoll主要是提醒对应fd上发生了事件，如果Socket回收了，那这个事件是可有可无的，所以它存放了SocketId。</p>
-<p>由于SocketUniquePtr只要有效，其中的数据就不会变，这个机制使用户不用关心麻烦的race conditon和ABA problem，可以放心地对共享的fd进行操作。这种方法也规避了隐式的引用计数，内存的ownership明确，程序的质量有很好的保证。brpc中有大量的SocketUniquePtr和SocketId，它们确实简化了我们的开发。</p>
-<p>事实上，Socket不仅仅用于管理原生的fd，它也被用来管理其他资源。比如SelectiveChannel中的每个Sub Channel都被置入了一个Socket中，这样SelectiveChannel可以像普通channel选择下游server那样选择一个Sub Channel进行发送。这个假Socket甚至还实现了健康检查。Streaming RPC也使用了Socket以复用wait-free的写出过程。</p>
+<p>We can see that, Socket is similar to <a href="http://en.cppreference.com/w/cpp/memory/shared_ptr">shared_ptr</a> in the sense of referential counting and SocketId is similar to <a href="http://en.cppreference.com/w/cpp/memory/weak_ptr">weak_ptr</a>. The unique <code>SetFailed</code> prevents Socket from being addressed so that the reference count can hit zero finally. Simply using shared_ptr/weak_ptr cannot guarantee this. For example, when a server needs to quit when requests are still coming in frequently, the reference count of Socket may not hit zero and the server is unable to stop quickly. What' more, weak_ptr cannot be directly put into epoll data, but SocketId can. These factors lead to design of Socket which is stable and rarely changed since 2014.</p>
+<p>Using SocketUniquePtr or SocketId depends on if a strong reference is needed. For example, Controller is used thoroughly inside RPC and has a lot of interactions with Socket, it uses SocketUniquePtr. Epoll notifies events on fds and events of a recycled socket can be ignored, so epoll uses SocketId.</p>
+<p>As long as SocketUniquePtr is valid, the Socket enclosed will not be changed so that users have no need to care about race conditions and ABA problems, being safer to operate the shared socket. This method also circumvents implicit referential counting and makes ownership of memory more clear, producing better-quality programs. brpc uses SocketUniquePtr and SocketId a lot to simplify related issues.</p>
+<p>In fact, Socket manages not only the native fd but also other resources, such as SubChannel in SelectiveChannel is also managed by Socket, making SelectiveChannel choose a SubChannel just like a normal channel choosing a downstream server. The faked Socket even implements health checking. Streaming RPC also uses Socket to reuse the code on wait-free write.</p>
 <h1 id="the-full-picture">The full picture</h1>
 <p><img src="/images/docs/rpc_flow.png" alt="img"></p>
 
@@ -2116,12 +2184,20 @@ if (!doNotTrack) {
         
             
         
+            
+        
+            
+        
+            
+        
+            
+        
     
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年2月26日: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 
@@ -2155,7 +2231,7 @@ if (!doNotTrack) {
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
         
 	
         <div style="font-size: 12.8px; color: rgb(117, 116, 116);">

@@ -2,1219 +2,1279 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://brpc.incubator.apache.org/docs/overview/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.1.0/</loc>
+    <lastmod>2022-04-18T19:03:23+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.1.0/"
+                />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/overview/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/overview/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/overview/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/getting_started/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</loc>
+    <lastmod>2022-04-18T19:03:23+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/"
+                />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/getting_started/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/getting_started/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/getting_started/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/getting_started/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/benchmark/</loc>
-    <lastmod>2022-04-11T18:56:48+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/zh/docs/benchmark/</loc>
+    <lastmod>2022-04-11T19:03:32+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/benchmark/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/benchmark/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/benchmark/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/buildin_services/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/buildin_services/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/buildin_services/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/buildin_services/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/buildin_services/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/bvar/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/bvar/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/bvar/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/bvar/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/bvar/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/bvar/bvar/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/bvar/bvar/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/bvar/bvar/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/bvar/bvar/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/bvar/bvar/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/bvar/bvar-c&#43;&#43;/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/bvar/bvar-c&#43;&#43;/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/bvar/bvar-c&#43;&#43;/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/bvar/bvar-c&#43;&#43;/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/bvar/bvar-c&#43;&#43;/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/iobuf/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/iobuf/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/c&#43;&#43;-base/iobuf/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/iobuf/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/iobuf/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/tools/rpc_press/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/tools/rpc_press/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/tools/rpc_press/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/tools/rpc_press/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/tools/rpc_press/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/basics/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/basics/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/basics/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/basics/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/basics/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/basics/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/basics/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/basics/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/basics/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/basics/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/new-protocol/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/new-protocol/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/new-protocol/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/new-protocol/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/new-protocol/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case1/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/use-case1/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case1/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case1/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/use-case1/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/bthread/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/bthread/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/bthread/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/bthread/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/bthread/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/bthread/bthread/</loc>
-    <lastmod>2022-04-11T18:56:48+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/zh/docs/bthread/bthread/</loc>
+    <lastmod>2022-04-11T19:03:32+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/bthread/bthread/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/bthread/bthread/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/bthread/bthread/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/bthread/bthread-or-not/</loc>
-    <lastmod>2022-04-11T18:56:48+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/zh/docs/bthread/bthread-or-not/</loc>
+    <lastmod>2022-04-11T19:03:32+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/bthread/bthread-or-not/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/bthread/bthread-or-not/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/bthread/bthread-or-not/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/bthread/execution-queue/</loc>
-    <lastmod>2022-04-11T18:56:48+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/zh/docs/bthread/execution-queue/</loc>
+    <lastmod>2022-04-11T19:03:32+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/bthread/execution-queue/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/bthread/execution-queue/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/bthread/execution-queue/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/tools/rpc_replay/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/tools/rpc_replay/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/tools/rpc_replay/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/tools/rpc_replay/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/tools/rpc_replay/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/status/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/status/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/status/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/status/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/status/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/streaming-log/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/streaming-log/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/c&#43;&#43;-base/streaming-log/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/streaming-log/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/streaming-log/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/bthread/thread-local/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/bthread/thread-local/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/bthread/thread-local/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/bthread/thread-local/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/bthread/thread-local/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/atomic-instructions/</loc>
-    <lastmod>2022-04-11T18:56:48+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/atomic-instructions/</loc>
+    <lastmod>2022-04-11T19:03:32+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/atomic-instructions/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/atomic-instructions/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/atomic-instructions/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/serve-httph2/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/serve-httph2/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/serve-httph2/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/serve-httph2/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/serve-httph2/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case2/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/use-case2/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case2/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case2/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/use-case2/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/error-code/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/error-code/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/error-code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/error-code/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/error-code/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case3/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/use-case3/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case3/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case3/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/use-case3/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/flatmap/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/flatmap/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/c&#43;&#43;-base/flatmap/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/flatmap/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/flatmap/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/io/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/io/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/io/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/io/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/tools/rpc_view/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/tools/rpc_view/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/tools/rpc_view/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/tools/rpc_view/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/tools/rpc_view/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/vars/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/vars/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/vars/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/vars/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/vars/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/</loc>
     <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/serve-grpc/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/serve-grpc/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/serve-grpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/serve-grpc/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/serve-grpc/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/combo-channels/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/combo-channels/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/combo-channels/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/combo-channels/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/combo-channels/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/tools/benchmark_http/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/tools/benchmark_http/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/tools/benchmark_http/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/tools/benchmark_http/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/tools/benchmark_http/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/brpc-training-materials/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/brpc-training-materials/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/c&#43;&#43;-base/brpc-training-materials/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/brpc-training-materials/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/brpc-training-materials/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/connections/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/connections/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/connections/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/connections/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/connections/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case4/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/use-case4/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case4/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/use-case4/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/use-case4/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/serve-thrift/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/serve-thrift/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/serve-thrift/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/serve-thrift/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/serve-thrift/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/</loc>
     <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/threading-overview/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/threading-overview/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/threading-overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/threading-overview/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/threading-overview/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/access-httph2/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/access-httph2/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/access-httph2/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/access-httph2/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/access-httph2/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/flags/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/flags/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/flags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/flags/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/flags/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/tools/parallel_http/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/tools/parallel_http/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/tools/parallel_http/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/tools/parallel_http/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/tools/parallel_http/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/serve-nshead/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/serve-nshead/</loc>
     <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/serve-nshead/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/serve-nshead/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/serve-nshead/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/access-grpc/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/access-grpc/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/access-grpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/access-grpc/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/access-grpc/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/load-balancing/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/load-balancing/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/load-balancing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/load-balancing/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/load-balancing/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/locality-aware/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/locality-aware/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/locality-aware/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/locality-aware/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/locality-aware/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/rpcz/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/rpcz/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/rpcz/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/rpcz/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/rpcz/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/tools/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/tools/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/tools/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/tools/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/tools/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/server-push/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/server-push/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/server-push/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/server-push/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/server-push/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/access-thrift/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/access-thrift/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/access-thrift/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/access-thrift/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/access-thrift/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/c&#43;&#43;-base/"
+                href="https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/c&#43;&#43;-base/"
+                href="https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/cpu_profiler/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/cpu_profiler/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/cpu_profiler/"
+                href="https://brpc.incubator.apache.org/docs/builtin-services/cpu_profiler/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/builtin-services/cpu_profiler/"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/cpu_profiler/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/consistent-hashing/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/consistent-hashing/</loc>
     <lastmod>2022-02-26T20:29:18+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/consistent-hashing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/consistent-hashing/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/consistent-hashing/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/access-ub/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/access-ub/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/access-ub/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/access-ub/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/access-ub/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/avalanche/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/avalanche/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/avalanche/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/avalanche/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/avalanche/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/debug-server-issues/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/debug-server-issues/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/debug-server-issues/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/debug-server-issues/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/debug-server-issues/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/heap_profiler/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/heap_profiler/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/heap_profiler/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/heap_profiler/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/heap_profiler/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/memory-management/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/memory-management/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/memory-management/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/memory-management/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/memory-management/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/auto-concurrencylimiter/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/auto-concurrencylimiter/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/auto-concurrencylimiter/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/auto-concurrencylimiter/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/auto-concurrencylimiter/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/access-redis/</loc>
-    <lastmod>2022-04-11T18:56:48+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/access-redis/</loc>
+    <lastmod>2022-04-11T19:03:32+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/access-redis/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/access-redis/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/access-redis/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/use-cases-inside-baidu/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/use-cases-inside-baidu/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/builtin-services/contention_profiler/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/builtin-services/contention_profiler/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/builtin-services/contention_profiler/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/builtin-services/contention_profiler/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/builtin-services/contention_profiler/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/timer-keeping/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/timer-keeping/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/timer-keeping/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/timer-keeping/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/timer-keeping/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/media-server/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/media-server/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/media-server/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/media-server/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/media-server/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/access-memcached/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/access-memcached/</loc>
     <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/access-memcached/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/access-memcached/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/access-memcached/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/rpc-in-depth/bthread_id/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/bthread_id/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/rpc-in-depth/bthread_id/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/rpc-in-depth/bthread_id/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/bthread_id/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/server/json2pb/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/server/json2pb/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/server/json2pb/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/server/json2pb/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/server/json2pb/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/downloadbrpc/</loc>
-    <lastmod>2022-04-11T17:20:58+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/zh/docs/downloadbrpc/</loc>
+    <lastmod>2022-04-18T19:03:23+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/downloadbrpc/"
+                href="https://brpc.incubator.apache.org/docs/downloadbrpc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/downloadbrpc/"
+                href="https://brpc.incubator.apache.org/zh/docs/downloadbrpc/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/streaming-rpc/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/streaming-rpc/</loc>
     <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/streaming-rpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/streaming-rpc/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/streaming-rpc/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/backup-request/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/backup-request/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/backup-request/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://brpc.incubator.apache.org/docs/client/backup-request/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/client/backup-request/"
+                />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/client/dummy-server/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/client/dummy-server/</loc>
     <lastmod>2022-01-30T19:27:29+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/client/dummy-server/"
+                href="https://brpc.incubator.apache.org/docs/client/dummy-server/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/client/dummy-server/"
+                href="https://brpc.incubator.apache.org/zh/docs/client/dummy-server/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/"
+                href="https://brpc.incubator.apache.org/docs/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/"
+                href="https://brpc.incubator.apache.org/zh/docs/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/faq/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/blogs/releases/</loc>
+    <lastmod>2022-04-18T19:03:23+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/docs/blogs/releases/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/blogs/releases/"
+                />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/faq/</loc>
     <lastmod>2022-02-17T11:13:36+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/faq/"
+                href="https://brpc.incubator.apache.org/docs/faq/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/faq/"
+                href="https://brpc.incubator.apache.org/zh/docs/faq/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/users/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/users/</loc>
     <lastmod>2022-04-08T18:12:59+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/users/"
+                href="https://brpc.incubator.apache.org/docs/users/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/users/"
+                href="https://brpc.incubator.apache.org/zh/docs/users/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/index.json</loc>
+    <loc>https://brpc.incubator.apache.org/zh/index.json</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/index.json"
+                href="https://brpc.incubator.apache.org/index.json"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/index.json"
+                href="https://brpc.incubator.apache.org/zh/index.json"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/</loc>
     <lastmod>2022-02-09T20:50:59+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/"
+                href="https://brpc.incubator.apache.org/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/"
+                href="https://brpc.incubator.apache.org/zh/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/search/</loc>
+    <loc>https://brpc.incubator.apache.org/zh/docs/blogs/</loc>
+    <lastmod>2022-04-18T19:03:23+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/docs/blogs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/blogs/"
+                />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/search/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/search/"
+                href="https://brpc.incubator.apache.org/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/search/"
+                href="https://brpc.incubator.apache.org/zh/search/"
                 />
   </url><url>
-    <loc>https://brpc.incubator.apache.org/docs/community/</loc>
-    <lastmod>2022-04-11T18:56:48+08:00</lastmod>
+    <loc>https://brpc.incubator.apache.org/zh/docs/community/</loc>
+    <lastmod>2022-04-11T19:03:32+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://brpc.incubator.apache.org/en/docs/community/"
+                href="https://brpc.incubator.apache.org/docs/community/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://brpc.incubator.apache.org/docs/community/"
+                href="https://brpc.incubator.apache.org/zh/docs/community/"
                 />
   </url>
 </urlset>

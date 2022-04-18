@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,17 +19,17 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>流式RPC | bRPC</title><meta property="og:title" content="流式RPC" />
-<meta property="og:description" content="学习如何使用流式rpc.
+<title>Streaming RPC | bRPC</title><meta property="og:title" content="Streaming RPC" />
+<meta property="og:description" content="Learn how to use streaming rpc.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/client/streaming-rpc/" /><meta property="og:site_name" content="bRPC" />
 
-<meta itemprop="name" content="流式RPC">
-<meta itemprop="description" content="学习如何使用流式rpc.
+<meta itemprop="name" content="Streaming RPC">
+<meta itemprop="description" content="Learn how to use streaming rpc.
 "><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="流式RPC"/>
-<meta name="twitter:description" content="学习如何使用流式rpc.
+<meta name="twitter:title" content="Streaming RPC"/>
+<meta name="twitter:description" content="Learn how to use streaming rpc.
 "/>
 
 <script type="application/javascript">
@@ -56,7 +56,7 @@ if (!doNotTrack) {
 
 
 
-    <title>流式RPC | bRPC</title>
+    <title>Streaming RPC | bRPC</title>
   </head>
   <body class="td-section">
     <header>
@@ -85,7 +85,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/docs/" ><span class="active">文档</span></a>
+				<a class="nav-link active" href="/docs/" ><span class="active">Docs</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -95,7 +95,17 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+				<a class="nav-link" href="/docs/blogs/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>Community</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -115,7 +125,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
+				<a class="nav-link" href="/docs/users/" ><span>Users</span></a>
 			</li>
 			
 			
@@ -124,11 +134,11 @@ if (!doNotTrack) {
 				
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/client/streaming-rpc/">English</a>
+	<a class="dropdown-item" href="/zh/docs/client/streaming-rpc/">中文</a>
 	
 </div>
 			</li>
@@ -136,7 +146,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 </div>
 </nav>
 
@@ -154,7 +164,7 @@ if (!doNotTrack) {
   
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -166,11 +176,11 @@ if (!doNotTrack) {
       
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/client/streaming-rpc/">English</a>
+	<a class="dropdown-item" href="/zh/docs/client/streaming-rpc/">中文</a>
 	
 </div>
     </div>
@@ -184,7 +194,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">文档</a>
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Docs</a>
   </li>
   <ul>
     <li class="collapse show" id="docs">
@@ -194,19 +204,19 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">简介</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">Overview</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">开始</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">Getting started</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">性能基准</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">Performance benchmark</a>
       
       
       
@@ -403,7 +413,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">客户端</a>
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Client</a>
   </li>
   <ul>
     <li class="collapse show" id="docsclient">
@@ -420,7 +430,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientbasics">
@@ -443,7 +453,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">错误码</a>
+    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
   </li>
   <ul>
     <li class="collapse " id="docsclienterror-code">
@@ -466,7 +476,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">组合channels</a>
+    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Combo channels</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientcombo-channels">
@@ -489,7 +499,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问http:h2</a>
+    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-httph2">
@@ -512,7 +522,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问gRPC</a>
+    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-grpc">
@@ -535,7 +545,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问thrift</a>
+    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-thrift">
@@ -558,7 +568,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问UB</a>
+    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-ub">
@@ -581,7 +591,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问redis</a>
+    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access redis</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-redis">
@@ -604,7 +614,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问memcached</a>
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-memcached">
@@ -627,7 +637,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">流式RPC</a>
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
   </li>
   <ul>
     <li class="collapse show" id="docsclientstreaming-rpc">
@@ -702,7 +712,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">服务端</a>
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsserver">
@@ -719,7 +729,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverbasics">
@@ -742,7 +752,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建http:h2服务</a>
+    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-httph2">
@@ -765,7 +775,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建gRPC服务</a>
+    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-grpc">
@@ -788,7 +798,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建thrift服务</a>
+    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-thrift">
@@ -811,7 +821,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建Nshead服务</a>
+    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-nshead">
@@ -834,7 +844,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">推送</a>
+    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserver-push">
@@ -857,7 +867,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">雪崩</a>
+    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
   </li>
   <ul>
     <li class="collapse " id="docsserveravalanche">
@@ -880,7 +890,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">高效率排查server卡顿</a>
+    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverdebug-server-issues">
@@ -903,7 +913,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">自适应限流</a>
+    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverauto-concurrencylimiter">
@@ -926,7 +936,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流媒体服务</a>
+    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsservermedia-server">
@@ -978,7 +988,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内置服务</a>
+    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
   </li>
   <ul>
     <li class="collapse " id="docsbuiltin-services">
@@ -1208,7 +1218,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">工具</a>
+    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
   </li>
   <ul>
     <li class="collapse " id="docstools">
@@ -1346,7 +1356,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43;基础</a>
+    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-base">
@@ -1432,7 +1442,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC培训材料</a>
+    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-basebrpc-training-materials">
@@ -1461,7 +1471,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">深入RPC</a>
+    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">RPC in depth</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depth">
@@ -1478,7 +1488,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">支持新协议</a>
+    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthnew-protocol">
@@ -1501,7 +1511,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">原子指令</a>
+    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthatomic-instructions">
@@ -1547,7 +1557,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">线程模型简介</a>
+    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depththreading-overview">
@@ -1570,7 +1580,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">负载均衡</a>
+    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthload-balancing">
@@ -1616,7 +1626,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">一致性哈希</a>
+    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthconsistent-hashing">
@@ -1639,7 +1649,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内存管理</a>
+    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthmemory-management">
@@ -1714,7 +1724,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC在百度内部的应用</a>
+    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
   </li>
   <ul>
     <li class="collapse " id="docsuse-cases-inside-baidu">
@@ -1822,7 +1832,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">下载bRPC</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">Download bRPC</a>
       
       
       
@@ -1834,13 +1844,71 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">Users</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Blog</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogs">
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Release</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogsreleases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases110" href="/docs/blogs/releases/1.1.0/">bRPC 1.1.0</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases100" href="/docs/blogs/releases/1.0.0/">bRPC 1.0.0</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">Community</a>
       
       
     </li>
@@ -1866,11 +1934,11 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/docs/Client/Streaming%20RPC/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=%e6%b5%81%e5%bc%8fRPC" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/Client/Streaming%20RPC/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=Streaming%20RPC" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
-<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
 
 </div>
 
@@ -1897,21 +1965,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/">文档</a>
+	<a href="/docs/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/client/">客户端</a>
+	<a href="/docs/client/">Client</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/client/streaming-rpc/">流式RPC</a>
+	<a href="/docs/client/streaming-rpc/">Streaming RPC</a>
 </li>
 
 	</ol>
@@ -1920,31 +1988,30 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>流式RPC</h1>
-	<div class="lead">学习如何使用流式rpc.</div>
-	<h1 id="概述">概述</h1>
-<p>在一些应用场景中， client或server需要向对面发送大量数据，这些数据非常大或者持续地在产生以至于无法放在一个RPC的附件中。比如一个分布式系统的不同节点间传递replica或snapshot。client/server之间虽然可以通过多次RPC把数据切分后传输过去，但存在如下问题：</p>
+	<h1>Streaming RPC</h1>
+	<div class="lead">Learn how to use streaming rpc.</div>
+	<p>There are some scenarios when the client or server needs to send huge amount of data, which may grow over time or is too large to put into the RPC attachment. For example, it could be the replica or snapshot transmitting between different nodes in a distributed system. Although we could send data segmentation across multiple RPC between client and server, this will introduce the following problems:</p>
 <ul>
-<li>如果这些RPC是并行的，无法保证接收端有序地收到数据，拼接数据的逻辑相当复杂。</li>
-<li>如果这些RPC是串行的，每次传递都得等待一次网络RTT+处理数据的延时，特别是后者的延时可能是难以预估的。</li>
+<li>If these RPCs are parallel, there is no guarantee on the order of the data at the receiving side, which leads to complicate code of reassembling.</li>
+<li>If these RPCs are serial, we have to endure the latency of the network RTT for each RPC together with the process time, which is especially unpredictable.</li>
 </ul>
-<p>为了让大块数据以流水线的方式在client/server之间传递， 我们提供了Streaming RPC这种交互模型。Streaming RPC让用户能够在client/service之间建立用户态连接，称为Stream,  同一个TCP连接之上能同时存在多个Stream。 Stream的传输数据以消息为基本单位， 输入端可以源源不断的往Stream中写入消息， 接收端会按输入端写入顺序收到消息。</p>
-<p>Streaming RPC保证：</p>
+<p>In order to allow large packets to flow between client and server like a stream, we provide a new communication model: Streaming RPC. Streaming RPC enables users to establishes Stream which is a user-space connection between client and service. Multiple Streams can share the same TCP connection at the same time. The basic transmission unit on Stream is message. As a result, the sender can continuously write to messages to a Stream, while the receiver can read them out in the order of sending.</p>
+<p>Streaming RPC ensures/provides:</p>
 <ul>
-<li>有消息边界。</li>
-<li>接收消息的顺序和发送消息的顺序严格一致。</li>
-<li>全双工。</li>
-<li>支持流控。</li>
-<li>提供超时提醒</li>
+<li>The message order at the receiver is exactly the same as that of the sender</li>
+<li>Boundary for messages</li>
+<li>Full duplex</li>
+<li>Flow control</li>
+<li>Notification on timeout</li>
 </ul>
-<p>目前的实现还没有自动切割过大的消息，同一个tcp连接上的多个Stream之间可能有<a href="https://en.wikipedia.org/wiki/Head-of-line_blocking">Head-of-line blocking</a>问题，请尽量避免过大的单个消息，实现自动切割后我们会告知并更新文档。</p>
-<p>例子见<a href="https://github.com/brpc/brpc/tree/master/example/streaming_echo_c++/">example/streaming_echo_c++</a>。</p>
-<h1 id="建立stream">建立Stream</h1>
-<p>目前Stream都由Client端建立。Client先在本地创建一个Stream，再通过一次RPC（必须使用baidu_std协议）与指定的Service建立一个Stream，如果Service在收到请求之后选择接受这个Stream， 那在response返回Client后Stream就会建立成功。过程中的任何错误都把RPC标记为失败，同时也意味着Stream创建失败。用linux下建立连接的过程打比方，Client先创建<a href="http://linux.die.net/man/7/socket">socket</a>（创建Stream），再调用<a href="http://linux.die.net/man/2/connect">connect</a>尝试与远端建立连接（通过RPC建立Stream），远端<a href="http://linux.die.net/man/2/accept">accept</a>后连接就建立了（service接受后创建成功）。</p>
+<p>We do not support segment large messages automatically so that multiple Streams on a single TCP connection may lead to <a href="https://en.wikipedia.org/wiki/Head-of-line_blocking">Head-of-line blocking</a> problem. Please avoid putting huge data into single message until we provide automatic segmentation.</p>
+<p>For examples please refer to <a href="https://github.com/brpc/brpc/tree/master/example/streaming_echo_c++/">example/streaming_echo_c++</a>.</p>
+<h1 id="create-a-stream">Create a Stream</h1>
+<p>Currently stream is established by the client only. A new Stream object is created in client and then is used to issues an RPC (through baidu_std protocol) to the specified service. The service could accept this stream by responding to the request without error, thus a Stream is created once the client receives the response successfully. Any error during this process fails the RPC and thus fails the Stream creation. Take the Linux environment as an example, the client creates a <a href="http://linux.die.net/man/7/socket">socket</a> first (creates a Stream), and then try to establish a connection with the remote side by <a href="http://linux.die.net/man/2/connect">connect</a> (establish a Stream through RPC). Finally the stream has been created once the remote side <a href="http://linux.die.net/man/2/accept">accept</a> the request.</p>
 <blockquote>
-<p>如果Client尝试向不支持Streaming RPC的老Server建立Stream，将总是失败。</p>
+<p>If the client tries to establish a stream to a server that doesn&rsquo;t support streaming RPC, it will always return failure.</p>
 </blockquote>
-<p>程序中我们用StreamId代表一个Stream，对Stream的读写，关闭操作都将作用在这个Id上。</p>
+<p>In the code we use <code>StreamId</code> to represent a Stream, which is the key ID to pass when reading, writing, closing the Stream.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000">StreamOptions</span>
     <span style="color:#8f5902;font-style:italic">// The max size of unconsumed data allowed at remote side.
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// If |max_buf_size| &lt;= 0, there&#39;s no limit of buf size
@@ -1973,32 +2040,32 @@ if (!doNotTrack) {
 </span><span style="color:#8f5902;font-style:italic">// NULL, the Stream will be created with default options
 </span><span style="color:#8f5902;font-style:italic">// Return 0 on success, -1 otherwise
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">StreamCreate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">StreamId</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request_stream</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Controller</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">StreamOptions</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><h1 id="接受stream">接受Stream</h1>
-<p>如果client在RPC上附带了一个Stream， service在收到RPC后可以通过调用StreamAccept接受。接受后Server端对应产生的Stream存放在response_stream中，Server可通过这个Stream向Client发送数据。</p>
+</code></pre></div><h1 id="accept-a-stream">Accept a Stream</h1>
+<p>If a Stream is attached inside the request of an RPC, the service can accept the Stream by <code>StreamAccept</code>. On success this function fill the created Stream into <code>response_stream</code>, which can be used to send message to the client.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// [Called at the server side]
 </span><span style="color:#8f5902;font-style:italic">// Accept the Stream. If client didn&#39;t create a Stream with the request
 </span><span style="color:#8f5902;font-style:italic">// (cntl.has_remote_stream() returns false), this method would fail.
 </span><span style="color:#8f5902;font-style:italic">// Return 0 on success, -1 otherwise.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">StreamAccept</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">StreamId</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">response_stream</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Controller</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">StreamOptions</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><h1 id="读取stream">读取Stream</h1>
-<p>在建立或者接受一个Stream的时候， 用户可以继承StreamInputHandler并把这个handler填入StreamOptions中. 通过这个handler，用户可以处理对端的写入数据，连接关闭以及idle timeout</p>
+</code></pre></div><h1 id="read-from-a-stream">Read from a Stream</h1>
+<p>Upon creating/accepting a Stream, your can fill the <code>hander</code> in <code>StreamOptions</code> with your own implemented <code>StreamInputHandler</code>. Then you will be notified when the stream receives data, is closed by the other end, or reaches idle timeout.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">StreamInputHandler</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
-    <span style="color:#8f5902;font-style:italic">// 当接收到消息后被调用
+    <span style="color:#8f5902;font-style:italic">// Callback when stream receives data
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">virtual</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">on_received_messages</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">StreamId</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">IOBuf</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">messages</span><span style="color:#000;font-weight:bold">[],</span> <span style="color:#000">size_t</span> <span style="color:#000">size</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
  
-    <span style="color:#8f5902;font-style:italic">// 当Stream上长时间没有数据交互后被调用
+    <span style="color:#8f5902;font-style:italic">// Callback when there is no data for a long time on the stream
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">virtual</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">on_idle_timeout</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">StreamId</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
  
-    <span style="color:#8f5902;font-style:italic">// 当Stream被关闭时被调用
+    <span style="color:#8f5902;font-style:italic">// Callback when stream is closed by the other end
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">virtual</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">on_closed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">StreamId</span> <span style="color:#000">id</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">};</span>
 </code></pre></div><blockquote>
-<p><em><strong>第一次收到请求的时间</strong></em></p>
-<p>在client端，如果建立过程是一次同步RPC， 那在等待的线程被唤醒之后，on_received_message就可能会被调用到。 如果是异步RPC请求， 那等到这次请求的done-&gt;Run() 执行完毕之后， on_received_message就可能会被调用。</p>
-<p>在server端， 当框架传入的done-&gt;Run()被调用完之后， on_received_message就可能会被调用。</p>
+<p><em><strong>The first call to <code>on_received_message </code></strong></em></p>
+<p>On the client&rsquo;s side, if the creation process is synchronous, <code>on_received_message</code> will be called when the blocking RPC returns. If it&rsquo;s asynchronous, <code>on_received_message</code> won&rsquo;t be called until <code>done-&gt;Run()</code> finishes.</p>
+<p>On the server' side, <code>on_received_message</code> will be called once <code>done-&gt;Run()</code> finishes.</p>
 </blockquote>
-<h1 id="写入stream">写入Stream</h1>
+<h1 id="write-to-a-stream">Write to a Stream</h1>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Write |message| into |stream_id|. The remote-side handler will received the
 </span><span style="color:#8f5902;font-style:italic">// message by the written order
 </span><span style="color:#8f5902;font-style:italic">// Returns 0 on success, errno otherwise
@@ -2007,8 +2074,8 @@ if (!doNotTrack) {
 </span><span style="color:#8f5902;font-style:italic">//            which the remote side hasn&#39;t consumed yet excceeds the number.
 </span><span style="color:#8f5902;font-style:italic">//  - EINVAL: |stream_id| is invalied or has been closed
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">StreamWrite</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">StreamId</span> <span style="color:#000">stream_id</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">IOBuf</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">message</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><h1 id="流控">流控</h1>
-<p>当存在较多已发送但未接收的数据时，发送端的Write操作会立即失败(返回EAGAIN）， 这时候可以通过同步或异步的方式等待对端消费掉数据。</p>
+</code></pre></div><h1 id="flow-control">Flow Control</h1>
+<p>When the amount of unacknowledged data reaches the limit, the <code>Write</code> operation at the sender will fail with EAGAIN immediately. At this moment, you should wait for the receiver to consume the data synchronously or asynchronously.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Wait util the pending buffer size is less than |max_buf_size| or error occurs
 </span><span style="color:#8f5902;font-style:italic">// Returns 0 on success, errno otherwise
 </span><span style="color:#8f5902;font-style:italic">// Errno:
@@ -2020,7 +2087,7 @@ if (!doNotTrack) {
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">StreamWait</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">StreamId</span> <span style="color:#000">stream_id</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">timespec</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">due_time</span><span style="color:#000;font-weight:bold">,</span>
                 <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">on_writable</span><span style="color:#000;font-weight:bold">)(</span><span style="color:#000">StreamId</span> <span style="color:#000">stream_id</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">arg</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">error_code</span><span style="color:#000;font-weight:bold">),</span>
                 <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">arg</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><h1 id="关闭stream">关闭Stream</h1>
+</code></pre></div><h1 id="close-a-stream">Close a Stream</h1>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Close |stream_id|, after this function is called:
 </span><span style="color:#8f5902;font-style:italic">//  - All the following |StreamWrite| would fail
 </span><span style="color:#8f5902;font-style:italic">//  - |StreamWait| wakes up immediately.
@@ -2192,12 +2259,20 @@ if (!doNotTrack) {
         
             
         
+            
+        
+            
+        
+            
+        
+            
+        
     
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年2月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/306a9070cb26d194a6657de26133608a94c3e398">brpc website 1.0 fix some pages (306a907)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
 </div>
 </div>
 
@@ -2231,7 +2306,7 @@ if (!doNotTrack) {
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
         
 	
         <div style="font-size: 12.8px; color: rgb(117, 116, 116);">

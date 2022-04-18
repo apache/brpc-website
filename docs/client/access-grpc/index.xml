@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bRPC – 访问gRPC</title>
+    <title>bRPC – Access gRPC</title>
     <link>https://brpc.incubator.apache.org/docs/client/access-grpc/</link>
-    <description>Recent content in 访问gRPC on bRPC</description>
+    <description>Recent content in Access gRPC on bRPC</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
     
