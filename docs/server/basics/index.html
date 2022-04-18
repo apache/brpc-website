@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,17 +19,17 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Basics | bRPC</title><meta property="og:title" content="Basics" />
-<meta property="og:description" content="Learn how to use bRPC server.
+<title>基础功能 | bRPC</title><meta property="og:title" content="基础功能" />
+<meta property="og:description" content="学习如何使用bRPC Server。
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/server/basics/" /><meta property="og:site_name" content="bRPC" />
 
-<meta itemprop="name" content="Basics">
-<meta itemprop="description" content="Learn how to use bRPC server.
+<meta itemprop="name" content="基础功能">
+<meta itemprop="description" content="学习如何使用bRPC Server。
 "><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Basics"/>
-<meta name="twitter:description" content="Learn how to use bRPC server.
+<meta name="twitter:title" content="基础功能"/>
+<meta name="twitter:description" content="学习如何使用bRPC Server。
 "/>
 
 <script type="application/javascript">
@@ -56,7 +56,7 @@ if (!doNotTrack) {
 
 
 
-    <title>Basics | bRPC</title>
+    <title>基础功能 | bRPC</title>
   </head>
   <body class="td-section">
     <header>
@@ -85,7 +85,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/docs/" ><span class="active">Docs</span></a>
+				<a class="nav-link active" href="/docs/" ><span class="active">文档</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -95,17 +95,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/blogs/" ><span>Blog</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="/docs/community/" ><span>Community</span></a>
+				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -125,7 +115,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/users/" ><span>Users</span></a>
+				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
 			</li>
 			
 			
@@ -134,11 +124,11 @@ if (!doNotTrack) {
 				
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	English
+	中文
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/zh/docs/server/basics/">中文</a>
+	<a class="dropdown-item" href="/en/docs/server/basics/">English</a>
 	
 </div>
 			</li>
@@ -146,7 +136,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
 </div>
 </nav>
 
@@ -164,7 +154,7 @@ if (!doNotTrack) {
   
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -176,11 +166,11 @@ if (!doNotTrack) {
       
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	English
+	中文
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/zh/docs/server/basics/">中文</a>
+	<a class="dropdown-item" href="/en/docs/server/basics/">English</a>
 	
 </div>
     </div>
@@ -194,7 +184,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Docs</a>
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">文档</a>
   </li>
   <ul>
     <li class="collapse show" id="docs">
@@ -204,19 +194,19 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">Overview</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">简介</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">Getting started</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">开始</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">Performance benchmark</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">性能基准</a>
       
       
       
@@ -413,7 +403,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Client</a>
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">客户端</a>
   </li>
   <ul>
     <li class="collapse " id="docsclient">
@@ -430,7 +420,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
+    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientbasics">
@@ -453,7 +443,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
+    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">错误码</a>
   </li>
   <ul>
     <li class="collapse " id="docsclienterror-code">
@@ -476,7 +466,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Combo channels</a>
+    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">组合channels</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientcombo-channels">
@@ -499,7 +489,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
+    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-httph2">
@@ -522,7 +512,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
+    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-grpc">
@@ -545,7 +535,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access thrift</a>
+    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-thrift">
@@ -568,7 +558,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
+    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问UB</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-ub">
@@ -591,7 +581,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access redis</a>
+    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问redis</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-redis">
@@ -614,7 +604,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问memcached</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-memcached">
@@ -637,7 +627,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流式RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientstreaming-rpc">
@@ -712,7 +702,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Server</a>
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">服务端</a>
   </li>
   <ul>
     <li class="collapse show" id="docsserver">
@@ -729,7 +719,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Basics</a>
+    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">基础功能</a>
   </li>
   <ul>
     <li class="collapse show" id="docsserverbasics">
@@ -752,7 +742,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
+    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建http:h2服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-httph2">
@@ -775,7 +765,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
+    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建gRPC服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-grpc">
@@ -798,7 +788,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
+    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建thrift服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-thrift">
@@ -821,7 +811,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
+    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建Nshead服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-nshead">
@@ -844,7 +834,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
+    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">推送</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserver-push">
@@ -867,7 +857,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
+    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">雪崩</a>
   </li>
   <ul>
     <li class="collapse " id="docsserveravalanche">
@@ -890,7 +880,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
+    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">高效率排查server卡顿</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverdebug-server-issues">
@@ -913,7 +903,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
+    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">自适应限流</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverauto-concurrencylimiter">
@@ -936,7 +926,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
+    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流媒体服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsservermedia-server">
@@ -988,7 +978,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
+    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内置服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsbuiltin-services">
@@ -1218,7 +1208,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
+    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">工具</a>
   </li>
   <ul>
     <li class="collapse " id="docstools">
@@ -1356,7 +1346,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
+    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43;基础</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-base">
@@ -1442,7 +1432,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
+    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC培训材料</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-basebrpc-training-materials">
@@ -1471,7 +1461,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">RPC in depth</a>
+    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">深入RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depth">
@@ -1488,7 +1478,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
+    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">支持新协议</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthnew-protocol">
@@ -1511,7 +1501,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
+    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">原子指令</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthatomic-instructions">
@@ -1557,7 +1547,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
+    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">线程模型简介</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depththreading-overview">
@@ -1580,7 +1570,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
+    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">负载均衡</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthload-balancing">
@@ -1626,7 +1616,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
+    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">一致性哈希</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthconsistent-hashing">
@@ -1649,7 +1639,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
+    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内存管理</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthmemory-management">
@@ -1724,7 +1714,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
+    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC在百度内部的应用</a>
   </li>
   <ul>
     <li class="collapse " id="docsuse-cases-inside-baidu">
@@ -1832,7 +1822,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">Download bRPC</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">下载bRPC</a>
       
       
       
@@ -1844,71 +1834,13 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">Users</a>
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/blogs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Blog</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsblogs">
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
       
       
       
       
       
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/blogs/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Release</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsblogsreleases">
-      
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases110" href="/docs/blogs/releases/1.1.0/">bRPC 1.1.0</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases100" href="/docs/blogs/releases/1.0.0/">bRPC 1.0.0</a>
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">Community</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
       
       
     </li>
@@ -1934,11 +1866,11 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/Server/Basics/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=Basics" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/docs/Server/Basics/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=%e5%9f%ba%e7%a1%80%e5%8a%9f%e8%83%bd" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
 
 
-<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
 
 </div>
 
@@ -1949,60 +1881,60 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#set-rpc-to-be-failed">Set RPC to be failed</a></li>
-    <li><a href="#get-address-of-client">Get address of client</a></li>
-    <li><a href="#get-address-of-server">Get address of server</a></li>
-    <li><a href="#asynchronous-service">Asynchronous Service</a></li>
+    <li><a href="#标记当前调用为失败">标记当前调用为失败</a></li>
+    <li><a href="#获取client的地址">获取Client的地址</a></li>
+    <li><a href="#获取server的地址">获取Server的地址</a></li>
+    <li><a href="#异步service">异步Service</a></li>
   </ul>
 
   <ul>
-    <li><a href="#listen-to-multiple-ports">Listen to multiple ports</a></li>
-    <li><a href="#multi-process-listening-to-one-port">Multi-process listening to one port</a></li>
+    <li><a href="#监听多个端口">监听多个端口</a></li>
+    <li><a href="#多进程监听一个端口">多进程监听一个端口</a></li>
   </ul>
 
   <ul>
     <li><a href="#jsonpb">json&lt;=&gt;pb</a></li>
-    <li><a href="#adapt-old-clients">Adapt old clients</a></li>
+    <li><a href="#兼容早期版本client">兼容早期版本client</a></li>
   </ul>
 
   <ul>
-    <li><a href="#version">Version</a></li>
-    <li><a href="#close-idle-connections">Close idle connections</a></li>
+    <li><a href="#版本">版本</a></li>
+    <li><a href="#关闭闲置连接">关闭闲置连接</a></li>
     <li><a href="#pid_file">pid_file</a></li>
-    <li><a href="#print-hostname-in-each-line-of-log">Print hostname in each line of log</a></li>
-    <li><a href="#crash-after-printing-fatal-log">Crash after printing FATAL log</a></li>
-    <li><a href="#minimum-log-level">Minimum log level</a></li>
-    <li><a href="#return-free-memory-to-system">Return free memory to system</a></li>
-    <li><a href="#log-error-to-clients">Log error to clients</a></li>
-    <li><a href="#customize-percentiles-of-latency">Customize percentiles of latency</a></li>
-    <li><a href="#change-stacksize">Change stacksize</a></li>
-    <li><a href="#limit-sizes-of-messages">Limit sizes of messages</a></li>
-    <li><a href="#compression">Compression</a></li>
-    <li><a href="#attachment">Attachment</a></li>
-    <li><a href="#turn-on-ssl">Turn on SSL</a></li>
-    <li><a href="#verify-identities-of-clients">Verify identities of clients</a></li>
-    <li><a href="#number-of-worker-pthreads">Number of worker pthreads</a></li>
-    <li><a href="#limit-concurrency">Limit concurrency</a>
+    <li><a href="#在每条日志后打印hostname">在每条日志后打印hostname</a></li>
+    <li><a href="#打印fatal日志后退出程序">打印FATAL日志后退出程序</a></li>
+    <li><a href="#最低日志级别">最低日志级别</a></li>
+    <li><a href="#归还空闲内存至系统">归还空闲内存至系统</a></li>
+    <li><a href="#打印发送给client的错误">打印发送给client的错误</a></li>
+    <li><a href="#定制延时的分位值">定制延时的分位值</a></li>
+    <li><a href="#设置栈大小">设置栈大小</a></li>
+    <li><a href="#限制最大消息">限制最大消息</a></li>
+    <li><a href="#压缩">压缩</a></li>
+    <li><a href="#附件">附件</a></li>
+    <li><a href="#开启ssl">开启SSL</a></li>
+    <li><a href="#验证client身份">验证client身份</a></li>
+    <li><a href="#worker线程数">worker线程数</a></li>
+    <li><a href="#限制最大并发">限制最大并发</a>
       <ul>
-        <li><a href="#why-issue-error-to-the-client-instead-of-queuing-the-request-when-the-concurrency-hits-limit">Why issue error to the client instead of queuing the request when the concurrency hits limit?</a></li>
-        <li><a href="#why-not-limit-qps">Why not limit QPS?</a></li>
-        <li><a href="#calculate-max-concurrency">Calculate max concurrency</a></li>
-        <li><a href="#limit-server-level-concurrency">Limit server-level concurrency</a></li>
-        <li><a href="#limit-method-level-concurrency">Limit method-level concurrency</a></li>
-        <li><a href="#autoconcurrencylimiter">AutoConcurrencyLimiter</a></li>
+        <li><a href="#为什么超过最大并发要立刻给client返回错误而不是排队">为什么超过最大并发要立刻给client返回错误而不是排队？</a></li>
+        <li><a href="#为什么不限制qps">为什么不限制QPS?</a></li>
+        <li><a href="#计算最大并发数">计算最大并发数</a></li>
+        <li><a href="#限制server级别并发度">限制server级别并发度</a></li>
+        <li><a href="#限制method级别并发度">限制method级别并发度</a></li>
+        <li><a href="#使用自适应限流算法">使用自适应限流算法</a></li>
       </ul>
     </li>
-    <li><a href="#pthread-mode">pthread mode</a></li>
-    <li><a href="#security-mode">Security mode</a>
+    <li><a href="#pthread模式">pthread模式</a></li>
+    <li><a href="#安全模式">安全模式</a>
       <ul>
-        <li><a href="#hide-builtin-services-from-public">Hide builtin services from public</a></li>
-        <li><a href="#disable-built-in-services-completely">Disable built-in services completely</a></li>
-        <li><a href="#escape-urls-controllable-from-public">Escape URLs controllable from public</a></li>
-        <li><a href="#not-return-addresses-of-internal-servers">Not return addresses of internal servers</a></li>
+        <li><a href="#对外隐藏内置服务">对外隐藏内置服务</a></li>
+        <li><a href="#完全禁用内置服务">完全禁用内置服务</a></li>
+        <li><a href="#转义外部可控的url">转义外部可控的URL</a></li>
+        <li><a href="#不返回内部server地址">不返回内部server地址</a></li>
       </ul>
     </li>
-    <li><a href="#customize-health">Customize /health</a></li>
-    <li><a href="#thread-local-variables">thread-local variables</a>
+    <li><a href="#定制health页面">定制/health页面</a></li>
+    <li><a href="#线程私有变量">线程私有变量</a>
       <ul>
         <li><a href="#session-local">session-local</a></li>
         <li><a href="#server-thread-local">server-thread-local</a></li>
@@ -2014,12 +1946,12 @@ if (!doNotTrack) {
   <ul>
     <li>
       <ul>
-        <li><a href="#q-fail-to-write-into-fd1865-socketid89051020824543547428230-got-eof">Q: Fail to write into fd=1865 <a href="mailto:SocketId=8905@10.208.245.43">SocketId=8905@10.208.245.43</a>:54742@8230: Got EOF</a></li>
-        <li><a href="#q-remote-side-of-fd9-socketid2109466558000-was-closed">Q: Remote side of fd=9 <a href="mailto:SocketId=2@10.94.66.55">SocketId=2@10.94.66.55</a>:8000 was closed</a></li>
-        <li><a href="#q-why-does-setting-number-of-threads-at-server-side-not-work">Q: Why does setting number of threads at server-side not work</a></li>
-        <li><a href="#q-why-do-client-side-latencies-much-larger-than-the-server-side-ones">Q: Why do client-side latencies much larger than the server-side ones</a></li>
+        <li><a href="#q-fail-to-write-into-fd1865-socketid89051020824543547428230-got-eof是什么意思">Q: Fail to write into fd=1865 <a href="mailto:SocketId=8905@10.208.245.43">SocketId=8905@10.208.245.43</a>:54742@8230: Got EOF是什么意思</a></li>
+        <li><a href="#q-remote-side-of-fd9-socketid2109466558000-was-closed是什么意思">Q: Remote side of fd=9 <a href="mailto:SocketId=2@10.94.66.55">SocketId=2@10.94.66.55</a>:8000 was closed是什么意思</a></li>
+        <li><a href="#q-为什么server端线程数设了没用">Q: 为什么server端线程数设了没用</a></li>
+        <li><a href="#q-为什么client端的延时远大于server端的延时">Q: 为什么client端的延时远大于server端的延时</a></li>
         <li><a href="#q-fail-to-open-procselfio">Q: Fail to open /proc/self/io</a></li>
-        <li><a href="#q-json-string-123-cant-be-converted-to-protobuf-message">Q: json string &ldquo;[1,2,3]&rdquo; can&rsquo;t be converted to protobuf message</a></li>
+        <li><a href="#q-json串123没法直接转为protobuf-message">Q: json串&quot;[1,2,3]&ldquo;没法直接转为protobuf message</a></li>
       </ul>
     </li>
   </ul>
@@ -2043,21 +1975,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/">Docs</a>
+	<a href="/docs/">文档</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/server/">Server</a>
+	<a href="/docs/server/">服务端</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/server/basics/">Basics</a>
+	<a href="/docs/server/basics/">基础功能</a>
 </li>
 
 	</ol>
@@ -2066,28 +1998,28 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>Basics</h1>
-	<div class="lead">Learn how to use bRPC server.</div>
-	<h1 id="example">Example</h1>
-<p><a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/server.cpp">server-side code</a> of Echo.</p>
-<h1 id="fill-the-proto">Fill the .proto</h1>
-<p>Interfaces of requests, responses, services are defined in proto files.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8f5902;font-style:italic"># Tell protoc to generate base classes for C++ Service. modify to java_generic_services or py_generic_services for java or python. 
+	<h1>基础功能</h1>
+	<div class="lead">学习如何使用bRPC Server。</div>
+	<h1 id="示例程序">示例程序</h1>
+<p>Echo的<a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/server.cpp">server端代码</a>。</p>
+<h1 id="填写proto文件">填写proto文件</h1>
+<p>请求、回复、服务的接口均定义在proto文件中。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8f5902;font-style:italic"># 告诉protoc要生成C++ Service基类，如果是java或python，则应分别修改为java_generic_services和py_generic_services
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">option</span> <span style="color:#000">cc_generic_services</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">;</span>
-
+ 
 <span style="color:#000">message</span> <span style="color:#000">EchoRequest</span> <span style="color:#000;font-weight:bold">{</span>
       <span style="color:#000">required</span> <span style="color:#000">string</span> <span style="color:#000">message</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">};</span>
 <span style="color:#000">message</span> <span style="color:#000">EchoResponse</span> <span style="color:#000;font-weight:bold">{</span>
       <span style="color:#000">required</span> <span style="color:#000">string</span> <span style="color:#000">message</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">};</span>
-
+ 
 <span style="color:#000">service</span> <span style="color:#000">EchoService</span> <span style="color:#000;font-weight:bold">{</span>
       <span style="color:#000">rpc</span> <span style="color:#000">Echo</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">EchoRequest</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">returns</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">EchoResponse</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#000;font-weight:bold">};</span>
-</code></pre></div><p>Read <a href="https://developers.google.com/protocol-buffers/docs/proto#options">official documents on protobuf</a> for more details about protobuf.</p>
-<h1 id="implement-generated-interface">Implement generated interface</h1>
-<p>protoc generates echo.pb.cc and echo.pb.h. Include echo.pb.h and implement EchoService inside:</p>
+</code></pre></div><p>protobuf的更多用法请阅读<a href="https://developers.google.com/protocol-buffers/docs/proto#options">protobuf官方文档</a>。</p>
+<h1 id="实现生成的service接口">实现生成的Service接口</h1>
+<p>protoc运行后会生成echo.pb.cc和echo.pb.h文件，你得include echo.pb.h，实现其中的EchoService基类：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;echo.pb.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">MyEchoService</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">EchoService</span>  <span style="color:#000;font-weight:bold">{</span>
@@ -2096,36 +2028,35 @@ if (!doNotTrack) {
               <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoRequest</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
               <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoResponse</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span>
               <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Closure</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">done</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#8f5902;font-style:italic">// This RAII object calls done-&gt;Run() automatically at exit.
+        <span style="color:#8f5902;font-style:italic">// 这个对象确保在return时自动调用done-&gt;Run()
 </span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ClosureGuard</span> <span style="color:#000">done_guard</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">done</span><span style="color:#000;font-weight:bold">);</span>
          
         <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cntl</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">static_cast</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl_base</span><span style="color:#000;font-weight:bold">);</span>
  
-        <span style="color:#8f5902;font-style:italic">// fill response
+        <span style="color:#8f5902;font-style:italic">// 填写response
 </span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">response</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">set_message</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">request</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">message</span><span style="color:#000;font-weight:bold">());</span>
     <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">};</span>
-</code></pre></div><p>Service is not available before insertion into <a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">brpc.Server</a>.</p>
-<p>When client sends request, Echo() is called.</p>
-<p>Explain parameters:</p>
+</code></pre></div><p>Service在插入<a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">brpc.Server</a>后才可能提供服务。</p>
+<p>当客户端发来请求时，Echo()会被调用。参数的含义分别是：</p>
 <p><strong>controller</strong></p>
-<p>Statically convertible to brpc::Controller  (provided that the code runs in brpc.Server). Contains parameters that can&rsquo;t be included by request and response, check out <a href="https://github.com/brpc/brpc/blob/master/src/brpc/controller.h">src/brpc/controller.h</a> for details.</p>
+<p>在brpc中可以静态转为brpc::Controller（前提是代码运行brpc.Server中），包含了所有request和response之外的参数集合，具体接口查阅<a href="https://github.com/brpc/brpc/blob/master/src/brpc/controller.h">controller.h</a></p>
 <p><strong>request</strong></p>
-<p>read-only message from a client.</p>
+<p>请求，只读的，来自client端的数据包。</p>
 <p><strong>response</strong></p>
-<p>Filled by user. If any <strong>required</strong> field is not set, the RPC will fail.</p>
+<p>回复。需要用户填充，如果存在<strong>required</strong>字段没有被设置，该次调用会失败。</p>
 <p><strong>done</strong></p>
-<p>Created by brpc and passed to service&rsquo;s CallMethod(), including all actions after leaving CallMethod(): validating response, serialization, sending back to client etc.</p>
-<p><strong>No matter the RPC is successful or not, done-&gt;Run() must be called by user once and only once when the RPC is done.</strong></p>
-<p>Why does brpc not call done-&gt;Run() automatically? Because users are able to store done somewhere and call done-&gt;Run() in some event handlers after leaving CallMethod(), which is an <strong>asynchronous service</strong>.</p>
-<p>We strongly recommend using <strong>ClosureGuard</strong> to make done-&gt;Run() always be called. Look at the beginning statement in above code snippet:</p>
+<p>done由框架创建，递给服务回调，包含了调用服务回调后的后续动作，包括检查response正确性，序列化，打包，发送等逻辑。</p>
+<p><strong>不管成功失败，done-&gt;Run()必须在请求处理完成后被用户调用一次。</strong></p>
+<p>为什么框架不自己调用done-&gt;Run()？这是为了允许用户把done保存下来，在服务回调之后的某事件发生时再调用，即实现<strong>异步Service</strong>。</p>
+<p>强烈建议使用<strong>ClosureGuard</strong>确保done-&gt;Run()被调用，即在服务回调开头的那句：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ClosureGuard</span> <span style="color:#000">done_guard</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">done</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p>Not matter the callback is exited from middle or end, done_guard will be destructed, in which done-&gt;Run() is called. The mechanism is called <a href="https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII</a>. Without done_guard, you have to remember to add done-&gt;Run() before each <code>return</code>, <strong>which is very error-prone</strong>.</p>
-<p>In asynchronous service, request is not processed completely when CallMethod() returns, thus done-&gt;Run() should not be called, instead it should be preserved somewhere and called later. At first glance, we don&rsquo;t need ClosureGuard here. However in real applications, asynchronous service may fail in the middle and exit CallMethod() as well. Without ClosureGuard, error branches may forget to call done-&gt;Run() before <code>return</code>. Thus done_guard is still recommended in asynchronous services. Different from synchronous services, to prevent done-&gt;Run() from being called at successful return of CallMethod, you should call done_guard.release() to remove done from the object.</p>
-<p>How synchronous and asynchronous services handle done generally:</p>
+</code></pre></div><p>不管在中间还是末尾脱离服务回调，都会使done_guard析构，其中会调用done-&gt;Run()。这个机制称为<a href="https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII</a>。没有这个的话你得在每次return前都加上done-&gt;Run()，<strong>极易忘记</strong>。</p>
+<p>在异步Service中，退出服务回调时请求未处理完成，done-&gt;Run()不应被调用，done应被保存下来供以后调用，乍看起来，这里并不需要用ClosureGuard。但在实践中，异步Service照样会因各种原因跳出回调，如果不使用ClosureGuard，一些分支很可能会在return前忘记done-&gt;Run()，所以我们也建议在异步service中使用done_guard，与同步Service不同的是，为了避免正常脱离函数时done-&gt;Run()也被调用，你可以调用done_guard.release()来释放其中的done。</p>
+<p>一般来说，同步Service和异步Service分别按如下代码处理done：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">MyFooService</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">FooService</span>  <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
-    <span style="color:#8f5902;font-style:italic">// Synchronous
+    <span style="color:#8f5902;font-style:italic">// 同步服务
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">SyncFoo</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">RpcController</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cntl_base</span><span style="color:#000;font-weight:bold">,</span>
                  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoRequest</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
                  <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoResponse</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span>
@@ -2134,7 +2065,7 @@ if (!doNotTrack) {
          <span style="color:#000;font-weight:bold">...</span>
     <span style="color:#000;font-weight:bold">}</span>
  
-    <span style="color:#8f5902;font-style:italic">// Aynchronous
+    <span style="color:#8f5902;font-style:italic">// 异步服务
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">AsyncFoo</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">RpcController</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cntl_base</span><span style="color:#000;font-weight:bold">,</span>
                   <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoRequest</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
                   <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoResponse</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span>
@@ -2144,7 +2075,7 @@ if (!doNotTrack) {
          <span style="color:#000">done_guard</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">release</span><span style="color:#000;font-weight:bold">();</span>
     <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">};</span>
-</code></pre></div><p>Interface of ClosureGuard:</p>
+</code></pre></div><p>ClosureGuard的接口如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// RAII: Call Run() of the closure on destruction.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">ClosureGuard</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
@@ -2161,116 +2092,116 @@ if (!doNotTrack) {
     <span style="color:#8f5902;font-style:italic">// Set internal closure to NULL and return the one before set.
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Closure</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">release</span><span style="color:#000;font-weight:bold">();</span>
 <span style="color:#000;font-weight:bold">};</span>
-</code></pre></div><h2 id="set-rpc-to-be-failed">Set RPC to be failed</h2>
-<p>Call Controller.SetFailed() to set the RPC to be failed. If error occurs during sending response, framework calls the method as well. Users often call the method in services' CallMethod(), For example if a stage of processing fails, user calls SetFailed() and call done-&gt;Run(), then quit CallMethod (If ClosureGuard is used, done-&gt;Run() is called automatically). The server-side done is created by framework and contains code sending response back to client. If SetFailed() is called, error information is sent to client instead of normal content. When client receives the response, its controller will be SetFailed() as well and Controller::Failed() will be true. In addition, Controller::ErrorCode() and Controller::ErrorText() are error code and error information respectively.</p>
-<p>User may set <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">status-code</a> for http calls by calling <code>controller.http_response().set_status_code()</code> at server-side. Standard status-code are defined in <a href="https://github.com/brpc/brpc/blob/master/src/brpc/http_status_code.h">http_status_code.h</a>. Controller.SetFailed() sets status-code as well with the value closest to the error-code in semantics. brpc::HTTP_STATUS_INTERNAL_SERVER_ERROR(500) is chosen when there&rsquo;s no proper value.</p>
-<h2 id="get-address-of-client">Get address of client</h2>
-<p>controller-&gt;remote_side() gets address of the client which sent the request. The return type is butil::EndPoint. If client is nginx, remote_side() is address of nginx. To get address of the &ldquo;real&rdquo; client before nginx, set <code>proxy_header ClientIp $remote_addr;</code> in nginx and call <code>controller-&gt;http_request().GetHeader(&quot;ClientIp&quot;)</code> in RPC to get the address.</p>
-<p>Printing method:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;remote_side=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">remote_side</span><span style="color:#000;font-weight:bold">();</span>
+</code></pre></div><h2 id="标记当前调用为失败">标记当前调用为失败</h2>
+<p>调用Controller.SetFailed()可以把当前调用设置为失败，当发送过程出现错误时，框架也会调用这个函数。用户一般是在服务的CallMethod里调用这个函数，比如某个处理环节出错，SetFailed()后确认done-&gt;Run()被调用了就可以跳出函数了(若使用了ClosureGuard，跳出函数时会自动调用done，不用手动)。Server端的done的逻辑主要是发送response回client，当其发现用户调用了SetFailed()后，会把错误信息送回client。client收到后，它的Controller::Failed()会为true（成功时为false），Controller::ErrorCode()和Controller::ErrorText()则分别是错误码和错误信息。</p>
+<p>用户可以为http访问设置<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">status-code</a>，在server端一般是调用<code>controller.http_response().set_status_code()</code>，标准的status-code定义在<a href="https://github.com/brpc/brpc/blob/master/src/brpc/http_status_code.h">http_status_code.h</a>中。Controller.SetFailed也会设置status-code，值是与错误码含义最接近的status-code，没有相关的则填500错误(brpc::HTTP_STATUS_INTERNAL_SERVER_ERROR)。如果你要覆盖status_code，设置代码一定要放在SetFailed()后，而不是之前。</p>
+<h2 id="获取client的地址">获取Client的地址</h2>
+<p><code>controller-&gt;remote_side()</code>可获得发送该请求的client地址和端口，类型是butil::EndPoint。如果client是nginx，remote_side()是nginx的地址。要获取真实client的地址，可以在nginx里设置<code>proxy_header ClientIp $remote_addr;</code>, 在rpc中通过<code>controller-&gt;http_request().GetHeader(&quot;ClientIp&quot;)</code>获得对应的值。</p>
+<p>打印方式：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;remote_side=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">remote_side</span><span style="color:#000;font-weight:bold">();</span> 
 <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;remote_side=%s</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">endpoint2str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">remote_side</span><span style="color:#000;font-weight:bold">()).</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">());</span>
-</code></pre></div><h2 id="get-address-of-server">Get address of server</h2>
-<p>controller-&gt;local_side() gets server-side address of the RPC connection, return type is butil::EndPoint.</p>
-<p>Printing method:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;local_side=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">local_side</span><span style="color:#000;font-weight:bold">();</span>
+</code></pre></div><h2 id="获取server的地址">获取Server的地址</h2>
+<p>controller-&gt;local_side()获得server端的地址，类型是butil::EndPoint。</p>
+<p>打印方式：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;local_side=&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">local_side</span><span style="color:#000;font-weight:bold">();</span> 
 <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;local_side=%s</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">endpoint2str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">local_side</span><span style="color:#000;font-weight:bold">()).</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">());</span>
-</code></pre></div><h2 id="asynchronous-service">Asynchronous Service</h2>
-<p>In which done-&gt;Run() is called after leaving service&rsquo;s CallMethod().</p>
-<p>Some server proxies requests to back-end servers and waits for responses that may come back after a long time. To make better use of threads, save done in corresponding event handlers which are triggered after CallMethod() and call done-&gt;Run() inside. This kind of service is <strong>asynchronous</strong>.</p>
-<p>Last line of asynchronous service is often <code>done_guard.release()</code> to prevent done-&gt;Run() from being called at successful exit from CallMethod(). Check out <a href="https://github.com/brpc/brpc/tree/master/example/session_data_and_thread_local/">example/session_data_and_thread_local</a> for a example.</p>
-<p>Server-side and client-side both use done to represent the continuation code after leaving CallMethod, but they&rsquo;re <strong>totally different</strong>:</p>
+</code></pre></div><h2 id="异步service">异步Service</h2>
+<p>即done-&gt;Run()在Service回调之外被调用。</p>
+<p>有些server以等待后端服务返回结果为主，且处理时间特别长，为了及时地释放出线程资源，更好的办法是把done注册到被等待事件的回调中，等到事件发生后再调用done-&gt;Run()。</p>
+<p>异步service的最后一行一般是done_guard.release()以确保正常退出CallMethod时不会调用done-&gt;Run()。例子请看<a href="https://github.com/brpc/brpc/tree/master/example/session_data_and_thread_local/">example/session_data_and_thread_local</a>。</p>
+<p>Service和Channel都可以使用done来表达后续的操作，但它们是<strong>完全不同</strong>的，请勿混淆：</p>
 <ul>
-<li>server-side done is created by framework, called by user after processing of the request to send back response to client.</li>
-<li>client-side done is created by user, called by framework to run post-processing code written by user after completion of RPC.</li>
+<li>Service的done由框架创建，用户处理请求后调用done把response发回给client。</li>
+<li>Channel的done由用户创建，待RPC结束后被框架调用以执行用户的后续代码。</li>
 </ul>
-<p>In an asynchronous service that may access other services, user probably manipulates both kinds of done, be careful.</p>
-<h1 id="add-service">Add Service</h1>
-<p>A just default-constructed Server neither contains service nor serves requests, merely an object.</p>
-<p>Add a service with following method:</p>
+<p>在一个会访问下游服务的异步服务中会同时接触两者，容易搞混，请注意区分。</p>
+<h1 id="加入service">加入Service</h1>
+<p>默认构造后的Server不包含任何服务，也不会对外提供服务，仅仅是一个对象。</p>
+<p>通过如下方法插入你的Service实例。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">AddService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Service</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">service</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">ServiceOwnership</span> <span style="color:#000">ownership</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p>If <code>ownership</code> is SERVER_OWNS_SERVICE, server deletes the service at destruction. To prevent the deletion, set <code>ownership</code> to SERVER_DOESNT_OWN_SERVICE.</p>
-<p>Following code adds MyEchoService:</p>
+</code></pre></div><p>若ownership参数为SERVER_OWNS_SERVICE，Server在析构时会一并删除Service，否则应设为SERVER_DOESNT_OWN_SERVICE。</p>
+<p>插入MyEchoService代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Server</span> <span style="color:#000">server</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">MyEchoService</span> <span style="color:#000">my_echo_service</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">my_echo_service</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SERVER_DOESNT_OWN_SERVICE</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FATAL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to add my_echo_service&#34;</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>You cannot add or remove services after the server is started.</p>
-<h1 id="start-server">Start server</h1>
-<p>Call following methods of <a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">Server</a> to start serving.</p>
+</code></pre></div><p>Server启动后你无法再修改其中的Service。</p>
+<h1 id="启动">启动</h1>
+<p>调用以下<a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">Server</a>的接口启动服务。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">Start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">ip_and_port_str</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">ServerOptions</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">opt</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">Start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">EndPoint</span> <span style="color:#000">ip_and_port</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">ServerOptions</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">opt</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">Start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">port</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">ServerOptions</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">opt</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">Start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">char</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ip_str</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">PortRange</span> <span style="color:#000">port_range</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">ServerOptions</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">opt</span><span style="color:#000;font-weight:bold">);</span>  <span style="color:#8f5902;font-style:italic">// r32009后增加
-</span></code></pre></div><p>&ldquo;localhost:9000&rdquo;, &ldquo;cq01-cos-dev00.cq01:8000&rdquo;, &ldquo;127.0.0.1:7000&rdquo; are valid <code>ip_and_port_str</code>.</p>
-<p>All parameters take default values if <code>options</code> is NULL. If you need non-default values, code as follows:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServerOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// with default values
+</span></code></pre></div><p>&ldquo;localhost:9000&rdquo;, &ldquo;cq01-cos-dev00.cq01:8000&rdquo;, “127.0.0.1:7000&quot;都是合法的<code>ip_and_port_str</code>。</p>
+<p><code>options</code>为NULL时所有参数取默认值，如果你要使用非默认值，这么做就行了：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServerOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// 包含了默认值
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">xxx</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">yyy</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Start</span><span style="color:#000;font-weight:bold">(...,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><h2 id="listen-to-multiple-ports">Listen to multiple ports</h2>
-<p>One server can only listen to one port (not counting ServerOptions.internal_port). To listen to N ports, start N servers .</p>
-<h2 id="multi-process-listening-to-one-port">Multi-process listening to one port</h2>
-<p>When the <code>reuse_port</code> flag is turned on at startup, multiple processes can listen to one port (use SO_REUSEPORT internal).</p>
-<h1 id="stop-server">Stop server</h1>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Stop</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">closewait_ms</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// closewait_ms is useless actually, not deleted due to compatibility
+</code></pre></div><h2 id="监听多个端口">监听多个端口</h2>
+<p>一个server只能监听一个端口（不考虑ServerOptions.internal_port），需要监听N个端口就起N个Server。</p>
+<h2 id="多进程监听一个端口">多进程监听一个端口</h2>
+<p>启动时开启<code>reuse_port</code>这个flag，就可以多进程共同监听一个端口（底层是SO_REUSEPORT）。</p>
+<h1 id="停止">停止</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Stop</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">closewait_ms</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#8f5902;font-style:italic">// closewait_ms实际无效，出于历史原因未删
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Join</span><span style="color:#000;font-weight:bold">();</span>
-</code></pre></div><p>Stop() does not block but Join() does. The reason for dividing them into two methods is: When multiple servers quit, users may Stop() all servers first, then Join() them together. Otherwise servers can only be Stop()+Join() one-by-one and the total waiting time may add up to number-of-servers times at worst.</p>
-<p>Regardless of the value of closewait_ms, server waits for all requests being processed before exiting and returns ELOGOFF errors to new requests immediately to prevent them from entering the service. The reason for the wait is that as long as the server is still processing requests, risk of accessing invalid(released) memory exists. If a Join() to a server &ldquo;stucks&rdquo;, some thread must be blocked on a request or done-&gt;Run() is not called.</p>
-<p>When a client sees ELOGOFF, it skips the corresponding server and retry the request on another server. As a result, restarting a cluster with brpc clients/servers gradually should not lose traffic by default.</p>
-<p>RunUntilAskedToQuit() simplifies the code to run and stop servers in most cases. Following code runs the server until Ctrl-C is pressed.</p>
+</code></pre></div><p>Stop()不会阻塞，Join()会。分成两个函数的原因在于当多个Server需要退出时，可以先全部Stop再一起Join，如果一个个Stop/Join，可能得花费Server个数倍的等待时间。</p>
+<p>不管closewait_ms是什么值，server在退出时会等待所有正在被处理的请求完成，同时对新请求立刻回复ELOGOFF错误以防止新请求加入。这么做的原因在于只要server退出时仍有处理线程运行，就有访问到已释放内存的风险。如果你的server“退不掉”，很有可能是由于某个检索线程没结束或忘记调用done了。</p>
+<p>当client看到ELOGOFF时，会跳过对应的server，并在其他server上重试对应的请求。所以在一般情况下brpc总是“优雅退出”的，重启或上线时几乎不会或只会丢失很少量的流量。</p>
+<p>RunUntilAskedToQuit()函数可以在大部分情况下简化server的运转和停止代码。在server.Start后，只需如下代码即会让server运行直到按到Ctrl-C。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Wait until Ctrl-C is pressed, then Stop() and Join() the server.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RunUntilAskedToQuit</span><span style="color:#000;font-weight:bold">();</span>
  
-<span style="color:#8f5902;font-style:italic">// server is stopped, write the code for releasing resources.
-</span></code></pre></div><p>Services can be added or removed after Join() returns and server can be Start() again.</p>
-<h1 id="accessed-by-httph2">Accessed by http/h2</h1>
-<p>Services using protobuf can be accessed via http/h2+json generally. The json string stored in body is convertible to/from corresponding protobuf message.</p>
-<p><a href="https://github.com/brpc/brpc/blob/master/example/echo_c%2B%2B/server.cpp">echo server</a> as an example, is accessible from <a href="https://curl.haxx.se/">curl</a>.</p>
+<span style="color:#8f5902;font-style:italic">// server已经停止了，这里可以写释放资源的代码。
+</span></code></pre></div><p>Join()完成后可以修改其中的Service，并重新Start。</p>
+<h1 id="被httph2访问">被http/h2访问</h1>
+<p>使用Protobuf的服务通常可以通过http/h2+json访问，存于body的json串可与对应protobuf消息相互自动转化。</p>
+<p>以<a href="https://github.com/brpc/brpc/blob/master/example/echo_c%2B%2B/server.cpp">echo server</a>为例，你可以用<a href="https://curl.haxx.se/">curl</a>访问这个服务。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#8f5902;font-style:italic"># -H &#39;Content-Type: application/json&#39; is optional</span>
 $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#39;</span> http://brpc.baidu.com:8765/EchoService/Echo
 <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;message&#34;</span>:<span style="color:#4e9a06">&#34;hello&#34;</span><span style="color:#ce5c00;font-weight:bold">}</span>
-</code></pre></div><p>Note: Set <code>Content-Type: application/proto</code> to access services with http/h2 + protobuf-serialized-data, which performs better at serialization.</p>
+</code></pre></div><p>注意：也可以指定<code>Content-Type: application/proto</code>用http/h2+protobuf二进制串访问服务，序列化性能更好。</p>
 <h2 id="jsonpb">json&lt;=&gt;pb</h2>
-<p>Json fields correspond to pb fields by matched names and message structures. The json must contain required fields in pb, otherwise conversion will fail and corresponding request will be rejected. The json may include undefined fields in pb, but they will be dropped rather than being stored in pb as unknown fields. Check out <a href="json2pb.md">json &lt;=&gt; protobuf</a> for conversion rules.</p>
-<p>When -pb_enum_as_number is turned on, enums in pb are converted to values instead of names. For example in <code>enum MyEnum { Foo = 1; Bar = 2; };</code>, fields typed <code>MyEnum</code> are converted to &ldquo;Foo&rdquo; or &ldquo;Bar&rdquo; when the flag is off, 1 or 2 otherwise. This flag affects requests sent by clients and responses returned by servers both. Since &ldquo;enum as name&rdquo; has better forward and backward compatibilities, this flag should only be turned on to adapt legacy code that are unable to parse enumerations from names.</p>
-<h2 id="adapt-old-clients">Adapt old clients</h2>
-<p>Early-version brpc allows pb service being accessed via http without filling the pb request, even if there&rsquo;re required fields. This kind of service often parses http requests and sets http responses by itself, and does not touch the pb request. However this behavior is still very dangerous: a service with an undefined request.</p>
-<p>This kind of services may meet issues after upgrading to latest brpc, which already deprecated the behavior for a long time. To help these services to upgrade, brpc allows bypassing the conversion from http body to pb request (so that users can parse http requests differently), the setting is as follows:</p>
+<p>json字段通过匹配的名字和结构与pb字段一一对应。json中一定要包含pb的required字段，否则转化会失败，对应请求会被拒绝。json中可以包含pb中没有定义的字段，但它们会被丢弃而不会存入pb的unknown字段。转化规则详见<a href="json2pb.md">json &lt;=&gt; protobuf</a>。</p>
+<p>开启选项-pb_enum_as_number后，pb中的enum会转化为它的数值而不是名字，比如在<code>enum MyEnum { Foo = 1; Bar = 2; };</code>中不开启此选项时MyEnum类型的字段会转化为&quot;Foo&quot;或&quot;Bar&quot;，开启后为1或2。此选项同时影响client发出的请求和server返回的回复。由于转化为名字相比数值有更好的前后兼容性，此选项只应用于兼容无法处理enum为名字的老代码。</p>
+<h2 id="兼容早期版本client">兼容早期版本client</h2>
+<p>早期的brpc允许一个pb service被http协议访问时不填充pb请求，即使里面有required字段。一般来说这种service会自行解析http请求和设置http回复，并不会访问pb请求。但这也是非常危险的行为，毕竟这是pb service，但pb请求却是未定义的。</p>
+<p>这种服务在升级到新版本rpc时会遇到障碍，因为brpc已不允许这种行为。为了帮助这种服务升级，brpc允许经过一些设置后不把http body自动转化为pb request(从而可自行处理），方法如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServiceOptions</span> <span style="color:#000">svc_opt</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">svc_opt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ownership</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">...;</span>
 <span style="color:#000">svc_opt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">restful_mappings</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">...;</span>
-<span style="color:#000">svc_opt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">allow_http_body_to_pb</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">false</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">// turn off conversion from http/h2 body to pb request
+<span style="color:#000">svc_opt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">allow_http_body_to_pb</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">false</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//关闭http/h2 body至pb request的自动转化
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">service</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">svc_opt</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p>After the setting, service does not convert the body to pb request after receiving http/h2 request, which also makes the pb request undefined. Users have to parse the body by themselves when <code>cntl-&gt;request_protocol() == brpc::PROTOCOL_HTTP || cntl-&gt;request_protocol() == brpc::PROTOCOL_H2</code> is true which indicates the request is from http/h2.</p>
-<p>As a correspondence, if cntl-&gt;response_attachment() is not empty and pb response is set as well, brpc does not report the ambiguous anymore, instead cntl-&gt;response_attachment() will be used as body of the http/h2 response. This behavior is unaffected by setting allow_http_body_to_pb or not. If the relaxation results in more users' errors, we may restrict it in future.</p>
-<h1 id="protocols">Protocols</h1>
-<p>Server detects supported protocols automatically, without assignment from users. <code>cntl-&gt;protocol()</code> gets the protocol being used. Server is able to accept connections with different protocols from one port, users don&rsquo;t need to assign different ports for different protocols. Even one connection may transport messages in multiple protocols, although we rarely do this (and not recommend). Supported protocols:</p>
+</code></pre></div><p>如此设置后service收到http/h2请求后不会尝试把body转化为pb请求，所以pb请求总是未定义状态，用户得在<code>cntl-&gt;request_protocol() == brpc::PROTOCOL_HTTP || cntl-&gt;request_protocol() == brpc::PROTOCOL_H2</code>成立时自行解析body。</p>
+<p>相应地，当cntl-&gt;response_attachment()不为空且pb回复不为空时，框架不再报错，而是直接把cntl-&gt;response_attachment()作为回复的body。这个功能和设置allow_http_body_to_pb与否无关。如果放开自由度导致过多的用户犯错，可能会有进一步的调整。</p>
+<h1 id="协议支持">协议支持</h1>
+<p>server端会自动尝试其支持的协议，无需用户指定。<code>cntl-&gt;protocol()</code>可获得当前协议。server能从一个listen端口建立不同协议的连接，不需要为不同的协议使用不同的listen端口，一个连接上也可以传输多种协议的数据包, 但一般不会这么做(也不建议)，支持的协议有：</p>
 <ul>
 <li>
-<p><a href="baidu_std.md">The standard protocol used in Baidu</a>, shown as &ldquo;baidu_std&rdquo;, enabled by default.</p>
+<p><a href="baidu_std.md">百度标准协议</a>，显示为&quot;baidu_std&quot;，默认启用。</p>
 </li>
 <li>
-<p><a href="streaming_rpc.md">Streaming RPC</a>, shown as &ldquo;streaming_rpc&rdquo;, enabled by default.</p>
+<p><a href="streaming_rpc.md">流式RPC协议</a>，显示为&quot;streaming_rpc&quot;, 默认启用。</p>
 </li>
 <li>
-<p>http/1.0 and http/1.1, shown as &ldquo;http&rdquo;, enabled by default.</p>
+<p>http/1.0和http/1.1协议，显示为”http“，默认启用。</p>
 </li>
 <li>
-<p>http/2 and gRPC, shown as &ldquo;h2c&rdquo;(unencrypted) or &ldquo;h2&rdquo;(encrypted), enabled by default.</p>
+<p>http/2和gRPC协议，显示为&quot;h2c&quot;(未加密)或&quot;h2&quot;(加密)，默认启用。</p>
 </li>
 <li>
-<p>Protocol of RTMP, shown as &ldquo;rtmp&rdquo;, enabled by default.</p>
+<p>RTMP协议，显示为&quot;rtmp&quot;, 默认启用。</p>
 </li>
 <li>
-<p>Protocol of hulu-pbrpc, shown as &ldquo;hulu_pbrpc&rdquo;, enabled by default.</p>
+<p>hulu-pbrpc的协议，显示为&quot;hulu_pbrpc&quot;，默认启动。</p>
 </li>
 <li>
-<p>Protocol of sofa-pbrpc, shown as &ldquo;sofa_pbrpc&rdquo;, enabled by default.</p>
+<p>sofa-pbrpc的协议，显示为”sofa_pbrpc“, 默认启用。</p>
 </li>
 <li>
-<p>Protocol of Baidu ads union, shown as &ldquo;nova_pbrpc&rdquo;, disabled by default. Enabling method:</p>
+<p>百盟的协议，显示为”nova_pbrpc“, 默认不启用，开启方式：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/policy/nova_pbrpc_protocol.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000">ServerOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
@@ -2278,7 +2209,7 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">nshead_service</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">policy</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">NovaServiceAdaptor</span><span style="color:#000;font-weight:bold">;</span>
 </code></pre></div></li>
 <li>
-<p>Protocol of public_pbrpc, shown as &ldquo;public_pbrpc&rdquo;, disabled by default. Enabling method:</p>
+<p>public_pbrpc协议，显示为&quot;public_pbrpc&quot;，默认不启用，开启方式：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/policy/public_pbrpc_protocol.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000">ServerOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
@@ -2286,34 +2217,34 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">nshead_service</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">policy</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PublicPbrpcServiceAdaptor</span><span style="color:#000;font-weight:bold">;</span>
 </code></pre></div></li>
 <li>
-<p>Protocol of nshead+mcpack, shown as &ldquo;nshead_mcpack&rdquo;, disabled by default. Enabling method:</p>
+<p>nshead+mcpack协议，显示为&quot;nshead_mcpack&quot;，默认不启用，开启方式：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/policy/nshead_mcpack_protocol.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000">ServerOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">nshead_service</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">policy</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">NsheadMcpackAdaptor</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><p>As the name implies, messages in this protocol are composed by nshead+mcpack, the mcpack does not include special fields. Different from implementations based on NsheadService by users, this protocol uses mcpack2pb which makes the service capable of handling both mcpack and pb with one piece of code. Due to lack of fields to carry ErrorText, server can only close connections when errors occur.</p>
+</code></pre></div><p>顾名思义，这个协议的数据包由nshead+mcpack构成，mcpack中不包含特殊字段。不同于用户基于NsheadService的实现，这个协议使用了mcpack2pb，使得一份代码可以同时处理mcpack和pb两种格式。由于没有传递ErrorText的字段，当发生错误时server只能关闭连接。</p>
 </li>
 <li>
-<p>Read <a href="nshead_service.md">Implement NsheadService</a> for UB related protocols.</p>
+<p>和UB相关的协议请阅读<a href="nshead_service.md">实现NsheadService</a>。</p>
 </li>
 </ul>
-<p>If you need more protocols, contact us.</p>
+<p>如果你有更多的协议需求，可以联系我们。</p>
 <h1 id="fork-without-exec">fork without exec</h1>
-<p>In general, <a href="https://linux.die.net/man/3/fork">forked</a> subprocess should call <a href="https://linux.die.net/man/3/exec">exec</a> ASAP, before which only async-signal-safe functions should be called. brpc programs using fork like this should work correctly even in previous versions.</p>
-<p>But in some scenarios, users continue the subprocess without exec. Since fork only copies its caller&rsquo;s thread, which causes other threads to disappear after fork. In the case of brpc, bvar depends on a sampling_thread to sample various information, which disappears after fork and causes many bvars to be zeros.</p>
-<p>Latest brpc re-creates the thread after fork(when necessary) to make bvar work correctly, and can be forked again. A known problem is that the cpu profiler does not work after fork. However users still can&rsquo;t call fork at any time, since brpc and its applications create threads extensively, which are not re-created after fork:</p>
+<p>一般来说，<a href="https://linux.die.net/man/3/fork">fork</a>出的子进程应尽快调用<a href="https://linux.die.net/man/3/exec">exec</a>以重置所有状态，中间只应调用满足async-signal-safe的函数。这么使用fork的brpc程序在之前的版本也不会有问题。</p>
+<p>但在一些场景中，用户想直接运行fork出的子进程，而不调用exec。由于fork只复制其调用者的线程，其余线程便随之消失了。对应到brpc中，bvar会依赖一个sampling_thread采样各种信息，在fork后便消失了，现象是很多bvar归零。</p>
+<p>最新版本的brpc会在fork后重建这个线程(如有必要)，从而使bvar在fork后能正常工作，再次fork也可以。已知问题是fork后cpu profiler不正常。然而，这并不意味着用户可随意地fork，不管是brpc还是上层应用都会大量地创建线程，它们在fork后不会被重建，因为：</p>
 <ul>
-<li>most fork continues with exec, which wastes re-creations</li>
-<li>bring too many troubles and complexities to the code</li>
+<li>大部分fork会紧接exec，浪费了重建</li>
+<li>给代码编写带来很多的麻烦和复杂度</li>
 </ul>
-<p>brpc&rsquo;s strategy is to create these threads on demand and fork without exec should happen before all code that may create the threads. Specifically, <strong>fork without exec should happen before initializing all Servers/Channels/Applications, earlier is better</strong>. fork not obeying this causes the program dysfunctional. BTW, fork without exec better be avoided because many libraries do not support it.</p>
-<h1 id="settings">Settings</h1>
-<h2 id="version">Version</h2>
-<p>Server.set_version(…) sets name+version for the server, accessible from the builtin service <code>/version</code>. Although it&rsquo;s called &ldquo;version&rdquo;, the string set is recommended to include the service name rather than just a numeric version.</p>
-<h2 id="close-idle-connections">Close idle connections</h2>
-<p>If a connection does not read or write within the seconds specified by ServerOptions.idle_timeout_sec, it&rsquo;s treated as &ldquo;idle&rdquo; and will be closed by server soon. Default value is -1 which disables the feature.</p>
-<p>If <a href="http://brpc.baidu.com:8765/flags/log_idle_connection_close">-log_idle_connection_close</a> is turned on, a log will be printed before closing.</p>
+<p>brpc的策略是按需创建这类线程，同时fork without exec必须发生在所有可能创建这些线程的代码前。具体地说，至少<strong>发生在初始化所有Server/Channel/应用代码前</strong>，越早越好，不遵守这个约定的fork会导致程序不正常。另外，不支持fork without exec的lib相当普遍，最好避免这种用法。</p>
+<h1 id="设置">设置</h1>
+<h2 id="版本">版本</h2>
+<p>Server.set_version(&hellip;)可以为server设置一个名称+版本，可通过/version内置服务访问到。虽然叫做&quot;version“，但设置的值请包含服务名，而不仅仅是一个数字版本。</p>
+<h2 id="关闭闲置连接">关闭闲置连接</h2>
+<p>如果一个连接在ServerOptions.idle_timeout_sec对应的时间内没有读取或写出数据，则被视为”闲置”而被server主动关闭。默认值为-1，代表不开启。</p>
+<p>打开<a href="http://brpc.baidu.com:8765/flags/log_idle_connection_close">-log_idle_connection_close</a>后关闭前会打印一条日志。</p>
 <table>
 <thead>
 <tr>
@@ -2333,61 +2264,61 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 </tbody>
 </table>
 <h2 id="pid_file">pid_file</h2>
-<p>If this field is non-empty, Server creates a file named so at start-up, with pid as the content. Empty by default.</p>
-<h2 id="print-hostname-in-each-line-of-log">Print hostname in each line of log</h2>
-<p>This feature only affects logging macros in <a href="https://github.com/brpc/brpc/blob/master/src/butil/logging.h">butil/logging.h</a>.</p>
-<p>If <a href="http://brpc.baidu.com:8765/flags/log_hostname">-log_hostname</a> is turned on, each line of log contains the hostname so that users know machines at where each line is generated from aggregated logs.</p>
-<h2 id="crash-after-printing-fatal-log">Crash after printing FATAL log</h2>
-<p>This feature only affects logging macros in <a href="https://github.com/brpc/brpc/blob/master/src/butil/logging.h">butil/logging.h</a>, glog crashes for FATAL log by default.</p>
-<p>If <a href="http://brpc.baidu.com:8765/flags/crash_on_fatal_log">-crash_on_fatal_log</a> is turned on, program crashes after printing LOG(FATAL) or failed assertions by CHECK*(), and generates coredump (with proper environmental settings). Default value is false. This flag can be turned on in tests to make sure the program never hit critical errors.</p>
+<p>如果设置了此字段，Server启动时会创建一个同名文件，内容为进程号。默认为空。</p>
+<h2 id="在每条日志后打印hostname">在每条日志后打印hostname</h2>
+<p>此功能只对<a href="https://github.com/brpc/brpc/blob/master/src/butil/logging.h">butil/logging.h</a>中的日志宏有效。</p>
+<p>打开<a href="http://brpc.baidu.com:8765/flags/log_hostname">-log_hostname</a>后每条日志后都会带本机名称，如果所有的日志需要汇总到一起进行分析，这个功能可以帮助你了解某条日志来自哪台机器。</p>
+<h2 id="打印fatal日志后退出程序">打印FATAL日志后退出程序</h2>
+<p>此功能只对<a href="https://github.com/brpc/brpc/blob/master/src/butil/logging.h">butil/logging.h</a>中的日志宏有效，glog默认在FATAL日志时crash。</p>
+<p>打开<a href="http://brpc.baidu.com:8765/flags/crash_on_fatal_log">-crash_on_fatal_log</a>后如果程序使用LOG(FATAL)打印了异常日志或违反了CHECK宏中的断言，那么程序会在打印日志后abort，这一般也会产生coredump文件，默认不打开。这个开关可在对程序的压力测试中打开，以确认程序没有进入过严重错误的分支。</p>
 <blockquote>
-<p>A common convention: use ERROR for tolerable errors, FATAL for unacceptable and permanent errors.</p>
+<p>一般的惯例是，ERROR表示可容忍的错误，FATAL代表不可逆转的错误。</p>
 </blockquote>
-<h2 id="minimum-log-level">Minimum log level</h2>
-<p>This feature is implemented by <a href="https://github.com/brpc/brpc/blob/master/src/butil/logging.h">butil/logging.h</a> and glog separately, as a same-named gflag.</p>
-<p>Only logs with levels <strong>not less than</strong> the level specified by -minloglevel are printed. This flag can be modified at run-time. Correspondence between values and log levels: 0=INFO 1=NOTICE 2=WARNING 3=ERROR 4=FATAL, default value is 0.</p>
-<p>Overhead of unprinted logs is just a &ldquo;if&rdquo; test and parameters are not evaluated (For example a parameter calls a function, if the log is not printed, the function is not called). Logs printed to LogSink may be filtered by the sink as well.</p>
-<h2 id="return-free-memory-to-system">Return free memory to system</h2>
-<p>Set gflag -free_memory_to_system_interval to make the program try to return free memory to system every so many seconds, values &lt;= 0 disable the feature. Default value is 0. To turn it on, values &gt;= 10 are recommended. This feature supports tcmalloc, thus <code>MallocExtension::instance()-&gt;ReleaseFreeMemory()</code> periodically called in your program can be replaced by setting this flag.</p>
-<h2 id="log-error-to-clients">Log error to clients</h2>
-<p>Framework does not print logs for specific client generally, because a lot of errors caused by clients may slow down server significantly due to frequent printing of logs. If you need to debug or just want the server to log all errors, turn on <a href="http://brpc.baidu.com:8765/flags/log_error_text">-log_error_text</a>.</p>
-<h2 id="customize-percentiles-of-latency">Customize percentiles of latency</h2>
-<p>Latency percentiles showed are <strong>80</strong> (was 50 before), 90, 99, 99.9, 99.99 by default. The first 3 ones can be changed by gflags -bvar_latency_p1, -bvar_latency_p2, -bvar_latency_p3 respectively。</p>
-<p>Following are correct settings:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">-bvar_latency_p3<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">97</span>   <span style="color:#8f5902;font-style:italic"># p3 is changed from default 99 to 97</span>
+<h2 id="最低日志级别">最低日志级别</h2>
+<p>此功能由<a href="https://github.com/brpc/brpc/blob/master/src/butil/logging.h">butil/logging.h</a>和glog各自实现，为同名选项。</p>
+<p>只有<strong>不低于</strong>-minloglevel指定的日志级别的日志才会被打印。这个选项可以动态修改。设置值和日志级别的对应关系：0=INFO 1=NOTICE 2=WARNING 3=ERROR 4=FATAL，默认为0。</p>
+<p>未打印日志的开销只是一次if判断，也不会评估参数(比如某个参数调用了函数，日志不打，这个函数就不会被调用）。如果日志最终打印到自定义LogSink，那么还要经过LogSink的过滤。</p>
+<h2 id="归还空闲内存至系统">归还空闲内存至系统</h2>
+<p>选项-free_memory_to_system_interval表示每过这么多秒就尝试向系统归还空闲内存，&lt;= 0表示不开启，默认值为0，若开启建议设为10及以上的值。此功能支持tcmalloc，之前程序中对<code>MallocExtension::instance()-&gt;ReleaseFreeMemory()</code>的定期调用可改成设置此选项。</p>
+<h2 id="打印发送给client的错误">打印发送给client的错误</h2>
+<p>server的框架部分一般不针对个别client打印错误日志，因为当大量client出现错误时，可能导致server高频打印日志而严重影响性能。但有时为了调试问题，或就是需要让server打印错误，打开参数<a href="http://brpc.baidu.com:8765/flags/log_error_text">-log_error_text</a>即可。</p>
+<h2 id="定制延时的分位值">定制延时的分位值</h2>
+<p>显示的服务延时分位值<strong>默认</strong>为<strong>80</strong> (曾经为50), 90, 99, 99.9, 99.99，前三项可分别通过-bvar_latency_p1, -bvar_latency_p2, -bvar_latency_p3三个gflags定制。</p>
+<p>以下是正确的设置：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">-bvar_latency_p3<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">97</span>   <span style="color:#8f5902;font-style:italic"># p3从默认99修改为97</span>
 -bvar_latency_p1<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">60</span> -bvar_latency_p2<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">80</span> -bvar_latency_p3<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">95</span>
-</code></pre></div><p>Following are wrong settings:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">-bvar_latency_p3<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">100</span>   <span style="color:#8f5902;font-style:italic"># the value must be inside [1,99] inclusive，otherwise gflags fails to parse</span>
--bvar_latency_p1<span style="color:#ce5c00;font-weight:bold">=</span>-1    <span style="color:#8f5902;font-style:italic"># ^</span>
-</code></pre></div><h2 id="change-stacksize">Change stacksize</h2>
-<p>brpc server runs code in bthreads with stacksize=1MB by default, while stacksize of pthreads is 10MB. It&rsquo;s possible that programs running normally on pthreads may meet stack overflow on bthreads.</p>
-<p>Set following gflags to enlarge the stacksize.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">--stack_size_normal<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">10000000</span>  <span style="color:#8f5902;font-style:italic"># sets stacksize to roughly 10MB</span>
---tc_stack_normal<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span>           <span style="color:#8f5902;font-style:italic"># sets number of stacks cached by each worker pthread to prevent reusing from global pool each time, default value is 8</span>
-</code></pre></div><p>NOTE: It does mean that coredump of programs is likely to be caused by &ldquo;stack overflow&rdquo; on bthreads. We&rsquo;re talking about this simply because it&rsquo;s easy and quick to verify this factor and exclude the possibility.</p>
-<h2 id="limit-sizes-of-messages">Limit sizes of messages</h2>
-<p>To protect servers and clients, when a request received by a server or a response received by a client is too large, the server or client rejects the message and closes the connection. The limit is controlled by <a href="http://brpc.baidu.com:8765/flags/max_body_size">-max_body_size</a>, in bytes.</p>
-<p>An error log is printed when a message is too large and rejected:</p>
+</code></pre></div><p>以下是错误的设置：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">-bvar_latency_p3<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">100</span>   <span style="color:#8f5902;font-style:italic"># 设置值必须在[1,99]闭区间内，gflags解析会失败</span>
+-bvar_latency_p1<span style="color:#ce5c00;font-weight:bold">=</span>-1    <span style="color:#8f5902;font-style:italic"># 同上</span>
+</code></pre></div><h2 id="设置栈大小">设置栈大小</h2>
+<p>brpc的Server是运行在bthread之上，默认栈大小为1MB，而pthread默认栈大小为10MB，所以在pthread上正常运行的程序，在bthread上可能遇到栈不足。</p>
+<p>可设置如下的gflag以调整栈的大小:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">--stack_size_normal<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">10000000</span>    <span style="color:#8f5902;font-style:italic"># 表示调整栈大小为10M左右</span>
+--tc_stack_normal<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span>             <span style="color:#8f5902;font-style:italic"># 默认为8，表示每个worker缓存的栈的个数(以加快分配速度)，size越大，缓存数目可以适当调小(以减少内存占用)</span>
+</code></pre></div><p>注意：不是说程序coredump就意味着”栈不够大“，只是因为这个试起来最容易，所以优先排除掉可能性。事实上百度内如此多的应用也很少碰到栈不够大的情况。</p>
+<h2 id="限制最大消息">限制最大消息</h2>
+<p>为了保护server和client，当server收到的request或client收到的response过大时，server或client会拒收并关闭连接。此最大尺寸由<a href="http://brpc.baidu.com:8765/flags/max_body_size">-max_body_size</a>控制，单位为字节。</p>
+<p>超过最大消息时会打印如下错误日志：</p>
 <pre><code>FATAL: 05-10 14:40:05: * 0 src/brpc/input_messenger.cpp:89] A message from 127.0.0.1:35217(protocol=baidu_std) is bigger than 67108864 bytes, the connection will be closed. Set max_body_size to allow bigger messages
-</code></pre><p>protobuf has <a href="https://github.com/google/protobuf/blob/master/src/google/protobuf/io/coded_stream.h#L364">similar limits</a> and the error log is as follows:</p>
+</code></pre><p>protobuf中有<a href="https://github.com/google/protobuf/blob/master/src/google/protobuf/io/coded_stream.h#L364">类似的限制</a>，出错时会打印如下日志：</p>
 <pre><code>FATAL: 05-10 13:35:02: * 0 google/protobuf/io/coded_stream.cc:156] A protocol message was rejected because it was too big (more than 67108864 bytes). To increase the limit (or to disable these warnings), see CodedInputStream::SetTotalBytesLimit() in google/protobuf/io/coded_stream.h.
-</code></pre><p>brpc removes the restriction from protobuf and controls the limit by -max_body_size solely: as long as the flag is large enough, messages will not be rejected and error logs will not be printed. This feature works for all versions of protobuf.</p>
-<h2 id="compression">Compression</h2>
-<p><code>set_response_compress_type()</code> sets compression method for the response, no compression by default.</p>
-<p>Attachment is not compressed. Check <a href="http_service.md#compress-response-body">here</a> for compression of HTTP body.</p>
-<p>Supported compressions:</p>
+</code></pre><p>brpc移除了protobuf中的限制，全交由此选项控制，只要-max_body_size足够大，用户就不会看到错误日志。此功能对protobuf的版本没有要求。</p>
+<h2 id="压缩">压缩</h2>
+<p>set_response_compress_type()设置response的压缩方式，默认不压缩。</p>
+<p>注意附件不会被压缩。HTTP body的压缩方法见<a href="http_service.md#%E5%8E%8B%E7%BC%A9response-body">这里</a>。</p>
+<p>支持的压缩方法有：</p>
 <ul>
-<li>brpc::CompressTypeSnappy : <a href="http://google.github.io/snappy/">snanpy</a>, compression and decompression are very fast, but compression ratio is low.</li>
-<li>brpc::CompressTypeGzip : <a href="http://en.wikipedia.org/wiki/Gzip">gzip</a>, significantly slower than snappy, with a higher compression ratio.</li>
-<li>brpc::CompressTypeZlib : <a href="http://en.wikipedia.org/wiki/Zlib">zlib</a>, 10%~20% faster than gzip but still significantly slower than snappy, with slightly better compression ratio than gzip.</li>
+<li>brpc::CompressTypeSnappy : <a href="http://google.github.io/snappy/">snanpy压缩</a>，压缩和解压显著快于其他压缩方法，但压缩率最低。</li>
+<li>brpc::CompressTypeGzip : <a href="http://en.wikipedia.org/wiki/Gzip">gzip压缩</a>，显著慢于snappy，但压缩率高</li>
+<li>brpc::CompressTypeZlib : <a href="http://en.wikipedia.org/wiki/Zlib">zlib压缩</a>，比gzip快10%~20%，压缩率略好于gzip，但速度仍明显慢于snappy。</li>
 </ul>
-<p>Read <a href="client.md#compression">Client-Compression</a> for more comparisons.</p>
-<h2 id="attachment">Attachment</h2>
-<p>baidu_std and hulu_pbrpc supports attachments which are sent along with messages and set by users to bypass serialization of protobuf. From a server&rsquo;s perspective, data set in Controller.response_attachment() will be received by the client while Controller.request_attachment() contains attachment sent from the client.</p>
-<p>Attachment is not compressed by framework.</p>
-<p>In http, attachment corresponds to <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html">message body</a>, namely the data to post to client is stored in response_attachment().</p>
-<h2 id="turn-on-ssl">Turn on SSL</h2>
-<p>Update openssl to the latest version before turning on SSL, since older versions of openssl may have severe security problems and support less encryption algorithms, which is against with the purpose of using SSL. Setup <code>ServerOptions.ssl_options</code> to turn on SSL. Refer to <a href="https://github.com/brpc/brpc/blob/master/src/brpc/ssl_options.h">ssl_options.h</a> for more details.</p>
+<p>更具体的性能对比见<a href="client.md#%E5%8E%8B%E7%BC%A9">Client-压缩</a>.</p>
+<h2 id="附件">附件</h2>
+<p>baidu_std和hulu_pbrpc协议支持传递附件，这段数据由用户自定义，不经过protobuf的序列化。站在server的角度，设置在Controller.response_attachment()的附件会被client端收到，Controller.request_attachment()则包含了client端送来的附件。</p>
+<p>附件不会被框架压缩。</p>
+<p>在http协议中，附件对应<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html">message body</a>，比如要返回的数据就设置在response_attachment()中。</p>
+<h2 id="开启ssl">开启SSL</h2>
+<p>要开启SSL，首先确保代码依赖了最新的openssl库。如果openssl版本很旧，会有严重的安全漏洞，支持的加密算法也少，违背了开启SSL的初衷。然后设置<code>ServerOptions.ssl_options</code>，具体见<a href="https://github.com/brpc/brpc/blob/master/src/brpc/ssl_options.h">ssl_options.h</a>。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Certificate structure
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000">CertInfo</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#8f5902;font-style:italic">// Certificate in PEM format.
@@ -2429,23 +2360,23 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">};</span>
 </code></pre></div><ul>
 <li>
-<p>To turn on SSL, users <strong>MUST</strong> provide a <code>default_cert</code>. For dynamic certificate selection (i.e. based on request hostname, a.k.a <a href="https://en.wikipedia.org/wiki/Server_Name_Indication">SNI</a>), <code>certs</code> should be used to store those dynamic certificates. Finally, users can add/remove those certificates when server&rsquo;s running:</p>
+<p>Server端开启SSL<strong>必须</strong>要设置一张默认证书<code>default_cert</code>（默认SSL连接都用此证书），如果希望server能支持动态选择证书（如根据请求中域名，见<a href="https://en.wikipedia.org/wiki/Server_Name_Indication">SNI</a>机制），则可以将这些证书加载到<code>certs</code>。最后用户还可以在Server运行时，动态增减这些动态证书：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">AddCertificate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">CertInfo</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">cert</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">RemoveCertificate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">CertInfo</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">cert</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">ResetCertificates</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">vector</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">CertInfo</span><span style="color:#ce5c00;font-weight:bold">&gt;&amp;</span> <span style="color:#000">certs</span><span style="color:#000;font-weight:bold">);</span>
 </code></pre></div></li>
 <li>
-<p>Other options include: cipher suites (recommend using <code>ECDHE-RSA-AES256-GCM-SHA384</code> which is the default suite used by chrome, and one of the safest suites. The drawback is more CPU cost), session reuse and so on.</p>
+<p>其余选项还包括：密钥套件选择（推荐密钥ECDHE-RSA-AES256-GCM-SHA384，chrome默认第一优先密钥，安全性很高，但比较耗性能）、session复用等。</p>
 </li>
 <li>
-<p>SSL layer works under protocol layer. As a result, all protocols (such as HTTP)  can provide SSL access when it&rsquo;s turned on. Server will decrypt the data first and then pass it into each protocol.</p>
+<p>SSL层在协议层之下（作用在Socket层），即开启后，所有协议（如HTTP）都支持用SSL加密后传输到Server，Server端会先进行SSL解密后，再把原始数据送到各个协议中去。</p>
 </li>
 <li>
-<p>After turning on SSL, non-SSL access is still available for the same port. Server can automatically distinguish SSL from non-SSL requests. SSL-only mode can be implemented using <code>Controller::is_ssl()</code> in service&rsquo;s callback and <code>SetFailed</code> if it returns false. In the meanwhile, the builtin-service <a href="../cn/connections.md">connections</a> also shows the SSL information for each connection.</p>
+<p>SSL开启后，端口仍然支持非SSL的连接访问，Server会自动判断哪些是SSL，哪些不是。如果要屏蔽非SSL访问，用户可通过<code>Controller::is_ssl()</code>判断是否是SSL，同时在<a href="connections.md">connections</a>内置监控上也可以看到连接的SSL信息。</p>
 </li>
 </ul>
-<h2 id="verify-identities-of-clients">Verify identities of clients</h2>
-<p>The server needs to implement <code>Authenticator</code> to enable verifications:</p>
+<h2 id="验证client身份">验证client身份</h2>
+<p>如果server端要开启验证功能，需要实现<code>Authenticator</code>中的接口:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Authenticator</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#8f5902;font-style:italic">// Implement this method to verify credential information `auth_str&#39; from
@@ -2465,107 +2396,108 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
     <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">starter</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">const</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">is_service</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">const</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">};</span>
-</code></pre></div><p>The authentication is connection-specific. When server receives the first request from a connection, it tries to parse related information inside (such as auth field in baidu_std, Authorization header in HTTP), and call <code>VerifyCredential</code> along with address of the client. If the method returns 0, which indicates success, user can put verified information into <code>AuthContext</code> and access it via <code>controller-&gt;auth_context()</code> later, whose lifetime is managed by framework. Otherwise the authentication is failed and the connection will be closed, which makes the client-side fail as well.</p>
-<p>Subsequent requests are treated as already verified without authenticating overhead.</p>
-<p>Assigning an instance of implemented <code>Authenticator</code> to <code>ServerOptions.auth</code> enables authentication. The instance must be valid during lifetime of the server.</p>
-<h2 id="number-of-worker-pthreads">Number of worker pthreads</h2>
-<p>Controlled by <code>ServerOptions.num_threads</code> , number of cpu cores by default(including HT).</p>
-<p>NOTE: ServerOptions.num_threads is just a <strong>hint</strong>.</p>
-<p>Don&rsquo;t think that Server uses exactly so many workers because all servers and channels in one process share worker pthreads. Total number of threads is the maximum of all ServerOptions.num_threads and bthread_concurrency.  For example, a program has 2 servers with num_threads=24 and 36 respectively, and bthread_concurrency is 16. Then the number of worker pthreads is max (24, 36, 16) = 36, which is different from other RPC implementations which do summations generally.</p>
-<p>Channel does not have a corresponding option, but user can change number of worker pthreads at client-side by setting gflag -bthread_concurrency.</p>
-<p>In addition, brpc <strong>does not separate &ldquo;IO&rdquo; and &ldquo;processing&rdquo; threads</strong>. brpc knows how to assemble IO and processing code together to achieve better concurrency and efficiency.</p>
-<h2 id="limit-concurrency">Limit concurrency</h2>
-<p>&ldquo;Concurrency&rdquo; may have 2 meanings: one is number of connections, another is number of requests processed simultaneously. Here we&rsquo;re talking about the latter one.</p>
-<p>In traditional synchronous servers, max concurreny is limited by number of worker pthreads. Setting number of workers also limits concurrency. But brpc processes new requests in bthreads and M bthreads are mapped to N workers (M &gt; N generally), synchronous server may have a concurrency higher than number of workers. On the other hand, although concurrency of asynchronous server is not limited by number of workers in principle, we need to limit it by other factors sometimes.</p>
-<p>brpc can limit concurrency at server-level and method-level. When number of requests processed by the server or method simultaneously would exceed the limit,  server responds the client with <strong>brpc::ELIMIT</strong> directly instead of invoking the service. A client seeing ELIMIT should retry another server (by best efforts). This options avoids over-queuing of requests at server-side and limits related resources.</p>
-<p>Disabled by default.</p>
-<h3 id="why-issue-error-to-the-client-instead-of-queuing-the-request-when-the-concurrency-hits-limit">Why issue error to the client instead of queuing the request when the concurrency hits limit?</h3>
-<p>A server reaching max concurrency does not mean that other servers in the same cluster reach the limit as well. Let client be aware of the error ASAP and try another server is a better strategy from a cluster view.</p>
-<h3 id="why-not-limit-qps">Why not limit QPS?</h3>
-<p>QPS is a second-level metric, which is not good at limiting sudden request bursts. Max concurrency is closely related to availability of critical resources: number of &ldquo;workers&rdquo; or &ldquo;slots&rdquo; etc, thus better at preventing over-queuing.</p>
-<p>In addition, when a server has stable latencies, limiting concurrency has similar effect as limiting QPS due to little&rsquo;s law. But the former one is much easier to implement: simple additions and minuses from a counter representing the concurrency. This is also the reason than most flow control is implemented by limiting concurrency rather than QPS. For example the window in TCP is a kind of concurrency.</p>
-<h3 id="calculate-max-concurrency">Calculate max concurrency</h3>
-<p>max_concurrency = peak_qps * noload_latency  (<a href="https://en.wikipedia.org/wiki/Little%27s_law">little&rsquo;s law</a>)</p>
-<p>peak_qps is the maximum of Queries-Per-Second.
-noload_latency is the average latency measured in a server without pushing to its limit(with an acceptable latency).
-peak_qps and nolaod_latency can be measured in pre-online performance tests and multiplied to calculate the max_concurrency.</p>
-<h3 id="limit-server-level-concurrency">Limit server-level concurrency</h3>
-<p>Set ServerOptions.max_concurrency. Default value is 0 which means not limited. Accesses to builtin services are not limited by this option.</p>
-<p>Call Server.ResetMaxConcurrency() to modify max_concurrency of the server after starting.</p>
-<h3 id="limit-method-level-concurrency">Limit method-level concurrency</h3>
-<p>server.MaxConcurrencyOf(&quot;&hellip;&quot;) = … sets max_concurrency of the method. Possible settings:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MaxConcurrencyOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;example.EchoService.Echo&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MaxConcurrencyOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;example.EchoService&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;Echo&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></div><p>server的验证是基于连接的。当server收到连接上的第一个请求时，会尝试解析出其中的身份信息部分（如baidu_std里的auth字段、HTTP协议里的Authorization头），然后附带client地址信息一起调用<code>VerifyCredential</code>。若返回0，表示验证成功，用户可以把验证后的信息填入<code>AuthContext</code>，后续可通过<code>controller-&gt;auth_context()</code>获取，用户不需要关心其分配和释放。否则表示验证失败，连接会被直接关闭，client访问失败。</p>
+<p>后续请求默认通过验证么，没有认证开销。</p>
+<p>把实现的<code>Authenticator</code>实例赋值到<code>ServerOptions.auth</code>，即开启验证功能，需要保证该实例在整个server运行周期内都有效，不能被析构。</p>
+<h2 id="worker线程数">worker线程数</h2>
+<p>设置ServerOptions.num_threads即可，默认是cpu core的个数（包含超线程的）。</p>
+<p>注意: ServerOptions.num_threads仅仅是个<strong>提示</strong>。</p>
+<p>你不能认为Server就用了这么多线程，因为进程内的所有Server和Channel会共享线程资源，线程总数是所有ServerOptions.num_threads和-bthread_concurrency中的最大值。比如一个程序内有两个Server，num_threads分别为24和36，bthread_concurrency为16。那么worker线程数为max(24, 36, 16) = 36。这不同于其他RPC实现中往往是加起来。</p>
+<p>Channel没有相应的选项，但可以通过选项-bthread_concurrency调整。</p>
+<p>另外，brpc<strong>不区分IO线程和处理线程</strong>。brpc知道如何编排IO和处理代码，以获得更高的并发度和线程利用率。</p>
+<h2 id="限制最大并发">限制最大并发</h2>
+<p>“并发”可能有两种含义，一种是连接数，一种是同时在处理的请求数。这里提到的是后者。</p>
+<p>在传统的同步server中，最大并发不会超过工作线程数，设定工作线程数量一般也限制了并发。但brpc的请求运行于bthread中，M个bthread会映射至N个worker中（一般M大于N），所以同步server的并发度可能超过worker数量。另一方面，虽然异步server的并发不受线程数控制，但有时也需要根据其他因素控制并发量。</p>
+<p>brpc支持设置server级和method级的最大并发，当server或method同时处理的请求数超过并发度限制时，它会立刻给client回复<strong>brpc::ELIMIT</strong>错误，而不会调用服务回调。看到ELIMIT错误的client应重试另一个server。这个选项可以防止server出现过度排队，或用于限制server占用的资源。</p>
+<p>默认不开启。</p>
+<h3 id="为什么超过最大并发要立刻给client返回错误而不是排队">为什么超过最大并发要立刻给client返回错误而不是排队？</h3>
+<p>当前server达到最大并发并不意味着集群中的其他server也达到最大并发了，立刻让client获知错误，并去尝试另一台server在全局角度是更好的策略。</p>
+<h3 id="为什么不限制qps">为什么不限制QPS?</h3>
+<p>QPS是一个秒级的指标，无法很好地控制瞬间的流量爆发。而最大并发和当前可用的重要资源紧密相关：&ldquo;工作线程&rdquo;，“槽位”等，能更好地抑制排队。</p>
+<p>另外当server的延时较为稳定时，限制并发的效果和限制QPS是等价的。但前者实现起来容易多了：只需加减一个代表并发度的计数器。这也是大部分流控都限制并发而不是QPS的原因，比如TCP中的“窗口&quot;即是一种并发度。</p>
+<h3 id="计算最大并发数">计算最大并发数</h3>
+<p>最大并发度 = 极限QPS * 低负载延时  (<a href="https://en.wikipedia.org/wiki/Little%27s_law">little&rsquo;s law</a>)</p>
+<p>极限QPS指的是server能达到的最大qps，低负载延时指的是server在没有严重积压请求的前提下时的平均延时。一般的服务上线都会有性能压测，把测得的QPS和延时相乘一般就是该服务的最大并发度。</p>
+<h3 id="限制server级别并发度">限制server级别并发度</h3>
+<p>设置ServerOptions.max_concurrency，默认值0代表不限制。访问内置服务不受此选项限制。</p>
+<p>Server.ResetMaxConcurrency()可在server启动后动态修改server级别的max_concurrency。</p>
+<h3 id="限制method级别并发度">限制method级别并发度</h3>
+<p>server.MaxConcurrencyOf(&quot;&hellip;&quot;) = &hellip;可设置method级别的max_concurrency。也可以通过设置ServerOptions.method_max_concurrency一次性为所有的method设置最大并发。
+当ServerOptions.method_max_concurrency和server.MaxConcurrencyOf(&quot;&hellip;&quot;)=&hellip;同时被设置时，使用server.MaxConcurrencyOf()所设置的值。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">ServerOptions</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">method_max_concurrency</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">20</span><span style="color:#000;font-weight:bold">;</span>                   <span style="color:#8f5902;font-style:italic">// Set the default maximum concurrency for all methods
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MaxConcurrencyOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;example.EchoService.Echo&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span>    <span style="color:#8f5902;font-style:italic">// Give priority to the value set by server.MaxConcurrencyOf()
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MaxConcurrencyOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;example.EchoService&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;Echo&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MaxConcurrencyOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">service</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;Echo&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><p>The code is generally put <strong>after AddService, before Start() of the server</strong>. When a setting fails(namely the method does not exist), server will fail to start and notify user to fix settings on MaxConcurrencyOf.</p>
-<p>When method-level and server-level max_concurrency are both set, framework checks server-level first, then the method-level one.</p>
-<p>NOTE: No service-level max_concurrency.</p>
-<h3 id="autoconcurrencylimiter">AutoConcurrencyLimiter</h3>
-<p>max_concurrency may change over time and measuring and setting max_concurrency for all services before each deployment are probably very troublesome and impractical.</p>
-<p>AutoConcurrencyLimiter addresses on this issue by limiting concurrency for methods. To use the algorithm, set max_concurrency of the method to &ldquo;auto&rdquo;.</p>
+<span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MaxConcurrencyOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;example.EchoService.Echo&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;10&#34;</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// You can also assign a string value
+</span></code></pre></div><p>此设置一般<strong>发生在AddService后，server启动前</strong>。当设置失败时（比如对应的method不存在），server会启动失败同时提示用户修正MaxConcurrencyOf设置错误。</p>
+<p>当method级别和server级别的max_concurrency都被设置时，先检查server级别的，再检查method级别的。</p>
+<p>注意：没有service级别的max_concurrency。</p>
+<h3 id="使用自适应限流算法">使用自适应限流算法</h3>
+<p>实际生产环境中,最大并发未必一成不变，在每次上线前逐个压测和设置服务的最大并发也很繁琐。这个时候可以使用自适应限流算法。</p>
+<p>自适应限流是method级别的。要使用自适应限流算法，把method的最大并发度设置为&quot;auto&quot;即可:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Set auto concurrency limiter for all methods
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServerOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">method_max_concurrency</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;auto&#34;</span><span style="color:#000;font-weight:bold">;</span>
 
 <span style="color:#8f5902;font-style:italic">// Set auto concurrency limiter for specific method
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MaxConcurrencyOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;example.EchoService.Echo&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;auto&#34;</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><p>Read <a href="../cn/auto_concurrency_limiter.md">this</a> to know more about the algorithm.</p>
-<h2 id="pthread-mode">pthread mode</h2>
-<p>User code(client-side done, server-side CallMethod) runs in bthreads with 1MB stacksize by default. But some of them cannot run in bthreads:</p>
+</code></pre></div><p>关于自适应限流的更多细节可以看<a href="auto_concurrency_limiter.md">这里</a></p>
+<h2 id="pthread模式">pthread模式</h2>
+<p>用户代码（客户端的done，服务器端的CallMethod）默认在栈为1MB的bthread中运行。但有些用户代码无法在bthread中运行，比如：</p>
 <ul>
-<li>JNI code checks stack layout and cannot be run in bthreads.</li>
-<li>The user code extensively use pthread-local to pass session-level data across functions. If there&rsquo;s a synchronous RPC call or function calls that may block bthread, the resumed bthread may land on a different pthread which does not have the pthread-local data that users expect to have. As a contrast, although tcmalloc uses pthread(or LWP)-local as well, the code inside has nothing to do with bthread, which is safe.</li>
+<li>JNI会检查stack layout而无法在bthread中运行。</li>
+<li>代码中广泛地使用pthread local传递session级别全局数据，在RPC前后均使用了相同的pthread local的数据，且数据有前后依赖性。比如在RPC前往pthread-local保存了一个值，RPC后又读出来希望和之前保存的相等，就会有问题。而像tcmalloc虽然也使用了pthread/LWP local，但每次使用之间没有直接的依赖，是安全的。</li>
 </ul>
-<p>brpc offers pthread mode to solve the issues. When <strong>-usercode_in_pthread</strong> is turned on, user code will be run in pthreads. Functions that would block bthreads block pthreads.</p>
-<p>Note: With -usercode_in_pthread on, brpc::thread_local_data() does not guarantee to return valid value.</p>
-<p>Performance issues when pthread mode is on:</p>
+<p>对于这些情况，brpc提供了pthread模式，开启**-usercode_in_pthread**后，用户代码均会在pthread中运行，原先阻塞bthread的函数转而阻塞pthread。</p>
+<p>注意：开启-usercode_in_pthread后，brpc::thread_local_data()不保证能获取到值。</p>
+<p>打开pthread模式后在性能上的注意点：</p>
 <ul>
-<li>Since synchronous RPCs block worker pthreads, server often needs more workers (ServerOptions.num_threads), and scheduling efficiencies will be slightly lower.</li>
-<li>User code still runs in special bthreads actually, which use stacks of pthread workers. These special bthreads are scheduled same with normal bthreads and performance differences are negligible.</li>
-<li>bthread supports an unique feature: yield pthread worker to a newly created bthread to reduce a context switch. brpc client uses this feature to reduce number of context switches in one RPC from 3 to 2. In a performance-demanding system, reducing context-switches improves performance. However pthread-mode is not capable of doing this.</li>
-<li>Number of threads in pthread-mode is a hard limit. Once all threads are occupied, requests will be queued rapidly and many of them will be timed-out finally. An example: When many requests to downstream servers are timedout, the upstream services may also be severely affected by a lot of blocking threads waiting for responses(within timeout). Consider setting ServerOptions.max_concurrency to protect the server when pthread-mode is on. As a contrast, number of bthreads in bthread mode is a soft limit and reacts more smoothly to such kind of issues.</li>
+<li>同步RPC都会阻塞worker pthread，server端一般需要设置更多的工作线程(ServerOptions.num_threads)，调度效率会略微降低。</li>
+<li>运行用户代码的仍然是bthread，只是很特殊，会直接使用pthread worker的栈。这些特殊bthread的调度方式和其他bthread是一致的，这方面性能差异很小。</li>
+<li>bthread支持一个独特的功能：把当前使用的pthread worker 让给另一个新创建的bthread运行，以消除一次上下文切换。brpc client利用了这点，从而使一次RPC过程中3次上下文切换变为了2次。在高QPS系统中，消除上下文切换可以明显改善性能和延时分布。但pthread模式不具备这个能力，在高QPS系统中性能会有一定下降。</li>
+<li>pthread模式中线程资源是硬限，一旦线程被打满，请求就会迅速拥塞而造成大量超时。一个常见的例子是：下游服务大量超时后，上游服务可能由于线程大都在等待下游也被打满从而影响性能。开启pthread模式后请考虑设置ServerOptions.max_concurrency以控制server的最大并发。而在bthread模式中bthread个数是软限，对此类问题的反应会更加平滑。</li>
 </ul>
-<p>pthread-mode lets legacy code to try brpc more easily, but we still recommend refactoring the code with bthread-local or even remove TLS gradually, to turn off the option in future.</p>
-<h2 id="security-mode">Security mode</h2>
-<p>If requests are from public(including being proxied by nginx etc), you have to be aware of some security issues.</p>
-<h3 id="hide-builtin-services-from-public">Hide builtin services from public</h3>
-<p>Builtin services are useful, on the other hand include a lot of internal information and shouldn&rsquo;t be exposed to public. There&rsquo;re multiple methods to hide builtin services from public:</p>
+<p>pthread模式可以让一些老代码快速尝试brpc，但我们仍然建议逐渐地把代码改造为使用bthread local或最好不用TLS，从而最终能关闭这个开关。</p>
+<h2 id="安全模式">安全模式</h2>
+<p>如果你的服务流量来自外部（包括经过nginx等转发），你需要注意一些安全因素：</p>
+<h3 id="对外隐藏内置服务">对外隐藏内置服务</h3>
+<p>内置服务很有用，但包含了大量内部信息，不应对外暴露。有多种方式可以对外隐藏内置服务：</p>
 <ul>
 <li>
-<p>Set internal port. Set ServerOptions.internal_port to a port which can <strong>only be accessible from internal</strong>. You can view builtin services via internal_port, while accesses from the public port (the one passed to Server.Start) should see following error:</p>
+<p>设置内部端口。把ServerOptions.internal_port设为一个<strong>仅允许内网访问</strong>的端口。你可通过internal_port访问到内置服务，但通过对外端口(Server.Start时传入的那个)访问内置服务时将看到如下错误：</p>
 <pre><code>[a27eda84bcdeef529a76f22872b78305] Not allowed to access builtin services, try ServerOptions.internal_port=... instead if you're inside internal network
 </code></pre></li>
 <li>
-<p>http proxies only proxy specified URLs. nginx etc is able to configure how to map different URLs to back-end servers. For example the configure below maps public traffic to /MyAPI to <code>/ServiceName/MethodName</code> of <code>target-server</code>. If builtin services like /status are accessed from public, nginx rejects the attempts directly.</p>
+<p>http proxy指定转发路径。nginx等可配置URL的映射关系，比如下面的配置把访问/MyAPI的外部流量映射到<code>target-server</code>的<code>/ServiceName/MethodName</code>。当外部流量尝试访问内置服务，比如说/status时，将直接被nginx拒绝。</p>
 </li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx">  <span style="color:#204a87;font-weight:bold">location</span> <span style="color:#4e9a06">/MyAPI</span> <span style="color:#000;font-weight:bold">{</span>
       <span style="color:#204a87;font-weight:bold">...</span>
-      <span style="color:#4e9a06">proxy_pass</span> <span style="color:#4e9a06">http://&lt;target-server&gt;/ServiceName/MethodName</span><span style="color:#000">$query_string</span>   <span style="color:#8f5902;font-style:italic"># $query_string is a nginx varible, check out http://nginx.org/en/docs/http/ngx_http_core_module.html for more.
+      <span style="color:#4e9a06">proxy_pass</span> <span style="color:#4e9a06">http://&lt;target-server&gt;/ServiceName/MethodName</span><span style="color:#000">$query_string</span>   <span style="color:#8f5902;font-style:italic"># $query_string是nginx变量，更多变量请查询http://nginx.org/en/docs/http/ngx_http_core_module.html
 </span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#4e9a06">...</span>
   <span style="color:#a40000">}</span>
-</code></pre></div><p><strong>Don&rsquo;t turn on</strong> -enable_dir_service and -enable_threads_service on public services. Although they&rsquo;re convenient for debugging, they also expose too many information on the server. The script to check if the public service has enabled the options:</p>
+</code></pre></div><p><strong>请勿在对外服务上开启</strong>-enable_dir_service和-enable_threads_service两个选项，它们虽然很方便，但会严重泄露服务器上的其他信息。检查对外的rpc服务是否打开了这两个开关：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -s -m <span style="color:#0000cf;font-weight:bold">1</span> &lt;HOSTNAME&gt;:&lt;PORT&gt;/flags/enable_dir_service,enable_threads_service <span style="color:#000;font-weight:bold">|</span> awk <span style="color:#4e9a06">&#39;{if($3==&#34;false&#34;){++falsecnt}else if($3==&#34;Value&#34;){isrpc=1}}END{if(isrpc!=1||falsecnt==2){print &#34;SAFE&#34;}else{print &#34;NOT SAFE&#34;}}&#39;</span>
-</code></pre></div><h3 id="disable-built-in-services-completely">Disable built-in services completely</h3>
-<p>Set ServerOptions.has_builtin_services = false, you can completely disable the built-in services.</p>
-<h3 id="escape-urls-controllable-from-public">Escape URLs controllable from public</h3>
-<p>brpc::WebEscape() escapes url to prevent injection attacks with malice.</p>
-<h3 id="not-return-addresses-of-internal-servers">Not return addresses of internal servers</h3>
-<p>Consider returning signatures of the addresses. For example after setting ServerOptions.internal_port, addresses in error information returned by server is replaced by their MD5 signatures.</p>
-<h2 id="customize-health">Customize /health</h2>
-<p>/health returns &ldquo;OK&rdquo; by default. If the content on /health needs to be customized: inherit <a href="https://github.com/brpc/brpc/blob/master/src/brpc/health_reporter.h">HealthReporter</a> and implement code to generate the page (like implementing other http services). Assign an instance to ServerOptions.health_reporter, which is not owned by server and must be valid during lifetime of the server. Users may return richer healthy information according to application requirements.</p>
-<h2 id="thread-local-variables">thread-local variables</h2>
-<p>Searching services inside Baidu use <a href="https://en.wikipedia.org/wiki/Thread-local_storage">thread-local storage</a> (TLS) extensively. Some of them cache frequently used objects to reduce repeated creations, some of them pass contexts to global functions implicitly. You should avoid the latter usage as much as possible. Such functions cannot even run without TLS, being hard to test. brpc provides 3 mechanisms to solve issues related to thread-local storage.</p>
+</code></pre></div><h3 id="完全禁用内置服务">完全禁用内置服务</h3>
+<p>设置ServerOptions.has_builtin_services = false，可以完全禁用内置服务。</p>
+<h3 id="转义外部可控的url">转义外部可控的URL</h3>
+<p>可调用brpc::WebEscape()对url进行转义，防止恶意URI注入攻击。</p>
+<h3 id="不返回内部server地址">不返回内部server地址</h3>
+<p>可以考虑对server地址做签名。比如在设置ServerOptions.internal_port后，server返回的错误信息中的IP信息是其MD5签名，而不是明文。</p>
+<h2 id="定制health页面">定制/health页面</h2>
+<p>/health页面默认返回&quot;OK&quot;，若需定制/health页面的内容：先继承<a href="https://github.com/brpc/brpc/blob/master/src/brpc/health_reporter.h">HealthReporter</a>，在其中实现生成页面的逻辑（就像实现其他http service那样），然后把实例赋给ServerOptions.health_reporter，这个实例不被server拥有，必须保证在server运行期间有效。用户在定制逻辑中可以根据业务的运行状态返回更多样的状态信息。</p>
+<h2 id="线程私有变量">线程私有变量</h2>
+<p>百度内的检索程序大量地使用了<a href="https://en.wikipedia.org/wiki/Thread-local_storage">thread-local storage</a> (缩写TLS)，有些是为了缓存频繁访问的对象以避免反复创建，有些则是为了在全局函数间隐式地传递状态。你应当尽量避免后者，这样的函数难以测试，不设置thread-local变量甚至无法运行。brpc中有三套机制解决和thread-local相关的问题。</p>
 <h3 id="session-local">session-local</h3>
-<p>A session-local data is bound to a <strong>server-side RPC</strong>: from entering CallMethod of the service, to calling the server-side done-&gt;Run(), no matter the service is synchronous or asynchronous. All session-local data are reused as much as possible and not deleted before stopping the server.</p>
-<p>After setting ServerOptions.session_local_data_factory, call Controller.session_local_data() to get a session-local data. If ServerOptions.session_local_data_factory is unset, Controller.session_local_data() always returns NULL.</p>
-<p>If ServerOptions.reserved_session_local_data is greater than 0, Server creates so many data before serving.</p>
-<p><strong>Example</strong></p>
+<p>session-local data与一次server端RPC绑定: 从进入service回调开始，到调用server端的done结束，不管该service是同步还是异步处理。 session-local data会尽量被重用，在server停止前不会被删除。</p>
+<p>设置ServerOptions.session_local_data_factory后访问Controller.session_local_data()即可获得session-local数据。若没有设置，Controller.session_local_data()总是返回NULL。</p>
+<p>若ServerOptions.reserved_session_local_data大于0，Server会在提供服务前就创建这么多个数据。</p>
+<p><strong>示例用法</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000">MySessionLocalData</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000">MySessionLocalData</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">123</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{}</span>
     <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">};</span>
-
+ 
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">EchoServiceImpl</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoService</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#000;font-weight:bold">...</span>
@@ -2575,7 +2507,7 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
               <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Closure</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">done</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
         <span style="color:#000;font-weight:bold">...</span>
         <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cntl</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">static_cast</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl_base</span><span style="color:#000;font-weight:bold">);</span>
-
+ 
         <span style="color:#8f5902;font-style:italic">// Get the session-local data which is created by ServerOptions.session_local_data_factory
 </span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">// and reused between different RPC.
 </span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">MySessionLocalData</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">sd</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">static_cast</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">MySessionLocalData</span><span style="color:#ce5c00;font-weight:bold">*&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">session_local_data</span><span style="color:#000;font-weight:bold">());</span>
@@ -2591,7 +2523,7 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// NOT owned by Server and must be valid when Server is running.
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// Default: NULL
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataFactory</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">session_local_data_factory</span><span style="color:#000;font-weight:bold">;</span>
-
+ 
     <span style="color:#8f5902;font-style:italic">// Prepare so many session-local data before server starts, so that calls
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// to Controller::session_local_data() get data directly rather than
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// calling session_local_data_factory-&gt;Create() at first time. Useful when
@@ -2600,41 +2532,41 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// Default: 0
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">size_t</span> <span style="color:#000">reserved_session_local_data</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">};</span>
-</code></pre></div><p>session_local_data_factory is typed <a href="https://github.com/brpc/brpc/blob/master/src/brpc/data_factory.h">DataFactory</a>. You have to implement CreateData and DestroyData inside.</p>
-<p>NOTE: CreateData and DestroyData may be called by multiple threads simultaneously. Thread-safety is a must.</p>
+</code></pre></div><p>session_local_data_factory的类型为<a href="https://github.com/brpc/brpc/blob/master/src/brpc/data_factory.h">DataFactory</a>，你需要实现其中的CreateData和DestroyData。</p>
+<p>注意：CreateData和DestroyData会被多个线程同时调用，必须线程安全。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">MySessionLocalDataFactory</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">DataFactory</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">CreateData</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000;font-weight:bold">{</span>
         <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">MySessionLocalData</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>  
     <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">DestroyData</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">d</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000;font-weight:bold">{</span>
         <span style="color:#204a87;font-weight:bold">delete</span> <span style="color:#204a87;font-weight:bold">static_cast</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">MySessionLocalData</span><span style="color:#ce5c00;font-weight:bold">*&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">d</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>  
 <span style="color:#000;font-weight:bold">};</span>
 
 <span style="color:#000">MySessionLocalDataFactory</span> <span style="color:#000">g_session_local_data_factory</span><span style="color:#000;font-weight:bold">;</span>
 
 <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">[])</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000;font-weight:bold">...</span>
-
+ 
     <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Server</span> <span style="color:#000">server</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServerOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000;font-weight:bold">...</span>
     <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">session_local_data_factory</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">g_session_local_data_factory</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000;font-weight:bold">...</span>
 </code></pre></div><h3 id="server-thread-local">server-thread-local</h3>
-<p>A server-thread-local is bound to <strong>a call to service&rsquo;s CallMethod</strong>, from entering service&rsquo;s CallMethod, to leaving the method. All server-thread-local data are reused as much as possible and will not be deleted before stopping the server. server-thread-local is implemented as a special bthread-local.</p>
-<p>After setting ServerOptions.thread_local_data_factory, call brpc::thread_local_data() to get a thread-local. If ServerOptions.thread_local_data_factory is unset, brpc::thread_local_data() always returns NULL.</p>
-<p>If ServerOptions.reserved_thread_local_data is greater than 0, Server creates so many data before serving.</p>
-<p><strong>Differences with session-local</strong></p>
-<p>session-local data is got from server-side Controller,  server-thread-local can be got globally from any function running directly or indirectly inside a thread created by the server.</p>
-<p>session-local and server-thread-local are similar in a synchronous service, except that the former one has to be created from a Controller. If the service is asynchronous and the data needs to be accessed from done-&gt;Run(), session-local is the only option, because server-thread-local is already invalid after leaving service&rsquo;s CallMethod.</p>
-<p><strong>Example</strong></p>
+<p>server-thread-local与一次service回调绑定，从进service回调开始，到出service回调结束。所有的server-thread-local data会被尽量重用，在server停止前不会被删除。在实现上server-thread-local是一个特殊的bthread-local。</p>
+<p>设置ServerOptions.thread_local_data_factory后访问brpc::thread_local_data()即可获得thread-local数据。若没有设置，brpc::thread_local_data()总是返回NULL。</p>
+<p>若ServerOptions.reserved_thread_local_data大于0，Server会在启动前就创建这么多个数据。</p>
+<p><strong>与session-local的区别</strong></p>
+<p>session-local data得从server端的Controller获得， server-thread-local可以在任意函数中获得，只要这个函数直接或间接地运行在server线程中。</p>
+<p>当service是同步时，session-local和server-thread-local基本没有差别，除了前者需要Controller创建。当service是异步时，且你需要在done-&gt;Run()中访问到数据，这时只能用session-local，因为server-thread-local在service回调外已经失效。</p>
+<p><strong>示例用法</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000">MyThreadLocalData</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000">MyThreadLocalData</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{}</span>
     <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">};</span>
-
+ 
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">EchoServiceImpl</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoService</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#000;font-weight:bold">...</span>
@@ -2644,7 +2576,7 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
               <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Closure</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">done</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
         <span style="color:#000;font-weight:bold">...</span>
         <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cntl</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">static_cast</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl_base</span><span style="color:#000;font-weight:bold">);</span>
-
+         
         <span style="color:#8f5902;font-style:italic">// Get the thread-local data which is created by ServerOptions.thread_local_data_factory
 </span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">// and reused between different threads.
 </span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#8f5902;font-style:italic">// &#34;tls&#34; is short for &#34;thread local storage&#34;.
@@ -2656,14 +2588,14 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
         <span style="color:#000;font-weight:bold">}</span>
         <span style="color:#000;font-weight:bold">...</span>
 </code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000">ServerOptions</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#000;font-weight:bold">...</span>
+    <span style="color:#000;font-weight:bold">...</span>    
     <span style="color:#8f5902;font-style:italic">// The factory to create/destroy data attached to each searching thread
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// in server.
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// If this field is NULL, brpc::thread_local_data() is always NULL.
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// NOT owned by Server and must be valid when Server is running.
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// Default: NULL
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataFactory</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">thread_local_data_factory</span><span style="color:#000;font-weight:bold">;</span>
-
+ 
     <span style="color:#8f5902;font-style:italic">// Prepare so many thread-local data before server starts, so that calls
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// to brpc::thread_local_data() get data directly rather than calling
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// thread_local_data_factory-&gt;Create() at first time. Useful when Create()
@@ -2672,33 +2604,33 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// Default: 0
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">size_t</span> <span style="color:#000">reserved_thread_local_data</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">};</span>
-</code></pre></div><p>thread_local_data_factory is typed <a href="https://github.com/brpc/brpc/blob/master/src/brpc/data_factory.h">DataFactory</a>. You need to implement CreateData and DestroyData inside.</p>
-<p>NOTE: CreateData and DestroyData may be called by multiple threads simultaneously. Thread-safety is a must.</p>
+</code></pre></div><p>thread_local_data_factory的类型为<a href="https://github.com/brpc/brpc/blob/master/src/brpc/data_factory.h">DataFactory</a>，你需要实现其中的CreateData和DestroyData。</p>
+<p>注意：CreateData和DestroyData会被多个线程同时调用，必须线程安全。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">MyThreadLocalDataFactory</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">DataFactory</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">CreateData</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000;font-weight:bold">{</span>
         <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">MyThreadLocalData</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>  
     <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">DestroyData</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">d</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000;font-weight:bold">{</span>
         <span style="color:#204a87;font-weight:bold">delete</span> <span style="color:#204a87;font-weight:bold">static_cast</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">MyThreadLocalData</span><span style="color:#ce5c00;font-weight:bold">*&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">d</span><span style="color:#000;font-weight:bold">);</span>
-    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>  
 <span style="color:#000;font-weight:bold">};</span>
-
+ 
 <span style="color:#000">MyThreadLocalDataFactory</span> <span style="color:#000">g_thread_local_data_factory</span><span style="color:#000;font-weight:bold">;</span>
 
 <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">[])</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000;font-weight:bold">...</span>
-
+ 
     <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Server</span> <span style="color:#000">server</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServerOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000;font-weight:bold">...</span>
     <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">thread_local_data_factory</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">g_thread_local_data_factory</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000;font-weight:bold">...</span>
 </code></pre></div><h3 id="bthread-local">bthread-local</h3>
-<p>Session-local and server-thread-local are enough for most servers. However, in some cases, we need a more general thread-local solution. In which case, you can use bthread_key_create, bthread_key_destroy, bthread_getspecific, bthread_setspecific etc, which are similar to <a href="http://linux.die.net/man/3/pthread_key_create">pthread equivalence</a>.</p>
-<p>These functions support both bthread and pthread. When they are called in bthread, bthread private variables are returned; When they are called in pthread, pthread private variables are returned. Note that the &ldquo;pthread private&rdquo; here is not created by pthread_key_create, pthread-local created by pthread_key_create cannot be got by bthread_getspecific. __thread in GCC and thread_local in c++11 etc cannot be got by bthread_getspecific as well.</p>
-<p>Since brpc creates a bthread for each request, the bthread-local in the server behaves specially: a bthread created by server does not delete bthread-local data at exit, instead it returns the data to a pool in the server for later reuse. This prevents bthread-local from constructing and destructing frequently along with creation and destroying of bthreads. This mechanism is transparent to users.</p>
-<p><strong>Main interfaces</strong></p>
+<p>Session-local和server-thread-local对大部分server已经够用。不过在一些情况下，我们需要更通用的thread-local方案。在这种情况下，你可以使用bthread_key_create, bthread_key_destroy, bthread_getspecific, bthread_setspecific等函数，它们的用法类似<a href="http://linux.die.net/man/3/pthread_key_create">pthread中的函数</a>。</p>
+<p>这些函数同时支持bthread和pthread，当它们在bthread中被调用时，获得的是bthread私有变量; 当它们在pthread中被调用时，获得的是pthread私有变量。但注意，这里的“pthread私有变量”不是通过pthread_key_create创建的，使用pthread_key_create创建的pthread-local是无法被bthread_getspecific访问到的，这是两个独立的体系。由gcc的__thread，c++11的thread_local等声明的私有变量也无法被bthread_getspecific访问到。</p>
+<p>由于brpc会为每个请求建立一个bthread，server中的bthread-local行为特殊：一个server创建的bthread在退出时并不删除bthread-local，而是还回server的一个pool中，以被其他bthread复用。这可以避免bthread-local随着bthread的创建和退出而不停地构造和析构。这对于用户是透明的。</p>
+<p><strong>主要接口</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Create a key value identifying a slot in a thread-specific data area.
 </span><span style="color:#8f5902;font-style:italic">// Each thread maintains a distinct thread-specific data area.
 </span><span style="color:#8f5902;font-style:italic">// `destructor&#39;, if non-NULL, is called with the value associated to that key
@@ -2734,16 +2666,16 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
 </span><span style="color:#8f5902;font-style:italic">// If bthread_setspecific() had not been called in the thread, return NULL.
 </span><span style="color:#8f5902;font-style:italic">// If the key is invalid or deleted, return NULL.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">extern</span> <span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">bthread_getspecific</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">bthread_key_t</span> <span style="color:#000">key</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p><strong>How to use</strong></p>
-<p>Create a bthread_key_t which represents a kind of bthread-local variable.</p>
-<p>Use bthread_[get|set]specific to get and set bthread-local variables. First-time access to a bthread-local variable from a bthread returns NULL.</p>
-<p>Delete a bthread_key_t after no thread is using bthread-local associated with the key. If a bthread_key_t is deleted during usage, related bthread-local data are leaked.</p>
+</code></pre></div><p><strong>使用方法</strong></p>
+<p>用bthread_key_create创建一个bthread_key_t，它代表一种bthread私有变量。</p>
+<p>用bthread_[get|set]specific查询和设置bthread私有变量。一个线程中第一次访问某个私有变量返回NULL。</p>
+<p>在所有线程都不使用和某个bthread_key_t相关的私有变量后再删除它。如果删除了一个仍在被使用的bthread_key_t，相关的私有变量就泄露了。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">my_data_destructor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000;font-weight:bold">}</span>
-
+ 
 <span style="color:#000">bthread_key_t</span> <span style="color:#000">tls_key</span><span style="color:#000;font-weight:bold">;</span>
-
+ 
 <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">bthread_key_create</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">tls_key</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">my_data_destructor</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to create tls_key&#34;</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
@@ -2754,11 +2686,11 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">tls</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">MyThreadLocalData</span><span style="color:#000;font-weight:bold">;</span>   <span style="color:#8f5902;font-style:italic">// Create thread-local data on demand.
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">bthread_setspecific</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tls_key</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">tls</span><span style="color:#000;font-weight:bold">));</span>  <span style="color:#8f5902;font-style:italic">// set the data so that next time bthread_getspecific in the thread returns the data.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p><strong>Example</strong></p>
+</code></pre></div><p><strong>示例代码</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">my_thread_local_data_deleter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">d</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">delete</span> <span style="color:#204a87;font-weight:bold">static_cast</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">MyThreadLocalData</span><span style="color:#ce5c00;font-weight:bold">*&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">d</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span>
-
+<span style="color:#000;font-weight:bold">}</span>  
+ 
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">EchoServiceImpl</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoService</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#000">EchoServiceImpl</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
@@ -2771,7 +2703,7 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
 <span style="color:#204a87;font-weight:bold">private</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#000">bthread_key_t</span> <span style="color:#000">_tls2_key</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span>
-
+ 
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">EchoServiceImpl</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoService</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#000;font-weight:bold">...</span>
@@ -2793,24 +2725,24 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
         <span style="color:#000;font-weight:bold">}</span>
         <span style="color:#000;font-weight:bold">...</span>
 </code></pre></div><h1 id="faq">FAQ</h1>
-<h3 id="q-fail-to-write-into-fd1865-socketid89051020824543547428230-got-eof">Q: Fail to write into fd=1865 <a href="mailto:SocketId=8905@10.208.245.43">SocketId=8905@10.208.245.43</a>:54742@8230: Got EOF</h3>
-<p>A: The client-side probably uses pooled or short connections, and closes the connection after RPC timedout, when server writes back response, it finds that the connection has been closed and reports this error. &ldquo;Got EOF&rdquo; just means the server has received EOF (remote side closes the connection normally). If the client side uses single connection, server rarely reports this error.</p>
-<h3 id="q-remote-side-of-fd9-socketid2109466558000-was-closed">Q: Remote side of fd=9 <a href="mailto:SocketId=2@10.94.66.55">SocketId=2@10.94.66.55</a>:8000 was closed</h3>
-<p>It&rsquo;s not an error, it&rsquo;s a common warning representing that remote side has closed the connection(EOF). This log might be useful for debugging problems.</p>
-<p>Disabled by default. Set gflag -log_connection_close to true to enable it. (<a href="flags.md#change-gflag-on-the-fly">modify at run-time</a> is supported)</p>
-<h3 id="q-why-does-setting-number-of-threads-at-server-side-not-work">Q: Why does setting number of threads at server-side not work</h3>
-<p>All brpc servers in one process <a href="#Number-of-worker-pthreads">share worker pthreads</a>, If multiple servers are created, number of worker pthreads is probably the maxmium of their ServerOptions.num_threads.</p>
-<h3 id="q-why-do-client-side-latencies-much-larger-than-the-server-side-ones">Q: Why do client-side latencies much larger than the server-side ones</h3>
-<p>server-side worker pthreads may not be enough and requests are significantly delayed. Read <a href="server_debugging.md">Server debugging</a> for steps on debugging server-side issues quickly.</p>
+<h3 id="q-fail-to-write-into-fd1865-socketid89051020824543547428230-got-eof是什么意思">Q: Fail to write into fd=1865 <a href="mailto:SocketId=8905@10.208.245.43">SocketId=8905@10.208.245.43</a>:54742@8230: Got EOF是什么意思</h3>
+<p>A: 一般是client端使用了连接池或短连接模式，在RPC超时后会关闭连接，server写回response时发现连接已经关了就报这个错。Got EOF就是指之前已经收到了EOF（对端正常关闭了连接）。client端使用单连接模式server端一般不会报这个。</p>
+<h3 id="q-remote-side-of-fd9-socketid2109466558000-was-closed是什么意思">Q: Remote side of fd=9 <a href="mailto:SocketId=2@10.94.66.55">SocketId=2@10.94.66.55</a>:8000 was closed是什么意思</h3>
+<p>这不是错误，是常见的warning，表示对端关掉连接了（EOF)。这个日志有时对排查问题有帮助。</p>
+<p>默认关闭，把参数-log_connection_close设置为true就打开了（支持<a href="flags.md#change-gflag-on-the-fly">动态修改</a>）。</p>
+<h3 id="q-为什么server端线程数设了没用">Q: 为什么server端线程数设了没用</h3>
+<p>brpc同一个进程中所有的server<a href="#worker%E7%BA%BF%E7%A8%8B%E6%95%B0">共用线程</a>，如果创建了多个server，最终的工作线程数多半是最大的那个ServerOptions.num_threads。</p>
+<h3 id="q-为什么client端的延时远大于server端的延时">Q: 为什么client端的延时远大于server端的延时</h3>
+<p>可能是server端的工作线程不够用了，出现了排队现象。排查方法请查看<a href="server_debugging.md">高效率排查服务卡顿</a>。</p>
 <h3 id="q-fail-to-open-procselfio">Q: Fail to open /proc/self/io</h3>
-<p>Some kernels do not provide this file. Correctness of the service is unaffected, but following bvars are not updated:</p>
+<p>有些内核没这个文件，不影响服务正确性，但如下几个bvar会无法更新：</p>
 <pre><code>process_io_read_bytes_second
 process_io_write_bytes_second
 process_io_read_second
 process_io_write_second
-</code></pre><h3 id="q-json-string-123-cant-be-converted-to-protobuf-message">Q: json string &ldquo;[1,2,3]&rdquo; can&rsquo;t be converted to protobuf message</h3>
-<p>This is not a valid json string, which must be a json object enclosed with braces {}.</p>
-<h1 id="psworkflow-at-server-side">PS:Workflow at server-side</h1>
+</code></pre><h3 id="q-json串123没法直接转为protobuf-message">Q: json串&quot;[1,2,3]&ldquo;没法直接转为protobuf message</h3>
+<p>这不是标准的json。最外层必须是花括号{}包围的json object。</p>
+<h1 id="附server端基本流程">附:Server端基本流程</h1>
 <p><img src="/images/docs/server_side.png" alt="img"></p>
 
         <div class="section-index">
@@ -2976,20 +2908,12 @@ process_io_write_second
         
             
         
-            
-        
-            
-        
-            
-        
-            
-        
     
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
 </div>
 </div>
 
@@ -3023,7 +2947,7 @@ process_io_write_second
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
         
 	
         <div style="font-size: 12.8px; color: rgb(117, 116, 116);">

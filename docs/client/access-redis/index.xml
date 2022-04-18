@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bRPC – Access redis</title>
+    <title>bRPC – 访问redis</title>
     <link>https://brpc.incubator.apache.org/docs/client/access-redis/</link>
-    <description>Recent content in Access redis on bRPC</description>
+    <description>Recent content in 访问redis on bRPC</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
     

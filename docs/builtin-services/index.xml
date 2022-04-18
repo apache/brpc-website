@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bRPC – Builtin Services</title>
+    <title>bRPC – 内置服务</title>
     <link>https://brpc.incubator.apache.org/docs/builtin-services/</link>
-    <description>Recent content in Builtin Services on bRPC</description>
+    <description>Recent content in 内置服务 on bRPC</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
     
@@ -23,35 +23,34 @@
       <description>
         
         
-        &lt;h1 id=&#34;builtin-services&#34;&gt;Builtin Services&lt;/h1&gt;
-&lt;p&gt;Builtin services expose internal status of servers in different pespectives, making development and debugging over brpc more efficient. brpc serves builting services via HTTP, which can be easily accessed through curl and web browsers. Servers respond plain text or html according to &lt;code&gt;User-Agent&lt;/code&gt; in the request header, or you may append &lt;code&gt;?console=1&lt;/code&gt; to the uri to force the server to respond in plain text. Check the &lt;a href=&#34;http://brpc.baidu.com:8765/&#34;&gt;example&lt;/a&gt; running on our dev machine(only accessible from Baidu internal) for more details. If the port is forbidden from where you run curl or web browser (e.g. not all ports are accessible from a web browser inside Baidu), you can use &lt;a href=&#34;../../tools/rpc_view/&#34;&gt;rpc_view&lt;/a&gt; for proxying.&lt;/p&gt;
-&lt;p&gt;Following 2 screenshots show accesses to builtin services from a web browser and a terminal respectively.  Note that the logo is the codename inside Baidu, and being modified to brpc in opensourced version.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;From a web browser&lt;/strong&gt;&lt;/p&gt;
+        &lt;h1 id=&#34;什么是内置服务&#34;&gt;什么是内置服务？&lt;/h1&gt;
+&lt;p&gt;内置服务以多种形式展现服务器内部状态，提高你开发和调试服务的效率。brpc通过HTTP协议提供内置服务，可通过浏览器或curl访问，服务器会根据User-Agent返回纯文本或html，你也可以添加?console=1要求返回纯文本。我们在自己的开发机上启动了&lt;a href=&#34;http://brpc.baidu.com:8765/&#34;&gt;一个长期运行的例子&lt;/a&gt;(只能百度内访问)，你可以点击后随便看看。如果服务端口被限（比如百度内不是所有的端口都能被笔记本访问到），可以使用&lt;a href=&#34;../../tools/rpc_view/&#34;&gt;rpc_view&lt;/a&gt;转发。&lt;/p&gt;
+&lt;p&gt;下面是分别从浏览器和终端访问的截图，注意其中的logo是百度内部的名称，在开源版本中是brpc。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;从浏览器访问&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/builtin_service_more.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;From a terminal&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/builtin_service_from_console.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;security-mode&#34;&gt;Security Mode&lt;/h1&gt;
-&lt;p&gt;To avoid potential attacks and information leaks, builtin services &lt;strong&gt;must&lt;/strong&gt; be hidden on servers that may be accessed from public, including the ones proxied by nginx or other http servers. Click &lt;a href=&#34;../../server/basics/#security-mode&#34;&gt;here&lt;/a&gt; for more details.&lt;/p&gt;
-&lt;h1 id=&#34;main-services&#34;&gt;Main services:&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;../status/&#34;&gt;/status&lt;/a&gt;: displays brief status of all services.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../vars/&#34;&gt;/vars&lt;/a&gt;: lists user-customizable counters on miscellaneous metrics.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../connections/&#34;&gt;/connections&lt;/a&gt;: lists all connections and their stats.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../flags/&#34;&gt;/flags&lt;/a&gt;: lists all gflags, some of them are modifiable at run-time.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../rpcz/&#34;&gt;/rpcz&lt;/a&gt;: traces all RPCs.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../cpu_profiler/&#34;&gt;cpu profiler&lt;/a&gt;: analyzes CPU hotspots.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../heap_profiler/&#34;&gt;heap profiler&lt;/a&gt;: shows how memory are allocated.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;../contention_profiler/&#34;&gt;contention profiler&lt;/a&gt;: analyzes lock contentions.&lt;/p&gt;
-&lt;h1 id=&#34;other-services&#34;&gt;Other services&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/version&#34;&gt;/version&lt;/a&gt; shows version of the server. Call Server::set_version() to specify version of the server, or brpc would generate a default version like &lt;code&gt;brpc_server_&amp;lt;service-name1&amp;gt;_&amp;lt;service-name2&amp;gt; ...&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;从命令行访问&lt;/strong&gt; &lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/builtin_service_from_console.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;安全模式&#34;&gt;安全模式&lt;/h1&gt;
+&lt;p&gt;出于安全考虑，直接对外服务需要隐藏内置服务（包括经过nginx或其他http server转发流量的），具体方法请阅读&lt;a href=&#34;../../server/basics/#%E5%AE%89%E5%85%A8%E6%A8%A1%E5%BC%8F&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;h1 id=&#34;主要服务&#34;&gt;主要服务&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;../status/&#34;&gt;/status&lt;/a&gt;: 显示所有服务的主要状态。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../vars/&#34;&gt;/vars&lt;/a&gt;: 用户可定制的，描绘各种指标的计数器。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../connections/&#34;&gt;/connections&lt;/a&gt;: 所有连接的统计信息。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../flags/&#34;&gt;/flags&lt;/a&gt;: 所有gflags的状态，可动态修改。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../rpcz&#34;&gt;/rpcz&lt;/a&gt;: 查看所有的RPC的细节。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../cpu_profiler&#34;&gt;cpu profiler&lt;/a&gt;: 分析cpu热点。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../heap_profiler&#34;&gt;heap profiler&lt;/a&gt;: 分析内存占用。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../contention_profiler&#34;&gt;contention profiler&lt;/a&gt;: 分析锁竞争。&lt;/p&gt;
+&lt;h1 id=&#34;其他服务&#34;&gt;其他服务&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/version&#34;&gt;/version&lt;/a&gt;: 查看服务器的版本。用户可通过Server::set_version()设置Server的版本，如果用户没有设置，框架会自动为用户生成，规则：&lt;code&gt;brpc_server_&amp;lt;service-name1&amp;gt;_&amp;lt;service-name2&amp;gt; ...&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/version_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/health&#34;&gt;/health&lt;/a&gt; shows whether this server is alive or not.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/health&#34;&gt;/health&lt;/a&gt;: 探测服务的存活情况。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/health_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/protobufs&#34;&gt;/protobufs&lt;/a&gt; shows scheme of all protobuf messages inside the server.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/protobufs&#34;&gt;/protobufs&lt;/a&gt;: 查看程序中所有的protobuf结构体。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/protobufs_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vlog&#34;&gt;/vlog&lt;/a&gt; shows all the &lt;a href=&#34;../../c++-base/streaming-log/#vlog&#34;&gt;VLOG&lt;/a&gt; that can be enabled(not working with glog).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vlog&#34;&gt;/vlog&lt;/a&gt;: 查看程序中当前可开启的&lt;a href=&#34;../../c++-base/streaming-log#vlog&#34;&gt;VLOG&lt;/a&gt; (对glog无效)。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vlog_service.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;/dir: browses all files on the server, convenient but too dangerous, disabled by default.&lt;/p&gt;
-&lt;p&gt;/threads: displays information of all threads of the process, hurting performance significantly when being turned on, disabled by default.&lt;/p&gt;
+&lt;p&gt;/dir: 浏览服务器上的所有文件，方便但非常危险，默认关闭。&lt;/p&gt;
+&lt;p&gt;/threads: 查看进程内所有线程的运行状况，调用时对程序性能影响较大，默认关闭。&lt;/p&gt;
 
       </description>
     </item>
@@ -65,24 +64,24 @@
       <description>
         
         
-        &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/status&#34;&gt;/status&lt;/a&gt; shows primary statistics of services inside the server. The data sources are same with &lt;a href=&#34;../vars/&#34;&gt;/vars&lt;/a&gt;, but stats are grouped differently.&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/status&#34;&gt;/status&lt;/a&gt;可以访问服务的主要统计信息。这些信息和/vars是同源的，但按服务重新组织方便查看。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/status.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Meanings of the fields above:&lt;/p&gt;
+&lt;p&gt;上图中字段的含义分别是：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;non_service_error&lt;/strong&gt;: number of errors raised outside processing code of the service. When a valid service is obtained, the subsequent error is regarded as &lt;em&gt;service_error&lt;/em&gt;, otherwise it is regarded as &lt;em&gt;non_service_error&lt;/em&gt; (such as request parsing failed, service name does not exist, request concurrency exceeding limit, etc.). As a contrast, failing to access back-end servers during the processing is an error of the service, not a &lt;em&gt;non_service_error&lt;/em&gt;. Even if the response written out successfully stands for failure, the error is counted into the service rather than &lt;em&gt;non_service_error&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;connection_count&lt;/strong&gt;: number of connections to the server from clients, not including number of outward connections which are displayed at /vars/rpc_channel_connection_count.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;example.EchoService&lt;/strong&gt;: Full name of the service, including the package name defined in proto.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Echo (EchoRequest) returns (EchoResponse)&lt;/strong&gt;: Signature of the method. A service can have multiple methods. Click links on request/response to see schemes of the protobuf messages.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;count&lt;/strong&gt;: Number of requests that are succesfully processed.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;error&lt;/strong&gt;: Number of requests that are failed to process.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;latency&lt;/strong&gt;: average latency in recent &lt;em&gt;60s/60m/24h/30d&lt;/em&gt; from &lt;em&gt;right to left&lt;/em&gt; on html, average latency in recent 10s(by default, specified by &lt;a href=&#34;http://brpc.baidu.com:8765/flags/bvar_dump_interval&#34;&gt;-bvar_dump_interval&lt;/a&gt;) on plain texts.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;latency_percentiles&lt;/strong&gt;: 80%, 90%, 99%, 99.9% percentiles of latency in 10 seconds(specified by&lt;a href=&#34;http://brpc.baidu.com:8765/flags/bvar_dump_interval&#34;&gt;-bvar_dump_interval&lt;/a&gt;). Curves with historical values are shown on html.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;latency_cdf&lt;/strong&gt;: shows percentiles as &lt;a href=&#34;https://en.wikipedia.org/wiki/Cumulative_distribution_function&#34;&gt;CDF&lt;/a&gt;, only available on html.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;max_latency&lt;/strong&gt;: max latency in recent &lt;em&gt;60s/60m/24h/30d&lt;/em&gt; from &lt;em&gt;right to left&lt;/em&gt; on html, max latency in recent 10s(by default, specified by &lt;a href=&#34;http://brpc.baidu.com:8765/flags/bvar_dump_interval&#34;&gt;-bvar_dump_interval&lt;/a&gt;) on plain texts.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;qps&lt;/strong&gt;: QPS(Queries Per Second) in recent &lt;em&gt;60s/60m/24h/30d&lt;/em&gt; from &lt;em&gt;right to left&lt;/em&gt; on html. QPS in recent 10s(by default, specified by &lt;a href=&#34;http://brpc.baidu.com:8765/flags/bvar_dump_interval&#34;&gt;-bvar_dump_interval&lt;/a&gt;) on plain texts.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;processing&lt;/strong&gt;: (renamed to concurrency in master) Number of requests being processed by the method. If this counter can&amp;rsquo;t hit zero when the traffic to the service becomes zero, the server probably has bugs, such as forgetting to call done-&amp;gt;Run() or stuck on some processing steps.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;non_service_error&lt;/strong&gt;: 在service处理过程之外的错误个数。当获取到合法的service，之后发生的错误就算&lt;em&gt;service_error&lt;/em&gt;，否则算&lt;em&gt;non_service_error&lt;/em&gt;（比如请求解析失败，service名称不存在，请求并发度超限被拒绝等）。作为对比，服务过程中对后端服务的访问错误不是&lt;em&gt;non_service_error&lt;/em&gt;。即使写出的response代表错误，此error也被记入对应的service，而不是&lt;em&gt;non_service_error&lt;/em&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;connection_count&lt;/strong&gt;: 向该server发起请求的连接个数。不包含记录在/vars/rpc_channel_connection_count的对外连接的个数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;example.EchoService&lt;/strong&gt;: 服务的完整名称，包含proto中的包名。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Echo (EchoRequest) returns (EchoResponse)&lt;/strong&gt;: 方法签名，一个服务可包含多个方法，点击request/response上的链接可查看对应的protobuf结构体。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;count&lt;/strong&gt;: 成功处理的请求总个数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;error&lt;/strong&gt;: 失败的请求总个数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;latency&lt;/strong&gt;: 在html下是&lt;em&gt;从右到左&lt;/em&gt;分别是过去60秒，60分钟，24小时，30天的平均延时。纯文本下是10秒内(&lt;a href=&#34;http://brpc.baidu.com:8765/flags/bvar_dump_interval&#34;&gt;-bvar_dump_interval&lt;/a&gt;控制)的平均延时。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;latency_percentiles&lt;/strong&gt;: 是延时的80%, 90%, 99%, 99.9%分位值，统计窗口默认10秒(&lt;a href=&#34;http://brpc.baidu.com:8765/flags/bvar_dump_interval&#34;&gt;-bvar_dump_interval&lt;/a&gt;控制)，在html下有曲线。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;latency_cdf&lt;/strong&gt;: 用&lt;a href=&#34;https://en.wikipedia.org/wiki/Cumulative_distribution_function&#34;&gt;CDF&lt;/a&gt;展示分位值, 只能在html下查看。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;max_latency&lt;/strong&gt;: 在html下&lt;em&gt;从右到左&lt;/em&gt;分别是过去60秒，60分钟，24小时，30天的最大延时。纯文本下是10秒内(&lt;a href=&#34;http://brpc.baidu.com:8765/flags/bvar_dump_interval&#34;&gt;-bvar_dump_interval&lt;/a&gt;控制)的最大延时。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;qps&lt;/strong&gt;: 在html下从右到左分别是过去60秒，60分钟，24小时，30天的平均qps(Queries Per Second)。纯文本下是10秒内(&lt;a href=&#34;http://brpc.baidu.com:8765/flags/bvar_dump_interval&#34;&gt;-bvar_dump_interval&lt;/a&gt;控制)的平均qps。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;processing&lt;/strong&gt;: (新版改名为concurrency)正在处理的请求个数。在压力归0后若此指标仍持续不为0，server则很有可能bug，比如忘记调用done了或卡在某个处理步骤上了。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Users may customize descriptions on /status by letting the service implement &lt;a href=&#34;https://github.com/brpc/brpc/blob/master/src/brpc/describable.h&#34;&gt;brpc::Describable&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;用户可通过让对应Service实现&lt;a href=&#34;https://github.com/brpc/brpc/blob/master/src/brpc/describable.h&#34;&gt;brpc::Describable&lt;/a&gt;自定义在/status页面上的描述.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MyService&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;XXXService&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;brpc&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Describable&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;
     &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
@@ -90,7 +89,7 @@
         &lt;span style=&#34;color:#000&#34;&gt;os&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;my_status: blahblah&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
     &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For example:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;比如:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/status_2.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 
       </description>
@@ -105,54 +104,54 @@
       <description>
         
         
-        &lt;p&gt;&lt;a href=&#34;https://github.com/brpc/brpc/tree/master/src/bvar/&#34;&gt;bvar&lt;/a&gt; is a set of counters to record and view miscellaneous statistics conveniently in multi-threaded applications. The implementation reduces cache bouncing by storing data in thread local storage(TLS), being much faster than UbMonitor(a legacy counting library inside Baidu) and even atomic operations in highly contended scenarios. brpc integrates bvar by default, namely all exposed bvars in a server are accessible through &lt;a href=&#34;http://brpc.baidu.com:8765/vars&#34;&gt;/vars&lt;/a&gt;, and a single bvar is addressable by &lt;a href=&#34;http://brpc.baidu.com:8765/vars/rpc_socket_count&#34;&gt;/vars/VARNAME&lt;/a&gt;. Read &lt;a href=&#34;bvar.md&#34;&gt;bvar&lt;/a&gt; to know how to add bvars for your program. brpc extensively use bvar to expose internal status. If you are looking for an utility to collect and display metrics of your application, consider bvar in the first place. bvar definitely can&amp;rsquo;t replace all counters, essentially it moves contentions occurred during write to read: which needs to combine all data written by all threads and becomes much slower than an ordinary read. If read and write on the counter are both frequent or decisions need to be made based on latest values, you should not use bvar.&lt;/p&gt;
-&lt;h2 id=&#34;query-methods&#34;&gt;Query methods&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars&#34;&gt;/vars&lt;/a&gt; : List all exposed bvars&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars/rpc_socket_count&#34;&gt;/vars/NAME&lt;/a&gt;：List the bvar whose name is &lt;code&gt;NAME&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars/pid;process_cpu_usage;rpc_controller_count&#34;&gt;/vars/NAME1,NAME2,NAME3&lt;/a&gt;：List bvars whose names are either &lt;code&gt;NAME1&lt;/code&gt;, &lt;code&gt;NAME2&lt;/code&gt; or &lt;code&gt;NAME3&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars/rpc_server*_count;iobuf_blo$k_*&#34;&gt;/vars/foo*,b$r&lt;/a&gt;: List bvars whose names match given wildcard patterns. Note that &lt;code&gt;$&lt;/code&gt; matches a single character instead of &lt;code&gt;?&lt;/code&gt; which is a reserved character in URL.&lt;/p&gt;
-&lt;p&gt;Following animation shows how to find bvars with wildcard patterns. You can copy and paste the URL to others who will see same bvars that you see. (values may change)&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&#34;https://github.com/brpc/brpc/tree/master/src/bvar/&#34;&gt;bvar&lt;/a&gt;是多线程环境下的计数器类库，方便记录和查看用户程序中的各类数值，它利用了thread local存储减少了cache bouncing，相比UbMonitor(百度内的老计数器库)几乎不会给程序增加性能开销，也快于竞争频繁的原子操作。brpc集成了bvar，&lt;a href=&#34;http://brpc.baidu.com:8765/vars&#34;&gt;/vars&lt;/a&gt;可查看所有曝光的bvar，&lt;a href=&#34;http://brpc.baidu.com:8765/vars/rpc_socket_count&#34;&gt;/vars/VARNAME&lt;/a&gt;可查阅某个bvar，增加计数器的方法请查看&lt;a href=&#34;bvar.md&#34;&gt;bvar&lt;/a&gt;。brpc大量使用了bvar提供统计数值，当你需要在多线程环境中计数并展现时，应该第一时间想到bvar。但bvar不能代替所有的计数器，它的本质是把写时的竞争转移到了读：读得合并所有写过的线程中的数据，而不可避免地变慢了。当你读写都很频繁或得基于最新值做一些逻辑判断时，你不应该用bvar。&lt;/p&gt;
+&lt;h2 id=&#34;查询方法&#34;&gt;查询方法&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars&#34;&gt;/vars&lt;/a&gt; : 列出所有曝光的bvar&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars/rpc_socket_count&#34;&gt;/vars/NAME&lt;/a&gt;：查询名字为NAME的bvar&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars/pid;process_cpu_usage;rpc_controller_count&#34;&gt;/vars/NAME1,NAME2,NAME3&lt;/a&gt;：查询名字为NAME1或NAME2或NAME3的bvar&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars/rpc_server*_count;iobuf_blo$k_*&#34;&gt;/vars/foo*,b$r&lt;/a&gt;：查询名字与某一统配符匹配的bvar，注意用$代替?匹配单个字符，因为?是URL的保留字符。&lt;/p&gt;
+&lt;p&gt;以下动画演示了如何使用过滤功能。你可以把包含过滤表达式的url复制粘贴给他人，他们点开后将看到相同的计数器条目。(数值可能随运行变化)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vars_1.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;There&amp;rsquo;s a search box in the upper-left corner on /vars page, in which you can type part of the names to locate bvars. Different patterns are separated by &lt;code&gt;,&lt;/code&gt; &lt;code&gt;:&lt;/code&gt; or space.&lt;/p&gt;
+&lt;p&gt;/vars左上角有一个搜索框能加快寻找特定bvar的速度，在这个搜索框你只需键入bvar名称的一部分，框架将补上*进行模糊查找。不同的名称间可以逗号、分号或空格分隔。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vars_2.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;/vars is accessible from terminal as well:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ curl brpc.baidu.com:8765/vars/bthread*
-bthread_creation_count : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;125134&lt;/span&gt;
-bthread_creation_latency : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;
-bthread_creation_latency_50 : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;
-bthread_creation_latency_90 : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;
-bthread_creation_latency_99 : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7&lt;/span&gt;
-bthread_creation_latency_999 : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt;
-bthread_creation_latency_9999 : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt;
-bthread_creation_latency_cdf : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;click to view&amp;#34;&lt;/span&gt;
-bthread_creation_latency_percentiles : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;[3,5,7,12]&amp;#34;&lt;/span&gt;
-bthread_creation_max_latency : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7&lt;/span&gt;
-bthread_creation_qps : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;
-bthread_group_status : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 &amp;#34;&lt;/span&gt;
-bthread_num_workers : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;24&lt;/span&gt;
+&lt;p&gt;你也可以在命令行中访问vars：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ curl brpc.baidu.com:8765/vars/bthread*
+bthread_creation_count : 125134
+bthread_creation_latency : 3
+bthread_creation_latency_50 : 3
+bthread_creation_latency_90 : 5
+bthread_creation_latency_99 : 7
+bthread_creation_latency_999 : 12
+bthread_creation_latency_9999 : 12
+bthread_creation_latency_cdf : &amp;quot;click to view&amp;quot;
+bthread_creation_latency_percentiles : &amp;quot;[3,5,7,12]&amp;quot;
+bthread_creation_max_latency : 7
+bthread_creation_qps : 100
+bthread_group_status : &amp;quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 &amp;quot;
+bthread_num_workers : 24
 bthread_worker_usage : 1.01056
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;view-historical-trends&#34;&gt;View historical trends&lt;/h2&gt;
-&lt;p&gt;Clicking on most of the numerical bvars shows historical trends. Each clickable bvar records values in recent &lt;em&gt;60 seconds, 60 minutes, 24 hours and 30 days&lt;/em&gt;, which are &lt;em&gt;174&lt;/em&gt; numbers in total. 1000 clickable bvars take roughly 1M memory.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;查看历史趋势&#34;&gt;查看历史趋势&lt;/h2&gt;
+&lt;p&gt;点击大部分数值型的bvar会显示其历史趋势。每个可点击的bvar记录了过去60秒，60分钟，24小时，30天总计174个值。当有1000个可点击bvar时大约会占1M内存。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vars_3.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;calculate-and-view-percentiles&#34;&gt;Calculate and view percentiles&lt;/h2&gt;
-&lt;p&gt;x-ile (short for x-th percentile) is the value ranked at N * x%-th position amongst a group of ordered values. E.g. If there&amp;rsquo;re 1000 values inside a time window, sort them in ascending order first. The 500-th value(1000 * 50%) in the ordered list is 50-ile(a.k.a median), the 990-th(1000 * 99%) value is 99-ile, the 999-th value is 99.9-ile. Percentiles give more information on how latencies distribute than mean values, and being helpful for analyzing behavior of the system more accurately. Industrial-grade services often require SLA to be not less than 99.97% (the requirement for 2nd-level services inside Baidu, &amp;gt;=99.99% for 1st-level services), even if a system has good average latencies, a bad long-tail area may still break SLA. Percentiles do help analyzing the long-tail area.&lt;/p&gt;
-&lt;p&gt;Percentiles can be plotted as a CDF or percentiles-over-time curve.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Following diagram plots percentiles as CDF&lt;/strong&gt;, where the X-axis is the ratio(ranked-position/total-number) and the Y-axis is the corresponding percentile. E.g. The Y value corresponding to X=50% is 50-ile. If a system requires that &amp;ldquo;99.9% requests need to be processed within Y milliseconds&amp;rdquo;, you should check the Y at 99.9%.&lt;/p&gt;
+&lt;h2 id=&#34;统计和查看分位值&#34;&gt;统计和查看分位值&lt;/h2&gt;
+&lt;p&gt;x%分位值（percentile）是指把一段时间内的N个统计值排序，排在第N * x%位的值。比如一段时间内有1000个值，先从小到大排序，排在第500位(1000 * 50%)的值是50%分位值（即中位数），排在第990位的是99%分位值(1000 * 99%)，排在第999位的是99.9%分位值。分位值能比平均值更准确的刻画数值的分布，对理解系统行为有重要意义。工业级应用的SLA一般在99.97%以上(此为百度对二级系统的要求，一级是99.99%以上)，一些系统即使平均值不错，但不佳的长尾区域也会明显拉低和打破SLA。分位值能帮助分析长尾区域。&lt;/p&gt;
+&lt;p&gt;分位值可以绘制为CDF曲线和按时间变化的曲线。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下图是分位值的CDF&lt;/strong&gt;，横轴是比例(排序位置/总数)，纵轴是对应的分位值。比如横轴=50%处对应的纵轴值便是50%分位值。如果系统要求的性能指标是&amp;quot;99.9%的请求在xx毫秒内完成“，那么你就得看下99.9%那儿的值。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vars_4.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Why do we call it &lt;a href=&#34;https://en.wikipedia.org/wiki/Cumulative_distribution_function&#34;&gt;CDF&lt;/a&gt; ? When a Y=y is chosen, the corresponding X means &amp;ldquo;percentage of values &amp;lt;= y&amp;rdquo;. Since values are sampled randomly (and uniformly), the X can be viewed as &amp;ldquo;probability of values &amp;lt;= y&amp;rdquo;, or P(values &amp;lt;= y), which is just the definition of CDF.&lt;/p&gt;
-&lt;p&gt;Derivative of the CDF is &lt;a href=&#34;https://en.wikipedia.org/wiki/Probability_density_function&#34;&gt;PDF&lt;/a&gt;. If we divide the Y-axis of the CDF into many small-range segments, calculate the difference between X values of both ends of each segment, and use the difference as new value for X-axis, a PDF curve would be plotted, just like a normal distribution rotated 90 degrees clockwise. However density of the median is often much higher than others in a PDF and probably make long-tail area very flat and hard to read. As a result, systems prefer showing distributions in CDF rather than PDF.&lt;/p&gt;
-&lt;p&gt;Here&amp;rsquo;re 2 simple rules to check if a CDF curve is good or not:&lt;/p&gt;
+&lt;p&gt;为什么叫它&lt;a href=&#34;https://en.wikipedia.org/wiki/Cumulative_distribution_function&#34;&gt;CDF&lt;/a&gt;? 当选定一个纵轴值y时，对应横轴的含义是&amp;quot;数值 &amp;lt;= y的比例”，由于数值一般来自随机采样，横轴也可以理解为“数值 &amp;lt;= y的概率”，或P(数值 &amp;lt;= y)，这就是CDF的定义。&lt;/p&gt;
+&lt;p&gt;CDF的导数是&lt;a href=&#34;https://en.wikipedia.org/wiki/Probability_density_function&#34;&gt;概率密度函数&lt;/a&gt;。如果把CDF的纵轴分为很多小段，对每个小段计算两端对应的横轴值之差，并把这个差作为新的横轴，那么我们便绘制了PDF曲线，就像顺时针旋转了90度的正态分布那样。但中位数的密度往往很高，在PDF中很醒目，这使得边上的长尾很扁而不易查看，所以大部分系统测量结果选择CDF曲线而不是PDF曲线。&lt;/p&gt;
+&lt;p&gt;可用一些简单规则衡量CDF曲线好坏：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;The flatter the better. A horizontal line is an ideal CDF curve which means that there&amp;rsquo;re no waitings, congestions or pauses, very unlikely in practice.&lt;/li&gt;
-&lt;li&gt;The area between 99% and 100% should be as small as possible: right-side of 99% is the long-tail area, which has a significant impact on SLA.&lt;/li&gt;
+&lt;li&gt;越平越好。一条水平线是最理想的，这意味着所有的数值都相等，没有任何等待，拥塞，停顿。当然这是不可能的。&lt;/li&gt;
+&lt;li&gt;99%和100%间的面积越小越好：99%之后是长尾的聚集地，对大部分系统的SLA有重要影响。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;A CDF with slowly ascending curve and small long-tail area is great in practice.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Following diagram plots percentiles over time&lt;/strong&gt; and has four curves. The X-axis is time and Y-axis from top to bottom are 99.9% 99% 90% 50% percentiles respectively, plotted in lighter and lighter colors (from orange to yellow).&lt;/p&gt;
+&lt;p&gt;一条缓慢上升且长尾区域面积不大的CDF便是不错的曲线。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;下图是按分位值按时间变化的曲线&lt;/strong&gt;，包含了4条曲线，横轴是时间，纵轴从上到下分别对应99.9%，99%，90%，50%分位值。颜色从上到下也越来越浅（从橘红到土黄）。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vars_5.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Hovering mouse over the curves shows corresponding values at the time. The tooltip in above diagram means &amp;ldquo;The 99% percentile of latency before 39 seconds is 330 &lt;strong&gt;microseconds&lt;/strong&gt;&amp;rdquo;. The diagram does not include the 99.99-ile curve which is usually significantly higher than others, making others hard to read. You may click bvars ended with &amp;ldquo;_latency_9999&amp;rdquo; to read the 99.99-ile curve separately. This diagram shows how percentiles change over time, which is helpful to analyze performance regressions of systems.&lt;/p&gt;
-&lt;p&gt;brpc calculates latency distributions of services automatically, which do not need users to add manually. The metrics are as follows:&lt;/p&gt;
+&lt;p&gt;滑动鼠标可以阅读对应数据点的值，上图中显示的是”39秒种前的99%分位值是330&lt;strong&gt;微秒&lt;/strong&gt;”。这幅图中不包含99.99%的曲线，因为99.99%分位值常明显大于99.9%及以下的分位值，画在一起的话会使得其他曲线变得很”矮“，难以辨认。你可以点击以&amp;quot;_latency_9999&amp;quot;结尾的bvar独立查看99.99%曲线。按时间变化曲线可以看到分位值的变化趋势，对分析系统的性能变化很实用。&lt;/p&gt;
+&lt;p&gt;brpc的服务都会自动统计延时分布，用户不用自己加了。如下图所示：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vars_6.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;bvar::LatencyRecorder&lt;/code&gt; is able to calculate latency distributions of any code, as depicted below. (checkout &lt;a href=&#34;bvar_c++.md&#34;&gt;bvar-c++&lt;/a&gt; for details):&lt;/p&gt;
+&lt;p&gt;你可以用bvar::LatencyRecorder统计任何代码的延时，这么做(更具体的使用方法请查看&lt;a href=&#34;bvar_c++.md&#34;&gt;bvar-c++&lt;/a&gt;):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;bvar/bvar.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
@@ -163,10 +162,10 @@ bthread_worker_usage : 1.01056
     &lt;span style=&#34;color:#000&#34;&gt;g_latency_recorder&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;my_latency&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
     &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the application already starts a brpc server, values like &lt;code&gt;client_latency&lt;/code&gt;, &lt;code&gt;client_latency_cdf&lt;/code&gt; can be viewed from &lt;code&gt;/vars&lt;/code&gt; as follows. Clicking them to see (dynamically-updated) curves:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果这个程序使用了brpc server，那么你应该已经可以在/vars看到client_latency, client_latency_cdf等变量，点击便可查看动态曲线。如下图所示：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vars_7.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;non-brpc-server&#34;&gt;Non brpc server&lt;/h2&gt;
-&lt;p&gt;If your program only uses brpc client or even not use brpc, and you also want to view the curves, check &lt;a href=&#34;../cn/dummy_server.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;非brpc-server&#34;&gt;非brpc server&lt;/h2&gt;
+&lt;p&gt;如果你的程序只是一个brpc client或根本没有使用brpc，并且你也想看到动态曲线，看&lt;a href=&#34;dummy_server.md&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 
       </description>
     </item>

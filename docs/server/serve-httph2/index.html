@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,17 +19,17 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Serve http:h2 | bRPC</title><meta property="og:title" content="Serve http:h2" />
-<meta property="og:description" content="Learn how to serve Http2.
+<title>搭建http:h2服务 | bRPC</title><meta property="og:title" content="搭建http:h2服务" />
+<meta property="og:description" content="学习如何搭建Http2服务。
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/server/serve-httph2/" /><meta property="og:site_name" content="bRPC" />
 
-<meta itemprop="name" content="Serve http:h2">
-<meta itemprop="description" content="Learn how to serve Http2.
+<meta itemprop="name" content="搭建http:h2服务">
+<meta itemprop="description" content="学习如何搭建Http2服务。
 "><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Serve http:h2"/>
-<meta name="twitter:description" content="Learn how to serve Http2.
+<meta name="twitter:title" content="搭建http:h2服务"/>
+<meta name="twitter:description" content="学习如何搭建Http2服务。
 "/>
 
 <script type="application/javascript">
@@ -56,7 +56,7 @@ if (!doNotTrack) {
 
 
 
-    <title>Serve http:h2 | bRPC</title>
+    <title>搭建http:h2服务 | bRPC</title>
   </head>
   <body class="td-section">
     <header>
@@ -85,7 +85,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/docs/" ><span class="active">Docs</span></a>
+				<a class="nav-link active" href="/docs/" ><span class="active">文档</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -95,17 +95,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/blogs/" ><span>Blog</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="/docs/community/" ><span>Community</span></a>
+				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -125,7 +115,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/users/" ><span>Users</span></a>
+				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
 			</li>
 			
 			
@@ -134,11 +124,11 @@ if (!doNotTrack) {
 				
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	English
+	中文
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/zh/docs/server/serve-httph2/">中文</a>
+	<a class="dropdown-item" href="/en/docs/server/serve-httph2/">English</a>
 	
 </div>
 			</li>
@@ -146,7 +136,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
 </div>
 </nav>
 
@@ -164,7 +154,7 @@ if (!doNotTrack) {
   
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -176,11 +166,11 @@ if (!doNotTrack) {
       
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	English
+	中文
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/zh/docs/server/serve-httph2/">中文</a>
+	<a class="dropdown-item" href="/en/docs/server/serve-httph2/">English</a>
 	
 </div>
     </div>
@@ -194,7 +184,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Docs</a>
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">文档</a>
   </li>
   <ul>
     <li class="collapse show" id="docs">
@@ -204,19 +194,19 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">Overview</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">简介</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">Getting started</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">开始</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">Performance benchmark</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">性能基准</a>
       
       
       
@@ -413,7 +403,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Client</a>
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">客户端</a>
   </li>
   <ul>
     <li class="collapse " id="docsclient">
@@ -430,7 +420,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
+    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientbasics">
@@ -453,7 +443,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
+    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">错误码</a>
   </li>
   <ul>
     <li class="collapse " id="docsclienterror-code">
@@ -476,7 +466,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Combo channels</a>
+    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">组合channels</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientcombo-channels">
@@ -499,7 +489,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
+    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-httph2">
@@ -522,7 +512,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
+    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-grpc">
@@ -545,7 +535,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access thrift</a>
+    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-thrift">
@@ -568,7 +558,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
+    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问UB</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-ub">
@@ -591,7 +581,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access redis</a>
+    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问redis</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-redis">
@@ -614,7 +604,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问memcached</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-memcached">
@@ -637,7 +627,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流式RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientstreaming-rpc">
@@ -712,7 +702,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Server</a>
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">服务端</a>
   </li>
   <ul>
     <li class="collapse show" id="docsserver">
@@ -729,7 +719,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
+    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverbasics">
@@ -752,7 +742,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
+    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">搭建http:h2服务</a>
   </li>
   <ul>
     <li class="collapse show" id="docsserverserve-httph2">
@@ -775,7 +765,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
+    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建gRPC服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-grpc">
@@ -798,7 +788,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
+    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建thrift服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-thrift">
@@ -821,7 +811,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
+    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建Nshead服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-nshead">
@@ -844,7 +834,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
+    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">推送</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserver-push">
@@ -867,7 +857,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
+    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">雪崩</a>
   </li>
   <ul>
     <li class="collapse " id="docsserveravalanche">
@@ -890,7 +880,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
+    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">高效率排查server卡顿</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverdebug-server-issues">
@@ -913,7 +903,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
+    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">自适应限流</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverauto-concurrencylimiter">
@@ -936,7 +926,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
+    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流媒体服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsservermedia-server">
@@ -988,7 +978,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
+    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内置服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsbuiltin-services">
@@ -1218,7 +1208,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
+    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">工具</a>
   </li>
   <ul>
     <li class="collapse " id="docstools">
@@ -1356,7 +1346,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
+    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43;基础</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-base">
@@ -1442,7 +1432,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
+    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC培训材料</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-basebrpc-training-materials">
@@ -1471,7 +1461,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">RPC in depth</a>
+    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">深入RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depth">
@@ -1488,7 +1478,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
+    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">支持新协议</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthnew-protocol">
@@ -1511,7 +1501,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
+    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">原子指令</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthatomic-instructions">
@@ -1557,7 +1547,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
+    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">线程模型简介</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depththreading-overview">
@@ -1580,7 +1570,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
+    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">负载均衡</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthload-balancing">
@@ -1626,7 +1616,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
+    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">一致性哈希</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthconsistent-hashing">
@@ -1649,7 +1639,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
+    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内存管理</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthmemory-management">
@@ -1724,7 +1714,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
+    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC在百度内部的应用</a>
   </li>
   <ul>
     <li class="collapse " id="docsuse-cases-inside-baidu">
@@ -1832,7 +1822,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">Download bRPC</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">下载bRPC</a>
       
       
       
@@ -1844,71 +1834,13 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">Users</a>
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/blogs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Blog</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsblogs">
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
       
       
       
       
       
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/blogs/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Release</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsblogsreleases">
-      
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases110" href="/docs/blogs/releases/1.1.0/">bRPC 1.1.0</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases100" href="/docs/blogs/releases/1.0.0/">bRPC 1.0.0</a>
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">Community</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
       
       
     </li>
@@ -1934,11 +1866,11 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/Server/Serve%20http:h2/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=Serve%20http:h2" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/docs/Server/Serve%20http:h2/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=%e6%90%ad%e5%bb%bahttp:h2%e6%9c%8d%e5%8a%a1" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
 
 
-<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
 
 </div>
 
@@ -1949,8 +1881,8 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#servicenamemethodname-as-the-prefix">/ServiceName/MethodName as the prefix</a></li>
-    <li><a href="#servicename-as-the-prefix">/ServiceName as the prefix</a></li>
+    <li><a href="#前缀为servicenamemethodname">前缀为/ServiceName/MethodName</a></li>
+    <li><a href="#前缀为servicename">前缀为/ServiceName</a></li>
     <li><a href="#restful-url">Restful URL</a></li>
   </ul>
 
@@ -1964,9 +1896,9 @@ if (!doNotTrack) {
   <ul>
     <li>
       <ul>
-        <li><a href="#q-the-nginx-before-brpc-encounters-final-fail">Q: The nginx before brpc encounters final fail</a></li>
-        <li><a href="#q-does-brpc-support-http-chunked-mode">Q: Does brpc support http chunked mode</a></li>
-        <li><a href="#q-why-do-http-requests-containing-base64-encoded-query-string-fail-to-parse-sometimes">Q: Why do HTTP requests containing BASE64 encoded query string fail to parse sometimes?</a></li>
+        <li><a href="#q-brpc前的nginx报了final-fail">Q: brpc前的nginx报了final fail</a></li>
+        <li><a href="#q-brpc支持http-chunked方式传输吗">Q: brpc支持http chunked方式传输吗</a></li>
+        <li><a href="#q-http请求的query-string中含有base64编码过的value为什么有时候无法正常解析">Q: HTTP请求的query string中含有BASE64编码过的value，为什么有时候无法正常解析</a></li>
       </ul>
     </li>
   </ul>
@@ -1990,21 +1922,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/">Docs</a>
+	<a href="/docs/">文档</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/server/">Server</a>
+	<a href="/docs/server/">服务端</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/server/serve-httph2/">Serve http:h2</a>
+	<a href="/docs/server/serve-httph2/">搭建http:h2服务</a>
 </li>
 
 	</ol>
@@ -2013,26 +1945,26 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>Serve http:h2</h1>
-	<div class="lead">Learn how to serve Http2.</div>
-	<p>This document talks about ordinary htt/h2 services rather than protobuf services accessible via http/h2.
-http/h2 services in brpc have to declare interfaces with empty request and response in a .proto file. This requirement keeps all service declarations inside proto files rather than scattering in code, configurations, and proto files.</p>
-<h1 id="example">Example</h1>
-<p><a href="https://github.com/brpc/brpc/blob/master/example/http_c++/http_server.cpp">http_server.cpp</a></p>
-<h1 id="about-h2">About h2</h1>
-<p>brpc names the HTTP/2 protocol to &ldquo;h2&rdquo;, no matter encrypted or not. However HTTP/2 connections without SSL are shown on /connections with the official name &ldquo;h2c&rdquo;, and the ones with SSL are shown as &ldquo;h2&rdquo;.</p>
-<p>The APIs for http and h2 in brpc are basically same. Without explicit statement, mentioned http features work for h2 as well.</p>
-<h1 id="url-types">URL types</h1>
-<h2 id="servicenamemethodname-as-the-prefix">/ServiceName/MethodName as the prefix</h2>
-<p>Define a service named <code>ServiceName</code>(not including the package name), with a method named <code>MethodName</code> and empty request/response, the service will provide http/h2 service on <code>/ServiceName/MethodName</code> by default.</p>
-<p>The reason that request and response can be empty is that all data are in Controller:</p>
+	<h1>搭建http:h2服务</h1>
+	<div class="lead">学习如何搭建Http2服务。</div>
+	<p>这里指我们通常说的http/h2服务，而不是可通过http/h2访问的pb服务。</p>
+<p>虽然用不到pb消息，但brpc中的http/h2服务接口也得定义在proto文件中，只是request和response都是空的结构体。这确保了所有的服务声明集中在proto文件中，而不是散列在proto文件、程序、配置等多个地方。</p>
+<p>#示例
+<a href="https://github.com/brpc/brpc/blob/master/example/http_c++/http_server.cpp">http_server.cpp</a>。</p>
+<h1 id="关于h2">关于h2</h1>
+<p>brpc把HTTP/2协议统称为&quot;h2&quot;，不论是否加密。然而未开启ssl的HTTP/2连接在/connections中会按官方名称h2c显示，而开启ssl的会显示为h2。</p>
+<p>brpc中http和h2的编程接口基本没有区别。除非特殊说明，所有提到的http特性都同时对h2有效。</p>
+<h1 id="url类型">URL类型</h1>
+<h2 id="前缀为servicenamemethodname">前缀为/ServiceName/MethodName</h2>
+<p>定义一个service名为ServiceName(不包含package名), method名为MethodName的pb服务，且让request和reponse定义为空，则该服务默认在/ServiceName/MethodName上提供http/h2服务。</p>
+<p>request和response可为空是因为数据都在Controller中：</p>
 <ul>
-<li>Header of the http/h2 request is in Controller.http_request() and the body is in Controller.request_attachment().</li>
-<li>Header of the http/h2 response is in Controller.http_response() and the body is in Controller.response_attachment().</li>
+<li>http/h2 request的header在Controller.http_request()中，body在Controller.request_attachment()中。</li>
+<li>http/h2 response的header在Controller.http_response()中，body在Controller.response_attachment()中。</li>
 </ul>
-<p>Implementation steps:</p>
+<p>实现步骤如下：</p>
 <ol>
-<li>Add the service declaration in a proto file.</li>
+<li>填写proto文件。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf"><span style="color:#204a87;font-weight:bold">option</span> <span style="color:#000">cc_generic_services</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span> <span style="color:#a40000">
@@ -2043,7 +1975,7 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 </span><span style="color:#a40000"></span>      <span style="color:#204a87;font-weight:bold">rpc</span> <span style="color:#000">Echo</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpRequest</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">returns</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpResponse</span><span style="color:#000;font-weight:bold">);</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span><span style="color:#000;font-weight:bold">};</span><span style="color:#a40000">
 </span></code></pre></div><ol start="2">
-<li>Implement the service by inheriting the base class generated in .pb.h, which is same as protobuf services.</li>
+<li>实现Service接口。和pb服务一样，也是继承定义在.pb.h中的service基类。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">HttpServiceImpl</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">HttpService</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
@@ -2055,10 +1987,10 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
         <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ClosureGuard</span> <span style="color:#000">done_guard</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">done</span><span style="color:#000;font-weight:bold">);</span>
         <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cntl</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">static_cast</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl_base</span><span style="color:#000;font-weight:bold">);</span>
  
-        <span style="color:#8f5902;font-style:italic">// body is plain text
+        <span style="color:#8f5902;font-style:italic">// body是纯文本
 </span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_content_type</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;text/plain&#34;</span><span style="color:#000;font-weight:bold">);</span>
        
-        <span style="color:#8f5902;font-style:italic">// Use printed query string and body as the response.
+        <span style="color:#8f5902;font-style:italic">// 把请求的query-string和body打印结果作为回复内容。
 </span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">IOBufBuilder</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">;</span>
         <span style="color:#000">os</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;queries:&#34;</span><span style="color:#000;font-weight:bold">;</span>
         <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">URI</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">QueryIterator</span> <span style="color:#000">it</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">uri</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">QueryBegin</span><span style="color:#000;font-weight:bold">();</span>
@@ -2070,13 +2002,13 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
     <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">};</span>
 </code></pre></div><ol start="3">
-<li>After adding the implemented instance into the server, the service is accessible via following URLs (Note that the path after <code>/HttpService/Echo </code> is filled into <code>cntl-&gt;http_request().unresolved_path()</code>, which is always normalized):</li>
+<li>把实现好的服务插入Server后可通过如下URL访问，/HttpService/Echo后的部分在 cntl-&gt;http_request().unresolved_path()中。</li>
 </ol>
 <table>
 <thead>
 <tr>
 <th>URL</th>
-<th>Protobuf Method</th>
+<th>访问方法</th>
 <th>cntl-&gt;http_request().uri().path()</th>
 <th>cntl-&gt;http_request().unresolved_path()</th>
 </tr>
@@ -2108,17 +2040,17 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 </tr>
 <tr>
 <td>/HttpService</td>
-<td>No such method</td>
+<td>访问错误</td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="servicename-as-the-prefix">/ServiceName as the prefix</h2>
-<p>http/h2 services for managing resources may need this kind of URL, such as <code>/FileService/foobar.txt</code> represents <code>./foobar.txt</code> and <code>/FileService/app/data/boot.cfg</code> represents <code>./app/data/boot.cfg</code>.</p>
-<p>Implementation steps:</p>
+<h2 id="前缀为servicename">前缀为/ServiceName</h2>
+<p>资源类的http/h2服务可能需要这样的URL，ServiceName后均为动态内容。比如/FileService/foobar.txt代表./foobar.txt，/FileService/app/data/boot.cfg代表./app/data/boot.cfg。</p>
+<p>实现方法：</p>
 <ol>
-<li>Use <code>FileService</code> as the service name and <code>default_method</code> as the method name in the proto file.</li>
+<li>proto文件中应以FileService为服务名，以default_method为方法名。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf"><span style="color:#204a87;font-weight:bold">option</span> <span style="color:#000">cc_generic_services</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
 </span><span style="color:#a40000">
@@ -2129,7 +2061,7 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 </span><span style="color:#a40000"></span>      <span style="color:#204a87;font-weight:bold">rpc</span> <span style="color:#000">default_method</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpRequest</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">returns</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpResponse</span><span style="color:#000;font-weight:bold">);</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">
 </span></code></pre></div><ol start="2">
-<li>Implement the service.</li>
+<li>实现Service。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">FileServiceImpl</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">FileService</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
@@ -2145,13 +2077,13 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
     <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">};</span>
 </code></pre></div><ol start="3">
-<li>After adding the implemented instance into the server, the service is accessible via following URLs (the path after <code>/FileService</code> is filled in <code>cntl-&gt;http_request().unresolved_path()</code>, which is always normalized):</li>
+<li>实现完毕插入Server后可通过如下URL访问，/FileService之后的路径在cntl-&gt;http_request().unresolved_path()中i。</li>
 </ol>
 <table>
 <thead>
 <tr>
 <th>URL</th>
-<th>Protobuf Method</th>
+<th>访问方法</th>
 <th>cntl-&gt;http_request().uri().path()</th>
 <th>cntl-&gt;http_request().unresolved_path()</th>
 </tr>
@@ -2184,22 +2116,21 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 </tbody>
 </table>
 <h2 id="restful-url">Restful URL</h2>
-<p>brpc supports specifying a URL for each method in a service. The API is as follows:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// If `restful_mappings&#39; is non-empty, the method in service can
-</span><span style="color:#8f5902;font-style:italic">// be accessed by the specified URL rather than /ServiceName/MethodName.
-</span><span style="color:#8f5902;font-style:italic">// Mapping rules: &#34;PATH1 =&gt; NAME1, PATH2 =&gt; NAME2 ...&#34;
-</span><span style="color:#8f5902;font-style:italic">// where `PATH&#39; is a valid path and `NAME&#39; is the method name.
+<p>brpc支持为service中的每个方法指定一个URL。API如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// 如果restful_mappings不为空, service中的方法可通过指定的URL被http/h2协议访问，而不是/ServiceName/MethodName.
+</span><span style="color:#8f5902;font-style:italic">// 映射格式：&#34;PATH1 =&gt; NAME1, PATH2 =&gt; NAME2 ...&#34;
+</span><span style="color:#8f5902;font-style:italic">// PATHs是有效的路径, NAMEs是service中的方法名.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">AddService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">protobuf</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Service</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">service</span><span style="color:#000;font-weight:bold">,</span>
                <span style="color:#000">ServiceOwnership</span> <span style="color:#000">ownership</span><span style="color:#000;font-weight:bold">,</span>
                <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span> <span style="color:#000">restful_mappings</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p><code>QueueService</code> defined below contains several methods. If the service is added into the server normally, it&rsquo;s accessible via URLs like <code>/QueueService/start</code> and <code> /QueueService/stop</code>.</p>
+</code></pre></div><p>下面的QueueService包含多个方法。如果我们像之前那样把它插入server，那么只能通过<code>/QueueService/start, /QueueService/stop</code>等url来访问。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf"><span style="color:#204a87;font-weight:bold">service</span> <span style="color:#000">QueueService</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span>    <span style="color:#204a87;font-weight:bold">rpc</span> <span style="color:#000">start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpRequest</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">returns</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpResponse</span><span style="color:#000;font-weight:bold">);</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span>    <span style="color:#204a87;font-weight:bold">rpc</span> <span style="color:#000">stop</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpRequest</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">returns</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpResponse</span><span style="color:#000;font-weight:bold">);</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span>    <span style="color:#204a87;font-weight:bold">rpc</span> <span style="color:#000">get_stats</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpRequest</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">returns</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpResponse</span><span style="color:#000;font-weight:bold">);</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span>    <span style="color:#204a87;font-weight:bold">rpc</span> <span style="color:#000">download_data</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpRequest</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">returns</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">HttpResponse</span><span style="color:#000;font-weight:bold">);</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span><span style="color:#000;font-weight:bold">};</span><span style="color:#a40000">
-</span></code></pre></div><p>By specifying the 3rd parameter <code>restful_mappings</code> to <code>AddService</code>, the URL can be customized:</p>
+</span></code></pre></div><p>而在调用AddService时指定第三个参数(restful_mappings)就能定制URL了，如下所示：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">queue_svc</span><span style="color:#000;font-weight:bold">,</span>
                       <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SERVER_DOESNT_OWN_SERVICE</span><span style="color:#000;font-weight:bold">,</span>
                       <span style="color:#4e9a06">&#34;/v1/queue/start   =&gt; start,&#34;</span>
@@ -2209,7 +2140,8 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span>
  
-<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">queue_svc</span><span style="color:#000;font-weight:bold">,</span>
+<span style="color:#8f5902;font-style:italic">// 星号可出现在中间
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">queue_svc</span><span style="color:#000;font-weight:bold">,</span>
                       <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SERVER_DOESNT_OWN_SERVICE</span><span style="color:#000;font-weight:bold">,</span>
                       <span style="color:#4e9a06">&#34;/v1/*/start   =&gt; start,&#34;</span>
                       <span style="color:#4e9a06">&#34;/v1/*/stop    =&gt; stop,&#34;</span>
@@ -2217,49 +2149,48 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
     <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to add queue_svc&#34;</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>There are 3 mappings separated by comma in the 3rd parameter (which is a string spanning 3 lines) to the <code>AddService</code>. Each mapping tells brpc to call the method at right side of the arrow if the left side matches the URL. The asterisk in <code>/v1/queue/stats/*</code> matches any string.</p>
-<p>More about mapping rules:</p>
+</code></pre></div><p>上面代码中AddService的第三个参数分了三行，但实际上是一个字符串。这个字符串包含以逗号(,)分隔的三个映射关系，每个映射告诉brpc：在遇到箭头左侧的URL时调用右侧的方法。&quot;/v1/queue/stats/*&ldquo;中的星号可匹配任意字串。</p>
+<p>关于映射规则：</p>
 <ul>
-<li>Multiple paths can be mapped to a same method.</li>
-<li>Both http/h2 and protobuf services are supported.</li>
-<li>Un-mapped methods are still accessible via <code>/ServiceName/MethodName</code>. Mapped methods are <strong>not</strong> accessible via <code>/ServiceName/MethodName</code> anymore.</li>
-<li><code>==&gt;</code> and <code> ===&gt;</code> are both OK, namely extra spaces at the beginning or the end, extra slashes, extra commas at the end, are all accepted.</li>
-<li>Pattern <code>PATH</code> and <code>PATH/*</code> can coexist.</li>
-<li>Support suffix matching: characters can appear after the asterisk.</li>
-<li>At most one asterisk is allowed in a path.</li>
+<li>多个路径可映射至同一个方法。</li>
+<li>service不要求是纯http/h2，pb service也支持。</li>
+<li>没有出现在映射中的方法仍旧通过/ServiceName/MethodName访问。出现在映射中的方法不再能通过/ServiceName/MethodName访问。</li>
+<li>==&gt; ===&gt; &hellip;都是可以的。开头结尾的空格，额外的斜杠(/)，最后多余的逗号，都不要紧。</li>
+<li>PATH和PATH/*两者可以共存。</li>
+<li>支持后缀匹配: 星号后可以有更多字符。</li>
+<li>一个路径中只能出现一个星号。</li>
 </ul>
-<p>The path after asterisk can be obtained by <code>cntl.http_request().unresolved_path()</code>, which is always normalized, namely no slashes at the beginning or the end, and no repeated slashes in the middle. For example:</p>
+<p><code>cntl.http_request().unresolved_path()</code> 对应星号(*)匹配的部分，保证normalized：开头结尾都不包含斜杠(/)，中间斜杠不重复。比如：</p>
 <p><img src="/images/docs/restful_1.png" alt="img"></p>
-<p>or:</p>
+<p>或</p>
 <p><img src="/images/docs/restful_2.png" alt="img"></p>
-<p>in which unresolved_path are both <code>foo/bar</code>. The extra slashes at the left, the right, or the middle are removed.</p>
-<p>Note that <code>cntl.http_request().uri().path()</code> is not ensured to be normalized, which is <code>&quot;//v1//queue//stats//foo///bar//////&quot;</code> and <code>&quot;//vars///foo////bar/////&quot;</code> respectively in the above example.</p>
-<p>The built-in service page of <code>/status</code> shows customized URLs after the methods, in form of <code>@URL1 @URL2</code> &hellip;</p>
+<p>unresolved_path都是<code>&quot;foo/bar&quot;</code>，左右、中间多余的斜杠被移除了。</p>
+<p>注意：<code>cntl.http_request().uri().path()</code>不保证normalized，这两个例子中分别为<code>&quot;//v1//queue//stats//foo///bar//////&quot;</code>和<code>&quot;//vars///foo////bar/////&quot;</code></p>
+<p>/status页面上的方法名后会加上所有相关的URL，形式是：@URL1 @URL2 &hellip;</p>
 <p><img src="/images/docs/restful_3.png" alt="img"></p>
-<h1 id="http-parameters">HTTP Parameters</h1>
+<h1 id="http参数">HTTP参数</h1>
 <h2 id="http-headers">HTTP headers</h2>
-<p>HTTP headers are a series of key/value pairs, some of them are defined by the HTTP specification, while others are free to use.</p>
-<p>Query strings are also key/value pairs. Differences between HTTP headers and query strings:</p>
+<p>http header是一系列key/value对，有些由HTTP协议规定有特殊含义，其余则由用户自由设定。</p>
+<p>query string也是key/value对，http headers与query string的区别:</p>
 <ul>
-<li>Although operations on HTTP headers are accurately defined by the http specification, but http headers cannot be modified directly from an address bar, they are often used for passing parameters of a protocol or framework.</li>
-<li>Query strings is part of the URL and <strong>often</strong> in form of <code>key1=value1&amp;key2=value2&amp;...</code>, which is easy to read and modify. They&rsquo;re often used for passing application-level parameters. However format of query strings is not defined in HTTP spec, just a convention.</li>
+<li>虽然http headers由协议准确定义操作方式，但由于也不易在地址栏中被修改，常用于传递框架或协议层面的参数。</li>
+<li>query string是URL的一部分，<strong>常见</strong>形式是key1=value1&amp;key2=value2&amp;…，易于阅读和修改，常用于传递应用层参数。但query string的具体格式并不是HTTP规范的一部分，只是约定成俗。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Get value for header &#34;User-Agent&#34; (case insensitive)
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// 获得header中&#34;User-Agent&#34;的值，大小写不敏感。
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">user_agent_str</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">GetHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;User-Agent&#34;</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">user_agent_str</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>  <span style="color:#8f5902;font-style:italic">// has the header
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TRACE</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;User-Agent is &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">user_agent_str</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">...</span>
  
-<span style="color:#8f5902;font-style:italic">// Add a header &#34;Accept-encoding: gzip&#34; (case insensitive)
+<span style="color:#8f5902;font-style:italic">// 在header中增加&#34;Accept-encoding: gzip&#34;，大小写不敏感。
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">SetHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Accept-encoding&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;gzip&#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#8f5902;font-style:italic">// Overwrite the previous header &#34;Accept-encoding: deflate&#34;
+<span style="color:#8f5902;font-style:italic">// 覆盖为&#34;Accept-encoding: deflate&#34;
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">SetHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Accept-encoding&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;deflate&#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#8f5902;font-style:italic">// Append value to the previous header so that it becomes
-</span><span style="color:#8f5902;font-style:italic">// &#34;Accept-encoding: deflate,gzip&#34; (values separated by comma)
+<span style="color:#8f5902;font-style:italic">// 增加一个value，逗号分隔，变为&#34;Accept-encoding: deflate,gzip&#34;
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">AppendHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Accept-encoding&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;gzip&#34;</span><span style="color:#000;font-weight:bold">);</span>
 </code></pre></div><h2 id="content-type">Content-Type</h2>
-<p><code>Content-type</code> is a frequently used header for storing type of the HTTP body, and specially processed in brpc and accessible by <code>cntl-&gt;http_request().content_type()</code> . As a correspondence, <code>cntl-&gt;GetHeader(&quot;Content-Type&quot;)</code> returns nothing.</p>
+<p>Content-type记录body的类型，是一个使用频率较高的header。它在brpc中被特殊处理，需要通过cntl-&gt;http_request().content_type()来访问，cntl-&gt;GetHeader(&ldquo;Content-Type&rdquo;)是获取不到的。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Get Content-Type
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">content_type</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#34;application/json&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000;font-weight:bold">...</span>
@@ -2267,9 +2198,9 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 <span style="color:#000;font-weight:bold">...</span>
 <span style="color:#8f5902;font-style:italic">// Set Content-Type
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_content_type</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;text/html&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p>If the RPC fails (<code>Controller</code> has been <code>SetFailed</code>), the framework overwrites <code>Content-Type</code> with <code>text/plain</code> and sets the response body with <code>Controller::ErrorText()</code>.</p>
+</code></pre></div><p>如果RPC失败(Controller被SetFailed), Content-Type会框架强制设为text/plain，而response body设为Controller::ErrorText()。</p>
 <h2 id="status-code">Status Code</h2>
-<p>Status code is a special field in HTTP response to store processing result of the http request. Possible values are defined in <a href="https://github.com/brpc/brpc/blob/master/src/brpc/http_status_code.h">http_status_code.h</a>.</p>
+<p>status code是http response特有的字段，标记http请求的完成情况。可能的值定义在<a href="https://github.com/brpc/brpc/blob/master/src/brpc/http_status_code.h">http_status_code.h</a>中。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Get Status Code
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">status_code</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">HTTP_STATUS_NOT_FOUND</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FATAL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;FAILED: &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">controller</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">reason_phrase</span><span style="color:#000;font-weight:bold">();</span>
@@ -2278,12 +2209,12 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 <span style="color:#8f5902;font-style:italic">// Set Status code
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_status_code</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">HTTP_STATUS_INTERNAL_SERVER_ERROR</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_status_code</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">HTTP_STATUS_INTERNAL_SERVER_ERROR</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;My explanation of the error...&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p>For example, following code implements redirection with status code 302:</p>
+</code></pre></div><p>比如，以下代码以302错误实现重定向：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">set_status_code</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">HTTP_STATUS_FOUND</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_response</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">SetHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Location&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;http://bj.bs.bae.baidu.com/family/image001(4979).jpg&#34;</span><span style="color:#000;font-weight:bold">);</span>
 </code></pre></div><p><img src="/images/docs/302.png" alt="img"></p>
 <h2 id="query-string">Query String</h2>
-<p>As mentioned in above <a href="#http-headers">HTTP headers</a>, query strings are interpreted in common convention, whose form is <code>key1=value1&amp;key2=value2&amp;…</code>. Keys without values are acceptable as well and accessible by <code>GetQuery</code> which returns an empty string. Such keys are often used as boolean flags. Full API are defined in <a href="https://github.com/brpc/brpc/blob/master/src/brpc/uri.h">uri.h</a>.</p>
+<p>如上面的<a href="#http-headers">HTTP headers</a>中提到的那样，我们按约定成俗的方式来理解query string，即key1=value1&amp;key2=value2&amp;&hellip;。只有key而没有value也是可以的，仍然会被GetQuery查询到，只是值为空字符串，这常被用做bool型的开关。接口定义在<a href="https://github.com/brpc/brpc/blob/master/src/brpc/uri.h">uri.h</a>。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">time_value</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">uri</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">GetQuery</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;time&#34;</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">time_value</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>  <span style="color:#8f5902;font-style:italic">// the query string is present
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TRACE</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;time = &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">time_value</span><span style="color:#000;font-weight:bold">;</span>
@@ -2291,17 +2222,17 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 
 <span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">uri</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">SetQuery</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;time&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;2015/1/2&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><h1 id="debugging">Debugging</h1>
-<p>Turn on <a href="http://brpc.baidu.com:8765/flags/http_verbose">-http_verbose</a> to print contents of all http requests and responses. Note that this should only be used for debugging rather than online services.</p>
-<h1 id="compress-the-response-body">Compress the response body</h1>
-<p>HTTP services often compress http bodies to reduce transmission latency of web pages and speed up the presentations to end users.</p>
-<p>Call <code>Controller::set_response_compress_type(brpc::COMPRESS_TYPE_GZIP)</code> to <strong>try to</strong> compress the http body with gzip. &ldquo;Try to&rdquo; means the compression may not happen in following conditions:</p>
+</code></pre></div><h1 id="调试">调试</h1>
+<p>打开<a href="http://brpc.baidu.com:8765/flags/http_verbose">-http_verbose</a>即可看到所有的http/h2 request和response，注意这应该只用于线下调试，而不是线上程序。</p>
+<h1 id="压缩response-body">压缩response body</h1>
+<p>http服务常对http body进行压缩，可以有效减少网页的传输时间，加快页面的展现速度。</p>
+<p>设置Controller::set_response_compress_type(brpc::COMPRESS_TYPE_GZIP)后将<strong>尝试</strong>用gzip压缩http body。“尝试“指的是压缩有可能不发生，条件有：</p>
 <ul>
 <li>
-<p>The request does not set <code>Accept-encoding</code> or the value does not contain &ldquo;gzip&rdquo;. For example, curl does not support compression without option <code>--compressed</code>, in which case the server always returns uncompressed results.</p>
+<p>请求中没有设置Accept-encoding或不包含gzip。比如curl不加&ndash;compressed时是不支持压缩的，这时server总是会返回不压缩的结果。</p>
 </li>
 <li>
-<p>Body size is less than the bytes specified by -http_body_compress_threshold (512 by default). gzip is not a very fast compression algorithm. When the body is small, the delay added by compression may be larger than the time saved by network transmission. No compression when the body is relatively small is probably a better choice.</p>
+<p>body尺寸小于-http_body_compress_threshold指定的字节数，默认是512。gzip并不是一个很快的压缩算法，当body较小时，压缩增加的延时可能比网络传输省下的还多。当包较小时不做压缩可能是个更好的选项。</p>
 <table>
 <thead>
 <tr>
@@ -2322,8 +2253,8 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 </table>
 </li>
 </ul>
-<h1 id="decompress-the-request-body">Decompress the request body</h1>
-<p>Due to generality, brpc does not decompress request bodies automatically, but users can do the job by themselves as follows:</p>
+<h1 id="解压request-body">解压request body</h1>
+<p>出于通用性考虑且解压代码不复杂，brpc不会自动解压request body，用户可以自己做，方法如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/policy/gzip_compress.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
 <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">encoding</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">http_request</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">GetHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Content-Encoding&#34;</span><span style="color:#000;font-weight:bold">);</span>
@@ -2335,56 +2266,56 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
     <span style="color:#000;font-weight:bold">}</span>
     <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">request_attachment</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">swap</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">uncompressed</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#8f5902;font-style:italic">// cntl-&gt;request_attachment() contains the data after decompression
-</span></code></pre></div><h1 id="serve-https-requests">Serve https requests</h1>
-<p>https is short for &ldquo;http over SSL&rdquo;, SSL is not exclusive for http, but effective for all protocols. The generic method for turning on server-side SSL is <a href="server.md#turn-on-ssl">here</a>.</p>
-<h1 id="performance">Performance</h1>
-<p>Productions without extreme performance requirements tend to use HTTP protocol, especially mobile products. Thus we put great emphasis on implementation qualities of HTTP. To be more specific:</p>
+<span style="color:#8f5902;font-style:italic">// cntl-&gt;request_attachment()中已经是解压后的数据了
+</span></code></pre></div><h1 id="处理https请求">处理https请求</h1>
+<p>https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启服务端SSL的一般性方法见<a href="server.md#%E5%BC%80%E5%90%AFssl">这里</a>。</p>
+<h1 id="性能">性能</h1>
+<p>没有极端性能要求的产品都有使用HTTP协议的倾向，特别是移动产品，所以我们很重视HTTP的实现质量，具体来说：</p>
 <ul>
-<li>Use <a href="https://github.com/brpc/brpc/blob/master/src/brpc/details/http_parser.h">http parser</a> of node.js to parse http messages, which is a lightweight, well-written, and extensively used implementation.</li>
-<li>Use <a href="https://github.com/miloyip/rapidjson">rapidjson</a> to parse json, which is a json library focuses on performance.</li>
-<li>In the worst case, the time complexity of parsing http requests is still O(N), where N is byte size of the request. As a contrast, parsing code that requires the http request to be complete, may cost O(N^2) time in the worst case. This feature is very helpful since many HTTP requests are large.</li>
-<li>Processing HTTP messages from different clients is highly concurrent, even a pretty complicated http message does not block responding other clients. It&rsquo;s difficult to achieve this for other RPC implementations and http servers often based on <a href="threading_overview.md#single-threaded-reactor">single-threaded reactor</a>.</li>
+<li>使用了node.js的<a href="https://github.com/brpc/brpc/blob/master/src/brpc/details/http_parser.h">http parser</a>解析http消息，这是一个轻量、优秀、被广泛使用的实现。</li>
+<li>使用<a href="https://github.com/miloyip/rapidjson">rapidjson</a>解析json，这是一个主打性能的json库。</li>
+<li>在最差情况下解析http请求的时间复杂度也是O(N)，其中N是请求的字节数。反过来说，如果解析代码要求http请求是完整的，那么它可能会花费O(N^2)的时间。HTTP请求普遍较大，这一点意义还是比较大的。</li>
+<li>来自不同client的http消息是高度并发的，即使相当复杂的http消息也不会影响对其他客户端的响应。其他rpc和<a href="threading_overview.md#%E5%8D%95%E7%BA%BF%E7%A8%8Breactor">基于单线程reactor</a>的各类http server往往难以做到这一点。</li>
 </ul>
-<h1 id="progressive-sending">Progressive sending</h1>
-<p>brpc server is capable of sending large or infinite sized body, in following steps:</p>
+<h1 id="持续发送">持续发送</h1>
+<p>brpc server支持发送超大或无限长的body。方法如下:</p>
 <ol>
-<li>Call <code>Controller::CreateProgressiveAttachment()</code> to create a body that can be written progressively. The returned <code>ProgressiveAttachment</code> object should be managed by <code>intrusive_ptr</code></li>
+<li>调用Controller::CreateProgressiveAttachment()创建可持续发送的body。返回的ProgressiveAttachment对象需要用intrusive_ptr管理。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/progressive_attachment.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">intrusive_ptr</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ProgressiveAttachment</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">pa</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">cntl</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">CreateProgressiveAttachment</span><span style="color:#000;font-weight:bold">();</span>
 </code></pre></div><ol start="2">
 <li>
-<p>Call <code>ProgressiveAttachment::Write()</code> to send the data.</p>
+<p>调用ProgressiveAttachment::Write()发送数据。</p>
 <ul>
-<li>If the write occurs before running of the server-side done, the sent data is cached until the done is called.</li>
-<li>If the write occurs after running of the server-side done, the sent data is written out in chunked mode immediately.</li>
+<li>如果写入发生在server-side done调用前，发送的数据将会被缓存直到回调结束后才会开始发送。</li>
+<li>如果写入发生在server-side done调用后，发送的数据将立刻以chunked mode写出。</li>
 </ul>
 </li>
 <li>
-<p>After usage, destruct all <code>butil::intrusive_ptr&lt;brpc::ProgressiveAttachment&gt;</code> to release related resources.</p>
+<p>发送完毕后确保所有的<code>butil::intrusive_ptr&lt;brpc::ProgressiveAttachment&gt;</code>都析构以释放资源。</p>
 </li>
 </ol>
-<h1 id="progressive-receiving">Progressive receiving</h1>
-<p>Currently brpc server doesn&rsquo;t support calling the service callback once header part in the http request is parsed. In other words, brpc server is not suitable for receiving large or infinite sized body.</p>
+<h1 id="持续接收">持续接收</h1>
+<p>目前brpc server不支持在收齐http请求的header部分后就调用服务回调，即brpc server不适合接收超长或无限长的body。</p>
 <h1 id="faq">FAQ</h1>
-<h3 id="q-the-nginx-before-brpc-encounters-final-fail">Q: The nginx before brpc encounters final fail</h3>
-<p>The error is caused by that brpc server closes the http connection directly without sending a response.</p>
-<p>brpc server supports a variety of protocols on the same port. When a request is failed to be parsed in HTTP, it&rsquo;s hard to tell that the request is definitely in HTTP. If the request is very likely to be one, the server sends HTTP 400 errors and closes the connection. However, if the error is caused HTTP method(at the beginning) or ill-formed serialization (may be caused by bugs at the HTTP client), the server still closes the connection without sending a response, which leads to &ldquo;final fail&rdquo; at nginx.</p>
-<p>Solution: When using Nginx to forward traffic, set <code>$HTTP_method</code> to allowed HTTP methods or simply specify the HTTP method in <code>proxy_method</code>.</p>
-<h3 id="q-does-brpc-support-http-chunked-mode">Q: Does brpc support http chunked mode</h3>
-<p>Yes.</p>
-<h3 id="q-why-do-http-requests-containing-base64-encoded-query-string-fail-to-parse-sometimes">Q: Why do HTTP requests containing BASE64 encoded query string fail to parse sometimes?</h3>
-<p>According to the <a href="http://tools.ietf.org/html/rfc3986#section-2.2">HTTP specification</a>, following characters need to be encoded with <code>%</code>.</p>
+<h3 id="q-brpc前的nginx报了final-fail">Q: brpc前的nginx报了final fail</h3>
+<p>这个错误在于brpc server直接关闭了http连接而没有发送任何回复。</p>
+<p>brpc server一个端口支持多种协议，当它无法解析某个http请求时无法说这个请求一定是HTTP。server会对一些基本可确认是HTTP的请求返回HTTP 400错误并关闭连接，但如果是HTTP method错误(在http包开头)或严重的格式错误（可能由HTTP client的bug导致），server仍会直接断开连接，导致nginx的final fail。</p>
+<p>解决方案: 在使用Nginx转发流量时，通过指定$HTTP_method只放行允许的方法或者干脆设置proxy_method为指定方法。</p>
+<h3 id="q-brpc支持http-chunked方式传输吗">Q: brpc支持http chunked方式传输吗</h3>
+<p>支持。</p>
+<h3 id="q-http请求的query-string中含有base64编码过的value为什么有时候无法正常解析">Q: HTTP请求的query string中含有BASE64编码过的value，为什么有时候无法正常解析</h3>
+<p>根据<a href="http://tools.ietf.org/html/rfc3986#section-2.2">HTTP协议</a>中的要求，以下字符应该使用%编码</p>
 <pre><code>       reserved    = gen-delims / sub-delims
 
        gen-delims  = &quot;:&quot; / &quot;/&quot; / &quot;?&quot; / &quot;#&quot; / &quot;[&quot; / &quot;]&quot; / &quot;@&quot;
 
        sub-delims  = &quot;!&quot; / &quot;$&quot; / &quot;&amp;&quot; / &quot;'&quot; / &quot;(&quot; / &quot;)&quot;
                    / &quot;*&quot; / &quot;+&quot; / &quot;,&quot; / &quot;;&quot; / &quot;=&quot;
-</code></pre><p>Base64 encoded string may end with <code>=</code> which is a reserved character (take <code>?wi=NDgwMDB8dGVzdA==&amp;anothorkey=anothervalue</code> as an example). The strings may be parsed successfully, or may be not, depending on the implementation which should not be assumed in principle.</p>
-<p>One solution is to remove the trailing <code>=</code> which does not affect the <a href="http://en.wikipedia.org/wiki/Base64#Padding">Base64 decoding</a>. Another method is to <a href="https://en.wikipedia.org/wiki/Percent-encoding">percent-encode</a> the URI, and do percent-decoding before Base64 decoding.</p>
+</code></pre><p>但Base64 编码后的字符串中，会以&rdquo;=&ldquo;或者&rdquo;==&ldquo;作为结尾，比如: ?wi=NDgwMDB8dGVzdA==&amp;anothorkey=anothervalue。这个字段可能会被正确解析，也可能不会，取决于具体实现，原则上不应做任何假设.</p>
+<p>一个解决方法是删除末尾的&rdquo;=&quot;, 不影响Base64的<a href="http://en.wikipedia.org/wiki/Base64#Padding">正常解码</a>; 第二个方法是在对这个URI做<a href="https://en.wikipedia.org/wiki/Percent-encoding">percent encoding</a>，解码时先做percent decoding再用Base64.</p>
 
         <div class="section-index">
     
@@ -2549,20 +2480,12 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
         
             
         
-            
-        
-            
-        
-            
-        
-            
-        
     
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
 </div>
 </div>
 
@@ -2596,7 +2519,7 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
         
 	
         <div style="font-size: 12.8px; color: rgb(117, 116, 116);">

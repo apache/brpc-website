@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bRPC – Serve http:h2</title>
+    <title>bRPC – 搭建http:h2服务</title>
     <link>https://brpc.incubator.apache.org/docs/server/serve-httph2/</link>
-    <description>Recent content in Serve http:h2 on bRPC</description>
+    <description>Recent content in 搭建http:h2服务 on bRPC</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
     

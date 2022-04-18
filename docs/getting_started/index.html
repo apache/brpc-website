@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,22 +18,22 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Getting started | bRPC</title><meta property="og:title" content="Getting started" />
-<meta property="og:description" content="Read getting started for building steps and play with [examples](https://github.com/apache/incubator-brpc/tree/master/example).
+<title>开始 | bRPC</title><meta property="og:title" content="开始" />
+<meta property="og:description" content="快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/getting_started/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-30T19:27:29+08:00" /><meta property="og:site_name" content="bRPC" />
 
-<meta itemprop="name" content="Getting started">
-<meta itemprop="description" content="Read getting started for building steps and play with [examples](https://github.com/apache/incubator-brpc/tree/master/example).
+<meta itemprop="name" content="开始">
+<meta itemprop="description" content="快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
 "><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-30T19:27:29+08:00" />
-<meta itemprop="wordCount" content="1411">
+<meta itemprop="wordCount" content="449">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Getting started"/>
-<meta name="twitter:description" content="Read getting started for building steps and play with [examples](https://github.com/apache/incubator-brpc/tree/master/example).
+<meta name="twitter:title" content="开始"/>
+<meta name="twitter:description" content="快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
 "/>
 
 <script type="application/javascript">
@@ -60,7 +60,7 @@ if (!doNotTrack) {
 
 
 
-    <title>Getting started | bRPC</title>
+    <title>开始 | bRPC</title>
   </head>
   <body class="td-page">
     <header>
@@ -89,7 +89,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/docs/" ><span class="active">Docs</span></a>
+				<a class="nav-link active" href="/docs/" ><span class="active">文档</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -99,17 +99,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/blogs/" ><span>Blog</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="/docs/community/" ><span>Community</span></a>
+				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -129,7 +119,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/users/" ><span>Users</span></a>
+				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
 			</li>
 			
 			
@@ -138,11 +128,11 @@ if (!doNotTrack) {
 				
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	English
+	中文
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/zh/docs/getting_started/">中文</a>
+	<a class="dropdown-item" href="/en/docs/getting_started/">English</a>
 	
 </div>
 			</li>
@@ -150,7 +140,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
 </div>
 </nav>
 
@@ -168,7 +158,7 @@ if (!doNotTrack) {
   
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -180,11 +170,11 @@ if (!doNotTrack) {
       
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	English
+	中文
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/zh/docs/getting_started/">中文</a>
+	<a class="dropdown-item" href="/en/docs/getting_started/">English</a>
 	
 </div>
     </div>
@@ -198,7 +188,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Docs</a>
+    <a  href="/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">文档</a>
   </li>
   <ul>
     <li class="collapse show" id="docs">
@@ -208,19 +198,19 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">Overview</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">简介</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsgetting_started" href="/docs/getting_started/">Getting started</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsgetting_started" href="/docs/getting_started/">开始</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">Performance benchmark</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">性能基准</a>
       
       
       
@@ -417,7 +407,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Client</a>
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">客户端</a>
   </li>
   <ul>
     <li class="collapse " id="docsclient">
@@ -434,7 +424,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
+    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientbasics">
@@ -457,7 +447,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
+    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">错误码</a>
   </li>
   <ul>
     <li class="collapse " id="docsclienterror-code">
@@ -480,7 +470,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Combo channels</a>
+    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">组合channels</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientcombo-channels">
@@ -503,7 +493,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
+    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-httph2">
@@ -526,7 +516,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
+    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-grpc">
@@ -549,7 +539,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access thrift</a>
+    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-thrift">
@@ -572,7 +562,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
+    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问UB</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-ub">
@@ -595,7 +585,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access redis</a>
+    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问redis</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-redis">
@@ -618,7 +608,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问memcached</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-memcached">
@@ -641,7 +631,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流式RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientstreaming-rpc">
@@ -716,7 +706,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server</a>
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">服务端</a>
   </li>
   <ul>
     <li class="collapse " id="docsserver">
@@ -733,7 +723,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
+    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverbasics">
@@ -756,7 +746,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
+    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建http:h2服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-httph2">
@@ -779,7 +769,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
+    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建gRPC服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-grpc">
@@ -802,7 +792,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
+    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建thrift服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-thrift">
@@ -825,7 +815,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
+    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建Nshead服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-nshead">
@@ -848,7 +838,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
+    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">推送</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserver-push">
@@ -871,7 +861,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
+    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">雪崩</a>
   </li>
   <ul>
     <li class="collapse " id="docsserveravalanche">
@@ -894,7 +884,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
+    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">高效率排查server卡顿</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverdebug-server-issues">
@@ -917,7 +907,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
+    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">自适应限流</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverauto-concurrencylimiter">
@@ -940,7 +930,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
+    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流媒体服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsservermedia-server">
@@ -992,7 +982,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
+    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内置服务</a>
   </li>
   <ul>
     <li class="collapse " id="docsbuiltin-services">
@@ -1222,7 +1212,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
+    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">工具</a>
   </li>
   <ul>
     <li class="collapse " id="docstools">
@@ -1360,7 +1350,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
+    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43;基础</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-base">
@@ -1446,7 +1436,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
+    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC培训材料</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-basebrpc-training-materials">
@@ -1475,7 +1465,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">RPC in depth</a>
+    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">深入RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depth">
@@ -1492,7 +1482,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
+    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">支持新协议</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthnew-protocol">
@@ -1515,7 +1505,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
+    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">原子指令</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthatomic-instructions">
@@ -1561,7 +1551,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
+    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">线程模型简介</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depththreading-overview">
@@ -1584,7 +1574,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
+    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">负载均衡</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthload-balancing">
@@ -1630,7 +1620,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
+    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">一致性哈希</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthconsistent-hashing">
@@ -1653,7 +1643,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
+    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内存管理</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthmemory-management">
@@ -1728,7 +1718,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
+    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC在百度内部的应用</a>
   </li>
   <ul>
     <li class="collapse " id="docsuse-cases-inside-baidu">
@@ -1836,7 +1826,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">Download bRPC</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">下载bRPC</a>
       
       
       
@@ -1848,71 +1838,13 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">Users</a>
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/blogs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Blog</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsblogs">
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
       
       
       
       
       
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/blogs/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Release</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsblogsreleases">
-      
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases110" href="/docs/blogs/releases/1.1.0/">bRPC 1.1.0</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases100" href="/docs/blogs/releases/1.0.0/">bRPC 1.0.0</a>
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">Community</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
       
       
     </li>
@@ -1938,11 +1870,11 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/getting_started/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=Getting%20started" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/docs/getting_started/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=%e5%bc%80%e5%a7%8b" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
 
 
-<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
 
 </div>
 
@@ -1955,30 +1887,30 @@ if (!doNotTrack) {
   <ul>
     <li><a href="#ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL</a>
       <ul>
-        <li><a href="#prepare-deps">Prepare deps</a></li>
-        <li><a href="#compile-brpc-with-config_brpcsh">Compile brpc with config_brpc.sh</a></li>
-        <li><a href="#compile-brpc-with-cmake">Compile brpc with cmake</a></li>
+        <li><a href="#依赖准备">依赖准备</a></li>
+        <li><a href="#使用config_brpcsh编译brpc">使用config_brpc.sh编译brpc</a></li>
+        <li><a href="#使用cmake编译brpc">使用cmake编译brpc</a></li>
       </ul>
     </li>
     <li><a href="#fedoracentos">Fedora/CentOS</a>
       <ul>
-        <li><a href="#prepare-deps-1">Prepare deps</a></li>
-        <li><a href="#compile-brpc-with-config_brpcsh-1">Compile brpc with config_brpc.sh</a></li>
-        <li><a href="#compile-brpc-with-cmake-1">Compile brpc with cmake</a></li>
+        <li><a href="#依赖准备-1">依赖准备</a></li>
+        <li><a href="#使用config_brpcsh编译brpc-1">使用config_brpc.sh编译brpc</a></li>
+        <li><a href="#使用cmake编译brpc-1">使用cmake编译brpc</a></li>
       </ul>
     </li>
-    <li><a href="#linux-with-self-built-deps">Linux with self-built deps</a>
+    <li><a href="#自己构建依赖的linux">自己构建依赖的Linux</a>
       <ul>
-        <li><a href="#prepare-deps-2">Prepare deps</a></li>
-        <li><a href="#compile-brpc">Compile brpc</a></li>
-        <li><a href="#compile-brpc-with-cmake-2">Compile brpc with cmake</a></li>
+        <li><a href="#依赖准备-2">依赖准备</a></li>
+        <li><a href="#编译brpc">编译brpc</a></li>
+        <li><a href="#使用cmake编译brpc-2">使用cmake编译brpc</a></li>
       </ul>
     </li>
     <li><a href="#macos">MacOS</a>
       <ul>
-        <li><a href="#prepare-deps-3">Prepare deps</a></li>
-        <li><a href="#compile-brpc-with-config_brpcsh-2">Compile brpc with config_brpc.sh</a></li>
-        <li><a href="#compile-brpc-with-cmake-3">Compile brpc with cmake</a></li>
+        <li><a href="#依赖准备-3">依赖准备</a></li>
+        <li><a href="#使用config_brpcsh编译brpc-2">使用config_brpc.sh编译brpc</a></li>
+        <li><a href="#使用cmake编译brpc-3">使用cmake编译brpc</a></li>
       </ul>
     </li>
   </ul>
@@ -2012,14 +1944,14 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/">Docs</a>
+	<a href="/docs/">文档</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/getting_started/">Getting started</a>
+	<a href="/docs/getting_started/">开始</a>
 </li>
 
 	</ol>
@@ -2028,193 +1960,193 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>Getting started</h1>
-	<div class="lead">Read getting started for building steps and play with <a href="https://github.com/apache/incubator-brpc/tree/master/example">examples</a>.</div>
-	<h1 id="build">BUILD</h1>
-<p>brpc prefers static linkages of deps, so that they don&rsquo;t have to be installed on every machine running the app.</p>
-<p>brpc depends on following packages:</p>
+	<h1>开始</h1>
+	<div class="lead">快速搭建bRPC并尝试<a href="https://github.com/apache/incubator-brpc/tree/master/example">样例代码</a>。</div>
+	<h1 id="构建">构建</h1>
+<p>brpc鼓励静态链接依赖，以便于每个运行brpc服务的机器不必再安装依赖。</p>
+<p>brpc有如下依赖：</p>
 <ul>
 <li><a href="https://github.com/gflags/gflags">gflags</a>: Extensively used to define global options.</li>
 <li><a href="https://github.com/google/protobuf">protobuf</a>: Serializations of messages, interfaces of services.</li>
-<li><a href="https://github.com/google/leveldb">leveldb</a>: Required by <a href="rpcz.md">/rpcz</a> to record RPCs for tracing.</li>
+<li><a href="https://github.com/google/leveldb">leveldb</a>: Required by <a href="rpcz.md">rpcz</a> to record RPCs for tracing.</li>
 </ul>
-<h1 id="supported-environment">Supported Environment</h1>
+<h1 id="支持的环境">支持的环境</h1>
 <ul>
 <li><a href="#ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL</a></li>
 <li><a href="#fedoracentos">Fedora/CentOS</a></li>
-<li><a href="#linux-with-self-built-deps">Linux with self-built deps</a></li>
+<li><a href="#%E8%87%AA%E5%B7%B1%E6%9E%84%E5%BB%BA%E4%BE%9D%E8%B5%96%E7%9A%84Linux">自己构建依赖的Linux</a></li>
 <li><a href="#macos">MacOS</a></li>
 </ul>
 <h2 id="ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL</h2>
-<h3 id="prepare-deps">Prepare deps</h3>
-<p>Install common deps, <a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
+<h3 id="依赖准备">依赖准备</h3>
+<p>安装通用依赖，<a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y git g++ make libssl-dev libgflags-dev libprotobuf-dev libprotoc-dev protobuf-compiler libleveldb-dev
-</code></pre></div><p>If you need to statically link leveldb:</p>
+</code></pre></div><p>如果你需要静态链接leveldb：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y libsnappy-dev
-</code></pre></div><p>If you need to enable cpu/heap profilers in examples:</p>
+</code></pre></div><p>如果你要在样例中启用cpu/heap的profiler：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y libgoogle-perftools-dev
-</code></pre></div><p>If you need to run tests, install and compile libgtest-dev (which is not compiled yet):</p>
+</code></pre></div><p>如果你要运行测试，那么要安装并编译libgtest-dev（它没有被默认编译）：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y cmake libgtest-dev <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> /usr/src/gtest <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> sudo cmake . <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> sudo make <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> sudo mv libgtest* /usr/lib/ <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> -
-</code></pre></div><p>The directory of gtest source code may be changed, try <code>/usr/src/googletest/googletest</code> if <code>/usr/src/gtest</code> is not there.</p>
-<h3 id="compile-brpc-with-config_brpcsh">Compile brpc with config_brpc.sh</h3>
-<p>git clone brpc, cd into the repo and run</p>
+</code></pre></div><p>gtest源码目录可能变动，如果<code>/usr/src/gtest</code>不存在，请尝试<code>/usr/src/googletest/googletest</code>。</p>
+<h3 id="使用config_brpcsh编译brpc">使用config_brpc.sh编译brpc</h3>
+<p>git克隆brpc，进入到项目目录，然后运行</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/lib
 $ make
-</code></pre></div><p>To change compiler to clang, add <code>--cxx=clang++ --cc=clang</code>.</p>
-<p>To not link debugging symbols, add <code>--nodebugsymbols</code> and compiled binaries will be much smaller.</p>
-<p>To use brpc with glog, add <code>--with-glog</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
-<p><strong>Run example</strong></p>
+</code></pre></div><p>修改编译器为clang，添加选项<code>--cxx=clang++ --cc=clang</code>。</p>
+<p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
+<p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
+<p>要启用 <a href="../en/thrift.md">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
+<p><strong>运行样例</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
 $ ./echo_server <span style="color:#000;font-weight:bold">&amp;</span>
 $ ./echo_client
-</code></pre></div><p>Examples link brpc statically, if you need to link the shared version, <code>make clean</code> and <code>LINK_SO=1 make</code></p>
-<p><strong>Run tests</strong></p>
+</code></pre></div><p>上述操作会链接brpc的静态库到样例中，如果你想链接brpc的共享库，请依次执行：<code>make clean</code>和<code>LINK_SO=1 make</code></p>
+<p><strong>运行测试</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> <span style="color:#204a87">test</span>
 $ make
 $ sh run_tests.sh
-</code></pre></div><h3 id="compile-brpc-with-cmake">Compile brpc with cmake</h3>
+</code></pre></div><h3 id="使用cmake编译brpc">使用cmake编译brpc</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cmake -B build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake --build build -j6
-</code></pre></div><p>To help VSCode or Emacs(LSP) to understand code correctly, add <code>-DCMAKE_EXPORT_COMPILE_COMMANDS=ON</code> to generate <code>compile_commands.json</code></p>
-<p>To change compiler to clang, overwrite environment variable <code>CC</code> and <code>CXX</code> to <code>clang</code> and <code>clang++</code> respectively.</p>
-<p>To not link debugging symbols, remove <code>build/CMakeCache.txt</code> and cmake with <code>-DWITH_DEBUG_SYMBOLS=OFF</code></p>
-<p>To use brpc with glog, cmake with <code>-DWITH_GLOG=ON</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and cmake with <code>-DWITH_THRIFT=ON</code>.</p>
-<p><strong>Run example with cmake</strong></p>
+</code></pre></div><p>要帮助VSCode或Emacs(LSP)去正确地理解代码，添加<code>-DCMAKE_EXPORT_COMPILE_COMMANDS=ON</code>选项去生成<code>compile_commands.json</code>。</p>
+<p>要修改编译器为clang，请修改环境变量<code>CC</code>和<code>CXX</code>为<code>clang</code>和<code>clang++</code>。</p>
+<p>不想链接调试符号，请移除<code>build/CMakeCache.txt</code>，然后用<code>-DWITH_DEBUG_SYMBOLS=OFF</code>选项执行cmake。</p>
+<p>想要让brpc使用glog，用<code>-DWITH_GLOG=ON</code>选项执行cmake。</p>
+<p>要启用 <a href="../en/thrift.md">thrift 支持</a>，先安装thrift，然后用<code>-DWITH_THRIFT=ON</code>选项执行cmake。</p>
+<p><strong>用cmake运行样例</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ cmake -B build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake --build build -j4
 $ ./echo_server <span style="color:#000;font-weight:bold">&amp;</span>
 $ ./echo_client
-</code></pre></div><p>Examples link brpc statically, if you need to link the shared version, remove <code>CMakeCache.txt</code> and cmake with <code>-DLINK_SO=ON</code></p>
-<p><strong>Run tests</strong></p>
+</code></pre></div><p>上述操作会链接brpc的静态库到样例中，如果你想链接brpc的共享库，请先移除<code>CMakeCache.txt</code>，然后用<code>-DLINK_SO=ON</code>选项重新执行cmake。</p>
+<p><strong>运行测试</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake -DBUILD_UNIT_TESTS<span style="color:#ce5c00;font-weight:bold">=</span>ON .. <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make <span style="color:#204a87">test</span>
 </code></pre></div><h2 id="fedoracentos">Fedora/CentOS</h2>
-<h3 id="prepare-deps-1">Prepare deps</h3>
-<p>CentOS needs to install EPEL generally otherwise many packages are not available by default.</p>
+<h3 id="依赖准备-1">依赖准备</h3>
+<p>CentOS一般需要安装EPEL，否则很多包都默认不可用。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install epel-release
-</code></pre></div><p>Install common deps:</p>
+</code></pre></div><p>安装通用依赖：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install git gcc-c++ make openssl-devel
-</code></pre></div><p>Install <a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
+</code></pre></div><p>安装 <a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gflags-devel protobuf-devel protobuf-compiler leveldb-devel
-</code></pre></div><p>If you need to enable cpu/heap profilers in examples:</p>
+</code></pre></div><p>如果你要在样例中启用cpu/heap的profiler：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gperftools-devel
-</code></pre></div><p>If you need to run tests, install and compile gtest-devel (which is not compiled yet):</p>
+</code></pre></div><p>如果你要运行测试，那么要安装ligtest-dev:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gtest-devel
-</code></pre></div><h3 id="compile-brpc-with-config_brpcsh-1">Compile brpc with config_brpc.sh</h3>
-<p>git clone brpc, cd into the repo and run</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/lib64
+</code></pre></div><h3 id="使用config_brpcsh编译brpc-1">使用config_brpc.sh编译brpc</h3>
+<p>git克隆brpc，进入项目目录然后执行：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/usr/include&#34;</span> --libs<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/usr/lib64 /usr/bin&#34;</span>
 $ make
-</code></pre></div><p>To change compiler to clang, add <code>--cxx=clang++ --cc=clang</code>.</p>
-<p>To not link debugging symbols, add <code>--nodebugsymbols</code> and compiled binaries will be much smaller.</p>
-<p>To use brpc with glog, add <code>--with-glog</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
-<p><strong>Run example</strong></p>
+</code></pre></div><p>修改编译器为clang，添加选项<code>--cxx=clang++ --cc=clang</code>。</p>
+<p>不想链接调试符号，添加选项<code>--nodebugsymbols</code> 然后编译将会得到更轻量的二进制文件。</p>
+<p>想要让brpc使用glog，添加选项：<code>--with-glog</code>。</p>
+<p>要启用 <a href="../en/thrift.md">thrift 支持</a>，先安装thrift，然后添加选项：<code>--with-thrift</code>。</p>
+<p><strong>运行样例</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
 $ ./echo_server <span style="color:#000;font-weight:bold">&amp;</span>
 $ ./echo_client
-</code></pre></div><p>Examples link brpc statically, if you need to link the shared version, <code>make clean</code> and <code>LINK_SO=1 make</code></p>
-<p><strong>Run tests</strong></p>
+</code></pre></div><p>上述操作会链接brpc的静态库到样例中，如果你想链接brpc的共享库，请依次执行：<code>make clean</code>和<code>LINK_SO=1 make</code></p>
+<p><strong>运行测试</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> <span style="color:#204a87">test</span>
 $ make
 $ sh run_tests.sh
-</code></pre></div><h3 id="compile-brpc-with-cmake-1">Compile brpc with cmake</h3>
-<p>Same with <a href="#compile-brpc-with-cmake">here</a></p>
-<h2 id="linux-with-self-built-deps">Linux with self-built deps</h2>
-<h3 id="prepare-deps-2">Prepare deps</h3>
-<p>brpc builds itself to both static and shared libs by default, so it needs static and shared libs of deps to be built as well.</p>
-<p>Take <a href="https://github.com/gflags/gflags">gflags</a> as example, which does not build shared lib by default, you need to pass options to <code>cmake</code> to change the behavior:</p>
+</code></pre></div><h3 id="使用cmake编译brpc-1">使用cmake编译brpc</h3>
+<p>参考<a href="#%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91brpc">这里</a></p>
+<h2 id="自己构建依赖的linux">自己构建依赖的Linux</h2>
+<h3 id="依赖准备-2">依赖准备</h3>
+<p>brpc默认会构建出静态库和共享库，因此它也需要依赖有静态库和共享库两个版本。</p>
+<p>以<a href="https://github.com/gflags/gflags">gflags</a>为例，它默认不够尖共享库，你需要给<code>cmake</code>指定选项去改变这一行为：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cmake . -DBUILD_SHARED_LIBS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span> -DBUILD_STATIC_LIBS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span>
 $ make
-</code></pre></div><h3 id="compile-brpc">Compile brpc</h3>
-<p>Keep on with the gflags example, let <code>../gflags_dev</code> be where gflags is cloned.</p>
-<p>git clone brpc. cd into the repo and run</p>
+</code></pre></div><h3 id="编译brpc">编译brpc</h3>
+<p>还以gflags为例，<code>../gflags_dev</code>表示gflags被克隆的位置。</p>
+<p>git克隆brpc。进入到项目目录然后运行：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;../gflags_dev /usr/include&#34;</span> --libs<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;../gflags_dev /usr/lib64&#34;</span>
 $ make
-</code></pre></div><p>Here we pass multiple paths to <code>--headers</code> and <code>--libs</code> to make the script search for multiple places. You can also group all deps and brpc into one directory, then pass the directory to &ndash;headers/&ndash;libs which actually search all subdirectories recursively and will find necessary files.</p>
-<p>To change compiler to clang, add <code>--cxx=clang++ --cc=clang</code>.</p>
-<p>To not link debugging symbols, add <code>--nodebugsymbols</code> and compiled binaries will be much smaller.</p>
-<p>To use brpc with glog, add <code>--with-glog</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
+</code></pre></div><p>这里我们给<code>--headers</code>和<code>--libs</code>传递多个路径使得脚本能够在多个地方进行检索。你也可以打包所有依赖和brpc一起放到一个目录中，然后把目录传递给 &ndash;headers/&ndash;libs选项，它会递归搜索所有子目录直到找到必须的文件。</p>
+<p>修改编译器为clang，添加选项<code>--cxx=clang++ --cc=clang</code>。</p>
+<p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
+<p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
+<p>要启用<a href="../en/thrift.md">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ls my_dev
 gflags_dev protobuf_dev leveldb_dev brpc_dev
 $ <span style="color:#204a87">cd</span> brpc_dev
 $ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>.. --libs<span style="color:#ce5c00;font-weight:bold">=</span>..
 $ make
-</code></pre></div><h3 id="compile-brpc-with-cmake-2">Compile brpc with cmake</h3>
-<p>Same with <a href="#compile-brpc-with-cmake">here</a></p>
+</code></pre></div><h3 id="使用cmake编译brpc-2">使用cmake编译brpc</h3>
+<p>参考<a href="#%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91brpc">这里</a></p>
 <h2 id="macos">MacOS</h2>
-<p>Note: In the same running environment, the performance of the current Mac version is about 2.5 times worse than the Linux version. If your service is performance-critical, do not use MacOS as your production environment.</p>
-<h3 id="prepare-deps-3">Prepare deps</h3>
-<p>Install common deps:</p>
+<p>注意：在相同运行环境下，当前Mac版brpc的性能比Linux版差2.5倍。如果你的服务是性能敏感的，请不要使用MacOs作为你的生产环境。</p>
+<h3 id="依赖准备-3">依赖准备</h3>
+<p>安装通用依赖：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install openssl git gnu-getopt coreutils
-</code></pre></div><p>Install <a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
+</code></pre></div><p>安装<a href="https://github.com/gflags/gflags">gflags</a>，<a href="https://github.com/google/protobuf">protobuf</a>，<a href="https://github.com/google/leveldb">leveldb</a>：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gflags protobuf leveldb
-</code></pre></div><p>If you need to enable cpu/heap profilers in examples:</p>
+</code></pre></div><p>如果你要在样例中启用cpu/heap的profiler：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gperftools
-</code></pre></div><p>If you need to run tests, download and compile googletest (which is not compiled yet):</p>
+</code></pre></div><p>如果你要运行测试，那么要安装并编译googletest（它没有被默认编译）：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/google/googletest -b release-1.10.0 <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> googletest/googletest <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake -DCMAKE_CXX_FLAGS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-std=c++11&#34;</span> .. <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make
-</code></pre></div><p>After the compilation, copy include/ and lib/ into /usr/local/include and /usr/local/lib respectively to expose gtest to all apps</p>
-<h3 id="compile-brpc-with-config_brpcsh-2">Compile brpc with config_brpc.sh</h3>
-<p>git clone brpc, cd into the repo and run</p>
+</code></pre></div><p>在编译完成后，复制include/和lib/目录到/usr/local/include和/usr/local/lib目录中，以便于让所有应用都能使用gtest。</p>
+<h3 id="使用config_brpcsh编译brpc-2">使用config_brpc.sh编译brpc</h3>
+<p>git克隆brpc，进入到项目目录然后运行：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/lib --cc<span style="color:#ce5c00;font-weight:bold">=</span>clang --cxx<span style="color:#ce5c00;font-weight:bold">=</span>clang++
 $ make
-</code></pre></div><p>To not link debugging symbols, add <code>--nodebugsymbols</code> and compiled binaries will be much smaller.</p>
-<p>To use brpc with glog, add <code>--with-glog</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
-<p><strong>Run example</strong></p>
+</code></pre></div><p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
+<p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
+<p>要启用<a href="../en/thrift.md">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
+<p><strong>运行样例</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
 $ ./echo_server <span style="color:#000;font-weight:bold">&amp;</span>
 $ ./echo_client
-</code></pre></div><p>Examples link brpc statically, if you need to link the shared version, <code>make clean</code> and <code>LINK_SO=1 make</code></p>
-<p><strong>Run tests</strong></p>
+</code></pre></div><p>上述操作会链接brpc的静态库到样例中，如果你想链接brpc的共享库，请依次执行：<code>make clean</code>和<code>LINK_SO=1 make</code></p>
+<p><strong>运行测试</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> <span style="color:#204a87">test</span>
 $ make
 $ sh run_tests.sh
-</code></pre></div><h3 id="compile-brpc-with-cmake-3">Compile brpc with cmake</h3>
-<p>Same with <a href="#compile-brpc-with-cmake">here</a></p>
-<h1 id="supported-deps">Supported deps</h1>
+</code></pre></div><h3 id="使用cmake编译brpc-3">使用cmake编译brpc</h3>
+<p>参考<a href="#%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91brpc">这里</a></p>
+<h1 id="支持的依赖">支持的依赖</h1>
 <h2 id="gcc-48-71">GCC: 4.8-7.1</h2>
-<p>c++11 is turned on by default to remove dependencies on boost (atomic).</p>
-<p>The over-aligned issues in GCC7 is suppressed temporarily now.</p>
-<p>Using other versions of gcc may generate warnings, contact us to fix.</p>
-<p>Adding <code>-D__const__=</code> to cxxflags in your makefiles is a must to avoid <a href="thread_local.md">errno issue in gcc4+</a>.</p>
+<p>c++11被默认启用，以去除去boost的依赖（比如atomic）。</p>
+<p>GCC7中over-aligned的问题暂时被禁止。</p>
+<p>使用其他版本的gcc可能会产生编译警告，请联系我们予以修复。</p>
+<p>请在makefile中给cxxflags增加<code>-D__const__=</code>选项以避免<a href="thread_local.md">gcc4+中的errno问题</a>.</p>
 <h2 id="clang-35-40">Clang: 3.5-4.0</h2>
-<p>no known issues.</p>
+<p>无已知问题。</p>
 <h2 id="glibc-212-225">glibc: 2.12-2.25</h2>
-<p>no known issues.</p>
+<p>无已知问题。</p>
 <h2 id="protobuf-24">protobuf: 2.4+</h2>
-<p>Be compatible with pb 3.x and pb 2.x with the same file:
-Don&rsquo;t use new types in proto3 and start the proto file with <code>syntax=&quot;proto2&quot;;</code>
-<a href="https://github.com/brpc/brpc/blob/master/tools/add_syntax_equal_proto2_to_all.sh">tools/add_syntax_equal_proto2_to_all.sh</a>can add <code>syntax=&quot;proto2&quot;</code> to all proto files without it.</p>
-<p>Arena in pb 3.x is not supported yet.</p>
+<p>同一个文件兼容pb 3.x版本和pb 2.x版本：
+不要使用proto3新增的类型，并且在proto文件的起始位置添加<code>syntax=proto2;</code>声明。
+<a href="https://github.com/brpc/brpc/blob/master/tools/add_syntax_equal_proto2_to_all.sh">tools/add_syntax_equal_proto2_to_all.sh</a>这个脚本可以给所有没有这行声明的proto文件添加<code>syntax=&quot;proto2&quot;</code>声明。</p>
+<p>pb 3.x中的Arena至今没被支持。</p>
 <h2 id="gflags-20-221">gflags: 2.0-2.2.1</h2>
-<p>no known issues.</p>
+<p>无已知问题。</p>
 <h2 id="openssl-097-11">openssl: 0.97-1.1</h2>
-<p>required by https.</p>
+<p>被https功能需要。</p>
 <h2 id="tcmalloc-17-25">tcmalloc: 1.7-2.5</h2>
-<p>brpc does <strong>not</strong> link <a href="http://goog-perftools.sourceforge.net/doc/tcmalloc.html">tcmalloc</a> by default. Users link tcmalloc on-demand.</p>
-<p>Comparing to ptmalloc embedded in glibc, tcmalloc often improves performance. However different versions of tcmalloc may behave really differently. For example, tcmalloc 2.1 may make multi-threaded examples in brpc perform significantly worse(due to a spinlock in tcmalloc) than the one using tcmalloc 1.7 and 2.5. Even different minor versions may differ. When you program behave unexpectedly, remove tcmalloc or try another version.</p>
-<p>Code compiled with gcc 4.8.2 and linked to a tcmalloc compiled with earlier GCC may crash or deadlock before main(), E.g:</p>
+<p>brpc默认<strong>不</strong>链接 <a href="http://goog-perftools.sourceforge.net/doc/tcmalloc.html">tcmalloc</a>。用户按需要链接tcmalloc。</p>
+<p>和glibc内置的ptmalloc相比，tcmalloc通常能提升性能。然而不同版本的tcmalloc可能表现迥异。例如：tcmalloc 2.1与 tcmalloc 1.7和2.5相比，可能会让brpc的多线程样例性能显著恶化（tcmalloc中的一个自旋锁导致的）。甚至不同的小版本号之间变现也可能不同。当你的程序表现不符合预期的时候，移除tcmalloc然后尝试其他版本。</p>
+<p>用gcc4.8.2编译然后链接更早版本GCC编译的tcmalloc，可能会让程序中main()函数之前挂掉或者死锁，例如：</p>
 <p><img src="/images/docs/tcmalloc_stuck.png" alt="img"></p>
-<p>When you meet the issue, compile tcmalloc with the same GCC.</p>
-<p>Another common issue with tcmalloc is that it does not return memory to system as early as ptmalloc. So when there&rsquo;s an invalid memory access, the program may not crash directly, instead it crashes at a unrelated place, or even not crash. When you program has weird memory issues, try removing tcmalloc.</p>
-<p>If you want to use <a href="cpu_profiler.md">cpu profiler</a> or <a href="heap_profiler.md">heap profiler</a>, do link <code>libtcmalloc_and_profiler.a</code>. These two profilers are based on tcmalloc.<a href="contention_profiler.md">contention profiler</a> does not require tcmalloc.</p>
-<p>When you remove tcmalloc, not only remove the linkage with tcmalloc but also the macro <code>-DBRPC_ENABLE_CPU_PROFILER</code>.</p>
+<p>当你遇到这个问题的时候，请用同一个GCC重新编译tcmalloc。</p>
+<p>另外一个使用tcmalloc的常见问题是，它不会像 ptmalloc一样及时地归还内存给系统。因此当有一个无效的内存访问的时候，程序可能不会直接挂掉，取而代之的是它可能在一个不相关的地方挂掉，或者甚至一直不挂掉。当你的程序出现怪异的内存问题的时候，尝试移除tcmalloc。</p>
+<p>如果你要使用<a href="cpu_profiler.md">cpu profiler</a>或<a href="heap_profiler.md">heap profiler</a>，要链接<code>libtcmalloc_and_profiler.a</code>。这两个 profiler都是基于tcmalloc的。而<a href="contention_profiler.md">contention profiler</a>不需要tcmalloc。</p>
+<p>当你移除tcmalloc的时候，不仅要移除tcmalloc的链接，也要移除宏<code>-DBRPC_ENABLE_CPU_PROFILER</code>。</p>
 <h2 id="glog-33">glog: 3.3+</h2>
-<p>brpc implements a default <a href="../../src/butil/logging.h">logging utility</a> which conflicts with glog. To replace this with glog, add <em>&ndash;with-glog</em> to config_brpc.sh or add <code>-DWITH_GLOG=ON</code> to cmake.</p>
+<p>brpc实现了一个默认的<a href="../../src/butil/logging.h">日志功能</a>它和glog冲突。要替换成glog，可以给config_brpc.sh增加*&ndash;with-glog*选项或者给cmake增加<code>-DWITH_GLOG=ON</code>选项。</p>
 <h2 id="valgrind-38">valgrind: 3.8+</h2>
-<p>brpc detects valgrind automatically (and registers stacks of bthread). Older valgrind(say 3.2) is not supported.</p>
+<p>brpc会自动检测valgrind（然后注册bthread的栈）。不支持老版本的valgrind（比如3.2）。</p>
 <h2 id="thrift-093-0110">thrift: 0.9.3-0.11.0</h2>
-<p>no known issues.</p>
-<h1 id="track-instances">Track instances</h1>
-<p>We provide a program to help you to track and monitor all brpc instances. Just run <a href="https://github.com/brpc/brpc/tree/master/tools/trackme_server/">trackme_server</a> somewhere and launch need-to-be-tracked instances with -trackme_server=SERVER. The trackme_server will receive pings from instances periodically and print logs when it does. You can aggregate instance addresses from the log and call builtin services of the instances for further information.</p>
+<p>无已知问题。</p>
+<h1 id="实例追踪">实例追踪</h1>
+<p>我们提供了一个程序去帮助你追踪和监控所有brpc实例。 只需要在某处运行 <a href="https://github.com/brpc/brpc/tree/master/tools/trackme_server/">trackme_server</a> 然后再带着 -trackme_server=SERVER参数启动需要被追踪的实例。trackme_server将从实例周期性地收到ping消息然后打印日志。您可以从日志中聚合实例地址，并调用实例的内置服务以获取更多信息。</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
 </div>
 </div>
 
@@ -2249,7 +2181,7 @@ Don&rsquo;t use new types in proto3 and start the proto file with <code>syntax=&
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
         
 	
         <div style="font-size: 12.8px; color: rgb(117, 116, 116);">

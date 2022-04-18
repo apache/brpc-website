@@ -1,0 +1,424 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bRPC – Use cases inside Baidu</title>
+    <link>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/</link>
+    <description>Recent content in Use cases inside Baidu on bRPC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 百度地图api入口</title>
+      <link>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case1/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case1/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;进展&#34;&gt;进展&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;时间&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;8.11 - 8.28&lt;/td&gt;
+&lt;td&gt;调研 + 研发 + 自测&lt;/td&gt;
+&lt;td&gt;自测性能报告见附件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9.8 - 9.22&lt;/td&gt;
+&lt;td&gt;QA测试&lt;/td&gt;
+&lt;td&gt;QA测试报告见附件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10.8&lt;/td&gt;
+&lt;td&gt;北京机房1台机器上线&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10.14&lt;/td&gt;
+&lt;td&gt;北京机房1台机器上线&lt;/td&gt;
+&lt;td&gt;修复URL编码问题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10.19&lt;/td&gt;
+&lt;td&gt;北京机房7/35机器上线杭州和南京各2台机器上线&lt;/td&gt;
+&lt;td&gt;开始小流量上线&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10.22&lt;/td&gt;
+&lt;td&gt;北京机房10/35机器上线杭州机房5/26机器上线南京机房5/19机器上线&lt;/td&gt;
+&lt;td&gt;修复http响应数据压缩问题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11.3&lt;/td&gt;
+&lt;td&gt;北京机房10/35机器上线&lt;/td&gt;
+&lt;td&gt;修复RPC内存泄露问题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11.6&lt;/td&gt;
+&lt;td&gt;杭州机房5/26机器上线南京机房5/19机器上线&lt;/td&gt;
+&lt;td&gt;同北京机房版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11.9&lt;/td&gt;
+&lt;td&gt;北京机房全流量上线&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;截止目前，线上服务表现稳定。&lt;/p&gt;
+&lt;h1 id=&#34;qa测试结论&#34;&gt;QA测试结论&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;【性能测试】单机支持最大QPS：&lt;strong&gt;9000+&lt;/strong&gt;。可以有效解决原来hulu_pbrpc中一个慢服务拖垮所有服务的问题。性能很好。&lt;/li&gt;
+&lt;li&gt;【稳定性测试】长时间压测没问题。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;QA测试结论：通过&lt;/p&gt;
+&lt;h1 id=&#34;性能提升实时统计&#34;&gt;性能提升实时统计&lt;/h1&gt;
+&lt;p&gt;统计时间2015.11.3 15:00 – 2015.11.9 14:30，共&lt;strong&gt;143.5&lt;/strong&gt;小时（近6天）不间断运行。北京机房升级前和升级后同机房各6台机器，共&lt;strong&gt;12&lt;/strong&gt;台线上机器的Noah监控数据。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;指标&lt;/th&gt;
+&lt;th&gt;升级&lt;strong&gt;前&lt;/strong&gt;均值hulu_pbrpc&lt;/th&gt;
+&lt;th&gt;升级&lt;strong&gt;后&lt;/strong&gt;均值brpc&lt;/th&gt;
+&lt;th&gt;收益对比&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU占用率&lt;/td&gt;
+&lt;td&gt;67.35%&lt;/td&gt;
+&lt;td&gt;29.28%&lt;/td&gt;
+&lt;td&gt;降低&lt;strong&gt;56.53&lt;/strong&gt;%&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;内存占用&lt;/td&gt;
+&lt;td&gt;327.81MB&lt;/td&gt;
+&lt;td&gt;336.91MB&lt;/td&gt;
+&lt;td&gt;基本持平&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;鉴权平响(ms)&lt;/td&gt;
+&lt;td&gt;0.605&lt;/td&gt;
+&lt;td&gt;0.208&lt;/td&gt;
+&lt;td&gt;降低&lt;strong&gt;65.62&lt;/strong&gt;%&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;转发平响(ms)&lt;/td&gt;
+&lt;td&gt;22.49&lt;/td&gt;
+&lt;td&gt;23.18&lt;/td&gt;
+&lt;td&gt;基本持平&lt;/td&gt;
+&lt;td&gt;依赖后端各个服务的性能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;总线程数&lt;/td&gt;
+&lt;td&gt;193&lt;/td&gt;
+&lt;td&gt;132&lt;/td&gt;
+&lt;td&gt;降低&lt;strong&gt;31.61&lt;/strong&gt;%&lt;/td&gt;
+&lt;td&gt;Baidu RPC版本线程数使用率较低，还可降低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;极限QPS&lt;/td&gt;
+&lt;td&gt;3000&lt;/td&gt;
+&lt;td&gt;9000&lt;/td&gt;
+&lt;td&gt;提升&lt;strong&gt;3&lt;/strong&gt;倍&lt;/td&gt;
+&lt;td&gt;线下使用Geoconv和Geocoder服务测试&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;CPU使用率(%)&lt;/strong&gt;（红色为升级前，蓝色为升级后）
+&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/apicontrol_compare_1.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;内存使用量(KB)&lt;/strong&gt;（红色为升级前，蓝色为升级后）
+&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/apicontrol_compare_2.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;鉴权平响(ms)&lt;/strong&gt;（红色为升级前，蓝色为升级后）
+&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/apicontrol_compare_3.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;转发平响(ms)&lt;/strong&gt;（红色为升级前，蓝色为升级后）
+&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/apicontrol_compare_4.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;总线程数(个)&lt;/strong&gt;（红色为升级前，蓝色为升级后）
+&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/apicontrol_compare_5.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 联盟DSP</title>
+      <link>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case2/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case2/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;背景&#34;&gt;背景&lt;/h1&gt;
+&lt;p&gt;baidu-dsp是联盟基于Ad Exchange和RTB模式的需求方平台，服务大客户、代理的投放产品体系。我们改造了多个模块，均取得了显著的效果。本文只介绍其中关于super-nova-as的改动。super-nova-as是的baidu-dsp的AS，之前使用ub-aserver编写，为了尽量减少改动，我们没有改造整个as，而只是把super-nova-as连接下游（ctr-server、cvr-server、super-nova-bs）的client从ubrpc升级为brpc。&lt;/p&gt;
+&lt;h1 id=&#34;结论&#34;&gt;结论&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;as的吞吐量有显著提升（不到1500 -&amp;gt; 2500+）&lt;/li&gt;
+&lt;li&gt;cpu优化：从1500qps 50%cpu_idle提高到2000qps 50% cpu_idle；&lt;/li&gt;
+&lt;li&gt;超时率改善明显。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;测试过程&#34;&gt;测试过程&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;环境：1个as，1个bs，1个ctr，1个cvr；部署情况为：bs单机部署，as+ctr+cvr混布；ctr和cvr为brpc版本&lt;/li&gt;
+&lt;li&gt;分别采用1000,1500压力对ubrpc版本的as进行压测，发现1500压力下，as对bs有大量的超时，as到达瓶颈；&lt;/li&gt;
+&lt;li&gt;分别采用2000,2500压力对brpc版本的as进行压测，发现2500压力下，as机器的cpu_idle低于30%，as到达瓶颈。brpc对资源利用充分。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;ubrpc&lt;/th&gt;
+&lt;th&gt;brpc&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;流量&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_1.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_2.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bs成功率&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_3.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_4.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cpu_idle&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_5.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_6.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ctr成功率&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_7.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_8.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cvr成功率&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_9.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/baidu_dsp_compare_10.png&#34; alt=&#34;img&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: ELF学习框架</title>
+      <link>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case3/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case3/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;背景&#34;&gt;背景&lt;/h1&gt;
+&lt;p&gt;ELF(Essential/Extreme/Excellent Learning Framework) 框架为公司内外的大数据应用提供学习/挖掘算法开发支持。 平台主要包括数据迭代处理的框架支持，并行计算过程中的通信支持和用于存储大规模参数的分布式、快速、高可用参数服务器。应用于fcr-model，公有云bml，大数据实验室，语音技术部门等等。之前是基于&lt;a href=&#34;http://zeromq.org/&#34;&gt;zeromq&lt;/a&gt;封装的rpc，这次改用brpc。&lt;/p&gt;
+&lt;h1 id=&#34;结论&#34;&gt;结论&lt;/h1&gt;
+&lt;p&gt;单个rpc-call以及单次请求所有rpc-call的提升非常显著，延时都缩短了**50%&lt;strong&gt;以上，总训练的耗时除了ftrl-sync-no-shuffle提升不明显外，其余三个算法训练总体性能都有&lt;/strong&gt;15%**左右的提升。现在瓶颈在于计算逻辑，所以相对单个的rpc的提升没有那么多。该成果后续会推动凤巢模型训练的上线替换。详细耗时见下节。&lt;/p&gt;
+&lt;h1 id=&#34;性能对比报告&#34;&gt;性能对比报告&lt;/h1&gt;
+&lt;h2 id=&#34;算法总耗时&#34;&gt;算法总耗时&lt;/h2&gt;
+&lt;p&gt;ftrl算法: 替换前总耗时2:4:39, 替换后总耗时1:42:48, 提升18%&lt;/p&gt;
+&lt;p&gt;ftrl-sync-no-shuffle算法: 替换前总耗时3:20:47, 替换后总耗时3:15:28, 提升2.5%&lt;/p&gt;
+&lt;p&gt;ftrl-sync算法: 替换前总耗时4:28:47, 替换后总耗时3:45:57, 提升16%&lt;/p&gt;
+&lt;p&gt;fm-sync算法: 替换前总耗时6:16:37, 替换后总耗时5:21:00, 提升14.6%&lt;/p&gt;
+&lt;h2 id=&#34;子任务耗时&#34;&gt;子任务耗时&lt;/h2&gt;
+&lt;p&gt;单个rpc-call(针对ftrl算法)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Average&lt;/th&gt;
+&lt;th&gt;Max&lt;/th&gt;
+&lt;th&gt;Min&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;替换前&lt;/td&gt;
+&lt;td&gt;164.946ms&lt;/td&gt;
+&lt;td&gt;7938.76ms&lt;/td&gt;
+&lt;td&gt;0.249756ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;替换后&lt;/td&gt;
+&lt;td&gt;10.4198ms&lt;/td&gt;
+&lt;td&gt;2614.38ms&lt;/td&gt;
+&lt;td&gt;0.076416ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;缩短&lt;/td&gt;
+&lt;td&gt;93%&lt;/td&gt;
+&lt;td&gt;67%&lt;/td&gt;
+&lt;td&gt;70%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;单次请求所有rpc-call(针对ftrl算法)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Average&lt;/th&gt;
+&lt;th&gt;Max&lt;/th&gt;
+&lt;th&gt;Min&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;替换前&lt;/td&gt;
+&lt;td&gt;658.08ms&lt;/td&gt;
+&lt;td&gt;7123.5ms&lt;/td&gt;
+&lt;td&gt;1.88159ms&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;替换后&lt;/td&gt;
+&lt;td&gt;304.878&lt;/td&gt;
+&lt;td&gt;2571.34&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;缩短&lt;/td&gt;
+&lt;td&gt;53.7%&lt;/td&gt;
+&lt;td&gt;63.9%&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;结论-1&#34;&gt;结论&lt;/h2&gt;
+&lt;p&gt;单个rpc-call以及单次请求所有rpc-call的提升非常显著，提升都在50%以上，总任务的耗时除了ftrl-sync-no-shuffle提升不明显外，其余三个算法都有15%左右的提升，现在算法的瓶颈在于对计算逻辑，所以相对单个的rpc的提升没有那么多。&lt;/p&gt;
+&lt;p&gt;附cpu profiling结果, top 40没有rpc相关函数。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Total: 8664 samples
+     755   8.7%   8.7%      757   8.7% baidu::elf::Partitioner
+     709   8.2%  16.9%      724   8.4% baidu::elf::GlobalShardWriterClient::local_aggregator::{lambda#1}::operator [clone .part.1341]
+     655   7.6%  24.5%      655   7.6% boost::detail::lcast_ret_unsigned
+     582   6.7%  31.2%      642   7.4% baidu::elf::RobinHoodLinkedHashMap
+     530   6.1%  37.3%     2023  23.4% std::vector
+     529   6.1%  43.4%      529   6.1% std::binary_search
+     406   4.7%  48.1%      458   5.3% tc_delete
+     405   4.7%  52.8%     2454  28.3% baidu::elf::GlobalShardWriterClient
+     297   3.4%  56.2%      297   3.4% __memcpy_sse2_unaligned
+     256   3.0%  59.2%      297   3.4% tc_new
+     198   2.3%  61.5%      853   9.8% std::__introsort_loop
+     157   1.8%  63.3%      157   1.8% baidu::elf::GrowableArray
+     152   1.8%  65.0%      177   2.0% calculate_grad
+     142   1.6%  66.7%      699   8.1% baidu::elf::BlockTableReaderManager
+     137   1.6%  68.2%      656   7.6% baidu::elf::DefaultWriterServer
+     127   1.5%  69.7%      127   1.5% _init
+     122   1.4%  71.1%      582   6.7% __gnu_cxx::__normal_iterator
+     117   1.4%  72.5%      123   1.4% baidu::elf::GrowableArray::emplace_back
+     116   1.3%  73.8%      116   1.3% baidu::elf::RobinHoodHashMap::insert
+     101   1.2%  75.0%      451   5.2% baidu::elf::NoCacheReaderClient
+      99   1.1%  76.1%     3614  41.7% parse_ins
+      97   1.1%  77.2%       97   1.1% std::basic_string::_Rep::_M_dispose [clone .part.12]
+      96   1.1%  78.3%      154   1.8% std::basic_string
+      91   1.1%  79.4%      246   2.8% boost::algorithm::split_iterator
+      87   1.0%  80.4%      321   3.7% boost::function2
+      76   0.9%  81.3%      385   4.4% boost::detail::function::functor_manager
+      69   0.8%  82.1%       69   0.8% std::locale::~locale
+      63   0.7%  82.8%      319   3.7% std::__unguarded_linear_insert
+      58   0.7%  83.5%     2178  25.2% boost::algorithm::split [clone .constprop.2471]
+      54   0.6%  84.1%      100   1.2% std::vector::_M_emplace_back_aux
+      49   0.6%  84.7%       49   0.6% boost::algorithm::detail::is_any_ofF
+      47   0.5%  85.2%       79   0.9% baidu::elf::DefaultReaderServer
+      41   0.5%  85.7%       41   0.5% std::locale::_S_initialize
+      39   0.5%  86.1%      677   7.8% boost::detail::function::function_obj_invoker2
+      39   0.5%  86.6%       39   0.5% memset
+      39   0.5%  87.0%       39   0.5% std::locale::locale
+      38   0.4%  87.5%       50   0.6% FTRLAggregator::serialize
+      36   0.4%  87.9%       67   0.8% tcmalloc::CentralFreeList::ReleaseToSpans
+      34   0.4%  88.3%       34   0.4% madvise
+      34   0.4%  88.7%       38   0.4% tcmalloc::CentralFreeList::FetchFromOneSpans
+      32   0.4%  89.0%       32   0.4% std::__insertion_sort
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 云平台代理服务</title>
+      <link>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case4/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brpc.incubator.apache.org/en/docs/use-cases-inside-baidu/use-case4/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;背景&#34;&gt;背景&lt;/h1&gt;
+&lt;p&gt;云平台部把使用ubrpc的模块改造为使用brpc。由于使用了mcpack2pb的转换功能，这个模块既能被老的ubrpc client访问，也可以通过protobuf类的协议访问（baidu_std，sofa_pbrpc等）。&lt;/p&gt;
+&lt;p&gt;原有使用43台机器（对ubrpc也有富余），brpc使用3台机器即可（此时访问redis的io达到瓶颈）。当前流量4w qps，支持流量增长，考虑跨机房冗余，避免redis和vip瓶颈，brpc实际使用8台机器提供服务。&lt;/p&gt;
+&lt;p&gt;brpc改造后的connecter收益明显，可以用较少的机器提供更优质的服务。收益分3个方面：&lt;/p&gt;
+&lt;h1 id=&#34;相同配置的机器qps和latency的比较&#34;&gt;相同配置的机器qps和latency的比较&lt;/h1&gt;
+&lt;p&gt;通过逐渐缩容，不断增加connecter的压力，获得单机qps和latency的对应数据如下：
+&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/ubrpc_compare_1.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;机器配置：cpu: 24 Intel(R) Xeon(R) CPU  E5645  @ 2.40GHz || mem: 64G&lt;/p&gt;
+&lt;p&gt;混布情况：同机部署了逻辑层2.0/3.0和C逻辑层，均有流量&lt;/p&gt;
+&lt;p&gt;图中可以看到随着压力的增大：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;brpc的延时，增加微乎其微，提供了较为一致的延时体验&lt;/li&gt;
+&lt;li&gt;ubrpc的延时，快速增大，到了6000~8000qps的时候，出现&lt;em&gt;queue full&lt;/em&gt;，服务不可用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;不同配置机器qps和延时的比较&#34;&gt;不同配置机器qps和延时的比较&lt;/h1&gt;
+&lt;p&gt;qps固定为6500，观察延时。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;机器名称&lt;/th&gt;
+&lt;th&gt;略&lt;/th&gt;
+&lt;th&gt;略&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cpu&lt;/td&gt;
+&lt;td&gt;24 Intel(R) Xeon(R) CPU E5645  @ 2.40GHz&lt;/td&gt;
+&lt;td&gt;24 Intel(R) Xeon(R) CPU E5-2620 0 @ 2.00GHz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ubrpc&lt;/td&gt;
+&lt;td&gt;8363.46（us）&lt;/td&gt;
+&lt;td&gt;12649.5（us）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;brpc&lt;/td&gt;
+&lt;td&gt;3364.66（us）&lt;/td&gt;
+&lt;td&gt;3382.15（us）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;有此可见：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ubrpc在不同配置下性能表现差异大，在配置较低的机器下表现较差。&lt;/li&gt;
+&lt;li&gt;brpc表现的比ubrpc好，在较低配置的机器上也能有好的表现，因机器不同带来的差异不大。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;相同配置机器idle分布的比较&#34;&gt;相同配置机器idle分布的比较&lt;/h1&gt;
+&lt;p&gt;机器配置：cpu： 24 Intel(R) Xeon(R) CPU  E5645  @ 2.40GHz || mem：64G&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/ubrpc_compare_2.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在线上缩容 不断增大压力过程中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ubrpc cpu idle分布在35%~60%，在55%最集中，最低30%；&lt;/li&gt;
+&lt;li&gt;brpc cpu idle分布在60%~85%，在75%最集中，最低50%； brpc比ubrpc对cpu的消耗低。&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

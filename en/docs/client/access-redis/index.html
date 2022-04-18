@@ -1,0 +1,2375 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.86.0" />
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<link rel="alternate" type="application/rss&#43;xml" href="https://brpc.incubator.apache.org/en/docs/client/access-redis/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Access redis | bRPC</title><meta property="og:title" content="Access redis" />
+<meta property="og:description" content="Learn how to access redis.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://brpc.incubator.apache.org/en/docs/client/access-redis/" /><meta property="og:site_name" content="bRPC" />
+
+<meta itemprop="name" content="Access redis">
+<meta itemprop="description" content="Learn how to access redis.
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Access redis"/>
+<meta name="twitter:description" content="Learn how to access redis.
+"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-93485976-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<link rel="preload" href="/scss/main.min.3ec220ee970bc505bab687924141abfe4d5e51807105a3b107b0cad6e3c0efc6.css" as="style">
+<link href="/scss/main.min.3ec220ee970bc505bab687924141abfe4d5e51807105a3b107b0cad6e3c0efc6.css" rel="stylesheet" integrity="">
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+
+
+
+    <title>Access redis | bRPC</title>
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/en/">
+		<span class="navbar-logo"><svg width="303" height="259" viewBox="0 0 303 259" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>brpc_logo.svg</title><defs><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-2"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-3"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0" x2="50%" y2="100%" id="linearGradient-4"><stop stop-color="#b5b5b5" offset="0"/><stop stop-color="#7e7e7e" offset="100%"/></linearGradient></defs><g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="椭圆形" fill="#58b8ff" cx="23.5" cy="62.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="279.5" cy="60.5" r="23.5"/><circle id="椭圆形" fill="#58b8ff" cx="119" cy="26" r="26"/><rect id="矩形" fill="#58b8ff" transform="translate(78.021813, 41.967662) rotate(-22.000000) translate(-78.021813, -41.967662)" x="30.0218125" y="35.9676616" width="96" height="12"/><rect id="矩形" fill="#58b8ff" transform="translate(201.451088, 44.299021) rotate(13.000000) translate(-201.451088, -44.299021)" x="138.951088" y="38.2990214" width="125" height="12"/><g id="brpc-logo" transform="translate(11.000000, 104.000000)" fill-rule="nonzero"><g id="编组" transform="translate(138.000000, 77.419111) scale(-1, 1) rotate(-180.000000) translate(-138.000000, -77.419111) translate(0.000000, 0.000000)"><path d="M18.8 154.3C17.8 154.1 17 153.8 17 153.6 17 153.5 13.2 134.3 8.5 111 3.8 87.7-205355861e-22 68-205355861e-22 67.4-205355861e-22 65.9 2.6 65.3 5.7 65.8 7.3 66.1 8.1 67.2 8.6 69.6 9.3 73.5 10 73.8 11.7 71.1 15 65.9 28.8 63.2 36.4 66.4 48.9 71.6 57.7 89.6 56.8 108.1c-.5 10-2.5 14.5-7.8 17.1C44.5 127.5 36.6 127.5 31.4 125.1 27 123.1 20.8814242 116.827994 20 115.8 19.8268414 115.598047 19.5 115 19 115.2 18.3 115.4 18.3 116.5 19 118.7 19.6 120.4 21.6 129 23.4 137.8l3.3 16L24.6 154.4C22.3 155 21.4 155 18.8 154.3zm24.6146505-36.885789c1.7578246-1.326292 2.0864078-1.825452 2.4530432-2.642066S46.8138702 112.705545 47.1008328 111.513935C48.333925 109.104457 47.0101697 95.2413285 45.0724535 89.7736686 41.197021 79.2090375 34.9434822 73 28.2495534 73c-4.5800565.0-7.4866309 1.5754274-11.5382193 6.1163653-1.6734822 1.8534441-1.598743 2.8514069-2.0391331 4.4738936C14.2318109 85.2127457 15.3810952 94.5991493 17.4068894 98.6767262 18.5085881 100.995054 18.5085881 100.995054 20.3179492 104.427606 20.9381193 105.604136 23.3268821 108.69306 24.5063492 109.790864c1.2349847 1.149478 2.6574201 2.834639 3.7432042 3.921533 1.1506404 1.15181600000001 4.2465085 3.084017 5.3028342 3.701814 1.4321645.837608000000003 2.774919 1.362015 4.0282636 1.573221C40.1349135 119.080104 41.2462694 118.670624 43.4146505 117.414211z" id="形状" fill="url(#linearGradient-1)"/><path d="M248.7 148.9C241 147.8 232.2 143 226.1 136.5c-14.2-15-20-43.1-12.1-58.6C216.6 72.9 223.2 67.5 228.5 66 235.2 64.1 249.3 65.1 255.7 67.9 258.6 69.2 261.4 70.8 262.1 71.6 263.7 73.5 265 79.9 263.9 80.6 263.4 80.9 260 79.6 256.3 77.8 243 71.3 230.4 73.3 225.1 82.9 218.5 94.9 223.7 119.3 235.5 131.5 245.8 142 257.4 142.9 271.3 134.2 273.7 132.7 274.2 132.7 275 134 275.5 134.8 276 137.2 276 139.2 276 142.2 275.5 143.2 272.8 144.8 266.2 148.7 257.7 150.2 248.7 148.9z" id="路径" fill="#fff"/><path d="M87.4 148.1C86.2 147.6 84.9 146.7 84.6 146.1 83.6 144.5 68.1 66.6 68.7 65.8c.599999999999994-1 7.5-1 9 0C78.4 66.3 80.6 74.4 82.5 83.9s3.7 17.6 4 18.2C87.5 103.6 96.3 103.1 99.9 101.2 105.7 98.3 107.2 95.2 110 79.7l2.5-14.2L117.3 65.2C123.5 64.8 123.7 65.7 121.6 78.4c-2.5 14.4-4.5 21.2-7.3 24.2C113 104 112 105.3 112.2 105.5 112.4 105.6 114.3 106.7 116.5 107.8 124.5 111.9 129.8 119.6 130.7 128.5 131.7 138 127.9 143.9 119 146.9 114.5 148.4 90.2 149.3 87.4 148.1zm24.9-9.5C117.8 136.3 119.3 133.8 118.8 127.7 117.9 117 111.3 112.1 96.6 111.2L87.7 110.7 88.3 113.1C88.6 114.4 89.8 120.5 91 126.5 92.1 132.6 93.3 138.1 93.5 138.8 94.1 140.5 108.1 140.4 112.3 138.6z" id="形状" fill="#fff"/><path d="M159.5 148.4C158.4 148.1 157.2 147.5 156.7 147.1c-1-1-16.8-80.2-16.1-81.2C141.2 64.8 148 64.7 149.7 65.8 150.3 66.2 152.2 73.3 153.8 81.5L156.7 96.5 167.8 97.1c17.1 1 25.5 5.7 31.2 17.2C206.2 129.1 202.4 143.6 190.5 146.9 186.1 148.1 162.6 149.2 159.5 148.4zm27.2-11C195 131.2 191.3 114.2 180.5 108.6 177.6 107.1 174.2 106.4 167.8 106.2 162.9 106 159 106.2 159 106.7 159 107.1 160.4 114.9 162.1 123.9L165.3 140.2 174.6 139.8C182.1 139.5 184.5 139 186.7 137.4z" id="形状" fill="#fff"/><path d="M52.3 50.7C49 41.2 49.5 37.5 52.9 46.5c1.2 3.1 1.9876864 5.9098389 2.1 6.3S55.4 54.1 55.9 54.9C56.6 56 58.2 55.2 63.5 50.9 67.2 47.9 70.4 45.6 70.6 45.8 71.7 46.5 70.9 47.4 64.1 53.2 60 56.6 58.2983882 57.6981689 57.4 58.2 56.5016118 58.7018311 56.5016118 58.7018311 55.8 58.2 55 57.49737 54 55.4 52.3 50.7z" id="形状" fill="#7e7e7e"/><path d="M84 34.1C84 30.6 82.8 29 80.4 29 78.9 29 78 28.4 78 27.5 78 26.7 78.9 26 80 26 82.4 26 82.4 25.5 80.5 17 79.7 13.4 79.1 8.4 79 5.8 79 1.6 79.3 1 81.4.4 85.1-.5 89.5.3 89.8 2 90 3.1 89.2 3.5 86.8 3.5 83.9 3.5 83.5 3.8 83.3 6.5 83.1 8.2 83.8 13.1 84.8 17.5c1.7 7.9 1.7 8 5.2 8.6L93.5 26.7C94.2848943 26.7875501 94.751561 26.9875501 94.9 27.3 95 28.6 94.2 29 91.1 29h-4L87.7 32.5C88.2 35.6 88 36 86.1 36 84.7 36 84 35.4 84 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M105 34.1C105 30.6 103.8 29 101.4 29 99.9 29 99 28.4 99 27.5 99 26.7 99.9 26 101 26 103.4 26 103.4 25.5 101.5 17 100.7 13.4 100.1 8.4 1e2 5.8 1e2 1.6 100.3 1 102.4.4 106.1-.5 110.5.3 110.8 2 111 3.1 110.2 3.5 107.8 3.5 104.9 3.5 104.5 3.8 104.3 6.5 104.1 8.2 104.8 13.1 105.8 17.5c1.7 7.9 1.7 8 5.2 8.6L114.5 26.7C115.433333 26.8462934 115.9 27.0462934 115.9 27.3 116 28.6 115.2 29 112.1 29h-4L108.7 32.5C109.2 35.6 109 36 107.1 36 105.7 36 105 35.4 105 34.1z" id="形状" fill="url(#linearGradient-2)"/><path d="M54.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C46.5 1.9 48.6.0 57.2.0 63.6.0 67 1.2 67 3.6 67 4.7 66.6 4.8 65.1 4c-2.7-1.4-10.4-1.3-12.4.3C51.8 4.9 51 6.6 50.9 8 50.4 13.5 50.6 13.7 57.8 14.2 66 14.9 69.5 16.4 71 20 72.3 23.2 71.2 26.3 68 28s-10.2 1.1-13.7-1.1zM67 22.7C67 19 63.6 17 57.3 17 54.4 17 52 17.3 52 17.8c0 1.1 3.1 5.4 5 7C57.9 25.5 60.2 25.9 62.8 25.7 65.1 25.4 67 26.1 67 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M126.3 26.9c-4.5-2.9-7.7-10-7.8-17.2C118.5 1.9 120.6.0 129.2.0 135.6.0 139 1.2 139 3.6 139 4.7 138.6 4.8 137.1 4 134.4 2.6 126.7 2.7 124.7 4.3 123.8 4.9 123 6.6 122.9 8 122.4 13.5 122.6 13.7 129.8 14.2 138 14.9 141.5 16.4 143 20 144.3 23.2 143.2 26.3 140 28s-10.2 1.1-13.7-1.1zM139 22.7C139 19 135.6 17 129.3 17 126.4 17 124 17.3 124 17.8 124 18.9 127.1 23.2 129 24.8 129.9 25.5 132.2 25.9 134.8 25.7 137.1 25.4 139 26.1 139 22.7z" id="形状" fill="url(#linearGradient-3)"/><path d="M153.7 26.8C151.7 18.4 149.2978 2.90464869 149.2978 2.1 149.2978 1.77371339 148.894918.241544332 150.3.1 151.705082-.0415443324 153 .4 153 2.1 153 3.2 153.7 7.2 154.6 11 156.5 19.3 161 25.2 165.5 25.4 167.5 25.5 168.6 26.1 168.8 27.3 169.1 28.6 168.4 29 165.8 29 163.2 29 161.6 28.2 159.4 25.8L156.5 22.5C155.5 19.6333333 155.133333 18.4333333 155.4 18.9 155.9 19.7 156.5 22.2 156.7 24.6 156.9 27.9 156.7 29 155.6 29 154.8 29 154 28 153.7 26.8z" id="形状" fill="url(#linearGradient-4)"/></g></g></g></svg></span>
+        
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/apache/incubator-brpc/" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/en/docs/" ><span class="active">Docs</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/en/docs/community/" ><span>Community</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/en/docs/faq/" ><span>FAQ</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/en/docs/users/" ><span>Users</span></a>
+			</li>
+			
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/docs/client/access-redis/">中文</a>
+	
+</div>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    <div class="nav-item dropdown d-block d-lg-none">
+      
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	English
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/docs/client/access-redis/">中文</a>
+	
+</div>
+    </div>
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Docs</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="endocs">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsoverview" href="/en/docs/overview/">Overview</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsgetting_started" href="/en/docs/getting_started/">Getting started</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsbenchmark" href="/en/docs/benchmark/">Performance benchmark</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bvar/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bvar</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbvar">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bvar/bvar/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bvar</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbvarbvar">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bvar/bvar-c&#43;&#43;/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bvar c&#43;&#43;</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbvarbvar-c">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthread">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/bthread/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthreadbthread">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/bthread-or-not/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread or not</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthreadbthread-or-not">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/execution-queue/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Execution Queue</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthreadexecution-queue">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/bthread/thread-local/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">thread-local</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbthreadthread-local">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Client</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="endocsclient">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientbasics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclienterror-code">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Combo channels</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientcombo-channels">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-httph2">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-grpc">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access thrift</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-thrift">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-ub">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-redis/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Access redis</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="endocsclientaccess-redis">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientaccess-memcached">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientstreaming-rpc">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/backup-request/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Backup request</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientbackup-request">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/client/dummy-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Dummy server</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsclientdummy-server">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserver">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverbasics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserve-httph2">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserve-grpc">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserve-thrift">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserve-nshead">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverserver-push">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserveravalanche">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverdebug-server-issues">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverauto-concurrencylimiter">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsservermedia-server">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/server/json2pb/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">json2pb</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsserverjson2pb">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-services">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/buildin_services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">builtin services</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesbuildin_services">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/status/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">status</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesstatus">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/vars/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">vars</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesvars">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/connections/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">connections</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesconnections">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/flags/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">flags</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesflags">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/rpcz/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpcz</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesrpcz">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/cpu_profiler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">cpu profiler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicescpu_profiler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/heap_profiler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">heap profiler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicesheap_profiler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/builtin-services/contention_profiler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">contention profiler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsbuiltin-servicescontention_profiler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstools">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/rpc_press/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpc_press</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsrpc_press">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/rpc_replay/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpc_replay</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsrpc_replay">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/rpc_view/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">rpc_view</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsrpc_view">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/benchmark_http/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">benchmark_http</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsbenchmark_http">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/tools/parallel_http/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">parallel_http</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocstoolsparallel_http">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-base">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/iobuf/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">IOBuf</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-baseiobuf">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/streaming-log/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming Log</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-basestreaming-log">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/flatmap/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">FlatMap</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-baseflatmap">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsc-basebrpc-training-materials">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">RPC in depth</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depth">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthnew-protocol">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthatomic-instructions">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/io/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">IO</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthio">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depththreading-overview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthload-balancing">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/locality-aware/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Locality-aware</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthlocality-aware">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthconsistent-hashing">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthmemory-management">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/timer-keeping/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Timer keeping</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthtimer-keeping">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/rpc-in-depth/bthread_id/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bthread_id</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsrpc-in-depthbthread_id">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baidu">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/use-case1/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">百度地图api入口</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baiduuse-case1">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/use-case2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">联盟DSP</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baiduuse-case2">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/use-case3/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">ELF学习框架</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baiduuse-case3">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/en/docs/use-cases-inside-baidu/use-case4/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">云平台代理服务</a>
+  </li>
+  <ul>
+    <li class="collapse " id="endocsuse-cases-inside-baiduuse-case4">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsdownloadbrpc" href="/en/docs/downloadbrpc/">Download bRPC</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsfaq" href="/en/docs/faq/">FAQ</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocsusers" href="/en/docs/users/">Users</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-endocscommunity" href="/en/docs/community/">Community</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/Client/Access%20redis/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=Access%20redis" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/en/en/docs/">Docs</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/en/en/docs/client/">Client</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/en/en/docs/client/access-redis/">Access redis</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+            
+<div class="td-content">
+	<h1>Access redis</h1>
+	<div class="lead">Learn how to access redis.</div>
+	<p><a href="http://redis.io/">redis</a> is one of the most popular caching service in recent years. Compared to memcached it provides users with more data structures and operations, speeding up developments. In order to access redis servers more conveniently and make full use of bthread&rsquo;s capability of concurrency, brpc directly supports the redis protocol. Check <a href="https://github.com/brpc/brpc/tree/master/example/redis_c++/">example/redis_c++</a> for an example.</p>
+<p>Advantages compared to <a href="https://github.com/redis/hiredis">hiredis</a> (the official redis client):</p>
+<ul>
+<li>Thread safety. No need to set up separate clients for each thread.</li>
+<li>Support synchronous, asynchronous, semi-synchronous accesses etc. Support <a href="combo_channel.md">ParallelChannel etc</a> to define access patterns declaratively.</li>
+<li>Support various <a href="../client/basics/#connection-type">connection types</a>. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.</li>
+<li>All brpc clients in a process share a single connection to one redis-server, which is more efficient when multiple threads access one redis-server simultaneously (see <a href="#Performance">performance</a>). Memory is allocated in blocks regardless of complexity of the reply, and short string optimization (SSO) is implemented to further improve performance.</li>
+</ul>
+<p>Similarly with http, brpc guarantees that the time complexity of parsing redis replies is O(N) in worst cases rather than O(N^2) , where N is the number of bytes of reply. This is important when the reply consists of large arrays.</p>
+<p>Turn on <a href="#Debug">-redis_verbose</a> to print contents of all redis requests and responses, which is for debugging only.</p>
+<h1 id="request-a-redis-server">Request a redis server</h1>
+<p>Create a <code>Channel</code> for accessing redis:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/redis.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/channel.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span>  
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ChannelOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">protocol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PROTOCOL_REDIS</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Channel</span> <span style="color:#000">redis_channel</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">redis_channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Init</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;0.0.0.0:6379&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>  <span style="color:#8f5902;font-style:italic">// 6379 is the default port for redis-server
+</span><span style="color:#8f5902;font-style:italic"></span>   <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to init channel to redis-server&#34;</span><span style="color:#000;font-weight:bold">;</span>
+   <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">...</span>
+</code></pre></div><p>Execute <code>SET</code>, then <code>INCR</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span> <span style="color:#000">my_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;my_key_1&#34;</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">my_number</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">...</span>
+<span style="color:#8f5902;font-style:italic">// Execute &#34;SET &lt;my_key&gt; &lt;my_number&gt;&#34;
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">RedisRequest</span> <span style="color:#000">set_request</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">RedisResponse</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span> <span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">set_request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddCommand</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;SET %s %d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">my_key</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#000">my_number</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">redis_channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CallMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">set_request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#8f5902;font-style:italic">/*done*/</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Failed</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to access redis-server&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#8f5902;font-style:italic">// Get a reply by calling response.reply(i)
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">is_error</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to set&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#8f5902;font-style:italic">// A reply is printable in multiple ways
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">()</span>  <span style="color:#8f5902;font-style:italic">// OK
+</span><span style="color:#8f5902;font-style:italic"></span>          <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span>          <span style="color:#8f5902;font-style:italic">// OK
+</span><span style="color:#8f5902;font-style:italic"></span>          <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>                  <span style="color:#8f5902;font-style:italic">// OK
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
+ 
+<span style="color:#8f5902;font-style:italic">// Execute &#34;INCR &lt;my_key&gt;&#34;
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">RedisRequest</span> <span style="color:#000">incr_request</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">incr_request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddCommand</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;INCR %s&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">my_key</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">());</span>
+<span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Clear</span><span style="color:#000;font-weight:bold">();</span>
+<span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Reset</span><span style="color:#000;font-weight:bold">();</span>
+<span style="color:#000">redis_channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CallMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">incr_request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#8f5902;font-style:italic">/*done*/</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Failed</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to access redis-server&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">is_error</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to incr&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#8f5902;font-style:italic">// A reply is printable in multiple ways
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">integer</span><span style="color:#000;font-weight:bold">()</span>  <span style="color:#8f5902;font-style:italic">// 2
+</span><span style="color:#8f5902;font-style:italic"></span>          <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span>            <span style="color:#8f5902;font-style:italic">// (integer) 2
+</span><span style="color:#8f5902;font-style:italic"></span>          <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>                    <span style="color:#8f5902;font-style:italic">// (integer) 2
+</span></code></pre></div><p>Execute <code>incr</code> and <code>decr</code> in batch:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">RedisRequest</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">RedisResponse</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span> <span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddCommand</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;INCR counter1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddCommand</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;DECR counter1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddCommand</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;INCRBY counter1 10&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">AddCommand</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;DECRBY counter1 20&#34;</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000">redis_channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CallMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#8f5902;font-style:italic">/*done*/</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Failed</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to access redis-server&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply_size</span><span style="color:#000;font-weight:bold">());</span>
+<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">CHECK</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">is_integer</span><span style="color:#000;font-weight:bold">());</span>
+    <span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">REDIS_REPLY_INTEGER</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">type</span><span style="color:#000;font-weight:bold">());</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">integer</span><span style="color:#000;font-weight:bold">());</span>
+<span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">integer</span><span style="color:#000;font-weight:bold">());</span>
+<span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">integer</span><span style="color:#000;font-weight:bold">());</span>
+<span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reply</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">integer</span><span style="color:#000;font-weight:bold">());</span>
+</code></pre></div><h1 id="redisrequest">RedisRequest</h1>
+<p>A <a href="https://github.com/brpc/brpc/blob/master/src/brpc/redis.h">RedisRequest</a> may contain multiple commands by calling <code>AddCommand*</code>, which returns true on success and false otherwise. <strong>The callsite backtrace is also printed on error</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">AddCommand</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">...);</span>
+<span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">AddCommandV</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">va_list</span> <span style="color:#000">args</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">AddCommandByComponents</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">components</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">size_t</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><p>Formatting is compatible with hiredis, namely <code>%b</code> corresponds to binary data (pointer + length), others are similar to those in <code>printf</code>. Some improvements have been made such as characters enclosed by single or double quotes are recognized as one field regardless of the spaces inside. For example, <code>AddCommand(&quot;Set 'a key with space' 'a value with space as well'&quot;)</code> sets value <code>a value with space as well</code> to key <code>a key with space</code>, while in hiredis the command must be written as <code>redisvCommand(..., &quot;SET% s% s&quot;, &quot;a key with space&quot;, &quot;a value with space as well&quot;);</code></p>
+<p><code>AddCommandByComponents</code> is similar to <code>redisCommandArgv</code> in hiredis. Users specify each part of the command in an array, which is immune to escaping issues often occurring in <code>AddCommand</code> and <code>AddCommandV</code>. If you encounter errors such as &ldquo;Unmatched quote&rdquo; or &ldquo;invalid format&rdquo; when using <code>AddCommand</code> and <code>AddCommandV</code>, try this method.</p>
+<p>If <code>AddCommand*</code> fails, subsequent <code>AddCommand*</code> and <code>CallMethod</code> also fail. In general, there is no need to check return value of <code>AddCommand*</code>, since the RPC fails directly anyway.</p>
+<p>Use <code>command_size()</code> to get number of commands added successfully.</p>
+<p>Call <code>Clear()</code> before re-using the <code>RedisRequest</code> object.</p>
+<h1 id="redisresponse">RedisResponse</h1>
+<p>A <a href="https://github.com/brpc/brpc/blob/master/src/brpc/redis.h">RedisResponse</a> may contain one or multiple <a href="https://github.com/brpc/brpc/blob/master/src/brpc/redis_reply.h">RedisReply</a>s. Use <code>reply_size()</code> for total number of replies and <code>reply(i)</code> for reference to the i-th reply (counting from 0). Note that in hiredis, if the request contains N commands, you have to call <code>redisGetReply</code> N times to get replies, while it&rsquo;s unnecessary in brpc as the <code>RedisResponse</code> already includes the N replies which are accessible by reply(i). As long as RPC is successful, <code>response.reply_size()</code> should be equal to <code>request.command_size()</code>, unless the redis-server is buggy. The precondition that redis works correctly is that replies correspond to commands one by one in the same sequence (positional correspondence).</p>
+<p>Each <code>RedisReply</code> may be:</p>
+<ul>
+<li>REDIS_REPLY_NIL: NULL in redis, which means value does not exist. Testable by <code>is_nil()</code>.</li>
+<li>REDIS_REPLY_STATUS: Referred to <code>Simple String</code> in the redis document, usually used as the status of operations, such as the <code>OK</code> returned by <code>SET</code>. Testable by <code>is_string()</code> (same function for REDIS_REPLY_STRING). Use <code>c_str()</code> or <code>data()</code> to get the value.</li>
+<li>REDIS_REPLY_STRING: Referred to <code>Bulk String</code> in the redis document. Most return values are of this type, including those returned by <code>incr</code>. Testable by <code>is_string()</code>. Use <code>c_str()</code> or <code>data()</code> for the value.</li>
+<li>REDIS_REPLY_ERROR: The error message for a failed operation. Testable by <code>is_error()</code>. Use <code>error_message()</code> to get the message.</li>
+<li>REDIS_REPLY_INTEGER: A 64-bit signed integer. Testable by <code>is_integer()</code>. Use <code>integer()</code> to get the value.</li>
+<li>REDIS_REPLY_ARRAY: Array of replies. Testable by <code>is_array()</code>. Use <code>size()</code> for size of the array and <code>[i]</code> for the reference to the corresponding sub-reply.</li>
+</ul>
+<p>If a response contains three replies: an integer, a string and an array with 2 items, we can use <code>response.reply(0).integer()</code>, <code>response.reply(1).c_str()</code>, and <code>repsonse.reply(2)[0]</code>, <code>repsonse.reply(2)[1]</code> to fetch values respectively. If the type is not correct, backtrace of the callsite is printed and an undefined value is returned.</p>
+<p>Ownership of all replies belongs to <code>RedisResponse</code>. All relies are destroyed when response is destroyed.</p>
+<p>Call <code>Clear()</code> before re-using the <code>RedisRespones</code> object.</p>
+<h1 id="request-a-redis-cluster">Request a redis cluster</h1>
+<p>Create a <code>Channel</code> using the consistent hashing as the load balancing algorithm(c_md5 or c_murmurhash) to access a redis cluster mounted under a naming service. Note that each <code>RedisRequest</code> should contain only one command or all commands have the same key. Under current implementation, multiple commands inside a single request are always sent to a same server. If the keys are located on different servers, the result must be wrong. In which case, you have to divide the request into multilple ones with one command each.</p>
+<p>Another choice is to use the common <a href="https://github.com/twitter/twemproxy">twemproxy</a> solution, which makes clients access the cluster just like accessing a single server, although the solution needs to deploy proxies and adds more latency.</p>
+<h1 id="debug">Debug</h1>
+<p>Turn on <a href="http://brpc.baidu.com:8765/flags/redis_verbose">-redis_verbose</a> to print contents of all redis requests and responses. Note that this should only be used for debugging rather than online services.</p>
+<p>Turn on <a href="http://brpc.baidu.com:8765/flags/redis_verbose_crlf2space">-redis_verbose_crlf2space</a> to replace the <code>CRLF</code> (\r\n) with spaces in debugging logs for better readability.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Description</th>
+<th>Defined At</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>redis_verbose</td>
+<td>false</td>
+<td>[DEBUG] Print EVERY redis request/response</td>
+<td>src/brpc/policy/redis_protocol.cpp</td>
+</tr>
+<tr>
+<td>redis_verbose_crlf2space</td>
+<td>false</td>
+<td>[DEBUG] Show \r\n as a space</td>
+<td>src/brpc/redis.cpp</td>
+</tr>
+</tbody>
+</table>
+<h1 id="performance">Performance</h1>
+<p>redis version: 2.6.14</p>
+<p>Start a client to send requests to a redis-server on the same machine using 1, 50, 200 bthreads synchronously. The latency is in microseconds.</p>
+<pre><code>$ ./client -use_bthread -thread_num 1
+TRACE: 02-13 19:42:04:   * 0 client.cpp:180] Accessing redis server at qps=18668 latency=50
+TRACE: 02-13 19:42:05:   * 0 client.cpp:180] Accessing redis server at qps=17043 latency=52
+TRACE: 02-13 19:42:06:   * 0 client.cpp:180] Accessing redis server at qps=16520 latency=54
+
+$ ./client -use_bthread -thread_num 50
+TRACE: 02-13 19:42:54:   * 0 client.cpp:180] Accessing redis server at qps=301212 latency=164
+TRACE: 02-13 19:42:55:   * 0 client.cpp:180] Accessing redis server at qps=301203 latency=164
+TRACE: 02-13 19:42:56:   * 0 client.cpp:180] Accessing redis server at qps=302158 latency=164
+
+$ ./client -use_bthread -thread_num 200
+TRACE: 02-13 19:43:48:   * 0 client.cpp:180] Accessing redis server at qps=411669 latency=483
+TRACE: 02-13 19:43:49:   * 0 client.cpp:180] Accessing redis server at qps=411679 latency=483
+TRACE: 02-13 19:43:50:   * 0 client.cpp:180] Accessing redis server at qps=412583 latency=482
+</code></pre><p>The peak QPS at 200 threads is much higher than hiredis since brpc uses a single connection to redis-server by default and requests from multiple threads are <a href="../../rpc-in-depth/io#sending-messages">merged in a wait-free way</a>, making the redis-server receive requests in batch and reach a much higher QPS. The lower QPS in following test that uses pooled connections is another proof.</p>
+<p>Start a client to send requests in batch (10 commands per request) to redis-server on the same machine using 1, 50, 200 bthreads synchronously. The latency is in microseconds.</p>
+<pre><code>$ ./client -use_bthread -thread_num 1 -batch 10  
+TRACE: 02-13 19:46:45:   * 0 client.cpp:180] Accessing redis server at qps=15880 latency=59
+TRACE: 02-13 19:46:46:   * 0 client.cpp:180] Accessing redis server at qps=16945 latency=57
+TRACE: 02-13 19:46:47:   * 0 client.cpp:180] Accessing redis server at qps=16728 latency=57
+
+$ ./client -use_bthread -thread_num 50 -batch 10
+TRACE: 02-13 19:47:14:   * 0 client.cpp:180] Accessing redis server at qps=38082 latency=1307
+TRACE: 02-13 19:47:15:   * 0 client.cpp:180] Accessing redis server at qps=38267 latency=1304
+TRACE: 02-13 19:47:16:   * 0 client.cpp:180] Accessing redis server at qps=38070 latency=1305
+ 
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND 
+16878 gejun     20   0 48136 2436 1004 R 93.8  0.0  12:48.56 redis-server   // thread_num=50
+
+$ ./client -use_bthread -thread_num 200 -batch 10
+TRACE: 02-13 19:49:09:   * 0 client.cpp:180] Accessing redis server at qps=29053 latency=6875
+TRACE: 02-13 19:49:10:   * 0 client.cpp:180] Accessing redis server at qps=29163 latency=6855
+TRACE: 02-13 19:49:11:   * 0 client.cpp:180] Accessing redis server at qps=29271 latency=6838
+ 
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND 
+16878 gejun     20   0 48136 2508 1004 R 99.9  0.0  13:36.59 redis-server   // thread_num=200
+</code></pre><p>Note that the commands processed per second by the redis-server is the QPS times 10, which is about 400K.  When thread_num equals 50 or higher, the CPU usage of the redis-server reaches limit. Note that redis-server is a <a href="threading_overview.md#single-threaded-reactor">single-threaded reactor</a>, utilizing one core is the maximum that it can do.</p>
+<p>Now start a client to send requests to redis-server on the same machine using 50 bthreads synchronously through pooled connections.</p>
+<pre><code>$ ./client -use_bthread -connection_type pooled
+TRACE: 02-13 18:07:40:   * 0 client.cpp:180] Accessing redis server at qps=75986 latency=654
+TRACE: 02-13 18:07:41:   * 0 client.cpp:180] Accessing redis server at qps=75562 latency=655
+TRACE: 02-13 18:07:42:   * 0 client.cpp:180] Accessing redis server at qps=75238 latency=657
+ 
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+16878 gejun     20   0 48136 2520 1004 R 99.9  0.0   9:52.33 redis-server
+</code></pre><p>We can see a tremendous drop of QPS compared to the one using single connection above, and the redis-server has reached the CPU cap. The cause is that each time only one request can be read from a connection by the redis-server, which significantly increases cost of IO operations. This is also the peak performance of a hiredis client.</p>
+<h1 id="command-line-interface">Command Line Interface</h1>
+<p><a href="https://github.com/brpc/brpc/blob/master/example/redis_c%2B%2B/redis_cli.cpp">example/redis_c++/redis_cli</a> is a command line tool similar to the official CLI, demostrating brpc&rsquo;s capability to talk with redis servers. When unexpected results are got from a redis-server using a brpc client, you can debug with this tool interactively as well.</p>
+<p>Like the official CLI, <code>redis_cli &lt;command&gt;</code> runs the command directly, and <code>-server</code> which is address of the redis-server can be specified.</p>
+<pre><code>$ ./redis_cli 
+     __          _     __
+    / /_  ____ _(_)___/ /_  __      _________  _____
+   / __ \/ __ `/ / __  / / / /_____/ ___/ __ \/ ___/
+  / /_/ / /_/ / / /_/ / /_/ /_____/ /  / /_/ / /__  
+ /_.___/\__,_/_/\__,_/\__,_/     /_/  / .___/\___/  
+                                     /_/            
+This command-line tool mimics the look-n-feel of official redis-cli, as a 
+demostration of brpc's capability of talking to redis server. The 
+output and behavior is not exactly same with the official one.
+ 
+redis 127.0.0.1:6379&gt; mset key1 foo key2 bar key3 17
+OK
+redis 127.0.0.1:6379&gt; mget key1 key2 key3
+[&quot;foo&quot;, &quot;bar&quot;, &quot;17&quot;]
+redis 127.0.0.1:6379&gt; incrby key3 10
+(integer) 27
+redis 127.0.0.1:6379&gt; client setname brpc-cli
+OK
+redis 127.0.0.1:6379&gt; client getname
+&quot;brpc-cli&quot;
+</code></pre>
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified April 11, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/eeeb79fc8e6ec4e045cf044065fcbdfb9e7b5ed1">site search bugfix and update community info (eeeb79f)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none" style="display: flex; align-items: center; padding: 0 !important;">
+  <div class="container-fluid mx-sm-5">
+    <div class="row" style="display: flex; align-items: center;">
+      <div class="col-12 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/apache/incubator-brpc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
+        
+	
+        <div style="font-size: 12.8px; color: rgb(117, 116, 116);">
+          <a href="https://www.apache.org/foundation/how-it-works.html" target="_blank" rel="noopener">Foundation</a> |
+          <a href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a> |
+          <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Sponsorship</a> |
+          <a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="/js/main.min.170adf90fd476d5f9243ed2e727149abe8d9fe364587fe943765d47375bbd1ad.js" integrity="sha256-FwrfkP1HbV&#43;SQ&#43;0ucnFJq&#43;jZ/jZFh/6UN2XUc3W70a0=" crossorigin="anonymous"></script>
+
+
+
+
+
+  </body>
+</html>
