@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,17 +19,17 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>访问thrift | bRPC</title><meta property="og:title" content="访问thrift" />
-<meta property="og:description" content="学习如何访问thrift。
+<title>Access thrift | bRPC</title><meta property="og:title" content="Access thrift" />
+<meta property="og:description" content="Learn how to access thrift.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/client/access-thrift/" /><meta property="og:site_name" content="bRPC" />
 
-<meta itemprop="name" content="访问thrift">
-<meta itemprop="description" content="学习如何访问thrift。
+<meta itemprop="name" content="Access thrift">
+<meta itemprop="description" content="Learn how to access thrift.
 "><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="访问thrift"/>
-<meta name="twitter:description" content="学习如何访问thrift。
+<meta name="twitter:title" content="Access thrift"/>
+<meta name="twitter:description" content="Learn how to access thrift.
 "/>
 
 <script type="application/javascript">
@@ -56,7 +56,7 @@ if (!doNotTrack) {
 
 
 
-    <title>访问thrift | bRPC</title>
+    <title>Access thrift | bRPC</title>
   </head>
   <body class="td-section">
     <header>
@@ -85,7 +85,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/docs/" ><span class="active">文档</span></a>
+				<a class="nav-link active" href="/docs/" ><span class="active">Docs</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -95,7 +95,17 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+				<a class="nav-link" href="/docs/blogs/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>Community</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -115,7 +125,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
+				<a class="nav-link" href="/docs/users/" ><span>Users</span></a>
 			</li>
 			
 			
@@ -124,11 +134,11 @@ if (!doNotTrack) {
 				
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/client/access-thrift/">English</a>
+	<a class="dropdown-item" href="/zh/docs/client/access-thrift/">中文</a>
 	
 </div>
 			</li>
@@ -136,7 +146,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 </div>
 </nav>
 
@@ -154,7 +164,7 @@ if (!doNotTrack) {
   
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -166,11 +176,11 @@ if (!doNotTrack) {
       
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/client/access-thrift/">English</a>
+	<a class="dropdown-item" href="/zh/docs/client/access-thrift/">中文</a>
 	
 </div>
     </div>
@@ -184,7 +194,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">文档</a>
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Docs</a>
   </li>
   <ul>
     <li class="collapse show" id="docs">
@@ -194,19 +204,19 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">简介</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">Overview</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">开始</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">Getting started</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">性能基准</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">Performance benchmark</a>
       
       
       
@@ -403,7 +413,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">客户端</a>
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Client</a>
   </li>
   <ul>
     <li class="collapse show" id="docsclient">
@@ -420,7 +430,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientbasics">
@@ -443,7 +453,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">错误码</a>
+    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
   </li>
   <ul>
     <li class="collapse " id="docsclienterror-code">
@@ -466,7 +476,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">组合channels</a>
+    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Combo channels</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientcombo-channels">
@@ -489,7 +499,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问http:h2</a>
+    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-httph2">
@@ -512,7 +522,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问gRPC</a>
+    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-grpc">
@@ -535,7 +545,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">访问thrift</a>
+    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Access thrift</a>
   </li>
   <ul>
     <li class="collapse show" id="docsclientaccess-thrift">
@@ -558,7 +568,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问UB</a>
+    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-ub">
@@ -581,7 +591,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问redis</a>
+    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access redis</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-redis">
@@ -604,7 +614,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问memcached</a>
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-memcached">
@@ -627,7 +637,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流式RPC</a>
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientstreaming-rpc">
@@ -702,7 +712,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">服务端</a>
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsserver">
@@ -719,7 +729,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverbasics">
@@ -742,7 +752,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建http:h2服务</a>
+    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-httph2">
@@ -765,7 +775,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建gRPC服务</a>
+    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-grpc">
@@ -788,7 +798,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建thrift服务</a>
+    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-thrift">
@@ -811,7 +821,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建Nshead服务</a>
+    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-nshead">
@@ -834,7 +844,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">推送</a>
+    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserver-push">
@@ -857,7 +867,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">雪崩</a>
+    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
   </li>
   <ul>
     <li class="collapse " id="docsserveravalanche">
@@ -880,7 +890,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">高效率排查server卡顿</a>
+    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverdebug-server-issues">
@@ -903,7 +913,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">自适应限流</a>
+    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverauto-concurrencylimiter">
@@ -926,7 +936,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流媒体服务</a>
+    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsservermedia-server">
@@ -978,7 +988,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内置服务</a>
+    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
   </li>
   <ul>
     <li class="collapse " id="docsbuiltin-services">
@@ -1208,7 +1218,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">工具</a>
+    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
   </li>
   <ul>
     <li class="collapse " id="docstools">
@@ -1346,7 +1356,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43;基础</a>
+    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-base">
@@ -1432,7 +1442,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC培训材料</a>
+    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-basebrpc-training-materials">
@@ -1461,7 +1471,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">深入RPC</a>
+    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">RPC in depth</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depth">
@@ -1478,7 +1488,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">支持新协议</a>
+    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthnew-protocol">
@@ -1501,7 +1511,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">原子指令</a>
+    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthatomic-instructions">
@@ -1547,7 +1557,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">线程模型简介</a>
+    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depththreading-overview">
@@ -1570,7 +1580,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">负载均衡</a>
+    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthload-balancing">
@@ -1616,7 +1626,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">一致性哈希</a>
+    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthconsistent-hashing">
@@ -1639,7 +1649,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内存管理</a>
+    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthmemory-management">
@@ -1714,7 +1724,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC在百度内部的应用</a>
+    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
   </li>
   <ul>
     <li class="collapse " id="docsuse-cases-inside-baidu">
@@ -1822,7 +1832,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">下载bRPC</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">Download bRPC</a>
       
       
       
@@ -1834,13 +1844,71 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">Users</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Blog</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogs">
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Release</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogsreleases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases110" href="/docs/blogs/releases/1.1.0/">bRPC 1.1.0</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases100" href="/docs/blogs/releases/1.0.0/">bRPC 1.0.0</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">Community</a>
       
       
     </li>
@@ -1866,11 +1934,11 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/docs/Client/Access%20thrift/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=%e8%ae%bf%e9%97%aethrift" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/Client/Access%20thrift/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=Access%20thrift" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
-<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
 
 </div>
 
@@ -1881,9 +1949,9 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#server端返回client发送的hello字符串">server端返回client发送的&quot;hello&quot;字符串</a></li>
-    <li><a href="#server端返回hello--1000-字符串">server端返回&quot;hello&quot; * 1000 字符串</a></li>
-    <li><a href="#server端做比较复杂的数学计算并返回hello--1000-字符串">server端做比较复杂的数学计算并返回&quot;hello&quot; * 1000 字符串</a></li>
+    <li><a href="#server-side-return-string-hello-sent-from-client">server side return string &ldquo;hello&rdquo; sent from client</a></li>
+    <li><a href="#server-side-return-string-hello--1000">server side return string &ldquo;hello&rdquo; * 1000</a></li>
+    <li><a href="#server-side-do-some-complicated-math-and-return-string-hello--1000">server side do some complicated math and return string &ldquo;hello&rdquo; * 1000</a></li>
   </ul>
 </nav>
 
@@ -1905,21 +1973,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/">文档</a>
+	<a href="/docs/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/client/">客户端</a>
+	<a href="/docs/client/">Client</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/client/access-thrift/">访问thrift</a>
+	<a href="/docs/client/access-thrift/">Access thrift</a>
 </li>
 
 	</ol>
@@ -1928,46 +1996,46 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>访问thrift</h1>
-	<div class="lead">学习如何访问thrift。</div>
-	<p><a href="https://thrift.apache.org/">thrift</a>是应用较广的RPC框架，最初由Facebook发布，后交由Apache维护。为了和thrift服务互通，同时解决thrift原生方案在多线程安全、易用性、并发能力等方面的一系列问题，brpc实现并支持thrift在NonBlocking模式下的协议(FramedProtocol), 下文均直接称为thrift协议。</p>
-<p>示例程序：<a href="https://github.com/brpc/brpc/tree/master/example/thrift_extension_c++/">example/thrift_extension_c++</a></p>
-<p>相比使用原生方案的优势有：</p>
+	<h1>Access thrift</h1>
+	<div class="lead">Learn how to access thrift.</div>
+	<p><a href="https://thrift.apache.org/">thrift</a> is a RPC framework used widely in various environments, which was developed by Facebook and adopted by Apache later. In order to interact with thrift servers and solves issues on thread-safety, usabilities and concurrencies, brpc directly supports the thrift protocol that is used by thrift in NonBlocking mode.</p>
+<p>Example: <a href="https://github.com/brpc/brpc/tree/master/example/thrift_extension_c++/">example/thrift_extension_c++</a>.</p>
+<p>Advantages compared to the official solution:</p>
 <ul>
-<li>线程安全。用户不需要为每个线程建立独立的client.</li>
-<li>支持同步、异步、批量同步、批量异步等访问方式，能使用ParallelChannel等组合访问方式.</li>
-<li>支持多种连接方式(连接池, 短连接), 支持超时、backup request、取消、tracing、内置服务等一系列RPC基本福利.</li>
-<li>性能更好.</li>
+<li>Thread safety. No need to set up separate clients for each thread.</li>
+<li>Supports synchronous, asynchronous, batch synchronous, batch asynchronous, and other access methods. Combination channels such as ParallelChannel are also supported.</li>
+<li>Support various connection types(short, connection pool). Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.</li>
+<li>Better performance.</li>
 </ul>
-<h1 id="编译">编译</h1>
-<p>为了复用解析代码，brpc对thrift的支持仍需要依赖thrift库以及thrift生成的代码，thrift格式怎么写，代码怎么生成，怎么编译等问题请参考thrift官方文档。</p>
-<p>brpc默认不启用thrift支持也不需要thrift依赖。但如果需用thrift协议, 配置brpc环境的时候需加上&ndash;with-thrift或-DWITH_THRIFT=ON.</p>
-<p>Linux下安装thrift依赖
-先参考<a href="https://thrift.apache.org/docs/install/debian">官方wiki</a>安装好必备的依赖和工具，然后从<a href="https://thrift.apache.org/download">官网</a>下载thrift源代码，解压编译。</p>
+<h1 id="compile">Compile</h1>
+<p>brpc depends on the thrift library and reuses some code generated by thrift tools. Please read official documents to find out how to write thrift files, generate code, compilations etc.</p>
+<p>brpc does not enable thrift support or depend on the thrift lib by default. If the support is needed, compile brpc with extra &ndash;with-thrift or -DWITH_THRIFT=ON</p>
+<p>Install thrift under Linux
+Read <a href="https://thrift.apache.org/docs/install/debian">Official wiki</a> to install depended libs and tools, then download thrift source code from <a href="https://thrift.apache.org/download">official site</a>, uncompress and compile。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget http://www.apache.org/dist/thrift/0.11.0/thrift-0.11.0.tar.gz
 tar -xf thrift-0.11.0.tar.gz
 <span style="color:#204a87">cd</span> thrift-0.11.0/
 ./configure --prefix<span style="color:#ce5c00;font-weight:bold">=</span>/usr --with-ruby<span style="color:#ce5c00;font-weight:bold">=</span>no --with-python<span style="color:#ce5c00;font-weight:bold">=</span>no --with-java<span style="color:#ce5c00;font-weight:bold">=</span>no --with-go<span style="color:#ce5c00;font-weight:bold">=</span>no --with-perl<span style="color:#ce5c00;font-weight:bold">=</span>no --with-php<span style="color:#ce5c00;font-weight:bold">=</span>no --with-csharp<span style="color:#ce5c00;font-weight:bold">=</span>no --with-erlang<span style="color:#ce5c00;font-weight:bold">=</span>no --with-lua<span style="color:#ce5c00;font-weight:bold">=</span>no --with-nodejs<span style="color:#ce5c00;font-weight:bold">=</span>no
 make <span style="color:#000">CPPFLAGS</span><span style="color:#ce5c00;font-weight:bold">=</span>-DFORCE_BOOST_SMART_PTR -j <span style="color:#0000cf;font-weight:bold">4</span> -s
 sudo make install
-</code></pre></div><p>配置brpc支持thrift协议后make。编译完成后会生成libbrpc.a, 其中包含了支持thrift协议的扩展代码, 像正常使用brpc的代码一样链接即可。</p>
+</code></pre></div><p>Config brpc with thrift support, then make. The compiled libbrpc.a includes extended code for thrift support and can be linked normally as in other brpc projects.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Ubuntu</span>
 sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/lib --with-thrift
 <span style="color:#8f5902;font-style:italic"># Fedora/CentOS</span>
 sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/lib64 --with-thrift
 <span style="color:#8f5902;font-style:italic"># Or use cmake</span>
-mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake ../ -DWITH_THRIFT<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span>
-</code></pre></div><p>更多编译选项请阅读<a href="../cn/getting_started.md">Getting Started</a>。</p>
-<h1 id="client端访问thrift-server">Client端访问thrift server</h1>
-<p>基本步骤：</p>
+mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake ../ -DWITH_THRIFT<span style="color:#ce5c00;font-weight:bold">=</span>ON
+</code></pre></div><p>Read <a href="getting_started.md">Getting Started</a> for more compilation options.</p>
+<h1 id="client-accesses-thrift-server">Client accesses thrift server</h1>
+<p>Steps：</p>
 <ul>
-<li>创建一个协议设置为brpc::PROTOCOL_THRIFT的Channel</li>
-<li>创建brpc::ThriftStub</li>
-<li>使用原生Request和原生Response&gt;发起访问</li>
+<li>Create a Channel setting protocol to brpc::PROTOCOL_THRIFT</li>
+<li>Create brpc::ThriftStub</li>
+<li>Use native request and response to start RPC directly.</li>
 </ul>
-<p>示例代码如下：</p>
+<p>Example code:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/channel.h&gt;</span><span style="color:#8f5902;font-style:italic">
-</span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/thrift_message.h&gt;         // 定义了ThriftStub</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/thrift_message.h&gt;         // Defines ThriftStub</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
 
 <span style="color:#000">DEFINE_string</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;0.0.0.0:8019&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;IP Address of thrift server&#34;</span><span style="color:#000;font-weight:bold">);</span>
@@ -1985,19 +2053,18 @@ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span
 <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ThriftStub</span> <span style="color:#000">stub</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">thrift_channel</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#000;font-weight:bold">...</span>
 
-<span style="color:#8f5902;font-style:italic">// example::[EchoRequest/EchoResponse]是thrift生成的消息
+<span style="color:#8f5902;font-style:italic">// example::[EchoRequest/EchoResponse] are types generated by thrift
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoRequest</span> <span style="color:#000">req</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">EchoResponse</span> <span style="color:#000">res</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">req</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;hello&#34;</span><span style="color:#000;font-weight:bold">;</span>
 
 <span style="color:#000">stub</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CallMethod</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Echo&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">req</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">res</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">NULL</span><span style="color:#000;font-weight:bold">);</span>
-
 <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Failed</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to send thrift request, &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ErrorText</span><span style="color:#000;font-weight:bold">();</span>
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span> 
-</code></pre></div><h1 id="server端处理thrift请求">Server端处理thrift请求</h1>
-<p>用户通过继承brpc::ThriftService实现处理逻辑，既可以调用thrift生成的handler以直接复用原有的函数入口，也可以像protobuf服务那样直接读取request和设置response。</p>
+</code></pre></div><h1 id="server-processes-thrift-requests">Server processes thrift requests</h1>
+<p>Inherit brpc::ThriftService to implement the processing code, which may call the native handler generated by thrift to re-use existing entry directly, or read the request and set the response directly just as in other protobuf services.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">EchoServiceImpl</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ThriftService</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">ProcessThriftFramedRequest</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">,</span>
@@ -2026,7 +2093,7 @@ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span
         <span style="color:#000">res</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">req</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#34; (processed)&#34;</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">};</span>
-</code></pre></div><p>实现好thrift service后，设置到ServerOptions.thrift_service并启动服务</p>
+</code></pre></div><p>Set the implemented service to ServerOptions.thrift_service and start the service.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">    <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Server</span> <span style="color:#000">server</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServerOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">thrift_service</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">EchoServiceImpl</span><span style="color:#000;font-weight:bold">;</span>
@@ -2038,17 +2105,17 @@ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span
         <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ERROR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to start EchoServer&#34;</span><span style="color:#000;font-weight:bold">;</span>
         <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
     <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><h1 id="简单的和原生thrift性能对比实验">简单的和原生thrift性能对比实验</h1>
-<p>测试环境: 48核  2.30GHz</p>
-<h2 id="server端返回client发送的hello字符串">server端返回client发送的&quot;hello&quot;字符串</h2>
+</code></pre></div><h1 id="performance-test-for-native-thrift-compare-with-brpc-thrift-implementaion">Performance test for native thrift compare with brpc thrift implementaion</h1>
+<p>Test Env: 48 core  2.30GHz</p>
+<h2 id="server-side-return-string-hello-sent-from-client">server side return string &ldquo;hello&rdquo; sent from client</h2>
 <table>
 <thead>
 <tr>
-<th>框架</th>
-<th>线程数</th>
+<th>Framework</th>
+<th>Threads Num</th>
 <th>QPS</th>
-<th>平响</th>
-<th>cpu利用率</th>
+<th>Avg lantecy</th>
+<th>CPU</th>
 </tr>
 </thead>
 <tbody>
@@ -2068,15 +2135,15 @@ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span
 </tr>
 </tbody>
 </table>
-<h2 id="server端返回hello--1000-字符串">server端返回&quot;hello&quot; * 1000 字符串</h2>
+<h2 id="server-side-return-string-hello--1000">server side return string &ldquo;hello&rdquo; * 1000</h2>
 <table>
 <thead>
 <tr>
-<th>框架</th>
-<th>线程数</th>
+<th>Framework</th>
+<th>Threads Num</th>
 <th>QPS</th>
-<th>平响</th>
-<th>cpu利用率</th>
+<th>Avg lantecy</th>
+<th>CPU</th>
 </tr>
 </thead>
 <tbody>
@@ -2096,15 +2163,15 @@ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span
 </tr>
 </tbody>
 </table>
-<h2 id="server端做比较复杂的数学计算并返回hello--1000-字符串">server端做比较复杂的数学计算并返回&quot;hello&quot; * 1000 字符串</h2>
+<h2 id="server-side-do-some-complicated-math-and-return-string-hello--1000">server side do some complicated math and return string &ldquo;hello&rdquo; * 1000</h2>
 <table>
 <thead>
 <tr>
-<th>框架</th>
-<th>线程数</th>
+<th>Framework</th>
+<th>Threads Num</th>
 <th>QPS</th>
-<th>平响</th>
-<th>cpu利用率</th>
+<th>Avg lantecy</th>
+<th>CPU</th>
 </tr>
 </thead>
 <tbody>
@@ -2288,12 +2355,20 @@ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span
         
             
         
+            
+        
+            
+        
+            
+        
+            
+        
     
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月9日: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
 </div>
 </div>
 
@@ -2327,7 +2402,7 @@ mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
         
 	
         <div style="font-size: 12.8px; color: rgb(117, 116, 116);">

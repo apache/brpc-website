@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,17 +19,17 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>访问memcached | bRPC</title><meta property="og:title" content="访问memcached" />
-<meta property="og:description" content="学习如何访问memcached。
+<title>Access memcached | bRPC</title><meta property="og:title" content="Access memcached" />
+<meta property="og:description" content="Learn how to access memcached.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/client/access-memcached/" /><meta property="og:site_name" content="bRPC" />
 
-<meta itemprop="name" content="访问memcached">
-<meta itemprop="description" content="学习如何访问memcached。
+<meta itemprop="name" content="Access memcached">
+<meta itemprop="description" content="Learn how to access memcached.
 "><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="访问memcached"/>
-<meta name="twitter:description" content="学习如何访问memcached。
+<meta name="twitter:title" content="Access memcached"/>
+<meta name="twitter:description" content="Learn how to access memcached.
 "/>
 
 <script type="application/javascript">
@@ -56,7 +56,7 @@ if (!doNotTrack) {
 
 
 
-    <title>访问memcached | bRPC</title>
+    <title>Access memcached | bRPC</title>
   </head>
   <body class="td-section">
     <header>
@@ -85,7 +85,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/docs/" ><span class="active">文档</span></a>
+				<a class="nav-link active" href="/docs/" ><span class="active">Docs</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -95,7 +95,17 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+				<a class="nav-link" href="/docs/blogs/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>Community</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -115,7 +125,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
+				<a class="nav-link" href="/docs/users/" ><span>Users</span></a>
 			</li>
 			
 			
@@ -124,11 +134,11 @@ if (!doNotTrack) {
 				
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/client/access-memcached/">English</a>
+	<a class="dropdown-item" href="/zh/docs/client/access-memcached/">中文</a>
 	
 </div>
 			</li>
@@ -136,7 +146,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 </div>
 </nav>
 
@@ -154,7 +164,7 @@ if (!doNotTrack) {
   
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -166,11 +176,11 @@ if (!doNotTrack) {
       
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/client/access-memcached/">English</a>
+	<a class="dropdown-item" href="/zh/docs/client/access-memcached/">中文</a>
 	
 </div>
     </div>
@@ -184,7 +194,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">文档</a>
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Docs</a>
   </li>
   <ul>
     <li class="collapse show" id="docs">
@@ -194,19 +204,19 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">简介</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverview" href="/docs/overview/">Overview</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">开始</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">Getting started</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">性能基准</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">Performance benchmark</a>
       
       
       
@@ -403,7 +413,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">客户端</a>
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Client</a>
   </li>
   <ul>
     <li class="collapse show" id="docsclient">
@@ -420,7 +430,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientbasics">
@@ -443,7 +453,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">错误码</a>
+    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
   </li>
   <ul>
     <li class="collapse " id="docsclienterror-code">
@@ -466,7 +476,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">组合channels</a>
+    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Combo channels</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientcombo-channels">
@@ -489,7 +499,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问http:h2</a>
+    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-httph2">
@@ -512,7 +522,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问gRPC</a>
+    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-grpc">
@@ -535,7 +545,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问thrift</a>
+    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-thrift">
@@ -558,7 +568,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问UB</a>
+    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-ub">
@@ -581,7 +591,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问redis</a>
+    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access redis</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-redis">
@@ -604,7 +614,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">访问memcached</a>
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Access memcached</a>
   </li>
   <ul>
     <li class="collapse show" id="docsclientaccess-memcached">
@@ -627,7 +637,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流式RPC</a>
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientstreaming-rpc">
@@ -702,7 +712,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">服务端</a>
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsserver">
@@ -719,7 +729,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverbasics">
@@ -742,7 +752,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建http:h2服务</a>
+    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-httph2">
@@ -765,7 +775,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建gRPC服务</a>
+    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-grpc">
@@ -788,7 +798,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建thrift服务</a>
+    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-thrift">
@@ -811,7 +821,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建Nshead服务</a>
+    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-nshead">
@@ -834,7 +844,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">推送</a>
+    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserver-push">
@@ -857,7 +867,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">雪崩</a>
+    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
   </li>
   <ul>
     <li class="collapse " id="docsserveravalanche">
@@ -880,7 +890,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">高效率排查server卡顿</a>
+    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverdebug-server-issues">
@@ -903,7 +913,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">自适应限流</a>
+    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverauto-concurrencylimiter">
@@ -926,7 +936,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流媒体服务</a>
+    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsservermedia-server">
@@ -978,7 +988,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内置服务</a>
+    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
   </li>
   <ul>
     <li class="collapse " id="docsbuiltin-services">
@@ -1208,7 +1218,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">工具</a>
+    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
   </li>
   <ul>
     <li class="collapse " id="docstools">
@@ -1346,7 +1356,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43;基础</a>
+    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-base">
@@ -1432,7 +1442,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC培训材料</a>
+    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-basebrpc-training-materials">
@@ -1461,7 +1471,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">深入RPC</a>
+    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">RPC in depth</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depth">
@@ -1478,7 +1488,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">支持新协议</a>
+    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthnew-protocol">
@@ -1501,7 +1511,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">原子指令</a>
+    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthatomic-instructions">
@@ -1547,7 +1557,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">线程模型简介</a>
+    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depththreading-overview">
@@ -1570,7 +1580,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">负载均衡</a>
+    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthload-balancing">
@@ -1616,7 +1626,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">一致性哈希</a>
+    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthconsistent-hashing">
@@ -1639,7 +1649,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内存管理</a>
+    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthmemory-management">
@@ -1714,7 +1724,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC在百度内部的应用</a>
+    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
   </li>
   <ul>
     <li class="collapse " id="docsuse-cases-inside-baidu">
@@ -1822,7 +1832,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">下载bRPC</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">Download bRPC</a>
       
       
       
@@ -1834,13 +1844,71 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">Users</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Blog</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogs">
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Release</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogsreleases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases110" href="/docs/blogs/releases/1.1.0/">bRPC 1.1.0</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases100" href="/docs/blogs/releases/1.0.0/">bRPC 1.0.0</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">Community</a>
       
       
     </li>
@@ -1866,11 +1934,11 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/docs/Client/Access%20memcached/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=%e8%ae%bf%e9%97%aememcached" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/Client/Access%20memcached/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=Access%20memcached" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
-<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
 
 </div>
 
@@ -1897,21 +1965,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/">文档</a>
+	<a href="/docs/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/client/">客户端</a>
+	<a href="/docs/client/">Client</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/client/access-memcached/">访问memcached</a>
+	<a href="/docs/client/access-memcached/">Access memcached</a>
 </li>
 
 	</ol>
@@ -1920,32 +1988,32 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>访问memcached</h1>
-	<div class="lead">学习如何访问memcached。</div>
-	<p><a href="http://memcached.org/">memcached</a>是常用的缓存服务，为了使用户更快捷地访问memcached并充分利用bthread的并发能力，brpc直接支持memcache协议。示例程序：<a href="https://github.com/brpc/brpc/tree/master/example/memcache_c++/">example/memcache_c++</a></p>
-<p><strong>注意</strong>：brpc只支持memcache的二进制协议。memcached在1.3前只有文本协议，但在当前看来支持的意义甚微。如果你的memcached早于1.3，升级版本。</p>
-<p>相比使用<a href="http://libmemcached.org/libMemcached.html">libmemcached</a>(官方client)的优势有：</p>
+	<h1>Access memcached</h1>
+	<div class="lead">Learn how to access memcached.</div>
+	<p><a href="http://memcached.org/">memcached</a> is a common caching service. In order to access memcached more conveniently and make full use of bthread&rsquo;s capability of concurrency, brpc directly supports the memcached protocol. Check <a href="https://github.com/brpc/brpc/tree/master/example/memcache_c++/">example/memcache_c++</a> for an example.</p>
+<p><strong>NOTE</strong>: brpc only supports the binary protocol of memcache. There&rsquo;s little benefit to support the textual protocol which is replaced since memcached 1.3. If your memcached is older than 1.3, upgrade to a newer version.</p>
+<p>Advantages compared to <a href="http://libmemcached.org/libMemcached.html">libmemcached</a> (the official client):</p>
 <ul>
-<li>线程安全。用户不需要为每个线程建立独立的client。</li>
-<li>支持同步、异步、半同步等访问方式，能使用<a href="combo_channel.md">ParallelChannel等</a>组合访问方式。</li>
-<li>支持多种<a href="client.md#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F">连接方式</a>。支持超时、backup request、取消、tracing、内置服务等一系列brpc提供的福利。</li>
-<li>有明确的request和response。而libmemcached是没有的，收到的消息不能直接和发出的消息对应上，用户得做额外开发，而且并没有那么容易做对。</li>
+<li>Thread safety. No need to set up separate clients for each thread.</li>
+<li>Support synchronous, asynchronous, semi-synchronous accesses etc. Support <a href="combo_channel.md">ParallelChannel etc</a> to define access patterns declaratively.</li>
+<li>Support various <a href="../client/basics/#connection-type">connection types</a>. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.</li>
+<li>Have the concept of requests and responses while libmemcached don&rsquo;t. Users have to do extra bookkeepings to associate received messages with sent messages, which is not trivial.</li>
 </ul>
-<p>当前实现充分利用了RPC的并发机制并尽量避免了拷贝。一个client可以轻松地把一个同机memcached实例(版本1.4.15)压到极限：单连接9万，多连接33万。在大部分情况下，brpc client能充分发挥memcached的性能。</p>
-<h1 id="访问单台memcached">访问单台memcached</h1>
-<p>创建一个访问memcached的Channel：</p>
+<p>The current implementation takes full advantage of the RPC concurrency mechanism and avoids copying as much as possible. A single client can easily pushes a memcached instance (version 1.4.15) on the same machine to its limit: 90,000 QPS for single connection, 330,000 QPS for multiple connections. In most cases, brpc is able to make full use of memcached&rsquo;s capabilities.</p>
+<h1 id="request-a-memcached-server">Request a memcached server</h1>
+<p>Create a <code>Channel</code> for accessing memcached:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/memcache.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;brpc/channel.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span> 
 <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ChannelOptions</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">options</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">protocol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PROTOCOL_MEMCACHE</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Init</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;0.0.0.0:11211&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>  <span style="color:#8f5902;font-style:italic">// 11211是memcached的默认端口
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Init</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;0.0.0.0:11211&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">options</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>  <span style="color:#8f5902;font-style:italic">// 11211 is the default port for memcached
 </span><span style="color:#8f5902;font-style:italic"></span>   <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FATAL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to init channel to memcached&#34;</span><span style="color:#000;font-weight:bold">;</span>
    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">...</span> 
-</code></pre></div><p>往memcached中设置一份数据。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// 写入key=&#34;hello&#34; value=&#34;world&#34; flags=0xdeadbeef，10秒失效，无视cas。
+</code></pre></div><p>Following example tries to set data to memcached:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Set key=&#34;hello&#34; value=&#34;world&#34; flags=0xdeadbeef, expire in 10s, and ignore cas
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MemcacheRequest</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MemcacheResponse</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span> <span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">;</span>
@@ -1963,14 +2031,14 @@ if (!doNotTrack) {
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>   
 <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">...</span>
-</code></pre></div><p>上述代码的说明：</p>
+</code></pre></div><p>Notes on above code:</p>
 <ul>
-<li>请求类型必须为MemcacheRequest，回复类型必须为MemcacheResponse，否则CallMethod会失败。不需要stub，直接调用channel.CallMethod，method填NULL。</li>
-<li>调用request.XXX()增加操作，本例XXX=Set，一个request多次调用不同的操作，这些操作会被同时送到memcached（常被称为pipeline模式）。</li>
-<li>依次调用response.PopXXX()弹出操作结果，本例XXX=Set，成功返回true，失败返回false，调用response.LastError()可获得错误信息。XXX必须和request的依次对应，否则失败。本例中若用PopGet就会失败，错误信息为“not a GET response&quot;。</li>
-<li>Pop结果独立于RPC结果。即使“不能把某个值设入memcached”，RPC可能还是成功的。RPC失败指连接断开，超时之类的。如果业务上认为要成功操作才算成功，那么你不仅要判RPC成功，还要判PopXXX是成功的。</li>
+<li>The class of the request must be <code>MemcacheRequest</code>, response must be <code>MemcacheResponse</code>, otherwise <code>CallMethod</code> fails. <code>stub</code> is not necessary, just call <code>channel.CallMethod</code> with <code>method</code> to NULL.</li>
+<li>Call <code>request.XXX()</code> to add an operation, where <code>XXX</code> is <code>Set</code> in this example. Multiple operations inside a request are sent to a memcached server together (often referred to as &ldquo;pipeline mode&rdquo;).</li>
+<li>call <code>response.PopXXX()</code> to pop result of an operation from the response, where <code>XXX</code> is <code>Set</code> in this example. true is returned on success, and false otherwise in which case use <code>response.LastError()</code> to get the error message. <code>XXX</code> must match the corresponding operation in the request, otherwise the pop is rejected. In above example, a <code>PopGet</code> would fail with the error message of &ldquo;not a GET response&rdquo;.</li>
+<li>Results of <code>Pop</code> are independent from the RPC result. Even if &ldquo;a value cannot be put into the memcached&rdquo;, the RPC may still be successful. RPC failure means things like broken connection, timeout etc. If the business logic requires the memcache operations to be succesful, you should test successfulness of both RPC and <code>PopXXX</code>.</li>
 </ul>
-<p>目前支持的请求操作有：</p>
+<p>Supported operations currently:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">Set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">Slice</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">key</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">Slice</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span> <span style="color:#000">flags</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span> <span style="color:#000">exptime</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint64_t</span> <span style="color:#000">cas_value</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">Add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">Slice</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">key</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">Slice</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span> <span style="color:#000">flags</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span> <span style="color:#000">exptime</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint64_t</span> <span style="color:#000">cas_value</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">Replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">Slice</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">key</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">Slice</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span> <span style="color:#000">flags</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span> <span style="color:#000">exptime</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint64_t</span> <span style="color:#000">cas_value</span><span style="color:#000;font-weight:bold">);</span>
@@ -1982,7 +2050,7 @@ if (!doNotTrack) {
 <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">Decrement</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">Slice</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">key</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint64_t</span> <span style="color:#000">delta</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint64_t</span> <span style="color:#000">initial_value</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span> <span style="color:#000">exptime</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">Touch</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">Slice</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">key</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span> <span style="color:#000">exptime</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">Version</span><span style="color:#000;font-weight:bold">();</span>
-</code></pre></div><p>对应的回复操作：</p>
+</code></pre></div><p>Corresponding operations in replies:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Call LastError() of the response to check the error text when any following operation fails.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">PopGet</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">IOBuf</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">flags</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint64_t</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cas_value</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">PopGet</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint32_t</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">flags</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint64_t</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cas_value</span><span style="color:#000;font-weight:bold">);</span>
@@ -1997,9 +2065,9 @@ if (!doNotTrack) {
 <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">PopDecrement</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">uint64_t</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">new_value</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">uint64_t</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">cas_value</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">PopTouch</span><span style="color:#000;font-weight:bold">();</span>
 <span style="color:#204a87;font-weight:bold">bool</span> <span style="color:#000">PopVersion</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">version</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><h1 id="访问memcached集群">访问memcached集群</h1>
-<p>建立一个使用c_md5负载均衡算法的channel就能访问挂载在对应命名服务下的memcached集群了。注意每个MemcacheRequest应只包含一个操作或确保所有的操作是同一个key。如果request包含了多个操作，在当前实现下这些操作总会送向同一个server，假如对应的key分布在多个server上，那么结果就不对了，这个情况下你必须把一个request分开为多个，每个包含一个操作。</p>
-<p>或者你可以沿用常见的<a href="https://github.com/twitter/twemproxy">twemproxy</a>方案。这个方案虽然需要额外部署proxy，还增加了延时，但client端仍可以像访问单点一样的访问它。</p>
+</code></pre></div><h1 id="request-a-memcached-cluster">Request a memcached cluster</h1>
+<p>Create a <code>Channel</code> using the <code>c_md5</code> as the load balancing algorithm to access a memcached cluster mounted under a naming service. Note that each <code>MemcacheRequest</code> should contain only one operation or all operations have the same key. Under current implementation, multiple operations inside a single request are always sent to a same server. If the keys are located on different servers, the result must be wrong. In which case, you have to divide the request into multilple ones with one operation each.</p>
+<p>Another choice is to use the common <a href="https://github.com/twitter/twemproxy">twemproxy</a> solution, which makes clients access the cluster just like accessing a single server, although the solution needs to deploy proxies and adds more latency.</p>
 
         <div class="section-index">
     
@@ -2164,12 +2232,20 @@ if (!doNotTrack) {
         
             
         
+            
+        
+            
+        
+            
+        
+            
+        
     
 </div>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年2月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/306a9070cb26d194a6657de26133608a94c3e398">brpc website 1.0 fix some pages (306a907)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 
@@ -2203,7 +2279,7 @@ if (!doNotTrack) {
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
         
 	
         <div style="font-size: 12.8px; color: rgb(117, 116, 116);">

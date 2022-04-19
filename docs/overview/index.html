@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,22 +18,22 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>bRPC简介 | bRPC</title><meta property="og:title" content="bRPC简介" />
-<meta property="og:description" content="bRPC基础介绍。
+<title>bRPC overview | bRPC</title><meta property="og:title" content="bRPC overview" />
+<meta property="og:description" content="The basic description of bRPC.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/overview/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-02-26T20:29:18+08:00" /><meta property="og:site_name" content="bRPC" />
 
-<meta itemprop="name" content="bRPC简介">
-<meta itemprop="description" content="bRPC基础介绍。
+<meta itemprop="name" content="bRPC overview">
+<meta itemprop="description" content="The basic description of bRPC.
 "><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-26T20:29:18+08:00" />
-<meta itemprop="wordCount" content="129">
+<meta itemprop="wordCount" content="1324">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="bRPC简介"/>
-<meta name="twitter:description" content="bRPC基础介绍。
+<meta name="twitter:title" content="bRPC overview"/>
+<meta name="twitter:description" content="The basic description of bRPC.
 "/>
 
 <script type="application/javascript">
@@ -60,7 +60,7 @@ if (!doNotTrack) {
 
 
 
-    <title>bRPC简介 | bRPC</title>
+    <title>bRPC overview | bRPC</title>
   </head>
   <body class="td-page">
     <header>
@@ -89,7 +89,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/docs/" ><span class="active">文档</span></a>
+				<a class="nav-link active" href="/docs/" ><span class="active">Docs</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -99,7 +99,17 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/community/" ><span>社区</span></a>
+				<a class="nav-link" href="/docs/blogs/" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/community/" ><span>Community</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -119,7 +129,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="/docs/users/" ><span>用户</span></a>
+				<a class="nav-link" href="/docs/users/" ><span>Users</span></a>
 			</li>
 			
 			
@@ -128,11 +138,11 @@ if (!doNotTrack) {
 				
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/overview/">English</a>
+	<a class="dropdown-item" href="/zh/docs/overview/">中文</a>
 	
 </div>
 			</li>
@@ -140,7 +150,7 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 </div>
 </nav>
 
@@ -158,7 +168,7 @@ if (!doNotTrack) {
   
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -170,11 +180,11 @@ if (!doNotTrack) {
       
 
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	中文
+	English
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="/en/docs/overview/">English</a>
+	<a class="dropdown-item" href="/zh/docs/overview/">中文</a>
 	
 </div>
     </div>
@@ -188,7 +198,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">文档</a>
+    <a  href="/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Docs</a>
   </li>
   <ul>
     <li class="collapse show" id="docs">
@@ -198,19 +208,19 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsoverview" href="/docs/overview/">简介</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsoverview" href="/docs/overview/">Overview</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">开始</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting_started" href="/docs/getting_started/">Getting started</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">性能基准</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsbenchmark" href="/docs/benchmark/">Performance benchmark</a>
       
       
       
@@ -407,7 +417,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">客户端</a>
+    <a  href="/docs/client/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Client</a>
   </li>
   <ul>
     <li class="collapse " id="docsclient">
@@ -424,7 +434,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/client/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientbasics">
@@ -447,7 +457,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">错误码</a>
+    <a  href="/docs/client/error-code/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Error code</a>
   </li>
   <ul>
     <li class="collapse " id="docsclienterror-code">
@@ -470,7 +480,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">组合channels</a>
+    <a  href="/docs/client/combo-channels/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Combo channels</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientcombo-channels">
@@ -493,7 +503,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问http:h2</a>
+    <a  href="/docs/client/access-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-httph2">
@@ -516,7 +526,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问gRPC</a>
+    <a  href="/docs/client/access-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-grpc">
@@ -539,7 +549,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问thrift</a>
+    <a  href="/docs/client/access-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-thrift">
@@ -562,7 +572,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问UB</a>
+    <a  href="/docs/client/access-ub/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access UB</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-ub">
@@ -585,7 +595,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问redis</a>
+    <a  href="/docs/client/access-redis/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access redis</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-redis">
@@ -608,7 +618,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">访问memcached</a>
+    <a  href="/docs/client/access-memcached/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Access memcached</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientaccess-memcached">
@@ -631,7 +641,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流式RPC</a>
+    <a  href="/docs/client/streaming-rpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Streaming RPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsclientstreaming-rpc">
@@ -706,7 +716,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">服务端</a>
+    <a  href="/docs/server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsserver">
@@ -723,7 +733,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">基础功能</a>
+    <a  href="/docs/server/basics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Basics</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverbasics">
@@ -746,7 +756,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建http:h2服务</a>
+    <a  href="/docs/server/serve-httph2/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve http:h2</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-httph2">
@@ -769,7 +779,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建gRPC服务</a>
+    <a  href="/docs/server/serve-grpc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve gRPC</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-grpc">
@@ -792,7 +802,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建thrift服务</a>
+    <a  href="/docs/server/serve-thrift/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve thrift</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-thrift">
@@ -815,7 +825,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">搭建Nshead服务</a>
+    <a  href="/docs/server/serve-nshead/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Serve Nshead</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserve-nshead">
@@ -838,7 +848,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">推送</a>
+    <a  href="/docs/server/server-push/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Server push</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverserver-push">
@@ -861,7 +871,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">雪崩</a>
+    <a  href="/docs/server/avalanche/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Avalanche</a>
   </li>
   <ul>
     <li class="collapse " id="docsserveravalanche">
@@ -884,7 +894,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">高效率排查server卡顿</a>
+    <a  href="/docs/server/debug-server-issues/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Debug server issues</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverdebug-server-issues">
@@ -907,7 +917,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">自适应限流</a>
+    <a  href="/docs/server/auto-concurrencylimiter/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Auto ConcurrencyLimiter</a>
   </li>
   <ul>
     <li class="collapse " id="docsserverauto-concurrencylimiter">
@@ -930,7 +940,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">流媒体服务</a>
+    <a  href="/docs/server/media-server/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Media Server</a>
   </li>
   <ul>
     <li class="collapse " id="docsservermedia-server">
@@ -982,7 +992,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内置服务</a>
+    <a  href="/docs/builtin-services/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Builtin Services</a>
   </li>
   <ul>
     <li class="collapse " id="docsbuiltin-services">
@@ -1212,7 +1222,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">工具</a>
+    <a  href="/docs/tools/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tools</a>
   </li>
   <ul>
     <li class="collapse " id="docstools">
@@ -1350,7 +1360,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43;基础</a>
+    <a  href="/docs/c&#43;&#43;-base/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">C&#43;&#43; Base</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-base">
@@ -1436,7 +1446,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC培训材料</a>
+    <a  href="/docs/c&#43;&#43;-base/brpc-training-materials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC Training Materials</a>
   </li>
   <ul>
     <li class="collapse " id="docsc-basebrpc-training-materials">
@@ -1465,7 +1475,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">深入RPC</a>
+    <a  href="/docs/rpc-in-depth/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">RPC in depth</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depth">
@@ -1482,7 +1492,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">支持新协议</a>
+    <a  href="/docs/rpc-in-depth/new-protocol/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">New Protocol</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthnew-protocol">
@@ -1505,7 +1515,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">原子指令</a>
+    <a  href="/docs/rpc-in-depth/atomic-instructions/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Atomic instructions</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthatomic-instructions">
@@ -1551,7 +1561,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">线程模型简介</a>
+    <a  href="/docs/rpc-in-depth/threading-overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Threading Overview</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depththreading-overview">
@@ -1574,7 +1584,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">负载均衡</a>
+    <a  href="/docs/rpc-in-depth/load-balancing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Load Balancing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthload-balancing">
@@ -1620,7 +1630,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">一致性哈希</a>
+    <a  href="/docs/rpc-in-depth/consistent-hashing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Consistent Hashing</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthconsistent-hashing">
@@ -1643,7 +1653,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">内存管理</a>
+    <a  href="/docs/rpc-in-depth/memory-management/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Memory Management</a>
   </li>
   <ul>
     <li class="collapse " id="docsrpc-in-depthmemory-management">
@@ -1718,7 +1728,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">bRPC在百度内部的应用</a>
+    <a  href="/docs/use-cases-inside-baidu/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases inside Baidu</a>
   </li>
   <ul>
     <li class="collapse " id="docsuse-cases-inside-baidu">
@@ -1826,7 +1836,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">下载bRPC</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsdownloadbrpc" href="/docs/downloadbrpc/">Download bRPC</a>
       
       
       
@@ -1838,13 +1848,71 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">用户</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsusers" href="/docs/users/">Users</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Blog</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogs">
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">社区</a>
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/blogs/releases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Release</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsblogsreleases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases110" href="/docs/blogs/releases/1.1.0/">bRPC 1.1.0</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsblogsreleases100" href="/docs/blogs/releases/1.0.0/">bRPC 1.0.0</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docscommunity" href="/docs/community/">Community</a>
       
       
     </li>
@@ -1870,11 +1938,11 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/zh/docs/overview/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=bRPC%e7%ae%80%e4%bb%8b" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/apache/incubator-brpc-website/edit/master/content/en/docs/overview/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/apache/incubator-brpc-website/issues/new?title=bRPC%20overview" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
-<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+<a href="https://github.com/apache/incubator-brpc/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
 
 </div>
 
@@ -1887,9 +1955,9 @@ if (!doNotTrack) {
   <ul>
     <li>
       <ul>
-        <li><a href="#更友好的接口">更友好的接口</a></li>
-        <li><a href="#使服务更加可靠">使服务更加可靠</a></li>
-        <li><a href="#更好的延时和吞吐">更好的延时和吞吐</a></li>
+        <li><a href="#more-friendly-api">More friendly API</a></li>
+        <li><a href="#make-services-more-reliable">Make services more reliable</a></li>
+        <li><a href="#better-latency-and-throughput">Better latency and throughput</a></li>
       </ul>
     </li>
   </ul>
@@ -1910,14 +1978,14 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/">文档</a>
+	<a href="/docs/">Docs</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/overview/">简介</a>
+	<a href="/docs/overview/">Overview</a>
 </li>
 
 	</ol>
@@ -1926,91 +1994,95 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>bRPC简介</h1>
-	<div class="lead">bRPC基础介绍。</div>
-	<h1 id="什么是rpc">什么是RPC?</h1>
-<p>互联网上的机器大都通过<a href="http://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP协议</a>相互访问，但TCP/IP只是往远端发送了一段二进制数据，为了建立服务还有很多问题需要抽象：</p>
+	<h1>bRPC overview</h1>
+	<div class="lead">The basic description of bRPC.</div>
+	<h1 id="what-is-rpc">What is RPC?</h1>
+<p>Most machines on internet communicate with each other via <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP</a>. However, TCP/IP only guarantees reliable data transmissions. We need to abstract more to build services:</p>
 <ul>
-<li>数据以什么格式传输？不同机器间，网络间可能是不同的字节序，直接传输内存数据显然是不合适的；随着业务变化，数据字段往往要增加或删减，怎么兼容前后不同版本的格式？</li>
-<li>一个TCP连接可以被多个请求复用以减少开销么？多个请求可以同时发往一个TCP连接么?</li>
-<li>如何管理和访问很多机器？</li>
-<li>连接断开时应该干什么？</li>
-<li>万一server不发送回复怎么办？</li>
+<li>What is the format of data transmission? Different machines and networks may have different byte-orders, directly sending in-memory data is not suitable. Fields in the data are added, modified or removed gradually, how do newer services talk with older services?</li>
+<li>Can TCP connection be reused for multiple requests to reduce overhead? Can multiple requests be sent through one TCP connection simultaneously?</li>
+<li>How to talk with a cluster with many machines?</li>
+<li>What should I do when the connection is broken? What if the server does not respond?</li>
 <li>&hellip;</li>
 </ul>
-<p><a href="http://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a>可以解决这些问题，它把网络交互类比为“client访问server上的函数”：client向server发送request后开始等待，直到server收到、处理、回复client后，client又再度恢复并根据response做出反应。</p>
-<p><img src="/images/docs/rpc.png" alt="rpc.png"></p>
-<p>我们来看看上面的一些问题是如何解决的：</p>
+<p><a href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a> addresses the above issues by abstracting network communications as &ldquo;clients accessing functions on servers&rdquo;: client sends a request to server, wait until server receives -&gt; processes -&gt; responds to the request, then do actions according to the result.
+<img src="/images/docs/rpc.png" alt="rpc.png"></p>
+<p>Let&rsquo;s see how the issues are solved.</p>
 <ul>
-<li>数据需要序列化，<a href="https://github.com/google/protobuf">protobuf</a>在这方面做的不错。用户填写protobuf::Message类型的request，RPC结束后，从同为protobuf::Message类型的response中取出结果。protobuf有较好的前后兼容性，方便业务调整字段。http广泛使用<a href="http://www.json.org/">json</a>作为序列化方法。</li>
-<li>用户无需关心连接如何建立，但可以选择不同的<a href="../client/basics/#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F">连接方式</a>：短连接，连接池，单连接。</li>
-<li>大量机器一般通过命名服务被发现，可基于<a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a>, <a href="https://zookeeper.apache.org/">ZooKeeper</a>, <a href="https://github.com/coreos/etcd">etcd</a>等实现。在百度内，我们使用BNS (Baidu Naming Service)。brpc也提供<a href="../client/basics/#%E5%91%BD%E5%90%8D%E6%9C%8D%E5%8A%A1">&ldquo;list://&ldquo;和&quot;file://&quot;</a>。用户可以指定负载均衡算法，让RPC每次选出一台机器发送请求，包括: round-robin, randomized, <a href="../rpc-in-depth/consistent-hashing/">consistent-hashing</a>(murmurhash3 or md5)和 <a href="../rpc-in-depth/locality-aware/">locality-aware</a>.</li>
-<li>连接断开时可以重试。</li>
-<li>如果server没有在给定时间内回复，client会返回超时错误。</li>
+<li>RPC needs serialization which is done by <a href="https://github.com/google/protobuf">protobuf</a> pretty well. Users fill requests in format of protobuf::Message, do RPC, and fetch results from responses in protobuf::Message. protobuf has good forward and backward compatibility for users to change fields and build services incrementally. For http services, <a href="http://www.json.org/">json</a> is used for serialization extensively.</li>
+<li>Establishment and re-using of connections is transparent to users, but users can make choices like <a href="../client/basics/#connection-type">different connection types</a>: short, pooled, single.</li>
+<li>Machines are discovered by a Naming Service, which can be implemented by <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a>, <a href="https://zookeeper.apache.org/">ZooKeeper</a> or <a href="https://github.com/coreos/etcd">etcd</a>. Inside Baidu, we use BNS (Baidu Naming Service). brpc provides <a href="../client/basics/#naming-service">&ldquo;list://&rdquo; and &ldquo;file://&quot;</a> as well. Users specify load balancing algorithms to choose one machine for each request from all machines, including: round-robin, randomized, <a href="../rpc-in-depth/consistent-hashing/">consistent-hashing</a>(murmurhash3 or md5) and <a href="../rpc-in-depth/locality-aware/">locality-aware</a>.</li>
+<li>RPC retries when the connection is broken. When server does not respond within the given time, client fails with a timeout error.</li>
 </ul>
-<h1 id="哪里可以使用rpc">哪里可以使用RPC?</h1>
-<p>几乎所有的网络交互。</p>
-<p>RPC不是万能的抽象，否则我们也不需要TCP/IP这一层了。但是在我们绝大部分的网络交互中，RPC既能解决问题，又能隔离更底层的网络问题。</p>
-<p>对于RPC常见的质疑有：</p>
+<h1 id="where-can-i-use-rpc">Where can I use RPC?</h1>
+<p>Almost all network communications.</p>
+<p>RPC can&rsquo;t do everything surely, otherwise we don&rsquo;t need the layer of TCP/IP. But in most network communications, RPC meets requirements and isolates the underlying details.</p>
+<p>Common doubts on RPC:</p>
 <ul>
-<li>我的数据非常大，用protobuf序列化太慢了。首先这可能是个伪命题，你得用<a href="../builtin-services/cpu_profiler/">profiler</a>证明慢了才是真的慢，其次很多协议支持携带二进制数据以绕过序列化。</li>
-<li>我传输的是流数据，RPC表达不了。事实上brpc中很多协议支持传递流式数据，包括<a href="../client/access-httph2/#%E6%8C%81%E7%BB%AD%E4%B8%8B%E8%BD%BD">http中的ProgressiveReader</a>, h2的streams, <a href="../client/streaming-rpc/">streaming rpc</a>, 和专门的流式协议RTMP。</li>
-<li>我的场景不需要回复。简单推理可知，你的场景中请求可丢可不丢，可处理也可不处理，因为client总是无法感知，你真的确认这是OK的？即使场景真的不需要，我们仍然建议用最小的结构体回复，因为这不大会是瓶颈，并且追查复杂bug时可能是很有价值的线索。</li>
+<li>My data is binary and large, using protobuf will be slow. First, this is possibly a wrong feeling and you will have to test it and prove it with <a href="../builtin-services/cpu_profiler/">profilers</a>. Second, many protocols support carrying binary data along with protobuf requests and bypass the serialization.</li>
+<li>I&rsquo;m sending streaming data which can&rsquo;t be processed by RPC. Actually many protocols in RPC can handle streaming data, including <a href="../client/access-httph2/#progressively-download">ProgressiveReader in http</a>, streams in h2, <a href="../client/streaming-rpc/">streaming rpc</a>, and RTMP which is a specialized streaming protocol.</li>
+<li>I don&rsquo;t need replies. With some inductions, we know that in your scenario requests can be dropped at any stage because the client is always unaware of the situation. Are you really sure this is acceptable? Even if you don&rsquo;t need the reply, we recommend sending back small-sized replies, which are unlikely to be performance bottlenecks and will probably provide valuable clues when debugging complex bugs.</li>
 </ul>
-<h1 id="什么是brpcimagesdocslogopng">什么是<img src="/images/docs/logo.png" alt="brpc">?</h1>
-<p>百度内最常使用的工业级RPC框架, 有1,000,000+个实例(不包含client)和上千种服务, 在百度内叫做&rdquo;<strong>baidu-rpc</strong>&rdquo;. 目前只开源C++版本。</p>
-<p>你可以使用它：</p>
+<h1 id="what-is-brpcimagesdocslogopng">What is <img src="/images/docs/logo.png" alt="brpc">?</h1>
+<p>An industrial-grade RPC framework used throughout <a href="http://ir.baidu.com/phoenix.zhtml?c=188488&amp;p=irol-irhome">Baidu</a>, with 1,000,000+ instances(not counting clients) and thousands kinds of services, called &ldquo;<strong>baidu-rpc</strong>&rdquo; inside Baidu. Only C++ implementation is opensourced right now.</p>
+<p>You can use it to:</p>
 <ul>
-<li>搭建能在<strong>一个端口</strong>支持多协议的服务, 或访问各种服务
+<li>Build a server that can talk in multiple protocols (<strong>on same port</strong>), or access all sorts of services
 <ul>
-<li>restful http/https, <a href="https://http2.github.io/http2-spec">h2</a>/<a href="https://grpc.io">gRPC</a>。使用brpc的http实现比<a href="https://curl.haxx.se/libcurl/">libcurl</a>方便多了。从其他语言通过HTTP/h2+json访问基于protobuf的协议.</li>
-<li><a href="../client/access-redis/">redis</a>和<a href="../client/access-memcached/">memcached</a>, 线程安全，比官方client更方便。</li>
-<li><a href="https://github.com/brpc/brpc/blob/master/src/brpc/rtmp.h">rtmp</a>/<a href="https://en.wikipedia.org/wiki/Flash_Video">flv</a>/<a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming">hls</a>, 可用于搭建<a href="https://github.com/brpc/media-server">流媒体服务</a>.</li>
-<li>hadoop_rpc(可能开源)</li>
-<li>支持<a href="https://en.wikipedia.org/wiki/Remote_direct_memory_access">rdma</a>(即将开源)</li>
-<li>支持<a href="../client/access-thrift/">thrift</a> , 线程安全，比官方client更方便</li>
-<li>各种百度内使用的协议: <a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md">baidu_std</a>, <a href="../client/streaming-rpc/">streaming_rpc</a>, hulu_pbrpc, <a href="https://github.com/baidu/sofa-pbrpc">sofa_pbrpc</a>, nova_pbrpc, public_pbrpc, ubrpc和使用nshead的各种协议.</li>
-<li>基于工业级的<a href="https://raft.github.io">RAFT算法</a>实现搭建<a href="https://en.wikipedia.org/wiki/High_availability">高可用</a>分布式系统，已在<a href="https://github.com/brpc/braft">braft</a>开源。</li>
+<li>restful http/https, <a href="https://http2.github.io/http2-spec">h2</a>/<a href="https://grpc.io">gRPC</a>. using http/h2 in brpc is much more friendly than <a href="https://curl.haxx.se/libcurl/">libcurl</a>. Access protobuf-based protocols with HTTP/h2+json, probably from another language.</li>
+<li><a href="../client/access-redis/">redis</a> and <a href="../client/access-memcached/">memcached</a>, thread-safe, more friendly and performant than the official clients</li>
+<li><a href="https://github.com/brpc/brpc/blob/master/src/brpc/rtmp.h">rtmp</a>/<a href="https://en.wikipedia.org/wiki/Flash_Video">flv</a>/<a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming">hls</a>, for building <a href="https://github.com/brpc/media-server">streaming services</a>.</li>
+<li>hadoop_rpc (may be opensourced)</li>
+<li><a href="https://en.wikipedia.org/wiki/Remote_direct_memory_access">rdma</a> support (will be opensourced)</li>
+<li><a href="../client/access-thrift/">thrift</a> support,  thread-safe, more friendly and performant than the official clients.</li>
+<li>all sorts of protocols used in Baidu: <a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md">baidu_std</a>, <a href="../client/streaming-rpc/">streaming_rpc</a>, hulu_pbrpc, <a href="https://github.com/baidu/sofa-pbrpc">sofa_pbrpc</a>, nova_pbrpc, public_pbrpc, ubrpc, and nshead-based ones.</li>
+<li>Build <a href="https://en.wikipedia.org/wiki/High_availability">HA</a> distributed services using an industrial-grade implementation of <a href="https://raft.github.io">RAFT consensus algorithm</a> which is opensourced at <a href="https://github.com/brpc/braft">braft</a></li>
 </ul>
 </li>
-<li>Server能<a href="../server/basics/">同步</a>或<a href="../server/basics/#%E5%BC%82%E6%AD%A5service">异步</a>处理请求。</li>
-<li>Client支持<a href="../client/basics/#%E5%90%8C%E6%AD%A5%E8%AE%BF%E9%97%AE">同步</a>、<a href="../client/basics/#%E5%BC%82%E6%AD%A5%E8%AE%BF%E9%97%AE">异步</a>、<a href="../client/basics/#%E5%8D%8A%E5%90%8C%E6%AD%A5">半同步</a>，或使用<a href="../client/combo-channels/">组合channels</a>简化复杂的分库或并发访问。</li>
-<li><a href="../builtin-services/buildin_services/">通过http界面</a>调试服务, 使用<a href="../builtin-services/cpu_profiler/">cpu</a>, <a href="../builtin-services/heap_profiler/">heap</a>, <a href="../builtin-services/contention_profiler/">contention</a> profilers.</li>
-<li>获得<a href="#%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%BB%B6%E6%97%B6%E5%92%8C%E5%90%9E%E5%90%90">更好的延时和吞吐</a>.</li>
-<li>把你组织中使用的协议快速地<a href="../rpc-in-depth/new-protocol/">加入brpc</a>，或定制各类组件, 包括<a href="../rpc-in-depth/load-balancing/#%E5%91%BD%E5%90%8D%E6%9C%8D%E5%8A%A1">命名服务</a> (dns, zk, etcd), <a href="../rpc-in-depth/load-balancing/#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">负载均衡</a> (rr, random, consistent hashing)</li>
+<li>Servers can handle requests <a href="../server/basics/">synchronously</a> or <a href="../server/basics/#asynchronous-service">asynchronously</a>.</li>
+<li>Clients can access servers <a href="../client/basics/#synchronus-call">synchronously</a>, <a href="../client/basics/#asynchronous-call">asynchronously</a>, <a href="../client/basics/#semi-synchronous-call">semi-synchronously</a>, or use <a href="../client/combo-channels/">combo channels</a> to simplify sharded or parallel accesses declaratively.</li>
+<li>Debug services <a href="../builtin-services/buildin_services/">via http</a>, and run <a href="../builtin-services/cpu_profiler/">cpu</a>, <a href="../builtin-services/heap_profiler/">heap</a> and <a href="../builtin-services/contention_profiler/">contention</a> profilers.</li>
+<li>Get <a href="#better-latency-and-throughput">better latency and throughput</a>.</li>
+<li><a href="../rpc-in-depth/new-protocol/">Extend brpc</a> with the protocols used in your organization quickly, or customize components, including <a href="../rpc-in-depth/load-balancing/#%E5%91%BD%E5%90%8D%E6%9C%8D%E5%8A%A1">naming services</a> (dns, zk, etcd), <a href="../rpc-in-depth/load-balancing/#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">load balancers</a> (rr, random, consistent hashing)</li>
 </ul>
-<h1 id="brpc的优势">brpc的优势</h1>
-<h3 id="更友好的接口">更友好的接口</h3>
-<p>只有三个(主要的)用户类: <a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">Server</a>, <a href="https://github.com/brpc/brpc/blob/master/src/brpc/channel.h">Channel</a>, <a href="https://github.com/brpc/brpc/blob/master/src/brpc/controller.h">Controller</a>, 分别对应server端，client端，参数集合. 你不必推敲诸如&quot;如何初始化XXXManager&quot;, &ldquo;如何组合各种组件&rdquo;,  &ldquo;XXXController的XXXContext间的关系是什么&rdquo;。要做的很简单:</p>
+<h1 id="advantages-of-brpc">Advantages of bRPC</h1>
+<h3 id="more-friendly-api">More friendly API</h3>
+<p>Only 3 (major) user headers: <a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">Server</a>, <a href="https://github.com/brpc/brpc/blob/master/src/brpc/channel.h">Channel</a>, <a href="https://github.com/brpc/brpc/blob/master/src/brpc/controller.h">Controller</a>, corresponding to server-side, client-side and parameter-set respectively. You don&rsquo;t have to worry about &ldquo;How to initialize XXXManager&rdquo;, &ldquo;How to layer all these components together&rdquo;,  &ldquo;What&rsquo;s the relationship between XXXController and XXXContext&rdquo;. All you need to do is simple:</p>
 <ul>
-<li>建服务? 包含<a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">brpc/server.h</a>并参考注释或<a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/server.cpp">示例</a>.</li>
-<li>访问服务? 包含<a href="https://github.com/brpc/brpc/blob/master/src/brpc/channel.h">brpc/channel.h</a>并参考注释或<a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/client.cpp">示例</a>.</li>
-<li>调整参数? 看看<a href="https://github.com/brpc/brpc/blob/master/src/brpc/controller.h">brpc/controller.h</a>. 注意这个类是Server和Channel共用的，分成了三段，分别标记为Client-side, Server-side和Both-side methods。</li>
+<li>
+<p>Build service? include <a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">brpc/server.h</a> and follow the comments or <a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/server.cpp">examples</a>.</p>
+</li>
+<li>
+<p>Access service? include <a href="https://github.com/brpc/brpc/blob/master/src/brpc/channel.h">brpc/channel.h</a> and follow the comments or <a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/client.cpp">examples</a>.</p>
+</li>
+<li>
+<p>Tweak parameters? Checkout <a href="https://github.com/brpc/brpc/blob/master/src/brpc/controller.h">brpc/controller.h</a>. Note that the class is shared by server and channel. Methods are separated into 3 parts: client-side, server-side and both-side.</p>
+</li>
 </ul>
-<p>我们尝试让事情变得更加简单，以命名服务为例，在其他RPC实现中，你也许需要复制一长段晦涩的代码才可使用，而在brpc中访问BNS可以这么写<code>&quot;bns://node-name&quot;</code>，DNS是<code>&quot;http://domain-name&quot;</code>，本地文件列表是<code>&quot;file:///home/work/server.list&quot;</code>，相信不用解释，你也能明白这些代表什么。</p>
-<h3 id="使服务更加可靠">使服务更加可靠</h3>
-<p>brpc在百度内被广泛使用:</p>
+<p>We tried to make simple things simple. Take naming service as an example. In older RPC implementations you may need to copy a pile of obscure code to make it work, however, in brpc accessing BNS is expressed as <code>Init(&quot;bns://node-name&quot;, ...)</code>, DNS is <code>Init(&quot;http://domain-name&quot;, ...)</code> and local machine list is <code>Init(&quot;file:///home/work/server.list&quot;, ...)</code>. Without any explanation, you know what it means.</p>
+<h3 id="make-services-more-reliable">Make services more reliable</h3>
+<p>brpc is extensively used in Baidu:</p>
 <ul>
-<li>map-reduce服务和table存储</li>
-<li>高性能计算和模型训练</li>
-<li>各种索引和排序服务</li>
+<li>map-reduce service &amp; table storages</li>
+<li>high-performance computing &amp; model training</li>
+<li>all sorts of indexing &amp; ranking servers</li>
 <li>….</li>
 </ul>
-<p>它是一个经历过考验的实现。</p>
-<p>brpc特别重视开发和维护效率, 你可以通过浏览器或curl<a href="../builtin-services/buildin_services/">查看server内部状态</a>, 分析在线服务的<a href="../builtin-services/cpu_profiler/">cpu热点</a>, <a href="../builtin-services/heap_profiler/">内存分配</a>和<a href="../builtin-services/contention_profiler/">锁竞争</a>, 通过<a href="../bvar/bvar/">bvar</a>统计各种指标并通过<a href="../builtin-services/vars/">/vars</a>查看。</p>
-<h3 id="更好的延时和吞吐">更好的延时和吞吐</h3>
-<p>虽然大部分RPC实现都声称“高性能”，但数字仅仅是数字，要在广泛的场景中做到高性能仍是困难的。为了统一百度内的通信架构，brpc在性能方面比其他RPC走得更深。</p>
+<p>It&rsquo;s been proven.</p>
+<p>brpc pays special attentions to development and maintenance efficency, you can <a href="../builtin-services/buildin_services/">view internal status of servers</a> in web browser or with curl, analyze <a href="../builtin-services/cpu_profiler/">cpu hotspots</a>, <a href="../builtin-services/heap_profiler/">heap allocations</a> and <a href="../builtin-services/contention_profiler/">lock contentions</a> of online services, measure stats by <a href="../bvar/bvar/">bvar</a> which is viewable in <a href="../builtin-services/vars/">/vars</a>.</p>
+<h3 id="better-latency-and-throughput">Better latency and throughput</h3>
+<p>Although almost all RPC implementations claim that they&rsquo;re &ldquo;high-performant&rdquo;, the numbers are probably just numbers. Being really high-performant in different scenarios is difficult. To unify communication infra inside Baidu, brpc goes much deeper at performance than other implementations.</p>
 <ul>
-<li>对不同客户端请求的读取和解析是完全并发的，用户也不用区分”IO线程“和”处理线程&quot;。其他实现往往会区分“IO线程”和“处理线程”，并把<a href="http://en.wikipedia.org/wiki/File_descriptor">fd</a>（对应一个客户端）散列到IO线程中去。当一个IO线程在读取其中的fd时，同一个线程中的fd都无法得到处理。当一些解析变慢时，比如特别大的protobuf message，同一个IO线程中的其他fd都遭殃了。虽然不同IO线程间的fd是并发的，但你不太可能开太多IO线程，因为这类线程的事情很少，大部分时候都是闲着的。如果有10个IO线程，一个fd能影响到的”其他fd“仍有相当大的比例（10个即10%，而工业级在线检索要求99.99%以上的可用性）。这个问题在fd没有均匀地分布在IO线程中，或在多租户(multi-tenancy)环境中会更加恶化。在brpc中，对不同fd的读取是完全并发的，对同一个fd中不同消息的解析也是并发的。解析一个特别大的protobuf message不会影响同一个客户端的其他消息，更不用提其他客户端的消息了。更多细节看<a href="../rpc-in-depth/io/#%E6%94%B6%E6%B6%88%E6%81%AF">这里</a>。</li>
-<li>对同一fd和不同fd的写出是高度并发的。当多个线程都要对一个fd写出时（常见于单连接），第一个线程会直接在原线程写出，其他线程会以<a href="http://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom">wait-free</a>的方式托付自己的写请求，多个线程在高度竞争下仍可以在1秒内对同一个fd写入500万个16字节的消息。更多细节看<a href="../rpc-in-depth/io/#%E5%8F%91%E6%B6%88%E6%81%AF">这里</a>。</li>
-<li>尽量少的锁。高QPS服务可以充分利用一台机器的CPU。比如为处理请求<a href="../rpc-in-depth/memory-management/">创建bthread</a>, <a href="../rpc-in-depth/timer-keeping/">设置超时</a>, 根据回复<a href="../rpc-in-depth/bthread_id/">找到RPC上下文</a>, <a href="../bvar/bvar/">记录性能计数器</a>都是高度并发的。即使服务的QPS超过50万，用户也很少在<a href="../builtin-services/contention_profiler/">contention profiler</a>)中看到框架造成的锁竞争。</li>
-<li>服务器线程数自动调节。传统的服务器需要根据下游延时的调整自身的线程数，否则吞吐可能会受影响。在brpc中，每个请求均运行在新建立的<a href="../bthread/bthread/">bthread</a>中，请求结束后线程就结束了，所以天然会根据负载自动调节线程数。</li>
+<li>Reading and parsing requests from different clients is fully parallelized and users don&rsquo;t need to distinguish between &ldquo;IO-threads&rdquo; and &ldquo;Processing-threads&rdquo;. Other implementations probably have &ldquo;IO-threads&rdquo; and &ldquo;Processing-threads&rdquo; and hash file descriptors(fd) into IO-threads. When a IO-thread handles one of its fds, other fds in the thread can&rsquo;t be handled. If a message is large, other fds are significantly delayed. Although different IO-threads run in parallel, you won&rsquo;t have many IO-threads since they don&rsquo;t have too much to do generally except reading/parsing from fds. If you have 10 IO-threads, one fd may affect 10% of all fds, which is unacceptable to industrial online services (requiring 99.99% availability). The problem will be worse when fds are distributed unevenly accross IO-threads (unfortunately common), or the service is multi-tenancy (common in cloud services). In brpc, reading from different fds is parallelized and even processing different messages from one fd is parallelized as well. Parsing a large message does not block other messages from the same fd, not to mention other fds. More details can be found <a href="../rpc-in-depth/io/#receiving-messages">here</a>.</li>
+<li>Writing into one fd and multiple fds is highly concurrent. When multiple threads write into the same fd (common for multiplexed connections), the first thread directly writes in-place and other threads submit their write requests in <a href="https://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom">wait-free</a> manner. One fd can be written into 5,000,000 16-byte messages per second by a couple of highly-contended threads. More details can be found <a href="../rpc-in-depth/io/#sending-messages">here</a>.</li>
+<li>Minimal locks. High-QPS services can utilize all CPU power on the machine. For example, <a href="../rpc-in-depth/memory-management/">creating bthreads</a> for processing requests, <a href="../rpc-in-depth/timer-keeping/">setting up timeout</a>, <a href="../rpc-in-depth/bthread_id/">finding RPC contexts</a> according to response, <a href="../bvar/bvar/">recording performance counters</a> are all highly concurrent. Users see very few contentions (via <a href="../builtin-services/contention_profiler/">contention profiler</a>) caused by RPC framework even if the service runs at 500,000+ QPS.</li>
+<li>Server adjusts thread number according to load. Traditional implementations set number of threads according to latency to avoid limiting the throughput. brpc creates a new <a href="../bthread/bthread/">bthread</a> for each request and ends the bthread when the request is done, which automatically adjusts thread number according to load.</li>
 </ul>
-<p>brpc和其他实现的性能对比见<a href="../benchmark/">这里</a>。</p>
+<p>Check <a href="../benchmark/">benchmark</a> for a comparison between brpc and other implementations.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年2月26日: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
 </div>
 </div>
 
@@ -2045,7 +2117,7 @@ if (!doNotTrack) {
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. 保留所有权利</small>
+        <small class="text-white">&copy; 2022 The Apache Software Foundation. Apache and the Apache feather logo are trademarks of The Apache Software Foundation. All Rights Reserved</small>
         
 	
         <div style="font-size: 12.8px; color: rgb(117, 116, 116);">
