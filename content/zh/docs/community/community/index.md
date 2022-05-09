@@ -1,6 +1,7 @@
 ---
 title: 社区
 linkTitle: 社区
+weight: 1
 aliases: 
 - "/community/"
 - "/zh/docs/community"
@@ -139,11 +140,19 @@ limitations under the License.
         <td>apache</td>
     </tr>
     <tr>
+        <td><a href="http://github.com/wwbmmm"><img width="64" src="https://avatars.githubusercontent.com/u/3894631?v=4"></a></td>
+        <td>Weibing Wang</td>
+        <td>wwbmmm</td>
+        <td><a href="http://github.com/wwbmmm">wwbmmm</a></td>
+        <td>PPMC</td>
+        <td>apache</td>
+    </tr>
+    <tr>
         <td><a href="http://github.com/gydong"><img width="64" src="https://avatars.githubusercontent.com/u/3294444?v=4"></a></td>
         <td>Gaidong Mou</td>
         <td>gydong</td>
         <td><a href="http://github.com/gydong">gydong</a></td>
-        <td>PPMC</td>
+        <td>Committer</td>
         <td>apache</td>
     </tr>
     <tr>
@@ -151,7 +160,7 @@ limitations under the License.
         <td>He Lei</td>
         <td>leander</td>
         <td><a href="http://github.com/TousakaRin">TousakaRin</a></td>
-        <td>PPMC</td>
+        <td>Committer</td>
         <td>apache</td>
     </tr>
     <tr>
@@ -159,15 +168,7 @@ limitations under the License.
         <td>Cai daojing</td>
         <td>caidj</td>
         <td><a href="http://github.com/cdjingit">cdjingit</a></td>
-        <td>PPMC</td>
-        <td>apache</td>
-    </tr>
-    <tr>
-        <td><a href="http://github.com/wwbmmm"><img width="64" src="https://avatars.githubusercontent.com/u/3894631?v=4"></a></td>
-        <td>Weibing Wang</td>
-        <td>wwbmmm</td>
-        <td><a href="http://github.com/wwbmmm">wwbmmm</a></td>
-        <td>PPMC</td>
+        <td>Committer</td>
         <td>apache</td>
     </tr>
     <tr>
