@@ -6,7 +6,7 @@ date: 2021-08-12
 description: >
   如何成为bRPC Committer。
 ---
-Apache社区的参与者具有以下角色：**贡献者（Contributor）**、**提交者（Committer）**和**PMC（项目成员委员会）成员**。
+Apache社区的参与者具有以下角色：**贡献者（Contributor）**、**提交者（Committer）** 和 **PMC（项目成员委员会）成员**。
 
 当个人贡献被项目接受时，他/她将自动成为贡献者。
 Committer 和 PMC 成员在共识投票后由 PMC 邀请。
