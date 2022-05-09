@@ -32,6 +32,21 @@
                 href="https://brpc.incubator.apache.org/zh/docs/overview/"
                 />
   </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/community/community/</loc>
+    <lastmod>2022-05-07T00:46:11+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/docs/community/community/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/community/community/"
+                />
+  </url><url>
     <loc>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</loc>
     <lastmod>2022-04-18T19:03:23+08:00</lastmod>
     <changefreq>daily</changefreq>
@@ -45,6 +60,21 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/"
+                />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/community/security/</loc>
+    <lastmod>2022-05-07T00:46:11+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/docs/community/security/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/community/security/"
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/zh/docs/getting_started/</loc>
@@ -135,6 +165,21 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://brpc.incubator.apache.org/zh/docs/bvar/bvar-c&#43;&#43;/"
+                />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/community/committer/</loc>
+    <lastmod>2022-05-07T13:35:35+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/docs/community/committer/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/community/committer/"
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/zh/docs/c&#43;&#43;-base/iobuf/</loc>
@@ -1142,6 +1187,21 @@
                 href="https://brpc.incubator.apache.org/zh/docs/client/dummy-server/"
                 />
   </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/community/</loc>
+    <lastmod>2022-05-07T00:46:11+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://brpc.incubator.apache.org/docs/community/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://brpc.incubator.apache.org/zh/docs/community/"
+                />
+  </url><url>
     <loc>https://brpc.incubator.apache.org/zh/docs/</loc>
     <lastmod>2022-01-09T01:13:37+08:00</lastmod>
     <changefreq>daily</changefreq>
@@ -1260,21 +1320,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://brpc.incubator.apache.org/zh/search/"
-                />
-  </url><url>
-    <loc>https://brpc.incubator.apache.org/zh/docs/community/</loc>
-    <lastmod>2022-04-11T19:03:32+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://brpc.incubator.apache.org/docs/community/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://brpc.incubator.apache.org/zh/docs/community/"
                 />
   </url>
 </urlset>
