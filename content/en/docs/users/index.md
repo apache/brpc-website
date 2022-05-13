@@ -12,7 +12,7 @@ description: >
 <div id="overview">
   <div class="contain" style="width: auto; margin: 0 auto">
     <h2 class="section-head">Used by</h2>
-    <h3>Providing your info on <a href="https://github.com/apache/incubator-brpc-website/issues/1307">Wanted: who’s using bRPC</a> to help improving bRPC better</h3>
+    <h3>Providing your info on <a href="https://github.com/apache/incubator-brpc/issues/1640">Wanted: who’s using bRPC</a> to help improving bRPC better</h3>
     <td align="center"  valign="middle">
       <a href="http://home.baidu.com/index.html" target="_blank">
         <img width="222px" style="margin: 0 10px;" src="/images/community/baidu_logo.svg">

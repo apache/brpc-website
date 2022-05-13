@@ -12,7 +12,7 @@ description: >
 <div id="overview">
   <div class="contain" style="width: auto; margin: 0 auto">
     <h2 class="section-head">谁在使用</h2>
-    <h3>在<a href="https://github.com/apache/incubator-brpc/issues/1307">Wanted: who’s using bRPC</a> 上面提交你的使用场景来帮助bRPC变的更好
+    <h3>在<a href="https://github.com/apache/incubator-brpc/issues/1640">Wanted: who’s using bRPC</a> 上面提交你的使用场景来帮助bRPC变的更好
     </h3>
     <td align="center"  valign="middle">
       <a href="http://home.baidu.com/index.html" target="_blank">
