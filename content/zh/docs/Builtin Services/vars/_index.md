@@ -6,7 +6,7 @@ date: 2021-08-12
 description: >
   学习vars服务。
 ---
-[bvar](https://github.com/brpc/brpc/tree/master/src/bvar/)是多线程环境下的计数器类库，方便记录和查看用户程序中的各类数值，它利用了thread local存储减少了cache bouncing，相比UbMonitor(百度内的老计数器库)几乎不会给程序增加性能开销，也快于竞争频繁的原子操作。brpc集成了bvar，[/vars](http://brpc.baidu.com:8765/vars)可查看所有曝光的bvar，[/vars/VARNAME](http://brpc.baidu.com:8765/vars/rpc_socket_count)可查阅某个bvar，增加计数器的方法请查看[bvar](bvar.md)。brpc大量使用了bvar提供统计数值，当你需要在多线程环境中计数并展现时，应该第一时间想到bvar。但bvar不能代替所有的计数器，它的本质是把写时的竞争转移到了读：读得合并所有写过的线程中的数据，而不可避免地变慢了。当你读写都很频繁或得基于最新值做一些逻辑判断时，你不应该用bvar。
+[bvar](https://github.com/brpc/brpc/tree/master/src/bvar/)是多线程环境下的计数器类库，方便记录和查看用户程序中的各类数值，它利用了thread local存储减少了cache bouncing，相比UbMonitor(百度内的老计数器库)几乎不会给程序增加性能开销，也快于竞争频繁的原子操作。brpc集成了bvar，[/vars](http://brpc.baidu.com:8765/vars)可查看所有曝光的bvar，[/vars/VARNAME](http://brpc.baidu.com:8765/vars/rpc_socket_count)可查阅某个bvar，增加计数器的方法请查看[bvar](../../bvar/bvar/)。brpc大量使用了bvar提供统计数值，当你需要在多线程环境中计数并展现时，应该第一时间想到bvar。但bvar不能代替所有的计数器，它的本质是把写时的竞争转移到了读：读得合并所有写过的线程中的数据，而不可避免地变慢了。当你读写都很频繁或得基于最新值做一些逻辑判断时，你不应该用bvar。
 
 ## 查询方法
 
@@ -83,7 +83,7 @@ brpc的服务都会自动统计延时分布，用户不用自己加了。如下�
 
 ![img](/images/docs/vars_6.png)
 
-你可以用bvar::LatencyRecorder统计任何代码的延时，这么做(更具体的使用方法请查看[bvar-c++](bvar_c++.md)):
+你可以用bvar::LatencyRecorder统计任何代码的延时，这么做(更具体的使用方法请查看[bvar-c++](../../bvar/bvar-c++/)):
 
 ```c++
 #include <bvar/bvar.h>
@@ -104,4 +104,4 @@ void foo() {
 
 ## 非brpc server
 
-如果你的程序只是一个brpc client或根本没有使用brpc，并且你也想看到动态曲线，看[这里](dummy_server.md)。
+如果你的程序只是一个brpc client或根本没有使用brpc，并且你也想看到动态曲线，看[这里](../../client/dummy-server/)。

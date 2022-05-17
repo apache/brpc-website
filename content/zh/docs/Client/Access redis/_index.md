@@ -12,7 +12,7 @@ description: >
 
 - 线程安全。用户不需要为每个线程建立独立的client。
 - 支持同步、异步、批量同步、批量异步等访问方式，能使用ParallelChannel等组合访问方式。
-- 支持多种[连接方式](client.md#连接方式)。支持超时、backup request、取消、tracing、内置服务等一系列RPC基本福利。
+- 支持多种[连接方式](../basics/#连接方式)。支持超时、backup request、取消、tracing、内置服务等一系列RPC基本福利。
 - 一个进程中的所有brpc client和一个redis-server只有一个连接。多个线程同时访问一个redis-server时更高效（见[性能](#性能)）。无论reply的组成多复杂，内存都会连续成块地分配，并支持短串优化(SSO)进一步提高性能。
 
 像http一样，brpc保证在最差情况下解析redis reply的时间复杂度也是O(N)，N是reply的字节数，而不是O($N^2$)。当reply是个较大的数组时，这是比较重要的。
@@ -216,7 +216,7 @@ TRACE: 02-13 19:49:11:   * 0 client.cpp:180] Accessing redis server at qps=29271
 16878 gejun     20   0 48136 2508 1004 R 99.9  0.0  13:36.59 redis-server   // thread_num=200
 ```
 
-注意redis-server实际处理的qps要乘10。乘10后也差不多在40万左右。另外在thread_num为50或200时，redis-server的CPU已打满。注意redis-server是[单线程reactor](threading_overview.md#单线程reactor)，一个核心打满就意味server到极限了。
+注意redis-server实际处理的qps要乘10。乘10后也差不多在40万左右。另外在thread_num为50或200时，redis-server的CPU已打满。注意redis-server是[单线程reactor](../../rpc-in-depth/threading-overview/#单线程reactorhttpenwikipediaorgwikireactor_pattern)，一个核心打满就意味server到极限了。
 
 使用50个bthread通过连接池方式同步压测同机redis-server。
 

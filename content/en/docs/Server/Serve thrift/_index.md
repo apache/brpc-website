@@ -41,7 +41,7 @@ sh config_brpc.sh --headers=/usr/include --libs=/usr/lib64 --with-thrift
 # Or use cmake
 mkdir build && cd build && cmake ../ -DWITH_THRIFT=ON
 ```
-Read [Getting Started](getting_started.md) for more compilation options.
+Read [Getting Started](../../getting_started/) for more compilation options.
 
 # Client accesses thrift server
 Steps：

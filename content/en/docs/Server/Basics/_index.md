@@ -278,7 +278,7 @@ Note: Set `Content-Type: application/proto` to access services with http/h2 + pr
 
 ## json<=>pb
 
-Json fields correspond to pb fields by matched names and message structures. The json must contain required fields in pb, otherwise conversion will fail and corresponding request will be rejected. The json may include undefined fields in pb, but they will be dropped rather than being stored in pb as unknown fields. Check out [json <=> protobuf](json2pb.md) for conversion rules.
+Json fields correspond to pb fields by matched names and message structures. The json must contain required fields in pb, otherwise conversion will fail and corresponding request will be rejected. The json may include undefined fields in pb, but they will be dropped rather than being stored in pb as unknown fields. Check out [json <=> protobuf](../json2pb/) for conversion rules.
 
 When -pb_enum_as_number is turned on, enums in pb are converted to values instead of names. For example in `enum MyEnum { Foo = 1; Bar = 2; };`, fields typed `MyEnum` are converted to "Foo" or "Bar" when the flag is off, 1 or 2 otherwise. This flag affects requests sent by clients and responses returned by servers both. Since "enum as name" has better forward and backward compatibilities, this flag should only be turned on to adapt legacy code that are unable to parse enumerations from names.
 
@@ -304,9 +304,9 @@ As a correspondence, if cntl->response_attachment() is not empty and pb response
 
 Server detects supported protocols automatically, without assignment from users. `cntl->protocol()` gets the protocol being used. Server is able to accept connections with different protocols from one port, users don't need to assign different ports for different protocols. Even one connection may transport messages in multiple protocols, although we rarely do this (and not recommend). Supported protocols:
 
-- [The standard protocol used in Baidu](baidu_std.md), shown as "baidu_std", enabled by default.
+- [The standard protocol used in Baidu](https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md), shown as "baidu_std", enabled by default.
 
-- [Streaming RPC](streaming_rpc.md), shown as "streaming_rpc", enabled by default.
+- [Streaming RPC](../../client/streaming-rpc/), shown as "streaming_rpc", enabled by default.
 
 - http/1.0 and http/1.1, shown as "http", enabled by default.
 
@@ -350,7 +350,7 @@ Server detects supported protocols automatically, without assignment from users.
 
   As the name implies, messages in this protocol are composed by nshead+mcpack, the mcpack does not include special fields. Different from implementations based on NsheadService by users, this protocol uses mcpack2pb which makes the service capable of handling both mcpack and pb with one piece of code. Due to lack of fields to carry ErrorText, server can only close connections when errors occur.
 
-- Read [Implement NsheadService](nshead_service.md) for UB related protocols.
+- Read [Implement NsheadService](https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md) for UB related protocols.
 
 If you need more protocols, contact us.
 
@@ -462,7 +462,7 @@ brpc removes the restriction from protobuf and controls the limit by -max_body_s
 
 `set_response_compress_type()` sets compression method for the response, no compression by default.
 
-Attachment is not compressed. Check [here](http_service.md#compress-response-body) for compression of HTTP body.
+Attachment is not compressed. Check [here](../serve-httph2/#compress-the-response-body) for compression of HTTP body.
 
 Supported compressions:
 
@@ -470,7 +470,7 @@ Supported compressions:
 - brpc::CompressTypeGzip : [gzip](http://en.wikipedia.org/wiki/Gzip), significantly slower than snappy, with a higher compression ratio.
 - brpc::CompressTypeZlib : [zlib](http://en.wikipedia.org/wiki/Zlib), 10%~20% faster than gzip but still significantly slower than snappy, with slightly better compression ratio than gzip.
 
-Read [Client-Compression](client.md#compression) for more comparisons.
+Read [Client-Compression](../../client/basics/#compression) for more comparisons.
 
 ## Attachment
 
@@ -538,7 +538,7 @@ struct ServerSSLOptions {
 
 - SSL layer works under protocol layer. As a result, all protocols (such as HTTP)  can provide SSL access when it's turned on. Server will decrypt the data first and then pass it into each protocol.
 
-- After turning on SSL, non-SSL access is still available for the same port. Server can automatically distinguish SSL from non-SSL requests. SSL-only mode can be implemented using `Controller::is_ssl()` in service's callback and `SetFailed` if it returns false. In the meanwhile, the builtin-service [connections](../cn/connections.md) also shows the SSL information for each connection.
+- After turning on SSL, non-SSL access is still available for the same port. Server can automatically distinguish SSL from non-SSL requests. SSL-only mode can be implemented using `Controller::is_ssl()` in service's callback and `SetFailed` if it returns false. In the meanwhile, the builtin-service [connections](../../builtin-services/connections/) also shows the SSL information for each connection.
 
 ## Verify identities of clients
 
@@ -646,7 +646,7 @@ options.method_max_concurrency = "auto";
 // Set auto concurrency limiter for specific method
 server.MaxConcurrencyOf("example.EchoService.Echo") = "auto";
 ```
-Read [this](../cn/auto_concurrency_limiter.md) to know more about the algorithm.
+Read [this](../auto-concurrencylimiter/) to know more about the algorithm.
 
 ## pthread mode
 
@@ -1017,7 +1017,7 @@ A: The client-side probably uses pooled or short connections, and closes the con
 
 It's not an error, it's a common warning representing that remote side has closed the connection(EOF). This log might be useful for debugging problems. 
 
-Disabled by default. Set gflag -log_connection_close to true to enable it. ([modify at run-time](flags.md#change-gflag-on-the-fly) is supported)
+Disabled by default. Set gflag -log_connection_close to true to enable it. ([modify at run-time](../../builtin-services/flags/#change-gflag-on-the-fly) is supported)
 
 ### Q: Why does setting number of threads at server-side not work
 
@@ -1025,7 +1025,7 @@ All brpc servers in one process [share worker pthreads](#Number-of-worker-pthrea
 
 ### Q: Why do client-side latencies much larger than the server-side ones
 
-server-side worker pthreads may not be enough and requests are significantly delayed. Read [Server debugging](server_debugging.md) for steps on debugging server-side issues quickly.
+server-side worker pthreads may not be enough and requests are significantly delayed. Read [Server debugging](../debug-server-issues/) for steps on debugging server-side issues quickly.
 
 ### Q: Fail to open /proc/self/io
 

@@ -36,7 +36,7 @@ http://<url>                 # Domain Naming Service, aka DNS.
 
 # 负载均衡
 
-brpc中[LoadBalancer](https://github.com/brpc/brpc/blob/master/src/brpc/load_balancer.h)从多个服务节点中选择一个节点，目前的实现见[负载均衡](client.md#负载均衡)。
+brpc中[LoadBalancer](https://github.com/brpc/brpc/blob/master/src/brpc/load_balancer.h)从多个服务节点中选择一个节点，目前的实现见[负载均衡](../../client/basics/#load-balancer)。
 
 Load balancer最重要的是如何让不同线程中的负载均衡不互斥，解决这个问题的技术是[DoublyBufferedData](../locality-aware/#doublybuffereddata)。
 

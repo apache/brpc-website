@@ -14,7 +14,7 @@ brpc depends on following packages:
 
 * [gflags](https://github.com/gflags/gflags): Extensively used to define global options.
 * [protobuf](https://github.com/google/protobuf): Serializations of messages, interfaces of services.
-* [leveldb](https://github.com/google/leveldb): Required by [/rpcz](rpcz.md) to record RPCs for tracing.
+* [leveldb](https://github.com/google/leveldb): Required by [/rpcz](../builtin-services/rpcz/) to record RPCs for tracing.
 
 # Supported Environment
 
@@ -59,7 +59,7 @@ To not link debugging symbols, add `--nodebugsymbols` and compiled binaries will
 
 To use brpc with glog, add `--with-glog`.
 
-To enable [thrift support](../en/thrift.md), install thrift first and add `--with-thrift`.
+To enable [thrift support](../server/serve-thrift/), install thrift first and add `--with-thrift`.
 
 **Run example**
 
@@ -91,7 +91,7 @@ To not link debugging symbols, remove `build/CMakeCache.txt` and cmake with `-DW
 
 To use brpc with glog, cmake with `-DWITH_GLOG=ON`.
 
-To enable [thrift support](../en/thrift.md), install thrift first and cmake with `-DWITH_THRIFT=ON`.
+To enable [thrift support](../server/serve-thrift/), install thrift first and cmake with `-DWITH_THRIFT=ON`.
 
 **Run example with cmake**
 
@@ -152,7 +152,7 @@ To not link debugging symbols, add `--nodebugsymbols` and compiled binaries will
 
 To use brpc with glog, add `--with-glog`.
 
-To enable [thrift support](../en/thrift.md), install thrift first and add `--with-thrift`.
+To enable [thrift support](../server/serve-thrift/), install thrift first and add `--with-thrift`.
 
 **Run example**
 
@@ -206,7 +206,7 @@ To not link debugging symbols, add `--nodebugsymbols` and compiled binaries will
 
 To use brpc with glog, add `--with-glog`.
 
-To enable [thrift support](../en/thrift.md), install thrift first and add `--with-thrift`.
+To enable [thrift support](../server/serve-thrift/), install thrift first and add `--with-thrift`.
 
 ```shell
 $ ls my_dev
@@ -256,7 +256,7 @@ To not link debugging symbols, add `--nodebugsymbols` and compiled binaries will
 
 To use brpc with glog, add `--with-glog`.
 
-To enable [thrift support](../en/thrift.md), install thrift first and add `--with-thrift`.
+To enable [thrift support](../server/serve-thrift/), install thrift first and add `--with-thrift`.
 
 **Run example**
 
@@ -289,7 +289,7 @@ The over-aligned issues in GCC7 is suppressed temporarily now.
 
 Using other versions of gcc may generate warnings, contact us to fix.
 
-Adding `-D__const__=` to cxxflags in your makefiles is a must to avoid [errno issue in gcc4+](thread_local.md).
+Adding `-D__const__=` to cxxflags in your makefiles is a must to avoid [errno issue in gcc4+](../bthread/thread-local/).
 
 ## Clang: 3.5-4.0
 
@@ -329,7 +329,7 @@ When you meet the issue, compile tcmalloc with the same GCC.
 
 Another common issue with tcmalloc is that it does not return memory to system as early as ptmalloc. So when there's an invalid memory access, the program may not crash directly, instead it crashes at a unrelated place, or even not crash. When you program has weird memory issues, try removing tcmalloc.
 
-If you want to use [cpu profiler](cpu_profiler.md) or [heap profiler](heap_profiler.md), do link `libtcmalloc_and_profiler.a`. These two profilers are based on tcmalloc.[contention profiler](contention_profiler.md) does not require tcmalloc.
+If you want to use [cpu profiler](../builtin-services/cpu_profiler) or [heap profiler](../builtin-services/heap_profiler), do link `libtcmalloc_and_profiler.a`. These two profilers are based on tcmalloc. [contention profiler](../builtin-services/contention_profiler) does not require tcmalloc.
 
 When you remove tcmalloc, not only remove the linkage with tcmalloc but also the macro `-DBRPC_ENABLE_CPU_PROFILER`.
 

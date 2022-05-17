@@ -50,7 +50,7 @@ ExecutionQueue和mutex都可以用来在多线程场景中消除竞争. 相比�
 不考虑性能和复杂度，理论上任何系统都可以只使用mutex或者ExecutionQueue来消除竞争.
 但是复杂系统的设计上，建议根据不同的场景灵活决定如何使用这两个工具:
 
-- 如果临界区非常小，竞争又不是很激烈，优先选择使用mutex, 之后可以结合[contention profiler](contention_profiler.md)来判断mutex是否成为瓶颈。
+- 如果临界区非常小，竞争又不是很激烈，优先选择使用mutex, 之后可以结合[contention profiler](../../builtin-services/contention_profiler/)来判断mutex是否成为瓶颈。
 - 需要有序执行，或者无法消除的激烈竞争但是可以通过批量执行来提高吞吐， 可以选择使用ExecutionQueue。
 
 总之，多线程编程没有万能的模型，需要根据具体的场景，结合丰富的profliling工具，最终在复杂度和性能之间找到合适的平衡。

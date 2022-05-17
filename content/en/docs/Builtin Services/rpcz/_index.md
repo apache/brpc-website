@@ -28,7 +28,7 @@ description: >
 
 ![img](/images/docs/rpcz_5.png)
 
-如果只是brpc client或没有使用brpc，看[这里](dummy_server.md)。 
+如果只是brpc client或没有使用brpc，看[这里](../../client/dummy-server/)。 
 
 ## 数据展现
 
