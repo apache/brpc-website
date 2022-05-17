@@ -325,7 +325,7 @@ if (encoding != NULL && *encoding == "gzip") {
 ```
 
 # Serve https requests
-https is short for "http over SSL", SSL is not exclusive for http, but effective for all protocols. The generic method for turning on server-side SSL is [here](server.md#turn-on-ssl).
+https is short for "http over SSL", SSL is not exclusive for http, but effective for all protocols. The generic method for turning on server-side SSL is [here](../basics/#turn-on-ssl).
 
 # Performance
 
@@ -334,7 +334,7 @@ Productions without extreme performance requirements tend to use HTTP protocol, 
 - Use [http parser](https://github.com/brpc/brpc/blob/master/src/brpc/details/http_parser.h) of node.js to parse http messages, which is a lightweight, well-written, and extensively used implementation.
 - Use [rapidjson](https://github.com/miloyip/rapidjson) to parse json, which is a json library focuses on performance.
 - In the worst case, the time complexity of parsing http requests is still O(N), where N is byte size of the request. As a contrast, parsing code that requires the http request to be complete, may cost O(N^2) time in the worst case. This feature is very helpful since many HTTP requests are large.
-- Processing HTTP messages from different clients is highly concurrent, even a pretty complicated http message does not block responding other clients. It's difficult to achieve this for other RPC implementations and http servers often based on [single-threaded reactor](threading_overview.md#single-threaded-reactor).
+- Processing HTTP messages from different clients is highly concurrent, even a pretty complicated http message does not block responding other clients. It's difficult to achieve this for other RPC implementations and http servers often based on [single-threaded reactor](../../rpc-in-depth/threading-overview/#single-threaded-reactorhttpenwikipediaorgwikireactor_pattern).
 
 # Progressive sending
 

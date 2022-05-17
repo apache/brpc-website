@@ -11,8 +11,8 @@ description: >
 Advantages compared to [hiredis](https://github.com/redis/hiredis) (the official redis client):
 
 - Thread safety. No need to set up separate clients for each thread.
-- Support synchronous, asynchronous, semi-synchronous accesses etc. Support [ParallelChannel etc](combo_channel.md) to define access patterns declaratively.
-- Support various [connection types](../client/basics/#connection-type). Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.
+- Support synchronous, asynchronous, semi-synchronous accesses etc. Support [ParallelChannel etc](../combo-channels/) to define access patterns declaratively.
+- Support various [connection types](../basics/#connection-type). Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.
 - All brpc clients in a process share a single connection to one redis-server, which is more efficient when multiple threads access one redis-server simultaneously (see [performance](#Performance)). Memory is allocated in blocks regardless of complexity of the reply, and short string optimization (SSO) is implemented to further improve performance.
 
 Similarly with http, brpc guarantees that the time complexity of parsing redis replies is O(N) in worst cases rather than O(N^2) , where N is the number of bytes of reply. This is important when the reply consists of large arrays.
@@ -216,7 +216,7 @@ TRACE: 02-13 19:49:11:   * 0 client.cpp:180] Accessing redis server at qps=29271
 16878 gejun     20   0 48136 2508 1004 R 99.9  0.0  13:36.59 redis-server   // thread_num=200
 ```
 
-Note that the commands processed per second by the redis-server is the QPS times 10, which is about 400K.  When thread_num equals 50 or higher, the CPU usage of the redis-server reaches limit. Note that redis-server is a [single-threaded reactor](threading_overview.md#single-threaded-reactor), utilizing one core is the maximum that it can do.
+Note that the commands processed per second by the redis-server is the QPS times 10, which is about 400K.  When thread_num equals 50 or higher, the CPU usage of the redis-server reaches limit. Note that redis-server is a [single-threaded reactor](../../rpc-in-depth/threading-overview/#single-threaded-reactorhttpenwikipediaorgwikireactor_pattern), utilizing one core is the maximum that it can do.
 
 Now start a client to send requests to redis-server on the same machine using 50 bthreads synchronously through pooled connections.
 

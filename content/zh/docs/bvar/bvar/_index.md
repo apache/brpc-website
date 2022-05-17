@@ -18,7 +18,7 @@ description: >
 
 # 新增bvar
 
-增加C++ bvar的方法请看[快速介绍](bvar_c++.md#quick-introduction). bvar默认统计了进程、系统的一些变量，以process\_, system\_等开头，比如：
+增加C++ bvar的方法请看[快速介绍](../bvar-c++/#quick-introduction). bvar默认统计了进程、系统的一些变量，以process\_, system\_等开头，比如：
 
 ```
 process_context_switches_involuntary_second : 14
@@ -61,7 +61,7 @@ iobuf_newbigview_second : 10
 ```
 
 # 监控bvar
-打开bvar的[dump功能](bvar_c++.md#export-all-variables)以导出所有的bvar到文件，格式就如上文一样，每行是一对"名字:值"。打开dump功能后应检查monitor/目录下是否有数据，比如：
+打开bvar的[dump功能](../bvar-c++/#export-all-variables)以导出所有的bvar到文件，格式就如上文一样，每行是一对"名字:值"。打开dump功能后应检查monitor/目录下是否有数据，比如：
 
 ```
 $ ls monitor/

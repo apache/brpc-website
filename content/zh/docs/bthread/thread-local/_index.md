@@ -6,7 +6,7 @@ date: 2021-08-12
 description: >
   thread-local问题。
 ---
-本页说明bthread下使用pthread-local可能会导致的问题。bthread-local的使用方法见[这里](server.md#bthread-local)。
+本页说明bthread下使用pthread-local可能会导致的问题。bthread-local的使用方法见[这里](../../server/basics/#bthread-local)。
 
 # thread-local问题
 

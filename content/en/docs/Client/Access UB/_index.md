@@ -10,7 +10,7 @@ brpc可通过多种方式访问用ub搭建的服务。
 
 # ubrpc (by protobuf)
 
-r31687后，brpc支持通过protobuf访问ubrpc，不需要baidu-rpc-ub，也不依赖idl-compiler。（也可以让protobuf服务被ubrpc client访问，方法见[使用ubrpc的服务](nshead_service.md#使用ubrpc的服务)）。
+r31687后，brpc支持通过protobuf访问ubrpc，不需要baidu-rpc-ub，也不依赖idl-compiler。（也可以让protobuf服务被ubrpc client访问，方法见[使用ubrpc的服务](https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md#使用ubrpc的服务)）。
 
 **步骤：**
 

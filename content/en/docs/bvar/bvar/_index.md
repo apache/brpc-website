@@ -18,7 +18,7 @@ Following graph compares overhead of bvar, atomics, static UbMonitor, dynamic Ub
 
 # Adding new bvar
 
-Read [Quick introduction](bvar_c++.md#quick-introduction) to know how to add bvar in C++.  bvar already provides stats of many process-level and system-level variables by default, which are prefixed with `process_` and `system_`, such as:
+Read [Quick introduction](../bvar-c++/#quick-introduction) to know how to add bvar in C++.  bvar already provides stats of many process-level and system-level variables by default, which are prefixed with `process_` and `system_`, such as:
 
 ```
 process_context_switches_involuntary_second : 14
@@ -62,7 +62,7 @@ iobuf_newbigview_second : 10
 New exported files overwrite previous files, which is different from regular logs which append new data.
 
 # Monitoring bvar
-Turn on [dump feature](bvar_c++.md#export-all-variables) of bvar to export all exposed bvars to files, which are formatted just like above texts: each line is a pair of "name" and "value". Check if there're data under $PWD/monitor/ after enabling dump, for example:
+Turn on [dump feature](../bvar-c++/#export-all-variables) of bvar to export all exposed bvars to files, which are formatted just like above texts: each line is a pair of "name" and "value". Check if there're data under $PWD/monitor/ after enabling dump, for example:
 
 ```
 $ ls monitor/

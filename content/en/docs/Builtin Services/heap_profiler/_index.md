@@ -24,7 +24,7 @@ brpc可以分析内存是被哪些函数占据的。heap profiler的原理是每
    /home/gejun/pprof/echo_server.1419559063.localhost.pprof.heap: header size >= 2**16
    ```
 
-3. 如果只是brpc client或没有使用brpc，看[这里](dummy_server.md)。 
+3. 如果只是brpc client或没有使用brpc，看[这里](../../client/dummy-server/)。 
 
 注意要关闭Server端的认证，否则可能会看到这个：
 

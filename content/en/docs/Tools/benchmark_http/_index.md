@@ -10,4 +10,4 @@ description: >
 
 使用方法：
 
-首先你得[下载和编译](getting_started.md)了brpc源码，然后去example/http_c++目录编译，成功后应该能看到benchmark_http。
+首先你得[下载和编译](../../getting_started/)了brpc源码，然后去example/http_c++目录编译，成功后应该能看到benchmark_http。

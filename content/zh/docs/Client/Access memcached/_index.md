@@ -13,8 +13,8 @@ description: >
 相比使用[libmemcached](http://libmemcached.org/libMemcached.html)(官方client)的优势有：
 
 - 线程安全。用户不需要为每个线程建立独立的client。
-- 支持同步、异步、半同步等访问方式，能使用[ParallelChannel等](combo_channel.md)组合访问方式。
-- 支持多种[连接方式](client.md#连接方式)。支持超时、backup request、取消、tracing、内置服务等一系列brpc提供的福利。
+- 支持同步、异步、半同步等访问方式，能使用[ParallelChannel等](../combo-channels/)组合访问方式。
+- 支持多种[连接方式](../basics/#连接方式)。支持超时、backup request、取消、tracing、内置服务等一系列brpc提供的福利。
 - 有明确的request和response。而libmemcached是没有的，收到的消息不能直接和发出的消息对应上，用户得做额外开发，而且并没有那么容易做对。
 
 当前实现充分利用了RPC的并发机制并尽量避免了拷贝。一个client可以轻松地把一个同机memcached实例(版本1.4.15)压到极限：单连接9万，多连接33万。在大部分情况下，brpc client能充分发挥memcached的性能。

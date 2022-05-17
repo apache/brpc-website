@@ -13,8 +13,8 @@ description: >
 Advantages compared to [libmemcached](http://libmemcached.org/libMemcached.html) (the official client):
 
 - Thread safety. No need to set up separate clients for each thread.
-- Support synchronous, asynchronous, semi-synchronous accesses etc. Support [ParallelChannel etc](combo_channel.md) to define access patterns declaratively.
-- Support various [connection types](../client/basics/#connection-type). Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.
+- Support synchronous, asynchronous, semi-synchronous accesses etc. Support [ParallelChannel etc](../combo-channels/) to define access patterns declaratively.
+- Support various [connection types](../basics/#connection-type). Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.
 - Have the concept of requests and responses while libmemcached don't. Users have to do extra bookkeepings to associate received messages with sent messages, which is not trivial.
 
 The current implementation takes full advantage of the RPC concurrency mechanism and avoids copying as much as possible. A single client can easily pushes a memcached instance (version 1.4.15) on the same machine to its limit: 90,000 QPS for single connection, 330,000 QPS for multiple connections. In most cases, brpc is able to make full use of memcached's capabilities.

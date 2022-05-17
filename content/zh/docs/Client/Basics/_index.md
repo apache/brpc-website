@@ -144,7 +144,7 @@ BNS是百度内常用的命名服务，比如bns://rdev.matrix.all，其中"bns"
 如果consul不可访问，服务可自动降级到file naming service获取服务列表。此功能默认关闭，可通过设置-consul\_enable\_degrade\_to\_file\_naming\_service来打开。服务列表文件目录通过-consul \_file\_naming\_service\_dir来设置，使用service-name作为文件名。该文件可通过consul-template生成，里面会保存consul不可用之前最新的下游服务节点。当consul恢复时可自动恢复到consul naming service。
 
 ### 更多命名服务
-用户可以通过实现brpc::NamingService来对接更多命名服务，具体见[这里](https://github.com/brpc/brpc/blob/master/docs/cn/load_balancing.md#%E5%91%BD%E5%90%8D%E6%9C%8D%E5%8A%A1)
+用户可以通过实现brpc::NamingService来对接更多命名服务，具体见[这里](../../rpc-in-depth/load-balancing/#命名服务)
 
 ### 命名服务中的tag
 每个地址可以附带一个tag，在常见的命名服务中，如果地址后有空格，则空格之后的内容均为tag。
@@ -246,7 +246,7 @@ locality-aware，优先选择延时低的下游，直到其延时高于其他机
 
 注意甄别请求中的“主键”部分和“属性”部分，不要为了偷懒或通用，就把请求的所有内容一股脑儿计算出哈希值，属性的变化会使请求的目的地发生剧烈的变化。另外也要注意padding问题，比如struct Foo { int32_t a; int64_t b; }在64位机器上a和b之间有4个字节的空隙，内容未定义，如果像hash(&foo, sizeof(foo))这样计算哈希值，结果就是未定义的，得把内容紧密排列或序列化后再算。
 
-实现原理请查看[Consistent Hashing](consistent_hashing.md)。
+实现原理请查看[Consistent Hashing](../../rpc-in-depth/consistent-hashing/)。
 
 其他lb不需要设置Controller.set_request_code()，如果调用了request_code也不会被lb使用，例如：lb=rr调用了Controller.set_request_code()，即使所有RPC的request_code都相同，也依然是rr。
 
@@ -315,7 +315,7 @@ if (cntl->Failed()) {
 
 由于CallMethod结束不意味着RPC结束，response/controller仍可能被框架及done->Run()使用，它们一般得创建在堆上，并在done->Run()中删除。如果提前删除了它们，那当done->Run()被调用时，将访问到无效内存。
 
-你可以独立地创建这些对象，并使用[NewCallback](#使用NewCallback)生成done，也可以把Response和Controller作为done的成员变量，[一起new出来](#继承google::protobuf::Closure)，一般使用前一种方法。
+你可以独立地创建这些对象，并使用[NewCallback](#使用newcallback)生成done，也可以把Response和Controller作为done的成员变量，[一起new出来](#继承googleprotobufclosure)，一般使用前一种方法。
 
 发起异步请求后Request可以立刻析构。(SelectiveChannel是个例外，SelectiveChannel情况下必须在请求处理完成后再释放request对象）
 
@@ -387,7 +387,7 @@ stub.some_method(&done->cntl, &request, &done->response, done);
 一定不在同一个线程里运行，即使该次rpc调用刚进去就失败了，回调也会在另一个bthread中运行。这可以在加锁进行rpc（不推荐）的代码中避免死锁。
 
 ## 等待RPC完成
-注意：当你需要发起多个并发操作时，可能[ParallelChannel](combo_channel.md#parallelchannel)更方便。
+注意：当你需要发起多个并发操作时，可能[ParallelChannel](../combo-channels/#parallelchannel)更方便。
 
 如下代码发起两个异步RPC后等待它们完成。
 ```c++
@@ -512,7 +512,7 @@ Client端的设置主要由三部分组成：
 
 - brpc::ChannelOptions: 定义在[src/brpc/channel.h](https://github.com/brpc/brpc/blob/master/src/brpc/channel.h)中，用于初始化Channel，一旦初始化成功无法修改。
 - brpc::Controller: 定义在[src/brpc/controller.h](https://github.com/brpc/brpc/blob/master/src/brpc/controller.h)中，用于在某次RPC中覆盖ChannelOptions中的选项，可根据上下文每次均不同。
-- 全局gflags：常用于调节一些底层代码的行为，一般不用修改。请自行阅读服务[/flags页面](flags.md)中的说明。
+- 全局gflags：常用于调节一些底层代码的行为，一般不用修改。请自行阅读服务[/flags页面](../../builtin-services/flags/)中的说明。
 
 Controller包含了request中没有的数据和选项。server端和client端的Controller结构体是一样的，但使用的字段可能是不同的，你需要仔细阅读Controller中的注释，明确哪些字段可以在server端使用，哪些可以在client端使用。
 
@@ -527,7 +527,7 @@ Controller的特点：
 
 ## 线程数
 
-和大部分的RPC框架不同，brpc中并没有独立的Client线程池。所有Channel和Server通过[bthread](bthread.md)共享相同的线程池. 如果你的程序同样使用了brpc的server, 仅仅需要设置Server的线程数。 或者可以通过[gflags](flags.md)设置[-bthread_concurrency](http://brpc.baidu.com:8765/flags/bthread_concurrency)来设置全局的线程数.
+和大部分的RPC框架不同，brpc中并没有独立的Client线程池。所有Channel和Server通过[bthread](../../bthread/bthread/)共享相同的线程池. 如果你的程序同样使用了brpc的server, 仅仅需要设置Server的线程数。 或者可以通过[gflags](../../builtin-services/flags/)设置[-bthread_concurrency](http://brpc.baidu.com:8765/flags/bthread_concurrency)来设置全局的线程数.
 
 ## 超时
 
@@ -613,7 +613,7 @@ options.retry_policy = &g_my_retry_policy;
 
 ## 熔断
 
-具体方法见[这里](circuit_breaker.md)。
+具体方法见[这里](https://github.com/apache/incubator-brpc/blob/master/docs/cn/circuit_breaker.md)。
 
 ## 协议
 
@@ -621,24 +621,24 @@ Channel的默认协议是baidu_std，可通过设置ChannelOptions.protocol换�
 
 目前支持的有：
 
-- PROTOCOL_BAIDU_STD 或 “baidu_std"，即[百度标准协议](baidu_std.md)，默认为单连接。
+- PROTOCOL_BAIDU_STD 或 “baidu_std"，即[百度标准协议](https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md)，默认为单连接。
 - PROTOCOL_HTTP 或 ”http", http/1.0或http/1.1协议，默认为连接池(Keep-Alive)。
   - 访问普通http服务的方法见[访问http/h2服务](../access-httph2/)
-  - 通过http:json或http:proto访问pb服务的方法见[http/h2衍生协议](http_derivatives.md)
+  - 通过http:json或http:proto访问pb服务的方法见[http/h2衍生协议](https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md)
 - PROTOCOL_H2 或 ”h2", http/2协议，默认是单连接。
   - 访问普通h2服务的方法见[访问http/h2服务](../access-httph2/)。
-  - 通过h2:json或h2:proto访问pb服务的方法见[http/h2衍生协议](http_derivatives.md)
-- "h2:grpc", [gRPC](https://grpc.io)的协议，也是h2的衍生协议，默认为单连接，具体见[h2:grpc](http_derivatives.md#h2grpc)。
-- PROTOCOL_THRIFT 或 "thrift"，[apache thrift](https://thrift.apache.org)的协议，默认为连接池, 具体方法见[访问thrift](thrift.md)。
-- PROTOCOL_MEMCACHE 或 "memcache"，memcached的二进制协议，默认为单连接。具体方法见[访问memcached](memcache_client.md)。
-- PROTOCOL_REDIS 或 "redis"，redis 1.2后的协议(也是hiredis支持的协议)，默认为单连接。具体方法见[访问Redis](redis_client.md)。
+  - 通过h2:json或h2:proto访问pb服务的方法见[http/h2衍生协议](https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md)
+- "h2:grpc", [gRPC](https://grpc.io)的协议，也是h2的衍生协议，默认为单连接，具体见[h2:grpc](https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md#h2grpc)。
+- PROTOCOL_THRIFT 或 "thrift"，[apache thrift](https://thrift.apache.org)的协议，默认为连接池, 具体方法见[访问thrift](../access-thrift/)。
+- PROTOCOL_MEMCACHE 或 "memcache"，memcached的二进制协议，默认为单连接。具体方法见[访问memcached](../access-memcached/)。
+- PROTOCOL_REDIS 或 "redis"，redis 1.2后的协议(也是hiredis支持的协议)，默认为单连接。具体方法见[访问Redis](../access-redis/)。
 - PROTOCOL_HULU_PBRPC 或 "hulu_pbrpc"，hulu的协议，默认为单连接。
 - PROTOCOL_NOVA_PBRPC 或 ”nova_pbrpc“，网盟的协议，默认为连接池。
 - PROTOCOL_SOFA_PBRPC 或 "sofa_pbrpc"，sofa-pbrpc的协议，默认为单连接。
 - PROTOCOL_PUBLIC_PBRPC 或 "public_pbrpc"，public_pbrpc的协议，默认为连接池。
-- PROTOCOL_UBRPC_COMPACK 或 "ubrpc_compack"，public/ubrpc的协议，使用compack打包，默认为连接池。具体方法见[ubrpc (by protobuf)](ub_client.md)。相关的还有PROTOCOL_UBRPC_MCPACK2或ubrpc_mcpack2，使用mcpack2打包。
-- PROTOCOL_NSHEAD_CLIENT 或 "nshead_client"，这是发送baidu-rpc-ub中所有UBXXXRequest需要的协议，默认为连接池。具体方法见[访问UB](ub_client.md)。
-- PROTOCOL_NSHEAD 或 "nshead"，这是发送NsheadMessage需要的协议，默认为连接池。具体方法见[nshead+blob](ub_client.md#nshead-blob) 。
+- PROTOCOL_UBRPC_COMPACK 或 "ubrpc_compack"，public/ubrpc的协议，使用compack打包，默认为连接池。具体方法见[ubrpc (by protobuf)](../access-ub/)。相关的还有PROTOCOL_UBRPC_MCPACK2或ubrpc_mcpack2，使用mcpack2打包。
+- PROTOCOL_NSHEAD_CLIENT 或 "nshead_client"，这是发送baidu-rpc-ub中所有UBXXXRequest需要的协议，默认为连接池。具体方法见[访问UB](../access-ub/)。
+- PROTOCOL_NSHEAD 或 "nshead"，这是发送NsheadMessage需要的协议，默认为连接池。具体方法见[nshead+blob](../access-ub/#nshead-blob) 。
 - PROTOCOL_NSHEAD_MCPACK 或 "nshead_mcpack", 顾名思义，格式为nshead + mcpack，使用mcpack2pb适配，默认为连接池。
 - PROTOCOL_ESP 或 "esp"，访问使用esp协议的服务，默认为连接池。
 
@@ -672,7 +672,7 @@ brpc支持以下连接方式：
 
 - 设置为“”（空字符串）则让框架选择协议对应的默认连接方式。
 
-brpc支持[Streaming RPC](streaming_rpc.md)，这是一种应用层的连接，用于传递流式数据。
+brpc支持[Streaming RPC](../streaming-rpc/)，这是一种应用层的连接，用于传递流式数据。
 
 ## 关闭连接池中的闲置连接
 
@@ -759,7 +759,7 @@ public:
 
 那么当用户并发调用RPC接口用单连接往同一个server发请求时，框架会自动保证：建立TCP连接后，连接上的第一个请求中会带有上述`GenerateCredential`产生的认证包，其余剩下的并发请求不会带有认证信息，依次排在第一个请求之后。整个发送过程依旧是并发的，并不会等第一个请求先返回。若server端认证成功，那么所有请求都能成功返回；若认证失败，一般server端则会关闭连接，这些请求则会收到相应错误。
 
-目前自带协议中支持客户端认证的有：[baidu_std](baidu_std.md)(默认协议), HTTP, hulu_pbrpc, ESP。对于自定义协议，一般可以在组装请求阶段，调用Authenticator接口生成认证串，来支持客户端认证。
+目前自带协议中支持客户端认证的有：[baidu_std](https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md)(默认协议), HTTP, hulu_pbrpc, ESP。对于自定义协议，一般可以在组装请求阶段，调用Authenticator接口生成认证串，来支持客户端认证。
 
 ## 重置
 
@@ -853,7 +853,7 @@ struct ChannelOptions {
 
 ### Q: 为什么同步方式是好的，异步就crash了
 
-重点检查Controller，Response和done的生命周期。在异步访问中，RPC调用结束并不意味着RPC整个过程结束，而是在进入done->Run()时才会结束。所以这些对象不应在调用RPC后就释放，而是要在done->Run()里释放。你一般不能把这些对象分配在栈上，而应该分配在堆上。详见[异步访问](client.md#异步访问)。
+重点检查Controller，Response和done的生命周期。在异步访问中，RPC调用结束并不意味着RPC整个过程结束，而是在进入done->Run()时才会结束。所以这些对象不应在调用RPC后就释放，而是要在done->Run()里释放。你一般不能把这些对象分配在栈上，而应该分配在堆上。详见[异步访问](#异步访问)。
 
 ### Q: 怎么确保请求只被处理一次
 

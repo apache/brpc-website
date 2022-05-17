@@ -6,55 +6,55 @@ date: 2021-08-12
 description: >
   Learn how to debug server issues.
 ---
-# 1.检查工作线程的数量
+# 1. Check the number of worker threads
 
-查看 /vars/bthread_worker_**count** 和 /vars/bthread_worker_**usage**。分别是工作线程的个数，和正在被使用的工作线程个数。
+Check **/vars/bthread_worker_count** and **/vars/bthread_worker_usage**, which is the number of worker threads in total and being used, respectively.
 
-> 如果usage和count接近，说明线程不够用了。
+> The number of usage and count being close means that worker threads are not enough.
 
-比如，下图中有24个工作线程，正在使用的是23.93个，说明所有的工作线程都被打满了，不够用了。
+For example, there are 24 worker threads in the following figure, among which 23.93 worker threads are being used, indicating all the worker threads are full of jobs and not enough.
 
 ![img](/images/docs/full_worker_usage.png)
 
-下图中正在使用的只有2.36个，工作线程明显是足够的。
+There are 2.36 worker threads being used in the following figure. Apparently the worker threads are enough.
 
 ![img](/images/docs/normal_worker_usage.png)
 
-把 /vars/bthread_worker_count;bthread_worker_usage?expand 拼在服务url后直接看到这两幅图，就像[这样](http://brpc.baidu.com:8765/vars/bthread_worker_count;bthread_worker_usage?expand)。
+These two figures can be seen directly by putting /vars/bthread_worker_count;bthread_worker_usage?expand after service url, just like [this](http://brpc.baidu.com:8765/vars/bthread_worker_count;bthread_worker_usage?expand).
 
-# 2.检查CPU的使用程度
+# 2. Check CPU usage
 
-查看 /vars/system_core_**count** 和 /vars/process_cpu_**usage**。分别是cpu核心的个数，和正在使用的cpu核数。
+Check /vars/system_core_**count** and /vars/process_cpu_**usage**, which is the number of cpu core available and being used, respectively.
 
-> 如果usage和count接近，说明CPU不够用了。
+> The number of usage and count being close means that cpus are enough.
 
-下图中cpu核数为24，正在使用的核心数是20.9个，CPU是瓶颈了。
+In the following figure the number of cores is 24, while the number of cores being used is 20.9, which means CPU is bottleneck.
 
 ![img](/images/docs/high_cpu_usage.png)
 
-下图中正在使用的核心数是2.06，CPU是够用的。
+The number of cores being used in the figure below is 2.06, then CPU is sufficient.
 
 ![img](/images/docs/normal_cpu_usage.png)
 
-# 3.定位问题
+# 3. Locate problems
 
-如果process_cpu_usage和bthread_worker_usage接近，说明是cpu-bound，工作线程大部分时间在做计算。
+The number of process_cpu_usage being close to bthread_worker_usage means it is a cpu-bound program and worker threads are doing calculations in most of the time.
 
-如果process_cpu_usage明显小于bthread_worker_usage，说明是io-bound，工作线程大部分时间在阻塞。
+The number of process_cpu_usage being much less than bthread_worker_usage means it is an io-bound program and worker threads are blocking in most of the time.
 
-1 - process_cpu_usage / bthread_worker_usage就是大约在阻塞上花费的时间比例，比如process_cpu_usage = 2.4，bthread_worker_usage = 18.5，那么工作线程大约花费了87.1% 的时间在阻塞上。
+(1 - process_cpu_usage / bthread_worker_usage) is the time ratio that spent on blocking. For example, if process_cpu_usage = 2.4, bthread_worker_usage = 18.5, then worker threads spent 87.1% of time on blocking.
 
-## 3.1 定位cpu-bound问题
+## 3.1 Locate cpu-bound problem
 
-原因可能是单机性能不足，或上游分流不均。
+The possible reason may be the poor performance of single server or uneven distribution to upstreams.
 
-### 排除上游分流不均的嫌疑
+### exclude the suspect of uneven distribution to upstreams
 
-在不同服务的[vars界面](http://brpc.baidu.com:8765/vars)输入qps，查看不同的qps是否符合预期，就像这样：
+Enter qps at [vars]((http://brpc.baidu.com:8765/vars) page of different services to check whether qps is as expected, just like this:
 
 ![img](/images/docs/bthread_creation_qps.png)
 
-或者在命令行中用curl直接访问，像这样：
+Or directly visit using curl in command line, like this:
 
 ```shell
 $ curl brpc.baidu.com:8765/vars/*qps*
@@ -62,77 +62,77 @@ bthread_creation_qps : 95
 rpc_server_8765_example_echo_service_echo_qps : 57
 ```
 
-如果不同机器的分流确实不均，且难以解决，可以考虑[限制最大并发](server.md#限制最大并发)。
+If the distribution of different machines is indeed uneven and difficult to solve, [Limit concurrency](../basics/#limit-concurrency) can be considered to use.
 
-### 优化单机性能
+### Improve performance of single server
 
-请使用[CPU profiler](cpu_profiler.md)分析程序的热点，用数据驱动优化。一般来说一个卡顿的cpu-bound程序一般能看到显著的热点。
+Please use [CPU profiler](../../builtin-services/cpu_profiler/) to analyze hot spots of the program and use data to guide optimization. Generally speaking, some big and obvious hot spots can be found in a cpu-bound program.
 
-## 3.2 定位io-bound问题
+## 3.2 Locate io-bound problem
 
-原因可能有：
+The possible reason:
 
-- 线程确实配少了
-- 访问下游服务的client不支持bthread，且延时过长
-- 阻塞来自程序内部的锁，IO等等。
+- working threads are not enough.
+- the client that visits downstream servers doesn't support bthread and the latency is too long.
+- blocking that caused by internal locks, IO, etc.
 
-如果阻塞无法避免，考虑用异步。
+If blocking is inevitable, please consider asynchronous method.
 
-### 排除工作线程数不够的嫌疑
+### exclude the suspect of working threads are not enough
 
-如果线程数不够，你可以尝试动态调大工作线程数，切换到/flags页面，点击bthread_concurrency右边的(R):
+If working threads are not enough, you can try to dynamically adjust the number of threads. Switch to the /flags page and click the (R) in the right of bthread_concurrency:
 
 ![img](/images/docs/bthread_concurrency_1.png)
 
-进入后填入新的线程数确认即可：
+Just enter the new thread number and confirm:
 
 ![img](/images/docs/bthread_concurrency_2.png)
 
-回到/flags界面可以看到bthread_concurrency已变成了新值。
+Back to the /flags page, you can see that bthread_concurrency has become the new value.
 
 ![img](/images/docs/bthread_concurrency_3.png)
 
-不过，调大线程数未必有用。如果工作线程是由于访问下游而大量阻塞，调大工作线程数是没有用的。因为真正的瓶颈在于后端的，调大线程后只是让每个线程的阻塞时间变得更长。
+However, adjusting the number of threads may not be useful. If the worker threads are largely blocked by visiting downstreams, it is useless to adjust the thread number since the real bottleneck is in the back-end and adjusting the thread number to a larger value just make the blocking time of each thread become longer.
 
-比如在我们这的例子中，调大线程后新增的工作线程仍然被打满了。
+For example, in our example, the worker threads are still full of work after the thread number is resized.
 
 ![img](/images/docs/full_worker_usage_2.png)
 
-### 排除锁的嫌疑
+### exclude the suspect of lock
 
-如果程序被某把锁挡住了，也可能呈现出“io-bound”的特征。先用[contention profiler](contention_profiler.md)排查锁的竞争状况。
+If the program is blocked by some lock, it can also present features of io-bound. First use [contention profiler](../../builtin-services/contention_profiler) to check the contention status of locks.
 
-### 使用rpcz
+### use rpcz
 
-rpcz可以帮助你看到最近的所有请求，和处理它们时在每个阶段花费的时间（单位都是微秒）。
+rpcz can help you see all the recent requests and the time(us) spent in each phase while processing them.
 
 ![img](/images/docs/rpcz.png)
 
-点击一个span链接后看到该次RPC何时开始，每个阶段花费的时间，何时结束。
+Click on a span link to see when the RPC started, the spent time in each phase and when it ended.
 
 ![img](/images/docs/rpcz_2.png)
 
-这是一个典型的server在严重阻塞的例子。从接收到请求到开始运行花费了20ms，说明server已经没有足够的工作线程来及时完成工作了。
+This is a typical example that server is blocked severely. It takes 20ms from receiving the request to starting running, indicating that the server does not have enough worker threads to get the job done in time.
 
-现在这个span的信息比较少，我们去程序里加一些。你可以使用TRACEPRINTF向rpcz打印日志。打印内容会嵌入在rpcz的时间流中。
+For now the information of this span is less, we can add some in the program. You can use TRACEPRINTF print logs to rpcz. Printed content is embedded in the time stream of rpcz.
 
 ![img](/images/docs/trace_printf.png)
 
-重新运行后，查看一个span，里面的打印内容果然包含了我们增加的TRACEPRINTF。
+After Re-running, you can check the span and it really contains the content we added by TRACEPRINTF.
 
 ![img](/images/docs/rpcz_3.png)
 
-在运行到第一条TRACEPRINTF前，用户回调已运行了2051微秒（假设这符合我们的预期），紧接着foobar()却花费了8036微秒，我们本来以为这个函数会很快返回的。范围进一步缩小了。
+Before running to the first TRACEPRINTF, the user callback has already run for 2051ms(suppose it meets our expectation), followed by foobar() that took 8036ms, which is expected to return very fast. The range has been further reduced.
 
-重复这个过程，直到找到那个造成问题的函数。
+Repeat this process until you find the function that caused the problem.
 
-### 使用bvar
+## Use bvar
 
-TRACEPRINTF主要适合若干次的函数调用，如果一个函数调用了很多次，或者函数本身开销很小，每次都往rpcz打印日志是不合适的。这时候你可以使用bvar。
+TRACEPRINTF is mainly suitable for functions that called several times, so if a function is called many times, or the function itself has a small overhead, it is not appropriate to print logs to rpcz every time. You can use bvar instead.
 
-[bvar](bvar.md)是一个多线程下的计数库，可以以极低的开销统计用户递来的数值，相比“打日志大法”几乎不影响程序行为。你不用完全了解bvar的完整用法，只要使用bvar::LatencyRecorder即可。
+[bvar](../../bvar/bvar/) is a multi-threaded counting library, which can record the value passed from user at an extreme low cost and almost does not affect the program behavior compared to logging.
 
-仿照如下代码对foobar的运行时间进行监控。
+Follow the code below to monitor the runtime of foobar.
 
 ```c++
 #include <butil/time.h>
@@ -152,18 +152,18 @@ void search() {
 }
 ```
 
-重新运行程序后，在vars的搜索框中键入foobar，显示如下：
+After rerunning the program, enter foobar in the search box of vars. The result is shown as below:
 
 ![img](/images/docs/foobar_bvar.png)
 
-点击一个bvar可以看到动态图，比如点击cdf后看到
+Click on a bvar and you can see a dynamic figure. For example, after clicking on cdf:
 
 ![img](/images/docs/foobar_latency_cdf.png)
 
-根据延时的分布，你可以推测出这个函数的整体行为，对大多数请求表现如何，对长尾表现如何。
+Depending on the distribution of delays, you can infer the overall behavior of this function, how it behaves for most requests and how it behaves for long tails.
 
-你可以在子函数中继续这个过程，增加更多bvar，并比对不同的分布，最后定位来源。
+You can continue this process in the subroutine, add more bvar, compare the different distributions, and finally locate the source.
 
-### 只使用了brpc client
+### Use brpc client only
 
-得打开dummy server提供内置服务，方法见[这里](dummy_server.md)。
+You have to open the dummy server to provide built-in services, see [here](../../client/dummy-server/).

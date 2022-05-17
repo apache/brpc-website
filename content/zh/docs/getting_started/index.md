@@ -14,7 +14,7 @@ brpc有如下依赖：
 
 * [gflags](https://github.com/gflags/gflags): Extensively used to define global options.
 * [protobuf](https://github.com/google/protobuf): Serializations of messages, interfaces of services.
-* [leveldb](https://github.com/google/leveldb): Required by [rpcz](rpcz.md) to record RPCs for tracing.
+* [leveldb](https://github.com/google/leveldb): Required by [rpcz](../builtin-services/rpcz/) to record RPCs for tracing.
 
 # 支持的环境
 
@@ -59,7 +59,7 @@ $ make
 
 使用glog版的brpc，添加选项`--with-glog`。
 
-要启用 [thrift 支持](../en/thrift.md)，首先安装thrift并且添加选项`--with-thrift`。
+要启用 [thrift 支持](../server/serve-thrift/)，首先安装thrift并且添加选项`--with-thrift`。
 
 **运行样例**
 
@@ -91,7 +91,7 @@ cmake -B build && cmake --build build -j6
 
 想要让brpc使用glog，用`-DWITH_GLOG=ON`选项执行cmake。
 
-要启用 [thrift 支持](../en/thrift.md)，先安装thrift，然后用`-DWITH_THRIFT=ON`选项执行cmake。
+要启用 [thrift 支持](../server/serve-thrift/)，先安装thrift，然后用`-DWITH_THRIFT=ON`选项执行cmake。
 
 **用cmake运行样例**
 
@@ -153,7 +153,7 @@ $ make
 
 想要让brpc使用glog，添加选项：`--with-glog`。
 
-要启用 [thrift 支持](../en/thrift.md)，先安装thrift，然后添加选项：`--with-thrift`。
+要启用 [thrift 支持](../server/serve-thrift/)，先安装thrift，然后添加选项：`--with-thrift`。
 
 **运行样例**
 
@@ -207,7 +207,7 @@ $ make
 
 使用glog版的brpc，添加选项`--with-glog`。
 
-要启用[thrift 支持](../en/thrift.md)，首先安装thrift并且添加选项`--with-thrift`。
+要启用[thrift 支持](../server/serve-thrift/)，首先安装thrift并且添加选项`--with-thrift`。
 
 ```shell
 $ ls my_dev
@@ -257,7 +257,7 @@ $ make
 
 使用glog版的brpc，添加选项`--with-glog`。
 
-要启用[thrift 支持](../en/thrift.md)，首先安装thrift并且添加选项`--with-thrift`。
+要启用[thrift 支持](../server/serve-thrift/)，首先安装thrift并且添加选项`--with-thrift`。
 
 **运行样例**
 
@@ -289,7 +289,7 @@ GCC7中over-aligned的问题暂时被禁止。
 
 使用其他版本的gcc可能会产生编译警告，请联系我们予以修复。
 
-请在makefile中给cxxflags增加`-D__const__=`选项以避免[gcc4+中的errno问题](thread_local.md).
+请在makefile中给cxxflags增加`-D__const__=`选项以避免[gcc4+中的errno问题](../bthread/thread-local/).
 
 ## Clang: 3.5-4.0
 
@@ -329,7 +329,7 @@ brpc默认**不**链接 [tcmalloc](http://goog-perftools.sourceforge.net/doc/tcm
 
 另外一个使用tcmalloc的常见问题是，它不会像 ptmalloc一样及时地归还内存给系统。因此当有一个无效的内存访问的时候，程序可能不会直接挂掉，取而代之的是它可能在一个不相关的地方挂掉，或者甚至一直不挂掉。当你的程序出现怪异的内存问题的时候，尝试移除tcmalloc。
 
-如果你要使用[cpu profiler](cpu_profiler.md)或[heap profiler](heap_profiler.md)，要链接`libtcmalloc_and_profiler.a`。这两个 profiler都是基于tcmalloc的。而[contention profiler](contention_profiler.md)不需要tcmalloc。
+如果你要使用[cpu profiler](../builtin-services/cpu_profiler)或[heap profiler](../builtin-services/heap_profiler)，要链接`libtcmalloc_and_profiler.a`。这两个 profiler都是基于tcmalloc的。而[contention profiler](../builtin-services/contention_profiler)不需要tcmalloc。
 
 当你移除tcmalloc的时候，不仅要移除tcmalloc的链接，也要移除宏`-DBRPC_ENABLE_CPU_PROFILER`。
 

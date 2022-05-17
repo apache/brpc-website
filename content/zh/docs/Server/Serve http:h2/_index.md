@@ -324,7 +324,7 @@ if (encoding != NULL && *encoding == "gzip") {
 ```
 
 # 处理https请求
-https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启服务端SSL的一般性方法见[这里](server.md#开启ssl)。
+https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启服务端SSL的一般性方法见[这里](../basics/#开启ssl)。
 
 # 性能
 
@@ -333,7 +333,7 @@ https是http over SSL的简称，SSL并不是http特有的，而是对所有协�
 - 使用了node.js的[http parser](https://github.com/brpc/brpc/blob/master/src/brpc/details/http_parser.h)解析http消息，这是一个轻量、优秀、被广泛使用的实现。
 - 使用[rapidjson](https://github.com/miloyip/rapidjson)解析json，这是一个主打性能的json库。
 - 在最差情况下解析http请求的时间复杂度也是O(N)，其中N是请求的字节数。反过来说，如果解析代码要求http请求是完整的，那么它可能会花费O(N^2)的时间。HTTP请求普遍较大，这一点意义还是比较大的。
-- 来自不同client的http消息是高度并发的，即使相当复杂的http消息也不会影响对其他客户端的响应。其他rpc和[基于单线程reactor](threading_overview.md#单线程reactor)的各类http server往往难以做到这一点。
+- 来自不同client的http消息是高度并发的，即使相当复杂的http消息也不会影响对其他客户端的响应。其他rpc和[基于单线程reactor](../../rpc-in-depth/threading-overview/#单线程reactorhttpenwikipediaorgwikireactor_pattern)的各类http server往往难以做到这一点。
 
 # 持续发送
 

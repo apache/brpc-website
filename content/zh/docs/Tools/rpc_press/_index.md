@@ -16,7 +16,7 @@ rpc_press无需写代码就压测各种rpc server，目前支持的协议有：
 
 # 获取工具
 
-先按照[Getting Started](getting_started.md)编译好brpc，再去tools/rpc_press编译。
+先按照[Getting Started](../../getting_started/)编译好brpc，再去tools/rpc_press编译。
 
 在CentOS 6.3上如果出现找不到libssl.so.4的错误，可执行`ln -s /usr/lib64/libssl.so.6 libssl.so.4临时解决`
 
@@ -34,17 +34,17 @@ json也可以写在文件中，假如./input.json包含了上述两个请求，-
 
 - -proto：指定相关的proto文件名。
 - -method：指定方法名，形式必须是package.service.method。
-- -server：当-lb_policy为空时，是服务器的ip:port；当-lb_policy不为空时，是集群地址，比如bns://node-name, file://server_list等等。具体见[命名服务](client.md#命名服务)。
+- -server：当-lb_policy为空时，是服务器的ip:port；当-lb_policy不为空时，是集群地址，比如bns://node-name, file://server_list等等。具体见[命名服务](../../client/basics/#命名服务)。
 - -input: 指定json请求或包含json请求的文件。r32157后json间不需要分隔符，r32157前json间用分号分隔。
 
 可选参数:
 
 - -inc: 包含被import的proto文件的路径。rpc_press默认支持import目录下的其他proto文件，但如果proto文件在其他目录，就要通过这个参数指定，多个路径用分号(;)分隔。
-- -lb_policy: 指定负载均衡算法，默认为空，可选项为: rr random la c_murmurhash c_md5，具体见[负载均衡](client.md#负载均衡)。
+- -lb_policy: 指定负载均衡算法，默认为空，可选项为: rr random la c_murmurhash c_md5，具体见[负载均衡](../../client/basics/#负载均衡)。
 - -timeout_ms: 设定超时,单位是毫秒(milliseconds),默认是1000(1秒)
-- -max_retry: 最大的重试次数,默认是3, 一般无需修改. brpc的重试行为具体请见[这里](client.md#重试).
-- -protocol: 连接server使用的协议，可选项见[协议](client.md#协议), 默认是baidu_std
-- -connection_type: 连接方式，可选项为: single pooled short，具体见[连接方式](client.md#连接方式)。默认会根据协议自动选择,无需指定.
+- -max_retry: 最大的重试次数,默认是3, 一般无需修改. brpc的重试行为具体请见[这里](../../client/basics/#重试).
+- -protocol: 连接server使用的协议，可选项见[协议](../../client/basics/#协议), 默认是baidu_std
+- -connection_type: 连接方式，可选项为: single pooled short，具体见[连接方式](../../client/basics/#连接方式)。默认会根据协议自动选择,无需指定.
 - -output: 如果不为空，response会转为json并写入这个文件，默认为空。
 - -duration：大于0时表示发送这么多秒的压力后退出，否则一直发直到按ctrl-c或进程被杀死。默认是0（一直发送）。
 - -qps：大于0时表示以这个压力发送，否则以最大速度(自适应)发送。默认是100。

@@ -275,7 +275,7 @@ $ curl -d '{"message":"hello"}' http://brpc.baidu.com:8765/EchoService/Echo
 
 ## json<=>pb
 
-json字段通过匹配的名字和结构与pb字段一一对应。json中一定要包含pb的required字段，否则转化会失败，对应请求会被拒绝。json中可以包含pb中没有定义的字段，但它们会被丢弃而不会存入pb的unknown字段。转化规则详见[json <=> protobuf](json2pb.md)。
+json字段通过匹配的名字和结构与pb字段一一对应。json中一定要包含pb的required字段，否则转化会失败，对应请求会被拒绝。json中可以包含pb中没有定义的字段，但它们会被丢弃而不会存入pb的unknown字段。转化规则详见[json <=> protobuf](../json2pb/)。
 
 开启选项-pb_enum_as_number后，pb中的enum会转化为它的数值而不是名字，比如在`enum MyEnum { Foo = 1; Bar = 2; };`中不开启此选项时MyEnum类型的字段会转化为"Foo"或"Bar"，开启后为1或2。此选项同时影响client发出的请求和server返回的回复。由于转化为名字相比数值有更好的前后兼容性，此选项只应用于兼容无法处理enum为名字的老代码。
 
@@ -303,7 +303,7 @@ server端会自动尝试其支持的协议，无需用户指定。`cntl->protoco
 
 - [百度标准协议](baidu_std.md)，显示为"baidu_std"，默认启用。
 
-- [流式RPC协议](streaming_rpc.md)，显示为"streaming_rpc", 默认启用。
+- [流式RPC协议](../../client/streaming-rpc/)，显示为"streaming_rpc", 默认启用。
 
 - http/1.0和http/1.1协议，显示为”http“，默认启用。
 
@@ -460,7 +460,7 @@ brpc移除了protobuf中的限制，全交由此选项控制，只要-max_body_s
 
 set_response_compress_type()设置response的压缩方式，默认不压缩。
 
-注意附件不会被压缩。HTTP body的压缩方法见[这里](http_service.md#压缩response-body)。
+注意附件不会被压缩。HTTP body的压缩方法见[这里](../serve-httph2/#压缩response-body)。
 
 支持的压缩方法有：
 
@@ -468,7 +468,7 @@ set_response_compress_type()设置response的压缩方式，默认不压缩。
 - brpc::CompressTypeGzip : [gzip压缩](http://en.wikipedia.org/wiki/Gzip)，显著慢于snappy，但压缩率高
 - brpc::CompressTypeZlib : [zlib压缩](http://en.wikipedia.org/wiki/Zlib)，比gzip快10%~20%，压缩率略好于gzip，但速度仍明显慢于snappy。
 
-更具体的性能对比见[Client-压缩](client.md#压缩).
+更具体的性能对比见[Client-压缩](../../client/basics/#压缩).
 
 ## 附件
 
@@ -536,7 +536,7 @@ struct ServerSSLOptions {
 
 - SSL层在协议层之下（作用在Socket层），即开启后，所有协议（如HTTP）都支持用SSL加密后传输到Server，Server端会先进行SSL解密后，再把原始数据送到各个协议中去。
 
-- SSL开启后，端口仍然支持非SSL的连接访问，Server会自动判断哪些是SSL，哪些不是。如果要屏蔽非SSL访问，用户可通过`Controller::is_ssl()`判断是否是SSL，同时在[connections](connections.md)内置监控上也可以看到连接的SSL信息。
+- SSL开启后，端口仍然支持非SSL的连接访问，Server会自动判断哪些是SSL，哪些不是。如果要屏蔽非SSL访问，用户可通过`Controller::is_ssl()`判断是否是SSL，同时在[connections](../../builtin-services/connections/)内置监控上也可以看到连接的SSL信息。
 
 ## 验证client身份
 
@@ -646,7 +646,7 @@ options.method_max_concurrency = "auto";
 // Set auto concurrency limiter for specific method
 server.MaxConcurrencyOf("example.EchoService.Echo") = "auto";
 ```
-关于自适应限流的更多细节可以看[这里](auto_concurrency_limiter.md)
+关于自适应限流的更多细节可以看[这里](../auto-concurrencylimiter/)
 
 ## pthread模式
 
@@ -1016,7 +1016,7 @@ A: 一般是client端使用了连接池或短连接模式，在RPC超时后会�
 
 这不是错误，是常见的warning，表示对端关掉连接了（EOF)。这个日志有时对排查问题有帮助。
 
-默认关闭，把参数-log_connection_close设置为true就打开了（支持[动态修改](flags.md#change-gflag-on-the-fly)）。
+默认关闭，把参数-log_connection_close设置为true就打开了（支持[动态修改](../../builtin-services/flags/#change-gflag-on-the-fly)）。
 
 ### Q: 为什么server端线程数设了没用
 
@@ -1024,7 +1024,7 @@ brpc同一个进程中所有的server[共用线程](#worker线程数)，如果�
 
 ### Q: 为什么client端的延时远大于server端的延时
 
-可能是server端的工作线程不够用了，出现了排队现象。排查方法请查看[高效率排查服务卡顿](server_debugging.md)。
+可能是server端的工作线程不够用了，出现了排队现象。排查方法请查看[高效率排查服务卡顿](../debug-server-issues/)。
 
 ### Q: Fail to open /proc/self/io
 
