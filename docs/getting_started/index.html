@@ -24,13 +24,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/getting_started/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-30T19:27:29+08:00" /><meta property="og:site_name" content="bRPC" />
+<meta property="article:modified_time" content="2022-05-17T20:01:06+08:00" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="Getting started">
 <meta itemprop="description" content="Read getting started for building steps and play with [examples](https://github.com/apache/incubator-brpc/tree/master/example).
 "><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-30T19:27:29+08:00" />
-<meta itemprop="wordCount" content="1411">
+<meta itemprop="dateModified" content="2022-05-17T20:01:06+08:00" />
+<meta itemprop="wordCount" content="1412">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting started"/>
 <meta name="twitter:description" content="Read getting started for building steps and play with [examples](https://github.com/apache/incubator-brpc/tree/master/example).
@@ -2071,7 +2071,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="https://github.com/gflags/gflags">gflags</a>: Extensively used to define global options.</li>
 <li><a href="https://github.com/google/protobuf">protobuf</a>: Serializations of messages, interfaces of services.</li>
-<li><a href="https://github.com/google/leveldb">leveldb</a>: Required by <a href="rpcz.md">/rpcz</a> to record RPCs for tracing.</li>
+<li><a href="https://github.com/google/leveldb">leveldb</a>: Required by <a href="../builtin-services/rpcz/">/rpcz</a> to record RPCs for tracing.</li>
 </ul>
 <h1 id="supported-environment">Supported Environment</h1>
 <ul>
@@ -2098,7 +2098,7 @@ $ make
 </code></pre></div><p>To change compiler to clang, add <code>--cxx=clang++ --cc=clang</code>.</p>
 <p>To not link debugging symbols, add <code>--nodebugsymbols</code> and compiled binaries will be much smaller.</p>
 <p>To use brpc with glog, add <code>--with-glog</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
+<p>To enable <a href="../server/serve-thrift/">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
 <p><strong>Run example</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
@@ -2115,7 +2115,7 @@ $ sh run_tests.sh
 <p>To change compiler to clang, overwrite environment variable <code>CC</code> and <code>CXX</code> to <code>clang</code> and <code>clang++</code> respectively.</p>
 <p>To not link debugging symbols, remove <code>build/CMakeCache.txt</code> and cmake with <code>-DWITH_DEBUG_SYMBOLS=OFF</code></p>
 <p>To use brpc with glog, cmake with <code>-DWITH_GLOG=ON</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and cmake with <code>-DWITH_THRIFT=ON</code>.</p>
+<p>To enable <a href="../server/serve-thrift/">thrift support</a>, install thrift first and cmake with <code>-DWITH_THRIFT=ON</code>.</p>
 <p><strong>Run example with cmake</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ cmake -B build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake --build build -j4
@@ -2143,7 +2143,7 @@ $ make
 </code></pre></div><p>To change compiler to clang, add <code>--cxx=clang++ --cc=clang</code>.</p>
 <p>To not link debugging symbols, add <code>--nodebugsymbols</code> and compiled binaries will be much smaller.</p>
 <p>To use brpc with glog, add <code>--with-glog</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
+<p>To enable <a href="../server/serve-thrift/">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
 <p><strong>Run example</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
@@ -2171,7 +2171,7 @@ $ make
 <p>To change compiler to clang, add <code>--cxx=clang++ --cc=clang</code>.</p>
 <p>To not link debugging symbols, add <code>--nodebugsymbols</code> and compiled binaries will be much smaller.</p>
 <p>To use brpc with glog, add <code>--with-glog</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
+<p>To enable <a href="../server/serve-thrift/">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ls my_dev
 gflags_dev protobuf_dev leveldb_dev brpc_dev
 $ <span style="color:#204a87">cd</span> brpc_dev
@@ -2197,7 +2197,7 @@ $ make
 $ make
 </code></pre></div><p>To not link debugging symbols, add <code>--nodebugsymbols</code> and compiled binaries will be much smaller.</p>
 <p>To use brpc with glog, add <code>--with-glog</code>.</p>
-<p>To enable <a href="../en/thrift.md">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
+<p>To enable <a href="../server/serve-thrift/">thrift support</a>, install thrift first and add <code>--with-thrift</code>.</p>
 <p><strong>Run example</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
@@ -2215,7 +2215,7 @@ $ sh run_tests.sh
 <p>c++11 is turned on by default to remove dependencies on boost (atomic).</p>
 <p>The over-aligned issues in GCC7 is suppressed temporarily now.</p>
 <p>Using other versions of gcc may generate warnings, contact us to fix.</p>
-<p>Adding <code>-D__const__=</code> to cxxflags in your makefiles is a must to avoid <a href="thread_local.md">errno issue in gcc4+</a>.</p>
+<p>Adding <code>-D__const__=</code> to cxxflags in your makefiles is a must to avoid <a href="../bthread/thread-local/">errno issue in gcc4+</a>.</p>
 <h2 id="clang-35-40">Clang: 3.5-4.0</h2>
 <p>no known issues.</p>
 <h2 id="glibc-212-225">glibc: 2.12-2.25</h2>
@@ -2236,7 +2236,7 @@ Don&rsquo;t use new types in proto3 and start the proto file with <code>syntax=&
 <p><img src="/images/docs/tcmalloc_stuck.png" alt="img"></p>
 <p>When you meet the issue, compile tcmalloc with the same GCC.</p>
 <p>Another common issue with tcmalloc is that it does not return memory to system as early as ptmalloc. So when there&rsquo;s an invalid memory access, the program may not crash directly, instead it crashes at a unrelated place, or even not crash. When you program has weird memory issues, try removing tcmalloc.</p>
-<p>If you want to use <a href="cpu_profiler.md">cpu profiler</a> or <a href="heap_profiler.md">heap profiler</a>, do link <code>libtcmalloc_and_profiler.a</code>. These two profilers are based on tcmalloc.<a href="contention_profiler.md">contention profiler</a> does not require tcmalloc.</p>
+<p>If you want to use <a href="../builtin-services/cpu_profiler">cpu profiler</a> or <a href="../builtin-services/heap_profiler">heap profiler</a>, do link <code>libtcmalloc_and_profiler.a</code>. These two profilers are based on tcmalloc. <a href="../builtin-services/contention_profiler">contention profiler</a> does not require tcmalloc.</p>
 <p>When you remove tcmalloc, not only remove the linkage with tcmalloc but also the macro <code>-DBRPC_ENABLE_CPU_PROFILER</code>.</p>
 <h2 id="glog-33">glog: 3.3+</h2>
 <p>brpc implements a default <a href="../../src/butil/logging.h">logging utility</a> which conflicts with glog. To replace this with glog, add <em>&ndash;with-glog</em> to config_brpc.sh or add <code>-DWITH_GLOG=ON</code> to cmake.</p>
@@ -2249,7 +2249,7 @@ Don&rsquo;t use new types in proto3 and start the proto file with <code>syntax=&
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

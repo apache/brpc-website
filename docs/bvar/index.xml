@@ -29,7 +29,7 @@
 &lt;p&gt;Following graph compares overhead of bvar, atomics, static UbMonitor, dynamic UbMonitor when they&amp;rsquo;re accessed by multiple threads simultaneously. We can see that overhead of bvar is not related to number of threads basically, and being constantly low (~20 nanoseconds). As a contrast, dynamic UbMonitor costs 7 microseconds on each operation when there&amp;rsquo;re 24 threads, which is the overhead of using the bvar for 300 times.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/bvar_perf.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;adding-new-bvar&#34;&gt;Adding new bvar&lt;/h1&gt;
-&lt;p&gt;Read &lt;a href=&#34;bvar_c++.md#quick-introduction&#34;&gt;Quick introduction&lt;/a&gt; to know how to add bvar in C++.  bvar already provides stats of many process-level and system-level variables by default, which are prefixed with &lt;code&gt;process_&lt;/code&gt; and &lt;code&gt;system_&lt;/code&gt;, such as:&lt;/p&gt;
+&lt;p&gt;Read &lt;a href=&#34;../bvar-c++/#quick-introduction&#34;&gt;Quick introduction&lt;/a&gt; to know how to add bvar in C++.  bvar already provides stats of many process-level and system-level variables by default, which are prefixed with &lt;code&gt;process_&lt;/code&gt; and &lt;code&gt;system_&lt;/code&gt;, such as:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;process_context_switches_involuntary_second : 14
 process_context_switches_voluntary_second : 15760
 process_cpu_usage : 0.428
@@ -65,7 +65,7 @@ iobuf_block_memory : 729088
 iobuf_newbigview_second : 10
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;New exported files overwrite previous files, which is different from regular logs which append new data.&lt;/p&gt;
 &lt;h1 id=&#34;monitoring-bvar&#34;&gt;Monitoring bvar&lt;/h1&gt;
-&lt;p&gt;Turn on &lt;a href=&#34;bvar_c++.md#export-all-variables&#34;&gt;dump feature&lt;/a&gt; of bvar to export all exposed bvars to files, which are formatted just like above texts: each line is a pair of &amp;ldquo;name&amp;rdquo; and &amp;ldquo;value&amp;rdquo;. Check if there&amp;rsquo;re data under $PWD/monitor/ after enabling dump, for example:&lt;/p&gt;
+&lt;p&gt;Turn on &lt;a href=&#34;../bvar-c++/#export-all-variables&#34;&gt;dump feature&lt;/a&gt; of bvar to export all exposed bvars to files, which are formatted just like above texts: each line is a pair of &amp;ldquo;name&amp;rdquo; and &amp;ldquo;value&amp;rdquo;. Check if there&amp;rsquo;re data under $PWD/monitor/ after enabling dump, for example:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ls monitor/
 bvar.echo_client.data  bvar.echo_server.data
  

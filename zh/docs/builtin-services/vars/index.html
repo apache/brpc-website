@@ -2034,7 +2034,7 @@ if (!doNotTrack) {
 <div class="td-content">
 	<h1>vars</h1>
 	<div class="lead">学习vars服务。</div>
-	<p><a href="https://github.com/brpc/brpc/tree/master/src/bvar/">bvar</a>是多线程环境下的计数器类库，方便记录和查看用户程序中的各类数值，它利用了thread local存储减少了cache bouncing，相比UbMonitor(百度内的老计数器库)几乎不会给程序增加性能开销，也快于竞争频繁的原子操作。brpc集成了bvar，<a href="http://brpc.baidu.com:8765/vars">/vars</a>可查看所有曝光的bvar，<a href="http://brpc.baidu.com:8765/vars/rpc_socket_count">/vars/VARNAME</a>可查阅某个bvar，增加计数器的方法请查看<a href="bvar.md">bvar</a>。brpc大量使用了bvar提供统计数值，当你需要在多线程环境中计数并展现时，应该第一时间想到bvar。但bvar不能代替所有的计数器，它的本质是把写时的竞争转移到了读：读得合并所有写过的线程中的数据，而不可避免地变慢了。当你读写都很频繁或得基于最新值做一些逻辑判断时，你不应该用bvar。</p>
+	<p><a href="https://github.com/brpc/brpc/tree/master/src/bvar/">bvar</a>是多线程环境下的计数器类库，方便记录和查看用户程序中的各类数值，它利用了thread local存储减少了cache bouncing，相比UbMonitor(百度内的老计数器库)几乎不会给程序增加性能开销，也快于竞争频繁的原子操作。brpc集成了bvar，<a href="http://brpc.baidu.com:8765/vars">/vars</a>可查看所有曝光的bvar，<a href="http://brpc.baidu.com:8765/vars/rpc_socket_count">/vars/VARNAME</a>可查阅某个bvar，增加计数器的方法请查看<a href="../../bvar/bvar/">bvar</a>。brpc大量使用了bvar提供统计数值，当你需要在多线程环境中计数并展现时，应该第一时间想到bvar。但bvar不能代替所有的计数器，它的本质是把写时的竞争转移到了读：读得合并所有写过的线程中的数据，而不可避免地变慢了。当你读写都很频繁或得基于最新值做一些逻辑判断时，你不应该用bvar。</p>
 <h2 id="查询方法">查询方法</h2>
 <p><a href="http://brpc.baidu.com:8765/vars">/vars</a> : 列出所有曝光的bvar</p>
 <p><a href="http://brpc.baidu.com:8765/vars/rpc_socket_count">/vars/NAME</a>：查询名字为NAME的bvar</p>
@@ -2081,7 +2081,7 @@ bthread_worker_usage : 1.01056
 <p>滑动鼠标可以阅读对应数据点的值，上图中显示的是”39秒种前的99%分位值是330<strong>微秒</strong>”。这幅图中不包含99.99%的曲线，因为99.99%分位值常明显大于99.9%及以下的分位值，画在一起的话会使得其他曲线变得很”矮“，难以辨认。你可以点击以&quot;_latency_9999&quot;结尾的bvar独立查看99.99%曲线。按时间变化曲线可以看到分位值的变化趋势，对分析系统的性能变化很实用。</p>
 <p>brpc的服务都会自动统计延时分布，用户不用自己加了。如下图所示：</p>
 <p><img src="/images/docs/vars_6.png" alt="img"></p>
-<p>你可以用bvar::LatencyRecorder统计任何代码的延时，这么做(更具体的使用方法请查看<a href="bvar_c++.md">bvar-c++</a>):</p>
+<p>你可以用bvar::LatencyRecorder统计任何代码的延时，这么做(更具体的使用方法请查看<a href="../../bvar/bvar-c++/">bvar-c++</a>):</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;bvar/bvar.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span>
 <span style="color:#000;font-weight:bold">...</span>
@@ -2095,7 +2095,7 @@ bthread_worker_usage : 1.01056
 </code></pre></div><p>如果这个程序使用了brpc server，那么你应该已经可以在/vars看到client_latency, client_latency_cdf等变量，点击便可查看动态曲线。如下图所示：</p>
 <p><img src="/images/docs/vars_7.png" alt="img"></p>
 <h2 id="非brpc-server">非brpc server</h2>
-<p>如果你的程序只是一个brpc client或根本没有使用brpc，并且你也想看到动态曲线，看<a href="dummy_server.md">这里</a>。</p>
+<p>如果你的程序只是一个brpc client或根本没有使用brpc，并且你也想看到动态曲线，看<a href="../../client/dummy-server/">这里</a>。</p>
 
         <div class="section-index">
     
@@ -2279,7 +2279,7 @@ bthread_worker_usage : 1.01056
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年5月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

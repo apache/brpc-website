@@ -2030,8 +2030,8 @@ if (!doNotTrack) {
 <p>相比使用<a href="http://libmemcached.org/libMemcached.html">libmemcached</a>(官方client)的优势有：</p>
 <ul>
 <li>线程安全。用户不需要为每个线程建立独立的client。</li>
-<li>支持同步、异步、半同步等访问方式，能使用<a href="combo_channel.md">ParallelChannel等</a>组合访问方式。</li>
-<li>支持多种<a href="client.md#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F">连接方式</a>。支持超时、backup request、取消、tracing、内置服务等一系列brpc提供的福利。</li>
+<li>支持同步、异步、半同步等访问方式，能使用<a href="../combo-channels/">ParallelChannel等</a>组合访问方式。</li>
+<li>支持多种<a href="../basics/#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F">连接方式</a>。支持超时、backup request、取消、tracing、内置服务等一系列brpc提供的福利。</li>
 <li>有明确的request和response。而libmemcached是没有的，收到的消息不能直接和发出的消息对应上，用户得做额外开发，而且并没有那么容易做对。</li>
 </ul>
 <p>当前实现充分利用了RPC的并发机制并尽量避免了拷贝。一个client可以轻松地把一个同机memcached实例(版本1.4.15)压到极限：单连接9万，多连接33万。在大部分情况下，brpc client能充分发挥memcached的性能。</p>
@@ -2286,7 +2286,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年2月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/306a9070cb26d194a6657de26133608a94c3e398">brpc website 1.0 fix some pages (306a907)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年5月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

@@ -2267,7 +2267,7 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;message&#34;</span>:<span style="color:#4e9a06">&#34;hello&#34;</span><span style="color:#ce5c00;font-weight:bold">}</span>
 </code></pre></div><p>注意：也可以指定<code>Content-Type: application/proto</code>用http/h2+protobuf二进制串访问服务，序列化性能更好。</p>
 <h2 id="jsonpb">json&lt;=&gt;pb</h2>
-<p>json字段通过匹配的名字和结构与pb字段一一对应。json中一定要包含pb的required字段，否则转化会失败，对应请求会被拒绝。json中可以包含pb中没有定义的字段，但它们会被丢弃而不会存入pb的unknown字段。转化规则详见<a href="json2pb.md">json &lt;=&gt; protobuf</a>。</p>
+<p>json字段通过匹配的名字和结构与pb字段一一对应。json中一定要包含pb的required字段，否则转化会失败，对应请求会被拒绝。json中可以包含pb中没有定义的字段，但它们会被丢弃而不会存入pb的unknown字段。转化规则详见<a href="../json2pb/">json &lt;=&gt; protobuf</a>。</p>
 <p>开启选项-pb_enum_as_number后，pb中的enum会转化为它的数值而不是名字，比如在<code>enum MyEnum { Foo = 1; Bar = 2; };</code>中不开启此选项时MyEnum类型的字段会转化为&quot;Foo&quot;或&quot;Bar&quot;，开启后为1或2。此选项同时影响client发出的请求和server返回的回复。由于转化为名字相比数值有更好的前后兼容性，此选项只应用于兼容无法处理enum为名字的老代码。</p>
 <h2 id="兼容早期版本client">兼容早期版本client</h2>
 <p>早期的brpc允许一个pb service被http协议访问时不填充pb请求，即使里面有required字段。一般来说这种service会自行解析http请求和设置http回复，并不会访问pb请求。但这也是非常危险的行为，毕竟这是pb service，但pb请求却是未定义的。</p>
@@ -2286,7 +2286,7 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 <p><a href="baidu_std.md">百度标准协议</a>，显示为&quot;baidu_std&quot;，默认启用。</p>
 </li>
 <li>
-<p><a href="streaming_rpc.md">流式RPC协议</a>，显示为&quot;streaming_rpc&quot;, 默认启用。</p>
+<p><a href="../../client/streaming-rpc/">流式RPC协议</a>，显示为&quot;streaming_rpc&quot;, 默认启用。</p>
 </li>
 <li>
 <p>http/1.0和http/1.1协议，显示为”http“，默认启用。</p>
@@ -2408,14 +2408,14 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 </code></pre><p>brpc移除了protobuf中的限制，全交由此选项控制，只要-max_body_size足够大，用户就不会看到错误日志。此功能对protobuf的版本没有要求。</p>
 <h2 id="压缩">压缩</h2>
 <p>set_response_compress_type()设置response的压缩方式，默认不压缩。</p>
-<p>注意附件不会被压缩。HTTP body的压缩方法见<a href="http_service.md#%E5%8E%8B%E7%BC%A9response-body">这里</a>。</p>
+<p>注意附件不会被压缩。HTTP body的压缩方法见<a href="../serve-httph2/#%E5%8E%8B%E7%BC%A9response-body">这里</a>。</p>
 <p>支持的压缩方法有：</p>
 <ul>
 <li>brpc::CompressTypeSnappy : <a href="http://google.github.io/snappy/">snanpy压缩</a>，压缩和解压显著快于其他压缩方法，但压缩率最低。</li>
 <li>brpc::CompressTypeGzip : <a href="http://en.wikipedia.org/wiki/Gzip">gzip压缩</a>，显著慢于snappy，但压缩率高</li>
 <li>brpc::CompressTypeZlib : <a href="http://en.wikipedia.org/wiki/Zlib">zlib压缩</a>，比gzip快10%~20%，压缩率略好于gzip，但速度仍明显慢于snappy。</li>
 </ul>
-<p>更具体的性能对比见<a href="client.md#%E5%8E%8B%E7%BC%A9">Client-压缩</a>.</p>
+<p>更具体的性能对比见<a href="../../client/basics/#%E5%8E%8B%E7%BC%A9">Client-压缩</a>.</p>
 <h2 id="附件">附件</h2>
 <p>baidu_std和hulu_pbrpc协议支持传递附件，这段数据由用户自定义，不经过protobuf的序列化。站在server的角度，设置在Controller.response_attachment()的附件会被client端收到，Controller.request_attachment()则包含了client端送来的附件。</p>
 <p>附件不会被框架压缩。</p>
@@ -2475,7 +2475,7 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 <p>SSL层在协议层之下（作用在Socket层），即开启后，所有协议（如HTTP）都支持用SSL加密后传输到Server，Server端会先进行SSL解密后，再把原始数据送到各个协议中去。</p>
 </li>
 <li>
-<p>SSL开启后，端口仍然支持非SSL的连接访问，Server会自动判断哪些是SSL，哪些不是。如果要屏蔽非SSL访问，用户可通过<code>Controller::is_ssl()</code>判断是否是SSL，同时在<a href="connections.md">connections</a>内置监控上也可以看到连接的SSL信息。</p>
+<p>SSL开启后，端口仍然支持非SSL的连接访问，Server会自动判断哪些是SSL，哪些不是。如果要屏蔽非SSL访问，用户可通过<code>Controller::is_ssl()</code>判断是否是SSL，同时在<a href="../../builtin-services/connections/">connections</a>内置监控上也可以看到连接的SSL信息。</p>
 </li>
 </ul>
 <h2 id="验证client身份">验证client身份</h2>
@@ -2544,7 +2544,7 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 
 <span style="color:#8f5902;font-style:italic">// Set auto concurrency limiter for specific method
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MaxConcurrencyOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;example.EchoService.Echo&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;auto&#34;</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><p>关于自适应限流的更多细节可以看<a href="auto_concurrency_limiter.md">这里</a></p>
+</code></pre></div><p>关于自适应限流的更多细节可以看<a href="../auto-concurrencylimiter/">这里</a></p>
 <h2 id="pthread模式">pthread模式</h2>
 <p>用户代码（客户端的done，服务器端的CallMethod）默认在栈为1MB的bthread中运行。但有些用户代码无法在bthread中运行，比如：</p>
 <ul>
@@ -2832,11 +2832,11 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 <p>A: 一般是client端使用了连接池或短连接模式，在RPC超时后会关闭连接，server写回response时发现连接已经关了就报这个错。Got EOF就是指之前已经收到了EOF（对端正常关闭了连接）。client端使用单连接模式server端一般不会报这个。</p>
 <h3 id="q-remote-side-of-fd9-socketid2109466558000-was-closed是什么意思">Q: Remote side of fd=9 <a href="mailto:SocketId=2@10.94.66.55">SocketId=2@10.94.66.55</a>:8000 was closed是什么意思</h3>
 <p>这不是错误，是常见的warning，表示对端关掉连接了（EOF)。这个日志有时对排查问题有帮助。</p>
-<p>默认关闭，把参数-log_connection_close设置为true就打开了（支持<a href="flags.md#change-gflag-on-the-fly">动态修改</a>）。</p>
+<p>默认关闭，把参数-log_connection_close设置为true就打开了（支持<a href="../../builtin-services/flags/#change-gflag-on-the-fly">动态修改</a>）。</p>
 <h3 id="q-为什么server端线程数设了没用">Q: 为什么server端线程数设了没用</h3>
 <p>brpc同一个进程中所有的server<a href="#worker%E7%BA%BF%E7%A8%8B%E6%95%B0">共用线程</a>，如果创建了多个server，最终的工作线程数多半是最大的那个ServerOptions.num_threads。</p>
 <h3 id="q-为什么client端的延时远大于server端的延时">Q: 为什么client端的延时远大于server端的延时</h3>
-<p>可能是server端的工作线程不够用了，出现了排队现象。排查方法请查看<a href="server_debugging.md">高效率排查服务卡顿</a>。</p>
+<p>可能是server端的工作线程不够用了，出现了排队现象。排查方法请查看<a href="../debug-server-issues/">高效率排查服务卡顿</a>。</p>
 <h3 id="q-fail-to-open-procselfio">Q: Fail to open /proc/self/io</h3>
 <p>有些内核没这个文件，不影响服务正确性，但如下几个bvar会无法更新：</p>
 <pre><code>process_io_read_bytes_second
@@ -3030,7 +3030,7 @@ process_io_write_second
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年5月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

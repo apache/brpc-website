@@ -2034,7 +2034,7 @@ if (!doNotTrack) {
 <li>nova_pbrpc</li>
 </ul>
 <h1 id="获取工具">获取工具</h1>
-<p>先按照<a href="getting_started.md">Getting Started</a>编译好brpc，再去tools/rpc_press编译。</p>
+<p>先按照<a href="../../getting_started/">Getting Started</a>编译好brpc，再去tools/rpc_press编译。</p>
 <p>在CentOS 6.3上如果出现找不到libssl.so.4的错误，可执行<code>ln -s /usr/lib64/libssl.so.6 libssl.so.4临时解决</code></p>
 <h1 id="发压力">发压力</h1>
 <p>rpc_press会动态加载proto文件，无需把proto文件编译为c++源文件。rpc_press会加载json格式的输入文件，转为pb请求，发向server，收到pb回复后如有需要会转为json并写入用户指定的文件。</p>
@@ -2045,17 +2045,17 @@ if (!doNotTrack) {
 <ul>
 <li>-proto：指定相关的proto文件名。</li>
 <li>-method：指定方法名，形式必须是package.service.method。</li>
-<li>-server：当-lb_policy为空时，是服务器的ip:port；当-lb_policy不为空时，是集群地址，比如bns://node-name, file://server_list等等。具体见<a href="client.md#%E5%91%BD%E5%90%8D%E6%9C%8D%E5%8A%A1">命名服务</a>。</li>
+<li>-server：当-lb_policy为空时，是服务器的ip:port；当-lb_policy不为空时，是集群地址，比如bns://node-name, file://server_list等等。具体见<a href="../../client/basics/#%E5%91%BD%E5%90%8D%E6%9C%8D%E5%8A%A1">命名服务</a>。</li>
 <li>-input: 指定json请求或包含json请求的文件。r32157后json间不需要分隔符，r32157前json间用分号分隔。</li>
 </ul>
 <p>可选参数:</p>
 <ul>
 <li>-inc: 包含被import的proto文件的路径。rpc_press默认支持import目录下的其他proto文件，但如果proto文件在其他目录，就要通过这个参数指定，多个路径用分号(;)分隔。</li>
-<li>-lb_policy: 指定负载均衡算法，默认为空，可选项为: rr random la c_murmurhash c_md5，具体见<a href="client.md#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">负载均衡</a>。</li>
+<li>-lb_policy: 指定负载均衡算法，默认为空，可选项为: rr random la c_murmurhash c_md5，具体见<a href="../../client/basics/#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">负载均衡</a>。</li>
 <li>-timeout_ms: 设定超时,单位是毫秒(milliseconds),默认是1000(1秒)</li>
-<li>-max_retry: 最大的重试次数,默认是3, 一般无需修改. brpc的重试行为具体请见<a href="client.md#%E9%87%8D%E8%AF%95">这里</a>.</li>
-<li>-protocol: 连接server使用的协议，可选项见<a href="client.md#%E5%8D%8F%E8%AE%AE">协议</a>, 默认是baidu_std</li>
-<li>-connection_type: 连接方式，可选项为: single pooled short，具体见<a href="client.md#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F">连接方式</a>。默认会根据协议自动选择,无需指定.</li>
+<li>-max_retry: 最大的重试次数,默认是3, 一般无需修改. brpc的重试行为具体请见<a href="../../client/basics/#%E9%87%8D%E8%AF%95">这里</a>.</li>
+<li>-protocol: 连接server使用的协议，可选项见<a href="../../client/basics/#%E5%8D%8F%E8%AE%AE">协议</a>, 默认是baidu_std</li>
+<li>-connection_type: 连接方式，可选项为: single pooled short，具体见<a href="../../client/basics/#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F">连接方式</a>。默认会根据协议自动选择,无需指定.</li>
 <li>-output: 如果不为空，response会转为json并写入这个文件，默认为空。</li>
 <li>-duration：大于0时表示发送这么多秒的压力后退出，否则一直发直到按ctrl-c或进程被杀死。默认是0（一直发送）。</li>
 <li>-qps：大于0时表示以这个压力发送，否则以最大速度(自适应)发送。默认是100。</li>
@@ -2294,7 +2294,7 @@ TRACE: 01-30 16:10:04:   * 0 src/brpc/server.cpp:742] Check out http://xxx.com:8
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年5月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

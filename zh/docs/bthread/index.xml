@@ -189,7 +189,7 @@
 &lt;p&gt;不考虑性能和复杂度，理论上任何系统都可以只使用mutex或者ExecutionQueue来消除竞争.
 但是复杂系统的设计上，建议根据不同的场景灵活决定如何使用这两个工具:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;如果临界区非常小，竞争又不是很激烈，优先选择使用mutex, 之后可以结合&lt;a href=&#34;contention_profiler.md&#34;&gt;contention profiler&lt;/a&gt;来判断mutex是否成为瓶颈。&lt;/li&gt;
+&lt;li&gt;如果临界区非常小，竞争又不是很激烈，优先选择使用mutex, 之后可以结合&lt;a href=&#34;../../builtin-services/contention_profiler/&#34;&gt;contention profiler&lt;/a&gt;来判断mutex是否成为瓶颈。&lt;/li&gt;
 &lt;li&gt;需要有序执行，或者无法消除的激烈竞争但是可以通过批量执行来提高吞吐， 可以选择使用ExecutionQueue。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;总之，多线程编程没有万能的模型，需要根据具体的场景，结合丰富的profliling工具，最终在复杂度和性能之间找到合适的平衡。&lt;/p&gt;
@@ -316,7 +316,7 @@ int execution_queue_cancel(const TaskHandle&amp;amp; h);
       <description>
         
         
-        &lt;p&gt;本页说明bthread下使用pthread-local可能会导致的问题。bthread-local的使用方法见&lt;a href=&#34;server.md#bthread-local&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+        &lt;p&gt;本页说明bthread下使用pthread-local可能会导致的问题。bthread-local的使用方法见&lt;a href=&#34;../../server/basics/#bthread-local&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;h1 id=&#34;thread-local问题&#34;&gt;thread-local问题&lt;/h1&gt;
 &lt;p&gt;调用阻塞的bthread函数后，所在的pthread很可能改变，这使&lt;a href=&#34;http://linux.die.net/man/3/pthread_getspecific&#34;&gt;pthread_getspecific&lt;/a&gt;，&lt;a href=&#34;https://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/Thread_002dLocal.html&#34;&gt;gcc __thread&lt;/a&gt;和c++11
 thread_local变量，pthread_self()等的值变化了，如下代码的行为是不可预计的：&lt;/p&gt;

@@ -115,7 +115,7 @@
 &lt;p&gt;若consul返回的服务列表&lt;a href=&#34;https://www.consul.io/api/health.html#sample-response-2&#34;&gt;响应格式&lt;/a&gt;有错误，或者列表中所有服务都因为地址、端口等关键字段缺失或无法解析而被过滤，consul naming server会拒绝更新服务列表，并在一段时间后（默认500ms，可通过-consul_retry_interval_ms设置）重新访问consul。&lt;/p&gt;
 &lt;p&gt;如果consul不可访问，服务可自动降级到file naming service获取服务列表。此功能默认关闭，可通过设置-consul_enable_degrade_to_file_naming_service来打开。服务列表文件目录通过-consul _file_naming_service_dir来设置，使用service-name作为文件名。该文件可通过consul-template生成，里面会保存consul不可用之前最新的下游服务节点。当consul恢复时可自动恢复到consul naming service。&lt;/p&gt;
 &lt;h3 id=&#34;更多命名服务&#34;&gt;更多命名服务&lt;/h3&gt;
-&lt;p&gt;用户可以通过实现brpc::NamingService来对接更多命名服务，具体见&lt;a href=&#34;https://github.com/brpc/brpc/blob/master/docs/cn/load_balancing.md#%E5%91%BD%E5%90%8D%E6%9C%8D%E5%8A%A1&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;用户可以通过实现brpc::NamingService来对接更多命名服务，具体见&lt;a href=&#34;../../rpc-in-depth/load-balancing/#%E5%91%BD%E5%90%8D%E6%9C%8D%E5%8A%A1&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;命名服务中的tag&#34;&gt;命名服务中的tag&lt;/h3&gt;
 &lt;p&gt;每个地址可以附带一个tag，在常见的命名服务中，如果地址后有空格，则空格之后的内容均为tag。
 相同的地址配合不同的tag被认为是不同的实例，brpc会建立不同的连接。用户可利用这个特性更灵活地控制与单个地址的连接方式。
@@ -180,7 +180,7 @@
 &lt;p&gt;发起RPC前需要设置Controller.set_request_code()，否则RPC会失败。request_code一般是请求中主键部分的32位哈希值，&lt;strong&gt;不需要和负载均衡使用的哈希算法一致&lt;/strong&gt;。比如用c_murmurhash算法也可以用md5计算哈希值。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/brpc/brpc/blob/master/src/brpc/policy/hasher.h&#34;&gt;src/brpc/policy/hasher.h&lt;/a&gt;中包含了常用的hash函数。如果用std::string key代表请求的主键，controller.set_request_code(brpc::policy::MurmurHash32(key.data(), key.size()))就正确地设置了request_code。&lt;/p&gt;
 &lt;p&gt;注意甄别请求中的“主键”部分和“属性”部分，不要为了偷懒或通用，就把请求的所有内容一股脑儿计算出哈希值，属性的变化会使请求的目的地发生剧烈的变化。另外也要注意padding问题，比如struct Foo { int32_t a; int64_t b; }在64位机器上a和b之间有4个字节的空隙，内容未定义，如果像hash(&amp;amp;foo, sizeof(foo))这样计算哈希值，结果就是未定义的，得把内容紧密排列或序列化后再算。&lt;/p&gt;
-&lt;p&gt;实现原理请查看&lt;a href=&#34;consistent_hashing.md&#34;&gt;Consistent Hashing&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;实现原理请查看&lt;a href=&#34;../../rpc-in-depth/consistent-hashing/&#34;&gt;Consistent Hashing&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;其他lb不需要设置Controller.set_request_code()，如果调用了request_code也不会被lb使用，例如：lb=rr调用了Controller.set_request_code()，即使所有RPC的request_code都相同，也依然是rr。&lt;/p&gt;
 &lt;h3 id=&#34;从集群宕机后恢复时的客户端限流&#34;&gt;从集群宕机后恢复时的客户端限流&lt;/h3&gt;
 &lt;p&gt;集群宕机指的是集群中所有server都处于不可用的状态。由于健康检查机制，当集群恢复正常后，server会间隔性地上线。当某一个server上线后，所有的流量会发送过去，可能导致服务再次过载。若熔断开启，则可能导致其它server上线前该server再次熔断，集群永远无法恢复。作为解决方案，brpc提供了在集群宕机后恢复时的限流机制：当集群中没有可用server时，集群进入恢复状态，假设正好能服务所有请求的server数量为min_working_instances，当前集群可用的server数量为q，则在恢复状态时，client接受请求的概率为q/min_working_instances，否则丢弃；若一段时间hold_seconds内q保持不变，则把流量重新发送全部可用的server上，并离开恢复状态。在恢复阶段时，可以通过判断controller.ErrorCode()是否等于brpc::ERJECT来判断该次请求是否被拒绝，被拒绝的请求不会被框架重试。&lt;/p&gt;
@@ -241,7 +241,7 @@
 &lt;h2 id=&#34;异步访问&#34;&gt;异步访问&lt;/h2&gt;
 &lt;p&gt;指的是：给CallMethod传递一个额外的回调对象done，CallMethod在发出request后就结束了，而不是在RPC结束后。当server端返回response或发生错误（包括超时）时，done-&amp;gt;Run()会被调用。对RPC的后续处理应该写在done-&amp;gt;Run()里，而不是CallMethod后。&lt;/p&gt;
 &lt;p&gt;由于CallMethod结束不意味着RPC结束，response/controller仍可能被框架及done-&amp;gt;Run()使用，它们一般得创建在堆上，并在done-&amp;gt;Run()中删除。如果提前删除了它们，那当done-&amp;gt;Run()被调用时，将访问到无效内存。&lt;/p&gt;
-&lt;p&gt;你可以独立地创建这些对象，并使用&lt;a href=&#34;#%E4%BD%BF%E7%94%A8NewCallback&#34;&gt;NewCallback&lt;/a&gt;生成done，也可以把Response和Controller作为done的成员变量，&lt;a href=&#34;#%E7%BB%A7%E6%89%BFgoogle::protobuf::Closure&#34;&gt;一起new出来&lt;/a&gt;，一般使用前一种方法。&lt;/p&gt;
+&lt;p&gt;你可以独立地创建这些对象，并使用&lt;a href=&#34;#%E4%BD%BF%E7%94%A8newcallback&#34;&gt;NewCallback&lt;/a&gt;生成done，也可以把Response和Controller作为done的成员变量，&lt;a href=&#34;#%E7%BB%A7%E6%89%BFgoogleprotobufclosure&#34;&gt;一起new出来&lt;/a&gt;，一般使用前一种方法。&lt;/p&gt;
 &lt;p&gt;发起异步请求后Request可以立刻析构。(SelectiveChannel是个例外，SelectiveChannel情况下必须在请求处理完成后再释放request对象）&lt;/p&gt;
 &lt;p&gt;发起异步请求后Channel可以立刻析构。&lt;/p&gt;
 &lt;p&gt;注意:这是说Request/Channel的析构可以立刻发生在CallMethod&lt;strong&gt;之后&lt;/strong&gt;，并不是说析构可以和CallMethod同时发生，删除正被另一个线程使用的Channel是未定义行为（很可能crash）。&lt;/p&gt;
@@ -298,7 +298,7 @@
 &lt;h3 id=&#34;rpc发送处的代码和回调函数是在同一个线程里执行吗&#34;&gt;rpc发送处的代码和回调函数是在同一个线程里执行吗?&lt;/h3&gt;
 &lt;p&gt;一定不在同一个线程里运行，即使该次rpc调用刚进去就失败了，回调也会在另一个bthread中运行。这可以在加锁进行rpc（不推荐）的代码中避免死锁。&lt;/p&gt;
 &lt;h2 id=&#34;等待rpc完成&#34;&gt;等待RPC完成&lt;/h2&gt;
-&lt;p&gt;注意：当你需要发起多个并发操作时，可能&lt;a href=&#34;combo_channel.md#parallelchannel&#34;&gt;ParallelChannel&lt;/a&gt;更方便。&lt;/p&gt;
+&lt;p&gt;注意：当你需要发起多个并发操作时，可能&lt;a href=&#34;../combo-channels/#parallelchannel&#34;&gt;ParallelChannel&lt;/a&gt;更方便。&lt;/p&gt;
 &lt;p&gt;如下代码发起两个异步RPC后等待它们完成。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;brpc&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CallId&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;cid1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;controller1&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;call_id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;brpc&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CallId&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;cid2&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;controller2&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;call_id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
@@ -391,7 +391,7 @@
 &lt;ul&gt;
 &lt;li&gt;brpc::ChannelOptions: 定义在&lt;a href=&#34;https://github.com/brpc/brpc/blob/master/src/brpc/channel.h&#34;&gt;src/brpc/channel.h&lt;/a&gt;中，用于初始化Channel，一旦初始化成功无法修改。&lt;/li&gt;
 &lt;li&gt;brpc::Controller: 定义在&lt;a href=&#34;https://github.com/brpc/brpc/blob/master/src/brpc/controller.h&#34;&gt;src/brpc/controller.h&lt;/a&gt;中，用于在某次RPC中覆盖ChannelOptions中的选项，可根据上下文每次均不同。&lt;/li&gt;
-&lt;li&gt;全局gflags：常用于调节一些底层代码的行为，一般不用修改。请自行阅读服务&lt;a href=&#34;flags.md&#34;&gt;/flags页面&lt;/a&gt;中的说明。&lt;/li&gt;
+&lt;li&gt;全局gflags：常用于调节一些底层代码的行为，一般不用修改。请自行阅读服务&lt;a href=&#34;../../builtin-services/flags/&#34;&gt;/flags页面&lt;/a&gt;中的说明。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Controller包含了request中没有的数据和选项。server端和client端的Controller结构体是一样的，但使用的字段可能是不同的，你需要仔细阅读Controller中的注释，明确哪些字段可以在server端使用，哪些可以在client端使用。&lt;/p&gt;
 &lt;p&gt;一个Controller对应一次RPC。一个Controller可以在Reset()后被另一个RPC复用，但一个Controller不能被多个RPC同时使用（不论是否在同一个线程发起）。&lt;/p&gt;
@@ -407,7 +407,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;线程数&#34;&gt;线程数&lt;/h2&gt;
-&lt;p&gt;和大部分的RPC框架不同，brpc中并没有独立的Client线程池。所有Channel和Server通过&lt;a href=&#34;bthread.md&#34;&gt;bthread&lt;/a&gt;共享相同的线程池. 如果你的程序同样使用了brpc的server, 仅仅需要设置Server的线程数。 或者可以通过&lt;a href=&#34;flags.md&#34;&gt;gflags&lt;/a&gt;设置&lt;a href=&#34;http://brpc.baidu.com:8765/flags/bthread_concurrency&#34;&gt;-bthread_concurrency&lt;/a&gt;来设置全局的线程数.&lt;/p&gt;
+&lt;p&gt;和大部分的RPC框架不同，brpc中并没有独立的Client线程池。所有Channel和Server通过&lt;a href=&#34;../../bthread/bthread/&#34;&gt;bthread&lt;/a&gt;共享相同的线程池. 如果你的程序同样使用了brpc的server, 仅仅需要设置Server的线程数。 或者可以通过&lt;a href=&#34;../../builtin-services/flags/&#34;&gt;gflags&lt;/a&gt;设置&lt;a href=&#34;http://brpc.baidu.com:8765/flags/bthread_concurrency&#34;&gt;-bthread_concurrency&lt;/a&gt;来设置全局的线程数.&lt;/p&gt;
 &lt;h2 id=&#34;超时&#34;&gt;超时&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;ChannelOptions.timeout_ms&lt;/strong&gt;是对应Channel上所有RPC的总超时，Controller.set_timeout_ms()可修改某次RPC的值。单位毫秒，默认值1秒，最大值2^31（约24天），-1表示一直等到回复或错误。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;ChannelOptions.connect_timeout_ms&lt;/strong&gt;是对应Channel上所有RPC的连接超时(单位毫秒)。-1表示等到连接建立或出错，此值被限制为不能超过timeout_ms。注意此超时独立于TCP的连接超时，一般来说前者小于后者，反之则可能在connect_timeout_ms未达到前由于TCP连接超时而出错。&lt;/p&gt;
@@ -465,35 +465,35 @@
 &lt;h3 id=&#34;重试应当保守&#34;&gt;重试应当保守&lt;/h3&gt;
 &lt;p&gt;由于成本的限制，大部分线上server的冗余度是有限的，主要是满足多机房互备的需求。而激进的重试逻辑很容易导致众多client对server集群造成2-3倍的压力，最终使集群雪崩：由于server来不及处理导致队列越积越长，使所有的请求得经过很长的排队才被处理而最终超时，相当于服务停摆。默认的重试是比较安全的: 只要连接不断RPC就不会重试，一般不会产生大量的重试请求。用户可以通过RetryPolicy定制重试策略，但也可能使重试变成一场“风暴”。当你定制RetryPolicy时，你需要仔细考虑client和server的协作关系，并设计对应的异常测试，以确保行为符合预期。&lt;/p&gt;
 &lt;h2 id=&#34;熔断&#34;&gt;熔断&lt;/h2&gt;
-&lt;p&gt;具体方法见&lt;a href=&#34;circuit_breaker.md&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;具体方法见&lt;a href=&#34;https://github.com/apache/incubator-brpc/blob/master/docs/cn/circuit_breaker.md&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;协议&#34;&gt;协议&lt;/h2&gt;
 &lt;p&gt;Channel的默认协议是baidu_std，可通过设置ChannelOptions.protocol换为其他协议，这个字段既接受enum也接受字符串。&lt;/p&gt;
 &lt;p&gt;目前支持的有：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;PROTOCOL_BAIDU_STD 或 “baidu_std&amp;quot;，即&lt;a href=&#34;baidu_std.md&#34;&gt;百度标准协议&lt;/a&gt;，默认为单连接。&lt;/li&gt;
+&lt;li&gt;PROTOCOL_BAIDU_STD 或 “baidu_std&amp;quot;，即&lt;a href=&#34;https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md&#34;&gt;百度标准协议&lt;/a&gt;，默认为单连接。&lt;/li&gt;
 &lt;li&gt;PROTOCOL_HTTP 或 ”http&amp;quot;, http/1.0或http/1.1协议，默认为连接池(Keep-Alive)。
 &lt;ul&gt;
 &lt;li&gt;访问普通http服务的方法见&lt;a href=&#34;../access-httph2/&#34;&gt;访问http/h2服务&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;通过http:json或http:proto访问pb服务的方法见&lt;a href=&#34;http_derivatives.md&#34;&gt;http/h2衍生协议&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;通过http:json或http:proto访问pb服务的方法见&lt;a href=&#34;https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md&#34;&gt;http/h2衍生协议&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;PROTOCOL_H2 或 ”h2&amp;quot;, http/2协议，默认是单连接。
 &lt;ul&gt;
 &lt;li&gt;访问普通h2服务的方法见&lt;a href=&#34;../access-httph2/&#34;&gt;访问http/h2服务&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;通过h2:json或h2:proto访问pb服务的方法见&lt;a href=&#34;http_derivatives.md&#34;&gt;http/h2衍生协议&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;通过h2:json或h2:proto访问pb服务的方法见&lt;a href=&#34;https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md&#34;&gt;http/h2衍生协议&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&amp;ldquo;h2:grpc&amp;rdquo;, &lt;a href=&#34;https://grpc.io&#34;&gt;gRPC&lt;/a&gt;的协议，也是h2的衍生协议，默认为单连接，具体见&lt;a href=&#34;http_derivatives.md#h2grpc&#34;&gt;h2:grpc&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;PROTOCOL_THRIFT 或 &amp;ldquo;thrift&amp;rdquo;，&lt;a href=&#34;https://thrift.apache.org&#34;&gt;apache thrift&lt;/a&gt;的协议，默认为连接池, 具体方法见&lt;a href=&#34;thrift.md&#34;&gt;访问thrift&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;PROTOCOL_MEMCACHE 或 &amp;ldquo;memcache&amp;rdquo;，memcached的二进制协议，默认为单连接。具体方法见&lt;a href=&#34;memcache_client.md&#34;&gt;访问memcached&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;PROTOCOL_REDIS 或 &amp;ldquo;redis&amp;rdquo;，redis 1.2后的协议(也是hiredis支持的协议)，默认为单连接。具体方法见&lt;a href=&#34;redis_client.md&#34;&gt;访问Redis&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;h2:grpc&amp;rdquo;, &lt;a href=&#34;https://grpc.io&#34;&gt;gRPC&lt;/a&gt;的协议，也是h2的衍生协议，默认为单连接，具体见&lt;a href=&#34;https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md#h2grpc&#34;&gt;h2:grpc&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;PROTOCOL_THRIFT 或 &amp;ldquo;thrift&amp;rdquo;，&lt;a href=&#34;https://thrift.apache.org&#34;&gt;apache thrift&lt;/a&gt;的协议，默认为连接池, 具体方法见&lt;a href=&#34;../access-thrift/&#34;&gt;访问thrift&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;PROTOCOL_MEMCACHE 或 &amp;ldquo;memcache&amp;rdquo;，memcached的二进制协议，默认为单连接。具体方法见&lt;a href=&#34;../access-memcached/&#34;&gt;访问memcached&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;PROTOCOL_REDIS 或 &amp;ldquo;redis&amp;rdquo;，redis 1.2后的协议(也是hiredis支持的协议)，默认为单连接。具体方法见&lt;a href=&#34;../access-redis/&#34;&gt;访问Redis&lt;/a&gt;。&lt;/li&gt;
 &lt;li&gt;PROTOCOL_HULU_PBRPC 或 &amp;ldquo;hulu_pbrpc&amp;rdquo;，hulu的协议，默认为单连接。&lt;/li&gt;
 &lt;li&gt;PROTOCOL_NOVA_PBRPC 或 ”nova_pbrpc“，网盟的协议，默认为连接池。&lt;/li&gt;
 &lt;li&gt;PROTOCOL_SOFA_PBRPC 或 &amp;ldquo;sofa_pbrpc&amp;rdquo;，sofa-pbrpc的协议，默认为单连接。&lt;/li&gt;
 &lt;li&gt;PROTOCOL_PUBLIC_PBRPC 或 &amp;ldquo;public_pbrpc&amp;rdquo;，public_pbrpc的协议，默认为连接池。&lt;/li&gt;
-&lt;li&gt;PROTOCOL_UBRPC_COMPACK 或 &amp;ldquo;ubrpc_compack&amp;rdquo;，public/ubrpc的协议，使用compack打包，默认为连接池。具体方法见&lt;a href=&#34;ub_client.md&#34;&gt;ubrpc (by protobuf)&lt;/a&gt;。相关的还有PROTOCOL_UBRPC_MCPACK2或ubrpc_mcpack2，使用mcpack2打包。&lt;/li&gt;
-&lt;li&gt;PROTOCOL_NSHEAD_CLIENT 或 &amp;ldquo;nshead_client&amp;rdquo;，这是发送baidu-rpc-ub中所有UBXXXRequest需要的协议，默认为连接池。具体方法见&lt;a href=&#34;ub_client.md&#34;&gt;访问UB&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;PROTOCOL_NSHEAD 或 &amp;ldquo;nshead&amp;rdquo;，这是发送NsheadMessage需要的协议，默认为连接池。具体方法见&lt;a href=&#34;ub_client.md#nshead-blob&#34;&gt;nshead+blob&lt;/a&gt; 。&lt;/li&gt;
+&lt;li&gt;PROTOCOL_UBRPC_COMPACK 或 &amp;ldquo;ubrpc_compack&amp;rdquo;，public/ubrpc的协议，使用compack打包，默认为连接池。具体方法见&lt;a href=&#34;../access-ub/&#34;&gt;ubrpc (by protobuf)&lt;/a&gt;。相关的还有PROTOCOL_UBRPC_MCPACK2或ubrpc_mcpack2，使用mcpack2打包。&lt;/li&gt;
+&lt;li&gt;PROTOCOL_NSHEAD_CLIENT 或 &amp;ldquo;nshead_client&amp;rdquo;，这是发送baidu-rpc-ub中所有UBXXXRequest需要的协议，默认为连接池。具体方法见&lt;a href=&#34;../access-ub/&#34;&gt;访问UB&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;PROTOCOL_NSHEAD 或 &amp;ldquo;nshead&amp;rdquo;，这是发送NsheadMessage需要的协议，默认为连接池。具体方法见&lt;a href=&#34;../access-ub/#nshead-blob&#34;&gt;nshead+blob&lt;/a&gt; 。&lt;/li&gt;
 &lt;li&gt;PROTOCOL_NSHEAD_MCPACK 或 &amp;ldquo;nshead_mcpack&amp;rdquo;, 顾名思义，格式为nshead + mcpack，使用mcpack2pb适配，默认为连接池。&lt;/li&gt;
 &lt;li&gt;PROTOCOL_ESP 或 &amp;ldquo;esp&amp;rdquo;，访问使用esp协议的服务，默认为连接池。&lt;/li&gt;
 &lt;/ul&gt;
@@ -579,7 +579,7 @@
 &lt;p&gt;设置为“”（空字符串）则让框架选择协议对应的默认连接方式。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;brpc支持&lt;a href=&#34;streaming_rpc.md&#34;&gt;Streaming RPC&lt;/a&gt;，这是一种应用层的连接，用于传递流式数据。&lt;/p&gt;
+&lt;p&gt;brpc支持&lt;a href=&#34;../streaming-rpc/&#34;&gt;Streaming RPC&lt;/a&gt;，这是一种应用层的连接，用于传递流式数据。&lt;/p&gt;
 &lt;h2 id=&#34;关闭连接池中的闲置连接&#34;&gt;关闭连接池中的闲置连接&lt;/h2&gt;
 &lt;p&gt;当连接池中的某个连接在-idle_timeout_second时间内没有读写，则被视作“闲置”，会被自动关闭。默认值为10秒。此功能只对连接池(pooled)有效。打开-log_idle_connection_close在关闭前会打印一条日志。&lt;/p&gt;
 &lt;table&gt;
@@ -693,7 +693,7 @@
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;virtual&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GenerateCredential&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;auth_str&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;那么当用户并发调用RPC接口用单连接往同一个server发请求时，框架会自动保证：建立TCP连接后，连接上的第一个请求中会带有上述&lt;code&gt;GenerateCredential&lt;/code&gt;产生的认证包，其余剩下的并发请求不会带有认证信息，依次排在第一个请求之后。整个发送过程依旧是并发的，并不会等第一个请求先返回。若server端认证成功，那么所有请求都能成功返回；若认证失败，一般server端则会关闭连接，这些请求则会收到相应错误。&lt;/p&gt;
-&lt;p&gt;目前自带协议中支持客户端认证的有：&lt;a href=&#34;baidu_std.md&#34;&gt;baidu_std&lt;/a&gt;(默认协议), HTTP, hulu_pbrpc, ESP。对于自定义协议，一般可以在组装请求阶段，调用Authenticator接口生成认证串，来支持客户端认证。&lt;/p&gt;
+&lt;p&gt;目前自带协议中支持客户端认证的有：&lt;a href=&#34;https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md&#34;&gt;baidu_std&lt;/a&gt;(默认协议), HTTP, hulu_pbrpc, ESP。对于自定义协议，一般可以在组装请求阶段，调用Authenticator接口生成认证串，来支持客户端认证。&lt;/p&gt;
 &lt;h2 id=&#34;重置&#34;&gt;重置&lt;/h2&gt;
 &lt;p&gt;调用Reset方法可让Controller回到刚创建时的状态。&lt;/p&gt;
 &lt;p&gt;别在RPC结束前重置Controller，行为是未定义的。&lt;/p&gt;
@@ -980,7 +980,7 @@
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;};&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意: 连接超时不是RPC超时，RPC超时打印的日志是&amp;quot;Reached timeout=&amp;hellip;&amp;quot;。&lt;/p&gt;
 &lt;h3 id=&#34;q-为什么同步方式是好的异步就crash了&#34;&gt;Q: 为什么同步方式是好的，异步就crash了&lt;/h3&gt;
-&lt;p&gt;重点检查Controller，Response和done的生命周期。在异步访问中，RPC调用结束并不意味着RPC整个过程结束，而是在进入done-&amp;gt;Run()时才会结束。所以这些对象不应在调用RPC后就释放，而是要在done-&amp;gt;Run()里释放。你一般不能把这些对象分配在栈上，而应该分配在堆上。详见&lt;a href=&#34;client.md#%E5%BC%82%E6%AD%A5%E8%AE%BF%E9%97%AE&#34;&gt;异步访问&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;重点检查Controller，Response和done的生命周期。在异步访问中，RPC调用结束并不意味着RPC整个过程结束，而是在进入done-&amp;gt;Run()时才会结束。所以这些对象不应在调用RPC后就释放，而是要在done-&amp;gt;Run()里释放。你一般不能把这些对象分配在栈上，而应该分配在堆上。详见&lt;a href=&#34;#%E5%BC%82%E6%AD%A5%E8%AE%BF%E9%97%AE&#34;&gt;异步访问&lt;/a&gt;。&lt;/p&gt;
 &lt;h3 id=&#34;q-怎么确保请求只被处理一次&#34;&gt;Q: 怎么确保请求只被处理一次&lt;/h3&gt;
 &lt;p&gt;这不是RPC层面的事情。当response返回且成功时，我们确认这个过程一定成功了。当response返回且失败时，我们确认这个过程一定失败了。但当response没有返回时，它可能失败，也可能成功。如果我们选择重试，那一个成功的过程也可能会被再执行一次。一般来说带副作用的RPC服务都应当考虑&lt;a href=&#34;http://en.wikipedia.org/wiki/Idempotence&#34;&gt;幂等&lt;/a&gt;问题，否则重试可能会导致多次叠加副作用而产生意向不到的结果。只有读的检索服务大都没有副作用而天然幂等，无需特殊处理。而带写的存储服务则要在设计时就加入版本号或序列号之类的机制以拒绝已经发生的过程，保证幂等。&lt;/p&gt;
 &lt;h3 id=&#34;q-invalid-addressbnsgroupuser-personaduminj03&#34;&gt;Q: Invalid address=`bns://group.user-persona.dumi.nj03&#39;&lt;/h3&gt;
@@ -1754,7 +1754,7 @@ MyProgressiveReader就是用户实现ProgressiveReader的实例。用户可以�
 &lt;h1 id=&#34;访问带认证的server&#34;&gt;访问带认证的Server&lt;/h1&gt;
 &lt;p&gt;根据Server的认证方式生成对应的auth_data，并设置为http header &amp;ldquo;Authorization&amp;quot;的值。比如用的是curl，那就加上选项&lt;code&gt;-H &amp;quot;Authorization : &amp;lt;auth_data&amp;gt;&amp;quot;。&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id=&#34;发送https请求&#34;&gt;发送https请求&lt;/h1&gt;
-&lt;p&gt;https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启客户端SSL的一般性方法见&lt;a href=&#34;client.md#%E5%BC%80%E5%90%AFssl&#34;&gt;这里&lt;/a&gt;。为方便使用，brpc会对https开头的uri自动开启SSL。&lt;/p&gt;
+&lt;p&gt;https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启客户端SSL的一般性方法见&lt;a href=&#34;../basics/#%E5%BC%80%E5%90%AFssl&#34;&gt;这里&lt;/a&gt;。为方便使用，brpc会对https开头的uri自动开启SSL。&lt;/p&gt;
 
       </description>
     </item>
@@ -1826,7 +1826,7 @@ sh config_brpc.sh --headers&lt;span style=&#34;color:#ce5c00;font-weight:bold&#3
 sh config_brpc.sh --headers&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/include --libs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/lib64 --with-thrift
 &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Or use cmake&lt;/span&gt;
 mkdir build &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; build &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; cmake ../ -DWITH_THRIFT&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更多编译选项请阅读&lt;a href=&#34;../cn/getting_started.md&#34;&gt;Getting Started&lt;/a&gt;。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更多编译选项请阅读&lt;a href=&#34;../../getting_started/&#34;&gt;Getting Started&lt;/a&gt;。&lt;/p&gt;
 &lt;h1 id=&#34;client端访问thrift-server&#34;&gt;Client端访问thrift server&lt;/h1&gt;
 &lt;p&gt;基本步骤：&lt;/p&gt;
 &lt;ul&gt;
@@ -2008,7 +2008,7 @@ mkdir build &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;
         
         &lt;p&gt;brpc可通过多种方式访问用ub搭建的服务。&lt;/p&gt;
 &lt;h1 id=&#34;ubrpc-by-protobuf&#34;&gt;ubrpc (by protobuf)&lt;/h1&gt;
-&lt;p&gt;r31687后，brpc支持通过protobuf访问ubrpc，不需要baidu-rpc-ub，也不依赖idl-compiler。（也可以让protobuf服务被ubrpc client访问，方法见&lt;a href=&#34;nshead_service.md#%E4%BD%BF%E7%94%A8ubrpc%E7%9A%84%E6%9C%8D%E5%8A%A1&#34;&gt;使用ubrpc的服务&lt;/a&gt;）。&lt;/p&gt;
+&lt;p&gt;r31687后，brpc支持通过protobuf访问ubrpc，不需要baidu-rpc-ub，也不依赖idl-compiler。（也可以让protobuf服务被ubrpc client访问，方法见&lt;a href=&#34;https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md#%E4%BD%BF%E7%94%A8ubrpc%E7%9A%84%E6%9C%8D%E5%8A%A1&#34;&gt;使用ubrpc的服务&lt;/a&gt;）。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;步骤：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -2347,7 +2347,7 @@ service EchoService {
 &lt;ul&gt;
 &lt;li&gt;线程安全。用户不需要为每个线程建立独立的client。&lt;/li&gt;
 &lt;li&gt;支持同步、异步、批量同步、批量异步等访问方式，能使用ParallelChannel等组合访问方式。&lt;/li&gt;
-&lt;li&gt;支持多种&lt;a href=&#34;client.md#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F&#34;&gt;连接方式&lt;/a&gt;。支持超时、backup request、取消、tracing、内置服务等一系列RPC基本福利。&lt;/li&gt;
+&lt;li&gt;支持多种&lt;a href=&#34;../basics/#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F&#34;&gt;连接方式&lt;/a&gt;。支持超时、backup request、取消、tracing、内置服务等一系列RPC基本福利。&lt;/li&gt;
 &lt;li&gt;一个进程中的所有brpc client和一个redis-server只有一个连接。多个线程同时访问一个redis-server时更高效（见&lt;a href=&#34;#%E6%80%A7%E8%83%BD&#34;&gt;性能&lt;/a&gt;）。无论reply的组成多复杂，内存都会连续成块地分配，并支持短串优化(SSO)进一步提高性能。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;像http一样，brpc保证在最差情况下解析redis reply的时间复杂度也是O(N)，N是reply的字节数，而不是O($N^2$)。当reply是个较大的数组时，这是比较重要的。&lt;/p&gt;
@@ -2523,7 +2523,7 @@ TRACE: 02-13 19:49:11:   * 0 client.cpp:180] Accessing redis server at qps=29271
  
   PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND 
 16878 gejun     20   0 48136 2508 1004 R 99.9  0.0  13:36.59 redis-server   // thread_num=200
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注意redis-server实际处理的qps要乘10。乘10后也差不多在40万左右。另外在thread_num为50或200时，redis-server的CPU已打满。注意redis-server是&lt;a href=&#34;threading_overview.md#%E5%8D%95%E7%BA%BF%E7%A8%8Breactor&#34;&gt;单线程reactor&lt;/a&gt;，一个核心打满就意味server到极限了。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注意redis-server实际处理的qps要乘10。乘10后也差不多在40万左右。另外在thread_num为50或200时，redis-server的CPU已打满。注意redis-server是&lt;a href=&#34;../../rpc-in-depth/threading-overview/#%E5%8D%95%E7%BA%BF%E7%A8%8Breactorhttpenwikipediaorgwikireactor_pattern&#34;&gt;单线程reactor&lt;/a&gt;，一个核心打满就意味server到极限了。&lt;/p&gt;
 &lt;p&gt;使用50个bthread通过连接池方式同步压测同机redis-server。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ./client -use_bthread -connection_type pooled
 TRACE: 02-13 18:07:40:   * 0 client.cpp:180] Accessing redis server at qps=75986 latency=654
@@ -2575,8 +2575,8 @@ redis 127.0.0.1:6379&amp;gt; client getname
 &lt;p&gt;相比使用&lt;a href=&#34;http://libmemcached.org/libMemcached.html&#34;&gt;libmemcached&lt;/a&gt;(官方client)的优势有：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;线程安全。用户不需要为每个线程建立独立的client。&lt;/li&gt;
-&lt;li&gt;支持同步、异步、半同步等访问方式，能使用&lt;a href=&#34;combo_channel.md&#34;&gt;ParallelChannel等&lt;/a&gt;组合访问方式。&lt;/li&gt;
-&lt;li&gt;支持多种&lt;a href=&#34;client.md#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F&#34;&gt;连接方式&lt;/a&gt;。支持超时、backup request、取消、tracing、内置服务等一系列brpc提供的福利。&lt;/li&gt;
+&lt;li&gt;支持同步、异步、半同步等访问方式，能使用&lt;a href=&#34;../combo-channels/&#34;&gt;ParallelChannel等&lt;/a&gt;组合访问方式。&lt;/li&gt;
+&lt;li&gt;支持多种&lt;a href=&#34;../basics/#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F&#34;&gt;连接方式&lt;/a&gt;。支持超时、backup request、取消、tracing、内置服务等一系列brpc提供的福利。&lt;/li&gt;
 &lt;li&gt;有明确的request和response。而libmemcached是没有的，收到的消息不能直接和发出的消息对应上，用户得做额外开发，而且并没有那么容易做对。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;当前实现充分利用了RPC的并发机制并尽量避免了拷贝。一个client可以轻松地把一个同机memcached实例(版本1.4.15)压到极限：单连接9万，多连接33万。在大部分情况下，brpc client能充分发挥memcached的性能。&lt;/p&gt;
@@ -2827,7 +2827,7 @@ redis 127.0.0.1:6379&amp;gt; client getname
 &lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/dummy_server_1.png&#34; alt=&#34;img&#34;&gt; &lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/dummy_server_2.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/dummy_server_3.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;没有使用brpc&#34;&gt;没有使用brpc&lt;/h1&gt;
-&lt;p&gt;你必须手动加入dummy server。你得先查看&lt;a href=&#34;getting_started.md&#34;&gt;Getting Started&lt;/a&gt;如何下载和编译brpc，然后在程序入口处加入如下代码片段：&lt;/p&gt;
+&lt;p&gt;你必须手动加入dummy server。你得先查看&lt;a href=&#34;../../getting_started/&#34;&gt;Getting Started&lt;/a&gt;如何下载和编译brpc，然后在程序入口处加入如下代码片段：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;brpc/server.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt; 
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;

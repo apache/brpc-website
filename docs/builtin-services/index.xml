@@ -105,7 +105,7 @@
       <description>
         
         
-        &lt;p&gt;&lt;a href=&#34;https://github.com/brpc/brpc/tree/master/src/bvar/&#34;&gt;bvar&lt;/a&gt; is a set of counters to record and view miscellaneous statistics conveniently in multi-threaded applications. The implementation reduces cache bouncing by storing data in thread local storage(TLS), being much faster than UbMonitor(a legacy counting library inside Baidu) and even atomic operations in highly contended scenarios. brpc integrates bvar by default, namely all exposed bvars in a server are accessible through &lt;a href=&#34;http://brpc.baidu.com:8765/vars&#34;&gt;/vars&lt;/a&gt;, and a single bvar is addressable by &lt;a href=&#34;http://brpc.baidu.com:8765/vars/rpc_socket_count&#34;&gt;/vars/VARNAME&lt;/a&gt;. Read &lt;a href=&#34;bvar.md&#34;&gt;bvar&lt;/a&gt; to know how to add bvars for your program. brpc extensively use bvar to expose internal status. If you are looking for an utility to collect and display metrics of your application, consider bvar in the first place. bvar definitely can&amp;rsquo;t replace all counters, essentially it moves contentions occurred during write to read: which needs to combine all data written by all threads and becomes much slower than an ordinary read. If read and write on the counter are both frequent or decisions need to be made based on latest values, you should not use bvar.&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&#34;https://github.com/brpc/brpc/tree/master/src/bvar/&#34;&gt;bvar&lt;/a&gt; is a set of counters to record and view miscellaneous statistics conveniently in multi-threaded applications. The implementation reduces cache bouncing by storing data in thread local storage(TLS), being much faster than UbMonitor(a legacy counting library inside Baidu) and even atomic operations in highly contended scenarios. brpc integrates bvar by default, namely all exposed bvars in a server are accessible through &lt;a href=&#34;http://brpc.baidu.com:8765/vars&#34;&gt;/vars&lt;/a&gt;, and a single bvar is addressable by &lt;a href=&#34;http://brpc.baidu.com:8765/vars/rpc_socket_count&#34;&gt;/vars/VARNAME&lt;/a&gt;. Read &lt;a href=&#34;../../bvar/bvar/&#34;&gt;bvar&lt;/a&gt; to know how to add bvars for your program. brpc extensively use bvar to expose internal status. If you are looking for an utility to collect and display metrics of your application, consider bvar in the first place. bvar definitely can&amp;rsquo;t replace all counters, essentially it moves contentions occurred during write to read: which needs to combine all data written by all threads and becomes much slower than an ordinary read. If read and write on the counter are both frequent or decisions need to be made based on latest values, you should not use bvar.&lt;/p&gt;
 &lt;h2 id=&#34;query-methods&#34;&gt;Query methods&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars&#34;&gt;/vars&lt;/a&gt; : List all exposed bvars&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://brpc.baidu.com:8765/vars/rpc_socket_count&#34;&gt;/vars/NAME&lt;/a&gt;：List the bvar whose name is &lt;code&gt;NAME&lt;/code&gt;&lt;/p&gt;
@@ -152,7 +152,7 @@ bthread_worker_usage : 1.01056
 &lt;p&gt;Hovering mouse over the curves shows corresponding values at the time. The tooltip in above diagram means &amp;ldquo;The 99% percentile of latency before 39 seconds is 330 &lt;strong&gt;microseconds&lt;/strong&gt;&amp;rdquo;. The diagram does not include the 99.99-ile curve which is usually significantly higher than others, making others hard to read. You may click bvars ended with &amp;ldquo;_latency_9999&amp;rdquo; to read the 99.99-ile curve separately. This diagram shows how percentiles change over time, which is helpful to analyze performance regressions of systems.&lt;/p&gt;
 &lt;p&gt;brpc calculates latency distributions of services automatically, which do not need users to add manually. The metrics are as follows:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vars_6.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;bvar::LatencyRecorder&lt;/code&gt; is able to calculate latency distributions of any code, as depicted below. (checkout &lt;a href=&#34;bvar_c++.md&#34;&gt;bvar-c++&lt;/a&gt; for details):&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bvar::LatencyRecorder&lt;/code&gt; is able to calculate latency distributions of any code, as depicted below. (checkout &lt;a href=&#34;../../bvar/bvar-c++/&#34;&gt;bvar-c++&lt;/a&gt; for details):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;bvar/bvar.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
@@ -166,7 +166,7 @@ bthread_worker_usage : 1.01056
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the application already starts a brpc server, values like &lt;code&gt;client_latency&lt;/code&gt;, &lt;code&gt;client_latency_cdf&lt;/code&gt; can be viewed from &lt;code&gt;/vars&lt;/code&gt; as follows. Clicking them to see (dynamically-updated) curves:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/vars_7.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;non-brpc-server&#34;&gt;Non brpc server&lt;/h2&gt;
-&lt;p&gt;If your program only uses brpc client or even not use brpc, and you also want to view the curves, check &lt;a href=&#34;../cn/dummy_server.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If your program only uses brpc client or even not use brpc, and you also want to view the curves, check &lt;a href=&#34;../../client/dummy-server/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>
@@ -498,7 +498,7 @@ health_check_interval &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt
 &lt;p&gt;若启动时未加-enable_rpcz，则可在启动后访问SERVER_URL/rpcz/enable动态开启rpcz，访问SERVER_URL/rpcz/disable则关闭，这两个链接等价于访问SERVER_URL/flags/enable_rpcz?setvalue=true和SERVER_URL/flags/enable_rpcz?setvalue=false。在r31010之后，rpc在html版本中增加了一个按钮可视化地开启和关闭。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/rpcz_4.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/rpcz_5.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;如果只是brpc client或没有使用brpc，看&lt;a href=&#34;dummy_server.md&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;如果只是brpc client或没有使用brpc，看&lt;a href=&#34;../../client/dummy-server/&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;数据展现&#34;&gt;数据展现&lt;/h2&gt;
 &lt;p&gt;/rpcz展现的数据分为两层。&lt;/p&gt;
 &lt;h3 id=&#34;第一层&#34;&gt;第一层&lt;/h3&gt;
@@ -542,7 +542,7 @@ health_check_interval &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;li&gt;定义宏BRPC_ENABLE_CPU_PROFILER, 一般加入编译参数-DBRPC_ENABLE_CPU_PROFILER。&lt;/li&gt;
-&lt;li&gt;如果只是brpc client或没有使用brpc，看&lt;a href=&#34;dummy_server.md&#34;&gt;这里&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;如果只是brpc client或没有使用brpc，看&lt;a href=&#34;../../client/dummy-server/&#34;&gt;这里&lt;/a&gt;。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;注意要关闭Server端的认证，否则可能会看到这个：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ tools/pprof --text localhost:9002/pprof/profile
@@ -656,7 +656,7 @@ Wrote profile to /home/gejun/pprof/echo_server.1419559063.localhost.pprof.heap
 /home/gejun/pprof/echo_server.1419559063.localhost.pprof.heap: header size &amp;gt;= 2**16
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;如果只是brpc client或没有使用brpc，看&lt;a href=&#34;dummy_server.md&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;如果只是brpc client或没有使用brpc，看&lt;a href=&#34;../../client/dummy-server/&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;注意要关闭Server端的认证，否则可能会看到这个：&lt;/p&gt;
@@ -743,10 +743,10 @@ Total: 38.9 MB
         
         &lt;p&gt;brpc可以分析花在等待锁上的时间及发生等待的函数。&lt;/p&gt;
 &lt;h1 id=&#34;开启方法&#34;&gt;开启方法&lt;/h1&gt;
-&lt;p&gt;按需开启。无需配置，不依赖tcmalloc，不需要链接frame pointer或libunwind。如果只是brpc client或没有使用brpc，看&lt;a href=&#34;dummy_server.md&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;按需开启。无需配置，不依赖tcmalloc，不需要链接frame pointer或libunwind。如果只是brpc client或没有使用brpc，看&lt;a href=&#34;../../client/dummy-server/&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;h1 id=&#34;图示&#34;&gt;图示&lt;/h1&gt;
 &lt;p&gt;当很多线程争抢同一把锁时，一些线程无法立刻获得锁，而必须睡眠直到某个线程退出临界区。这个争抢过程我们称之为&lt;strong&gt;contention&lt;/strong&gt;。在多核机器上，当多个线程需要操作同一个资源却被一把锁挡住时，便无法充分发挥多个核心的并发能力。现代OS通过提供比锁更底层的同步原语，使得无竞争锁完全不需要系统调用，只是一两条wait-free，耗时10-20ns的原子操作，非常快。而锁一旦发生竞争，一些线程就要陷入睡眠，再次醒来触发了OS的调度代码，代价至少为3-5us。所以让锁尽量无竞争，让所有线程“一起飞”是需要高性能的server的永恒话题。&lt;/p&gt;
-&lt;p&gt;r31906后brpc支持contention profiler，可以分析在等待锁上花费了多少时间。等待过程中线程是睡着的不会占用CPU，所以contention profiler中的时间并不是cpu时间，也不会出现在&lt;a href=&#34;cpu_profiler.md&#34;&gt;cpu profiler&lt;/a&gt;中。cpu profiler可以抓到特别频繁的锁（以至于花费了很多cpu），但耗时真正巨大的临界区往往不是那么频繁，而无法被cpu profiler发现。**contention profiler和cpu profiler好似互补关系，前者分析等待时间（被动），后者分析忙碌时间。**还有一类由用户基于condition或sleep发起的主动等待时间，无需分析。&lt;/p&gt;
+&lt;p&gt;r31906后brpc支持contention profiler，可以分析在等待锁上花费了多少时间。等待过程中线程是睡着的不会占用CPU，所以contention profiler中的时间并不是cpu时间，也不会出现在&lt;a href=&#34;../cpu_profiler/&#34;&gt;cpu profiler&lt;/a&gt;中。cpu profiler可以抓到特别频繁的锁（以至于花费了很多cpu），但耗时真正巨大的临界区往往不是那么频繁，而无法被cpu profiler发现。**contention profiler和cpu profiler好似互补关系，前者分析等待时间（被动），后者分析忙碌时间。**还有一类由用户基于condition或sleep发起的主动等待时间，无需分析。&lt;/p&gt;
 &lt;p&gt;目前contention profiler支持pthread_mutex_t（非递归）和bthread_mutex_t，开启后每秒最多采集1000个竞争锁，这个数字由参数-bvar_collector_expected_per_second控制（同时影响rpc_dump）。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;

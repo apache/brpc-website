@@ -29,7 +29,7 @@
 &lt;p&gt;下图是bvar和原子变量，静态UbMonitor，动态UbMonitor在被多个线程同时使用时的开销。可以看到bvar的耗时基本和线程数无关，一直保持在极低的水平（~20纳秒）。而动态UbMonitor在24核时每次累加的耗时达7微秒，这意味着使用300次bvar的开销才抵得上使用一次动态UbMonitor变量。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/bvar_perf.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;新增bvar&#34;&gt;新增bvar&lt;/h1&gt;
-&lt;p&gt;增加C++ bvar的方法请看&lt;a href=&#34;bvar_c++.md#quick-introduction&#34;&gt;快速介绍&lt;/a&gt;. bvar默认统计了进程、系统的一些变量，以process_, system_等开头，比如：&lt;/p&gt;
+&lt;p&gt;增加C++ bvar的方法请看&lt;a href=&#34;../bvar-c++/#quick-introduction&#34;&gt;快速介绍&lt;/a&gt;. bvar默认统计了进程、系统的一些变量，以process_, system_等开头，比如：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;process_context_switches_involuntary_second : 14
 process_context_switches_voluntary_second : 15760
 process_cpu_usage : 0.428
@@ -64,7 +64,7 @@ iobuf_block_count_hit_tls_threshold : 0
 iobuf_block_memory : 729088
 iobuf_newbigview_second : 10
 &lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;监控bvar&#34;&gt;监控bvar&lt;/h1&gt;
-&lt;p&gt;打开bvar的&lt;a href=&#34;bvar_c++.md#export-all-variables&#34;&gt;dump功能&lt;/a&gt;以导出所有的bvar到文件，格式就如上文一样，每行是一对&amp;quot;名字:值&amp;quot;。打开dump功能后应检查monitor/目录下是否有数据，比如：&lt;/p&gt;
+&lt;p&gt;打开bvar的&lt;a href=&#34;../bvar-c++/#export-all-variables&#34;&gt;dump功能&lt;/a&gt;以导出所有的bvar到文件，格式就如上文一样，每行是一对&amp;quot;名字:值&amp;quot;。打开dump功能后应检查monitor/目录下是否有数据，比如：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ls monitor/
 bvar.echo_client.data  bvar.echo_server.data
  

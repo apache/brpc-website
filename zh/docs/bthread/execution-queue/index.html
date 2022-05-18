@@ -2079,7 +2079,7 @@ if (!doNotTrack) {
 <p>不考虑性能和复杂度，理论上任何系统都可以只使用mutex或者ExecutionQueue来消除竞争.
 但是复杂系统的设计上，建议根据不同的场景灵活决定如何使用这两个工具:</p>
 <ul>
-<li>如果临界区非常小，竞争又不是很激烈，优先选择使用mutex, 之后可以结合<a href="contention_profiler.md">contention profiler</a>来判断mutex是否成为瓶颈。</li>
+<li>如果临界区非常小，竞争又不是很激烈，优先选择使用mutex, 之后可以结合<a href="../../builtin-services/contention_profiler/">contention profiler</a>来判断mutex是否成为瓶颈。</li>
 <li>需要有序执行，或者无法消除的激烈竞争但是可以通过批量执行来提高吞吐， 可以选择使用ExecutionQueue。</li>
 </ul>
 <p>总之，多线程编程没有万能的模型，需要根据具体的场景，结合丰富的profliling工具，最终在复杂度和性能之间找到合适的平衡。</p>
@@ -2376,7 +2376,7 @@ int execution_queue_cancel(const TaskHandle&amp; h);
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年4月11日: <a  href="https://github.com/apache/incubator-brpc-website/commit/a895fb1b806a5b2667efc5e32866c9e96b42c781">site search bugfix and update community info (#57) (a895fb1)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年5月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

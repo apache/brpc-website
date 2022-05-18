@@ -2030,8 +2030,8 @@ if (!doNotTrack) {
 <p>Advantages compared to <a href="http://libmemcached.org/libMemcached.html">libmemcached</a> (the official client):</p>
 <ul>
 <li>Thread safety. No need to set up separate clients for each thread.</li>
-<li>Support synchronous, asynchronous, semi-synchronous accesses etc. Support <a href="combo_channel.md">ParallelChannel etc</a> to define access patterns declaratively.</li>
-<li>Support various <a href="../client/basics/#connection-type">connection types</a>. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.</li>
+<li>Support synchronous, asynchronous, semi-synchronous accesses etc. Support <a href="../combo-channels/">ParallelChannel etc</a> to define access patterns declaratively.</li>
+<li>Support various <a href="../basics/#connection-type">connection types</a>. Support timeout, backup request, cancellation, tracing, built-in services, and other benefits offered by brpc.</li>
 <li>Have the concept of requests and responses while libmemcached don&rsquo;t. Users have to do extra bookkeepings to associate received messages with sent messages, which is not trivial.</li>
 </ul>
 <p>The current implementation takes full advantage of the RPC concurrency mechanism and avoids copying as much as possible. A single client can easily pushes a memcached instance (version 1.4.15) on the same machine to its limit: 90,000 QPS for single connection, 330,000 QPS for multiple connections. In most cases, brpc is able to make full use of memcached&rsquo;s capabilities.</p>
@@ -2286,7 +2286,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

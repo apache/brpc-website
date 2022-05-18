@@ -2025,7 +2025,7 @@ if (!doNotTrack) {
 <div class="td-content">
 	<h1>thread-local</h1>
 	<div class="lead">thread-local问题。</div>
-	<p>本页说明bthread下使用pthread-local可能会导致的问题。bthread-local的使用方法见<a href="server.md#bthread-local">这里</a>。</p>
+	<p>本页说明bthread下使用pthread-local可能会导致的问题。bthread-local的使用方法见<a href="../../server/basics/#bthread-local">这里</a>。</p>
 <h1 id="thread-local问题">thread-local问题</h1>
 <p>调用阻塞的bthread函数后，所在的pthread很可能改变，这使<a href="http://linux.die.net/man/3/pthread_getspecific">pthread_getspecific</a>，<a href="https://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/Thread_002dLocal.html">gcc __thread</a>和c++11
 thread_local变量，pthread_self()等的值变化了，如下代码的行为是不可预计的：</p>
@@ -2246,7 +2246,7 @@ Use *p ...                   -  still the errno of original pthread, undefined b
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月9日: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年5月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

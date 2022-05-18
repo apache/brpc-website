@@ -2031,7 +2031,7 @@ if (!doNotTrack) {
 <p>Following graph compares overhead of bvar, atomics, static UbMonitor, dynamic UbMonitor when they&rsquo;re accessed by multiple threads simultaneously. We can see that overhead of bvar is not related to number of threads basically, and being constantly low (~20 nanoseconds). As a contrast, dynamic UbMonitor costs 7 microseconds on each operation when there&rsquo;re 24 threads, which is the overhead of using the bvar for 300 times.</p>
 <p><img src="/images/docs/bvar_perf.png" alt="img"></p>
 <h1 id="adding-new-bvar">Adding new bvar</h1>
-<p>Read <a href="bvar_c++.md#quick-introduction">Quick introduction</a> to know how to add bvar in C++.  bvar already provides stats of many process-level and system-level variables by default, which are prefixed with <code>process_</code> and <code>system_</code>, such as:</p>
+<p>Read <a href="../bvar-c++/#quick-introduction">Quick introduction</a> to know how to add bvar in C++.  bvar already provides stats of many process-level and system-level variables by default, which are prefixed with <code>process_</code> and <code>system_</code>, such as:</p>
 <pre><code>process_context_switches_involuntary_second : 14
 process_context_switches_voluntary_second : 15760
 process_cpu_usage : 0.428
@@ -2067,7 +2067,7 @@ iobuf_block_memory : 729088
 iobuf_newbigview_second : 10
 </code></pre><p>New exported files overwrite previous files, which is different from regular logs which append new data.</p>
 <h1 id="monitoring-bvar">Monitoring bvar</h1>
-<p>Turn on <a href="bvar_c++.md#export-all-variables">dump feature</a> of bvar to export all exposed bvars to files, which are formatted just like above texts: each line is a pair of &ldquo;name&rdquo; and &ldquo;value&rdquo;. Check if there&rsquo;re data under $PWD/monitor/ after enabling dump, for example:</p>
+<p>Turn on <a href="../bvar-c++/#export-all-variables">dump feature</a> of bvar to export all exposed bvars to files, which are formatted just like above texts: each line is a pair of &ldquo;name&rdquo; and &ldquo;value&rdquo;. Check if there&rsquo;re data under $PWD/monitor/ after enabling dump, for example:</p>
 <pre><code>$ ls monitor/
 bvar.echo_client.data  bvar.echo_server.data
  
@@ -2265,7 +2265,7 @@ process_username : &quot;gejun&quot;
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

@@ -2045,7 +2045,7 @@ if (!doNotTrack) {
 	<h1 id="自适应限流">自适应限流</h1>
 <p>服务的处理能力是有客观上限的。当请求速度超过服务的处理速度时，服务就会过载。</p>
 <p>如果服务持续过载，会导致越来越多的请求积压，最终所有的请求都必须等待较长时间才能被处理，从而使整个服务处于瘫痪状态。</p>
-<p>与之相对的，如果直接拒绝掉一部分请求，反而能够让服务能够&quot;及时&quot;处理更多的请求。对应的方法就是<a href="https://github.com/brpc/brpc/blob/master/docs/cn/server.md#%E9%99%90%E5%88%B6%E6%9C%80%E5%A4%A7%E5%B9%B6%E5%8F%91">设置最大并发</a>。</p>
+<p>与之相对的，如果直接拒绝掉一部分请求，反而能够让服务能够&quot;及时&quot;处理更多的请求。对应的方法就是<a href="../basics/#limit-concurrency">设置最大并发</a>。</p>
 <p>自适应限流能动态调整服务的最大并发，在保证服务不过载的前提下，让服务尽可能多的处理请求。</p>
 <h2 id="使用场景">使用场景</h2>
 <p>通常情况下要让服务不过载，只需在上线前进行压力测试，并通过little&rsquo;s law计算出best_max_concurrency就可以了。但在服务数量多，拓扑复杂，且处理能力会逐渐变化的局面下，使用固定的最大并发会带来巨大的测试工作量，很不方便。自适应限流就是为了解决这个问题。</p>
@@ -2328,7 +2328,7 @@ min_latency前，若所有latency都小于min_latency，那么max_concurrency会
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 
