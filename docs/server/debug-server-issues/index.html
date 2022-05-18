@@ -1984,19 +1984,22 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#31-定位cpu-bound问题">3.1 定位cpu-bound问题</a>
+    <li><a href="#31-locate-cpu-bound-problem">3.1 Locate cpu-bound problem</a>
       <ul>
-        <li><a href="#排除上游分流不均的嫌疑">排除上游分流不均的嫌疑</a></li>
-        <li><a href="#优化单机性能">优化单机性能</a></li>
+        <li><a href="#exclude-the-suspect-of-uneven-distribution-to-upstreams">exclude the suspect of uneven distribution to upstreams</a></li>
+        <li><a href="#improve-performance-of-single-server">Improve performance of single server</a></li>
       </ul>
     </li>
-    <li><a href="#32-定位io-bound问题">3.2 定位io-bound问题</a>
+    <li><a href="#32-locate-io-bound-problem">3.2 Locate io-bound problem</a>
       <ul>
-        <li><a href="#排除工作线程数不够的嫌疑">排除工作线程数不够的嫌疑</a></li>
-        <li><a href="#排除锁的嫌疑">排除锁的嫌疑</a></li>
-        <li><a href="#使用rpcz">使用rpcz</a></li>
-        <li><a href="#使用bvar">使用bvar</a></li>
-        <li><a href="#只使用了brpc-client">只使用了brpc client</a></li>
+        <li><a href="#exclude-the-suspect-of-working-threads-are-not-enough">exclude the suspect of working threads are not enough</a></li>
+        <li><a href="#exclude-the-suspect-of-lock">exclude the suspect of lock</a></li>
+        <li><a href="#use-rpcz">use rpcz</a></li>
+      </ul>
+    </li>
+    <li><a href="#use-bvar">Use bvar</a>
+      <ul>
+        <li><a href="#use-brpc-client-only">Use brpc client only</a></li>
       </ul>
     </li>
   </ul>
@@ -2045,77 +2048,77 @@ if (!doNotTrack) {
 <div class="td-content">
 	<h1>Debug server issues</h1>
 	<div class="lead">Learn how to debug server issues.</div>
-	<h1 id="1检查工作线程的数量">1.检查工作线程的数量</h1>
-<p>查看 /vars/bthread_worker_**count** 和 /vars/bthread_worker_**usage**。分别是工作线程的个数，和正在被使用的工作线程个数。</p>
+	<h1 id="1-check-the-number-of-worker-threads">1. Check the number of worker threads</h1>
+<p>Check <strong>/vars/bthread_worker_count</strong> and <strong>/vars/bthread_worker_usage</strong>, which is the number of worker threads in total and being used, respectively.</p>
 <blockquote>
-<p>如果usage和count接近，说明线程不够用了。</p>
+<p>The number of usage and count being close means that worker threads are not enough.</p>
 </blockquote>
-<p>比如，下图中有24个工作线程，正在使用的是23.93个，说明所有的工作线程都被打满了，不够用了。</p>
+<p>For example, there are 24 worker threads in the following figure, among which 23.93 worker threads are being used, indicating all the worker threads are full of jobs and not enough.</p>
 <p><img src="/images/docs/full_worker_usage.png" alt="img"></p>
-<p>下图中正在使用的只有2.36个，工作线程明显是足够的。</p>
+<p>There are 2.36 worker threads being used in the following figure. Apparently the worker threads are enough.</p>
 <p><img src="/images/docs/normal_worker_usage.png" alt="img"></p>
-<p>把 /vars/bthread_worker_count;bthread_worker_usage?expand 拼在服务url后直接看到这两幅图，就像<a href="http://brpc.baidu.com:8765/vars/bthread_worker_count;bthread_worker_usage?expand">这样</a>。</p>
-<h1 id="2检查cpu的使用程度">2.检查CPU的使用程度</h1>
-<p>查看 /vars/system_core_**count** 和 /vars/process_cpu_**usage**。分别是cpu核心的个数，和正在使用的cpu核数。</p>
+<p>These two figures can be seen directly by putting /vars/bthread_worker_count;bthread_worker_usage?expand after service url, just like <a href="http://brpc.baidu.com:8765/vars/bthread_worker_count;bthread_worker_usage?expand">this</a>.</p>
+<h1 id="2-check-cpu-usage">2. Check CPU usage</h1>
+<p>Check /vars/system_core_**count** and /vars/process_cpu_**usage**, which is the number of cpu core available and being used, respectively.</p>
 <blockquote>
-<p>如果usage和count接近，说明CPU不够用了。</p>
+<p>The number of usage and count being close means that cpus are enough.</p>
 </blockquote>
-<p>下图中cpu核数为24，正在使用的核心数是20.9个，CPU是瓶颈了。</p>
+<p>In the following figure the number of cores is 24, while the number of cores being used is 20.9, which means CPU is bottleneck.</p>
 <p><img src="/images/docs/high_cpu_usage.png" alt="img"></p>
-<p>下图中正在使用的核心数是2.06，CPU是够用的。</p>
+<p>The number of cores being used in the figure below is 2.06, then CPU is sufficient.</p>
 <p><img src="/images/docs/normal_cpu_usage.png" alt="img"></p>
-<h1 id="3定位问题">3.定位问题</h1>
-<p>如果process_cpu_usage和bthread_worker_usage接近，说明是cpu-bound，工作线程大部分时间在做计算。</p>
-<p>如果process_cpu_usage明显小于bthread_worker_usage，说明是io-bound，工作线程大部分时间在阻塞。</p>
-<p>1 - process_cpu_usage / bthread_worker_usage就是大约在阻塞上花费的时间比例，比如process_cpu_usage = 2.4，bthread_worker_usage = 18.5，那么工作线程大约花费了87.1% 的时间在阻塞上。</p>
-<h2 id="31-定位cpu-bound问题">3.1 定位cpu-bound问题</h2>
-<p>原因可能是单机性能不足，或上游分流不均。</p>
-<h3 id="排除上游分流不均的嫌疑">排除上游分流不均的嫌疑</h3>
-<p>在不同服务的<a href="http://brpc.baidu.com:8765/vars">vars界面</a>输入qps，查看不同的qps是否符合预期，就像这样：</p>
+<h1 id="3-locate-problems">3. Locate problems</h1>
+<p>The number of process_cpu_usage being close to bthread_worker_usage means it is a cpu-bound program and worker threads are doing calculations in most of the time.</p>
+<p>The number of process_cpu_usage being much less than bthread_worker_usage means it is an io-bound program and worker threads are blocking in most of the time.</p>
+<p>(1 - process_cpu_usage / bthread_worker_usage) is the time ratio that spent on blocking. For example, if process_cpu_usage = 2.4, bthread_worker_usage = 18.5, then worker threads spent 87.1% of time on blocking.</p>
+<h2 id="31-locate-cpu-bound-problem">3.1 Locate cpu-bound problem</h2>
+<p>The possible reason may be the poor performance of single server or uneven distribution to upstreams.</p>
+<h3 id="exclude-the-suspect-of-uneven-distribution-to-upstreams">exclude the suspect of uneven distribution to upstreams</h3>
+<p>Enter qps at [vars]((<a href="http://brpc.baidu.com:8765/vars">http://brpc.baidu.com:8765/vars</a>) page of different services to check whether qps is as expected, just like this:</p>
 <p><img src="/images/docs/bthread_creation_qps.png" alt="img"></p>
-<p>或者在命令行中用curl直接访问，像这样：</p>
+<p>Or directly visit using curl in command line, like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl brpc.baidu.com:8765/vars/*qps*
 bthread_creation_qps : <span style="color:#0000cf;font-weight:bold">95</span>
 rpc_server_8765_example_echo_service_echo_qps : <span style="color:#0000cf;font-weight:bold">57</span>
-</code></pre></div><p>如果不同机器的分流确实不均，且难以解决，可以考虑<a href="server.md#%E9%99%90%E5%88%B6%E6%9C%80%E5%A4%A7%E5%B9%B6%E5%8F%91">限制最大并发</a>。</p>
-<h3 id="优化单机性能">优化单机性能</h3>
-<p>请使用<a href="cpu_profiler.md">CPU profiler</a>分析程序的热点，用数据驱动优化。一般来说一个卡顿的cpu-bound程序一般能看到显著的热点。</p>
-<h2 id="32-定位io-bound问题">3.2 定位io-bound问题</h2>
-<p>原因可能有：</p>
+</code></pre></div><p>If the distribution of different machines is indeed uneven and difficult to solve, <a href="../basics/#limit-concurrency">Limit concurrency</a> can be considered to use.</p>
+<h3 id="improve-performance-of-single-server">Improve performance of single server</h3>
+<p>Please use <a href="../../builtin-services/cpu_profiler/">CPU profiler</a> to analyze hot spots of the program and use data to guide optimization. Generally speaking, some big and obvious hot spots can be found in a cpu-bound program.</p>
+<h2 id="32-locate-io-bound-problem">3.2 Locate io-bound problem</h2>
+<p>The possible reason:</p>
 <ul>
-<li>线程确实配少了</li>
-<li>访问下游服务的client不支持bthread，且延时过长</li>
-<li>阻塞来自程序内部的锁，IO等等。</li>
+<li>working threads are not enough.</li>
+<li>the client that visits downstream servers doesn&rsquo;t support bthread and the latency is too long.</li>
+<li>blocking that caused by internal locks, IO, etc.</li>
 </ul>
-<p>如果阻塞无法避免，考虑用异步。</p>
-<h3 id="排除工作线程数不够的嫌疑">排除工作线程数不够的嫌疑</h3>
-<p>如果线程数不够，你可以尝试动态调大工作线程数，切换到/flags页面，点击bthread_concurrency右边的(R):</p>
+<p>If blocking is inevitable, please consider asynchronous method.</p>
+<h3 id="exclude-the-suspect-of-working-threads-are-not-enough">exclude the suspect of working threads are not enough</h3>
+<p>If working threads are not enough, you can try to dynamically adjust the number of threads. Switch to the /flags page and click the (R) in the right of bthread_concurrency:</p>
 <p><img src="/images/docs/bthread_concurrency_1.png" alt="img"></p>
-<p>进入后填入新的线程数确认即可：</p>
+<p>Just enter the new thread number and confirm:</p>
 <p><img src="/images/docs/bthread_concurrency_2.png" alt="img"></p>
-<p>回到/flags界面可以看到bthread_concurrency已变成了新值。</p>
+<p>Back to the /flags page, you can see that bthread_concurrency has become the new value.</p>
 <p><img src="/images/docs/bthread_concurrency_3.png" alt="img"></p>
-<p>不过，调大线程数未必有用。如果工作线程是由于访问下游而大量阻塞，调大工作线程数是没有用的。因为真正的瓶颈在于后端的，调大线程后只是让每个线程的阻塞时间变得更长。</p>
-<p>比如在我们这的例子中，调大线程后新增的工作线程仍然被打满了。</p>
+<p>However, adjusting the number of threads may not be useful. If the worker threads are largely blocked by visiting downstreams, it is useless to adjust the thread number since the real bottleneck is in the back-end and adjusting the thread number to a larger value just make the blocking time of each thread become longer.</p>
+<p>For example, in our example, the worker threads are still full of work after the thread number is resized.</p>
 <p><img src="/images/docs/full_worker_usage_2.png" alt="img"></p>
-<h3 id="排除锁的嫌疑">排除锁的嫌疑</h3>
-<p>如果程序被某把锁挡住了，也可能呈现出“io-bound”的特征。先用<a href="contention_profiler.md">contention profiler</a>排查锁的竞争状况。</p>
-<h3 id="使用rpcz">使用rpcz</h3>
-<p>rpcz可以帮助你看到最近的所有请求，和处理它们时在每个阶段花费的时间（单位都是微秒）。</p>
+<h3 id="exclude-the-suspect-of-lock">exclude the suspect of lock</h3>
+<p>If the program is blocked by some lock, it can also present features of io-bound. First use <a href="../../builtin-services/contention_profiler">contention profiler</a> to check the contention status of locks.</p>
+<h3 id="use-rpcz">use rpcz</h3>
+<p>rpcz can help you see all the recent requests and the time(us) spent in each phase while processing them.</p>
 <p><img src="/images/docs/rpcz.png" alt="img"></p>
-<p>点击一个span链接后看到该次RPC何时开始，每个阶段花费的时间，何时结束。</p>
+<p>Click on a span link to see when the RPC started, the spent time in each phase and when it ended.</p>
 <p><img src="/images/docs/rpcz_2.png" alt="img"></p>
-<p>这是一个典型的server在严重阻塞的例子。从接收到请求到开始运行花费了20ms，说明server已经没有足够的工作线程来及时完成工作了。</p>
-<p>现在这个span的信息比较少，我们去程序里加一些。你可以使用TRACEPRINTF向rpcz打印日志。打印内容会嵌入在rpcz的时间流中。</p>
+<p>This is a typical example that server is blocked severely. It takes 20ms from receiving the request to starting running, indicating that the server does not have enough worker threads to get the job done in time.</p>
+<p>For now the information of this span is less, we can add some in the program. You can use TRACEPRINTF print logs to rpcz. Printed content is embedded in the time stream of rpcz.</p>
 <p><img src="/images/docs/trace_printf.png" alt="img"></p>
-<p>重新运行后，查看一个span，里面的打印内容果然包含了我们增加的TRACEPRINTF。</p>
+<p>After Re-running, you can check the span and it really contains the content we added by TRACEPRINTF.</p>
 <p><img src="/images/docs/rpcz_3.png" alt="img"></p>
-<p>在运行到第一条TRACEPRINTF前，用户回调已运行了2051微秒（假设这符合我们的预期），紧接着foobar()却花费了8036微秒，我们本来以为这个函数会很快返回的。范围进一步缩小了。</p>
-<p>重复这个过程，直到找到那个造成问题的函数。</p>
-<h3 id="使用bvar">使用bvar</h3>
-<p>TRACEPRINTF主要适合若干次的函数调用，如果一个函数调用了很多次，或者函数本身开销很小，每次都往rpcz打印日志是不合适的。这时候你可以使用bvar。</p>
-<p><a href="bvar.md">bvar</a>是一个多线程下的计数库，可以以极低的开销统计用户递来的数值，相比“打日志大法”几乎不影响程序行为。你不用完全了解bvar的完整用法，只要使用bvar::LatencyRecorder即可。</p>
-<p>仿照如下代码对foobar的运行时间进行监控。</p>
+<p>Before running to the first TRACEPRINTF, the user callback has already run for 2051ms(suppose it meets our expectation), followed by foobar() that took 8036ms, which is expected to return very fast. The range has been further reduced.</p>
+<p>Repeat this process until you find the function that caused the problem.</p>
+<h2 id="use-bvar">Use bvar</h2>
+<p>TRACEPRINTF is mainly suitable for functions that called several times, so if a function is called many times, or the function itself has a small overhead, it is not appropriate to print logs to rpcz every time. You can use bvar instead.</p>
+<p><a href="../../bvar/bvar/">bvar</a> is a multi-threaded counting library, which can record the value passed from user at an extreme low cost and almost does not affect the program behavior compared to logging.</p>
+<p>Follow the code below to monitor the runtime of foobar.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;butil/time.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;bvar/bvar.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span> 
@@ -2131,14 +2134,14 @@ rpc_server_8765_example_echo_service_echo_qps : <span style="color:#0000cf;font-
     <span style="color:#000">g_foobar_latency</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">tm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">u_elapsed</span><span style="color:#000;font-weight:bold">();</span>
     <span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>重新运行程序后，在vars的搜索框中键入foobar，显示如下：</p>
+</code></pre></div><p>After rerunning the program, enter foobar in the search box of vars. The result is shown as below:</p>
 <p><img src="/images/docs/foobar_bvar.png" alt="img"></p>
-<p>点击一个bvar可以看到动态图，比如点击cdf后看到</p>
+<p>Click on a bvar and you can see a dynamic figure. For example, after clicking on cdf:</p>
 <p><img src="/images/docs/foobar_latency_cdf.png" alt="img"></p>
-<p>根据延时的分布，你可以推测出这个函数的整体行为，对大多数请求表现如何，对长尾表现如何。</p>
-<p>你可以在子函数中继续这个过程，增加更多bvar，并比对不同的分布，最后定位来源。</p>
-<h3 id="只使用了brpc-client">只使用了brpc client</h3>
-<p>得打开dummy server提供内置服务，方法见<a href="dummy_server.md">这里</a>。</p>
+<p>Depending on the distribution of delays, you can infer the overall behavior of this function, how it behaves for most requests and how it behaves for long tails.</p>
+<p>You can continue this process in the subroutine, add more bvar, compare the different distributions, and finally locate the source.</p>
+<h3 id="use-brpc-client-only">Use brpc client only</h3>
+<p>You have to open the dummy server to provide built-in services, see <a href="../../client/dummy-server/">here</a>.</p>
 
         <div class="section-index">
     
@@ -2322,7 +2325,7 @@ rpc_server_8765_example_echo_service_echo_qps : <span style="color:#0000cf;font-
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

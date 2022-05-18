@@ -2268,7 +2268,7 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;message&#34;</span>:<span style="color:#4e9a06">&#34;hello&#34;</span><span style="color:#ce5c00;font-weight:bold">}</span>
 </code></pre></div><p>Note: Set <code>Content-Type: application/proto</code> to access services with http/h2 + protobuf-serialized-data, which performs better at serialization.</p>
 <h2 id="jsonpb">json&lt;=&gt;pb</h2>
-<p>Json fields correspond to pb fields by matched names and message structures. The json must contain required fields in pb, otherwise conversion will fail and corresponding request will be rejected. The json may include undefined fields in pb, but they will be dropped rather than being stored in pb as unknown fields. Check out <a href="json2pb.md">json &lt;=&gt; protobuf</a> for conversion rules.</p>
+<p>Json fields correspond to pb fields by matched names and message structures. The json must contain required fields in pb, otherwise conversion will fail and corresponding request will be rejected. The json may include undefined fields in pb, but they will be dropped rather than being stored in pb as unknown fields. Check out <a href="../json2pb/">json &lt;=&gt; protobuf</a> for conversion rules.</p>
 <p>When -pb_enum_as_number is turned on, enums in pb are converted to values instead of names. For example in <code>enum MyEnum { Foo = 1; Bar = 2; };</code>, fields typed <code>MyEnum</code> are converted to &ldquo;Foo&rdquo; or &ldquo;Bar&rdquo; when the flag is off, 1 or 2 otherwise. This flag affects requests sent by clients and responses returned by servers both. Since &ldquo;enum as name&rdquo; has better forward and backward compatibilities, this flag should only be turned on to adapt legacy code that are unable to parse enumerations from names.</p>
 <h2 id="adapt-old-clients">Adapt old clients</h2>
 <p>Early-version brpc allows pb service being accessed via http without filling the pb request, even if there&rsquo;re required fields. This kind of service often parses http requests and sets http responses by itself, and does not touch the pb request. However this behavior is still very dangerous: a service with an undefined request.</p>
@@ -2284,10 +2284,10 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 <p>Server detects supported protocols automatically, without assignment from users. <code>cntl-&gt;protocol()</code> gets the protocol being used. Server is able to accept connections with different protocols from one port, users don&rsquo;t need to assign different ports for different protocols. Even one connection may transport messages in multiple protocols, although we rarely do this (and not recommend). Supported protocols:</p>
 <ul>
 <li>
-<p><a href="baidu_std.md">The standard protocol used in Baidu</a>, shown as &ldquo;baidu_std&rdquo;, enabled by default.</p>
+<p><a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md">The standard protocol used in Baidu</a>, shown as &ldquo;baidu_std&rdquo;, enabled by default.</p>
 </li>
 <li>
-<p><a href="streaming_rpc.md">Streaming RPC</a>, shown as &ldquo;streaming_rpc&rdquo;, enabled by default.</p>
+<p><a href="../../client/streaming-rpc/">Streaming RPC</a>, shown as &ldquo;streaming_rpc&rdquo;, enabled by default.</p>
 </li>
 <li>
 <p>http/1.0 and http/1.1, shown as &ldquo;http&rdquo;, enabled by default.</p>
@@ -2330,7 +2330,7 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 </code></pre></div><p>As the name implies, messages in this protocol are composed by nshead+mcpack, the mcpack does not include special fields. Different from implementations based on NsheadService by users, this protocol uses mcpack2pb which makes the service capable of handling both mcpack and pb with one piece of code. Due to lack of fields to carry ErrorText, server can only close connections when errors occur.</p>
 </li>
 <li>
-<p>Read <a href="nshead_service.md">Implement NsheadService</a> for UB related protocols.</p>
+<p>Read <a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md">Implement NsheadService</a> for UB related protocols.</p>
 </li>
 </ul>
 <p>If you need more protocols, contact us.</p>
@@ -2409,14 +2409,14 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 </code></pre><p>brpc removes the restriction from protobuf and controls the limit by -max_body_size solely: as long as the flag is large enough, messages will not be rejected and error logs will not be printed. This feature works for all versions of protobuf.</p>
 <h2 id="compression">Compression</h2>
 <p><code>set_response_compress_type()</code> sets compression method for the response, no compression by default.</p>
-<p>Attachment is not compressed. Check <a href="http_service.md#compress-response-body">here</a> for compression of HTTP body.</p>
+<p>Attachment is not compressed. Check <a href="../serve-httph2/#compress-the-response-body">here</a> for compression of HTTP body.</p>
 <p>Supported compressions:</p>
 <ul>
 <li>brpc::CompressTypeSnappy : <a href="http://google.github.io/snappy/">snanpy</a>, compression and decompression are very fast, but compression ratio is low.</li>
 <li>brpc::CompressTypeGzip : <a href="http://en.wikipedia.org/wiki/Gzip">gzip</a>, significantly slower than snappy, with a higher compression ratio.</li>
 <li>brpc::CompressTypeZlib : <a href="http://en.wikipedia.org/wiki/Zlib">zlib</a>, 10%~20% faster than gzip but still significantly slower than snappy, with slightly better compression ratio than gzip.</li>
 </ul>
-<p>Read <a href="client.md#compression">Client-Compression</a> for more comparisons.</p>
+<p>Read <a href="../../client/basics/#compression">Client-Compression</a> for more comparisons.</p>
 <h2 id="attachment">Attachment</h2>
 <p>baidu_std and hulu_pbrpc supports attachments which are sent along with messages and set by users to bypass serialization of protobuf. From a server&rsquo;s perspective, data set in Controller.response_attachment() will be received by the client while Controller.request_attachment() contains attachment sent from the client.</p>
 <p>Attachment is not compressed by framework.</p>
@@ -2476,7 +2476,7 @@ $ curl -d <span style="color:#4e9a06">&#39;{&#34;message&#34;:&#34;hello&#34;}&#
 <p>SSL layer works under protocol layer. As a result, all protocols (such as HTTP)  can provide SSL access when it&rsquo;s turned on. Server will decrypt the data first and then pass it into each protocol.</p>
 </li>
 <li>
-<p>After turning on SSL, non-SSL access is still available for the same port. Server can automatically distinguish SSL from non-SSL requests. SSL-only mode can be implemented using <code>Controller::is_ssl()</code> in service&rsquo;s callback and <code>SetFailed</code> if it returns false. In the meanwhile, the builtin-service <a href="../cn/connections.md">connections</a> also shows the SSL information for each connection.</p>
+<p>After turning on SSL, non-SSL access is still available for the same port. Server can automatically distinguish SSL from non-SSL requests. SSL-only mode can be implemented using <code>Controller::is_ssl()</code> in service&rsquo;s callback and <code>SetFailed</code> if it returns false. In the meanwhile, the builtin-service <a href="../../builtin-services/connections/">connections</a> also shows the SSL information for each connection.</p>
 </li>
 </ul>
 <h2 id="verify-identities-of-clients">Verify identities of clients</h2>
@@ -2544,7 +2544,7 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
 
 <span style="color:#8f5902;font-style:italic">// Set auto concurrency limiter for specific method
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">server</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">MaxConcurrencyOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;example.EchoService.Echo&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;auto&#34;</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><p>Read <a href="../cn/auto_concurrency_limiter.md">this</a> to know more about the algorithm.</p>
+</code></pre></div><p>Read <a href="../auto-concurrencylimiter/">this</a> to know more about the algorithm.</p>
 <h2 id="pthread-mode">pthread mode</h2>
 <p>User code(client-side done, server-side CallMethod) runs in bthreads with 1MB stacksize by default. But some of them cannot run in bthreads:</p>
 <ul>
@@ -2832,11 +2832,11 @@ peak_qps and nolaod_latency can be measured in pre-online performance tests and 
 <p>A: The client-side probably uses pooled or short connections, and closes the connection after RPC timedout, when server writes back response, it finds that the connection has been closed and reports this error. &ldquo;Got EOF&rdquo; just means the server has received EOF (remote side closes the connection normally). If the client side uses single connection, server rarely reports this error.</p>
 <h3 id="q-remote-side-of-fd9-socketid2109466558000-was-closed">Q: Remote side of fd=9 <a href="mailto:SocketId=2@10.94.66.55">SocketId=2@10.94.66.55</a>:8000 was closed</h3>
 <p>It&rsquo;s not an error, it&rsquo;s a common warning representing that remote side has closed the connection(EOF). This log might be useful for debugging problems.</p>
-<p>Disabled by default. Set gflag -log_connection_close to true to enable it. (<a href="flags.md#change-gflag-on-the-fly">modify at run-time</a> is supported)</p>
+<p>Disabled by default. Set gflag -log_connection_close to true to enable it. (<a href="../../builtin-services/flags/#change-gflag-on-the-fly">modify at run-time</a> is supported)</p>
 <h3 id="q-why-does-setting-number-of-threads-at-server-side-not-work">Q: Why does setting number of threads at server-side not work</h3>
 <p>All brpc servers in one process <a href="#Number-of-worker-pthreads">share worker pthreads</a>, If multiple servers are created, number of worker pthreads is probably the maxmium of their ServerOptions.num_threads.</p>
 <h3 id="q-why-do-client-side-latencies-much-larger-than-the-server-side-ones">Q: Why do client-side latencies much larger than the server-side ones</h3>
-<p>server-side worker pthreads may not be enough and requests are significantly delayed. Read <a href="server_debugging.md">Server debugging</a> for steps on debugging server-side issues quickly.</p>
+<p>server-side worker pthreads may not be enough and requests are significantly delayed. Read <a href="../debug-server-issues/">Server debugging</a> for steps on debugging server-side issues quickly.</p>
 <h3 id="q-fail-to-open-procselfio">Q: Fail to open /proc/self/io</h3>
 <p>Some kernels do not provide this file. Correctness of the service is unaffected, but following bvars are not updated:</p>
 <pre><code>process_io_read_bytes_second
@@ -3030,7 +3030,7 @@ process_io_write_second
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

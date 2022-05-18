@@ -24,12 +24,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/benchmark/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-11T19:03:32+08:00" /><meta property="og:site_name" content="bRPC" />
+<meta property="article:modified_time" content="2022-05-17T20:01:06+08:00" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="Performance benchmark">
 <meta itemprop="description" content="A comparison between brpc and other implementations.
 "><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-11T19:03:32+08:00" />
+<meta itemprop="dateModified" content="2022-05-17T20:01:06+08:00" />
 <meta itemprop="wordCount" content="220">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Performance benchmark"/>
@@ -2089,7 +2089,7 @@ connection&rdquo;）。虽然这个名称不太准确（见上文对ubrpc的介�
 <li>多机2（30台）: CPU未开超线程12核，E5-2620 v3 @ 2.40GHz.；96GB内存；OS linux 2.6.32_1-17-0-0；万兆网卡，绑定多队列到前8个核。这是临时借用的新机器，配置非常好，都在广州机房，延时非常短，测试中延时在几百微秒的就是这批机器。</li>
 </ul>
 <p>下面所有的曲线图是使用brpc开发的dashboard程序绘制的，去掉路径后可以看到和所有brpc
-server一样的<a href="builtin_service.md">内置服务</a>。</p>
+server一样的<a href="../builtin-services/buildin_services/">内置服务</a>。</p>
 <h2 id="配置">配置</h2>
 <p>如无特殊说明，所有测试中的配置只是数量差异（线程数，请求大小，client个数etc），而不是模型差异。我们确保用户看到的qps和延时是同一个场景的不同维度，而不是无法统一的两个场景。</p>
 <p>所有RPC server都配置了24个工作线程，这些线程一般运行用户的处理逻辑。关于每种RPC的特殊说明:</p>
@@ -2197,7 +2197,7 @@ server一样的<a href="builtin_service.md">内置服务</a>。</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified April 11, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/a895fb1b806a5b2667efc5e32866c9e96b42c781">site search bugfix and update community info (#57) (a895fb1)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

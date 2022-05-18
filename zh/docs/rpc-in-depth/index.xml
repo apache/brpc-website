@@ -26,7 +26,7 @@
         &lt;h1 id=&#34;server端多协议&#34;&gt;server端多协议&lt;/h1&gt;
 &lt;p&gt;brpc server一个端口支持多种协议，大部分时候这对部署和运维更加方便。由于不同协议的格式大相径庭，严格地来说，一个端口很难无二义地支持所有协议。出于解耦和可扩展性的考虑，也不太可能集中式地构建一个针对所有协议的分类器。我们的做法就是把协议归三类后逐个尝试：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;第一类协议：标记或特殊字符在最前面，比如&lt;a href=&#34;baidu_std.md&#34;&gt;baidu_std&lt;/a&gt;，hulu_pbrpc的前4个字符分别是PRPC和HULU，解析代码只需要检查前4个字节就可以知道协议是否匹配，最先尝试这类协议。这些协议在同一个连接上也可以共存。&lt;/li&gt;
+&lt;li&gt;第一类协议：标记或特殊字符在最前面，比如&lt;a href=&#34;https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md&#34;&gt;baidu_std&lt;/a&gt;，hulu_pbrpc的前4个字符分别是PRPC和HULU，解析代码只需要检查前4个字节就可以知道协议是否匹配，最先尝试这类协议。这些协议在同一个连接上也可以共存。&lt;/li&gt;
 &lt;li&gt;第二类协议：有较为复杂的语法，没有固定的协议标记或特殊字符，可能在解析一段输入后才能判断是否匹配，目前此类协议只有http。&lt;/li&gt;
 &lt;li&gt;第三类协议：协议标记或特殊字符在中间，比如nshead的magic_num在第25-28字节。由于之前的字段均为二进制，难以判断正确性，在没有读取完28字节前，我们无法判定消息是不是nshead格式的，所以处理起来很麻烦，若其解析排在http之前，那么&amp;lt;=28字节的http消息便可能无法被解析，因为程序以为是“还未完整的nshead消息”。&lt;/li&gt;
 &lt;/ul&gt;
@@ -36,7 +36,7 @@
 &lt;h1 id=&#34;支持新协议&#34;&gt;支持新协议&lt;/h1&gt;
 &lt;p&gt;brpc就是设计为可随时扩展新协议的，步骤如下：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;以nshead开头的协议有统一支持，看&lt;a href=&#34;nshead_service.md&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;以nshead开头的协议有统一支持，看&lt;a href=&#34;https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;增加protocoltype&#34;&gt;增加ProtocolType&lt;/h2&gt;
 &lt;p&gt;在&lt;a href=&#34;https://github.com/brpc/brpc/blob/master/src/brpc/options.proto&#34;&gt;options.proto&lt;/a&gt;的ProtocolType中增加新协议类型，如果你需要的话可以联系我们增加，以确保不会和其他人的需求重合。&lt;/p&gt;
@@ -191,7 +191,7 @@
 &lt;p&gt;要提高性能，就要避免让CPU频繁同步cacheline。这不单和原子指令本身的性能有关，还会影响到程序的整体性能。最有效的解决方法很直白：&lt;strong&gt;尽量避免共享&lt;/strong&gt;。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;一个依赖全局多生产者多消费者队列(MPMC)的程序难有很好的多核扩展性，因为这个队列的极限吞吐取决于同步cache的延时，而不是核心的个数。最好是用多个SPMC或多个MPSC队列，甚至多个SPSC队列代替，在源头就规避掉竞争。&lt;/li&gt;
-&lt;li&gt;另一个例子是计数器，如果所有线程都频繁修改一个计数器，性能就会很差，原因同样在于不同的核心在不停地同步同一个cacheline。如果这个计数器只是用作打打日志之类的，那我们完全可以让每个线程修改thread-local变量，在需要时再合并所有线程中的值，性能可能有&lt;a href=&#34;bvar.md&#34;&gt;几十倍的差别&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;另一个例子是计数器，如果所有线程都频繁修改一个计数器，性能就会很差，原因同样在于不同的核心在不停地同步同一个cacheline。如果这个计数器只是用作打打日志之类的，那我们完全可以让每个线程修改thread-local变量，在需要时再合并所有线程中的值，性能可能有&lt;a href=&#34;../../bvar/bvar/&#34;&gt;几十倍的差别&lt;/a&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;一个相关的编程陷阱是false sharing：对那些不怎么被修改甚至只读变量的访问，由于同一个cacheline中的其他变量被频繁修改，而不得不经常等待cacheline同步而显著变慢了。多线程中的变量尽量按访问规律排列，频繁被其他线程修改的变量要放在独立的cacheline中。要让一个变量或结构体按cacheline对齐，可以include &amp;lt;butil/macros.h&amp;gt;后使用BAIDU_CACHELINE_ALIGNMENT宏，请自行grep brpc的代码了解用法。&lt;/p&gt;
 &lt;h1 id=&#34;memory-fence&#34;&gt;Memory fence&lt;/h1&gt;
@@ -383,7 +383,7 @@ http://&amp;lt;url&amp;gt;                 # Domain Naming Service, aka DNS.
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/register_ns.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;看到这些熟悉的字符串格式，容易联想到ftp:// zk:// galileo://等等都是可以支持的。用户在新建Channel时传入这类NamingService描述，并能把这些描述写在各类配置文件中。&lt;/p&gt;
 &lt;h1 id=&#34;负载均衡&#34;&gt;负载均衡&lt;/h1&gt;
-&lt;p&gt;brpc中&lt;a href=&#34;https://github.com/brpc/brpc/blob/master/src/brpc/load_balancer.h&#34;&gt;LoadBalancer&lt;/a&gt;从多个服务节点中选择一个节点，目前的实现见&lt;a href=&#34;client.md#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1&#34;&gt;负载均衡&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;brpc中&lt;a href=&#34;https://github.com/brpc/brpc/blob/master/src/brpc/load_balancer.h&#34;&gt;LoadBalancer&lt;/a&gt;从多个服务节点中选择一个节点，目前的实现见&lt;a href=&#34;../../client/basics/#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1&#34;&gt;负载均衡&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;Load balancer最重要的是如何让不同线程中的负载均衡不互斥，解决这个问题的技术是&lt;a href=&#34;../locality-aware/#doublybuffereddata&#34;&gt;DoublyBufferedData&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;和NamingService类似，我们使用字符串来指代一个load balancer，在global.cpp中注册：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/register_lb.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
@@ -639,7 +639,7 @@ http://&amp;lt;url&amp;gt;                 # Domain Naming Service, aka DNS.
 &lt;/ul&gt;
 &lt;p&gt;你注意到了么，在RPC中timer更像是”保险机制”，在大部分情况下都不会发挥作用，自然地我们希望它的开销越小越好。一个几乎不触发的功能需要两次系统调用似乎并不理想。那在应用框架中一般是如何实现timer的呢？谈论这个问题需要区分“单线程”和“多线程”:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;在单线程框架中，比如以&lt;a href=&#34;http://libevent.org/&#34;&gt;libevent&lt;/a&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Reactor_pattern&#34;&gt;, &lt;/a&gt;&lt;a href=&#34;http://software.schmorp.de/pkg/libev.html&#34;&gt;libev&lt;/a&gt;为代表的eventloop类库，或以&lt;a href=&#34;http://www.gnu.org/software/pth/pth-manual.html&#34;&gt;GNU Pth&lt;/a&gt;, &lt;a href=&#34;http://state-threads.sourceforge.net/index.html&#34;&gt;StateThreads&lt;/a&gt;为代表的coroutine / fiber类库中，一般是以&lt;a href=&#34;https://en.wikipedia.org/wiki/Heap_(data_structure)&#34;&gt;小顶堆&lt;/a&gt;记录触发时间。&lt;a href=&#34;http://man7.org/linux/man-pages/man2/epoll_wait.2.html&#34;&gt;epoll_wait&lt;/a&gt;前以堆顶的时间计算出参数timeout的值，如果在该时间内没有其他事件，epoll_wait也会醒来，从堆中弹出已超时的元素，调用相应的回调函数。整个框架周而复始地这么运转，timer的建立，等待，删除都发生在一个线程中。只要所有的回调都是非阻塞的，且逻辑不复杂，这套机制就能提供基本准确的timer。不过就像&lt;a href=&#34;threading_overview.md&#34;&gt;Threading Overview&lt;/a&gt;中说的那样，这不是RPC的场景。&lt;/li&gt;
+&lt;li&gt;在单线程框架中，比如以&lt;a href=&#34;http://libevent.org/&#34;&gt;libevent&lt;/a&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Reactor_pattern&#34;&gt;, &lt;/a&gt;&lt;a href=&#34;http://software.schmorp.de/pkg/libev.html&#34;&gt;libev&lt;/a&gt;为代表的eventloop类库，或以&lt;a href=&#34;http://www.gnu.org/software/pth/pth-manual.html&#34;&gt;GNU Pth&lt;/a&gt;, &lt;a href=&#34;http://state-threads.sourceforge.net/index.html&#34;&gt;StateThreads&lt;/a&gt;为代表的coroutine / fiber类库中，一般是以&lt;a href=&#34;https://en.wikipedia.org/wiki/Heap_(data_structure)&#34;&gt;小顶堆&lt;/a&gt;记录触发时间。&lt;a href=&#34;http://man7.org/linux/man-pages/man2/epoll_wait.2.html&#34;&gt;epoll_wait&lt;/a&gt;前以堆顶的时间计算出参数timeout的值，如果在该时间内没有其他事件，epoll_wait也会醒来，从堆中弹出已超时的元素，调用相应的回调函数。整个框架周而复始地这么运转，timer的建立，等待，删除都发生在一个线程中。只要所有的回调都是非阻塞的，且逻辑不复杂，这套机制就能提供基本准确的timer。不过就像&lt;a href=&#34;../threading-overview&#34;&gt;Threading Overview&lt;/a&gt;中说的那样，这不是RPC的场景。&lt;/li&gt;
 &lt;li&gt;在多线程框架中，任何线程都可能被用户逻辑阻塞较长的时间，我们需要独立的线程实现timer，这种线程我们叫它TimerThread。一个非常自然的做法，就是使用用锁保护的小顶堆。当一个线程需要创建timer时，它先获得锁，然后把对应的时间插入堆，如果插入的元素成为了最早的，唤醒TimerThread。TimerThread中的逻辑和单线程类似，就是等着堆顶的元素超时，如果在等待过程中有更早的时间插入了，自己会被插入线程唤醒，而不会睡过头。这个方法的问题在于每个timer都需要竞争一把全局锁，操作一个全局小顶堆，就像在其他文章中反复谈到的那样，这会触发cache bouncing。同样数量的timer操作比单线程下的慢10倍是非常正常的，尴尬的是这些timer基本不触发。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;我们重点谈怎么解决多线程下的问题。&lt;/p&gt;
@@ -655,7 +655,7 @@ http://&amp;lt;url&amp;gt;                 # Domain Naming Service, aka DNS.
 &lt;ul&gt;
 &lt;li&gt;一个TimerThread而不是多个。&lt;/li&gt;
 &lt;li&gt;创建的timer散列到多个Bucket以降低线程间的竞争，默认13个Bucket。&lt;/li&gt;
-&lt;li&gt;Bucket内不使用小顶堆管理时间，而是链表 + nearest_run_time字段，当插入的时间早于nearest_run_time时覆盖这个字段，之后去和全局nearest_run_time（和Bucket的nearest_run_time不同）比较，如果也早于这个时间，修改并唤醒TimerThread。链表节点在锁外使用&lt;a href=&#34;memory_management.md&#34;&gt;ResourcePool&lt;/a&gt;分配。&lt;/li&gt;
+&lt;li&gt;Bucket内不使用小顶堆管理时间，而是链表 + nearest_run_time字段，当插入的时间早于nearest_run_time时覆盖这个字段，之后去和全局nearest_run_time（和Bucket的nearest_run_time不同）比较，如果也早于这个时间，修改并唤醒TimerThread。链表节点在锁外使用&lt;a href=&#34;../memory-management/&#34;&gt;ResourcePool&lt;/a&gt;分配。&lt;/li&gt;
 &lt;li&gt;删除时通过id直接定位到timer内存结构，修改一个标志，timer结构总是由TimerThread释放。&lt;/li&gt;
 &lt;li&gt;TimerThread被唤醒后首先把全局nearest_run_time设置为几乎无限大(max of int64)，然后取出所有Bucket内的链表，并把Bucket的nearest_run_time设置为几乎无限大(max of int64)。TimerThread把未删除的timer插入小顶堆中维护，这个堆就它一个线程用。在每次运行回调或准备睡眠前都会检查全局nearest_run_time， 如果全局更早，说明有更早的时间加入了，重复这个过程。&lt;/li&gt;
 &lt;/ul&gt;
@@ -700,7 +700,7 @@ http://&amp;lt;url&amp;gt;                 # Domain Naming Service, aka DNS.
 &lt;li&gt;取消RPC。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;上文提到的bug在其他rpc框架中广泛存在，下面我们来看下brpc是如何通过bthread_id解决这些问题的。&lt;/p&gt;
-&lt;p&gt;bthread_id包括两部分，一个是用户可见的64位id，另一个是对应的不可见的bthread::Id结构体。用户接口都是操作id的。从id映射到结构体的方式和brpc中的&lt;a href=&#34;memory_management.md&#34;&gt;其他结构&lt;/a&gt;类似：32位是内存池的位移，32位是version。前者O(1)时间定位，后者防止ABA问题。&lt;/p&gt;
+&lt;p&gt;bthread_id包括两部分，一个是用户可见的64位id，另一个是对应的不可见的bthread::Id结构体。用户接口都是操作id的。从id映射到结构体的方式和brpc中的&lt;a href=&#34;../memory-management/&#34;&gt;其他结构&lt;/a&gt;类似：32位是内存池的位移，32位是version。前者O(1)时间定位，后者防止ABA问题。&lt;/p&gt;
 &lt;p&gt;bthread_id的接口不太简洁，有不少API：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;create&lt;/li&gt;

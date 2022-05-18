@@ -443,7 +443,7 @@ limitations under the License.
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/gflags/gflags&#34;&gt;gflags&lt;/a&gt;: Extensively used to define global options.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/google/protobuf&#34;&gt;protobuf&lt;/a&gt;: Serializations of messages, interfaces of services.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/google/leveldb&#34;&gt;leveldb&lt;/a&gt;: Required by &lt;a href=&#34;rpcz.md&#34;&gt;/rpcz&lt;/a&gt; to record RPCs for tracing.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/google/leveldb&#34;&gt;leveldb&lt;/a&gt;: Required by &lt;a href=&#34;../builtin-services/rpcz/&#34;&gt;/rpcz&lt;/a&gt; to record RPCs for tracing.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;supported-environment&#34;&gt;Supported Environment&lt;/h1&gt;
 &lt;ul&gt;
@@ -470,7 +470,7 @@ $ make
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To change compiler to clang, add &lt;code&gt;--cxx=clang++ --cc=clang&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To not link debugging symbols, add &lt;code&gt;--nodebugsymbols&lt;/code&gt; and compiled binaries will be much smaller.&lt;/p&gt;
 &lt;p&gt;To use brpc with glog, add &lt;code&gt;--with-glog&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;To enable &lt;a href=&#34;../en/thrift.md&#34;&gt;thrift support&lt;/a&gt;, install thrift first and add &lt;code&gt;--with-thrift&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To enable &lt;a href=&#34;../server/serve-thrift/&#34;&gt;thrift support&lt;/a&gt;, install thrift first and add &lt;code&gt;--with-thrift&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Run example&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; example/echo_c++
 $ make
@@ -487,7 +487,7 @@ $ sh run_tests.sh
 &lt;p&gt;To change compiler to clang, overwrite environment variable &lt;code&gt;CC&lt;/code&gt; and &lt;code&gt;CXX&lt;/code&gt; to &lt;code&gt;clang&lt;/code&gt; and &lt;code&gt;clang++&lt;/code&gt; respectively.&lt;/p&gt;
 &lt;p&gt;To not link debugging symbols, remove &lt;code&gt;build/CMakeCache.txt&lt;/code&gt; and cmake with &lt;code&gt;-DWITH_DEBUG_SYMBOLS=OFF&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;To use brpc with glog, cmake with &lt;code&gt;-DWITH_GLOG=ON&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;To enable &lt;a href=&#34;../en/thrift.md&#34;&gt;thrift support&lt;/a&gt;, install thrift first and cmake with &lt;code&gt;-DWITH_THRIFT=ON&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To enable &lt;a href=&#34;../server/serve-thrift/&#34;&gt;thrift support&lt;/a&gt;, install thrift first and cmake with &lt;code&gt;-DWITH_THRIFT=ON&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Run example with cmake&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; example/echo_c++
 $ cmake -B build &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; cmake --build build -j4
@@ -515,7 +515,7 @@ $ make
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To change compiler to clang, add &lt;code&gt;--cxx=clang++ --cc=clang&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To not link debugging symbols, add &lt;code&gt;--nodebugsymbols&lt;/code&gt; and compiled binaries will be much smaller.&lt;/p&gt;
 &lt;p&gt;To use brpc with glog, add &lt;code&gt;--with-glog&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;To enable &lt;a href=&#34;../en/thrift.md&#34;&gt;thrift support&lt;/a&gt;, install thrift first and add &lt;code&gt;--with-thrift&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To enable &lt;a href=&#34;../server/serve-thrift/&#34;&gt;thrift support&lt;/a&gt;, install thrift first and add &lt;code&gt;--with-thrift&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Run example&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; example/echo_c++
 $ make
@@ -543,7 +543,7 @@ $ make
 &lt;p&gt;To change compiler to clang, add &lt;code&gt;--cxx=clang++ --cc=clang&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To not link debugging symbols, add &lt;code&gt;--nodebugsymbols&lt;/code&gt; and compiled binaries will be much smaller.&lt;/p&gt;
 &lt;p&gt;To use brpc with glog, add &lt;code&gt;--with-glog&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;To enable &lt;a href=&#34;../en/thrift.md&#34;&gt;thrift support&lt;/a&gt;, install thrift first and add &lt;code&gt;--with-thrift&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To enable &lt;a href=&#34;../server/serve-thrift/&#34;&gt;thrift support&lt;/a&gt;, install thrift first and add &lt;code&gt;--with-thrift&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ls my_dev
 gflags_dev protobuf_dev leveldb_dev brpc_dev
 $ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; brpc_dev
@@ -569,7 +569,7 @@ $ make
 $ make
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To not link debugging symbols, add &lt;code&gt;--nodebugsymbols&lt;/code&gt; and compiled binaries will be much smaller.&lt;/p&gt;
 &lt;p&gt;To use brpc with glog, add &lt;code&gt;--with-glog&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;To enable &lt;a href=&#34;../en/thrift.md&#34;&gt;thrift support&lt;/a&gt;, install thrift first and add &lt;code&gt;--with-thrift&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To enable &lt;a href=&#34;../server/serve-thrift/&#34;&gt;thrift support&lt;/a&gt;, install thrift first and add &lt;code&gt;--with-thrift&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Run example&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; example/echo_c++
 $ make
@@ -587,7 +587,7 @@ $ sh run_tests.sh
 &lt;p&gt;c++11 is turned on by default to remove dependencies on boost (atomic).&lt;/p&gt;
 &lt;p&gt;The over-aligned issues in GCC7 is suppressed temporarily now.&lt;/p&gt;
 &lt;p&gt;Using other versions of gcc may generate warnings, contact us to fix.&lt;/p&gt;
-&lt;p&gt;Adding &lt;code&gt;-D__const__=&lt;/code&gt; to cxxflags in your makefiles is a must to avoid &lt;a href=&#34;thread_local.md&#34;&gt;errno issue in gcc4+&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Adding &lt;code&gt;-D__const__=&lt;/code&gt; to cxxflags in your makefiles is a must to avoid &lt;a href=&#34;../bthread/thread-local/&#34;&gt;errno issue in gcc4+&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;clang-35-40&#34;&gt;Clang: 3.5-4.0&lt;/h2&gt;
 &lt;p&gt;no known issues.&lt;/p&gt;
 &lt;h2 id=&#34;glibc-212-225&#34;&gt;glibc: 2.12-2.25&lt;/h2&gt;
@@ -608,7 +608,7 @@ Don&amp;rsquo;t use new types in proto3 and start the proto file with &lt;code&g
 &lt;p&gt;&lt;img src=&#34;https://brpc.incubator.apache.org/images/docs/tcmalloc_stuck.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;When you meet the issue, compile tcmalloc with the same GCC.&lt;/p&gt;
 &lt;p&gt;Another common issue with tcmalloc is that it does not return memory to system as early as ptmalloc. So when there&amp;rsquo;s an invalid memory access, the program may not crash directly, instead it crashes at a unrelated place, or even not crash. When you program has weird memory issues, try removing tcmalloc.&lt;/p&gt;
-&lt;p&gt;If you want to use &lt;a href=&#34;cpu_profiler.md&#34;&gt;cpu profiler&lt;/a&gt; or &lt;a href=&#34;heap_profiler.md&#34;&gt;heap profiler&lt;/a&gt;, do link &lt;code&gt;libtcmalloc_and_profiler.a&lt;/code&gt;. These two profilers are based on tcmalloc.&lt;a href=&#34;contention_profiler.md&#34;&gt;contention profiler&lt;/a&gt; does not require tcmalloc.&lt;/p&gt;
+&lt;p&gt;If you want to use &lt;a href=&#34;../builtin-services/cpu_profiler&#34;&gt;cpu profiler&lt;/a&gt; or &lt;a href=&#34;../builtin-services/heap_profiler&#34;&gt;heap profiler&lt;/a&gt;, do link &lt;code&gt;libtcmalloc_and_profiler.a&lt;/code&gt;. These two profilers are based on tcmalloc. &lt;a href=&#34;../builtin-services/contention_profiler&#34;&gt;contention profiler&lt;/a&gt; does not require tcmalloc.&lt;/p&gt;
 &lt;p&gt;When you remove tcmalloc, not only remove the linkage with tcmalloc but also the macro &lt;code&gt;-DBRPC_ENABLE_CPU_PROFILER&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;glog-33&#34;&gt;glog: 3.3+&lt;/h2&gt;
 &lt;p&gt;brpc implements a default &lt;a href=&#34;../../src/butil/logging.h&#34;&gt;logging utility&lt;/a&gt; which conflicts with glog. To replace this with glog, add &lt;em&gt;&amp;ndash;with-glog&lt;/em&gt; to config_brpc.sh or add &lt;code&gt;-DWITH_GLOG=ON&lt;/code&gt; to cmake.&lt;/p&gt;
@@ -678,7 +678,7 @@ connection&amp;rdquo;）。虽然这个名称不太准确（见上文对ubrpc的
 &lt;li&gt;多机2（30台）: CPU未开超线程12核，E5-2620 v3 @ 2.40GHz.；96GB内存；OS linux 2.6.32_1-17-0-0；万兆网卡，绑定多队列到前8个核。这是临时借用的新机器，配置非常好，都在广州机房，延时非常短，测试中延时在几百微秒的就是这批机器。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;下面所有的曲线图是使用brpc开发的dashboard程序绘制的，去掉路径后可以看到和所有brpc
-server一样的&lt;a href=&#34;builtin_service.md&#34;&gt;内置服务&lt;/a&gt;。&lt;/p&gt;
+server一样的&lt;a href=&#34;../builtin-services/buildin_services/&#34;&gt;内置服务&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
 &lt;p&gt;如无特殊说明，所有测试中的配置只是数量差异（线程数，请求大小，client个数etc），而不是模型差异。我们确保用户看到的qps和延时是同一个场景的不同维度，而不是无法统一的两个场景。&lt;/p&gt;
 &lt;p&gt;所有RPC server都配置了24个工作线程，这些线程一般运行用户的处理逻辑。关于每种RPC的特殊说明:&lt;/p&gt;
@@ -940,7 +940,7 @@ succeed.&lt;/p&gt;
         &lt;div id=&#34;overview&#34;&gt;
   &lt;div class=&#34;contain&#34; style=&#34;width: auto; margin: 0 auto&#34;&gt;
     &lt;h2 class=&#34;section-head&#34;&gt;Used by&lt;/h2&gt;
-    &lt;h3&gt;Providing your info on &lt;a href=&#34;https://github.com/apache/incubator-brpc-website/issues/1307&#34;&gt;Wanted: who’s using bRPC&lt;/a&gt; to help improving bRPC better&lt;/h3&gt;
+    &lt;h3&gt;Providing your info on &lt;a href=&#34;https://github.com/apache/incubator-brpc/issues/1640&#34;&gt;Wanted: who’s using bRPC&lt;/a&gt; to help improving bRPC better&lt;/h3&gt;
     &lt;td align=&#34;center&#34;  valign=&#34;middle&#34;&gt;
       &lt;a href=&#34;http://home.baidu.com/index.html&#34; target=&#34;_blank&#34;&gt;
         &lt;img width=&#34;222px&#34; style=&#34;margin: 0 10px;&#34; src=&#34;https://brpc.incubator.apache.org/images/community/baidu_logo.svg&#34;&gt;

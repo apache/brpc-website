@@ -2371,14 +2371,14 @@ if (!doNotTrack) {
 <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#8f5902;font-style:italic">// cntl-&gt;request_attachment()中已经是解压后的数据了
 </span></code></pre></div><h1 id="处理https请求">处理https请求</h1>
-<p>https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启服务端SSL的一般性方法见<a href="server.md#%E5%BC%80%E5%90%AFssl">这里</a>。</p>
+<p>https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启服务端SSL的一般性方法见<a href="../basics/#%E5%BC%80%E5%90%AFssl">这里</a>。</p>
 <h1 id="性能">性能</h1>
 <p>没有极端性能要求的产品都有使用HTTP协议的倾向，特别是移动产品，所以我们很重视HTTP的实现质量，具体来说：</p>
 <ul>
 <li>使用了node.js的<a href="https://github.com/brpc/brpc/blob/master/src/brpc/details/http_parser.h">http parser</a>解析http消息，这是一个轻量、优秀、被广泛使用的实现。</li>
 <li>使用<a href="https://github.com/miloyip/rapidjson">rapidjson</a>解析json，这是一个主打性能的json库。</li>
 <li>在最差情况下解析http请求的时间复杂度也是O(N)，其中N是请求的字节数。反过来说，如果解析代码要求http请求是完整的，那么它可能会花费O(N^2)的时间。HTTP请求普遍较大，这一点意义还是比较大的。</li>
-<li>来自不同client的http消息是高度并发的，即使相当复杂的http消息也不会影响对其他客户端的响应。其他rpc和<a href="threading_overview.md#%E5%8D%95%E7%BA%BF%E7%A8%8Breactor">基于单线程reactor</a>的各类http server往往难以做到这一点。</li>
+<li>来自不同client的http消息是高度并发的，即使相当复杂的http消息也不会影响对其他客户端的响应。其他rpc和<a href="../../rpc-in-depth/threading-overview/#%E5%8D%95%E7%BA%BF%E7%A8%8Breactorhttpenwikipediaorgwikireactor_pattern">基于单线程reactor</a>的各类http server往往难以做到这一点。</li>
 </ul>
 <h1 id="持续发送">持续发送</h1>
 <p>brpc server支持发送超大或无限长的body。方法如下:</p>
@@ -2602,7 +2602,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年5月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

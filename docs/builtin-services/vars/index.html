@@ -2034,7 +2034,7 @@ if (!doNotTrack) {
 <div class="td-content">
 	<h1>vars</h1>
 	<div class="lead">Learn about vars service.</div>
-	<p><a href="https://github.com/brpc/brpc/tree/master/src/bvar/">bvar</a> is a set of counters to record and view miscellaneous statistics conveniently in multi-threaded applications. The implementation reduces cache bouncing by storing data in thread local storage(TLS), being much faster than UbMonitor(a legacy counting library inside Baidu) and even atomic operations in highly contended scenarios. brpc integrates bvar by default, namely all exposed bvars in a server are accessible through <a href="http://brpc.baidu.com:8765/vars">/vars</a>, and a single bvar is addressable by <a href="http://brpc.baidu.com:8765/vars/rpc_socket_count">/vars/VARNAME</a>. Read <a href="bvar.md">bvar</a> to know how to add bvars for your program. brpc extensively use bvar to expose internal status. If you are looking for an utility to collect and display metrics of your application, consider bvar in the first place. bvar definitely can&rsquo;t replace all counters, essentially it moves contentions occurred during write to read: which needs to combine all data written by all threads and becomes much slower than an ordinary read. If read and write on the counter are both frequent or decisions need to be made based on latest values, you should not use bvar.</p>
+	<p><a href="https://github.com/brpc/brpc/tree/master/src/bvar/">bvar</a> is a set of counters to record and view miscellaneous statistics conveniently in multi-threaded applications. The implementation reduces cache bouncing by storing data in thread local storage(TLS), being much faster than UbMonitor(a legacy counting library inside Baidu) and even atomic operations in highly contended scenarios. brpc integrates bvar by default, namely all exposed bvars in a server are accessible through <a href="http://brpc.baidu.com:8765/vars">/vars</a>, and a single bvar is addressable by <a href="http://brpc.baidu.com:8765/vars/rpc_socket_count">/vars/VARNAME</a>. Read <a href="../../bvar/bvar/">bvar</a> to know how to add bvars for your program. brpc extensively use bvar to expose internal status. If you are looking for an utility to collect and display metrics of your application, consider bvar in the first place. bvar definitely can&rsquo;t replace all counters, essentially it moves contentions occurred during write to read: which needs to combine all data written by all threads and becomes much slower than an ordinary read. If read and write on the counter are both frequent or decisions need to be made based on latest values, you should not use bvar.</p>
 <h2 id="query-methods">Query methods</h2>
 <p><a href="http://brpc.baidu.com:8765/vars">/vars</a> : List all exposed bvars</p>
 <p><a href="http://brpc.baidu.com:8765/vars/rpc_socket_count">/vars/NAME</a>：List the bvar whose name is <code>NAME</code></p>
@@ -2081,7 +2081,7 @@ bthread_worker_usage : 1.01056
 <p>Hovering mouse over the curves shows corresponding values at the time. The tooltip in above diagram means &ldquo;The 99% percentile of latency before 39 seconds is 330 <strong>microseconds</strong>&rdquo;. The diagram does not include the 99.99-ile curve which is usually significantly higher than others, making others hard to read. You may click bvars ended with &ldquo;_latency_9999&rdquo; to read the 99.99-ile curve separately. This diagram shows how percentiles change over time, which is helpful to analyze performance regressions of systems.</p>
 <p>brpc calculates latency distributions of services automatically, which do not need users to add manually. The metrics are as follows:</p>
 <p><img src="/images/docs/vars_6.png" alt="img"></p>
-<p><code>bvar::LatencyRecorder</code> is able to calculate latency distributions of any code, as depicted below. (checkout <a href="bvar_c++.md">bvar-c++</a> for details):</p>
+<p><code>bvar::LatencyRecorder</code> is able to calculate latency distributions of any code, as depicted below. (checkout <a href="../../bvar/bvar-c++/">bvar-c++</a> for details):</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;bvar/bvar.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span>
 <span style="color:#000;font-weight:bold">...</span>
@@ -2095,7 +2095,7 @@ bthread_worker_usage : 1.01056
 </code></pre></div><p>If the application already starts a brpc server, values like <code>client_latency</code>, <code>client_latency_cdf</code> can be viewed from <code>/vars</code> as follows. Clicking them to see (dynamically-updated) curves:</p>
 <p><img src="/images/docs/vars_7.png" alt="img"></p>
 <h2 id="non-brpc-server">Non brpc server</h2>
-<p>If your program only uses brpc client or even not use brpc, and you also want to view the curves, check <a href="../cn/dummy_server.md">here</a>.</p>
+<p>If your program only uses brpc client or even not use brpc, and you also want to view the curves, check <a href="../../client/dummy-server/">here</a>.</p>
 
         <div class="section-index">
     
@@ -2279,7 +2279,7 @@ bthread_worker_usage : 1.01056
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

@@ -32,7 +32,7 @@
 &lt;li&gt;nova_pbrpc&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;获取工具&#34;&gt;获取工具&lt;/h1&gt;
-&lt;p&gt;先按照&lt;a href=&#34;getting_started.md&#34;&gt;Getting Started&lt;/a&gt;编译好brpc，再去tools/rpc_press编译。&lt;/p&gt;
+&lt;p&gt;先按照&lt;a href=&#34;../../getting_started/&#34;&gt;Getting Started&lt;/a&gt;编译好brpc，再去tools/rpc_press编译。&lt;/p&gt;
 &lt;p&gt;在CentOS 6.3上如果出现找不到libssl.so.4的错误，可执行&lt;code&gt;ln -s /usr/lib64/libssl.so.6 libssl.so.4临时解决&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id=&#34;发压力&#34;&gt;发压力&lt;/h1&gt;
 &lt;p&gt;rpc_press会动态加载proto文件，无需把proto文件编译为c++源文件。rpc_press会加载json格式的输入文件，转为pb请求，发向server，收到pb回复后如有需要会转为json并写入用户指定的文件。&lt;/p&gt;
@@ -43,17 +43,17 @@
 &lt;ul&gt;
 &lt;li&gt;-proto：指定相关的proto文件名。&lt;/li&gt;
 &lt;li&gt;-method：指定方法名，形式必须是package.service.method。&lt;/li&gt;
-&lt;li&gt;-server：当-lb_policy为空时，是服务器的ip:port；当-lb_policy不为空时，是集群地址，比如bns://node-name, file://server_list等等。具体见&lt;a href=&#34;client.md#%E5%91%BD%E5%90%8D%E6%9C%8D%E5%8A%A1&#34;&gt;命名服务&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;-server：当-lb_policy为空时，是服务器的ip:port；当-lb_policy不为空时，是集群地址，比如bns://node-name, file://server_list等等。具体见&lt;a href=&#34;../../client/basics/#naming-service&#34;&gt;命名服务&lt;/a&gt;。&lt;/li&gt;
 &lt;li&gt;-input: 指定json请求或包含json请求的文件。r32157后json间不需要分隔符，r32157前json间用分号分隔。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;可选参数:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;-inc: 包含被import的proto文件的路径。rpc_press默认支持import目录下的其他proto文件，但如果proto文件在其他目录，就要通过这个参数指定，多个路径用分号(;)分隔。&lt;/li&gt;
-&lt;li&gt;-lb_policy: 指定负载均衡算法，默认为空，可选项为: rr random la c_murmurhash c_md5，具体见&lt;a href=&#34;client.md#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1&#34;&gt;负载均衡&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;-lb_policy: 指定负载均衡算法，默认为空，可选项为: rr random la c_murmurhash c_md5，具体见&lt;a href=&#34;../../client/basics/#load-balancer&#34;&gt;负载均衡&lt;/a&gt;。&lt;/li&gt;
 &lt;li&gt;-timeout_ms: 设定超时,单位是毫秒(milliseconds),默认是1000(1秒)&lt;/li&gt;
-&lt;li&gt;-max_retry: 最大的重试次数,默认是3, 一般无需修改. brpc的重试行为具体请见&lt;a href=&#34;client.md#%E9%87%8D%E8%AF%95&#34;&gt;这里&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;-protocol: 连接server使用的协议，可选项见&lt;a href=&#34;client.md#%E5%8D%8F%E8%AE%AE&#34;&gt;协议&lt;/a&gt;, 默认是baidu_std&lt;/li&gt;
-&lt;li&gt;-connection_type: 连接方式，可选项为: single pooled short，具体见&lt;a href=&#34;client.md#%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F&#34;&gt;连接方式&lt;/a&gt;。默认会根据协议自动选择,无需指定.&lt;/li&gt;
+&lt;li&gt;-max_retry: 最大的重试次数,默认是3, 一般无需修改. brpc的重试行为具体请见&lt;a href=&#34;../../client/basics/#retry&#34;&gt;这里&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;-protocol: 连接server使用的协议，可选项见&lt;a href=&#34;../../client/basics/#protocols&#34;&gt;协议&lt;/a&gt;, 默认是baidu_std&lt;/li&gt;
+&lt;li&gt;-connection_type: 连接方式，可选项为: single pooled short，具体见&lt;a href=&#34;../../client/basics/#connection-type&#34;&gt;连接方式&lt;/a&gt;。默认会根据协议自动选择,无需指定.&lt;/li&gt;
 &lt;li&gt;-output: 如果不为空，response会转为json并写入这个文件，默认为空。&lt;/li&gt;
 &lt;li&gt;-duration：大于0时表示发送这么多秒的压力后退出，否则一直发直到按ctrl-c或进程被杀死。默认是0（一直发送）。&lt;/li&gt;
 &lt;li&gt;-qps：大于0时表示以这个压力发送，否则以最大速度(自适应)发送。默认是100。&lt;/li&gt;
@@ -124,7 +124,7 @@ TRACE: 01-30 16:10:04:   * 0 src/brpc/server.cpp:742] Check out http://xxx.com:8
         
         &lt;p&gt;r31658后，brpc能随机地把一部分请求写入一些文件中，并通过rpc_replay工具回放。目前支持的协议有：baidu_std, hulu_pbrpc, sofa_pbrpc。&lt;/p&gt;
 &lt;h1 id=&#34;获取工具&#34;&gt;获取工具&lt;/h1&gt;
-&lt;p&gt;先按照&lt;a href=&#34;getting_started.md&#34;&gt;Getting Started&lt;/a&gt;编译好brpc，再去tools/rpc_replay编译。&lt;/p&gt;
+&lt;p&gt;先按照&lt;a href=&#34;../../getting_started/&#34;&gt;Getting Started&lt;/a&gt;编译好brpc，再去tools/rpc_replay编译。&lt;/p&gt;
 &lt;p&gt;在CentOS 6.3上如果出现找不到libssl.so.4的错误，可执行&lt;code&gt;ln -s /usr/lib64/libssl.so.6 libssl.so.4临时解决&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id=&#34;采样&#34;&gt;采样&lt;/h1&gt;
 &lt;p&gt;brpc通过如下flags打开和控制如何保存请求，包含(R)后缀的flag都可以动态设置。&lt;/p&gt;
@@ -217,7 +217,7 @@ serialized request (body_size - meta_size bytes, including attachment)
         
         &lt;p&gt;rpc_view可以转发端口被限的server的内置服务。像百度内如果一个服务的端口不在8000-8999，就只能在命令行下使用curl查看它的内置服务，没有历史趋势和动态曲线，也无法点击链接，排查问题不方便。rpc_view是一个特殊的http proxy：把对它的所有访问都转为对目标server的访问。只要把rpc_view的端口能在浏览器中被访问，我们就能通过它看到原本不能直接看到的server了。&lt;/p&gt;
 &lt;h1 id=&#34;获取工具&#34;&gt;获取工具&lt;/h1&gt;
-&lt;p&gt;先按照&lt;a href=&#34;getting_started.md&#34;&gt;Getting Started&lt;/a&gt;编译好brpc，再去tools/rpc_view编译。&lt;/p&gt;
+&lt;p&gt;先按照&lt;a href=&#34;../../getting_started/&#34;&gt;Getting Started&lt;/a&gt;编译好brpc，再去tools/rpc_view编译。&lt;/p&gt;
 &lt;p&gt;在CentOS 6.3上如果出现找不到libssl.so.4的错误，可执行&lt;code&gt;ln -s /usr/lib64/libssl.so.6 libssl.so.4临时解决&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id=&#34;访问目标server&#34;&gt;访问目标server&lt;/h1&gt;
 &lt;p&gt;确保你的机器能访问目标server，开发机应该都可以，一些测试机可能不行。运行./rpc_view &lt;server-address&gt;就可以了。&lt;/p&gt;
@@ -249,7 +249,7 @@ TRACE: 02-14 12:12:20:   * 0 src/brpc/server.cpp:771] Check out http://XXX.com:8
         
         &lt;p&gt;可代替&lt;a href=&#34;https://httpd.apache.org/docs/2.2/programs/ab.html&#34;&gt;ab&lt;/a&gt;测试http server极限性能。ab功能较多但年代久远，有时本身可能会成为瓶颈。benchmark_http基本上就是一个brpc http client，性能很高，功能较少，一般压测够用了。&lt;/p&gt;
 &lt;p&gt;使用方法：&lt;/p&gt;
-&lt;p&gt;首先你得&lt;a href=&#34;getting_started.md&#34;&gt;下载和编译&lt;/a&gt;了brpc源码，然后去example/http_c++目录编译，成功后应该能看到benchmark_http。&lt;/p&gt;
+&lt;p&gt;首先你得&lt;a href=&#34;../../getting_started/&#34;&gt;下载和编译&lt;/a&gt;了brpc源码，然后去example/http_c++目录编译，成功后应该能看到benchmark_http。&lt;/p&gt;
 
       </description>
     </item>

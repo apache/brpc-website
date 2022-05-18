@@ -2372,14 +2372,14 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#8f5902;font-style:italic">// cntl-&gt;request_attachment() contains the data after decompression
 </span></code></pre></div><h1 id="serve-https-requests">Serve https requests</h1>
-<p>https is short for &ldquo;http over SSL&rdquo;, SSL is not exclusive for http, but effective for all protocols. The generic method for turning on server-side SSL is <a href="server.md#turn-on-ssl">here</a>.</p>
+<p>https is short for &ldquo;http over SSL&rdquo;, SSL is not exclusive for http, but effective for all protocols. The generic method for turning on server-side SSL is <a href="../basics/#turn-on-ssl">here</a>.</p>
 <h1 id="performance">Performance</h1>
 <p>Productions without extreme performance requirements tend to use HTTP protocol, especially mobile products. Thus we put great emphasis on implementation qualities of HTTP. To be more specific:</p>
 <ul>
 <li>Use <a href="https://github.com/brpc/brpc/blob/master/src/brpc/details/http_parser.h">http parser</a> of node.js to parse http messages, which is a lightweight, well-written, and extensively used implementation.</li>
 <li>Use <a href="https://github.com/miloyip/rapidjson">rapidjson</a> to parse json, which is a json library focuses on performance.</li>
 <li>In the worst case, the time complexity of parsing http requests is still O(N), where N is byte size of the request. As a contrast, parsing code that requires the http request to be complete, may cost O(N^2) time in the worst case. This feature is very helpful since many HTTP requests are large.</li>
-<li>Processing HTTP messages from different clients is highly concurrent, even a pretty complicated http message does not block responding other clients. It&rsquo;s difficult to achieve this for other RPC implementations and http servers often based on <a href="threading_overview.md#single-threaded-reactor">single-threaded reactor</a>.</li>
+<li>Processing HTTP messages from different clients is highly concurrent, even a pretty complicated http message does not block responding other clients. It&rsquo;s difficult to achieve this for other RPC implementations and http servers often based on <a href="../../rpc-in-depth/threading-overview/#single-threaded-reactorhttpenwikipediaorgwikireactor_pattern">single-threaded reactor</a>.</li>
 </ul>
 <h1 id="progressive-sending">Progressive sending</h1>
 <p>brpc server is capable of sending large or infinite sized body, in following steps:</p>
@@ -2603,7 +2603,7 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 30, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

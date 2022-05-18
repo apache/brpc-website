@@ -2071,7 +2071,7 @@ if (!doNotTrack) {
 <p>In order to improve performance, we need to avoid frequently synchronizing cachelines, which not only affects performance of the atomic instruction itself, but also overall performance of the program. The most effective solution is straightforward: <strong>avoid sharing as much as possible</strong>.</p>
 <ul>
 <li>A program relying on a global multiple-producer-multiple-consumer(MPMC) queue is hard to scale well on many CPU cores, because throughput of the queue is limited by delays of cache coherence, rather than number of cores. It would be better to use multiple SPMC or MPSC queues, or even SPSC queues instead, to avoid contentions from the very beginning.</li>
-<li>Another example is counters. If all threads modify a counter frequently, the performance will be poor because all cores are busy synchronizing the same cacheline. If the counter is only used for printing logs periodically or something low-priority like that, we can let each thread modify its own thread-local variables and combine all thread-local data before reading, yielding <a href="bvar.md">much better performance</a>.</li>
+<li>Another example is counters. If all threads modify a counter frequently, the performance will be poor because all cores are busy synchronizing the same cacheline. If the counter is only used for printing logs periodically or something low-priority like that, we can let each thread modify its own thread-local variables and combine all thread-local data before reading, yielding <a href="../../bvar/bvar/">much better performance</a>.</li>
 </ul>
 <p>A related programming trap is false sharing: Accesses to infrequently updated or even read-only variables are significantly slowed down because other variables in the same cacheline are frequently updated. Variables used in multi-threaded environment should be grouped by accessing frequencies or patterns, variables that are modified by that other threads frequently should be put into separated cachelines. To align a variable or struct by cacheline, <code>include &lt;butil/macros.h&gt;</code> and tag it with macro <code>BAIDU_CACHELINE_ALIGNMENT</code>, grep source code of brpc for examples.</p>
 <h1 id="memory-fence">Memory fence</h1>
@@ -2335,7 +2335,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified April 11, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/a895fb1b806a5b2667efc5e32866c9e96b42c781">site search bugfix and update community info (#57) (a895fb1)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

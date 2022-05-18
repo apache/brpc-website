@@ -2036,8 +2036,8 @@ if (!doNotTrack) {
 <p>了解这些因素后可以更好的理解brpc中相关的设计。</p>
 <ol>
 <li>拥塞时A服务最大qps的跳变是因为线程个数是<strong>硬限</strong>，单个请求的处理时间很大程度上决定了最大qps。而brpc server端默认在bthread中处理请求，个数是软限，单个请求超时只是阻塞所在的bthread，并不会影响为新请求建立新的bthread。brpc也提供了完整的异步接口，让用户可以进一步提高io-bound服务的并发度，降低服务被打满的可能性。</li>
-<li>brpc中<a href="client.md#%E9%87%8D%E8%AF%95">重试</a>默认只在连接出错时发起，避免了流量放大，这是比较有效率的重试方式。如果需要基于超时重试，可以设置<a href="client.md#%E9%87%8D%E8%AF%95">backup request</a>，这类重试最多只有一次，放大程度降到了最低。brpc中的RPC超时是deadline，超过后RPC一定会结束，这让用户对服务的行为有更好的预判。在之前的一些实现中，RPC超时是单次超时*重试次数，在实践中容易误判。</li>
-<li>brpc server端的<a href="server.md#%E9%99%90%E5%88%B6%E6%9C%80%E5%A4%A7%E5%B9%B6%E5%8F%91">max_concurrency选项</a>控制了server的最大并发：当同时处理的请求数超过max_concurrency时，server会回复client错误，而不是继续积压。这一方面在服务开始的源头控制住了积压的请求数，尽量避免延生到用户缓冲或队列中，另一方面也让client尽快地去重试其他server，对集群来说是个更好的策略。</li>
+<li>brpc中<a href="../../client/basics/#retry">重试</a>默认只在连接出错时发起，避免了流量放大，这是比较有效率的重试方式。如果需要基于超时重试，可以设置<a href="../../client/basics/#retry">backup request</a>，这类重试最多只有一次，放大程度降到了最低。brpc中的RPC超时是deadline，超过后RPC一定会结束，这让用户对服务的行为有更好的预判。在之前的一些实现中，RPC超时是单次超时*重试次数，在实践中容易误判。</li>
+<li>brpc server端的<a href="../basics/#limit-concurrency">max_concurrency选项</a>控制了server的最大并发：当同时处理的请求数超过max_concurrency时，server会回复client错误，而不是继续积压。这一方面在服务开始的源头控制住了积压的请求数，尽量避免延生到用户缓冲或队列中，另一方面也让client尽快地去重试其他server，对集群来说是个更好的策略。</li>
 </ol>
 <p>对于brpc的用户来说，要防止雪崩，主要注意两点：</p>
 <ol>
@@ -2227,7 +2227,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

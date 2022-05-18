@@ -2035,7 +2035,7 @@ if (!doNotTrack) {
 <li>取消RPC。</li>
 </ul>
 <p>上文提到的bug在其他rpc框架中广泛存在，下面我们来看下brpc是如何通过bthread_id解决这些问题的。</p>
-<p>bthread_id包括两部分，一个是用户可见的64位id，另一个是对应的不可见的bthread::Id结构体。用户接口都是操作id的。从id映射到结构体的方式和brpc中的<a href="memory_management.md">其他结构</a>类似：32位是内存池的位移，32位是version。前者O(1)时间定位，后者防止ABA问题。</p>
+<p>bthread_id包括两部分，一个是用户可见的64位id，另一个是对应的不可见的bthread::Id结构体。用户接口都是操作id的。从id映射到结构体的方式和brpc中的<a href="../memory-management/">其他结构</a>类似：32位是内存池的位移，32位是version。前者O(1)时间定位，后者防止ABA问题。</p>
 <p>bthread_id的接口不太简洁，有不少API：</p>
 <ul>
 <li>create</li>
@@ -2245,7 +2245,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 

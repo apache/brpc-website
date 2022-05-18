@@ -24,12 +24,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/zh/docs/getting_started/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-30T19:27:29+08:00" /><meta property="og:site_name" content="bRPC" />
+<meta property="article:modified_time" content="2022-05-17T20:01:06+08:00" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="开始">
 <meta itemprop="description" content="快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
 "><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-30T19:27:29+08:00" />
+<meta itemprop="dateModified" content="2022-05-17T20:01:06+08:00" />
 <meta itemprop="wordCount" content="449">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="开始"/>
@@ -2071,7 +2071,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="https://github.com/gflags/gflags">gflags</a>: Extensively used to define global options.</li>
 <li><a href="https://github.com/google/protobuf">protobuf</a>: Serializations of messages, interfaces of services.</li>
-<li><a href="https://github.com/google/leveldb">leveldb</a>: Required by <a href="rpcz.md">rpcz</a> to record RPCs for tracing.</li>
+<li><a href="https://github.com/google/leveldb">leveldb</a>: Required by <a href="../builtin-services/rpcz/">rpcz</a> to record RPCs for tracing.</li>
 </ul>
 <h1 id="支持的环境">支持的环境</h1>
 <ul>
@@ -2098,7 +2098,7 @@ $ make
 </code></pre></div><p>修改编译器为clang，添加选项<code>--cxx=clang++ --cc=clang</code>。</p>
 <p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
 <p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
-<p>要启用 <a href="../en/thrift.md">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
+<p>要启用 <a href="../server/serve-thrift/">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
 <p><strong>运行样例</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
@@ -2115,7 +2115,7 @@ $ sh run_tests.sh
 <p>要修改编译器为clang，请修改环境变量<code>CC</code>和<code>CXX</code>为<code>clang</code>和<code>clang++</code>。</p>
 <p>不想链接调试符号，请移除<code>build/CMakeCache.txt</code>，然后用<code>-DWITH_DEBUG_SYMBOLS=OFF</code>选项执行cmake。</p>
 <p>想要让brpc使用glog，用<code>-DWITH_GLOG=ON</code>选项执行cmake。</p>
-<p>要启用 <a href="../en/thrift.md">thrift 支持</a>，先安装thrift，然后用<code>-DWITH_THRIFT=ON</code>选项执行cmake。</p>
+<p>要启用 <a href="../server/serve-thrift/">thrift 支持</a>，先安装thrift，然后用<code>-DWITH_THRIFT=ON</code>选项执行cmake。</p>
 <p><strong>用cmake运行样例</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ cmake -B build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake --build build -j4
@@ -2143,7 +2143,7 @@ $ make
 </code></pre></div><p>修改编译器为clang，添加选项<code>--cxx=clang++ --cc=clang</code>。</p>
 <p>不想链接调试符号，添加选项<code>--nodebugsymbols</code> 然后编译将会得到更轻量的二进制文件。</p>
 <p>想要让brpc使用glog，添加选项：<code>--with-glog</code>。</p>
-<p>要启用 <a href="../en/thrift.md">thrift 支持</a>，先安装thrift，然后添加选项：<code>--with-thrift</code>。</p>
+<p>要启用 <a href="../server/serve-thrift/">thrift 支持</a>，先安装thrift，然后添加选项：<code>--with-thrift</code>。</p>
 <p><strong>运行样例</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
@@ -2171,7 +2171,7 @@ $ make
 <p>修改编译器为clang，添加选项<code>--cxx=clang++ --cc=clang</code>。</p>
 <p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
 <p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
-<p>要启用<a href="../en/thrift.md">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
+<p>要启用<a href="../server/serve-thrift/">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ls my_dev
 gflags_dev protobuf_dev leveldb_dev brpc_dev
 $ <span style="color:#204a87">cd</span> brpc_dev
@@ -2197,7 +2197,7 @@ $ make
 $ make
 </code></pre></div><p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
 <p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
-<p>要启用<a href="../en/thrift.md">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
+<p>要启用<a href="../server/serve-thrift/">thrift 支持</a>，首先安装thrift并且添加选项<code>--with-thrift</code>。</p>
 <p><strong>运行样例</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">cd</span> example/echo_c++
 $ make
@@ -2215,7 +2215,7 @@ $ sh run_tests.sh
 <p>c++11被默认启用，以去除去boost的依赖（比如atomic）。</p>
 <p>GCC7中over-aligned的问题暂时被禁止。</p>
 <p>使用其他版本的gcc可能会产生编译警告，请联系我们予以修复。</p>
-<p>请在makefile中给cxxflags增加<code>-D__const__=</code>选项以避免<a href="thread_local.md">gcc4+中的errno问题</a>.</p>
+<p>请在makefile中给cxxflags增加<code>-D__const__=</code>选项以避免<a href="../bthread/thread-local/">gcc4+中的errno问题</a>.</p>
 <h2 id="clang-35-40">Clang: 3.5-4.0</h2>
 <p>无已知问题。</p>
 <h2 id="glibc-212-225">glibc: 2.12-2.25</h2>
@@ -2236,7 +2236,7 @@ $ sh run_tests.sh
 <p><img src="/images/docs/tcmalloc_stuck.png" alt="img"></p>
 <p>当你遇到这个问题的时候，请用同一个GCC重新编译tcmalloc。</p>
 <p>另外一个使用tcmalloc的常见问题是，它不会像 ptmalloc一样及时地归还内存给系统。因此当有一个无效的内存访问的时候，程序可能不会直接挂掉，取而代之的是它可能在一个不相关的地方挂掉，或者甚至一直不挂掉。当你的程序出现怪异的内存问题的时候，尝试移除tcmalloc。</p>
-<p>如果你要使用<a href="cpu_profiler.md">cpu profiler</a>或<a href="heap_profiler.md">heap profiler</a>，要链接<code>libtcmalloc_and_profiler.a</code>。这两个 profiler都是基于tcmalloc的。而<a href="contention_profiler.md">contention profiler</a>不需要tcmalloc。</p>
+<p>如果你要使用<a href="../builtin-services/cpu_profiler">cpu profiler</a>或<a href="../builtin-services/heap_profiler">heap profiler</a>，要链接<code>libtcmalloc_and_profiler.a</code>。这两个 profiler都是基于tcmalloc的。而<a href="../builtin-services/contention_profiler">contention profiler</a>不需要tcmalloc。</p>
 <p>当你移除tcmalloc的时候，不仅要移除tcmalloc的链接，也要移除宏<code>-DBRPC_ENABLE_CPU_PROFILER</code>。</p>
 <h2 id="glog-33">glog: 3.3+</h2>
 <p>brpc实现了一个默认的<a href="../../src/butil/logging.h">日志功能</a>它和glog冲突。要替换成glog，可以给config_brpc.sh增加*&ndash;with-glog*选项或者给cmake增加<code>-DWITH_GLOG=ON</code>选项。</p>
@@ -2249,7 +2249,7 @@ $ sh run_tests.sh
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年1月30日: <a  href="https://github.com/apache/incubator-brpc-website/commit/92b925e8fd3d8cd6c4fa35c4952566725017b914">bRPC website 1.0 (92b925e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年5月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
 </div>
 </div>
 
