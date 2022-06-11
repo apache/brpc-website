@@ -24,13 +24,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/docs/getting_started/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-17T20:01:06+08:00" /><meta property="og:site_name" content="bRPC" />
+<meta property="article:modified_time" content="2022-06-11T22:46:07+08:00" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="Getting started">
 <meta itemprop="description" content="Read getting started for building steps and play with [examples](https://github.com/apache/incubator-brpc/tree/master/example).
 "><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-17T20:01:06+08:00" />
-<meta itemprop="wordCount" content="1412">
+<meta itemprop="dateModified" content="2022-06-11T22:46:07+08:00" />
+<meta itemprop="wordCount" content="1546">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting started"/>
 <meta name="twitter:description" content="Read getting started for building steps and play with [examples](https://github.com/apache/incubator-brpc/tree/master/example).
@@ -2011,7 +2011,9 @@ if (!doNotTrack) {
     </li>
     <li><a href="#macos">MacOS</a>
       <ul>
+        <li><a href="#apple-silicon">Apple Silicon</a></li>
         <li><a href="#prepare-deps-3">Prepare deps</a></li>
+        <li><a href="#openssl">OpenSSL</a></li>
         <li><a href="#compile-brpc-with-config_brpcsh-2">Compile brpc with config_brpc.sh</a></li>
         <li><a href="#compile-brpc-with-cmake-3">Compile brpc with cmake</a></li>
       </ul>
@@ -2082,7 +2084,7 @@ if (!doNotTrack) {
 </ul>
 <h2 id="ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL</h2>
 <h3 id="prepare-deps">Prepare deps</h3>
-<p>Install common deps, <a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
+<p>Install dependencies:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y git g++ make libssl-dev libgflags-dev libprotobuf-dev libprotoc-dev protobuf-compiler libleveldb-dev
 </code></pre></div><p>If you need to statically link leveldb:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y libsnappy-dev
@@ -2128,10 +2130,8 @@ $ ./echo_client
 <h3 id="prepare-deps-1">Prepare deps</h3>
 <p>CentOS needs to install EPEL generally otherwise many packages are not available by default.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install epel-release
-</code></pre></div><p>Install common deps:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install git gcc-c++ make openssl-devel
-</code></pre></div><p>Install <a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gflags-devel protobuf-devel protobuf-compiler leveldb-devel
+</code></pre></div><p>Install dependencies:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install git gcc-c++ make openssl-devel gflags-devel protobuf-devel protobuf-compiler leveldb-devel
 </code></pre></div><p>If you need to enable cpu/heap profilers in examples:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gperftools-devel
 </code></pre></div><p>If you need to run tests, install and compile gtest-devel (which is not compiled yet):</p>
@@ -2180,20 +2180,29 @@ $ make
 </code></pre></div><h3 id="compile-brpc-with-cmake-2">Compile brpc with cmake</h3>
 <p>Same with <a href="#compile-brpc-with-cmake">here</a></p>
 <h2 id="macos">MacOS</h2>
-<p>Note: In the same running environment, the performance of the current Mac version is about 2.5 times worse than the Linux version. If your service is performance-critical, do not use MacOS as your production environment.</p>
+<p>Note: With same environment, the performance of the MacOS version is worse than the Linux version. If your service is performance-critical, do not use MacOS as your production environment.</p>
+<h3 id="apple-silicon">Apple Silicon</h3>
+<p>The code at master HEAD already supports M1 series chips. M2 series are not tested yet. Please feel free to report remaining warnings/errors to us by issues.</p>
 <h3 id="prepare-deps-3">Prepare deps</h3>
-<p>Install common deps:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install openssl git gnu-getopt coreutils
-</code></pre></div><p>Install <a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gflags protobuf leveldb
+<p>Install dependencies:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install openssl git gnu-getopt coreutils gflags protobuf leveldb
 </code></pre></div><p>If you need to enable cpu/heap profilers in examples:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gperftools
-</code></pre></div><p>If you need to run tests, download and compile googletest (which is not compiled yet):</p>
+</code></pre></div><p>If you need to run tests, googletest is required. Run <code>brew install googletest</code> first to see if it works. If not (old homebrew does not have googletest), you can download and compile googletest by your own:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/google/googletest -b release-1.10.0 <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> googletest/googletest <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake -DCMAKE_CXX_FLAGS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-std=c++11&#34;</span> .. <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make
-</code></pre></div><p>After the compilation, copy include/ and lib/ into /usr/local/include and /usr/local/lib respectively to expose gtest to all apps</p>
+</code></pre></div><p>After the compilation, copy <code>include/</code> and <code>lib/</code> into <code>/usr/local/include</code> and <code>/usr/local/lib</code> respectively to expose gtest to all apps</p>
+<h3 id="openssl">OpenSSL</h3>
+<p>openssl installed in Monterey may not be found at <code>/usr/local/opt/openssl</code>, instead it&rsquo;s probably put under <code>/opt/homebrew/Cellar</code>. If the compiler cannot find openssl：</p>
+<ul>
+<li>Run <code>brew link openssl --force</code> first and check if <code>/user/local/opt/openssl</code> appears.</li>
+<li>If above command does not work, consider making a soft link using <code>sudo ln -s /opt/homebrew/Cellar/openssl@3/3.0.3 /usr/local/opt/openssl</code>. Note that the installed openssl in above command may be put in different places in different environments, which could be revealed by running <code>brew info openssl</code>.</li>
+</ul>
 <h3 id="compile-brpc-with-config_brpcsh-2">Compile brpc with config_brpc.sh</h3>
 <p>git clone brpc, cd into the repo and run</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/lib --cc<span style="color:#ce5c00;font-weight:bold">=</span>clang --cxx<span style="color:#ce5c00;font-weight:bold">=</span>clang++
+$ make
+</code></pre></div><p>The homebrew in Monterey may install software at different directories from before. If path related errors are reported, try setting headers/libs like below:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/opt/homebrew/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/opt/homebrew/lib --cc<span style="color:#ce5c00;font-weight:bold">=</span>clang --cxx<span style="color:#ce5c00;font-weight:bold">=</span>clang++
 $ make
 </code></pre></div><p>To not link debugging symbols, add <code>--nodebugsymbols</code> and compiled binaries will be much smaller.</p>
 <p>To use brpc with glog, add <code>--with-glog</code>.</p>
@@ -2249,7 +2258,7 @@ Don&rsquo;t use new types in proto3 and start the proto file with <code>syntax=&
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified May 17, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 11, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/2b9f87cb0b7037cc2e7013f766aadca5ddaa46b6">update getting_start and json2pb docs (2b9f87c)</a>
 </div>
 </div>
 

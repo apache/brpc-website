@@ -478,7 +478,7 @@ limitations under the License.
 &lt;/ul&gt;
 &lt;h2 id=&#34;ubuntulinuxmintwsl&#34;&gt;Ubuntu/LinuxMint/WSL&lt;/h2&gt;
 &lt;h3 id=&#34;依赖准备&#34;&gt;依赖准备&lt;/h3&gt;
-&lt;p&gt;安装通用依赖，&lt;a href=&#34;https://github.com/gflags/gflags&#34;&gt;gflags&lt;/a&gt;, &lt;a href=&#34;https://github.com/google/protobuf&#34;&gt;protobuf&lt;/a&gt;, &lt;a href=&#34;https://github.com/google/leveldb&#34;&gt;leveldb&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;安装依赖：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install -y git g++ make libssl-dev libgflags-dev libprotobuf-dev libprotoc-dev protobuf-compiler libleveldb-dev
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你需要静态链接leveldb：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install -y libsnappy-dev
@@ -524,10 +524,8 @@ $ ./echo_client
 &lt;h3 id=&#34;依赖准备-1&#34;&gt;依赖准备&lt;/h3&gt;
 &lt;p&gt;CentOS一般需要安装EPEL，否则很多包都默认不可用。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo yum install epel-release
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装通用依赖：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo yum install git gcc-c++ make openssl-devel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装 &lt;a href=&#34;https://github.com/gflags/gflags&#34;&gt;gflags&lt;/a&gt;, &lt;a href=&#34;https://github.com/google/protobuf&#34;&gt;protobuf&lt;/a&gt;, &lt;a href=&#34;https://github.com/google/leveldb&#34;&gt;leveldb&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo yum install gflags-devel protobuf-devel protobuf-compiler leveldb-devel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装依赖：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo yum install git gcc-c++ make openssl-devel gflags-devel protobuf-devel protobuf-compiler leveldb-devel
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你要在样例中启用cpu/heap的profiler：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo yum install gperftools-devel
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你要运行测试，那么要安装ligtest-dev:&lt;/p&gt;
@@ -576,20 +574,29 @@ $ make
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用cmake编译brpc-2&#34;&gt;使用cmake编译brpc&lt;/h3&gt;
 &lt;p&gt;参考&lt;a href=&#34;#%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91brpc&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;macos&#34;&gt;MacOS&lt;/h2&gt;
-&lt;p&gt;注意：在相同运行环境下，当前Mac版brpc的性能比Linux版差2.5倍。如果你的服务是性能敏感的，请不要使用MacOs作为你的生产环境。&lt;/p&gt;
+&lt;p&gt;注意：在相同硬件条件下，MacOS版brpc的性能可能明显差于Linux版。如果你的服务是性能敏感的，请不要使用MacOS作为你的生产环境。&lt;/p&gt;
+&lt;h3 id=&#34;apple-silicon&#34;&gt;Apple Silicon&lt;/h3&gt;
+&lt;p&gt;master HEAD已支持M1系列芯片，M2还未测试。欢迎通过issues向我们报告遗留的warning/error。&lt;/p&gt;
 &lt;h3 id=&#34;依赖准备-3&#34;&gt;依赖准备&lt;/h3&gt;
-&lt;p&gt;安装通用依赖：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;brew install openssl git gnu-getopt coreutils
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装&lt;a href=&#34;https://github.com/gflags/gflags&#34;&gt;gflags&lt;/a&gt;，&lt;a href=&#34;https://github.com/google/protobuf&#34;&gt;protobuf&lt;/a&gt;，&lt;a href=&#34;https://github.com/google/leveldb&#34;&gt;leveldb&lt;/a&gt;：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;brew install gflags protobuf leveldb
+&lt;p&gt;安装依赖：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;brew install openssl git gnu-getopt coreutils gflags protobuf leveldb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你要在样例中启用cpu/heap的profiler：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;brew install gperftools
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你要运行测试，那么要安装并编译googletest（它没有被默认编译）：&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你要运行测试，需安装gtest。先运行&lt;code&gt;brew install googletest&lt;/code&gt;看看homebrew是否支持（老版本没有），没有的话请下载和编译googletest：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git clone https://github.com/google/googletest -b release-1.10.0 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; googletest/googletest &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; mkdir build &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; build &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; cmake -DCMAKE_CXX_FLAGS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;-std=c++11&amp;#34;&lt;/span&gt; .. &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; make
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在编译完成后，复制include/和lib/目录到/usr/local/include和/usr/local/lib目录中，以便于让所有应用都能使用gtest。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在编译完成后，复制&lt;code&gt;include/&lt;/code&gt;和&lt;code&gt;lib/&lt;/code&gt;目录到&lt;code&gt;/usr/local/include&lt;/code&gt;和&lt;code&gt;/usr/local/lib&lt;/code&gt;目录中，以便于让所有应用都能使用gtest。&lt;/p&gt;
+&lt;h3 id=&#34;openssl&#34;&gt;OpenSSL&lt;/h3&gt;
+&lt;p&gt;Monterey中openssl的安装位置可能不再位于&lt;code&gt;/usr/local/opt/openssl&lt;/code&gt;，很可能会在&lt;code&gt;/opt/homebrew/Cellar&lt;/code&gt;目录下，如果编译时报告找不到openssl：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先运行&lt;code&gt;brew link openssl --force&lt;/code&gt;看看&lt;code&gt;/user/local/opt/openssl&lt;/code&gt;是否出现了&lt;/li&gt;
+&lt;li&gt;没有的话可以自行设置软链：&lt;code&gt;sudo ln -s /opt/homebrew/Cellar/openssl@3/3.0.3 /usr/local/opt/openssl&lt;/code&gt;。请注意此命令中openssl的目录可能随环境变化而变化，可通过&lt;code&gt;brew info openssl&lt;/code&gt;查看。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;使用config_brpcsh编译brpc-2&#34;&gt;使用config_brpc.sh编译brpc&lt;/h3&gt;
 &lt;p&gt;git克隆brpc，进入到项目目录然后运行：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sh config_brpc.sh --headers&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/local/include --libs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/local/lib --cc&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;clang --cxx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;clang++
+$ make
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;MacOS Monterey下的brew安装路径可能改变，如有路径相关的错误，可考虑设置如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sh config_brpc.sh --headers&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/opt/homebrew/include --libs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/opt/homebrew/lib --cc&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;clang --cxx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;clang++
 $ make
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;不想链接调试符号，添加选项&lt;code&gt;--nodebugsymbols&lt;/code&gt;，然后编译将会得到更轻量的二进制文件。&lt;/p&gt;
 &lt;p&gt;使用glog版的brpc，添加选项&lt;code&gt;--with-glog&lt;/code&gt;。&lt;/p&gt;
