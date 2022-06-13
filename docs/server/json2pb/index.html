@@ -2064,7 +2064,17 @@ if (!doNotTrack) {
 </span><span style="color:#a40000">
 </span><span style="color:#a40000"></span><span style="color:#8f5902;font-style:italic">// rapidjson
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;numbers&#34;</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">12</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">17</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">24</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">
-</span></code></pre></div><h2 id="map">map</h2>
+</span></code></pre></div><p>特别的，针对仅有一个 <code>repeated</code> 类型成员的 <code>message</code>，序列化为 <code>json</code> 时支持直接序列化为数组，以简化包体。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf"><span style="color:#8f5902;font-style:italic">// protobuf
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">message</span> <span style="color:#000">Foo</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span>    <span style="color:#204a87;font-weight:bold">required</span> <span style="color:#204a87;font-weight:bold">int32</span> <span style="color:#000">numbers</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">
+</span><span style="color:#a40000"></span><span style="color:#8f5902;font-style:italic">// rapidjson
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">12</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">17</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">24</span><span style="color:#000;font-weight:bold">]</span><span style="color:#a40000">
+</span></code></pre></div><p>该特性默认为关闭状态，客户端在发送请求时，或服务端在发送回复时，可手动开启：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">brpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Controller</span> <span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">cntl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set_pb_single_repeated_to_array</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">);</span>
+</code></pre></div><h2 id="map">map</h2>
 <p>满足如下条件的repeated MSG被视作json map :</p>
 <ul>
 <li>MSG包含一个名为key的字段，类型为string，tag为1。</li>
@@ -2305,7 +2315,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified January 9, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/94b25d7110944f3d4b2071b5188c691b23ffe3a9">A new verion of brpc website based on hugo (94b25d7)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 11, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/2b9f87cb0b7037cc2e7013f766aadca5ddaa46b6">update getting_start and json2pb docs (2b9f87c)</a>
 </div>
 </div>
 

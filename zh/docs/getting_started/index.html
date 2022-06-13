@@ -24,13 +24,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/zh/docs/getting_started/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-08-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-17T20:01:06+08:00" /><meta property="og:site_name" content="bRPC" />
+<meta property="article:modified_time" content="2022-06-11T22:46:07+08:00" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="开始">
 <meta itemprop="description" content="快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
 "><meta itemprop="datePublished" content="2021-08-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-17T20:01:06+08:00" />
-<meta itemprop="wordCount" content="449">
+<meta itemprop="dateModified" content="2022-06-11T22:46:07+08:00" />
+<meta itemprop="wordCount" content="467">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="开始"/>
 <meta name="twitter:description" content="快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
@@ -2011,7 +2011,9 @@ if (!doNotTrack) {
     </li>
     <li><a href="#macos">MacOS</a>
       <ul>
+        <li><a href="#apple-silicon">Apple Silicon</a></li>
         <li><a href="#依赖准备-3">依赖准备</a></li>
+        <li><a href="#openssl">OpenSSL</a></li>
         <li><a href="#使用config_brpcsh编译brpc-2">使用config_brpc.sh编译brpc</a></li>
         <li><a href="#使用cmake编译brpc-3">使用cmake编译brpc</a></li>
       </ul>
@@ -2082,7 +2084,7 @@ if (!doNotTrack) {
 </ul>
 <h2 id="ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL</h2>
 <h3 id="依赖准备">依赖准备</h3>
-<p>安装通用依赖，<a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
+<p>安装依赖：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y git g++ make libssl-dev libgflags-dev libprotobuf-dev libprotoc-dev protobuf-compiler libleveldb-dev
 </code></pre></div><p>如果你需要静态链接leveldb：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install -y libsnappy-dev
@@ -2128,10 +2130,8 @@ $ ./echo_client
 <h3 id="依赖准备-1">依赖准备</h3>
 <p>CentOS一般需要安装EPEL，否则很多包都默认不可用。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install epel-release
-</code></pre></div><p>安装通用依赖：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install git gcc-c++ make openssl-devel
-</code></pre></div><p>安装 <a href="https://github.com/gflags/gflags">gflags</a>, <a href="https://github.com/google/protobuf">protobuf</a>, <a href="https://github.com/google/leveldb">leveldb</a>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gflags-devel protobuf-devel protobuf-compiler leveldb-devel
+</code></pre></div><p>安装依赖：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install git gcc-c++ make openssl-devel gflags-devel protobuf-devel protobuf-compiler leveldb-devel
 </code></pre></div><p>如果你要在样例中启用cpu/heap的profiler：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install gperftools-devel
 </code></pre></div><p>如果你要运行测试，那么要安装ligtest-dev:</p>
@@ -2180,20 +2180,29 @@ $ make
 </code></pre></div><h3 id="使用cmake编译brpc-2">使用cmake编译brpc</h3>
 <p>参考<a href="#%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91brpc">这里</a></p>
 <h2 id="macos">MacOS</h2>
-<p>注意：在相同运行环境下，当前Mac版brpc的性能比Linux版差2.5倍。如果你的服务是性能敏感的，请不要使用MacOs作为你的生产环境。</p>
+<p>注意：在相同硬件条件下，MacOS版brpc的性能可能明显差于Linux版。如果你的服务是性能敏感的，请不要使用MacOS作为你的生产环境。</p>
+<h3 id="apple-silicon">Apple Silicon</h3>
+<p>master HEAD已支持M1系列芯片，M2还未测试。欢迎通过issues向我们报告遗留的warning/error。</p>
 <h3 id="依赖准备-3">依赖准备</h3>
-<p>安装通用依赖：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install openssl git gnu-getopt coreutils
-</code></pre></div><p>安装<a href="https://github.com/gflags/gflags">gflags</a>，<a href="https://github.com/google/protobuf">protobuf</a>，<a href="https://github.com/google/leveldb">leveldb</a>：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gflags protobuf leveldb
+<p>安装依赖：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install openssl git gnu-getopt coreutils gflags protobuf leveldb
 </code></pre></div><p>如果你要在样例中启用cpu/heap的profiler：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install gperftools
-</code></pre></div><p>如果你要运行测试，那么要安装并编译googletest（它没有被默认编译）：</p>
+</code></pre></div><p>如果你要运行测试，需安装gtest。先运行<code>brew install googletest</code>看看homebrew是否支持（老版本没有），没有的话请下载和编译googletest：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/google/googletest -b release-1.10.0 <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> googletest/googletest <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> mkdir build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> build <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> cmake -DCMAKE_CXX_FLAGS<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-std=c++11&#34;</span> .. <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> make
-</code></pre></div><p>在编译完成后，复制include/和lib/目录到/usr/local/include和/usr/local/lib目录中，以便于让所有应用都能使用gtest。</p>
+</code></pre></div><p>在编译完成后，复制<code>include/</code>和<code>lib/</code>目录到<code>/usr/local/include</code>和<code>/usr/local/lib</code>目录中，以便于让所有应用都能使用gtest。</p>
+<h3 id="openssl">OpenSSL</h3>
+<p>Monterey中openssl的安装位置可能不再位于<code>/usr/local/opt/openssl</code>，很可能会在<code>/opt/homebrew/Cellar</code>目录下，如果编译时报告找不到openssl：</p>
+<ul>
+<li>先运行<code>brew link openssl --force</code>看看<code>/user/local/opt/openssl</code>是否出现了</li>
+<li>没有的话可以自行设置软链：<code>sudo ln -s /opt/homebrew/Cellar/openssl@3/3.0.3 /usr/local/opt/openssl</code>。请注意此命令中openssl的目录可能随环境变化而变化，可通过<code>brew info openssl</code>查看。</li>
+</ul>
 <h3 id="使用config_brpcsh编译brpc-2">使用config_brpc.sh编译brpc</h3>
 <p>git克隆brpc，进入到项目目录然后运行：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/usr/local/lib --cc<span style="color:#ce5c00;font-weight:bold">=</span>clang --cxx<span style="color:#ce5c00;font-weight:bold">=</span>clang++
+$ make
+</code></pre></div><p>MacOS Monterey下的brew安装路径可能改变，如有路径相关的错误，可考虑设置如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sh config_brpc.sh --headers<span style="color:#ce5c00;font-weight:bold">=</span>/opt/homebrew/include --libs<span style="color:#ce5c00;font-weight:bold">=</span>/opt/homebrew/lib --cc<span style="color:#ce5c00;font-weight:bold">=</span>clang --cxx<span style="color:#ce5c00;font-weight:bold">=</span>clang++
 $ make
 </code></pre></div><p>不想链接调试符号，添加选项<code>--nodebugsymbols</code>，然后编译将会得到更轻量的二进制文件。</p>
 <p>使用glog版的brpc，添加选项<code>--with-glog</code>。</p>
@@ -2249,7 +2258,7 @@ $ sh run_tests.sh
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年5月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3e783880cdc2e3e4e0f1752231c7cfba6dcfab5c">fix all docs link-jump problems (3e78388)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年6月11日: <a  href="https://github.com/apache/incubator-brpc-website/commit/2b9f87cb0b7037cc2e7013f766aadca5ddaa46b6">update getting_start and json2pb docs (2b9f87c)</a>
 </div>
 </div>
 
