@@ -47,6 +47,11 @@
                 href="https://brpc.incubator.apache.org/zh/docs/community/community/"
                 />
   </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/blogs/sourcecodes/bthread/</loc>
+    <lastmod>2022-06-16T22:43:51+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</loc>
     <lastmod>2022-04-18T19:03:23+08:00</lastmod>
     <changefreq>daily</changefreq>
@@ -61,6 +66,11 @@
                 hreflang="zh"
                 href="https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/"
                 />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</loc>
+    <lastmod>2022-06-16T22:43:51+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://brpc.incubator.apache.org/zh/docs/community/security/</loc>
     <lastmod>2022-05-09T11:01:40+08:00</lastmod>
@@ -78,7 +88,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/zh/docs/getting_started/</loc>
-    <lastmod>2022-06-11T22:46:07+08:00</lastmod>
+    <lastmod>2022-06-13T12:22:27+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -1113,7 +1123,7 @@
                 />
   </url><url>
     <loc>https://brpc.incubator.apache.org/zh/docs/server/json2pb/</loc>
-    <lastmod>2022-06-11T22:46:07+08:00</lastmod>
+    <lastmod>2022-06-13T12:22:27+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -1231,6 +1241,16 @@
                 hreflang="zh"
                 href="https://brpc.incubator.apache.org/zh/docs/blogs/releases/"
                 />
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/blogs/shares/</loc>
+    <lastmod>2022-06-16T22:43:51+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://brpc.incubator.apache.org/zh/docs/blogs/sourcecodes/</loc>
+    <lastmod>2022-06-16T22:43:51+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://brpc.incubator.apache.org/zh/docs/faq/</loc>
     <lastmod>2022-02-17T11:13:36+08:00</lastmod>
