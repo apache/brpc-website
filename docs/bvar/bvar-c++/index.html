@@ -1984,13 +1984,21 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
+    <li>
+      <ul>
+        <li><a href="#best-practice-for-naming">Best Practice for Naming:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
     <li><a href="#bvaradder">bvar::Adder</a></li>
     <li><a href="#bvarmaxer">bvar::Maxer</a></li>
     <li><a href="#bvarminer">bvar::Miner</a></li>
   </ul>
 
   <ul>
-    <li><a href="#和window的差别">和Window的差别</a></li>
+    <li><a href="#difference-between-window-and-persecond">Difference between Window and PerSecond</a></li>
   </ul>
 </nav>
 
@@ -2038,107 +2046,98 @@ if (!doNotTrack) {
 	<h1>bvar c&#43;&#43;</h1>
 	<div class="lead">A quick introduction of bvar c++.</div>
 	<h1 id="quick-introduction">Quick introduction</h1>
+<p>The basic usage of bvar is simple:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;bvar/bvar.h&gt;</span><span style="color:#8f5902;font-style:italic">
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">foo</span> <span style="color:#000;font-weight:bold">{</span>
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">foo</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">bar</span> <span style="color:#000;font-weight:bold">{</span>
-
-<span style="color:#8f5902;font-style:italic">// bvar::Adder&lt;T&gt;用于累加，下面定义了一个统计read error总数的Adder。
+<span style="color:#8f5902;font-style:italic">// bvar::Adder&lt;T&gt; used for running sum, we define a Adder for read_error as below
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">g_read_error</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#8f5902;font-style:italic">// 把bvar::Window套在其他bvar上就可以获得时间窗口内的值。
+<span style="color:#8f5902;font-style:italic">// put another bvar inside window so that we can get the value over this period of time
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Window</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">g_read_error_minute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;foo_bar&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;read_error&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">g_read_error</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">60</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#8f5902;font-style:italic">//                                                     ^          ^                         ^
-</span><span style="color:#8f5902;font-style:italic">//                                                    前缀       监控项名称                  60秒,忽略则为10秒
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#8f5902;font-style:italic">// bvar::LatencyRecorder是一个复合变量，可以统计：总量、qps、平均延时，延时分位值，最大延时。
+</span><span style="color:#8f5902;font-style:italic">//                                                    prefix1     monitor name             time window, 10 by default
+</span><span style="color:#8f5902;font-style:italic">// bvar::LatencyRecorder is a compound varibale, can be used for troughput、qps、avg latency, latency percentile, max latency。
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">LatencyRecorder</span> <span style="color:#000">g_write_latency</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;foo_bar&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;write&#34;</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#8f5902;font-style:italic">//                                      ^          ^
-</span><span style="color:#8f5902;font-style:italic">//                                     前缀       监控项，别加latency！LatencyRecorder包含多个bvar，它们会加上各自的后缀，比如write_qps, write_latency等等。
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#8f5902;font-style:italic">// 定义一个统计“已推入task”个数的变量。
+</span><span style="color:#8f5902;font-style:italic">//                                     prefix1      monitor entry, LatencyRecorder includes different bvar, and expose() will add the suffix for them by default, such as write_qps, write_latency etc
+</span><span style="color:#8f5902;font-style:italic">// define a varible for the # of &#39;been-pushed task&#39;
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">g_task_pushed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;foo_bar&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;task_pushed&#34;</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#8f5902;font-style:italic">// 把bvar::PerSecond套在其他bvar上可以获得时间窗口内*平均每秒*的值，这里是每秒内推入task的个数。
+<span style="color:#8f5902;font-style:italic">// put nested bvar into PerSecond so that we can get the value per second within this time window. Over here what we get is the # of tasks pushed per second
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PerSecond</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">g_task_pushed_second</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;foo_bar&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;task_pushed_second&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">g_task_pushed</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#8f5902;font-style:italic">//       ^                                                                                             ^
-</span><span style="color:#8f5902;font-style:italic">//    和Window不同，PerSecond会除以时间窗口的大小.                                   时间窗口是最后一个参数，这里没填，就是默认10秒。
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#000;font-weight:bold">}</span>  <span style="color:#8f5902;font-style:italic">// bar
+</span><span style="color:#8f5902;font-style:italic">//    different from Window, PerSecond will be divided by the time winodw.                            time window is the last param, we omit here, its 10 by default
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>  <span style="color:#8f5902;font-style:italic">// bar
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>  <span style="color:#8f5902;font-style:italic">// foo
-</span></code></pre></div><p>在应用的地方：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// 碰到read error
+</span></code></pre></div><p>how we use the bvar</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// run into read errors
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">foo</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">bar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">g_read_error</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
-
-<span style="color:#8f5902;font-style:italic">// write_latency是23ms
+<span style="color:#8f5902;font-style:italic">// record down the latenct, which is 23ms
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">foo</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">bar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">g_write_latency</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">23</span><span style="color:#000;font-weight:bold">;</span>
-
-<span style="color:#8f5902;font-style:italic">// 推入了1个task
+<span style="color:#8f5902;font-style:italic">// one task has been pushed
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">foo</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">bar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">g_task_pushed</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><p>注意Window&lt;&gt;和PerSecond&lt;&gt;都是衍生变量，会自动更新，你不用给它们推值。你当然也可以把bvar作为成员变量或局部变量。</p>
-<p>常用的bvar有：</p>
+</code></pre></div><p>Remember Window&lt;&gt; and PerSecond&lt;&gt; are derived variables, we don&rsquo;t have to push value to them and they will auto-update.
+Obviously, we can take bvar as local or member variables.</p>
+<p>There are essentially 7 commonly used bvar classes, they all extend from the base class bvar:Variable.</p>
 <ul>
-<li><code>bvar::Adder&lt;T&gt;</code> : 计数器，默认0，varname &laquo; N相当于varname += N。</li>
-<li><code>bvar::Maxer&lt;T&gt;</code> : 求最大值，默认std::numeric_limits<T>::min()，varname &laquo; N相当于varname = max(varname, N)。</li>
-<li><code>bvar::Miner&lt;T&gt;</code> : 求最小值，默认std::numeric_limits<T>::max()，varname &laquo; N相当于varname = min(varname, N)。</li>
-<li><code>bvar::IntRecorder</code> : 求自使用以来的平均值。注意这里的定语不是“一段时间内”。一般要通过Window衍生出时间窗口内的平均值。</li>
-<li><code>bvar::Window&lt;VAR&gt;</code> : 获得某个bvar在一段时间内的累加值。Window衍生于已存在的bvar，会自动更新。</li>
-<li><code>bvar::PerSecond&lt;VAR&gt;</code> : 获得某个bvar在一段时间内平均每秒的累加值。PerSecond也是会自动更新的衍生变量。</li>
-<li><code>bvar::LatencyRecorder</code> : 专用于记录延时和qps的变量。输入延时，平均延时/最大延时/qps/总次数 都有了。</li>
+<li><code>bvar::Adder&lt;T&gt;</code>  : counter, 0 by default, varname &laquo; N equals to varname += N。</li>
+<li><code>bvar::Maxer&lt;T&gt;</code>  : get the maximum value, std::numeric_limits::min() by default, varname &laquo; N equals to varname = max(varname, N)。</li>
+<li><code>bvar::Miner&lt;T&gt;</code>  : get the minimum value, std::numeric_limits::max() by default, varname &laquo; N equals to varname = min(varname, N)。</li>
+<li><code>bvar::IntRecorder</code>  : get the mean value since it was in use, notice here we don&rsquo;t use “over a period of time”, since this bvar always comes with Window&lt;&gt; to calculate the mean value within the predefined time window.</li>
+<li><code>bvar::Window&lt;VAR&gt;</code>  : get the running sum over a time window. Window derives from other existing bvar and will auto-update</li>
+<li><code>bvar::PerSecond&lt;VAR&gt;</code>  : get the value per second during a predefined amount of time. PerSecond will also auto-update and derives from other bvar</li>
+<li><code>bvar::LatencyRecorder</code>  : intended for recording latency and qps, when we push latency to it, for mean latency/max lantency/qps, we will get all in once.</li>
 </ul>
-<p>**确认变量名是全局唯一的！**否则会曝光失败，如果-bvar_abort_on_same_name为true，程序会直接abort。</p>
-<p>程序中有来自各种模块不同的bvar，为避免重名，建议如此命名：<strong>模块_类名_指标</strong></p>
+<p><strong>caveat: make sure the name of bvar is globally unique, otherwise, the expose() will fail. When the option -bvar_abort_on_same_name is true(false by default), program will abort.</strong></p>
+<h3 id="best-practice-for-naming">Best Practice for Naming:</h3>
+<p>There are different bvar from different module, to avoid duplicating name, we&rsquo;d better follow the rule as `module_class_indicator</p>
 <ul>
-<li><strong>模块</strong>一般是程序名，可以加上产品线的缩写，比如inf_ds，ecom_retrbs等等。</li>
-<li><strong>类名</strong>一般是类名或函数名，比如storage_manager, file_transfer, rank_stage1等等。</li>
-<li><strong>指标</strong>一般是count，qps，latency这类。</li>
+<li>a module usually refers to the program name, can be the acronym of product line, like inf_ds, ecom_retrbs etc.</li>
+<li>a class usually refers to the class name/ function name, like storage_manager, file_transfer, rank_stage1.</li>
+<li>an indicator usually refers to qps, count, latency etc.
+some legit naming examples</li>
 </ul>
-<p>一些正确的命名如下：</p>
-<pre><code>iobuf_block_count : 29                          # 模块=iobuf   类名=block  指标=count
-iobuf_block_memory : 237568                     # 模块=iobuf   类名=block  指标=memory
-process_memory_resident : 34709504              # 模块=process 类名=memory 指标=resident
-process_memory_shared : 6844416                 # 模块=process 类名=memory 指标=shared
-rpc_channel_connection_count : 0                # 模块=rpc     类名=channel_connection  指标=count
-rpc_controller_count : 1                        # 模块=rpc     类名=controller 指标=count
-rpc_socket_count : 6                            # 模块=rpc     类名=socket     指标=count
-</code></pre><p>目前bvar会做名字归一化，不管你打入的是foo::BarNum, foo.bar.num, foo bar num , foo-bar-num，最后都是foo_bar_num。</p>
-<p>关于指标：</p>
+<pre><code>iobuf_block_count : 29                          # module=iobuf   class=block  indicator=count
+iobuf_block_memory : 237568                     # module=iobuf   class=block  indicator=memory
+process_memory_resident : 34709504              # module=process class=memory indicator=resident
+process_memory_shared : 6844416                 # module=process class=memory indicator=shared
+rpc_channel_connection_count : 0                # module=rpc     class=channel_connection  indicator=count
+rpc_controller_count : 1                        # module=rpc     class=controller indicator=count
+rpc_socket_count : 6                            # module=rpc     class=socket     indicator=count
+</code></pre><p>bvar will normalize the variable name, no matter whether we type foo::BarNum, foo.bar.num, foo bar num , foo-bar-num, they all go to foo_bar_num in the end.
+<strong>Things about indicators:</strong></p>
 <ul>
-<li>个数以_count为后缀，比如request_count, error_count。</li>
-<li>每秒的个数以_second为后缀，比如request_second, process_inblocks_second，已经足够明确，不用写成_count_second或_per_second。</li>
-<li>每分钟的个数以_minute为后缀，比如request_minute, process_inblocks_minute</li>
+<li>use <code>_count</code> as suffix for number, like request_count, error_count</li>
+<li>use <code>_second</code> as suffix for number per second is clear enough, no need to use &lsquo;_count_second&rsquo; or &lsquo;_per_second&rsquo;, like request_second, process_inblocks_second</li>
+<li><code>_minute</code> as suffix for number per minute like request_minute, process_inblocks_minute
+if we need to use a counter defined in another file, we have to declare that variable in header file</li>
 </ul>
-<p>如果需要使用定义在另一个文件中的计数器，需要在头文件中声明对应的变量。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">foo</span> <span style="color:#000;font-weight:bold">{</span>
-<span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">bar</span> <span style="color:#000;font-weight:bold">{</span>
-<span style="color:#8f5902;font-style:italic">// 注意g_read_error_minute和g_task_pushed_per_second都是衍生的bvar，会自动更新，不要声明。
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">extern</span> <span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">g_read_error</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">extern</span> <span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">LatencyRecorder</span> <span style="color:#000">g_write_latency</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">extern</span> <span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">g_task_pushed</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000;font-weight:bold">}</span>  <span style="color:#8f5902;font-style:italic">// bar
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>  <span style="color:#8f5902;font-style:italic">// foo
-</span></code></pre></div><p><strong>不要跨文件定义全局Window或PerSecond</strong>。不同编译单元中全局变量的初始化顺序是<a href="https://isocpp.org/wiki/faq/ctors#static-init-order">未定义的</a>。在foo.cpp中定义<code>Adder&lt;int&gt; foo_count</code>，在foo_qps.cpp中定义<code>PerSecond&lt;Adder&lt;int&gt; &gt; foo_qps(&amp;foo_count);</code>是<strong>错误</strong>的做法。</p>
-<p>About thread-safety:</p>
+<pre><code>namespace foo {
+namespace bar {
+// notice g_read_error_minute and g_task_pushed_second are derived bvar, will auto update, no need to declare
+extern bvar::Adder&lt;int&gt; g_read_error;
+extern bvar::LatencyRecorder g_write_latency;
+extern bvar::Adder&lt;int&gt; g_task_pushed;
+}  // bar
+}  // foo
+</code></pre><p><strong>Don&rsquo;t define golabel Window&lt;&gt; and PerSecond&lt;&gt; across files. The order for the initialization of global variables in different compile units is undefined.</strong> foo.cpp defines <code>Adder&lt;int&gt; foo_count</code>, then defining <code>PerSecond&lt;Adder&lt;int&gt; &gt; foo_qps(&amp;foo_count);</code> in foo_qps.cpp is illegal
+<strong>Things about thread-safety</strong>:</p>
 <ul>
-<li>bvar是线程兼容的。你可以在不同的线程里操作不同的bvar。比如你可以在多个线程中同时expose或hide<strong>不同的</strong>bvar，它们会合理地操作需要共享的全局数据，是安全的。</li>
-<li><strong>除了读写接口</strong>，bvar的其他函数都是线程不安全的：比如说你不能在多个线程中同时expose或hide<strong>同一个</strong>bvar，这很可能会导致程序crash。一般来说，读写之外的其他接口也没有必要在多个线程中同时操作。</li>
+<li>bvar is thread-compatible. We can manipulate a bvar in different threads, such as we can expose or hide different bvar in multiple threads simultaneously, they will safely do some job on global shared variables.</li>
+<li><strong>Excpet read and write API,</strong> any other functions of bvar are not thread-safe：u can not expose or hide a same bvar in different threads, this may cause the program crash. Generally speaking, we don&rsquo;t have to call any other API concurrently except read and write.
+we can use butil::Timer for timer, API is as below:</li>
 </ul>
-<p>计时可以使用butil::Timer，接口如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;butil/time.h&gt;</span><span style="color:#8f5902;font-style:italic">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;butil/time.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">butil</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Timer</span> <span style="color:#000;font-weight:bold">{</span>
 <span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
     <span style="color:#204a87;font-weight:bold">enum</span> <span style="color:#000">TimerType</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">STARTED</span> <span style="color:#000;font-weight:bold">};</span>
-
     <span style="color:#000">Timer</span><span style="color:#000;font-weight:bold">();</span>
-
     <span style="color:#8f5902;font-style:italic">// butil::Timer tm(butil::Timer::STARTED);  // tm is already started after creation.
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">explicit</span> <span style="color:#000">Timer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">TimerType</span><span style="color:#000;font-weight:bold">);</span>
-
     <span style="color:#8f5902;font-style:italic">// Start this timer
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">start</span><span style="color:#000;font-weight:bold">();</span>
-
     <span style="color:#8f5902;font-style:italic">// Stop this timer
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">stop</span><span style="color:#000;font-weight:bold">();</span>
-
     <span style="color:#8f5902;font-style:italic">// Get the elapse from start() to stop().
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">int64_t</span> <span style="color:#000">n_elapsed</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">const</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// in nanoseconds
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">int64_t</span> <span style="color:#000">u_elapsed</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">const</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// in microseconds
@@ -2146,36 +2145,26 @@ rpc_socket_count : 6                            # 模块=rpc     类名=socket  
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">int64_t</span> <span style="color:#000">s_elapsed</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">const</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// in seconds
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">};</span>
 <span style="color:#000;font-weight:bold">}</span>  <span style="color:#8f5902;font-style:italic">// namespace butil
-</span></code></pre></div><h1 id="bvarvariable">bvar::Variable</h1>
-<p>Variable是所有bvar的基类，主要提供全局注册，列举，查询等功能。</p>
-<p>用户以默认参数建立一个bvar时，这个bvar并未注册到任何全局结构中，在这种情况下，bvar纯粹是一个更快的计数器。我们称把一个bvar注册到全局表中的行为为“曝光”，可通过<code>expose</code>函数曝光：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Expose this variable globally so that it&#39;s counted in following functions:
-</span><span style="color:#8f5902;font-style:italic">//   list_exposed
-</span><span style="color:#8f5902;font-style:italic">//   count_exposed
-</span><span style="color:#8f5902;font-style:italic">//   describe_exposed
-</span><span style="color:#8f5902;font-style:italic">//   find_exposed
-</span><span style="color:#8f5902;font-style:italic">// Return 0 on success, -1 otherwise.
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">expose</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">expose_as</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">prefix</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p>全局曝光后的bvar名字便为name或prefix + name，可通过以_exposed为后缀的static函数查询。比如Variable::describe_exposed(name)会返回名为name的bvar的描述。</p>
-<p>当相同名字的bvar已存在时，expose会打印FATAL日志并返回-1。如果选项**&ndash;bvar_abort_on_same_name**设为true (默认是false)，程序会直接abort。</p>
-<p>下面是一些曝光bvar的例子：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">count1</span><span style="color:#000;font-weight:bold">;</span>
-
-<span style="color:#000">count1</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">10</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">20</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">30</span><span style="color:#000;font-weight:bold">;</span>   <span style="color:#8f5902;font-style:italic">// values add up to 60.
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">count1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">expose</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;count1&#34;</span><span style="color:#000;font-weight:bold">);</span>  <span style="color:#8f5902;font-style:italic">// expose the variable globally
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;60&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Variable</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">describe_exposed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;count1&#34;</span><span style="color:#000;font-weight:bold">));</span>
-<span style="color:#000">count1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">expose</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;another_name_for_count1&#34;</span><span style="color:#000;font-weight:bold">);</span>  <span style="color:#8f5902;font-style:italic">// expose the variable with another name
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Variable</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">describe_exposed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;count1&#34;</span><span style="color:#000;font-weight:bold">));</span>
-<span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;60&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Variable</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">describe_exposed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;another_name_for_count1&#34;</span><span style="color:#000;font-weight:bold">));</span>
-
-<span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">count2</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;count2&#34;</span><span style="color:#000;font-weight:bold">);</span>  <span style="color:#8f5902;font-style:italic">// exposed in constructor directly
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;0&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Variable</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">describe_exposed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;count2&#34;</span><span style="color:#000;font-weight:bold">));</span>  <span style="color:#8f5902;font-style:italic">// default value of Adder&lt;int&gt; is 0
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">status1</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;count2&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;hello&#34;</span><span style="color:#000;font-weight:bold">);</span>  <span style="color:#8f5902;font-style:italic">// the name conflicts. if -bvar_abort_on_same_name is true,
-</span><span style="color:#8f5902;font-style:italic"></span>                                                       <span style="color:#8f5902;font-style:italic">// program aborts, otherwise a fatal log is printed.
-</span></code></pre></div><p>为避免重名，bvar的名字应加上前缀，建议为<code>&lt;namespace&gt;_&lt;module&gt;_&lt;name&gt;</code>。为了方便使用，我们提供了<strong>expose_as</strong>函数，接收一个前缀。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Expose this variable with a prefix.
+</span></code></pre></div><h1 id="bvarvariable">bvar::Variable:</h1>
+<p>Varibale is the base class for all bvar, it provides registering, listing and searching functions.</p>
+<p>When user created a bvar with default params, it hasn&rsquo;t been registered into any global structure, it&rsquo;s merely a faster counter, which means we cannot use it elsewhere. The action of putting this bvar into the global registry is called <code>expose</code>, can be achieved by calling <code>expose()</code></p>
+<p>The name for globally exposed bvar consists of &lsquo;name&rsquo; or &lsquo;name+prefix&rsquo;, can be searched by function with suffix <code>_exposed</code> , e.g. Variable::describe_exposed(&ldquo;foo&rdquo;) will return the description of bvar with the name &lsquo;foo&rsquo;.</p>
+<p>When there already exists the name, expose() will print FATAL log and return -1. When the option <strong>-bvar_abort_on_same_name</strong> is true(false by default), program will abort.</p>
+<p>Some examples for expose() as below</p>
+<pre><code>bvar::Adder&lt;int&gt; count1; // create a bvar with defalut params
+count1 &lt;&lt; 10 &lt;&lt; 20 &lt;&lt; 30;   // values add up to 60.
+count1.expose(&quot;count1&quot;);  // expose the variable globally
+CHECK_EQ(&quot;60&quot;, bvar::Variable::describe_exposed(&quot;count1&quot;));
+count1.expose(&quot;another_name_for_count1&quot;);  // expose the variable with another name
+CHECK_EQ(&quot;&quot;, bvar::Variable::describe_exposed(&quot;count1&quot;));
+CHECK_EQ(&quot;60&quot;, bvar::Variable::describe_exposed(&quot;another_name_for_count1&quot;));
+bvar::Adder&lt;int&gt; count2(&quot;count2&quot;);  // exposed in constructor directly
+CHECK_EQ(&quot;0&quot;, bvar::Variable::describe_exposed(&quot;count2&quot;));  // default value of Adder&lt;int&gt; is 0
+bvar::Status&lt;std::string&gt; status1(&quot;count2&quot;, &quot;hello&quot;);  // the name conflicts. if -bvar_abort_on_same_name is true,
+                                                      // program aborts, otherwise a fatal log is printed.
+</code></pre><p>To avoid duplicate name, we should have prefix for bvar, we recommend the name as <code>&lt;namespace&gt;_&lt;module&gt;_&lt;name&gt;</code></p>
+<p>For convenience, we provide expose_as() as it will accept a prefix.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8f5902;font-style:italic">// Expose this variable with a prefix.
 </span><span style="color:#8f5902;font-style:italic">// Example:
 </span><span style="color:#8f5902;font-style:italic">//   namespace foo {
 </span><span style="color:#8f5902;font-style:italic">//   namespace bar {
@@ -2190,21 +2179,12 @@ rpc_socket_count : 6                            # 模块=rpc     类名=socket  
 </span><span style="color:#8f5902;font-style:italic">//   }  // foo
 </span><span style="color:#8f5902;font-style:italic">//   }  // bar
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">expose_as</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">prefix</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">butil</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StringPiece</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><h1 id="export-all-variables">Export all variables</h1>
-<p>最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过<a href="../../builtin-services/vars/">/vars</a>服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：</p>
+</code></pre></div><h1 id="export-all-variables">Export All Variables</h1>
+<p>Common needs for exporting are querying by HTTP API and writing into local file, the former is provided by brpc <a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/vars.md">/vars</a> service, the latter has been implemented in bvar, and it&rsquo;s turned off by default. A couple of methods can activate this function：</p>
 <ul>
-<li>用<a href="../../builtin-services/flags/">gflags</a>解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过<a href="../../builtin-services/flags/">/flags</a>服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">  <span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;gflags/gflags.h&gt;</span><span style="color:#8f5902;font-style:italic">
-</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000;font-weight:bold">...</span>
-  <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">[])</span> <span style="color:#000;font-weight:bold">{</span>
-      <span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ParseCommandLineFlags</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">argv</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">true</span><span style="color:#8f5902;font-style:italic">/*表示把识别的参数从argc/argv中删除*/</span><span style="color:#000;font-weight:bold">);</span>
-      <span style="color:#000;font-weight:bold">...</span>
-  <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><ul>
-<li>不想用gflags解析参数，希望直接在程序中默认打开，在main函数处添加如下代码：</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;gflags/gflags.h&gt;</span><span style="color:#8f5902;font-style:italic">
+<li>
+<p>Using <a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/flags.md">gflags</a> to parse the input params. We can add <code>-bvar_dump</code> during the starup of program or we can dynamically change the params thru brpc <a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/flags.md">/flags</a> service after starup. gflags parsing is as below</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;gflags/gflags.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
 <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">[])</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SetCommandLineOption</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;bvar_dump&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">empty</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
@@ -2212,13 +2192,27 @@ rpc_socket_count : 6                            # 模块=rpc     类名=socket  
     <span style="color:#000;font-weight:bold">}</span>
     <span style="color:#000;font-weight:bold">...</span>
 <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>dump功能由如下gflags控制：</p>
+</code></pre></div></li>
+<li>
+<p>If u dont want to use gflags and expect them opened by default in program</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;gflags/gflags.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
+<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">[])</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SetCommandLineOption</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;bvar_dump&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">empty</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">FATAL</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Fail to enable bvar dump&#34;</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">...</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+</code></pre></div></li>
+<li>
+<p>dump function is controlled by following gflags</p>
 <table>
 <thead>
 <tr>
-<th>名称</th>
-<th>默认值</th>
-<th>作用</th>
+<th>Name</th>
+<th>Default Value</th>
+<th>Effect</th>
 </tr>
 </thead>
 <tbody>
@@ -2234,7 +2228,7 @@ rpc_socket_count : 6                            # 模块=rpc     类名=socket  
 </tr>
 <tr>
 <td>bvar_dump_file</td>
-<td>monitor/bvar.<app>.data</td>
+<td>monitor/bvar.&lt;app&gt;.data</td>
 <td>Dump bvar into this file</td>
 </tr>
 <tr>
@@ -2259,10 +2253,10 @@ rpc_socket_count : 6                            # 模块=rpc     类名=socket  
 </tr>
 </tbody>
 </table>
-<p>当bvar_dump_file不为空时，程序会启动一个后台导出线程以bvar_dump_interval指定的间隔更新bvar_dump_file，其中包含了被bvar_dump_include匹配且不被bvar_dump_exclude匹配的所有bvar。</p>
-<p>比如我们把所有的gflags修改为下图：</p>
-<p><img src="/images/docs/bvar_dump_flags_2.png" alt="img"></p>
-<p>导出文件为：</p>
+<p>when the bvar_dump_file is not empty, a background thread will be started to update <code>bvar_dump_file</code> for the specified time interval called <code>bvar_dump_interval</code> , including all the bvar which is matched by <code>bvar_dump_include</code> while not matched by <code>bvar_dump_exclude</code></p>
+<p>such like we modify the gflags as below：</p>
+<p><a href="https://github.com/apache/incubator-brpc/blob/master/docs/images/bvar_dump_flags_2.png"><img src="https://github.com/apache/incubator-brpc/raw/master/docs/images/bvar_dump_flags_2.png" alt="img"></a></p>
+<p>exporting file will be like：</p>
 <pre><code>$ cat bvar.echo_server.data
 rpc_server_8002_builtin_service_count : 20
 rpc_server_8002_connection_count : 1
@@ -2270,8 +2264,8 @@ rpc_server_8002_nshead_service_adaptor : brpc::policy::NovaServiceAdaptor
 rpc_server_8002_service_count : 1
 rpc_server_8002_start_time : 2015/07/24-21:08:03
 rpc_server_8002_uptime_ms : 14740954
-</code></pre><p>像”<code>iobuf_block_count : 8</code>”被bvar_dump_include过滤了，“<code>rpc_server_8002_error : 0</code>”则被bvar_dump_exclude排除了。</p>
-<p>如果你的程序没有使用brpc，仍需要动态修改gflag（一般不需要），可以调用google::SetCommandLineOption()，如下所示：</p>
+</code></pre><p><code>iobuf_block_count : 8</code> is filtered out by bvar_dump_include, <code>rpc_server_8002_error : 0</code> is ruled out by bvar_dump_exclude.</p>
+<p>if you didn&rsquo;t use brpc in your program, u also need to dynamically change gflags（normally no need), we can call google::SetCommandLineOption(), as below</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;gflags/gflags.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">...</span>
 <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">google</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SetCommandLineOption</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;bvar_dump_include&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;*service*&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">empty</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
@@ -2279,9 +2273,8 @@ rpc_server_8002_uptime_ms : 14740954
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000">LOG</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">INFO</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;Successfully set bvar_dump_include to *service*&#34;</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><p>请勿直接设置FLAGS_bvar_dump_file / FLAGS_bvar_dump_include / FLAGS_bvar_dump_exclude。
-一方面这些gflag类型都是std::string，直接覆盖是线程不安全的；另一方面不会触发validator（检查正确性的回调），所以也不会启动后台导出线程。</p>
-<p>用户也可以使用dump_exposed函数自定义如何导出进程中的所有已曝光的bvar：</p>
+</code></pre></div><p>Do not directly set FLAGS_bvar_dump_file / FLAGS_bvar_dump_include / FLAGS_bvar_dump_exclude. On the one hand, these gflags are std::string, which are not thread-safe to be overridden；On the other hand, the validator will not be triggered(call back to check the correctness), so the exporting thread will not be invoked</p>
+<p>users can also customize dump_exposed() to export all the exposed bvar：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Implement this class to write variables into different places.
 </span><span style="color:#8f5902;font-style:italic">// If dump() returns false, Variable::dump_exposed() stops and returns -1.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Dumper</span> <span style="color:#000;font-weight:bold">{</span>
@@ -2315,9 +2308,11 @@ rpc_server_8002_uptime_ms : 14740954
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// Return number of dumped variables, -1 on error.
 </span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">dump_exposed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Dumper</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">dumper</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DumpOptions</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">options</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#000;font-weight:bold">};</span>
-</code></pre></div><h1 id="bvarreducer">bvar::Reducer</h1>
-<p>Reducer用二元运算符把多个值合并为一个值，运算符需满足结合律，交换律，没有副作用。只有满足这三点，我们才能确保合并的结果不受线程私有数据如何分布的影响。像减法就不满足结合律和交换律，它无法作为此处的运算符。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Reduce multiple values into one with `Op&#39;: e1 Op e2 Op e3 ...
+</code></pre></div></li>
+</ul>
+<h1 id="bvarreducer">bvar::Reducer</h1>
+<p>Reducer uses binary operators over several values to combine them into one final result, which are commutative, associative and without side effect. Only satisfying all of these thress, we can make sure the combined result is not affected by the distribution of the private variables of thread. Like substraciton does not satisfy associative nor commutative, so it cannot be taken as the operator here.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#8f5902;font-style:italic">// Reduce multiple values into one with `Op&#39;: e1 Op e2 Op e3 ...
 </span><span style="color:#8f5902;font-style:italic">// `Op&#39; shall satisfy:
 </span><span style="color:#8f5902;font-style:italic">//   - associative:     a Op (b Op c) == (a Op b) Op c
 </span><span style="color:#8f5902;font-style:italic">//   - commutative:     a Op b == b Op a;
@@ -2325,18 +2320,17 @@ rpc_server_8002_uptime_ms : 14740954
 </span><span style="color:#8f5902;font-style:italic">// otherwise the result is undefined.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">template</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">typename</span> <span style="color:#000">T</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">typename</span> <span style="color:#000">Op</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Reducer</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Variable</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><p>reducer &laquo; e1 &laquo; e2 &laquo; e3的作用等价于reducer = e1 op e2 op e3。</p>
-<p>常见的Redcuer子类有bvar::Adder, bvar::Maxer, bvar::Miner。</p>
+</code></pre></div><p>reducer &laquo; e1 &laquo; e2 &laquo; e3 equals to reducer = e1 op e2 op e3。
+Common Redcuer subclass: bvar::Adder, bvar::Maxer, bvar::Miner</p>
 <h2 id="bvaradder">bvar::Adder</h2>
-<p>顾名思义，用于累加，Op为+。</p>
+<p>we can tell from its name, it&rsquo;s intended for running sum. Opeator is <code>+</code></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">value</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get_value</span><span style="color:#000;font-weight:bold">());</span>
-
-<span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">double</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">fp_value</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// 可能有warning
+<span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">double</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">fp_value</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// may have warning
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">fp_value</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">1.0</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">2.0</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">3.0</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4.0</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">CHECK_DOUBLE_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2.0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">fp_value</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get_value</span><span style="color:#000;font-weight:bold">());</span>
-</code></pre></div><p>Adder&lt;&gt;可用于非基本类型，对应的类型至少要重载<code>T operator+(T, T)</code>。一个已经存在的例子是std::string，下面的代码会把string拼接起来：</p>
+</code></pre></div><p>Adder&lt;&gt; can be applied to the non-primitive type, which at least overrides <code>T operator+(T, T)</code>, an existing example is <code>std::string</code>, the code below will concatenate strings：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// This is just proof-of-concept, don&#39;t use it for production code because it makes a
 </span><span style="color:#8f5902;font-style:italic">// bunch of temporary strings which is not efficient, use std::ostringstream instead.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">concater</span><span style="color:#000;font-weight:bold">;</span>
@@ -2344,28 +2338,28 @@ rpc_server_8002_uptime_ms : 14740954
 <span style="color:#000">concater</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;hello &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">str1</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;hello world&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">concater</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get_value</span><span style="color:#000;font-weight:bold">());</span>
 </code></pre></div><h2 id="bvarmaxer">bvar::Maxer</h2>
-<p>用于取最大值，运算符为std::max。</p>
+<p>is producing the maximum value, operator is <code>std::max</code> 。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Maxer</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">value</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get_value</span><span style="color:#000;font-weight:bold">());</span>
-</code></pre></div><p>Since Maxer&lt;&gt; use std::numeric_limits<T>::min() as the identity, it cannot be applied to generic types unless you specialized std::numeric_limits&lt;&gt; (and overloaded operator&lt;, yes, not operator&gt;).</p>
+</code></pre></div><p>Since Maxer&lt;&gt; use std::numeric_limits::min() as the identity, it cannot be applied to generic types unless you specialized std::numeric_limits&lt;&gt; (and overloaded operator&lt;, yes, not operator&gt;).</p>
 <h2 id="bvarminer">bvar::Miner</h2>
-<p>用于取最小值，运算符为std::min。</p>
+<p>producing minimum value, operator is std::min</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Maxer</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">value</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000">CHECK_EQ</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">value</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get_value</span><span style="color:#000;font-weight:bold">());</span>
-</code></pre></div><p>Since Miner&lt;&gt; use std::numeric_limits<T>::max() as the identity, it cannot be applied to generic types unless you specialized std::numeric_limits&lt;&gt; (and overloaded operator&lt;).</p>
+</code></pre></div><p>Since Miner&lt;&gt; use std::numeric_limits::max() as the identity, it cannot be applied to generic types unless you specialized std::numeric_limits&lt;&gt; (and overloaded operator&lt;).</p>
 <h1 id="bvarintrecorder">bvar::IntRecorder</h1>
-<p>用于计算平均值。</p>
+<p>used for mean value</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// For calculating average of numbers.
 </span><span style="color:#8f5902;font-style:italic">// Example:
 </span><span style="color:#8f5902;font-style:italic">//   IntRecorder latency;
 </span><span style="color:#8f5902;font-style:italic">//   latency &lt;&lt; 1 &lt;&lt; 3 &lt;&lt; 5;
 </span><span style="color:#8f5902;font-style:italic">//   CHECK_EQ(3, latency.average());
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">IntRecorder</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Variable</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><h1 id="bvarlatencyrecorder">bvar::LatencyRecorder</h1>
-<p>专用于计算latency和qps的计数器。只需填入latency数据，就能获得latency / max_latency / qps / count。统计窗口是最后一个参数，不填为bvar_dump_interval（这里没填）。</p>
-<p>注意：LatencyRecorder没有继承Variable，而是多个bvar的组合。</p>
+</code></pre></div><h1 id="bvarlatencyrecoder">bvar::LatencyRecoder</h1>
+<p>A counter used for latency and qps. We can get latency / max_latency / qps / count as long as the latency data filled in. Time window is the last param, omit by <code>bvar_dump_interval</code></p>
+<p>LatencyRecoder is a compound variable, consisting of several bvar.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">LatencyRecorder</span> <span style="color:#000">write_latency</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;table2_my_table_write&#34;</span><span style="color:#000;font-weight:bold">);</span>  <span style="color:#8f5902;font-style:italic">// produces 4 variables:
 </span><span style="color:#8f5902;font-style:italic"></span>                                                         <span style="color:#8f5902;font-style:italic">//   table2_my_table_write_latency
 </span><span style="color:#8f5902;font-style:italic"></span>                                                         <span style="color:#8f5902;font-style:italic">//   table2_my_table_write_max_latency
@@ -2374,7 +2368,7 @@ rpc_server_8002_uptime_ms : 14740954
 </span><span style="color:#8f5902;font-style:italic">// In your write function
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">write_latency</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">the_latency_of_write</span><span style="color:#000;font-weight:bold">;</span>
 </code></pre></div><h1 id="bvarwindow">bvar::Window</h1>
-<p>获得之前一段时间内的统计值。Window不能独立存在，必须依赖于一个已有的计数器。Window会自动更新，不用给它发送数据。出于性能考虑，Window的数据来自于每秒一次对原计数器的采样，在最差情况下，Window的返回值有1秒的延时。</p>
+<p>Get data within a time window. Window cannot exist alone, it relies on a counter. Window will auto-update, we don&rsquo;t have to send data to it. For the sake of performance, the data comes from every-second sampling over the original counter, in the worst case, Window has one-second latency</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Get data within a time window.
 </span><span style="color:#8f5902;font-style:italic">// The time unit is 1 second fixed.
 </span><span style="color:#8f5902;font-style:italic">// Window relies on other bvar which should be constructed before this window and destructs after this window.
@@ -2384,27 +2378,23 @@ rpc_server_8002_uptime_ms : 14740954
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">template</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">typename</span> <span style="color:#000">R</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Window</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Variable</span><span style="color:#000;font-weight:bold">;</span>
 </code></pre></div><h1 id="bvarpersecond">bvar::PerSecond</h1>
-<p>获得之前一段时间内平均每秒的统计值。它和Window基本相同，除了返回值会除以时间窗口之外。</p>
+<p>Get the mean value over the last amount of time. Its almost the same as Window, except for the value will be divided by the time window</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">sum</span><span style="color:#000;font-weight:bold">;</span>
-
-<span style="color:#8f5902;font-style:italic">// sum_per_second.get_value()是sum在之前60秒内*平均每秒*的累加值，省略最后一个时间窗口的话默认为bvar_dump_interval。
+<span style="color:#8f5902;font-style:italic">// sum_per_second.get_value()is summing every-second value over the last 60 seconds, if we omit the time window, it&#39;s set to &#39;bvar_dump_interval&#39; by default
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PerSecond</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Adder</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">sum_per_second</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">sum</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">60</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><p><strong>PerSecond并不总是有意义</strong></p>
-<p>上面的代码中没有Maxer，因为一段时间内的最大值除以时间窗口是没有意义的。</p>
+</code></pre></div><p><strong>PerSecond does not always make sense</strong></p>
+<p>There is no Maxer in the above code, since the max value over a period of time divided by the time window is meaningless.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Maxer</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">max_value</span><span style="color:#000;font-weight:bold">;</span>
-
-<span style="color:#8f5902;font-style:italic">// 错误！最大值除以时间是没有意义的
+<span style="color:#8f5902;font-style:italic">// WRONG！max value divided by time window is pointless
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">PerSecond</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Maxer</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">max_value_per_second_wrong</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">max_value</span><span style="color:#000;font-weight:bold">);</span>
-
-<span style="color:#8f5902;font-style:italic">// 正确，把Window的时间窗口设为1秒才是正确的做法
+<span style="color:#8f5902;font-style:italic">// CORRECT. It&#39;s the right way to set the time window to 1s so that we can get the max value for every second
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Window</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Maxer</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">max_value_per_second</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">max_value</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">);</span>
-</code></pre></div><h2 id="和window的差别">和Window的差别</h2>
-<p>比如要统计内存在上一分钟内的变化，用Window&lt;&gt;的话，返回值的含义是”上一分钟内存增加了18M”，用PerSecond&lt;&gt;的话，返回值的含义是“上一分钟平均每秒增加了0.3M”。</p>
-<p>Window的优点是精确值，适合一些比较小的量，比如“上一分钟的错误数“，如果这用PerSecond的话，得到可能是”上一分钟平均每秒产生了0.0167个错误&quot;，这相比于”上一分钟有1个错误“显然不够清晰。另外一些和时间无关的量也要用Window，比如统计上一分钟cpu占用率的方法是用一个Adder同时累加cpu时间和真实时间，然后用Window获得上一分钟的cpu时间和真实时间，两者相除就得到了上一分钟的cpu占用率，这和时间无关，用PerSecond会产生错误的结果。</p>
+</code></pre></div><h2 id="difference-between-window-and-persecond">Difference between Window and PerSecond</h2>
+<p>Suppose we want the memory change since last minute, if we use Window&lt;&gt;, the meaning for the returning value is &ldquo;the memory increase over the last minute is 18M&rdquo; if we use PerSecond&lt;&gt;, the meaning for return value will be &ldquo;the average memory increase per second over the last minute is 0.3M”.</p>
+<p>Pros of Window is preciseness, it fits in some small-number cases, like “the number of error produced over last minute“, if we use PerSecond, we might get something like &ldquo;the average error rate per second over the last minute is 0.0167&rdquo;, which is very unclear as opposed to &ldquo;one error produced over last minute&rdquo;. Some other non-time-related variables also fit in Window&lt;&gt;, such like calculating the CPU ratio over the last minute is using a Adder by summing CPU time and real time, then we use Window&lt;&gt; on top of the Adder to get the last-mintue CPU time and real time, dividing these two value then we get the CPU ratio for the last minute, which is not time-related. It will get wrong when use PerSeond</p>
 <h1 id="bvarstatus">bvar::Status</h1>
-<p>记录和显示一个值，拥有额外的set_value函数。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">
-<span style="color:#8f5902;font-style:italic">// Display a rarely or periodically updated value.
+<p>Record and display one value, has additional set_value() function</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Display a rarely or periodically updated value.
 </span><span style="color:#8f5902;font-style:italic">// Usage:
 </span><span style="color:#8f5902;font-style:italic">//   bvar::Status&lt;int&gt; foo_count1(17);
 </span><span style="color:#8f5902;font-style:italic">//   foo_count1.expose(&#34;my_value&#34;);
@@ -2418,7 +2408,7 @@ rpc_server_8002_uptime_ms : 14740954
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">template</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">typename</span> <span style="color:#000">Tp</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Status</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Variable</span><span style="color:#000;font-weight:bold">;</span>
 </code></pre></div><h1 id="bvarpassivestatus">bvar::PassiveStatus</h1>
-<p>按需显示值。在一些场合中，我们无法set_value或不知道以何种频率set_value，更适合的方式也许是当需要显示时才打印。用户传入打印回调函数实现这个目的。</p>
+<p>Display the value when needed. In some cases, we are not able to actively set_value nor set_value in a certain time interval. We&rsquo;d better print it out when needed, user can pass in the print-out callback function to achieve this.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">// Display a updated-by-need value. This is done by passing in an user callback
 </span><span style="color:#8f5902;font-style:italic">// which is called to produce the value.
 </span><span style="color:#8f5902;font-style:italic">// Example:
@@ -2434,8 +2424,7 @@ rpc_server_8002_uptime_ms : 14740954
 </span><span style="color:#8f5902;font-style:italic">//   bvar::PassiveStatus status2(typeid(Foo), &#34;number2&#34;, print_number, arg);
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">template</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">typename</span> <span style="color:#000">Tp</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">PassiveStatus</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Variable</span><span style="color:#000;font-weight:bold">;</span>
-</code></pre></div><p>虽然很简单，但PassiveStatus是最有用的bvar之一，因为很多统计量已经存在，我们不需要再次存储它们，而只要按需获取。比如下面的代码声明了一个在linux下显示进程用户名的bvar：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">
+<span style="color:#000">even</span> <span style="color:#000">though</span> <span style="color:#000">it</span> <span style="color:#000">looks</span> <span style="color:#000">simple</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">PassiveStatus</span> <span style="color:#000">is</span> <span style="color:#000">one</span> <span style="color:#000">of</span> <span style="color:#000">the</span> <span style="color:#000">most</span> <span style="color:#000">useful</span> <span style="color:#000">bvar</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">since</span> <span style="color:#000">most</span> <span style="color:#000">of</span> <span style="color:#000">the</span> <span style="color:#000">statistic</span> <span style="color:#000">values</span> <span style="color:#000">have</span> <span style="color:#000">already</span> <span style="color:#000">existed</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">we</span> <span style="color:#000">don</span><span style="color:#a40000">&#39;</span><span style="color:#000">t</span> <span style="color:#000">have</span> <span style="color:#000">to</span> <span style="color:#000">store</span> <span style="color:#000">it</span> <span style="color:#000">again</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">just</span> <span style="color:#000">fetch</span> <span style="color:#000">the</span> <span style="color:#000">data</span> <span style="color:#000">according</span> <span style="color:#000">to</span> <span style="color:#000">our</span> <span style="color:#000">need</span><span style="color:#000;font-weight:bold">.</span> <span style="color:#000">Declare</span> <span style="color:#000">a</span> <span style="color:#000">bvar</span> <span style="color:#000">which</span> <span style="color:#000">can</span> <span style="color:#000">display</span> <span style="color:#000">user</span> <span style="color:#000">process</span> <span style="color:#000">name</span> <span style="color:#000">as</span> <span style="color:#000">below</span><span style="color:#a40000">：</span>
 <span style="color:#204a87;font-weight:bold">static</span> <span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">get_username</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ostream</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">void</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">char</span> <span style="color:#000">buf</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">32</span><span style="color:#000;font-weight:bold">];</span>
     <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">getlogin_r</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">sizeof</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buf</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
@@ -2449,13 +2438,11 @@ rpc_server_8002_uptime_ms : 14740954
 </code></pre></div><h1 id="bvargflag">bvar::GFlag</h1>
 <p>Expose important gflags as bvar so that they&rsquo;re monitored (in noah).</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#000">DEFINE_int32</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">my_flag_that_matters</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;...&#34;</span><span style="color:#000;font-weight:bold">);</span>
-
 <span style="color:#8f5902;font-style:italic">// Expose the gflag as *same-named* bvar so that it&#39;s monitored (in noah).
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">static</span> <span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">GFlag</span> <span style="color:#000">s_gflag_my_flag_that_matters</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;my_flag_that_matters&#34;</span><span style="color:#000;font-weight:bold">);</span>
 <span style="color:#8f5902;font-style:italic">//                                                ^
 </span><span style="color:#8f5902;font-style:italic">//                                            the gflag name
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#8f5902;font-style:italic">// Expose the gflag as a bvar named &#34;foo_bar_my_flag_that_matters&#34;.
+</span><span style="color:#8f5902;font-style:italic">// Expose the gflag as a bvar named &#34;foo_bar_my_flag_that_matters&#34;.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">static</span> <span style="color:#000">bvar</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">GFlag</span> <span style="color:#000">s_gflag_my_flag_that_matters_with_prefix</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;foo_bar&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;my_flag_that_matters&#34;</span><span style="color:#000;font-weight:bold">);</span>
 </code></pre></div>
         <div class="section-index">
@@ -2640,7 +2627,7 @@ rpc_server_8002_uptime_ms : 14740954
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 26, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/14eec1ac1805c1dde9f10d0353984bde2127294c">brpc website 1.0 fix links jump problem in overview page (14eec1a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 15, 2022: <a  href="https://github.com/apache/incubator-brpc-website/commit/5cda186878334b46768813025720642b0e075480">Update _index.md (5cda186)</a>
 </div>
 </div>
 

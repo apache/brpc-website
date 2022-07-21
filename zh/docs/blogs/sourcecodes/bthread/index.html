@@ -27,7 +27,7 @@ AT&amp;T风格的汇编语言  立即数：$ 开头 寄存器：% 开头 取地�
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/zh/docs/blogs/sourcecodes/bthread/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-06-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-06-16T22:43:51+08:00" /><meta property="og:site_name" content="bRPC" />
+<meta property="article:modified_time" content="2022-06-17T09:58:29+08:00" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="bRPC源码解析·bthread机制">
 <meta itemprop="description" content="bthread简介 官方文档：https://brpc.apache.org/zh/docs/bthread/bthread/
@@ -35,7 +35,7 @@ bthread是bRPC使用的M:N线程库，类似协程，即用户态线程，也因
 为了实现协程需要协程栈、协程的初始化，以及协程间的切换，接下来逐一分析一下这几个过程。在分析之前需要首先补充一点汇编知识以方便我们阅读其中的汇编代码。
 基础汇编知识 首先语法习惯，代码中的是AT&amp;T风格的汇编语言，gdb看反汇编默认的风格也是AT&amp;T。
 AT&amp;T风格的汇编语言  立即数：$ 开头 寄存器：% 开头 取地址里面的值：偏移量(%寄存器） 整形操作通用后缀：[B] Byte、[W] Word 2Byte、[L] Long 4Byte、[Q] QuadWord 8Byte 浮点操作通用后缀：[S] Singled 4、[D] Double 8、[T] Extended 16（修饰精度: precision）  函数的调用约定  整型参数依次存放在 %rdi、%rsi、%rdx、%rcx、%8、%9 浮点参数依次存放在%xmm0 - %xmm7中 寄存器不够用时，参数放到栈中 被调用的函数可以使用任何寄存器，但它必须保证%rbx、%rbp、%rsp和%12-%15恢复到原来的值 返回值存放在%rax中  调用函数前  调用方要将参数放到寄存器中 然后把%10、%11的值保存到栈中 然后调用call 跳转到函数执行 返回后，恢复%10、%11 从%eax中取出返回值  x86_64含有16个64为整数寄存器  %rsi、%rdi 用于字符串处理 %rsp、%rbp 栈相关，栈从高地址到低地址 %rsp&ndash;&gt;栈顶，push和pop会改变 %rbp&ndash;&gt;栈基址 %8 ~ %15     寄存器 解释     // 创建部分    %rax 临时寄存器；参数可变时传递关于 SSE 寄存器用量的信息；第 1 个返回值寄存器   %rdi 用来给函数传递第 1 个参数   %rsi 用来给函数传递第 2 个参数   %rdx 用来给函数传递第 3 个整数参数   %rcx 用来给函数传递第 4个整数参数   %rsp 堆栈顶指针   %rbp 堆栈基指针   %rip 指令寄存器   // 切换部分    %rbx 被调者保存的寄存器；或用作基指针   %r12-%r15 被调者保存的寄存器    协程栈的结构 协程栈 首先看下协程栈的结构：context指向协程栈顶，stacktype表示栈的类型(大小)，storage为栈空间。"><meta itemprop="datePublished" content="2022-06-16T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-06-16T22:43:51+08:00" />
+<meta itemprop="dateModified" content="2022-06-17T09:58:29+08:00" />
 <meta itemprop="wordCount" content="636">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="bRPC源码解析·bthread机制"/>
@@ -2562,7 +2562,7 @@ if (!doNotTrack) {
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年6月16日: <a  href="https://github.com/apache/incubator-brpc-website/commit/b403a49b0e82686596734ac2c2d0deaa2767477d">add some blogs in chinese pages (b403a49)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年6月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3a5447ed73fedf0147c189818ba028e3cf2daf73">Add some blogs to Chinese pages (#76) (3a5447e)</a>
 </div>
 </div>
 

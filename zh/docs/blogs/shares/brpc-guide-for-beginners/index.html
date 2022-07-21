@@ -47,7 +47,7 @@ RPC框架一般会用在两个端，客户端和服务端，两者有些流程�
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-11-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-06-16T22:43:51+08:00" /><meta property="og:site_name" content="bRPC" />
+<meta property="article:modified_time" content="2022-06-17T09:58:29+08:00" /><meta property="og:site_name" content="bRPC" />
 
 <meta itemprop="name" content="brpc初学者指南">
 <meta itemprop="description" content="(作者简介：lorinlee，是brpc新进committer，在字节跳动负责图数据库相关工作）
@@ -75,7 +75,7 @@ RPC框架一般会用在两个端，客户端和服务端，两者有些流程�
   服务端 对于服务端，典型的流程包括：服务的启动，收到RPC请求，执行处理，返回应答等逻辑。这里也对一些关键的过程进行简述，方便大家找到对应的代码位置：
   服务启动：Server::Start，这里会做一些初始化（Server::InitializeOnce），数据存储工厂初始化（SessionData，ThreadLocalData，bthread_local），创建Acceptor用于接受客户端连接。
   收到RPC请求：服务端收到的请求也是通过EventDispatcher进行派发的。在收到客户端连接请求时，EventDispatcher会回调Acceptor::OnNewConnections进行新连接建立，并将新连接也托管至EventDispatcher。在连接收到数据后，会由EventDispatcher回调至InputMessenger::OnNewMessages，从fd中读取数据，对数据按请求粒度进行切分，并调用协议中注册的处理函数（Protocol::ProcessRequest）进行处理。（客户端和服务端在这里注册的回调是不同的）。"><meta itemprop="datePublished" content="2021-11-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-06-16T22:43:51+08:00" />
+<meta itemprop="dateModified" content="2022-06-17T09:58:29+08:00" />
 <meta itemprop="wordCount" content="118">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="brpc初学者指南"/>
@@ -2384,7 +2384,7 @@ bvar目录下是指标收集的实现。</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年6月16日: <a  href="https://github.com/apache/incubator-brpc-website/commit/b403a49b0e82686596734ac2c2d0deaa2767477d">add some blogs in chinese pages (b403a49)</a>
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2022年6月17日: <a  href="https://github.com/apache/incubator-brpc-website/commit/3a5447ed73fedf0147c189818ba028e3cf2daf73">Add some blogs to Chinese pages (#76) (3a5447e)</a>
 </div>
 </div>
 
