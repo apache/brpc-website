@@ -123,7 +123,7 @@ The project website sources are accessible via the [website source code reposito
     </tr>
     <tr>
         <td><a href="http://github.com/ipconfigme"><img width="64" src="https://avatars.githubusercontent.com/u/2500750?v=4"></a></td>
-        <td>fisherman</td>
+        <td>Yao Wang</td>
         <td>fisherman</td>
         <td><a href="http://github.com/ipconfigme">ipconfigme</a></td>
         <td>PPMC</td>
@@ -139,18 +139,10 @@ The project website sources are accessible via the [website source code reposito
     </tr>
     <tr>
         <td><a href="http://github.com/wwbmmm"><img width="64" src="https://avatars.githubusercontent.com/u/3894631?v=4"></a></td>
-        <td>Weibing Wang</td>
+        <td>Wang Weibing</td>
         <td>wwbmmm</td>
         <td><a href="http://github.com/wwbmmm">wwbmmm</a></td>
         <td>PPMC</td>
-        <td>apache</td>
-    </tr>
-    <tr>
-        <td><a href="http://github.com/gydong"><img width="64" src="https://avatars.githubusercontent.com/u/3294444?v=4"></a></td>
-        <td>Gaidong Mou</td>
-        <td>gydong</td>
-        <td><a href="http://github.com/gydong">gydong</a></td>
-        <td>Committer</td>
         <td>apache</td>
     </tr>
     <tr>
@@ -158,22 +150,30 @@ The project website sources are accessible via the [website source code reposito
         <td>He Lei</td>
         <td>leander</td>
         <td><a href="http://github.com/TousakaRin">TousakaRin</a></td>
-        <td>Committer</td>
+        <td>PPMC</td>
         <td>apache</td>
     </tr>
     <tr>
         <td><a href="http://github.com/cdjingit"><img width="64" src="https://avatars.githubusercontent.com/u/31362185?v=4"></a></td>
-        <td>Cai daojing</td>
+        <td>Cai Daojin</td>
         <td>caidj</td>
         <td><a href="http://github.com/cdjingit">cdjingit</a></td>
-        <td>Committer</td>
+        <td>PPMC</td>
         <td>apache</td>
     </tr>
     <tr>
         <td><a href="http://github.com/lorinlee"><img width="64" src="https://avatars.githubusercontent.com/u/16054841?v=4"></a></td>
-        <td>Li Lei</td>
+        <td>Lorin Lee</td>
         <td>lorinlee</td>
         <td><a href="http://github.com/lorinlee">lorinlee</a></td>
+        <td>PPMC</td>
+        <td>apache</td>
+    </tr>
+    <tr>
+        <td><a href="http://github.com/gydong"><img width="64" src="https://avatars.githubusercontent.com/u/3294444?v=4"></a></td>
+        <td>Mou Gaidong</td>
+        <td>gydong</td>
+        <td><a href="http://github.com/gydong">gydong</a></td>
         <td>Committer</td>
         <td>apache</td>
     </tr>
@@ -187,9 +187,25 @@ The project website sources are accessible via the [website source code reposito
     </tr>
     <tr>
         <td><a href="http://github.com/serverglen"><img width="64" src="https://avatars.githubusercontent.com/u/38067377?v=4"></a></td>
-        <td>Liu shuai</td>
+        <td>Shuai Liu</td>
         <td>serverglen</td>
         <td><a href="http://github.com/serverglen">serverglen</a></td>
+        <td>Committer</td>
+        <td>apache</td>
+    </tr>
+    <tr>
+        <td><a href="http://github.com/wasphin"><img width="64" src="https://avatars.githubusercontent.com/u/1237906?v=4"></a></td>
+        <td>Wang Xiaofeng</td>
+        <td>xiaofeng</td>
+        <td><a href="http://github.com/wasphin">wasphin</a></td>
+        <td>Committer</td>
+        <td>apache</td>
+    </tr>
+    <tr>
+        <td><a href="http://github.com/Huixxi"><img width="64" src="https://avatars.githubusercontent.com/u/21335093?v=4"></a></td>
+        <td>Xiguo Hu</td>
+        <td>huixxi</td>
+        <td><a href="http://github.com/Huixxi">Huixxi</a></td>
         <td>Committer</td>
         <td>apache</td>
     </tr>
