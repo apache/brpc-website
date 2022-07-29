@@ -885,7 +885,7 @@ limitations under the License.
 --&gt;
 &lt;h2 id=&#34;apache-brpc-incubating-downloads&#34;&gt;Apache brpc (incubating) Downloads&lt;/h2&gt;
 &lt;p&gt;Apache brpc (incubating) is released as a source artifact.
-We are pleased to announce our 1.1.0 release as below.&lt;/p&gt;
+We are pleased to announce our 1.2.0 release as below.&lt;/p&gt;
 &lt;h3 id=&#34;release-candidate&#34;&gt;Release Candidate&lt;/h3&gt;
 &lt;!--when pass vote, we can change it back to Release Artifacts
 --&gt;
@@ -899,6 +899,12 @@ We are pleased to announce our 1.1.0 release as below.&lt;/p&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Apache brpc (incubating) 1.2.0 (tar.gz)&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&#34;https://dlcdn.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz&#34;&gt;tar.gz&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&#34;https://downloads.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.sha512&#34;&gt;SHA-512&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&#34;https://downloads.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.asc&#34;&gt;ASC&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td&gt;Apache brpc (incubating) 1.1.0 (tar.gz)&lt;/td&gt;
             &lt;td&gt;&lt;a href=&#34;https://dlcdn.apache.org/incubator/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz&#34;&gt;tar.gz&lt;/a&gt;&lt;/td&gt;

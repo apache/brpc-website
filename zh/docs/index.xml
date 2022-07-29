@@ -1543,7 +1543,7 @@ limitations under the License.
 {% endcomment %}
 --&gt;
 &lt;h2 id=&#34;下载-apache-brpc-incubating&#34;&gt;下载 Apache bRPC (incubating)&lt;/h2&gt;
-&lt;p&gt;Apache brpc（孵化）作为源工件发布。我们很高兴宣布我们的1.1.0版本已经发布如下了！&lt;/p&gt;
+&lt;p&gt;Apache brpc（孵化）作为源工件发布。我们很高兴宣布我们的1.2.0版本已经发布如下了！&lt;/p&gt;
 &lt;h3 id=&#34;候选版本&#34;&gt;候选版本&lt;/h3&gt;
 &lt;!--when pass vote, we can change it back to Release Artifacts
 --&gt;
@@ -1557,6 +1557,12 @@ limitations under the License.
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Apache brpc (incubating) 1.2.0 (tar.gz)&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&#34;https://dlcdn.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz&#34;&gt;tar.gz&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&#34;https://downloads.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.sha512&#34;&gt;SHA-512&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&#34;https://downloads.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.asc&#34;&gt;ASC&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td&gt;Apache brpc (incubating) 1.1.0 (tar.gz)&lt;/td&gt;
             &lt;td&gt;&lt;a href=&#34;https://dlcdn.apache.org/incubator/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz&#34;&gt;tar.gz&lt;/a&gt;&lt;/td&gt;
