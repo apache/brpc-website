@@ -14,7 +14,7 @@ description: >
 
 ## 单线程[reactor](http://en.wikipedia.org/wiki/Reactor_pattern)
 
-以[libevent](http://libevent.org/), [libev](http://software.schmorp.de/pkg/libev.html)等event-loop库为典型。这个模型一般由一个event dispatcher等待各类事件，待事件发生后**原地**调用对应的event handler，全部调用完后等待更多事件，故为"loop"。这个模型的实质是把多段逻辑按事件触发顺序交织在一个系统线程中。一个event-loop只能使用一个核，故此类程序要么是IO-bound，要么是每个handler有确定的较短的运行时间（比如http server)，否则一个耗时漫长的回调就会卡住整个程序，产生高延时。在实践中这类程序不适合多开发者参与，一个人写了阻塞代码可能就会拖慢其他代码的响应。由于event handler不会同时运行，不太会产生复杂的race condition，一些代码不需要锁。此类程序主要靠部署更多进程增加扩展性。
+以[libevent](http://libevent.org/), [libev](http://software.schmorp.de/pkg/libev.html)等event-loop库为典型。这个模型一般由一个event dispatcher等待各类事件，待事件发生后**原地**调用对应的event handler，全部调用完后等待更多事件，故为"loop"。这个模型的实质是把多段逻辑按事件触发顺序交织在一个系统线程中。一个event-loop只能使用一个核，故此类程序要么是IO-bound，要么是每个handler有确定的较短的运行时间（比如http server)，否则一个耗时漫长的回调就会卡住整个程序，产生高延时。在实践中这类程序不适合多开发者参与，一个人写了阻塞代码可能就会拖慢其他代码的响应。由于event handler不会同时运行，不太会产生复杂的race condition，一些代码不需要锁。此类程序主要靠使用更多线程或部署更多进程增加扩展性。
 
 单线程reactor的运行方式及问题如下图所示：
 
@@ -22,7 +22,7 @@ description: >
 
 ## N:1线程库
 
-又称为[Fiber](http://en.wikipedia.org/wiki/Fiber_(computer_science))，以[GNU Pth](http://www.gnu.org/software/pth/pth-manual.html), [StateThreads](http://state-threads.sourceforge.net/index.html)等为典型，一般是把N个用户线程映射入一个系统线程。同时只运行一个用户线程，调用阻塞函数时才会切换至其他用户线程。N:1线程库与单线程reactor在能力上等价，但事件回调被替换为了上下文(栈,寄存器,signals)，运行回调变成了跳转至上下文。和event loop库一样，单个N:1线程库无法充分发挥多核性能，只适合一些特定的程序。只有一个系统线程对CPU cache较为友好，加上舍弃对signal mask的支持的话，用户线程间的上下文切换可以很快(100~200ns)。N:1线程库的性能一般和event loop库差不多，扩展性也主要靠多进程。
+又称为[Fiber](http://en.wikipedia.org/wiki/Fiber_(computer_science))，以[GNU Pth](http://www.gnu.org/software/pth/pth-manual.html), [StateThreads](http://state-threads.sourceforge.net/index.html)等为典型，一般是把N个用户线程映射入一个系统线程。同时只运行一个用户线程，调用阻塞函数时才会切换至其他用户线程。N:1线程库与单线程reactor在能力上等价，但事件回调被替换为了上下文(栈,寄存器,signals)，运行回调变成了跳转至上下文。和event loop库一样，单个N:1线程库无法充分发挥多核性能，只适合一些特定的程序。只有一个系统线程对CPU cache较为友好，加上舍弃对signal mask的支持的话，用户线程间的上下文切换可以很快(100~200ns)。N:1线程库的性能一般和event loop库差不多，扩展性也主要靠多线程或多进程。
 
 ## 多线程reactor
 
