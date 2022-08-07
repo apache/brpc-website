@@ -1,284 +1,228 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>bRPC – bthread</title>
-    <link>https://brpc.incubator.apache.org/zh/docs/bthread/</link>
-    <description>Recent content in bthread on bRPC</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://brpc.incubator.apache.org/zh/docs/bthread/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Docs: bthread</title>
-      <link>https://brpc.incubator.apache.org/zh/docs/bthread/bthread/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://brpc.incubator.apache.org/zh/docs/bthread/bthread/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;a href=&#34;https://github.com/brpc/brpc/tree/master/src/bthread&#34;&gt;bthread&lt;/a&gt;是brpc使用的M:N线程库，目的是在提高程序的并发度的同时，降低编码难度，并在核数日益增多的CPU上提供更好的scalability和cache locality。”M:N“是指M个bthread会映射至N个pthread，一般M远大于N。由于linux当下的pthread实现(&lt;a href=&#34;http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library&#34;&gt;NPTL&lt;/a&gt;)是1:1的，M个bthread也相当于映射至N个&lt;a href=&#34;http://en.wikipedia.org/wiki/Light-weight_process&#34;&gt;LWP&lt;/a&gt;。bthread的前身是Distributed Process(DP)中的fiber，一个N:1的合作式线程库，等价于event-loop库，但写的是同步代码。&lt;/p&gt;
-&lt;h1 id=&#34;goals&#34;&gt;Goals&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;用户可以延续同步的编程模式，能在数百纳秒内建立bthread，可以用多种原语同步。&lt;/li&gt;
-&lt;li&gt;bthread所有接口可在pthread中被调用并有合理的行为，使用bthread的代码可以在pthread中正常执行。&lt;/li&gt;
-&lt;li&gt;能充分利用多核。&lt;/li&gt;
-&lt;li&gt;better cache locality, supporting NUMA is a plus.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;nongoals&#34;&gt;NonGoals&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;提供pthread的兼容接口，只需链接即可使用。&lt;strong&gt;拒绝理由&lt;/strong&gt;: bthread没有优先级，不适用于所有的场景，链接的方式容易使用户在不知情的情况下误用bthread，造成bug。&lt;/li&gt;
-&lt;li&gt;覆盖各类可能阻塞的glibc函数和系统调用，让原本阻塞系统线程的函数改为阻塞bthread。&lt;strong&gt;拒绝理由&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;bthread阻塞可能切换系统线程，依赖系统TLS的函数的行为未定义。&lt;/li&gt;
-&lt;li&gt;和阻塞pthread的函数混用时可能死锁。&lt;/li&gt;
-&lt;li&gt;这类hook函数本身的效率一般更差，因为往往还需要额外的系统调用，如epoll。但这类覆盖对N:1合作式线程库(fiber)有一定意义：虽然函数本身慢了，但若不覆盖会更慢（系统线程阻塞会导致所有fiber阻塞）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;修改内核让pthread支持同核快速切换。&lt;strong&gt;拒绝理由&lt;/strong&gt;: 拥有大量pthread后，每个线程对资源的需求被稀释了，基于thread-local cache的代码效果会很差，比如tcmalloc。而独立的bthread不会有这个问题，因为它最终还是被映射到了少量的pthread。bthread相比pthread的性能提升很大一部分来自更集中的线程资源。另一个考量是可移植性，bthread更倾向于纯用户态代码。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;faq&#34;&gt;FAQ&lt;/h1&gt;
-&lt;h5 id=&#34;qbthread是协程coroutine吗&#34;&gt;Q：bthread是协程(coroutine)吗？&lt;/h5&gt;
-&lt;p&gt;不是。我们常说的协程特指N:1线程库，即所有的协程运行于一个系统线程中，计算能力和各类eventloop库等价。由于不跨线程，协程之间的切换不需要系统调用，可以非常快(100ns-200ns)，受cache一致性的影响也小。但代价是协程无法高效地利用多核，代码必须非阻塞，否则所有的协程都被卡住，对开发者要求苛刻。协程的这个特点使其适合写运行时间确定的IO服务器，典型如http server，在一些精心调试的场景中，可以达到非常高的吞吐。但百度内大部分在线服务的运行时间并不确定，且很多检索由几十人合作完成，一个缓慢的函数会卡住所有的协程。在这点上eventloop是类似的，一个回调卡住整个loop就卡住了，比如ub&lt;strong&gt;a&lt;/strong&gt;server（注意那个a，不是ubserver）是百度对异步框架的尝试，由多个并行的eventloop组成，真实表现糟糕：回调里打日志慢一些，访问redis卡顿，计算重一点，等待中的其他请求就会大量超时。所以这个框架从未流行起来。&lt;/p&gt;
-&lt;p&gt;bthread是一个M:N线程库，一个bthread被卡住不会影响其他bthread。关键技术两点：work stealing调度和butex，前者让bthread更快地被调度到更多的核心上，后者让bthread和pthread可以相互等待和唤醒。这两点协程都不需要。更多线程的知识查看&lt;a href=&#34;../../rpc-in-depth/threading-overview&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
-&lt;h5 id=&#34;q-我应该在程序中多使用bthread吗&#34;&gt;Q: 我应该在程序中多使用bthread吗？&lt;/h5&gt;
-&lt;p&gt;不应该。除非你需要在一次RPC过程中&lt;a href=&#34;../bthread-or-not&#34;&gt;让一些代码并发运行&lt;/a&gt;，你不应该直接调用bthread函数，把这些留给brpc做更好。&lt;/p&gt;
-&lt;h5 id=&#34;qbthread和pthread-worker如何对应&#34;&gt;Q：bthread和pthread worker如何对应？&lt;/h5&gt;
-&lt;p&gt;pthread worker在任何时间只会运行一个bthread，当前bthread挂起时，pthread worker先尝试从本地runqueue弹出一个待运行的bthread，若没有，则随机偷另一个worker的待运行bthread，仍然没有才睡眠并会在有新的待运行bthread时被唤醒。&lt;/p&gt;
-&lt;h5 id=&#34;qbthread中能调用阻塞的pthread或系统函数吗&#34;&gt;Q：bthread中能调用阻塞的pthread或系统函数吗？&lt;/h5&gt;
-&lt;p&gt;可以，只阻塞当前pthread worker。其他pthread worker不受影响。&lt;/p&gt;
-&lt;h5 id=&#34;q一个bthread阻塞会影响其他bthread吗&#34;&gt;Q：一个bthread阻塞会影响其他bthread吗？&lt;/h5&gt;
-&lt;p&gt;不影响。若bthread因bthread API而阻塞，它会把当前pthread worker让给其他bthread。若bthread因pthread API或系统函数而阻塞，当前pthread worker上待运行的bthread会被其他空闲的pthread worker偷过去运行。&lt;/p&gt;
-&lt;h5 id=&#34;qpthread中可以调用bthread-api吗&#34;&gt;Q：pthread中可以调用bthread API吗？&lt;/h5&gt;
-&lt;p&gt;可以。bthread API在bthread中被调用时影响的是当前bthread，在pthread中被调用时影响的是当前pthread。使用bthread API的代码可以直接运行在pthread中。&lt;/p&gt;
-&lt;h5 id=&#34;q若有大量的bthread调用了阻塞的pthread或系统函数会影响rpc运行么&#34;&gt;Q：若有大量的bthread调用了阻塞的pthread或系统函数，会影响RPC运行么？&lt;/h5&gt;
-&lt;p&gt;会。比如有8个pthread worker，当有8个bthread都调用了系统usleep()后，处理网络收发的RPC代码就暂时无法运行了。只要阻塞时间不太长, 这一般&lt;strong&gt;没什么影响&lt;/strong&gt;, 毕竟worker都用完了, 除了排队也没有什么好方法.
-在brpc中用户可以选择调大worker数来缓解问题, 在server端可设置&lt;a href=&#34;../../server/basics/#worker%E7%BA%BF%E7%A8%8B%E6%95%B0&#34;&gt;ServerOptions.num_threads&lt;/a&gt;或&lt;a href=&#34;http://brpc.baidu.com:8765/flags/bthread_concurrency&#34;&gt;-bthread_concurrency&lt;/a&gt;, 在client端可设置&lt;a href=&#34;http://brpc.baidu.com:8765/flags/bthread_concurrency&#34;&gt;-bthread_concurrency&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;那有没有完全规避的方法呢?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一个容易想到的方法是动态增加worker数. 但实际未必如意, 当大量的worker同时被阻塞时,
-它们很可能在等待同一个资源(比如同一把锁), 增加worker可能只是增加了更多的等待者.&lt;/li&gt;
-&lt;li&gt;那区分io线程和worker线程? io线程专门处理收发, worker线程调用用户逻辑, 即使worker线程全部阻塞也不会影响io线程. 但增加一层处理环节(io线程)并不能缓解拥塞, 如果worker线程全部卡住, 程序仍然会卡住,
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – bthread</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/</link><description>Recent content in bthread on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/zh/docs/bthread/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bthread</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/bthread/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/bthread/bthread/</guid><description>
+&lt;p>&lt;a href="https://github.com/brpc/brpc/tree/master/src/bthread">bthread&lt;/a>是brpc使用的M:N线程库，目的是在提高程序的并发度的同时，降低编码难度，并在核数日益增多的CPU上提供更好的scalability和cache locality。”M:N“是指M个bthread会映射至N个pthread，一般M远大于N。由于linux当下的pthread实现(&lt;a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library">NPTL&lt;/a>)是1:1的，M个bthread也相当于映射至N个&lt;a href="http://en.wikipedia.org/wiki/Light-weight_process">LWP&lt;/a>。bthread的前身是Distributed Process(DP)中的fiber，一个N:1的合作式线程库，等价于event-loop库，但写的是同步代码。&lt;/p>
+&lt;h1 id="goals">Goals&lt;/h1>
+&lt;ul>
+&lt;li>用户可以延续同步的编程模式，能在数百纳秒内建立bthread，可以用多种原语同步。&lt;/li>
+&lt;li>bthread所有接口可在pthread中被调用并有合理的行为，使用bthread的代码可以在pthread中正常执行。&lt;/li>
+&lt;li>能充分利用多核。&lt;/li>
+&lt;li>better cache locality, supporting NUMA is a plus.&lt;/li>
+&lt;/ul>
+&lt;h1 id="nongoals">NonGoals&lt;/h1>
+&lt;ul>
+&lt;li>提供pthread的兼容接口，只需链接即可使用。&lt;strong>拒绝理由&lt;/strong>: bthread没有优先级，不适用于所有的场景，链接的方式容易使用户在不知情的情况下误用bthread，造成bug。&lt;/li>
+&lt;li>覆盖各类可能阻塞的glibc函数和系统调用，让原本阻塞系统线程的函数改为阻塞bthread。&lt;strong>拒绝理由&lt;/strong>:
+&lt;ul>
+&lt;li>bthread阻塞可能切换系统线程，依赖系统TLS的函数的行为未定义。&lt;/li>
+&lt;li>和阻塞pthread的函数混用时可能死锁。&lt;/li>
+&lt;li>这类hook函数本身的效率一般更差，因为往往还需要额外的系统调用，如epoll。但这类覆盖对N:1合作式线程库(fiber)有一定意义：虽然函数本身慢了，但若不覆盖会更慢（系统线程阻塞会导致所有fiber阻塞）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>修改内核让pthread支持同核快速切换。&lt;strong>拒绝理由&lt;/strong>: 拥有大量pthread后，每个线程对资源的需求被稀释了，基于thread-local cache的代码效果会很差，比如tcmalloc。而独立的bthread不会有这个问题，因为它最终还是被映射到了少量的pthread。bthread相比pthread的性能提升很大一部分来自更集中的线程资源。另一个考量是可移植性，bthread更倾向于纯用户态代码。&lt;/li>
+&lt;/ul>
+&lt;h1 id="faq">FAQ&lt;/h1>
+&lt;h5 id="qbthread是协程coroutine吗">Q：bthread是协程(coroutine)吗？&lt;/h5>
+&lt;p>不是。我们常说的协程特指N:1线程库，即所有的协程运行于一个系统线程中，计算能力和各类eventloop库等价。由于不跨线程，协程之间的切换不需要系统调用，可以非常快(100ns-200ns)，受cache一致性的影响也小。但代价是协程无法高效地利用多核，代码必须非阻塞，否则所有的协程都被卡住，对开发者要求苛刻。协程的这个特点使其适合写运行时间确定的IO服务器，典型如http server，在一些精心调试的场景中，可以达到非常高的吞吐。但百度内大部分在线服务的运行时间并不确定，且很多检索由几十人合作完成，一个缓慢的函数会卡住所有的协程。在这点上eventloop是类似的，一个回调卡住整个loop就卡住了，比如ub&lt;strong>a&lt;/strong>server（注意那个a，不是ubserver）是百度对异步框架的尝试，由多个并行的eventloop组成，真实表现糟糕：回调里打日志慢一些，访问redis卡顿，计算重一点，等待中的其他请求就会大量超时。所以这个框架从未流行起来。&lt;/p>
+&lt;p>bthread是一个M:N线程库，一个bthread被卡住不会影响其他bthread。关键技术两点：work stealing调度和butex，前者让bthread更快地被调度到更多的核心上，后者让bthread和pthread可以相互等待和唤醒。这两点协程都不需要。更多线程的知识查看&lt;a href="../../rpc-in-depth/threading-overview">这里&lt;/a>。&lt;/p>
+&lt;h5 id="q-我应该在程序中多使用bthread吗">Q: 我应该在程序中多使用bthread吗？&lt;/h5>
+&lt;p>不应该。除非你需要在一次RPC过程中&lt;a href="../bthread-or-not">让一些代码并发运行&lt;/a>，你不应该直接调用bthread函数，把这些留给brpc做更好。&lt;/p>
+&lt;h5 id="qbthread和pthread-worker如何对应">Q：bthread和pthread worker如何对应？&lt;/h5>
+&lt;p>pthread worker在任何时间只会运行一个bthread，当前bthread挂起时，pthread worker先尝试从本地runqueue弹出一个待运行的bthread，若没有，则随机偷另一个worker的待运行bthread，仍然没有才睡眠并会在有新的待运行bthread时被唤醒。&lt;/p>
+&lt;h5 id="qbthread中能调用阻塞的pthread或系统函数吗">Q：bthread中能调用阻塞的pthread或系统函数吗？&lt;/h5>
+&lt;p>可以，只阻塞当前pthread worker。其他pthread worker不受影响。&lt;/p>
+&lt;h5 id="q一个bthread阻塞会影响其他bthread吗">Q：一个bthread阻塞会影响其他bthread吗？&lt;/h5>
+&lt;p>不影响。若bthread因bthread API而阻塞，它会把当前pthread worker让给其他bthread。若bthread因pthread API或系统函数而阻塞，当前pthread worker上待运行的bthread会被其他空闲的pthread worker偷过去运行。&lt;/p>
+&lt;h5 id="qpthread中可以调用bthread-api吗">Q：pthread中可以调用bthread API吗？&lt;/h5>
+&lt;p>可以。bthread API在bthread中被调用时影响的是当前bthread，在pthread中被调用时影响的是当前pthread。使用bthread API的代码可以直接运行在pthread中。&lt;/p>
+&lt;h5 id="q若有大量的bthread调用了阻塞的pthread或系统函数会影响rpc运行么">Q：若有大量的bthread调用了阻塞的pthread或系统函数，会影响RPC运行么？&lt;/h5>
+&lt;p>会。比如有8个pthread worker，当有8个bthread都调用了系统usleep()后，处理网络收发的RPC代码就暂时无法运行了。只要阻塞时间不太长, 这一般&lt;strong>没什么影响&lt;/strong>, 毕竟worker都用完了, 除了排队也没有什么好方法.
+在brpc中用户可以选择调大worker数来缓解问题, 在server端可设置&lt;a href="../../server/basics/#worker%E7%BA%BF%E7%A8%8B%E6%95%B0">ServerOptions.num_threads&lt;/a>或&lt;a href="http://brpc.baidu.com:8765/flags/bthread_concurrency">-bthread_concurrency&lt;/a>, 在client端可设置&lt;a href="http://brpc.baidu.com:8765/flags/bthread_concurrency">-bthread_concurrency&lt;/a>.&lt;/p>
+&lt;p>那有没有完全规避的方法呢?&lt;/p>
+&lt;ul>
+&lt;li>一个容易想到的方法是动态增加worker数. 但实际未必如意, 当大量的worker同时被阻塞时,
+它们很可能在等待同一个资源(比如同一把锁), 增加worker可能只是增加了更多的等待者.&lt;/li>
+&lt;li>那区分io线程和worker线程? io线程专门处理收发, worker线程调用用户逻辑, 即使worker线程全部阻塞也不会影响io线程. 但增加一层处理环节(io线程)并不能缓解拥塞, 如果worker线程全部卡住, 程序仍然会卡住,
 只是卡的地方从socket缓冲转移到了io线程和worker线程之间的消息队列. 换句话说, 在worker卡住时,
-还在运行的io线程做的可能是无用功. 事实上, 这正是上面提到的&lt;strong&gt;没什么影响&lt;/strong&gt;真正的含义. 另一个问题是每个请求都要从io线程跳转至worker线程, 增加了一次上下文切换, 在机器繁忙时, 切换都有一定概率无法被及时调度, 会导致更多的延时长尾.&lt;/li&gt;
-&lt;li&gt;一个实际的解决方法是&lt;a href=&#34;../../server/basics/#%E9%99%90%E5%88%B6%E6%9C%80%E5%A4%A7%E5%B9%B6%E5%8F%91&#34;&gt;限制最大并发&lt;/a&gt;, 只要同时被处理的请求数低于worker数, 自然可以规避掉&amp;quot;所有worker被阻塞&amp;quot;的情况.&lt;/li&gt;
-&lt;li&gt;另一个解决方法当被阻塞的worker超过阈值时(比如8个中的6个), 就不在原地调用用户代码了, 而是扔到一个独立的线程池中运行. 这样即使用户代码全部阻塞, 也总能保留几个worker处理rpc的收发. 不过目前bthread模式并没有这个机制, 但类似的机制在&lt;a href=&#34;../../server/basics/#pthread%E6%A8%A1%E5%BC%8F&#34;&gt;打开pthread模式&lt;/a&gt;时已经被实现了. 那像上面提到的, 这个机制是不是在用户代码都阻塞时也在做&amp;quot;无用功&amp;quot;呢? 可能是的. 但这个机制更多是为了规避在一些极端情况下的死锁, 比如所有的用户代码都lock在一个pthread mutex上, 并且这个mutex需要在某个RPC回调中unlock, 如果所有的worker都被阻塞, 那么就没有线程来处理RPC回调了, 整个程序就死锁了. 虽然绝大部分的RPC实现都有这个潜在问题, 但实际出现频率似乎很低, 只要养成不在锁内做RPC的好习惯, 这是完全可以规避的.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&#34;qbthread会有channelhttpsgobyexamplecomchannels吗&#34;&gt;Q：bthread会有&lt;a href=&#34;https://gobyexample.com/channels&#34;&gt;Channel&lt;/a&gt;吗？&lt;/h5&gt;
-&lt;p&gt;不会。channel代表的是两点间的关系，而很多现实问题是多点的，这个时候使用channel最自然的解决方案就是：有一个角色负责操作某件事情或某个资源，其他线程都通过channel向这个角色发号施令。如果我们在程序中设置N个角色，让它们各司其职，那么程序就能分类有序地运转下去。所以使用channel的潜台词就是把程序划分为不同的角色。channel固然直观，但是有代价：额外的上下文切换。做成任何事情都得等到被调用处被调度，处理，回复，调用处才能继续。这个再怎么优化，再怎么尊重cache locality，也是有明显开销的。另外一个现实是：用channel的代码也不好写。由于业务一致性的限制，一些资源往往被绑定在一起，所以一个角色很可能身兼数职，但它做一件事情时便无法做另一件事情，而事情又有优先级。各种打断、跳出、继续形成的最终代码异常复杂。&lt;/p&gt;
-&lt;p&gt;我们需要的往往是buffered channel，扮演的是队列和有序执行的作用，bthread提供了&lt;a href=&#34;../execution-queue&#34;&gt;ExecutionQueue&lt;/a&gt;，可以完成这个目的。&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: bthread or not</title>
-      <link>https://brpc.incubator.apache.org/zh/docs/bthread/bthread-or-not/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://brpc.incubator.apache.org/zh/docs/bthread/bthread-or-not/</guid>
-      <description>
-        
-        
-        &lt;p&gt;brpc提供了&lt;a href=&#34;../../client/basics/#%E5%BC%82%E6%AD%A5%E8%AE%BF%E9%97%AE&#34;&gt;异步接口&lt;/a&gt;，所以一个常见的问题是：我应该用异步接口还是bthread？&lt;/p&gt;
-&lt;p&gt;短回答：延时不高时你应该先用简单易懂的同步接口，不行的话用异步接口，只有在需要多核并行计算时才用bthread。&lt;/p&gt;
-&lt;h1 id=&#34;同步或异步&#34;&gt;同步或异步&lt;/h1&gt;
-&lt;p&gt;异步即用回调代替阻塞，有阻塞的地方就有回调。虽然在javascript这种语言中回调工作的很好，接受度也非常高，但只要用过，就会发现这和我们需要的回调是两码事，这个区别不是&lt;a href=&#34;https://en.wikipedia.org/wiki/Anonymous_function&#34;&gt;lambda&lt;/a&gt;，也不是&lt;a href=&#34;https://en.wikipedia.org/wiki/Futures_and_promises&#34;&gt;future&lt;/a&gt;，而是javascript是单线程的。javascript的回调放到多线程下可能没有一个能跑过，竞争太多，单线程的同步方法和多线程的同步方法是完全不同的。那是不是服务能搞成类似的形式呢？多个线程，每个都是独立的eventloop。可以，ub&lt;strong&gt;a&lt;/strong&gt;server就是（注意带a)，但实际效果糟糕，因为阻塞改回调可不简单，当阻塞发生在循环，条件分支，深层子函数中时，改造特别困难，况且很多老代码、第三方代码根本不可能去改造。结果是代码中会出现不可避免的阻塞，导致那个线程中其他回调都被延迟，流量超时，server性能不符合预期。如果你说，”我想把现在的同步代码改造为大量的回调，除了我其他人都看不太懂，并且性能可能更差了”，我猜大部分人不会同意。别被那些鼓吹异步的人迷惑了，他们写的是从头到尾从下到上全异步且不考虑多线程的代码，和你要写的完全是两码事。&lt;/p&gt;
-&lt;p&gt;brpc中的异步和单线程的异步是完全不同的，异步回调会运行在与调用处不同的线程中，你会获得多核扩展性，但代价是你得意识到多线程问题。你可以在回调中阻塞，只要线程够用，对server整体的性能并不会有什么影响。不过异步代码还是很难写的，所以我们提供了&lt;a href=&#34;../../client/combo-channels&#34;&gt;组合访问&lt;/a&gt;来简化问题，通过组合不同的channel，你可以声明式地执行复杂的访问，而不用太关心其中的细节。&lt;/p&gt;
-&lt;p&gt;当然，延时不长，qps不高时，我们更建议使用同步接口，这也是创建bthread的动机：维持同步代码也能提升交互性能。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;判断使用同步或异步&lt;/strong&gt;：计算qps * latency(in seconds)，如果和cpu核数是同一数量级，就用同步，否则用异步。&lt;/p&gt;
-&lt;p&gt;比如：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;qps = 2000，latency = 10ms，计算结果 = 2000 * 0.01s = 20。和常见的32核在同一个数量级，用同步。&lt;/li&gt;
-&lt;li&gt;qps = 100, latency = 5s, 计算结果 = 100 * 5s = 500。和核数不在同一个数量级，用异步。&lt;/li&gt;
-&lt;li&gt;qps = 500, latency = 100ms，计算结果 = 500 * 0.1s = 50。基本在同一个数量级，可用同步。如果未来延时继续增长，考虑异步。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这个公式计算的是同时进行的平均请求数（你可以尝试证明一下），和线程数，cpu核数是可比的。当这个值远大于cpu核数时，说明大部分操作并不耗费cpu，而是让大量线程阻塞着，使用异步可以明显节省线程资源（栈占用的内存）。当这个值小于或和cpu核数差不多时，异步能节省的线程资源就很有限了，这时候简单易懂的同步代码更重要。&lt;/p&gt;
-&lt;h1 id=&#34;异步或bthread&#34;&gt;异步或bthread&lt;/h1&gt;
-&lt;p&gt;有了bthread这个工具，用户甚至可以自己实现异步。以“半同步”为例，在brpc中用户有多种选择：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;发起多个异步RPC后挨个Join，这个函数会阻塞直到RPC结束。（这儿是为了和bthread对比，实现中我们建议你使用&lt;a href=&#34;../../client/combo-channels/#parallelchannel&#34;&gt;ParallelChannel&lt;/a&gt;，而不是自己Join）&lt;/li&gt;
-&lt;li&gt;启动多个bthread各自执行同步RPC后挨个join bthreads。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;哪种效率更高呢？显然是前者。后者不仅要付出创建bthread的代价，在RPC过程中bthread还被阻塞着，不能用于其他用途。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;如果仅仅是为了并发RPC，别用bthread。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;不过当你需要并行计算时，问题就不同了。使用bthread可以简单地构建树形的并行计算，充分利用多核资源。比如检索过程中有三个环节可以并行处理，你可以建立两个bthread运行两个环节，在原地运行剩下的环节，最后join那两个bthread。过程大致如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;search&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color:#000&#34;&gt;bthread&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;th1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;th2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bthread_start_background&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;th1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;NULL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;part1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;part1_args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#000&#34;&gt;LOG&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ERROR&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Fail to create bthread for part1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bthread_start_background&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;th2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;NULL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;part2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;part2_args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#000&#34;&gt;LOG&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ERROR&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Fail to create bthread for part2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color:#000&#34;&gt;part3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;part3_args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-  &lt;span style=&#34;color:#000&#34;&gt;bthread_join&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;th1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-  &lt;span style=&#34;color:#000&#34;&gt;bthread_join&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;th2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这么实现的point：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;你当然可以建立三个bthread分别执行三个部分，最后join它们，但相比这个方法要多耗费一个线程资源。&lt;/li&gt;
-&lt;li&gt;bthread从建立到执行是有延时的（调度延时），在不是很忙的机器上，这个延时的中位数在3微秒左右，90%在10微秒内，99.99%在30微秒内。这说明两点：
-&lt;ul&gt;
-&lt;li&gt;计算时间超过1ms时收益比较明显。如果计算非常简单，几微秒就结束了，用bthread是没有意义的。&lt;/li&gt;
-&lt;li&gt;尽量让原地运行的部分最慢，那样bthread中的部分即使被延迟了几微秒，最后可能还是会先结束，而消除掉延迟的影响。并且join一个已结束的bthread时会立刻返回，不会有上下文切换开销。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;另外当你有类似线程池的需求时，像执行一类job的线程池时，也可以用bthread代替。如果对job的执行顺序有要求，你可以使用基于bthread的&lt;a href=&#34;../execution-queue&#34;&gt;ExecutionQueue&lt;/a&gt;。&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Execution Queue</title>
-      <link>https://brpc.incubator.apache.org/zh/docs/bthread/execution-queue/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://brpc.incubator.apache.org/zh/docs/bthread/execution-queue/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;概述&#34;&gt;概述&lt;/h1&gt;
-&lt;p&gt;类似于kylin的ExecMan, &lt;a href=&#34;https://github.com/brpc/brpc/blob/master/src/bthread/execution_queue.h&#34;&gt;ExecutionQueue&lt;/a&gt;提供了异步串行执行的功能。ExecutionQueue的相关技术最早使用在RPC中实现&lt;a href=&#34;../../rpc-in-depth/io#%E5%8F%91%E6%B6%88%E6%81%AF&#34;&gt;多线程向同一个fd写数据&lt;/a&gt;. 在r31345之后加入到bthread。 ExecutionQueue 提供了如下基本功能:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;异步有序执行: 任务在另外一个单独的线程中执行, 并且执行顺序严格和提交顺序一致.&lt;/li&gt;
-&lt;li&gt;Multi Producer: 多个线程可以同时向一个ExecutionQueue提交任务&lt;/li&gt;
-&lt;li&gt;支持cancel一个已经提交的任务&lt;/li&gt;
-&lt;li&gt;支持stop&lt;/li&gt;
-&lt;li&gt;支持高优任务插队&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;和ExecMan的主要区别:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ExecutionQueue的任务提交接口是&lt;a href=&#34;https://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom&#34;&gt;wait-free&lt;/a&gt;的, ExecMan依赖了lock, 这意味着当机器整体比较繁忙的时候，使用ExecutionQueue不会因为某个进程被系统强制切换导致所有线程都被阻塞。&lt;/li&gt;
-&lt;li&gt;ExecutionQueue支持批量处理: 执行线程可以批量处理提交的任务, 获得更好的locality. ExecMan的某个线程处理完某个AsyncClient的AsyncContext之后下一个任务很可能是属于另外一个AsyncClient的AsyncContex, 这时候cpu cache会在不同AsyncClient依赖的资源间进行不停的切换。&lt;/li&gt;
-&lt;li&gt;ExecutionQueue的处理函数不会被绑定到固定的线程中执行, ExecMan中是根据AsyncClient hash到固定的执行线程，不同的ExecutionQueue之间的任务处理完全独立，当线程数足够多的情况下，所有非空闲的ExecutionQueue都能同时得到调度。同时也意味着当线程数不足的时候，ExecutionQueue无法保证公平性, 当发生这种情况的时候需要动态增加bthread的worker线程来增加整体的处理能力.&lt;/li&gt;
-&lt;li&gt;ExecutionQueue运行线程为bthread, 可以随意的使用一些bthread同步原语而不用担心阻塞pthread的执行. 而在ExecMan里面得尽量避免使用较高概率会导致阻塞的同步原语.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;背景&#34;&gt;背景&lt;/h1&gt;
-&lt;p&gt;在多核并发编程领域， &lt;a href=&#34;https://en.wikipedia.org/wiki/Message_passing&#34;&gt;Message passing&lt;/a&gt;作为一种解决竞争的手段得到了比较广泛的应用，它按照业务依赖的资源将逻辑拆分成若干个独立actor，每个actor负责对应资源的维护工作，当一个流程需要修改某个资源的时候，
-就转化为一个消息发送给对应actor，这个actor(通常在另外的上下文中)根据命令内容对这个资源进行相应的修改，之后可以选择唤醒调用者(同步)或者提交到下一个actor(异步)的方式进行后续处理。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://web.mit.edu/6.005/www/fa14/classes/20-queues-locks/figures/producer-consumer.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;executionqueue-vs-mutex&#34;&gt;ExecutionQueue Vs Mutex&lt;/h1&gt;
-&lt;p&gt;ExecutionQueue和mutex都可以用来在多线程场景中消除竞争. 相比较使用mutex,
-使用ExecutionQueue有着如下几个优点:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;角色划分比较清晰, 概念理解上比较简单, 实现中无需考虑锁带来的问题(比如死锁)&lt;/li&gt;
-&lt;li&gt;能保证任务的执行顺序，mutex的唤醒顺序不能得到严格保证.&lt;/li&gt;
-&lt;li&gt;所有线程各司其职，都能在做有用的事情，不存在等待.&lt;/li&gt;
-&lt;li&gt;在繁忙、卡顿的情况下能更好的批量执行，整体上获得较高的吞吐.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;但是缺点也同样明显:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一个流程的代码往往散落在多个地方，代码理解和维护成本高。&lt;/li&gt;
-&lt;li&gt;为了提高并发度， 一件事情往往会被拆分到多个ExecutionQueue进行流水线处理，这样会导致在多核之间不停的进行切换，会付出额外的调度以及同步cache的开销, 尤其是竞争的临界区非常小的情况下， 这些开销不能忽略.&lt;/li&gt;
-&lt;li&gt;同时原子的操作多个资源实现会变得复杂, 使用mutex可以同时锁住多个mutex, 用了ExeuctionQueue就需要依赖额外的dispatch queue了。&lt;/li&gt;
-&lt;li&gt;由于所有操作都是单线程的，某个任务运行慢了就会阻塞同一个ExecutionQueue的其他操作。&lt;/li&gt;
-&lt;li&gt;并发控制变得复杂，ExecutionQueue可能会由于缓存的任务过多占用过多的内存。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;不考虑性能和复杂度，理论上任何系统都可以只使用mutex或者ExecutionQueue来消除竞争.
-但是复杂系统的设计上，建议根据不同的场景灵活决定如何使用这两个工具:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如果临界区非常小，竞争又不是很激烈，优先选择使用mutex, 之后可以结合&lt;a href=&#34;../../builtin-services/contention_profiler/&#34;&gt;contention profiler&lt;/a&gt;来判断mutex是否成为瓶颈。&lt;/li&gt;
-&lt;li&gt;需要有序执行，或者无法消除的激烈竞争但是可以通过批量执行来提高吞吐， 可以选择使用ExecutionQueue。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;总之，多线程编程没有万能的模型，需要根据具体的场景，结合丰富的profliling工具，最终在复杂度和性能之间找到合适的平衡。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;特别指出一点&lt;/strong&gt;，Linux中mutex无竞争的lock/unlock只有需要几条原子指令，在绝大多数场景下的开销都可以忽略不计.&lt;/p&gt;
-&lt;h1 id=&#34;使用方式&#34;&gt;使用方式&lt;/h1&gt;
-&lt;h3 id=&#34;实现执行函数&#34;&gt;实现执行函数&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;// Iterate over the given tasks
+还在运行的io线程做的可能是无用功. 事实上, 这正是上面提到的&lt;strong>没什么影响&lt;/strong>真正的含义. 另一个问题是每个请求都要从io线程跳转至worker线程, 增加了一次上下文切换, 在机器繁忙时, 切换都有一定概率无法被及时调度, 会导致更多的延时长尾.&lt;/li>
+&lt;li>一个实际的解决方法是&lt;a href="../../server/basics/#%E9%99%90%E5%88%B6%E6%9C%80%E5%A4%A7%E5%B9%B6%E5%8F%91">限制最大并发&lt;/a>, 只要同时被处理的请求数低于worker数, 自然可以规避掉&amp;quot;所有worker被阻塞&amp;quot;的情况.&lt;/li>
+&lt;li>另一个解决方法当被阻塞的worker超过阈值时(比如8个中的6个), 就不在原地调用用户代码了, 而是扔到一个独立的线程池中运行. 这样即使用户代码全部阻塞, 也总能保留几个worker处理rpc的收发. 不过目前bthread模式并没有这个机制, 但类似的机制在&lt;a href="../../server/basics/#pthread%E6%A8%A1%E5%BC%8F">打开pthread模式&lt;/a>时已经被实现了. 那像上面提到的, 这个机制是不是在用户代码都阻塞时也在做&amp;quot;无用功&amp;quot;呢? 可能是的. 但这个机制更多是为了规避在一些极端情况下的死锁, 比如所有的用户代码都lock在一个pthread mutex上, 并且这个mutex需要在某个RPC回调中unlock, 如果所有的worker都被阻塞, 那么就没有线程来处理RPC回调了, 整个程序就死锁了. 虽然绝大部分的RPC实现都有这个潜在问题, 但实际出现频率似乎很低, 只要养成不在锁内做RPC的好习惯, 这是完全可以规避的.&lt;/li>
+&lt;/ul>
+&lt;h5 id="qbthread会有channelhttpsgobyexamplecomchannels吗">Q：bthread会有&lt;a href="https://gobyexample.com/channels">Channel&lt;/a>吗？&lt;/h5>
+&lt;p>不会。channel代表的是两点间的关系，而很多现实问题是多点的，这个时候使用channel最自然的解决方案就是：有一个角色负责操作某件事情或某个资源，其他线程都通过channel向这个角色发号施令。如果我们在程序中设置N个角色，让它们各司其职，那么程序就能分类有序地运转下去。所以使用channel的潜台词就是把程序划分为不同的角色。channel固然直观，但是有代价：额外的上下文切换。做成任何事情都得等到被调用处被调度，处理，回复，调用处才能继续。这个再怎么优化，再怎么尊重cache locality，也是有明显开销的。另外一个现实是：用channel的代码也不好写。由于业务一致性的限制，一些资源往往被绑定在一起，所以一个角色很可能身兼数职，但它做一件事情时便无法做另一件事情，而事情又有优先级。各种打断、跳出、继续形成的最终代码异常复杂。&lt;/p>
+&lt;p>我们需要的往往是buffered channel，扮演的是队列和有序执行的作用，bthread提供了&lt;a href="../execution-queue">ExecutionQueue&lt;/a>，可以完成这个目的。&lt;/p></description></item><item><title>Docs: bthread or not</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/bthread-or-not/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/bthread/bthread-or-not/</guid><description>
+&lt;p>brpc提供了&lt;a href="../../client/basics/#%E5%BC%82%E6%AD%A5%E8%AE%BF%E9%97%AE">异步接口&lt;/a>，所以一个常见的问题是：我应该用异步接口还是bthread？&lt;/p>
+&lt;p>短回答：延时不高时你应该先用简单易懂的同步接口，不行的话用异步接口，只有在需要多核并行计算时才用bthread。&lt;/p>
+&lt;h1 id="同步或异步">同步或异步&lt;/h1>
+&lt;p>异步即用回调代替阻塞，有阻塞的地方就有回调。虽然在javascript这种语言中回调工作的很好，接受度也非常高，但只要用过，就会发现这和我们需要的回调是两码事，这个区别不是&lt;a href="https://en.wikipedia.org/wiki/Anonymous_function">lambda&lt;/a>，也不是&lt;a href="https://en.wikipedia.org/wiki/Futures_and_promises">future&lt;/a>，而是javascript是单线程的。javascript的回调放到多线程下可能没有一个能跑过，竞争太多，单线程的同步方法和多线程的同步方法是完全不同的。那是不是服务能搞成类似的形式呢？多个线程，每个都是独立的eventloop。可以，ub&lt;strong>a&lt;/strong>server就是（注意带a)，但实际效果糟糕，因为阻塞改回调可不简单，当阻塞发生在循环，条件分支，深层子函数中时，改造特别困难，况且很多老代码、第三方代码根本不可能去改造。结果是代码中会出现不可避免的阻塞，导致那个线程中其他回调都被延迟，流量超时，server性能不符合预期。如果你说，”我想把现在的同步代码改造为大量的回调，除了我其他人都看不太懂，并且性能可能更差了”，我猜大部分人不会同意。别被那些鼓吹异步的人迷惑了，他们写的是从头到尾从下到上全异步且不考虑多线程的代码，和你要写的完全是两码事。&lt;/p>
+&lt;p>brpc中的异步和单线程的异步是完全不同的，异步回调会运行在与调用处不同的线程中，你会获得多核扩展性，但代价是你得意识到多线程问题。你可以在回调中阻塞，只要线程够用，对server整体的性能并不会有什么影响。不过异步代码还是很难写的，所以我们提供了&lt;a href="../../client/combo-channels">组合访问&lt;/a>来简化问题，通过组合不同的channel，你可以声明式地执行复杂的访问，而不用太关心其中的细节。&lt;/p>
+&lt;p>当然，延时不长，qps不高时，我们更建议使用同步接口，这也是创建bthread的动机：维持同步代码也能提升交互性能。&lt;/p>
+&lt;p>&lt;strong>判断使用同步或异步&lt;/strong>：计算qps * latency(in seconds)，如果和cpu核数是同一数量级，就用同步，否则用异步。&lt;/p>
+&lt;p>比如：&lt;/p>
+&lt;ul>
+&lt;li>qps = 2000，latency = 10ms，计算结果 = 2000 * 0.01s = 20。和常见的32核在同一个数量级，用同步。&lt;/li>
+&lt;li>qps = 100, latency = 5s, 计算结果 = 100 * 5s = 500。和核数不在同一个数量级，用异步。&lt;/li>
+&lt;li>qps = 500, latency = 100ms，计算结果 = 500 * 0.1s = 50。基本在同一个数量级，可用同步。如果未来延时继续增长，考虑异步。&lt;/li>
+&lt;/ul>
+&lt;p>这个公式计算的是同时进行的平均请求数（你可以尝试证明一下），和线程数，cpu核数是可比的。当这个值远大于cpu核数时，说明大部分操作并不耗费cpu，而是让大量线程阻塞着，使用异步可以明显节省线程资源（栈占用的内存）。当这个值小于或和cpu核数差不多时，异步能节省的线程资源就很有限了，这时候简单易懂的同步代码更重要。&lt;/p>
+&lt;h1 id="异步或bthread">异步或bthread&lt;/h1>
+&lt;p>有了bthread这个工具，用户甚至可以自己实现异步。以“半同步”为例，在brpc中用户有多种选择：&lt;/p>
+&lt;ul>
+&lt;li>发起多个异步RPC后挨个Join，这个函数会阻塞直到RPC结束。（这儿是为了和bthread对比，实现中我们建议你使用&lt;a href="../../client/combo-channels/#parallelchannel">ParallelChannel&lt;/a>，而不是自己Join）&lt;/li>
+&lt;li>启动多个bthread各自执行同步RPC后挨个join bthreads。&lt;/li>
+&lt;/ul>
+&lt;p>哪种效率更高呢？显然是前者。后者不仅要付出创建bthread的代价，在RPC过程中bthread还被阻塞着，不能用于其他用途。&lt;/p>
+&lt;p>&lt;strong>如果仅仅是为了并发RPC，别用bthread。&lt;/strong>&lt;/p>
+&lt;p>不过当你需要并行计算时，问题就不同了。使用bthread可以简单地构建树形的并行计算，充分利用多核资源。比如检索过程中有三个环节可以并行处理，你可以建立两个bthread运行两个环节，在原地运行剩下的环节，最后join那两个bthread。过程大致如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">bool&lt;/span> &lt;span style="color:#000">search&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">bthread&lt;/span> &lt;span style="color:#000">th1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">th2&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">bthread_start_background&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">th1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">NULL&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">part1&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">part1_args&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">LOG&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">ERROR&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Fail to create bthread for part1&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#204a87">false&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">bthread_start_background&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">th2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">NULL&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">part2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">part2_args&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">LOG&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">ERROR&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Fail to create bthread for part2&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#204a87">false&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">part3&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">part3_args&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">bthread_join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">th1&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">bthread_join&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">th2&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#204a87">true&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这么实现的point：&lt;/p>
+&lt;ul>
+&lt;li>你当然可以建立三个bthread分别执行三个部分，最后join它们，但相比这个方法要多耗费一个线程资源。&lt;/li>
+&lt;li>bthread从建立到执行是有延时的（调度延时），在不是很忙的机器上，这个延时的中位数在3微秒左右，90%在10微秒内，99.99%在30微秒内。这说明两点：
+&lt;ul>
+&lt;li>计算时间超过1ms时收益比较明显。如果计算非常简单，几微秒就结束了，用bthread是没有意义的。&lt;/li>
+&lt;li>尽量让原地运行的部分最慢，那样bthread中的部分即使被延迟了几微秒，最后可能还是会先结束，而消除掉延迟的影响。并且join一个已结束的bthread时会立刻返回，不会有上下文切换开销。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>另外当你有类似线程池的需求时，像执行一类job的线程池时，也可以用bthread代替。如果对job的执行顺序有要求，你可以使用基于bthread的&lt;a href="../execution-queue">ExecutionQueue&lt;/a>。&lt;/p></description></item><item><title>Docs: Execution Queue</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/execution-queue/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/bthread/execution-queue/</guid><description>
+&lt;h1 id="概述">概述&lt;/h1>
+&lt;p>类似于kylin的ExecMan, &lt;a href="https://github.com/brpc/brpc/blob/master/src/bthread/execution_queue.h">ExecutionQueue&lt;/a>提供了异步串行执行的功能。ExecutionQueue的相关技术最早使用在RPC中实现&lt;a href="../../rpc-in-depth/io#%E5%8F%91%E6%B6%88%E6%81%AF">多线程向同一个fd写数据&lt;/a>. 在r31345之后加入到bthread。 ExecutionQueue 提供了如下基本功能:&lt;/p>
+&lt;ul>
+&lt;li>异步有序执行: 任务在另外一个单独的线程中执行, 并且执行顺序严格和提交顺序一致.&lt;/li>
+&lt;li>Multi Producer: 多个线程可以同时向一个ExecutionQueue提交任务&lt;/li>
+&lt;li>支持cancel一个已经提交的任务&lt;/li>
+&lt;li>支持stop&lt;/li>
+&lt;li>支持高优任务插队&lt;/li>
+&lt;/ul>
+&lt;p>和ExecMan的主要区别:&lt;/p>
+&lt;ul>
+&lt;li>ExecutionQueue的任务提交接口是&lt;a href="https://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom">wait-free&lt;/a>的, ExecMan依赖了lock, 这意味着当机器整体比较繁忙的时候，使用ExecutionQueue不会因为某个进程被系统强制切换导致所有线程都被阻塞。&lt;/li>
+&lt;li>ExecutionQueue支持批量处理: 执行线程可以批量处理提交的任务, 获得更好的locality. ExecMan的某个线程处理完某个AsyncClient的AsyncContext之后下一个任务很可能是属于另外一个AsyncClient的AsyncContex, 这时候cpu cache会在不同AsyncClient依赖的资源间进行不停的切换。&lt;/li>
+&lt;li>ExecutionQueue的处理函数不会被绑定到固定的线程中执行, ExecMan中是根据AsyncClient hash到固定的执行线程，不同的ExecutionQueue之间的任务处理完全独立，当线程数足够多的情况下，所有非空闲的ExecutionQueue都能同时得到调度。同时也意味着当线程数不足的时候，ExecutionQueue无法保证公平性, 当发生这种情况的时候需要动态增加bthread的worker线程来增加整体的处理能力.&lt;/li>
+&lt;li>ExecutionQueue运行线程为bthread, 可以随意的使用一些bthread同步原语而不用担心阻塞pthread的执行. 而在ExecMan里面得尽量避免使用较高概率会导致阻塞的同步原语.&lt;/li>
+&lt;/ul>
+&lt;h1 id="背景">背景&lt;/h1>
+&lt;p>在多核并发编程领域， &lt;a href="https://en.wikipedia.org/wiki/Message_passing">Message passing&lt;/a>作为一种解决竞争的手段得到了比较广泛的应用，它按照业务依赖的资源将逻辑拆分成若干个独立actor，每个actor负责对应资源的维护工作，当一个流程需要修改某个资源的时候，
+就转化为一个消息发送给对应actor，这个actor(通常在另外的上下文中)根据命令内容对这个资源进行相应的修改，之后可以选择唤醒调用者(同步)或者提交到下一个actor(异步)的方式进行后续处理。&lt;/p>
+&lt;p>&lt;img src="http://web.mit.edu/6.005/www/fa14/classes/20-queues-locks/figures/producer-consumer.png" alt="img">&lt;/p>
+&lt;h1 id="executionqueue-vs-mutex">ExecutionQueue Vs Mutex&lt;/h1>
+&lt;p>ExecutionQueue和mutex都可以用来在多线程场景中消除竞争. 相比较使用mutex,
+使用ExecutionQueue有着如下几个优点:&lt;/p>
+&lt;ul>
+&lt;li>角色划分比较清晰, 概念理解上比较简单, 实现中无需考虑锁带来的问题(比如死锁)&lt;/li>
+&lt;li>能保证任务的执行顺序，mutex的唤醒顺序不能得到严格保证.&lt;/li>
+&lt;li>所有线程各司其职，都能在做有用的事情，不存在等待.&lt;/li>
+&lt;li>在繁忙、卡顿的情况下能更好的批量执行，整体上获得较高的吞吐.&lt;/li>
+&lt;/ul>
+&lt;p>但是缺点也同样明显:&lt;/p>
+&lt;ul>
+&lt;li>一个流程的代码往往散落在多个地方，代码理解和维护成本高。&lt;/li>
+&lt;li>为了提高并发度， 一件事情往往会被拆分到多个ExecutionQueue进行流水线处理，这样会导致在多核之间不停的进行切换，会付出额外的调度以及同步cache的开销, 尤其是竞争的临界区非常小的情况下， 这些开销不能忽略.&lt;/li>
+&lt;li>同时原子的操作多个资源实现会变得复杂, 使用mutex可以同时锁住多个mutex, 用了ExeuctionQueue就需要依赖额外的dispatch queue了。&lt;/li>
+&lt;li>由于所有操作都是单线程的，某个任务运行慢了就会阻塞同一个ExecutionQueue的其他操作。&lt;/li>
+&lt;li>并发控制变得复杂，ExecutionQueue可能会由于缓存的任务过多占用过多的内存。&lt;/li>
+&lt;/ul>
+&lt;p>不考虑性能和复杂度，理论上任何系统都可以只使用mutex或者ExecutionQueue来消除竞争.
+但是复杂系统的设计上，建议根据不同的场景灵活决定如何使用这两个工具:&lt;/p>
+&lt;ul>
+&lt;li>如果临界区非常小，竞争又不是很激烈，优先选择使用mutex, 之后可以结合&lt;a href="../../builtin-services/contention_profiler/">contention profiler&lt;/a>来判断mutex是否成为瓶颈。&lt;/li>
+&lt;li>需要有序执行，或者无法消除的激烈竞争但是可以通过批量执行来提高吞吐， 可以选择使用ExecutionQueue。&lt;/li>
+&lt;/ul>
+&lt;p>总之，多线程编程没有万能的模型，需要根据具体的场景，结合丰富的profliling工具，最终在复杂度和性能之间找到合适的平衡。&lt;/p>
+&lt;p>&lt;strong>特别指出一点&lt;/strong>，Linux中mutex无竞争的lock/unlock只有需要几条原子指令，在绝大多数场景下的开销都可以忽略不计.&lt;/p>
+&lt;h1 id="使用方式">使用方式&lt;/h1>
+&lt;h3 id="实现执行函数">实现执行函数&lt;/h3>
+&lt;pre tabindex="0">&lt;code>// Iterate over the given tasks
 //
 // Example:
 //
 // #include &amp;lt;bthread/execution_queue.h&amp;gt;
 //
 // int demo_execute(void* meta, TaskIterator&amp;lt;T&amp;gt;&amp;amp; iter) {
-//     if (iter.is_stopped()) {
-//         // destroy meta and related resources
-//         return 0;
-//     }
-//     for (; iter; ++iter) {
-//         // do_something(meta, *iter)
-//         // or do_something(meta, iter-&amp;gt;a_member_of_T)
-//     }
-//     return 0;
+// if (iter.is_stopped()) {
+// // destroy meta and related resources
+// return 0;
+// }
+// for (; iter; ++iter) {
+// // do_something(meta, *iter)
+// // or do_something(meta, iter-&amp;gt;a_member_of_T)
+// }
+// return 0;
 // }
 template &amp;lt;typename T&amp;gt;
 class TaskIterator;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;启动一个executionqueue&#34;&gt;启动一个ExecutionQueue:&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;// Start a ExecutionQueue. If |options| is NULL, the queue will be created with
+&lt;/code>&lt;/pre>&lt;h3 id="启动一个executionqueue">启动一个ExecutionQueue:&lt;/h3>
+&lt;pre tabindex="0">&lt;code>// Start a ExecutionQueue. If |options| is NULL, the queue will be created with
 // default options.
 // Returns 0 on success, errno otherwise
 // NOTE: type |T| can be non-POD but must be copy-constructible
 template &amp;lt;typename T&amp;gt;
 int execution_queue_start(
-        ExecutionQueueId&amp;lt;T&amp;gt;* id,
-        const ExecutionQueueOptions* options,
-        int (*execute)(void* meta, TaskIterator&amp;lt;T&amp;gt;&amp;amp; iter),
-        void* meta);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;创建的返回值是一个64位的id, 相当于ExecutionQueue实例的一个&lt;a href=&#34;https://en.wikipedia.org/wiki/Weak_reference&#34;&gt;弱引用&lt;/a&gt;, 可以wait-free的在O(1)时间内定位一个ExecutionQueue, 你可以到处拷贝这个id， 甚至可以放在RPC中，作为远端资源的定位工具。
-你必须保证meta的生命周期，在对应的ExecutionQueue真正停止前不会释放.&lt;/p&gt;
-&lt;h3 id=&#34;停止一个executionqueue&#34;&gt;停止一个ExecutionQueue:&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;// Stop the ExecutionQueue.
+ExecutionQueueId&amp;lt;T&amp;gt;* id,
+const ExecutionQueueOptions* options,
+int (*execute)(void* meta, TaskIterator&amp;lt;T&amp;gt;&amp;amp; iter),
+void* meta);
+&lt;/code>&lt;/pre>&lt;p>创建的返回值是一个64位的id, 相当于ExecutionQueue实例的一个&lt;a href="https://en.wikipedia.org/wiki/Weak_reference">弱引用&lt;/a>, 可以wait-free的在O(1)时间内定位一个ExecutionQueue, 你可以到处拷贝这个id， 甚至可以放在RPC中，作为远端资源的定位工具。
+你必须保证meta的生命周期，在对应的ExecutionQueue真正停止前不会释放.&lt;/p>
+&lt;h3 id="停止一个executionqueue">停止一个ExecutionQueue:&lt;/h3>
+&lt;pre tabindex="0">&lt;code>// Stop the ExecutionQueue.
 // After this function is called:
-//  - All the following calls to execution_queue_execute would fail immediately.
-//  - The executor will call |execute| with TaskIterator::is_queue_stopped() being
-//    true exactly once when all the pending tasks have been executed, and after
-//    this point it&#39;s ok to release the resource referenced by |meta|.
+// - All the following calls to execution_queue_execute would fail immediately.
+// - The executor will call |execute| with TaskIterator::is_queue_stopped() being
+// true exactly once when all the pending tasks have been executed, and after
+// this point it&amp;#39;s ok to release the resource referenced by |meta|.
 // Returns 0 on success, errno othrwise
 template &amp;lt;typename T&amp;gt;
 int execution_queue_stop(ExecutionQueueId&amp;lt;T&amp;gt; id);
- 
 // Wait until the the stop task (Iterator::is_queue_stopped() returns true) has
 // been executed
 template &amp;lt;typename T&amp;gt;
 int execution_queue_join(ExecutionQueueId&amp;lt;T&amp;gt; id);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;stop和join都可以多次调用， 都会又合理的行为。stop可以随时调用而不用当心线程安全性问题。&lt;/p&gt;
-&lt;p&gt;和fd的close类似，如果stop不被调用, 相应的资源会永久泄露。&lt;/p&gt;
-&lt;p&gt;安全释放meta的时机: 可以在execute函数中收到iter.is_queue_stopped()==true的任务的时候释放，也可以等到join返回之后释放. 注意不要double-free&lt;/p&gt;
-&lt;h3 id=&#34;提交任务&#34;&gt;提交任务&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;struct TaskOptions {
-    TaskOptions();
-    TaskOptions(bool high_priority, bool in_place_if_possible);
- 
-    // Executor would execute high-priority tasks in the FIFO order but before
-    // all pending normal-priority tasks.
-    // NOTE: We don&#39;t guarantee any kind of real-time as there might be tasks still
-    // in process which are uninterruptible.
-    //
-    // Default: false
-    bool high_priority;
- 
-    // If |in_place_if_possible| is true, execution_queue_execute would call
-    // execute immediately instead of starting a bthread if possible
-    //
-    // Note: Running callbacks in place might cause the dead lock issue, you
-    // should be very careful turning this flag on.
-    //
-    // Default: false
-    bool in_place_if_possible;
+&lt;/code>&lt;/pre>&lt;p>stop和join都可以多次调用， 都会又合理的行为。stop可以随时调用而不用当心线程安全性问题。&lt;/p>
+&lt;p>和fd的close类似，如果stop不被调用, 相应的资源会永久泄露。&lt;/p>
+&lt;p>安全释放meta的时机: 可以在execute函数中收到iter.is_queue_stopped()==true的任务的时候释放，也可以等到join返回之后释放. 注意不要double-free&lt;/p>
+&lt;h3 id="提交任务">提交任务&lt;/h3>
+&lt;pre tabindex="0">&lt;code>struct TaskOptions {
+TaskOptions();
+TaskOptions(bool high_priority, bool in_place_if_possible);
+// Executor would execute high-priority tasks in the FIFO order but before
+// all pending normal-priority tasks.
+// NOTE: We don&amp;#39;t guarantee any kind of real-time as there might be tasks still
+// in process which are uninterruptible.
+//
+// Default: false
+bool high_priority;
+// If |in_place_if_possible| is true, execution_queue_execute would call
+// execute immediately instead of starting a bthread if possible
+//
+// Note: Running callbacks in place might cause the dead lock issue, you
+// should be very careful turning this flag on.
+//
+// Default: false
+bool in_place_if_possible;
 };
- 
 const static TaskOptions TASK_OPTIONS_NORMAL = TaskOptions(/*high_priority=*/ false, /*in_place_if_possible=*/ false);
 const static TaskOptions TASK_OPTIONS_URGENT = TaskOptions(/*high_priority=*/ true, /*in_place_if_possible=*/ false);
 const static TaskOptions TASK_OPTIONS_INPLACE = TaskOptions(/*high_priority=*/ false, /*in_place_if_possible=*/ true);
- 
 // Thread-safe and Wait-free.
 // Execute a task with defaut TaskOptions (normal task);
 template &amp;lt;typename T&amp;gt;
 int execution_queue_execute(ExecutionQueueId&amp;lt;T&amp;gt; id,
-                            typename butil::add_const_reference&amp;lt;T&amp;gt;::type task);
- 
+typename butil::add_const_reference&amp;lt;T&amp;gt;::type task);
 // Thread-safe and Wait-free.
 // Execute a task with options. e.g
 // bthread::execution_queue_execute(queue, task, &amp;amp;bthread::TASK_OPTIONS_URGENT)
@@ -286,77 +230,58 @@ int execution_queue_execute(ExecutionQueueId&amp;lt;T&amp;gt; id,
 // If |handle| is not NULL, we will assign it with the hanlder of this task.
 template &amp;lt;typename T&amp;gt;
 int execution_queue_execute(ExecutionQueueId&amp;lt;T&amp;gt; id,
-                            typename butil::add_const_reference&amp;lt;T&amp;gt;::type task,
-                            const TaskOptions* options);
+typename butil::add_const_reference&amp;lt;T&amp;gt;::type task,
+const TaskOptions* options);
 template &amp;lt;typename T&amp;gt;
 int execution_queue_execute(ExecutionQueueId&amp;lt;T&amp;gt; id,
-                            typename butil::add_const_reference&amp;lt;T&amp;gt;::type task,
-                            const TaskOptions* options,
-                            TaskHandle* handle); 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;high_priority的task之间的执行顺序也会&lt;strong&gt;严格按照提交顺序&lt;/strong&gt;, 这点和ExecMan不同, ExecMan的QueueExecEmergent的AsyncContex执行顺序是undefined. 但是这也意味着你没有办法将任何任务插队到一个high priority的任务之前执行.&lt;/p&gt;
-&lt;p&gt;开启inplace_if_possible, 在无竞争的场景中可以省去一次线程调度和cache同步的开销. 但是可能会造成死锁或者递归层数过多(比如不停的ping-pong)的问题，开启前请确定你的代码中不存在这些问题。&lt;/p&gt;
-&lt;h3 id=&#34;取消一个已提交任务&#34;&gt;取消一个已提交任务&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;/// [Thread safe and ABA free] Cancel the corresponding task.
+typename butil::add_const_reference&amp;lt;T&amp;gt;::type task,
+const TaskOptions* options,
+TaskHandle* handle);
+&lt;/code>&lt;/pre>&lt;p>high_priority的task之间的执行顺序也会&lt;strong>严格按照提交顺序&lt;/strong>, 这点和ExecMan不同, ExecMan的QueueExecEmergent的AsyncContex执行顺序是undefined. 但是这也意味着你没有办法将任何任务插队到一个high priority的任务之前执行.&lt;/p>
+&lt;p>开启inplace_if_possible, 在无竞争的场景中可以省去一次线程调度和cache同步的开销. 但是可能会造成死锁或者递归层数过多(比如不停的ping-pong)的问题，开启前请确定你的代码中不存在这些问题。&lt;/p>
+&lt;h3 id="取消一个已提交任务">取消一个已提交任务&lt;/h3>
+&lt;pre tabindex="0">&lt;code>/// [Thread safe and ABA free] Cancel the corresponding task.
 // Returns:
-//  -1: The task was executed or h is an invalid handle
-//  0: Success
-//  1: The task is executing
+// -1: The task was executed or h is an invalid handle
+// 0: Success
+// 1: The task is executing
 int execution_queue_cancel(const TaskHandle&amp;amp; h);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;返回非0仅仅意味着ExecutionQueue已经将对应的task递给过execute, 真实的逻辑中可能将这个task缓存在另外的容器中，所以这并不意味着逻辑上的task已经结束，你需要在自己的业务上保证这一点.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: thread-local</title>
-      <link>https://brpc.incubator.apache.org/zh/docs/bthread/thread-local/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://brpc.incubator.apache.org/zh/docs/bthread/thread-local/</guid>
-      <description>
-        
-        
-        &lt;p&gt;本页说明bthread下使用pthread-local可能会导致的问题。bthread-local的使用方法见&lt;a href=&#34;../../server/basics/#bthread-local&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
-&lt;h1 id=&#34;thread-local问题&#34;&gt;thread-local问题&lt;/h1&gt;
-&lt;p&gt;调用阻塞的bthread函数后，所在的pthread很可能改变，这使&lt;a href=&#34;http://linux.die.net/man/3/pthread_getspecific&#34;&gt;pthread_getspecific&lt;/a&gt;，&lt;a href=&#34;https://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/Thread_002dLocal.html&#34;&gt;gcc __thread&lt;/a&gt;和c++11
-thread_local变量，pthread_self()等的值变化了，如下代码的行为是不可预计的：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;thread_local SomeObject obj;
+&lt;/code>&lt;/pre>&lt;p>返回非0仅仅意味着ExecutionQueue已经将对应的task递给过execute, 真实的逻辑中可能将这个task缓存在另外的容器中，所以这并不意味着逻辑上的task已经结束，你需要在自己的业务上保证这一点.&lt;/p></description></item><item><title>Docs: thread-local</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/thread-local/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/bthread/thread-local/</guid><description>
+&lt;p>本页说明bthread下使用pthread-local可能会导致的问题。bthread-local的使用方法见&lt;a href="../../server/basics/#bthread-local">这里&lt;/a>。&lt;/p>
+&lt;h1 id="thread-local问题">thread-local问题&lt;/h1>
+&lt;p>调用阻塞的bthread函数后，所在的pthread很可能改变，这使&lt;a href="http://linux.die.net/man/3/pthread_getspecific">pthread_getspecific&lt;/a>，&lt;a href="https://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/Thread_002dLocal.html">gcc __thread&lt;/a>和c++11
+thread_local变量，pthread_self()等的值变化了，如下代码的行为是不可预计的：&lt;/p>
+&lt;pre tabindex="0">&lt;code>thread_local SomeObject obj;
 ...
 SomeObject* p = &amp;amp;obj;
 p-&amp;gt;bar();
 bthread_usleep(1000);
 p-&amp;gt;bar();
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;bthread_usleep之后，该bthread很可能身处不同的pthread，这时p指向了之前pthread的thread_local变量，继续访问p的结果无法预计。这种使用模式往往发生在用户使用线程级变量传递业务变量的情况。为了防止这种情况，应该谨记：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;不使用线程级变量传递业务数据。这是一种槽糕的设计模式，依赖线程级数据的函数也难以单测。判断是否滥用：如果不使用线程级变量，业务逻辑是否还能正常运行？线程级变量应只用作优化手段，使用过程中不应直接或间接调用任何可能阻塞的bthread函数。比如使用线程级变量的tcmalloc就不会和bthread有任何冲突。&lt;/li&gt;
-&lt;li&gt;如果一定要（在业务中）使用线程级变量，使用bthread_key_create和bthread_getspecific。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;gcc4下的errno问题&#34;&gt;gcc4下的errno问题&lt;/h1&gt;
-&lt;p&gt;gcc4会优化&lt;a href=&#34;https://gcc.gnu.org/onlinedocs/gcc/Function-Attributes.html#index-g_t_0040code_007bconst_007d-function-attribute-2958&#34;&gt;标记为__attribute__((__const__))&lt;/a&gt;的函数，这个标记大致指只要参数不变，输出就不会变。所以当一个函数中以相同参数出现多次时，gcc4会合并为一次。比如在我们的系统中errno是内容为*__errno_location()的宏，这个函数的签名是：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/* Function to get address of global `errno&#39; variable.  */
+&lt;/code>&lt;/pre>&lt;p>bthread_usleep之后，该bthread很可能身处不同的pthread，这时p指向了之前pthread的thread_local变量，继续访问p的结果无法预计。这种使用模式往往发生在用户使用线程级变量传递业务变量的情况。为了防止这种情况，应该谨记：&lt;/p>
+&lt;ul>
+&lt;li>不使用线程级变量传递业务数据。这是一种槽糕的设计模式，依赖线程级数据的函数也难以单测。判断是否滥用：如果不使用线程级变量，业务逻辑是否还能正常运行？线程级变量应只用作优化手段，使用过程中不应直接或间接调用任何可能阻塞的bthread函数。比如使用线程级变量的tcmalloc就不会和bthread有任何冲突。&lt;/li>
+&lt;li>如果一定要（在业务中）使用线程级变量，使用bthread_key_create和bthread_getspecific。&lt;/li>
+&lt;/ul>
+&lt;h1 id="gcc4下的errno问题">gcc4下的errno问题&lt;/h1>
+&lt;p>gcc4会优化&lt;a href="https://gcc.gnu.org/onlinedocs/gcc/Function-Attributes.html#index-g_t_0040code_007bconst_007d-function-attribute-2958">标记为__attribute__((&lt;strong>const&lt;/strong>))&lt;/a>的函数，这个标记大致指只要参数不变，输出就不会变。所以当一个函数中以相同参数出现多次时，gcc4会合并为一次。比如在我们的系统中errno是内容为*__errno_location()的宏，这个函数的签名是：&lt;/p>
+&lt;pre tabindex="0">&lt;code>/* Function to get address of global `errno&amp;#39; variable. */
 extern int *__errno_location (void) __THROW __attribute__ ((__const__));
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;由于此函数被标记为&lt;code&gt;__const__&lt;/code&gt;，且没有参数，当你在一个函数中调用多次errno时，可能只有第一次才调用__errno_location()，而之后只是访问其返回的&lt;code&gt;int*&lt;/code&gt;。在pthread中这没有问题，因为返回的&lt;code&gt;int*&lt;/code&gt;是thread-local的，一个给定的pthread中是不会变化的。但是在bthread中，这是不成立的，因为一个bthread很可能在调用一些函数后跑到另一个pthread去，如果gcc4做了类似的优化，即一个函数内所有的errno都替换为第一次调用返回的int*，这中间bthread又切换了pthread，那么可能会访问之前pthread的errno，从而造成未定义行为。&lt;/p&gt;
-&lt;p&gt;比如下文是一种errno的使用场景：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Use errno ...   (original pthread)
+&lt;/code>&lt;/pre>&lt;p>由于此函数被标记为&lt;code>__const__&lt;/code>，且没有参数，当你在一个函数中调用多次errno时，可能只有第一次才调用__errno_location()，而之后只是访问其返回的&lt;code>int*&lt;/code>。在pthread中这没有问题，因为返回的&lt;code>int*&lt;/code>是thread-local的，一个给定的pthread中是不会变化的。但是在bthread中，这是不成立的，因为一个bthread很可能在调用一些函数后跑到另一个pthread去，如果gcc4做了类似的优化，即一个函数内所有的errno都替换为第一次调用返回的int*，这中间bthread又切换了pthread，那么可能会访问之前pthread的errno，从而造成未定义行为。&lt;/p>
+&lt;p>比如下文是一种errno的使用场景：&lt;/p>
+&lt;pre tabindex="0">&lt;code>Use errno ... (original pthread)
 bthread functions that may switch to another pthread.
-Use errno ...   (another pthread) 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们期望看到的行为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Use *__errno_location() ...  -  the thread-local errno of original pthread
+Use errno ... (another pthread)
+&lt;/code>&lt;/pre>&lt;p>我们期望看到的行为：&lt;/p>
+&lt;pre tabindex="0">&lt;code>Use *__errno_location() ... - the thread-local errno of original pthread
 bthread may switch another pthread ...
-Use *__errno_location() ...  -  the thread-local errno of another pthread
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用gcc4时的实际行为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;int* p= __errno_location();
-Use *p ...                   -  the thread-local errno of original pthread
+Use *__errno_location() ... - the thread-local errno of another pthread
+&lt;/code>&lt;/pre>&lt;p>使用gcc4时的实际行为：&lt;/p>
+&lt;pre tabindex="0">&lt;code>int* p= __errno_location();
+Use *p ... - the thread-local errno of original pthread
 bthread context switches ...
-Use *p ...                   -  still the errno of original pthread, undefined behavior!!
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;严格地说这个问题不是gcc4导致的，而是glibc给__errno_location的签名不够准确，一个返回thread-local指针的函数依赖于段寄存器（TLS的一般实现方式），这怎么能算const呢？由于我们还未找到覆盖__errno_location的方法，所以这个问题目前实际的解决方法是：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;务必在直接或间接使用bthread的项目的gcc编译选项中添加&lt;code&gt;-D__const__=&lt;/code&gt;，即把&lt;code&gt;__const__&lt;/code&gt;定义为空，避免gcc4做相关优化。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;把&lt;code&gt;__const__&lt;/code&gt;定义为空对程序其他部分的影响几乎为0。另外如果你没有&lt;strong&gt;直接&lt;/strong&gt;使用errno（即你的项目中没有出现errno），或使用的是gcc
-3.4，即使没有定义&lt;code&gt;-D__const__=&lt;/code&gt;，程序的正确性也不会受影响，但为了防止未来可能的问题，我们强烈建议加上。&lt;/p&gt;
-&lt;p&gt;需要说明的是，和errno类似，pthread_self也有类似的问题，不过一般pthread_self除了打日志没有其他用途，影响面较小，在&lt;code&gt;-D__const__=&lt;/code&gt;后pthread_self也会正常。&lt;/p&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+Use *p ... - still the errno of original pthread, undefined behavior!!
+&lt;/code>&lt;/pre>&lt;p>严格地说这个问题不是gcc4导致的，而是glibc给__errno_location的签名不够准确，一个返回thread-local指针的函数依赖于段寄存器（TLS的一般实现方式），这怎么能算const呢？由于我们还未找到覆盖__errno_location的方法，所以这个问题目前实际的解决方法是：&lt;/p>
+&lt;p>&lt;strong>务必在直接或间接使用bthread的项目的gcc编译选项中添加&lt;code>-D__const__=&lt;/code>，即把&lt;code>__const__&lt;/code>定义为空，避免gcc4做相关优化。&lt;/strong>&lt;/p>
+&lt;p>把&lt;code>__const__&lt;/code>定义为空对程序其他部分的影响几乎为0。另外如果你没有&lt;strong>直接&lt;/strong>使用errno（即你的项目中没有出现errno），或使用的是gcc
+3.4，即使没有定义&lt;code>-D__const__=&lt;/code>，程序的正确性也不会受影响，但为了防止未来可能的问题，我们强烈建议加上。&lt;/p>
+&lt;p>需要说明的是，和errno类似，pthread_self也有类似的问题，不过一般pthread_self除了打日志没有其他用途，影响面较小，在&lt;code>-D__const__=&lt;/code>后pthread_self也会正常。&lt;/p></description></item></channel></rss>

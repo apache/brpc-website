@@ -1,18 +1,1 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>bRPC – 搭建gRPC服务</title>
-    <link>https://brpc.incubator.apache.org/zh/docs/server/serve-grpc/</link>
-    <description>Recent content in 搭建gRPC服务 on bRPC</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://brpc.incubator.apache.org/zh/docs/server/serve-grpc/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 搭建gRPC服务</title><link>https://brpc.incubator.apache.org/zh/docs/server/serve-grpc/</link><description>Recent content in 搭建gRPC服务 on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/zh/docs/server/serve-grpc/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

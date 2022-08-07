@@ -1,258 +1,200 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>bRPC – Community</title>
-    <link>https://brpc.incubator.apache.org/docs/community/</link>
-    <description>Recent content in Community on bRPC</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://brpc.incubator.apache.org/docs/community/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Docs: Community</title>
-      <link>https://brpc.incubator.apache.org/docs/community/community/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://brpc.incubator.apache.org/docs/community/community/</guid>
-      <description>
-        
-        
-        &lt;!--
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Community</title><link>https://brpc.incubator.apache.org/docs/community/</link><description>Recent content in Community on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/docs/community/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Community</title><link>https://brpc.incubator.apache.org/docs/community/community/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/community/</guid><description>
+&lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more
-contributor license agreements.  See the NOTICE file distributed with
+contributor license agreements. See the NOTICE file distributed with
 this work for additional information regarding copyright ownership.
 The ASF licenses this file to you under the Apache License, Version 2.0
-(the &#34;License&#34;); you may not use this file except in compliance with
-the License.  You may obtain a copy of the License at
-
+(the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the License at
 http://www.apache.org/licenses/LICENSE-2.0
-
 Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
---&gt;
-&lt;h2 id=&#34;apache-brpc-incubating-community&#34;&gt;Apache brpc (incubating) Community&lt;/h2&gt;
-&lt;p&gt;Every volunteer project obtains its strength from the people involved in it. We invite you to participate as much or as little as you choose.&lt;/p&gt;
-&lt;p&gt;You can:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Use our project and provide a feedback.&lt;/li&gt;
-&lt;li&gt;Provide us with the use-cases.&lt;/li&gt;
-&lt;li&gt;Report bugs and submit patches.&lt;/li&gt;
-&lt;li&gt;Contribute code, testcase, documentation.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Visit the [Contributing] page for more information.&lt;/p&gt;
-&lt;h3 id=&#34;mailing-list&#34;&gt;Mailing list&lt;/h3&gt;
-&lt;p&gt;Get help using bRPC or contribute to the project on our mailing lists:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;dev@brpc.apache.org&#34;&gt;dev@brpc.apache.org&lt;/a&gt; is for people who want to contribute code to bRPC. &lt;a href=&#34;mailto:dev-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe&#34;&gt;subscribe&lt;/a&gt;, &lt;a href=&#34;mailto:dev-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe&#34;&gt;unsubscribe&lt;/a&gt;, &lt;a href=&#34;https://www.mail-archive.com/dev@brpc.apache.org/&#34;&gt;archives&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;commits@brpc.apache.org&#34;&gt;commits@brpc.apache.org&lt;/a&gt; is for commit messages and patches to bRPC. &lt;a href=&#34;mailto:commits-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe&#34;&gt;subscribe&lt;/a&gt;, &lt;a href=&#34;mailto:commits-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe&#34;&gt;unsubscribe&lt;/a&gt;, &lt;a href=&#34;https://www.mail-archive.com/commits@brpc.apache.org/&#34;&gt;archives&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;issue-tracker&#34;&gt;Issue tracker&lt;/h3&gt;
-&lt;h4 id=&#34;bug-reports&#34;&gt;Bug Reports&lt;/h4&gt;
-&lt;p&gt;Found bug? Enter an issue in the &lt;a href=&#34;https://github.com/apache/incubator-brpc/issues&#34;&gt;Issue Tracker&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Before submitting an issue, please:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Verify that the bug does in fact exist.&lt;/li&gt;
-&lt;li&gt;Search the issue tracker to verify there is no existing issue reporting the bug you&amp;rsquo;ve found.&lt;/li&gt;
-&lt;li&gt;Consider tracking down the bug yourself in the bRPC&amp;rsquo;s source and submitting a patch along with your bug report. This is a great time saver for the bRPC developers and helps ensure the bug will be fixed quickly.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;feature-requests&#34;&gt;Feature Requests&lt;/h4&gt;
-&lt;p&gt;Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/apache/incubator-brpc/issues&#34;&gt;https://github.com/apache/incubator-brpc/issues&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;source-code&#34;&gt;Source Code&lt;/h3&gt;
-&lt;p&gt;The project sources are accessible via the &lt;a href=&#34;https://github.com/apache/incubator-brpc&#34;&gt;source code repository&lt;/a&gt; which is on github.&lt;/p&gt;
-&lt;h3 id=&#34;website-source-code&#34;&gt;Website Source Code&lt;/h3&gt;
-&lt;p&gt;The project website sources are accessible via the &lt;a href=&#34;https://github.com/apache/incubator-brpc-website&#34;&gt;website source code repository&lt;/a&gt; which is on github also.&lt;/p&gt;
-&lt;h3 id=&#34;brpc-team-members&#34;&gt;bRPC Team Members&lt;/h3&gt;
-&lt;table class=&#34;table table-hover&#34;&gt;
-    &lt;tr&gt;
-        &lt;th&gt;&lt;b&gt;Photo&lt;/b&gt;&lt;/th&gt;
-        &lt;th&gt;&lt;b&gt;Full Name&lt;/b&gt;&lt;/th&gt;
-        &lt;th&gt;&lt;b&gt;Apache ID&lt;/b&gt;&lt;/th&gt;
-        &lt;th&gt;&lt;b&gt;GitHub&lt;/b&gt;&lt;/th&gt;
-        &lt;th&gt;&lt;b&gt;Role&lt;/b&gt;&lt;/th&gt;
-        &lt;th&gt;&lt;b&gt;Affiliation&lt;/b&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/jamesge&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/6566535?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;James Ge&lt;/td&gt;
-        &lt;td&gt;jamesge&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/jamesge&#34;&gt;jamesge&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/zyearn&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/4475779?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Jiashun Zhu&lt;/td&gt;
-        &lt;td&gt;jiashunzhu&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/zyearn&#34;&gt;zyearn&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/chenzhangyi&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/6805583?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Zhangyi Chen&lt;/td&gt;
-        &lt;td&gt;zychen&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/chenzhangyi&#34;&gt;chenzhangyi&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/old-bear&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/1525532?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Bear Jiang&lt;/td&gt;
-        &lt;td&gt;jrjbear&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/old-bear&#34;&gt;old-bear&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/ipconfigme&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/2500750?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Yao Wang&lt;/td&gt;
-        &lt;td&gt;fisherman&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/ipconfigme&#34;&gt;ipconfigme&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/tanzhongyi003&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/20179982?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Jerry Tan&lt;/td&gt;
-        &lt;td&gt;jerrytan&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/tanzhongyi003&#34;&gt;tanzhongyi003&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/wwbmmm&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/3894631?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Wang Weibing&lt;/td&gt;
-        &lt;td&gt;wwbmmm&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/wwbmmm&#34;&gt;wwbmmm&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/TousakaRin&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/8801314?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;He Lei&lt;/td&gt;
-        &lt;td&gt;leander&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/TousakaRin&#34;&gt;TousakaRin&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/cdjingit&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/31362185?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Cai Daojin&lt;/td&gt;
-        &lt;td&gt;caidj&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/cdjingit&#34;&gt;cdjingit&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/lorinlee&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/16054841?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Lorin Lee&lt;/td&gt;
-        &lt;td&gt;lorinlee&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/lorinlee&#34;&gt;lorinlee&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;PPMC&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/gydong&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/3294444?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Mou Gaidong&lt;/td&gt;
-        &lt;td&gt;gydong&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/gydong&#34;&gt;gydong&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Committer&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/guodongxiaren&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/5945107?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Wang wei&lt;/td&gt;
-        &lt;td&gt;guodong&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/guodongxiaren&#34;&gt;guodongxiaren&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Committer&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/serverglen&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/38067377?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Shuai Liu&lt;/td&gt;
-        &lt;td&gt;serverglen&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/serverglen&#34;&gt;serverglen&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Committer&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/wasphin&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/1237906?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Wang Xiaofeng&lt;/td&gt;
-        &lt;td&gt;xiaofeng&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/wasphin&#34;&gt;wasphin&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Committer&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/Huixxi&#34;&gt;&lt;img width=&#34;64&#34; src=&#34;https://avatars.githubusercontent.com/u/21335093?v=4&#34;&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Xiguo Hu&lt;/td&gt;
-        &lt;td&gt;huixxi&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&#34;http://github.com/Huixxi&#34;&gt;Huixxi&lt;/a&gt;&lt;/td&gt;
-        &lt;td&gt;Committer&lt;/td&gt;
-        &lt;td&gt;apache&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Security</title>
-      <link>https://brpc.incubator.apache.org/docs/community/security/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://brpc.incubator.apache.org/docs/community/security/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The Apache Software Foundation takes a rigorous stance on eliminating security issues in its software projects. Likewise, Apache bRPC is also vigilant and takes security issues related to its features and functionality into the highest consideration.&lt;/p&gt;
-&lt;p&gt;If you have any concerns regarding bRPC’s security, or you discover a vulnerability or potential threat, please don’t hesitate to get in touch with the &lt;a href=&#34;http://www.apache.org/security/&#34;&gt;Apache Security Team&lt;/a&gt; by dropping an email at &lt;a href=&#34;mailto:security@apache.org&#34;&gt;security@apache.org&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Please specify the project name as &amp;ldquo;bRPC&amp;rdquo; in the email, and provide a description of the relevant problem or potential threat. You are also urged to recommend how to reproduce and replicate the issue.&lt;/p&gt;
-&lt;p&gt;The Apache Security Team and the bRPC community will get back to you after assessing and analyzing the findings.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Please note&lt;/strong&gt; that the security issue should be reported on the security email first, before disclosing it on any public domain.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Committer Guide</title>
-      <link>https://brpc.incubator.apache.org/docs/community/committer/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://brpc.incubator.apache.org/docs/community/committer/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Participants in the Apache community have the following roles: &lt;strong&gt;Contributor&lt;/strong&gt;, &lt;strong&gt;Committer&lt;/strong&gt;, and &lt;strong&gt;PMC(Project Member Committee) member&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;When an individual contribution is accepted by the project, he/she will automatically become a Contributor.
-Committer and PMC members are invited by the PMC after a consensus vote.&lt;/p&gt;
-&lt;p&gt;Here we will only discuss some guidelines for the bRPC community to invite Committer and PMC member in order to be able to effectively estimate developer participation in the community.&lt;/p&gt;
-&lt;h2 id=&#34;the-apache-way&#34;&gt;The Apache Way:&lt;/h2&gt;
-&lt;p&gt;Before anyone can become a Committer or PMC member of an Apache project, they should first understand &amp;ldquo;&lt;a href=&#34;https://apache.org/theapacheway/index.html&#34;&gt;What&amp;rsquo;s TheApacheWay&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
-&lt;h2 id=&#34;guidance-for-committer&#34;&gt;Guidance for Committer:&lt;/h2&gt;
-&lt;p&gt;Have significant feature contributions (not limited to code), or long-term participation in community building (bug fixing, code review, documentation translation and proofreading, community outreach, etc.)
-Participate in community discussions in public domain and have a positive impact.&lt;/p&gt;
-&lt;h2 id=&#34;guidance-for-pmc-member&#34;&gt;Guidance for PMC member:&lt;/h2&gt;
-&lt;p&gt;Be able to actively participate in community maintenance work, such as answering emails, organizing wiki, release management, code review, etc.
-Recognize the Apache community philosophy and be able to actively promote the community development.&lt;/p&gt;
-&lt;h2 id=&#34;peer-review&#34;&gt;Peer Review:&lt;/h2&gt;
-&lt;p&gt;The above requirements are highly subjective and cannot be measured quantitatively. Therefore, the PMC needs to form a regular review mechanism to discuss and invite people who meet the requirements.&lt;/p&gt;
-&lt;p&gt;Conduct a review every 1-2 months to nominate and discuss suitable candidates&lt;/p&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+-->
+&lt;h2 id="apache-brpc-incubating-community">Apache brpc (incubating) Community&lt;/h2>
+&lt;p>Every volunteer project obtains its strength from the people involved in it. We invite you to participate as much or as little as you choose.&lt;/p>
+&lt;p>You can:&lt;/p>
+&lt;ul>
+&lt;li>Use our project and provide a feedback.&lt;/li>
+&lt;li>Provide us with the use-cases.&lt;/li>
+&lt;li>Report bugs and submit patches.&lt;/li>
+&lt;li>Contribute code, testcase, documentation.&lt;/li>
+&lt;/ul>
+&lt;p>Visit the [Contributing] page for more information.&lt;/p>
+&lt;h3 id="mailing-list">Mailing list&lt;/h3>
+&lt;p>Get help using bRPC or contribute to the project on our mailing lists:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="dev@brpc.apache.org">dev@brpc.apache.org&lt;/a> is for people who want to contribute code to bRPC. &lt;a href="mailto:dev-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe">subscribe&lt;/a>, &lt;a href="mailto:dev-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe">unsubscribe&lt;/a>, &lt;a href="https://www.mail-archive.com/dev@brpc.apache.org/">archives&lt;/a>&lt;/li>
+&lt;li>&lt;a href="commits@brpc.apache.org">commits@brpc.apache.org&lt;/a> is for commit messages and patches to bRPC. &lt;a href="mailto:commits-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe">subscribe&lt;/a>, &lt;a href="mailto:commits-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe">unsubscribe&lt;/a>, &lt;a href="https://www.mail-archive.com/commits@brpc.apache.org/">archives&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="issue-tracker">Issue tracker&lt;/h3>
+&lt;h4 id="bug-reports">Bug Reports&lt;/h4>
+&lt;p>Found bug? Enter an issue in the &lt;a href="https://github.com/apache/incubator-brpc/issues">Issue Tracker&lt;/a>.&lt;/p>
+&lt;p>Before submitting an issue, please:&lt;/p>
+&lt;ul>
+&lt;li>Verify that the bug does in fact exist.&lt;/li>
+&lt;li>Search the issue tracker to verify there is no existing issue reporting the bug you&amp;rsquo;ve found.&lt;/li>
+&lt;li>Consider tracking down the bug yourself in the bRPC&amp;rsquo;s source and submitting a patch along with your bug report. This is a great time saver for the bRPC developers and helps ensure the bug will be fixed quickly.&lt;/li>
+&lt;/ul>
+&lt;h4 id="feature-requests">Feature Requests&lt;/h4>
+&lt;p>Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.&lt;/p>
+&lt;p>&lt;a href="https://github.com/apache/incubator-brpc/issues">https://github.com/apache/incubator-brpc/issues&lt;/a>&lt;/p>
+&lt;h3 id="source-code">Source Code&lt;/h3>
+&lt;p>The project sources are accessible via the &lt;a href="https://github.com/apache/incubator-brpc">source code repository&lt;/a> which is on github.&lt;/p>
+&lt;h3 id="website-source-code">Website Source Code&lt;/h3>
+&lt;p>The project website sources are accessible via the &lt;a href="https://github.com/apache/incubator-brpc-website">website source code repository&lt;/a> which is on github also.&lt;/p>
+&lt;h3 id="brpc-team-members">bRPC Team Members&lt;/h3>
+&lt;table class="table table-hover">
+&lt;tr>
+&lt;th>&lt;b>Photo&lt;/b>&lt;/th>
+&lt;th>&lt;b>Full Name&lt;/b>&lt;/th>
+&lt;th>&lt;b>Apache ID&lt;/b>&lt;/th>
+&lt;th>&lt;b>GitHub&lt;/b>&lt;/th>
+&lt;th>&lt;b>Role&lt;/b>&lt;/th>
+&lt;th>&lt;b>Affiliation&lt;/b>&lt;/th>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/jamesge">&lt;img width="64" src="https://avatars.githubusercontent.com/u/6566535?v=4">&lt;/a>&lt;/td>
+&lt;td>James Ge&lt;/td>
+&lt;td>jamesge&lt;/td>
+&lt;td>&lt;a href="http://github.com/jamesge">jamesge&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/zyearn">&lt;img width="64" src="https://avatars.githubusercontent.com/u/4475779?v=4">&lt;/a>&lt;/td>
+&lt;td>Jiashun Zhu&lt;/td>
+&lt;td>jiashunzhu&lt;/td>
+&lt;td>&lt;a href="http://github.com/zyearn">zyearn&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/chenzhangyi">&lt;img width="64" src="https://avatars.githubusercontent.com/u/6805583?v=4">&lt;/a>&lt;/td>
+&lt;td>Zhangyi Chen&lt;/td>
+&lt;td>zychen&lt;/td>
+&lt;td>&lt;a href="http://github.com/chenzhangyi">chenzhangyi&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/old-bear">&lt;img width="64" src="https://avatars.githubusercontent.com/u/1525532?v=4">&lt;/a>&lt;/td>
+&lt;td>Bear Jiang&lt;/td>
+&lt;td>jrjbear&lt;/td>
+&lt;td>&lt;a href="http://github.com/old-bear">old-bear&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/ipconfigme">&lt;img width="64" src="https://avatars.githubusercontent.com/u/2500750?v=4">&lt;/a>&lt;/td>
+&lt;td>Yao Wang&lt;/td>
+&lt;td>fisherman&lt;/td>
+&lt;td>&lt;a href="http://github.com/ipconfigme">ipconfigme&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/tanzhongyi003">&lt;img width="64" src="https://avatars.githubusercontent.com/u/20179982?v=4">&lt;/a>&lt;/td>
+&lt;td>Jerry Tan&lt;/td>
+&lt;td>jerrytan&lt;/td>
+&lt;td>&lt;a href="http://github.com/tanzhongyi003">tanzhongyi003&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/wwbmmm">&lt;img width="64" src="https://avatars.githubusercontent.com/u/3894631?v=4">&lt;/a>&lt;/td>
+&lt;td>Wang Weibing&lt;/td>
+&lt;td>wwbmmm&lt;/td>
+&lt;td>&lt;a href="http://github.com/wwbmmm">wwbmmm&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/TousakaRin">&lt;img width="64" src="https://avatars.githubusercontent.com/u/8801314?v=4">&lt;/a>&lt;/td>
+&lt;td>He Lei&lt;/td>
+&lt;td>leander&lt;/td>
+&lt;td>&lt;a href="http://github.com/TousakaRin">TousakaRin&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/cdjingit">&lt;img width="64" src="https://avatars.githubusercontent.com/u/31362185?v=4">&lt;/a>&lt;/td>
+&lt;td>Cai Daojin&lt;/td>
+&lt;td>caidj&lt;/td>
+&lt;td>&lt;a href="http://github.com/cdjingit">cdjingit&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/lorinlee">&lt;img width="64" src="https://avatars.githubusercontent.com/u/16054841?v=4">&lt;/a>&lt;/td>
+&lt;td>Lorin Lee&lt;/td>
+&lt;td>lorinlee&lt;/td>
+&lt;td>&lt;a href="http://github.com/lorinlee">lorinlee&lt;/a>&lt;/td>
+&lt;td>PPMC&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/gydong">&lt;img width="64" src="https://avatars.githubusercontent.com/u/3294444?v=4">&lt;/a>&lt;/td>
+&lt;td>Mou Gaidong&lt;/td>
+&lt;td>gydong&lt;/td>
+&lt;td>&lt;a href="http://github.com/gydong">gydong&lt;/a>&lt;/td>
+&lt;td>Committer&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/guodongxiaren">&lt;img width="64" src="https://avatars.githubusercontent.com/u/5945107?v=4">&lt;/a>&lt;/td>
+&lt;td>Wang wei&lt;/td>
+&lt;td>guodong&lt;/td>
+&lt;td>&lt;a href="http://github.com/guodongxiaren">guodongxiaren&lt;/a>&lt;/td>
+&lt;td>Committer&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/serverglen">&lt;img width="64" src="https://avatars.githubusercontent.com/u/38067377?v=4">&lt;/a>&lt;/td>
+&lt;td>Shuai Liu&lt;/td>
+&lt;td>serverglen&lt;/td>
+&lt;td>&lt;a href="http://github.com/serverglen">serverglen&lt;/a>&lt;/td>
+&lt;td>Committer&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/wasphin">&lt;img width="64" src="https://avatars.githubusercontent.com/u/1237906?v=4">&lt;/a>&lt;/td>
+&lt;td>Wang Xiaofeng&lt;/td>
+&lt;td>xiaofeng&lt;/td>
+&lt;td>&lt;a href="http://github.com/wasphin">wasphin&lt;/a>&lt;/td>
+&lt;td>Committer&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="http://github.com/Huixxi">&lt;img width="64" src="https://avatars.githubusercontent.com/u/21335093?v=4">&lt;/a>&lt;/td>
+&lt;td>Xiguo Hu&lt;/td>
+&lt;td>huixxi&lt;/td>
+&lt;td>&lt;a href="http://github.com/Huixxi">Huixxi&lt;/a>&lt;/td>
+&lt;td>Committer&lt;/td>
+&lt;td>apache&lt;/td>
+&lt;/tr>
+&lt;/table></description></item><item><title>Docs: Security</title><link>https://brpc.incubator.apache.org/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/security/</guid><description>
+&lt;p>The Apache Software Foundation takes a rigorous stance on eliminating security issues in its software projects. Likewise, Apache bRPC is also vigilant and takes security issues related to its features and functionality into the highest consideration.&lt;/p>
+&lt;p>If you have any concerns regarding bRPC’s security, or you discover a vulnerability or potential threat, please don’t hesitate to get in touch with the &lt;a href="http://www.apache.org/security/">Apache Security Team&lt;/a> by dropping an email at &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>.&lt;/p>
+&lt;p>Please specify the project name as &amp;ldquo;bRPC&amp;rdquo; in the email, and provide a description of the relevant problem or potential threat. You are also urged to recommend how to reproduce and replicate the issue.&lt;/p>
+&lt;p>The Apache Security Team and the bRPC community will get back to you after assessing and analyzing the findings.&lt;/p>
+&lt;p>&lt;strong>Please note&lt;/strong> that the security issue should be reported on the security email first, before disclosing it on any public domain.&lt;/p></description></item><item><title>Docs: Committer Guide</title><link>https://brpc.incubator.apache.org/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/committer/</guid><description>
+&lt;p>Participants in the Apache community have the following roles: &lt;strong>Contributor&lt;/strong>, &lt;strong>Committer&lt;/strong>, and &lt;strong>PMC(Project Member Committee) member&lt;/strong>.&lt;/p>
+&lt;p>When an individual contribution is accepted by the project, he/she will automatically become a Contributor.
+Committer and PMC members are invited by the PMC after a consensus vote.&lt;/p>
+&lt;p>Here we will only discuss some guidelines for the bRPC community to invite Committer and PMC member in order to be able to effectively estimate developer participation in the community.&lt;/p>
+&lt;h2 id="the-apache-way">The Apache Way:&lt;/h2>
+&lt;p>Before anyone can become a Committer or PMC member of an Apache project, they should first understand &amp;ldquo;&lt;a href="https://apache.org/theapacheway/index.html">What&amp;rsquo;s TheApacheWay&lt;/a>&amp;rdquo;.&lt;/p>
+&lt;h2 id="guidance-for-committer">Guidance for Committer:&lt;/h2>
+&lt;p>Have significant feature contributions (not limited to code), or long-term participation in community building (bug fixing, code review, documentation translation and proofreading, community outreach, etc.)
+Participate in community discussions in public domain and have a positive impact.&lt;/p>
+&lt;h2 id="guidance-for-pmc-member">Guidance for PMC member:&lt;/h2>
+&lt;p>Be able to actively participate in community maintenance work, such as answering emails, organizing wiki, release management, code review, etc.
+Recognize the Apache community philosophy and be able to actively promote the community development.&lt;/p>
+&lt;h2 id="peer-review">Peer Review:&lt;/h2>
+&lt;p>The above requirements are highly subjective and cannot be measured quantitatively. Therefore, the PMC needs to form a regular review mechanism to discuss and invite people who meet the requirements.&lt;/p>
+&lt;p>Conduct a review every 1-2 months to nominate and discuss suitable candidates&lt;/p></description></item></channel></rss>
