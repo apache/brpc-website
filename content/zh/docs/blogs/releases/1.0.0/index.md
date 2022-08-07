@@ -1,7 +1,7 @@
 ---
 title: "bRPC 1.0.0"
 linkTitle: "bRPC 1.0.0"
-weight: 2
+weight: 3
 date: 2021-11-30
 description: >
   Apache bRPC 1.0.0 版本发布
