@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '14.x'
       - name: Setup Docsy
         run: git submodule update --init --recursive && sudo npm install -D --save autoprefixer && sudo npm install -D --save postcss-cli
       - name: Setup Hugo
@@ -29,8 +29,8 @@ jobs:
         env:
           HUGO_ENV: production
         run: hugo --minify
-      - name: Copy other files
-        run: cp .htaccess ./public
+      # - name: Copy other files
+      #   run: cp .htaccess ./public
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
