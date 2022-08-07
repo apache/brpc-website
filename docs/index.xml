@@ -1,40 +1,39 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Docs</title><link>https://brpc.incubator.apache.org/docs/</link><description>Recent content in Docs on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Docs</title><link>https://brpc.incubator.apache.org/docs/</link><description>Recent content in Docs on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
-&lt;li>Support ipv6 and unix domain socket by @wwbmmm in #1560&lt;/li>
-&lt;li>Support protobuf 3.19.x by @hcoona in #1679&lt;/li>
-&lt;li>Support http protocol dump and replay by @guodongxiaren in #1503&lt;/li>
-&lt;li>Support nshead protocol dump and replay by @wwbmmm in #1486&lt;/li>
-&lt;li>Support parse proto-text format http request body by @hiberabyss in #1690&lt;/li>
-&lt;li>Support deliver timeout from client to server for baidu_std protocol by @wwbmmm in #1472&lt;/li>
-&lt;li>Support inherit span on bthread create by @wwbmmm in #1494&lt;/li>
-&lt;li>Add rpc_replay BUILD file by @taoxu in #1677&lt;/li>
-&lt;li>Add brpc server Start(PortRange, const ServerOptions*) by @serverglen in #1460&lt;/li>
-&lt;li>Add FlatMap insert(const std::pair&amp;lt;key_type, mapped_type&amp;gt;&amp;amp; kv) by @serverglen in #1468&lt;/li>
-&lt;li>Add server eps bvar @serverglen in #1483&lt;/li>
+&lt;li>Support apple silicon by @jamesge&lt;/li>
+&lt;li>Add an option to allow serialize/deserialize to/from a json array by @wasphin in #1604&lt;/li>
+&lt;li>Add redis empty request check by @lzfhust in #1745&lt;/li>
+&lt;li>Add butex_wake_all support nosignal flag by @yanglimingcn in #1751&lt;/li>
+&lt;li>Add wr/wrr policy degradation by @Huixxi in #1571&lt;/li>
+&lt;li>Add with_snappy in cmake by @renzhong in #1799&lt;/li>
+&lt;li>Add check append return code by @wwbmmm in #1762&lt;/li>
+&lt;li>Add CXXFLAGS in compiling protoc-gen-mcpack by @jamesge&lt;/li>
 &lt;/ul>
 &lt;p>Bugfix:&lt;/p>
 &lt;ul>
-&lt;li>Fix CheckHealth not set has_request_code bug by @serverglen in #1502&lt;/li>
-&lt;li>Fix a bug that server will send unexpected data frame to client if there are errors occur during processing stream create request by @jenrryyou in #1516&lt;/li>
-&lt;li>Fix LA selection runs too long by @KaneVV1 in #1567&lt;/li>
-&lt;li>Fix HttpResponse error by @jl2005 in #1620&lt;/li>
-&lt;li>Fix bvar status compile error by @zwkno1 in #1625&lt;/li>
-&lt;li>Fix InputMessenger client side retry policy by @ehds in #1680&lt;/li>
-&lt;li>Fix work_stealing_queue_unittest for ARM by @TKONIY in #1709&lt;/li>
-&lt;li>Fix LatencyRecorder qps not accurate by @wwbmmm in #1708&lt;/li>
-&lt;li>Fix compile error after gcc11 with &amp;ndash;std=c++20 by @hiberabyss in #1719&lt;/li>
-&lt;li>Fix unstable UT link error by @wwbmmm in #1711&lt;/li>
-&lt;li>Fix Thrift download url to avoid pr build failed by @yangzhg in #1725&lt;/li>
-&lt;li>Remove grpc ParseH2Settings warning log by @yanjianglu in #1599&lt;/li>
+&lt;li>Fix the header guard of brpc/periodic_task.h by @TousakaRin in #1820&lt;/li>
+&lt;li>Fix build warning, ByteSize() is deprecated, use ByteSizeLong() instead by @yangzhg in #1723&lt;/li>
+&lt;li>Fix c struct compile error by @wolfdan666 in #1736&lt;/li>
+&lt;li>Fix auto https check by @renzhong in #1754&lt;/li>
+&lt;li>Fix json2pb::JsonToProtoMessage() supports parsing multiple jsons by @jamesge&lt;/li>
+&lt;li>Fix compile error due to std limits header absent by @GOGOYAO in #1764&lt;/li>
+&lt;li>Fix a deadlock happened in ClearAbandonedStreamsImpl path by @zyearn in #1781&lt;/li>
+&lt;li>Fix send WindowUpdate when ClearAbandonedStreams is called by @zyearn in #1786&lt;/li>
+&lt;li>Fix _dl_sym undefined reference by @wwbmmm in #1784&lt;/li>
+&lt;li>Fix thrift protocol exception by @lzfhust in #1790&lt;/li>
+&lt;li>Fix Brpc build tools error when only build static by @stdpain in #1797&lt;/li>
+&lt;li>Fix discovery naming service core by @serverglen in #1802&lt;/li>
+&lt;li>Fix rpc_press can&amp;rsquo;t send request equably by @bumingchun #1763&lt;/li>
+&lt;li>Fix hostname2ip fails when aux_buf is not long enough by @chenBright in #1818&lt;/li>
 &lt;/ul>
 &lt;p>Other improvements:&lt;/p>
 &lt;ul>
-&lt;li>Improve documents by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/li>
-&lt;li>Fix typos by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
+&lt;li>Improve documents by @wwbmmm, @tanzhongyi003, @guodongxiaren, @372046933, @wasphin, @hawkxiang, @TousakaRin, @Huixxi, @serverglen&lt;/li>
+&lt;li>Fix typos by @jamesge, @cyberkillor&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.1.0 version!&lt;/p></description></item><item><title>Docs: bRPC overview</title><link>https://brpc.incubator.apache.org/docs/overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/overview/</guid><description>
+&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: bRPC overview</title><link>https://brpc.incubator.apache.org/docs/overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/overview/</guid><description>
 &lt;h1 id="what-is-rpc">What is RPC?&lt;/h1>
 &lt;p>Most machines on internet communicate with each other via &lt;a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP&lt;/a>. However, TCP/IP only guarantees reliable data transmissions. We need to abstract more to build services:&lt;/p>
 &lt;ul>
@@ -296,86 +295,43 @@ limitations under the License.
 &lt;td>Committer&lt;/td>
 &lt;td>apache&lt;/td>
 &lt;/tr>
-&lt;/table></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</guid><description>
+&lt;/table></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
-&lt;li>fix grpc ut by @zyearn in #1036&lt;/li>
-&lt;li>replace_include_with_find_package by @zyearn in #1032&lt;/li>
-&lt;li>ignore ELIMIT for circuit breaker by @TousakaRin in #1005&lt;/li>
-&lt;li>limit minimum value of max_concurrency for auto_cl by @TousakaRin in #1003&lt;/li>
-&lt;li>Add missing &amp;lsquo;`&amp;rsquo; by @lingbin in #1053&lt;/li>
-&lt;li>fix heap overflow in simple_data_pool by @yockie in #1056&lt;/li>
-&lt;li>fix redis args by @liumh8 in #1128&lt;/li>
-&lt;li>timer_thread: remove redundant code by @lorinlee in #1137&lt;/li>
-&lt;li>Update nshead_service.md by @pklim101 in #1151&lt;/li>
-&lt;li>fix_share_tls_block by @zyearn in #1156&lt;/li>
-&lt;li>(FIX COMMENT)butil: remove BasicStringPiece in comments by @mapleFU in #1172&lt;/li>
-&lt;li>fix h2_req check failed when retry after ELIMIT error by @heyuyi0906 in #1161&lt;/li>
-&lt;li>fix brpc.baidu.com not accessible by @zyearn in #1189&lt;/li>
-&lt;li>add .asf.yaml to set github about info by @tanzhongyi003 in #1222&lt;/li>
-&lt;li>update .asf.yaml to change RPC into lowercase by @tanzhongyi003 in #1224&lt;/li>
-&lt;li>add option to allow access methods from default url by @wasphin in #1214&lt;/li>
-&lt;li>For https naming service, use 443 as default port by @TousakaRin in #1139&lt;/li>
-&lt;li>update StreamOptions by @cstarc in #1247&lt;/li>
-&lt;li>Fix build break for clang 10.0.1 by @thanksunix in #1261&lt;/li>
-&lt;li>coding style fix in brpc/trackme.cpp by @gydong in #1270&lt;/li>
-&lt;li>Compatibility improvement of protobuf json format and spring http spec by @chenzhangyi in #1292&lt;/li>
-&lt;li>Fix bazel build in macos by @chenzhangyi in #1298&lt;/li>
-&lt;li>make butil::BasicStringPiece support string split functions-family by @lrita in #1295&lt;/li>
-&lt;li>make butil::ScopedVector support std::initializer_list by @lrita in #1291&lt;/li>
-&lt;li>Update docs by @serverglen in #1258&lt;/li>
-&lt;li>Add rpm packaging spec by @wasphin in #1290&lt;/li>
-&lt;li>Fix the compile error when using GCC compiler with asan enabled on Linux platform. by @warriorpaw in #1289&lt;/li>
-&lt;li>Fix registering multiple addresses to discovery by @wasphin in #1320&lt;/li>
-&lt;li>Fix rpm spec by @wasphin in #1324&lt;/li>
-&lt;li>Remove FlameGraph dependency by @zyearn in #1345&lt;/li>
-&lt;li>Fix build failure on macOS with FlameGraph by @gogdizzy in #1411&lt;/li>
-&lt;li>status文档中的代码示例写错了，需要实现的函数名应为Describe by @guodongxiaren in #1413&lt;/li>
-&lt;li>Update bvar.md by @codroc in #1414&lt;/li>
-&lt;li>修改la策略中的异常日志的级别，避免在使用glog的情况下core dump by @guodongxiaren in #1415&lt;/li>
-&lt;li>Change chinese quotation marks in bvar_c++.md sample code by @tbago in #1396&lt;/li>
-&lt;li>SampleRequest写错了应为SampledRequest by @guodongxiaren in #1420&lt;/li>
-&lt;li>修复rpc_replay中ChannelGroup初始化时resize的bug by @guodongxiaren in #1422&lt;/li>
-&lt;li>fix warning in gcc8+ by @stdpain in #1381&lt;/li>
-&lt;li>文档修复：BRPC_RPC_VALIDATE_GFLAG改为BRPC_VALIDATE_GFLAG by @guodongxiaren in #1426&lt;/li>
-&lt;li>消除高版本GCC上编译时大量-Wclass-memaccess的警告 by @guodongxiaren in #1427&lt;/li>
-&lt;li>rm DISCLAIMER-WIP and use DISCLAIMER for 1.0 release by @tanzhongyi003 in #1432&lt;/li>
-&lt;li>Update flat_map.h by @yanjianglu in #1352&lt;/li>
-&lt;li>add flag BTHREAD_NEVER_QUIT by @ustccy in #1193&lt;/li>
-&lt;li>implement weighted randomized load balancer #1254 by @serverglen in #1314&lt;/li>
-&lt;li>rpc_view support setting timeout by @serverglen in #1459&lt;/li>
-&lt;li>Fix baidu_rpc_protocol.cpp a variable incorrectly named by @serverglen in #1451&lt;/li>
-&lt;li>Fix Socket::WaitAndReset memory leak by @wwbmmm in #1456&lt;/li>
-&lt;li>docs: fix server_push.md by @lorinlee in #1463&lt;/li>
-&lt;li>Add gitignore for files generated during test by @wwbmmm in #1473&lt;/li>
-&lt;li>docs: fix broken link in CONTRIBUTING.md by @lorinlee in #1481&lt;/li>
-&lt;li>Add FlatMap example code by @serverglen in #1484&lt;/li>
-&lt;li>Fix apache thrift download failed by @wwbmmm in #1495&lt;/li>
-&lt;li>Fix http client doc by @wwbmmm in #1493&lt;/li>
-&lt;li>Add DomainListNamingService which resolves services from the given list periodically by @chenzhangyi in #1509&lt;/li>
-&lt;li>check is valid character in uri by @guodongxiaren in #1506&lt;/li>
-&lt;li>emplace/emplace_back replace insert/push_back for pair by @guodongxiaren in #1504&lt;/li>
-&lt;li>Update gdb_bthread_stack.py by @tanzhongyi003 in #1521&lt;/li>
-&lt;li>Update get_brpc_revision.sh by @tanzhongyi003 in #1520&lt;/li>
-&lt;li>Tanslate getting_started.md into Chinese by @guodongxiaren in #1515&lt;/li>
-&lt;li>Update NOTICE by @tanzhongyi003 in #1519&lt;/li>
-&lt;li>add missing notice for tools/pprof, test/crc32c_unittest.cc by @tanzhongyi003 in #1522&lt;/li>
-&lt;li>docs: fix centos compile options by @lorinlee in #1525&lt;/li>
-&lt;li>Add rtmp/FlvWriterOptions to support writing audio/video content only by @v1siuol in #1505&lt;/li>
-&lt;li>upgrade baseimage to 20.04 by @tanzhongyi003 in #1531&lt;/li>
-&lt;li>release 1.0.0-rc02 by @lorinlee in #1538&lt;/li>
-&lt;li>Fix tools/get_brpc_revision.sh by @v1siuol in #1536&lt;/li>
-&lt;li>update docs by @serverglen in #1499&lt;/li>
-&lt;li>Set hostname rather than ip when channel Init by hostname but not host in http_requst().uri() by @guodongxiaren in #1529&lt;/li>
-&lt;li>add cases.md by @tanzhongyi003 in #1551&lt;/li>
-&lt;li>Add use case of Baidu by @wwbmmm in #1557&lt;/li>
-&lt;li>docs(circuit_breaker): add ema wiki link by @JiaoZiLang in #1575&lt;/li>
-&lt;li>Add Case by @guodongxiaren in #1576&lt;/li>
-&lt;li>community: add release doc by @lorinlee in #1582&lt;/li>
-&lt;li>Update release_cn.md by @tanzhongyi003 in #1588&lt;/li>
+&lt;li>Support ipv6 and unix domain socket by @wwbmmm in #1560&lt;/li>
+&lt;li>Support protobuf 3.19.x by @hcoona in #1679&lt;/li>
+&lt;li>Support http protocol dump and replay by @guodongxiaren in #1503&lt;/li>
+&lt;li>Support nshead protocol dump and replay by @wwbmmm in #1486&lt;/li>
+&lt;li>Support parse proto-text format http request body by @hiberabyss in #1690&lt;/li>
+&lt;li>Support deliver timeout from client to server for baidu_std protocol by @wwbmmm in #1472&lt;/li>
+&lt;li>Support inherit span on bthread create by @wwbmmm in #1494&lt;/li>
+&lt;li>Add rpc_replay BUILD file by @taoxu in #1677&lt;/li>
+&lt;li>Add brpc server Start(PortRange, const ServerOptions*) by @serverglen in #1460&lt;/li>
+&lt;li>Add FlatMap insert(const std::pair&amp;lt;key_type, mapped_type&amp;gt;&amp;amp; kv) by @serverglen in #1468&lt;/li>
+&lt;li>Add server eps bvar @serverglen in #1483&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.0.0 version!&lt;/p></description></item><item><title>Docs: Getting started</title><link>https://brpc.incubator.apache.org/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/getting_started/</guid><description>
+&lt;p>Bugfix:&lt;/p>
+&lt;ul>
+&lt;li>Fix CheckHealth not set has_request_code bug by @serverglen in #1502&lt;/li>
+&lt;li>Fix a bug that server will send unexpected data frame to client if there are errors occur during processing stream create request by @jenrryyou in #1516&lt;/li>
+&lt;li>Fix LA selection runs too long by @KaneVV1 in #1567&lt;/li>
+&lt;li>Fix HttpResponse error by @jl2005 in #1620&lt;/li>
+&lt;li>Fix bvar status compile error by @zwkno1 in #1625&lt;/li>
+&lt;li>Fix InputMessenger client side retry policy by @ehds in #1680&lt;/li>
+&lt;li>Fix work_stealing_queue_unittest for ARM by @TKONIY in #1709&lt;/li>
+&lt;li>Fix LatencyRecorder qps not accurate by @wwbmmm in #1708&lt;/li>
+&lt;li>Fix compile error after gcc11 with &amp;ndash;std=c++20 by @hiberabyss in #1719&lt;/li>
+&lt;li>Fix unstable UT link error by @wwbmmm in #1711&lt;/li>
+&lt;li>Fix Thrift download url to avoid pr build failed by @yangzhg in #1725&lt;/li>
+&lt;li>Remove grpc ParseH2Settings warning log by @yanjianglu in #1599&lt;/li>
+&lt;/ul>
+&lt;p>Other improvements:&lt;/p>
+&lt;ul>
+&lt;li>Improve documents by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/li>
+&lt;li>Fix typos by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
+&lt;/ul>
+&lt;p>Thanks to all contributors for the 1.1.0 version!&lt;/p></description></item><item><title>Docs: Getting started</title><link>https://brpc.incubator.apache.org/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/getting_started/</guid><description>
 &lt;h1 id="build">BUILD&lt;/h1>
 &lt;p>brpc prefers static linkages of deps, so that they don&amp;rsquo;t have to be installed on every machine running the app.&lt;/p>
 &lt;p>brpc depends on following packages:&lt;/p>
@@ -720,7 +676,86 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>If you have any concerns regarding bRPC’s security, or you discover a vulnerability or potential threat, please don’t hesitate to get in touch with the &lt;a href="http://www.apache.org/security/">Apache Security Team&lt;/a> by dropping an email at &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>.&lt;/p>
 &lt;p>Please specify the project name as &amp;ldquo;bRPC&amp;rdquo; in the email, and provide a description of the relevant problem or potential threat. You are also urged to recommend how to reproduce and replicate the issue.&lt;/p>
 &lt;p>The Apache Security Team and the bRPC community will get back to you after assessing and analyzing the findings.&lt;/p>
-&lt;p>&lt;strong>Please note&lt;/strong> that the security issue should be reported on the security email first, before disclosing it on any public domain.&lt;/p></description></item><item><title>Docs: Committer Guide</title><link>https://brpc.incubator.apache.org/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/committer/</guid><description>
+&lt;p>&lt;strong>Please note&lt;/strong> that the security issue should be reported on the security email first, before disclosing it on any public domain.&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</guid><description>
+&lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
+&lt;p>New features:&lt;/p>
+&lt;ul>
+&lt;li>fix grpc ut by @zyearn in #1036&lt;/li>
+&lt;li>replace_include_with_find_package by @zyearn in #1032&lt;/li>
+&lt;li>ignore ELIMIT for circuit breaker by @TousakaRin in #1005&lt;/li>
+&lt;li>limit minimum value of max_concurrency for auto_cl by @TousakaRin in #1003&lt;/li>
+&lt;li>Add missing &amp;lsquo;`&amp;rsquo; by @lingbin in #1053&lt;/li>
+&lt;li>fix heap overflow in simple_data_pool by @yockie in #1056&lt;/li>
+&lt;li>fix redis args by @liumh8 in #1128&lt;/li>
+&lt;li>timer_thread: remove redundant code by @lorinlee in #1137&lt;/li>
+&lt;li>Update nshead_service.md by @pklim101 in #1151&lt;/li>
+&lt;li>fix_share_tls_block by @zyearn in #1156&lt;/li>
+&lt;li>(FIX COMMENT)butil: remove BasicStringPiece in comments by @mapleFU in #1172&lt;/li>
+&lt;li>fix h2_req check failed when retry after ELIMIT error by @heyuyi0906 in #1161&lt;/li>
+&lt;li>fix brpc.baidu.com not accessible by @zyearn in #1189&lt;/li>
+&lt;li>add .asf.yaml to set github about info by @tanzhongyi003 in #1222&lt;/li>
+&lt;li>update .asf.yaml to change RPC into lowercase by @tanzhongyi003 in #1224&lt;/li>
+&lt;li>add option to allow access methods from default url by @wasphin in #1214&lt;/li>
+&lt;li>For https naming service, use 443 as default port by @TousakaRin in #1139&lt;/li>
+&lt;li>update StreamOptions by @cstarc in #1247&lt;/li>
+&lt;li>Fix build break for clang 10.0.1 by @thanksunix in #1261&lt;/li>
+&lt;li>coding style fix in brpc/trackme.cpp by @gydong in #1270&lt;/li>
+&lt;li>Compatibility improvement of protobuf json format and spring http spec by @chenzhangyi in #1292&lt;/li>
+&lt;li>Fix bazel build in macos by @chenzhangyi in #1298&lt;/li>
+&lt;li>make butil::BasicStringPiece support string split functions-family by @lrita in #1295&lt;/li>
+&lt;li>make butil::ScopedVector support std::initializer_list by @lrita in #1291&lt;/li>
+&lt;li>Update docs by @serverglen in #1258&lt;/li>
+&lt;li>Add rpm packaging spec by @wasphin in #1290&lt;/li>
+&lt;li>Fix the compile error when using GCC compiler with asan enabled on Linux platform. by @warriorpaw in #1289&lt;/li>
+&lt;li>Fix registering multiple addresses to discovery by @wasphin in #1320&lt;/li>
+&lt;li>Fix rpm spec by @wasphin in #1324&lt;/li>
+&lt;li>Remove FlameGraph dependency by @zyearn in #1345&lt;/li>
+&lt;li>Fix build failure on macOS with FlameGraph by @gogdizzy in #1411&lt;/li>
+&lt;li>status文档中的代码示例写错了，需要实现的函数名应为Describe by @guodongxiaren in #1413&lt;/li>
+&lt;li>Update bvar.md by @codroc in #1414&lt;/li>
+&lt;li>修改la策略中的异常日志的级别，避免在使用glog的情况下core dump by @guodongxiaren in #1415&lt;/li>
+&lt;li>Change chinese quotation marks in bvar_c++.md sample code by @tbago in #1396&lt;/li>
+&lt;li>SampleRequest写错了应为SampledRequest by @guodongxiaren in #1420&lt;/li>
+&lt;li>修复rpc_replay中ChannelGroup初始化时resize的bug by @guodongxiaren in #1422&lt;/li>
+&lt;li>fix warning in gcc8+ by @stdpain in #1381&lt;/li>
+&lt;li>文档修复：BRPC_RPC_VALIDATE_GFLAG改为BRPC_VALIDATE_GFLAG by @guodongxiaren in #1426&lt;/li>
+&lt;li>消除高版本GCC上编译时大量-Wclass-memaccess的警告 by @guodongxiaren in #1427&lt;/li>
+&lt;li>rm DISCLAIMER-WIP and use DISCLAIMER for 1.0 release by @tanzhongyi003 in #1432&lt;/li>
+&lt;li>Update flat_map.h by @yanjianglu in #1352&lt;/li>
+&lt;li>add flag BTHREAD_NEVER_QUIT by @ustccy in #1193&lt;/li>
+&lt;li>implement weighted randomized load balancer #1254 by @serverglen in #1314&lt;/li>
+&lt;li>rpc_view support setting timeout by @serverglen in #1459&lt;/li>
+&lt;li>Fix baidu_rpc_protocol.cpp a variable incorrectly named by @serverglen in #1451&lt;/li>
+&lt;li>Fix Socket::WaitAndReset memory leak by @wwbmmm in #1456&lt;/li>
+&lt;li>docs: fix server_push.md by @lorinlee in #1463&lt;/li>
+&lt;li>Add gitignore for files generated during test by @wwbmmm in #1473&lt;/li>
+&lt;li>docs: fix broken link in CONTRIBUTING.md by @lorinlee in #1481&lt;/li>
+&lt;li>Add FlatMap example code by @serverglen in #1484&lt;/li>
+&lt;li>Fix apache thrift download failed by @wwbmmm in #1495&lt;/li>
+&lt;li>Fix http client doc by @wwbmmm in #1493&lt;/li>
+&lt;li>Add DomainListNamingService which resolves services from the given list periodically by @chenzhangyi in #1509&lt;/li>
+&lt;li>check is valid character in uri by @guodongxiaren in #1506&lt;/li>
+&lt;li>emplace/emplace_back replace insert/push_back for pair by @guodongxiaren in #1504&lt;/li>
+&lt;li>Update gdb_bthread_stack.py by @tanzhongyi003 in #1521&lt;/li>
+&lt;li>Update get_brpc_revision.sh by @tanzhongyi003 in #1520&lt;/li>
+&lt;li>Tanslate getting_started.md into Chinese by @guodongxiaren in #1515&lt;/li>
+&lt;li>Update NOTICE by @tanzhongyi003 in #1519&lt;/li>
+&lt;li>add missing notice for tools/pprof, test/crc32c_unittest.cc by @tanzhongyi003 in #1522&lt;/li>
+&lt;li>docs: fix centos compile options by @lorinlee in #1525&lt;/li>
+&lt;li>Add rtmp/FlvWriterOptions to support writing audio/video content only by @v1siuol in #1505&lt;/li>
+&lt;li>upgrade baseimage to 20.04 by @tanzhongyi003 in #1531&lt;/li>
+&lt;li>release 1.0.0-rc02 by @lorinlee in #1538&lt;/li>
+&lt;li>Fix tools/get_brpc_revision.sh by @v1siuol in #1536&lt;/li>
+&lt;li>update docs by @serverglen in #1499&lt;/li>
+&lt;li>Set hostname rather than ip when channel Init by hostname but not host in http_requst().uri() by @guodongxiaren in #1529&lt;/li>
+&lt;li>add cases.md by @tanzhongyi003 in #1551&lt;/li>
+&lt;li>Add use case of Baidu by @wwbmmm in #1557&lt;/li>
+&lt;li>docs(circuit_breaker): add ema wiki link by @JiaoZiLang in #1575&lt;/li>
+&lt;li>Add Case by @guodongxiaren in #1576&lt;/li>
+&lt;li>community: add release doc by @lorinlee in #1582&lt;/li>
+&lt;li>Update release_cn.md by @tanzhongyi003 in #1588&lt;/li>
+&lt;/ul>
+&lt;p>Thanks to all contributors for the 1.0.0 version!&lt;/p></description></item><item><title>Docs: Committer Guide</title><link>https://brpc.incubator.apache.org/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/committer/</guid><description>
 &lt;p>Participants in the Apache community have the following roles: &lt;strong>Contributor&lt;/strong>, &lt;strong>Committer&lt;/strong>, and &lt;strong>PMC(Project Member Committee) member&lt;/strong>.&lt;/p>
 &lt;p>When an individual contribution is accepted by the project, he/she will automatically become a Contributor.
 Committer and PMC members are invited by the PMC after a consensus vote.&lt;/p>

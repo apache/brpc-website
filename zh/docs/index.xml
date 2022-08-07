@@ -1,94 +1,43 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 文档</title><link>https://brpc.incubator.apache.org/zh/docs/</link><description>Recent content in 文档 on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/zh/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.1.0/</guid><description>
-&lt;h2 id="apache-brpc-110-发布支持ipv6和uds">Apache bRPC 1.1.0 发布，支持IPV6和UDS&lt;/h2>
-&lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.1.0版本发布！&lt;/p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 文档</title><link>https://brpc.incubator.apache.org/zh/docs/</link><description>Recent content in 文档 on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/zh/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.2.0/</guid><description>
+&lt;h2 id="apache-brpc-120发布支持apple-silicon">Apache bRPC 1.2.0发布，支持Apple Silicon&lt;/h2>
+&lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.2.0版本发布，支持Apple Silicon。&lt;/p>
 &lt;p>下载链接：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
-&lt;p>Github Release Tag：https://github.com/apache/incubator-brpc/releases/tag/1.1.0&lt;/p>
-&lt;h3 id="110版本的主要变更">1.1.0版本的主要变更：&lt;/h3>
+&lt;p>Github Release Tag：https://github.com/apache/incubator-brpc/releases/tag/1.2.0&lt;/p>
+&lt;h3 id="120版本的主要变更">1.2.0版本的主要变更：&lt;/h3>
 &lt;p>新功能&lt;/p>
 &lt;ul>
-&lt;li>
-&lt;p>支持IPV6和UDS(Unix Domain Socket) by @wwbmmm in #1560&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>支持protobuf 3.19.x by @hcoona in #1679&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>支持http协议的dump/replay by @guodongxiaren in #1503&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>支持nshead协议的dump/replay by @wwbmmm in #1486&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>支持http body为proto-text格式的request/response by @hiberabyss in #1690&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>baidu_std协议支持传递client端设置的超时到server端 by @wwbmmm in #1472&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>bthread创建时支持通过attr指定继承tls span by @wwbmmm in #1494&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>rpc_replay支持bazel编译 by @taoxu in #1677&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Server新增 Start(PortRange, const ServerOptions*) 接口 by @serverglen in #1460&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>FlapMap新增 insert(const std::pair&amp;lt;key_type, mapped_type&amp;gt;&amp;amp; kv) 接口 by @serverglen in #1468&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Server新增eps bvar输出 by @serverglen in #1483&lt;/p>
-&lt;/li>
+&lt;li>支持 Apple Silicon by @jamesge&lt;/li>
+&lt;li>增加 json选项支持数组序列化/反序列化 by wasphin in #1604&lt;/li>
+&lt;li>支持 butex_wake_all nosignal flag by @yanglimingcn in #1751&lt;/li>
+&lt;li>支持 wr/wrr 负载均衡策略设置默认权重值 by @Huixxi in #1571&lt;/li>
+&lt;li>cmake 支持with_snappy编译选项 by @renzhong in #1799&lt;/li>
 &lt;/ul>
 &lt;p>Bug修复&lt;/p>
 &lt;ul>
-&lt;li>
-&lt;p>修复 CheckHealth 未设置 has_request_code by @serverglen in #1502&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修复server处理stream创建请求过程出错时发送非预期数据 by @jenrryyou in #1516&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修复 LA selection runs too long 的出错 by @KaneVV1 in #1567&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修复 http收到不合法请求时返回错误的response by @jl2005 in #1620&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修复 bvar status 编译错误 by @zwkno1 in #1625&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>优化 InputMessenger client 端重试策略 by @ehds in #1680&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修复 work_stealing_queue_unittest 在ARM下编译错误 by @TKONIY in #1709&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修复 LatencyRecorder qps 统计不精确 by @wwbmmm in #1708&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修复在 gcc11 下开启 &amp;ndash;std=c++20时编译错误 by @hiberabyss in #1719&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修复不稳定和UT链接错误by @wwbmmm in #1711&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修复 Thrift 下载 url 错误 by @yangzhg in #1725&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>删除 grpc ParseH2Settings 不必要的warning日志 by @yanjianglu in #1599&lt;/p>
-&lt;/li>
+&lt;li>增加 redis 请求为空检查 by @lzfhust in #1745&lt;/li>
+&lt;li>增加 iobuf append 返回值检查 by @wwbmmm in #1762&lt;/li>
+&lt;li>编译 protoc-gen-mcpack 增加 CXXFLAGS选项 by @jamesge&lt;/li>
+&lt;li>修改 brpc/periodic_task.h 头文件风格 by @TousakaRin in #1820&lt;/li>
+&lt;li>增加 ByteSizeLong 代替ByteSize（deprecated）函数 by @yangzhg in #1723&lt;/li>
+&lt;li>修复 C Struct编译错误 by @wolfdan666 in #1736&lt;/li>
+&lt;li>修复 自动检查https 问题 by @renzhong in #1754&lt;/li>
+&lt;li>修复 json2pb::JsonToProtoMessage() 支持解析多个json by @jamesge&lt;/li>
+&lt;li>修复 缺少limits头文件编译错误 by @GOGOYAO in #1764&lt;/li>
+&lt;li>修复 ClearAbandonedStreamsImpl死锁问题 by @zyearn in #1781&lt;/li>
+&lt;li>修复 在ClearAbandonedStreams的时候更新Windowsize问题 by @zyearn in #1786&lt;/li>
+&lt;li>修复 _dl_sym未定义问题 by @wwbmmm in #1784&lt;/li>
+&lt;li>修复 thrift协议处理机制 by @lzfhust in #1790&lt;/li>
+&lt;li>修复 编译静态库的编译错误 by @stdpain in #1797&lt;/li>
+&lt;li>修复 discovery naming service core by @serverglen in #1802&lt;/li>
+&lt;li>优化 rpc_press 发压抖动问题 by @bumingchun #1763&lt;/li>
+&lt;li>修复 dns域名解析机器列表过长导致 channel初始化失败问题 by @chenBright in #1818&lt;/li>
 &lt;/ul>
 &lt;p>其它改进&lt;/p>
 &lt;ul>
-&lt;li>
-&lt;p>文档改进 by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>修正拼写错误 by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/p>
-&lt;/li>
+&lt;li>文档改进 by @wwbmmm, @tanzhongyi003, @guodongxiaren, @372046933, @wasphin, @hawkxiang, @TousakaRin, @Huixxi, @serverglen&lt;/li>
+&lt;li>修正拼写错误 by @jamesge, @cyberkillor&lt;/li>
 &lt;/ul>
-&lt;p>感谢上述所有1.1.0版本的贡献者！&lt;/p></description></item><item><title>Docs: bRPC简介</title><link>https://brpc.incubator.apache.org/zh/docs/overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/overview/</guid><description>
+&lt;p>感谢所有关心和为bRPC做出贡献的开发者！&lt;/p></description></item><item><title>Docs: bRPC简介</title><link>https://brpc.incubator.apache.org/zh/docs/overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/overview/</guid><description>
 &lt;h1 id="什么是rpc">什么是RPC?&lt;/h1>
 &lt;p>互联网上的机器大都通过&lt;a href="http://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP协议&lt;/a>相互访问，但TCP/IP只是往远端发送了一段二进制数据，为了建立服务还有很多问题需要抽象：&lt;/p>
 &lt;ul>
@@ -778,44 +727,47 @@ limitations under the License.
 &lt;li>&lt;a href="http://cons.mit.edu/fa18/x86-64-architecture-guide.html">http://cons.mit.edu/fa18/x86-64-architecture-guide.html&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.csdn.net/thisinnocence/article/details/50936470">https://blog.csdn.net/thisinnocence/article/details/50936470&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://wiki.baidu.com/pages/viewpage.action?pageId=1303526733">http://wiki.baidu.com/pages/viewpage.action?pageId=1303526733&lt;/a>&lt;/li>
-&lt;/ol></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</guid><description>
-&lt;p>11月30日，随着committer lorin lee在apache基金会的孵化邮件组发出vote close的邮件， apache brpc 1.0.0的发版投票结果是通过。&lt;/p>
-&lt;p>下载地址在这里：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
-&lt;p>&lt;a href="../../../../../docs/blogs/releases/1.0.0/">点击查看1.0.0版本的主要变更&lt;/a>&lt;/p>
-&lt;p>1.0.0的发版，对brpc只是一个小小的里程碑，也是社区协作的结果。
-为此，brpc社区的committer和导师写下了各自的感言，一一记录如下。&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>谭中意 1.0.0的发版，是一个小小的里程碑，可喜可贺。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>王维 1.0.0版本的发布，意味着brpc真正完成了从0到1的跨越。这是brpc的一小步，却是国内C++开源生态的一大步。祝brpc早日毕业。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>潘娟 恭喜1.0.0 新版本上线，无论对brpc社区本身还是社区用户来说，都是一份gift!&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>何磊 1.0.0作为brpc官方发布的稳定版本，为之后吸收更多相对激进的pr 提供了坚实的基础，也是brpc社区的重要里程碑。感谢负责此次发版的同学的无私付出。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>牟盖东 brpc 已经在很多公司和很多业务场景中被使用了，其中不乏一线互联网公司的推荐和搜索等业务场景，它早已是久经考验的工业级 rpc 框架。现如今 1.0 版本也正式推出，希望能有更多的业界朋友应用 brpc，也非常欢迎大家加入到 brpc 的共同建设中来。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>戈君 离毕业又近了一步，感谢大家的合力推动！&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>蔡道进 恭喜1.0.0版本的发布，社区期待已久，欢迎更多同学投入到brpc社区的建设中来。加油！&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>朱佳顺 很开心看到第一个apache正式版本顺利完成。做开源不易，常常面临困难，也需要更多的时间和投入。看到了大家付出努力在不断解决和克服困难，感谢参与到社区开发和建设中的每一位。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>李磊 恭喜brpc完成1.0.0的版本发布！期待有更多的开发者使用brpc、参与到brpc的社区工作中来，也祝愿brpc能够早日毕业！&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>陈章义 艰难但关键的一个版本，期待早日毕业。&lt;/p>
-&lt;/li>
-&lt;/ol></description></item><item><title>Docs: brpc初学者指南</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</guid><description>
+&lt;/ol></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.1.0/</guid><description>
+&lt;h2 id="apache-brpc-110-发布支持ipv6和uds">Apache bRPC 1.1.0 发布，支持IPV6和UDS&lt;/h2>
+&lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.1.0版本发布！&lt;/p>
+&lt;p>下载链接：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
+&lt;p>Github Release Tag：https://github.com/apache/incubator-brpc/releases/tag/1.1.0&lt;/p>
+&lt;h3 id="110版本的主要变更">1.1.0版本的主要变更：&lt;/h3>
+&lt;p>新功能&lt;/p>
+&lt;ul>
+&lt;li>支持IPV6和UDS(Unix Domain Socket) by @wwbmmm in #1560&lt;/li>
+&lt;li>支持protobuf 3.19.x by @hcoona in #1679&lt;/li>
+&lt;li>支持http协议的dump/replay by @guodongxiaren in #1503&lt;/li>
+&lt;li>支持nshead协议的dump/replay by @wwbmmm in #1486&lt;/li>
+&lt;li>支持http body为proto-text格式的request/response by @hiberabyss in #1690&lt;/li>
+&lt;li>baidu_std协议支持传递client端设置的超时到server端 by @wwbmmm in #1472&lt;/li>
+&lt;li>bthread创建时支持通过attr指定继承tls span by @wwbmmm in #1494&lt;/li>
+&lt;li>rpc_replay支持bazel编译 by @taoxu in #1677&lt;/li>
+&lt;li>Server新增 Start(PortRange, const ServerOptions*) 接口 by @serverglen in #1460&lt;/li>
+&lt;li>FlapMap新增 insert(const std::pair&amp;lt;key_type, mapped_type&amp;gt;&amp;amp; kv) 接口 by @serverglen in #1468&lt;/li>
+&lt;li>Server新增eps bvar输出 by @serverglen in #1483&lt;/li>
+&lt;/ul>
+&lt;p>Bug修复&lt;/p>
+&lt;ul>
+&lt;li>修复 CheckHealth 未设置 has_request_code by @serverglen in #1502&lt;/li>
+&lt;li>修复server处理stream创建请求过程出错时发送非预期数据 by @jenrryyou in #1516&lt;/li>
+&lt;li>修复 LA selection runs too long 的出错 by @KaneVV1 in #1567&lt;/li>
+&lt;li>修复 http收到不合法请求时返回错误的response by @jl2005 in #1620&lt;/li>
+&lt;li>修复 bvar status 编译错误 by @zwkno1 in #1625&lt;/li>
+&lt;li>优化 InputMessenger client 端重试策略 by @ehds in #1680&lt;/li>
+&lt;li>修复 work_stealing_queue_unittest 在ARM下编译错误 by @TKONIY in #1709&lt;/li>
+&lt;li>修复 LatencyRecorder qps 统计不精确 by @wwbmmm in #1708&lt;/li>
+&lt;li>修复在 gcc11 下开启 &amp;ndash;std=c++20时编译错误 by @hiberabyss in #1719&lt;/li>
+&lt;li>修复不稳定和UT链接错误by @wwbmmm in #1711&lt;/li>
+&lt;li>修复 Thrift 下载 url 错误 by @yangzhg in #1725&lt;/li>
+&lt;li>删除 grpc ParseH2Settings 不必要的warning日志 by @yanjianglu in #1599&lt;/li>
+&lt;/ul>
+&lt;p>其它改进&lt;/p>
+&lt;ul>
+&lt;li>文档改进 by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/li>
+&lt;li>修正拼写错误 by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
+&lt;/ul>
+&lt;p>感谢上述所有1.1.0版本的贡献者！&lt;/p></description></item><item><title>Docs: brpc初学者指南</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</guid><description>
 &lt;p>(作者简介：lorinlee，是brpc新进committer，在字节跳动负责图数据库相关工作）&lt;/p>
 &lt;p>Apache brpc(incubating) 是一款优秀的工业级 C++ RPC 框架，其兼具高性能、兼容多种协议、周边工具完善等多种优点于一身，已在国内多个大厂广泛使用。&lt;/p>
 &lt;p>有不少同学对brpc感兴趣，但还没有找到合适的路径，不知道如何学习。笔者是来自字节跳动的研发工程师，也曾遇到相同的困扰，后来通过自己的一些摸索，成为了brpc committer，期间也总结了一些经验，希望对大家有所帮助。&lt;/p>
@@ -1353,7 +1305,44 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>thrift: 单机的平均延时和吞吐尚可，多机的平均延时明显高于brpc和UB。吞吐的扩展性较差，提高线程数和client数几乎不能提升吞吐。&lt;/p>
 &lt;p>sofa-pbrpc: 处理小包的吞吐尚可，大包的吞吐显著低于其他RPC，延时受长尾影响很大。&lt;/p>
 &lt;p>hulu-pbrpc: 单机表现和sofa-pbrpc类似，但多机的延时表现极差。&lt;/p>
-&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: Committer指南</title><link>https://brpc.incubator.apache.org/zh/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/committer/</guid><description>
+&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</guid><description>
+&lt;p>11月30日，随着committer lorin lee在apache基金会的孵化邮件组发出vote close的邮件， apache brpc 1.0.0的发版投票结果是通过。&lt;/p>
+&lt;p>下载地址在这里：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
+&lt;p>&lt;a href="../../../../../docs/blogs/releases/1.0.0/">点击查看1.0.0版本的主要变更&lt;/a>&lt;/p>
+&lt;p>1.0.0的发版，对brpc只是一个小小的里程碑，也是社区协作的结果。
+为此，brpc社区的committer和导师写下了各自的感言，一一记录如下。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>谭中意 1.0.0的发版，是一个小小的里程碑，可喜可贺。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>王维 1.0.0版本的发布，意味着brpc真正完成了从0到1的跨越。这是brpc的一小步，却是国内C++开源生态的一大步。祝brpc早日毕业。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>潘娟 恭喜1.0.0 新版本上线，无论对brpc社区本身还是社区用户来说，都是一份gift!&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>何磊 1.0.0作为brpc官方发布的稳定版本，为之后吸收更多相对激进的pr 提供了坚实的基础，也是brpc社区的重要里程碑。感谢负责此次发版的同学的无私付出。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>牟盖东 brpc 已经在很多公司和很多业务场景中被使用了，其中不乏一线互联网公司的推荐和搜索等业务场景，它早已是久经考验的工业级 rpc 框架。现如今 1.0 版本也正式推出，希望能有更多的业界朋友应用 brpc，也非常欢迎大家加入到 brpc 的共同建设中来。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>戈君 离毕业又近了一步，感谢大家的合力推动！&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>蔡道进 恭喜1.0.0版本的发布，社区期待已久，欢迎更多同学投入到brpc社区的建设中来。加油！&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>朱佳顺 很开心看到第一个apache正式版本顺利完成。做开源不易，常常面临困难，也需要更多的时间和投入。看到了大家付出努力在不断解决和克服困难，感谢参与到社区开发和建设中的每一位。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>李磊 恭喜brpc完成1.0.0的版本发布！期待有更多的开发者使用brpc、参与到brpc的社区工作中来，也祝愿brpc能够早日毕业！&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>陈章义 艰难但关键的一个版本，期待早日毕业。&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>Docs: Committer指南</title><link>https://brpc.incubator.apache.org/zh/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/committer/</guid><description>
 &lt;p>Apache社区的参与者具有以下角色：&lt;strong>贡献者（Contributor）&lt;/strong>、&lt;strong>提交者（Committer）&lt;/strong> 和 &lt;strong>PMC（项目成员委员会）成员&lt;/strong>。&lt;/p>
 &lt;p>当个人贡献被项目接受时，他/她将自动成为贡献者。
 Committer 和 PMC 成员在共识投票后由 PMC 邀请。&lt;/p>

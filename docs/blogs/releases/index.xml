@@ -1,4 +1,39 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Release</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/</link><description>Recent content in Release on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/docs/blogs/releases/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Release</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/</link><description>Recent content in Release on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/docs/blogs/releases/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</guid><description>
+&lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
+&lt;p>New features:&lt;/p>
+&lt;ul>
+&lt;li>Support apple silicon by @jamesge&lt;/li>
+&lt;li>Add an option to allow serialize/deserialize to/from a json array by @wasphin in #1604&lt;/li>
+&lt;li>Add redis empty request check by @lzfhust in #1745&lt;/li>
+&lt;li>Add butex_wake_all support nosignal flag by @yanglimingcn in #1751&lt;/li>
+&lt;li>Add wr/wrr policy degradation by @Huixxi in #1571&lt;/li>
+&lt;li>Add with_snappy in cmake by @renzhong in #1799&lt;/li>
+&lt;li>Add check append return code by @wwbmmm in #1762&lt;/li>
+&lt;li>Add CXXFLAGS in compiling protoc-gen-mcpack by @jamesge&lt;/li>
+&lt;/ul>
+&lt;p>Bugfix:&lt;/p>
+&lt;ul>
+&lt;li>Fix the header guard of brpc/periodic_task.h by @TousakaRin in #1820&lt;/li>
+&lt;li>Fix build warning, ByteSize() is deprecated, use ByteSizeLong() instead by @yangzhg in #1723&lt;/li>
+&lt;li>Fix c struct compile error by @wolfdan666 in #1736&lt;/li>
+&lt;li>Fix auto https check by @renzhong in #1754&lt;/li>
+&lt;li>Fix json2pb::JsonToProtoMessage() supports parsing multiple jsons by @jamesge&lt;/li>
+&lt;li>Fix compile error due to std limits header absent by @GOGOYAO in #1764&lt;/li>
+&lt;li>Fix a deadlock happened in ClearAbandonedStreamsImpl path by @zyearn in #1781&lt;/li>
+&lt;li>Fix send WindowUpdate when ClearAbandonedStreams is called by @zyearn in #1786&lt;/li>
+&lt;li>Fix _dl_sym undefined reference by @wwbmmm in #1784&lt;/li>
+&lt;li>Fix thrift protocol exception by @lzfhust in #1790&lt;/li>
+&lt;li>Fix Brpc build tools error when only build static by @stdpain in #1797&lt;/li>
+&lt;li>Fix discovery naming service core by @serverglen in #1802&lt;/li>
+&lt;li>Fix rpc_press can&amp;rsquo;t send request equably by @bumingchun #1763&lt;/li>
+&lt;li>Fix hostname2ip fails when aux_buf is not long enough by @chenBright in #1818&lt;/li>
+&lt;/ul>
+&lt;p>Other improvements:&lt;/p>
+&lt;ul>
+&lt;li>Improve documents by @wwbmmm, @tanzhongyi003, @guodongxiaren, @372046933, @wasphin, @hawkxiang, @TousakaRin, @Huixxi, @serverglen&lt;/li>
+&lt;li>Fix typos by @jamesge, @cyberkillor&lt;/li>
+&lt;/ul>
+&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
