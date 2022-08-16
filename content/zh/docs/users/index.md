@@ -55,8 +55,28 @@ description: >
       </a>
     </td>
     <td align="center" valign="middle">
-      <a href="https://www.weibo.com" target="_blank">
+      <a href="https://www.weibo.com/" target="_blank">
         <img width="222px" style="margin: 0 10px;" src="/images/community/weibo_logo.svg">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.vivo.com/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/vivo_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.4paradigm.com/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/4paradigm_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.xiaohongshu.com/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/redbook_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://zuoyebang.com/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/zuoyebang_logo.png">
       </a>
     </td>
   </div>
