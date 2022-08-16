@@ -889,8 +889,28 @@ succeed.&lt;/p>
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
-&lt;a href="https://www.weibo.com" target="_blank">
+&lt;a href="https://www.weibo.com/" target="_blank">
 &lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/weibo_logo.svg">
+&lt;/a>
+&lt;/td>
+&lt;td align="center" valign="middle">
+&lt;a href="https://www.vivo.com/" target="_blank">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/vivo_logo.png">
+&lt;/a>
+&lt;/td>
+&lt;td align="center" valign="middle">
+&lt;a href="https://www.4paradigm.com/" target="_blank">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/4paradigm_logo.png">
+&lt;/a>
+&lt;/td>
+&lt;td align="center" valign="middle">
+&lt;a href="https://www.xiaohongshu.com/" target="_blank">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/redbook_logo.png">
+&lt;/a>
+&lt;/td>
+&lt;td align="center" valign="middle">
+&lt;a href="https://zuoyebang.com/" target="_blank">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/zuoyebang_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;/div>
