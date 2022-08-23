@@ -1,7 +1,7 @@
 ---
 title: "bvar"
 linkTitle: "bvar"
-weight: 3
+weight: 1
 date: 2021-08-12
 description: >
   bvar简介。
