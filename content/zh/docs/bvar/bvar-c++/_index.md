@@ -1,7 +1,7 @@
 ---
 title: "bvar c++"
 linkTitle: "bvar c++"
-weight: 3
+weight: 2
 date: 2021-08-12
 description: >
   对bvar c++版本的快速介绍。
