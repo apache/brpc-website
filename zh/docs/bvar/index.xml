@@ -879,7 +879,7 @@ process_username : &amp;#34;gejun&amp;#34;
 &lt;li>&lt;a href="#bvargflag">bvar::GFlag&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h1 id="bvar-introduction">bvar Introduction&lt;/h1>
-&lt;p>单维度bvar使用文档，多维度mbvar请&lt;a href="mbvar_c++.md">移步&lt;/a>。&lt;/p>
+&lt;p>单维度bvar使用文档，多维度mbvar请&lt;a href="../mbvar-c++">移步&lt;/a>。&lt;/p>
 &lt;p>bvar分为多个具体的类，常用的有：&lt;/p>
 &lt;table>
 &lt;thead>
@@ -1083,9 +1083,9 @@ rpc_socket_count : 6 # 模块=rpc 类名=socket 指标=count
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">// } // bar
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000">expose_as&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">butil&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">StringPiece&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span> &lt;span style="color:#000">prefix&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">butil&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">StringPiece&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span> &lt;span style="color:#000">name&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="export-all-variables">Export all variables&lt;/h1>
-&lt;p>最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过&lt;a href="vars.md">/vars&lt;/a>服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：&lt;/p>
+&lt;p>最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过[/vars](../../Builtin Services/vars)服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：&lt;/p>
 &lt;ul>
-&lt;li>用&lt;a href="flags.md">gflags&lt;/a>解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过&lt;a href="flags.md">/flags&lt;/a>服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:&lt;/li>
+&lt;li>用[gflags](../../Builtin Services/flags)解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过[/flags](../../Builtin Services/flags)服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">#include&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;lt;gflags/gflags.h&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000;font-weight:bold">...&lt;/span>
@@ -1153,7 +1153,7 @@ rpc_socket_count : 6 # 模块=rpc 类名=socket 指标=count
 &lt;/table>
 &lt;p>当bvar_dump_file不为空时，程序会启动一个后台导出线程以bvar_dump_interval指定的间隔更新bvar_dump_file，其中包含了被bvar_dump_include匹配且不被bvar_dump_exclude匹配的所有bvar。&lt;/p>
 &lt;p>比如我们把所有的gflags修改为下图：&lt;/p>
-&lt;p>&lt;img src="../images/bvar_dump_flags_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/bvar_dump_flags_2.png" alt="img">&lt;/p>
 &lt;p>导出文件为：&lt;/p>
 &lt;pre tabindex="0">&lt;code>$ cat bvar.echo_server.data
 rpc_server_8002_builtin_service_count : 20
