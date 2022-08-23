@@ -79,5 +79,10 @@ description: >
         <img width="222px" style="margin: 0 10px;" src="/images/community/zuoyebang_logo.png">
       </a>
     </td>
+    <td align="center" valign="middle">
+      <a href="http://www.huanju.cn/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/joyy_logo.png">
+      </a>
+    </td>
   </div>
 </div>
