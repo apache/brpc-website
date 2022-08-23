@@ -232,9 +232,9 @@ int expose_as(const butil::StringPiece& prefix, const butil::StringPiece& name);
 
 # Export all variables
 
-最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过[/vars](../../Builtin\ Services/vars)服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：
+最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过[/vars](../../BuiltinServices/vars)服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：
 
-- 用[gflags](../../Builtin\ Services/flags)解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过[/flags](../../Builtin\ Services/flags)服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:
+- 用[gflags](../../BuiltinServices/flags)解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过[/flags](../../BuiltinServices/flags)服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:
 
 ```c++
   #include <gflags/gflags.h>
@@ -353,8 +353,9 @@ Reducer用二元运算符把多个值合并为一个值，运算符需满足结�
 // otherwise the result is undefined.
 template <typename T, typename Op>
 class Reducer : public Variable;
-```
+
 reducer << e1 << e2 << e3的作用等价于reducer = e1 op e2 op e3。
+```
 
 常见的Redcuer子类有bvar::Adder, bvar::Maxer, bvar::Miner。
 
