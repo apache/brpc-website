@@ -33,7 +33,7 @@ description: >
 
 # bvar Introduction
 
-单维度bvar使用文档，多维度mbvar请[移步](mbvar_c++.md)。
+单维度bvar使用文档，多维度mbvar请[移步](../mbvar-c++)。
 
 bvar分为多个具体的类，常用的有：
 
@@ -232,9 +232,9 @@ int expose_as(const butil::StringPiece& prefix, const butil::StringPiece& name);
 
 # Export all variables
 
-最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过[/vars](vars.md)服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：
+最常见的导出需求是通过HTTP接口查询和写入本地文件。前者在brpc中通过[/vars](../../Builtin Services/vars)服务提供，后者则已实现在bvar中，默认不打开。有几种方法打开这个功能：
 
-- 用[gflags](flags.md)解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过[/flags](flags.md)服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:
+- 用[gflags](../../Builtin Services/flags)解析输入参数，在程序启动时加入-bvar_dump，或在brpc中也可通过[/flags](../../Builtin Services/flags)服务在启动后动态修改。gflags的解析方法如下，在main函数处添加如下代码:
 
 ```c++
   #include <gflags/gflags.h>
@@ -274,7 +274,7 @@ dump功能由如下gflags控制：
 
 比如我们把所有的gflags修改为下图：
 
-![img](../images/bvar_dump_flags_2.png)
+![img](/images/docs/bvar_dump_flags_2.png)
 
 导出文件为：
 
