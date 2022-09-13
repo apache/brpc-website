@@ -38,7 +38,7 @@ You can:
 * Report bugs and submit patches.
 * Contribute code, testcase, documentation.
 
-Visit the [Contributing] page for more information.
+Visit the [Contributing](../contributing/) page for more information.
 
 ### Mailing list
 
