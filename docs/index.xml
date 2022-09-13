@@ -142,7 +142,7 @@ limitations under the License.
 &lt;li>Report bugs and submit patches.&lt;/li>
 &lt;li>Contribute code, testcase, documentation.&lt;/li>
 &lt;/ul>
-&lt;p>Visit the [Contributing] page for more information.&lt;/p>
+&lt;p>Visit the &lt;a href="../contributing/">Contributing&lt;/a> page for more information.&lt;/p>
 &lt;h3 id="mailing-list">Mailing list&lt;/h3>
 &lt;p>Get help using bRPC or contribute to the project on our mailing lists:&lt;/p>
 &lt;ul>
@@ -770,7 +770,19 @@ Participate in community discussions in public domain and have a positive impact
 Recognize the Apache community philosophy and be able to actively promote the community development.&lt;/p>
 &lt;h2 id="peer-review">Peer Review:&lt;/h2>
 &lt;p>The above requirements are highly subjective and cannot be measured quantitatively. Therefore, the PMC needs to form a regular review mechanism to discuss and invite people who meet the requirements.&lt;/p>
-&lt;p>Conduct a review every 1-2 months to nominate and discuss suitable candidates&lt;/p></description></item><item><title>Docs: Download bRPC</title><link>https://brpc.incubator.apache.org/docs/downloadbrpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/downloadbrpc/</guid><description>
+&lt;p>Conduct a review every 1-2 months to nominate and discuss suitable candidates&lt;/p></description></item><item><title>Docs: Contributing</title><link>https://brpc.incubator.apache.org/docs/community/contributing/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/contributing/</guid><description>
+&lt;p>If you meet any problem or request a new feature, you&amp;rsquo;re welcome to &lt;a href="https://github.com/brpc/brpc/issues/new/choose">create an issue&lt;/a>.&lt;/p>
+&lt;p>If you can solve any of &lt;a href="https://github.com/brpc/brpc/issues">the issues&lt;/a>, you&amp;rsquo;re welcome to send the PR to us.&lt;/p>
+&lt;p>Before the PR:&lt;/p>
+&lt;ul>
+&lt;li>Make sure your code style conforms to &lt;a href="https://google.github.io/styleguide/cppguide.html">google C++ coding style&lt;/a>. Indentation is preferred to be 4 spaces.&lt;/li>
+&lt;li>The code appears where it should be. For example the code to support an extra protocol should not be put in general classes like server.cpp, channel.cpp, while a general modification would better not be hidden inside a very specific protocol.&lt;/li>
+&lt;li>Has unittests.&lt;/li>
+&lt;/ul>
+&lt;p>After the PR:&lt;/p>
+&lt;ul>
+&lt;li>Make sure the &lt;a href="https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests">travis-ci&lt;/a> passed.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Download bRPC</title><link>https://brpc.incubator.apache.org/docs/downloadbrpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/downloadbrpc/</guid><description>
 &lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more

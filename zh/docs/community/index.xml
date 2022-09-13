@@ -24,7 +24,7 @@ limitations under the License.
 &lt;li>报告错误并提交补丁。&lt;/li>
 &lt;li>贡献代码、测试用例和文档。&lt;/li>
 &lt;/ul>
-&lt;p>更多有关信息，请访问[贡献]页面。&lt;/p>
+&lt;p>更多有关信息，请访问&lt;a href="../contributing/">贡献&lt;/a>页面。&lt;/p>
 &lt;h3 id="邮件列表">邮件列表&lt;/h3>
 &lt;p>使用bRPC获取帮助或在我们的邮件列表中为项目做出贡献：&lt;/p>
 &lt;ul>
@@ -195,4 +195,16 @@ Committer 和 PMC 成员在共识投票后由 PMC 邀请。&lt;/p>
 认同 Apache 社区理念，能够积极推动社区发展。&lt;/p>
 &lt;h2 id="同行评审">同行评审：&lt;/h2>
 &lt;p>上述要求具有很强的主观性，无法量化。因此，PMC需要形成定期审核机制，对符合条件的人员进行讨论和邀请。&lt;/p>
-&lt;p>每 1-2 个月进行一次审查，以提名和讨论合适的候选人&lt;/p></description></item></channel></rss>
+&lt;p>每 1-2 个月进行一次审查，以提名和讨论合适的候选人&lt;/p></description></item><item><title>Docs: 贡献</title><link>https://brpc.incubator.apache.org/zh/docs/community/contributing/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/contributing/</guid><description>
+&lt;p>如果你遇到问题或需要新功能，欢迎&lt;a href="https://github.com/brpc/brpc/issues/new/choose">创建issue&lt;/a>。&lt;/p>
+&lt;p>如果你可以解决某个&lt;a href="https://github.com/brpc/brpc/issues">issue&lt;/a>, 欢迎发送PR。&lt;/p>
+&lt;p>发送PR前请确认：&lt;/p>
+&lt;ul>
+&lt;li>你的代码符合&lt;a href="https://google.github.io/styleguide/cppguide.html">google C++代码规范&lt;/a>。缩进最好为4个空格。&lt;/li>
+&lt;li>代码出现的位置和其定位相符。比如对于某特定协议的扩展代码不该出现在server.cpp, channel.cpp这些较为通用的类中，而一些非常通用的改动也不该深藏在某个特定协议的cpp中。&lt;/li>
+&lt;li>有对应的单测代码。&lt;/li>
+&lt;/ul>
+&lt;p>提交PR后请确认：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests">travis-ci&lt;/a>成功通过。&lt;/li>
+&lt;/ul></description></item></channel></rss>
