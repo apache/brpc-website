@@ -64,13 +64,13 @@ description: >
       </a>
     </td>
     <td align="center" valign="middle">
-      <a href="https://www.4paradigm.com/" target="_blank">
-        <img width="222px" style="margin: 0 10px;" src="/images/community/4paradigm_logo.png">
+      <a href="https://www.xiaohongshu.com/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/redbook_logo.png">
       </a>
     </td>
     <td align="center" valign="middle">
-      <a href="https://www.xiaohongshu.com/" target="_blank">
-        <img width="222px" style="margin: 0 10px;" src="/images/community/redbook_logo.png">
+      <a href="https://www.4paradigm.com/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/4paradigm_logo.png">
       </a>
     </td>
     <td align="center" valign="middle">
@@ -81,6 +81,11 @@ description: >
     <td align="center" valign="middle">
       <a href="http://www.huanju.cn/" target="_blank">
         <img width="222px" style="margin: 0 10px;" src="/images/community/joyy_logo.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://doris.apache.org/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/doris_logo.svg">
       </a>
     </td>
   </div>
