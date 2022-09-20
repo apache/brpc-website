@@ -911,13 +911,13 @@ succeed.&lt;/p>
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
-&lt;a href="https://www.4paradigm.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/4paradigm_logo.png">
+&lt;a href="https://www.xiaohongshu.com/" target="_blank">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/redbook_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
-&lt;a href="https://www.xiaohongshu.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/redbook_logo.png">
+&lt;a href="https://www.4paradigm.com/" target="_blank">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/4paradigm_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
@@ -928,6 +928,11 @@ succeed.&lt;/p>
 &lt;td align="center" valign="middle">
 &lt;a href="http://www.huanju.cn/" target="_blank">
 &lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/joyy_logo.png">
+&lt;/a>
+&lt;/td>
+&lt;td align="center" valign="middle">
+&lt;a href="https://doris.apache.org/" target="_blank">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/doris_logo.svg">
 &lt;/a>
 &lt;/td>
 &lt;/div>
