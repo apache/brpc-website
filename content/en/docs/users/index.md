@@ -88,5 +88,10 @@ description: >
         <img width="222px" style="margin: 0 10px;" src="/images/community/doris_logo.svg">
       </a>
     </td>
+    <td align="center" valign="middle">
+      <a href="https://github.com/baidu/BaikalDB/wiki" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/baikaldb_logo.png">
+      </a>
+    </td>
   </div>
 </div>
