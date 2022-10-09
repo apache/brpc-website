@@ -935,5 +935,15 @@ succeed.&lt;/p>
 &lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/doris_logo.svg">
 &lt;/a>
 &lt;/td>
+&lt;td align="center" valign="middle">
+&lt;a href="https://github.com/baidu/BaikalDB/wiki" target="_blank">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/baikaldb_logo.png">
+&lt;/a>
+&lt;/td>
+&lt;td align="center" valign="middle">
+&lt;a href="https://www.ishumei.com/" target="_blank">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/nextdata_logo.png">
+&lt;/a>
+&lt;/td>
 &lt;/div>
 &lt;/div></description></item></channel></rss>
