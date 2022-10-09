@@ -93,5 +93,10 @@ description: >
         <img width="222px" style="margin: 0 10px;" src="/images/community/baikaldb_logo.png">
       </a>
     </td>
+    <td align="center" valign="middle">
+      <a href="https://www.ishumei.com/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/nextdata_logo.png">
+      </a>
+    </td>
   </div>
 </div>
