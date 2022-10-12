@@ -1119,7 +1119,7 @@ bvar目录下是指标收集的实现。&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="使用cmake编译brpc-3">使用cmake编译brpc&lt;/h3>
 &lt;p>参考&lt;a href="#%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91brpc">这里&lt;/a>&lt;/p>
 &lt;h1 id="支持的依赖">支持的依赖&lt;/h1>
-&lt;h2 id="gcc-48-71">GCC: 4.8-7.1&lt;/h2>
+&lt;h2 id="gcc-48-112">GCC: 4.8-11.2&lt;/h2>
 &lt;p>c++11被默认启用，以去除去boost的依赖（比如atomic）。&lt;/p>
 &lt;p>GCC7中over-aligned的问题暂时被禁止。&lt;/p>
 &lt;p>使用其他版本的gcc可能会产生编译警告，请联系我们予以修复。&lt;/p>
