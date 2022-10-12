@@ -485,7 +485,7 @@ limitations under the License.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="compile-brpc-with-cmake-3">Compile brpc with cmake&lt;/h3>
 &lt;p>Same with &lt;a href="#compile-brpc-with-cmake">here&lt;/a>&lt;/p>
 &lt;h1 id="supported-deps">Supported deps&lt;/h1>
-&lt;h2 id="gcc-48-71">GCC: 4.8-7.1&lt;/h2>
+&lt;h2 id="gcc-48-112">GCC: 4.8-11.2&lt;/h2>
 &lt;p>c++11 is turned on by default to remove dependencies on boost (atomic).&lt;/p>
 &lt;p>The over-aligned issues in GCC7 is suppressed temporarily now.&lt;/p>
 &lt;p>Using other versions of gcc may generate warnings, contact us to fix.&lt;/p>
