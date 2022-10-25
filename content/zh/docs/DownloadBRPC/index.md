@@ -26,7 +26,7 @@ limitations under the License.
 -->
 ## 下载 Apache bRPC (incubating) 
 
-Apache brpc（孵化）作为源工件发布。我们很高兴宣布我们的1.2.0版本已经发布如下了！
+Apache brpc（孵化）作为源工件发布。我们很高兴宣布我们的1.3.0版本已经发布如下了！
 
 
 ### 候选版本 
@@ -42,6 +42,12 @@ Apache brpc（孵化）作为源工件发布。我们很高兴宣布我们的1.2
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td>Apache brpc (incubating) 1.3.0 (tar.gz)</td>
+            <td><a href="https://dlcdn.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://downloads.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.asc">ASC</a></td>
+        </tr>
         <tr>
             <td>Apache brpc (incubating) 1.2.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz">tar.gz</a></td>
