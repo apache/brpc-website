@@ -27,7 +27,7 @@ limitations under the License.
 ## Apache brpc (incubating) Downloads
 
 Apache brpc (incubating) is released as a source artifact.
-We are pleased to announce our 1.2.0 release as below.
+We are pleased to announce our 1.3.0 release as below.
 
 
 ### Release Candidate 
@@ -43,6 +43,12 @@ We are pleased to announce our 1.2.0 release as below.
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td>Apache brpc (incubating) 1.3.0 (tar.gz)</td>
+            <td><a href="https://dlcdn.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://downloads.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.asc">ASC</a></td>
+        </tr>
         <tr>
             <td>Apache brpc (incubating) 1.2.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz">tar.gz</a></td>
