@@ -1,39 +1,45 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Docs</title><link>https://brpc.incubator.apache.org/docs/</link><description>Recent content in Docs on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Docs</title><link>https://brpc.incubator.apache.org/docs/</link><description>Recent content in Docs on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.3.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.3.0/</link><pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.3.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
-&lt;li>Support apple silicon by @jamesge&lt;/li>
-&lt;li>Add an option to allow serialize/deserialize to/from a json array by @wasphin in #1604&lt;/li>
-&lt;li>Add redis empty request check by @lzfhust in #1745&lt;/li>
-&lt;li>Add butex_wake_all support nosignal flag by @yanglimingcn in #1751&lt;/li>
-&lt;li>Add wr/wrr policy degradation by @Huixxi in #1571&lt;/li>
-&lt;li>Add with_snappy in cmake by @renzhong in #1799&lt;/li>
-&lt;li>Add check append return code by @wwbmmm in #1762&lt;/li>
-&lt;li>Add CXXFLAGS in compiling protoc-gen-mcpack by @jamesge&lt;/li>
+&lt;li>Support gcc on linux arm64 by @jamesge&lt;/li>
+&lt;li>Support gcc version &amp;gt;= 11.2.0 by @wwbmmm in #1783&lt;/li>
+&lt;li>Support the latest version of bazel(default v4.2.2) by @hcoona in #1657&lt;/li>
+&lt;li>Support multi-dimension bvar, a powerful extension of bvar by @serverglen in #1608&lt;/li>
+&lt;li>Restruct event_dispatcher source file by @guodongxiaren in #1888&lt;/li>
+&lt;li>Add http retry with error code policy by @chenBright in #1927&lt;/li>
+&lt;li>Add Nacos naming service by @yyweii in #1922&lt;/li>
+&lt;li>Add customized server bvar prefix by @jenrryyou in #1854&lt;/li>
+&lt;li>Add escape log content before printing by @jamesge&lt;/li>
 &lt;/ul>
 &lt;p>Bugfix:&lt;/p>
 &lt;ul>
-&lt;li>Fix the header guard of brpc/periodic_task.h by @TousakaRin in #1820&lt;/li>
-&lt;li>Fix build warning, ByteSize() is deprecated, use ByteSizeLong() instead by @yangzhg in #1723&lt;/li>
-&lt;li>Fix c struct compile error by @wolfdan666 in #1736&lt;/li>
-&lt;li>Fix auto https check by @renzhong in #1754&lt;/li>
-&lt;li>Fix json2pb::JsonToProtoMessage() supports parsing multiple jsons by @jamesge&lt;/li>
-&lt;li>Fix compile error due to std limits header absent by @GOGOYAO in #1764&lt;/li>
-&lt;li>Fix a deadlock happened in ClearAbandonedStreamsImpl path by @zyearn in #1781&lt;/li>
-&lt;li>Fix send WindowUpdate when ClearAbandonedStreams is called by @zyearn in #1786&lt;/li>
-&lt;li>Fix _dl_sym undefined reference by @wwbmmm in #1784&lt;/li>
-&lt;li>Fix thrift protocol exception by @lzfhust in #1790&lt;/li>
-&lt;li>Fix Brpc build tools error when only build static by @stdpain in #1797&lt;/li>
-&lt;li>Fix discovery naming service core by @serverglen in #1802&lt;/li>
-&lt;li>Fix rpc_press can&amp;rsquo;t send request equably by @bumingchun #1763&lt;/li>
-&lt;li>Fix hostname2ip fails when aux_buf is not long enough by @chenBright in #1818&lt;/li>
+&lt;li>Fix issues in FlatMap by @jamesge&lt;/li>
+&lt;li>Fix override issue in pb by @jamesge, @wwbmmm&lt;/li>
+&lt;li>Fix ALIGNAS/ALIGNOF/BAIDU_CACHELINE_ALIGMENT by @jamesge&lt;/li>
+&lt;li>Fix some warnings for clang and revert changes on ALIGNAS/ALIGNOF by @jamesge&lt;/li>
+&lt;li>Fix rpc_replay continue when failed to init channel by @ehds in #1938&lt;/li>
+&lt;li>Fix multi-dimension bvar compile error by @dabao085 in #1937&lt;/li>
+&lt;li>Fix bvar_dump_tabs default value problem by @yyweii in #1920&lt;/li>
+&lt;li>Fix butex_wait failed with timeout by @Huixxi in #1917&lt;/li>
+&lt;li>Fix rpc_replay can&amp;rsquo;t send request equably by @bumingchun in #1910&lt;/li>
+&lt;li>Fix compile warning due to DumpOptions object by @ml-haha in #1905&lt;/li>
+&lt;li>Fix test_bvar fail on m1 mac by @wwbmmm in #1901&lt;/li>
+&lt;li>Fix the slow test in brpc_socket_unittest.cpp by @zyearn in #1898&lt;/li>
+&lt;li>Fix the first bthread keytable on worker pthread will be deleted twice by @chenBright in #1884&lt;/li>
+&lt;li>Fix currently broken MacOS build by @zyearn in #1871&lt;/li>
+&lt;li>Fix ProcessHttpRequest supports for http2 by @dandyhuang in #1868&lt;/li>
+&lt;li>Fix get_value core caused by the sampler thread start too early by @Huixxi in #1863&lt;/li>
+&lt;li>Fix UDS ut failed on MacOS by @wwbmmm in #1843&lt;/li>
+&lt;li>Fix coredump cause by bad growth_non_responsive http request by @acelyc111 in #1278&lt;/li>
+&lt;li>Fix not to abort when checking the errorno with unicode string by @tobegit3hub in #1142&lt;/li>
 &lt;/ul>
 &lt;p>Other improvements:&lt;/p>
 &lt;ul>
-&lt;li>Improve documents by @wwbmmm, @tanzhongyi003, @guodongxiaren, @372046933, @wasphin, @hawkxiang, @TousakaRin, @Huixxi, @serverglen&lt;/li>
-&lt;li>Fix typos by @jamesge, @cyberkillor&lt;/li>
+&lt;li>Improve/add documents by @wwbmmm, @JackBoosY, @morningman, @serverglen, @chenBright, @guodongxiaren, @xdh0817, @KaneVV1, @tanzhongyi003, @lzfhust, @Huixxi&lt;/li>
+&lt;li>Fix typos by @opheliaKyouko, @day253, @chenBright, @fansehep&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: bRPC overview</title><link>https://brpc.incubator.apache.org/docs/overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/overview/</guid><description>
+&lt;p>Thanks to all contributors for the 1.3.0 version!&lt;/p></description></item><item><title>Docs: bRPC overview</title><link>https://brpc.incubator.apache.org/docs/overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/overview/</guid><description>
 &lt;h1 id="what-is-rpc">What is RPC?&lt;/h1>
 &lt;p>Most machines on internet communicate with each other via &lt;a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP&lt;/a>. However, TCP/IP only guarantees reliable data transmissions. We need to abstract more to build services:&lt;/p>
 &lt;ul>
@@ -295,43 +301,42 @@ limitations under the License.
 &lt;td>Committer&lt;/td>
 &lt;td>apache&lt;/td>
 &lt;/tr>
-&lt;/table></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</guid><description>
+&lt;/table></description></item><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
-&lt;li>Support ipv6 and unix domain socket by @wwbmmm in #1560&lt;/li>
-&lt;li>Support protobuf 3.19.x by @hcoona in #1679&lt;/li>
-&lt;li>Support http protocol dump and replay by @guodongxiaren in #1503&lt;/li>
-&lt;li>Support nshead protocol dump and replay by @wwbmmm in #1486&lt;/li>
-&lt;li>Support parse proto-text format http request body by @hiberabyss in #1690&lt;/li>
-&lt;li>Support deliver timeout from client to server for baidu_std protocol by @wwbmmm in #1472&lt;/li>
-&lt;li>Support inherit span on bthread create by @wwbmmm in #1494&lt;/li>
-&lt;li>Add rpc_replay BUILD file by @taoxu in #1677&lt;/li>
-&lt;li>Add brpc server Start(PortRange, const ServerOptions*) by @serverglen in #1460&lt;/li>
-&lt;li>Add FlatMap insert(const std::pair&amp;lt;key_type, mapped_type&amp;gt;&amp;amp; kv) by @serverglen in #1468&lt;/li>
-&lt;li>Add server eps bvar @serverglen in #1483&lt;/li>
+&lt;li>Support apple silicon by @jamesge&lt;/li>
+&lt;li>Add an option to allow serialize/deserialize to/from a json array by @wasphin in #1604&lt;/li>
+&lt;li>Add redis empty request check by @lzfhust in #1745&lt;/li>
+&lt;li>Add butex_wake_all support nosignal flag by @yanglimingcn in #1751&lt;/li>
+&lt;li>Add wr/wrr policy degradation by @Huixxi in #1571&lt;/li>
+&lt;li>Add with_snappy in cmake by @renzhong in #1799&lt;/li>
+&lt;li>Add check append return code by @wwbmmm in #1762&lt;/li>
+&lt;li>Add CXXFLAGS in compiling protoc-gen-mcpack by @jamesge&lt;/li>
 &lt;/ul>
 &lt;p>Bugfix:&lt;/p>
 &lt;ul>
-&lt;li>Fix CheckHealth not set has_request_code bug by @serverglen in #1502&lt;/li>
-&lt;li>Fix a bug that server will send unexpected data frame to client if there are errors occur during processing stream create request by @jenrryyou in #1516&lt;/li>
-&lt;li>Fix LA selection runs too long by @KaneVV1 in #1567&lt;/li>
-&lt;li>Fix HttpResponse error by @jl2005 in #1620&lt;/li>
-&lt;li>Fix bvar status compile error by @zwkno1 in #1625&lt;/li>
-&lt;li>Fix InputMessenger client side retry policy by @ehds in #1680&lt;/li>
-&lt;li>Fix work_stealing_queue_unittest for ARM by @TKONIY in #1709&lt;/li>
-&lt;li>Fix LatencyRecorder qps not accurate by @wwbmmm in #1708&lt;/li>
-&lt;li>Fix compile error after gcc11 with &amp;ndash;std=c++20 by @hiberabyss in #1719&lt;/li>
-&lt;li>Fix unstable UT link error by @wwbmmm in #1711&lt;/li>
-&lt;li>Fix Thrift download url to avoid pr build failed by @yangzhg in #1725&lt;/li>
-&lt;li>Remove grpc ParseH2Settings warning log by @yanjianglu in #1599&lt;/li>
+&lt;li>Fix the header guard of brpc/periodic_task.h by @TousakaRin in #1820&lt;/li>
+&lt;li>Fix build warning, ByteSize() is deprecated, use ByteSizeLong() instead by @yangzhg in #1723&lt;/li>
+&lt;li>Fix c struct compile error by @wolfdan666 in #1736&lt;/li>
+&lt;li>Fix auto https check by @renzhong in #1754&lt;/li>
+&lt;li>Fix json2pb::JsonToProtoMessage() supports parsing multiple jsons by @jamesge&lt;/li>
+&lt;li>Fix compile error due to std limits header absent by @GOGOYAO in #1764&lt;/li>
+&lt;li>Fix a deadlock happened in ClearAbandonedStreamsImpl path by @zyearn in #1781&lt;/li>
+&lt;li>Fix send WindowUpdate when ClearAbandonedStreams is called by @zyearn in #1786&lt;/li>
+&lt;li>Fix _dl_sym undefined reference by @wwbmmm in #1784&lt;/li>
+&lt;li>Fix thrift protocol exception by @lzfhust in #1790&lt;/li>
+&lt;li>Fix Brpc build tools error when only build static by @stdpain in #1797&lt;/li>
+&lt;li>Fix discovery naming service core by @serverglen in #1802&lt;/li>
+&lt;li>Fix rpc_press can&amp;rsquo;t send request equably by @bumingchun #1763&lt;/li>
+&lt;li>Fix hostname2ip fails when aux_buf is not long enough by @chenBright in #1818&lt;/li>
 &lt;/ul>
 &lt;p>Other improvements:&lt;/p>
 &lt;ul>
-&lt;li>Improve documents by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/li>
-&lt;li>Fix typos by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
+&lt;li>Improve documents by @wwbmmm, @tanzhongyi003, @guodongxiaren, @372046933, @wasphin, @hawkxiang, @TousakaRin, @Huixxi, @serverglen&lt;/li>
+&lt;li>Fix typos by @jamesge, @cyberkillor&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.1.0 version!&lt;/p></description></item><item><title>Docs: Getting started</title><link>https://brpc.incubator.apache.org/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/getting_started/</guid><description>
+&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: Getting started</title><link>https://brpc.incubator.apache.org/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/getting_started/</guid><description>
 &lt;h1 id="build">BUILD&lt;/h1>
 &lt;p>brpc prefers static linkages of deps, so that they don&amp;rsquo;t have to be installed on every machine running the app.&lt;/p>
 &lt;p>brpc depends on following packages:&lt;/p>
@@ -676,7 +681,70 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>If you have any concerns regarding bRPC’s security, or you discover a vulnerability or potential threat, please don’t hesitate to get in touch with the &lt;a href="http://www.apache.org/security/">Apache Security Team&lt;/a> by dropping an email at &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>.&lt;/p>
 &lt;p>Please specify the project name as &amp;ldquo;bRPC&amp;rdquo; in the email, and provide a description of the relevant problem or potential threat. You are also urged to recommend how to reproduce and replicate the issue.&lt;/p>
 &lt;p>The Apache Security Team and the bRPC community will get back to you after assessing and analyzing the findings.&lt;/p>
-&lt;p>&lt;strong>Please note&lt;/strong> that the security issue should be reported on the security email first, before disclosing it on any public domain.&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</guid><description>
+&lt;p>&lt;strong>Please note&lt;/strong> that the security issue should be reported on the security email first, before disclosing it on any public domain.&lt;/p></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</guid><description>
+&lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
+&lt;p>New features:&lt;/p>
+&lt;ul>
+&lt;li>Support ipv6 and unix domain socket by @wwbmmm in #1560&lt;/li>
+&lt;li>Support protobuf 3.19.x by @hcoona in #1679&lt;/li>
+&lt;li>Support http protocol dump and replay by @guodongxiaren in #1503&lt;/li>
+&lt;li>Support nshead protocol dump and replay by @wwbmmm in #1486&lt;/li>
+&lt;li>Support parse proto-text format http request body by @hiberabyss in #1690&lt;/li>
+&lt;li>Support deliver timeout from client to server for baidu_std protocol by @wwbmmm in #1472&lt;/li>
+&lt;li>Support inherit span on bthread create by @wwbmmm in #1494&lt;/li>
+&lt;li>Add rpc_replay BUILD file by @taoxu in #1677&lt;/li>
+&lt;li>Add brpc server Start(PortRange, const ServerOptions*) by @serverglen in #1460&lt;/li>
+&lt;li>Add FlatMap insert(const std::pair&amp;lt;key_type, mapped_type&amp;gt;&amp;amp; kv) by @serverglen in #1468&lt;/li>
+&lt;li>Add server eps bvar @serverglen in #1483&lt;/li>
+&lt;/ul>
+&lt;p>Bugfix:&lt;/p>
+&lt;ul>
+&lt;li>Fix CheckHealth not set has_request_code bug by @serverglen in #1502&lt;/li>
+&lt;li>Fix a bug that server will send unexpected data frame to client if there are errors occur during processing stream create request by @jenrryyou in #1516&lt;/li>
+&lt;li>Fix LA selection runs too long by @KaneVV1 in #1567&lt;/li>
+&lt;li>Fix HttpResponse error by @jl2005 in #1620&lt;/li>
+&lt;li>Fix bvar status compile error by @zwkno1 in #1625&lt;/li>
+&lt;li>Fix InputMessenger client side retry policy by @ehds in #1680&lt;/li>
+&lt;li>Fix work_stealing_queue_unittest for ARM by @TKONIY in #1709&lt;/li>
+&lt;li>Fix LatencyRecorder qps not accurate by @wwbmmm in #1708&lt;/li>
+&lt;li>Fix compile error after gcc11 with &amp;ndash;std=c++20 by @hiberabyss in #1719&lt;/li>
+&lt;li>Fix unstable UT link error by @wwbmmm in #1711&lt;/li>
+&lt;li>Fix Thrift download url to avoid pr build failed by @yangzhg in #1725&lt;/li>
+&lt;li>Remove grpc ParseH2Settings warning log by @yanjianglu in #1599&lt;/li>
+&lt;/ul>
+&lt;p>Other improvements:&lt;/p>
+&lt;ul>
+&lt;li>Improve documents by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/li>
+&lt;li>Fix typos by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
+&lt;/ul>
+&lt;p>Thanks to all contributors for the 1.1.0 version!&lt;/p></description></item><item><title>Docs: Committer Guide</title><link>https://brpc.incubator.apache.org/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/committer/</guid><description>
+&lt;p>Participants in the Apache community have the following roles: &lt;strong>Contributor&lt;/strong>, &lt;strong>Committer&lt;/strong>, and &lt;strong>PMC(Project Member Committee) member&lt;/strong>.&lt;/p>
+&lt;p>When an individual contribution is accepted by the project, he/she will automatically become a Contributor.
+Committer and PMC members are invited by the PMC after a consensus vote.&lt;/p>
+&lt;p>Here we will only discuss some guidelines for the bRPC community to invite Committer and PMC member in order to be able to effectively estimate developer participation in the community.&lt;/p>
+&lt;h2 id="the-apache-way">The Apache Way:&lt;/h2>
+&lt;p>Before anyone can become a Committer or PMC member of an Apache project, they should first understand &amp;ldquo;&lt;a href="https://apache.org/theapacheway/index.html">What&amp;rsquo;s TheApacheWay&lt;/a>&amp;rdquo;.&lt;/p>
+&lt;h2 id="guidance-for-committer">Guidance for Committer:&lt;/h2>
+&lt;p>Have significant feature contributions (not limited to code), or long-term participation in community building (bug fixing, code review, documentation translation and proofreading, community outreach, etc.)
+Participate in community discussions in public domain and have a positive impact.&lt;/p>
+&lt;h2 id="guidance-for-pmc-member">Guidance for PMC member:&lt;/h2>
+&lt;p>Be able to actively participate in community maintenance work, such as answering emails, organizing wiki, release management, code review, etc.
+Recognize the Apache community philosophy and be able to actively promote the community development.&lt;/p>
+&lt;h2 id="peer-review">Peer Review:&lt;/h2>
+&lt;p>The above requirements are highly subjective and cannot be measured quantitatively. Therefore, the PMC needs to form a regular review mechanism to discuss and invite people who meet the requirements.&lt;/p>
+&lt;p>Conduct a review every 1-2 months to nominate and discuss suitable candidates&lt;/p></description></item><item><title>Docs: Contributing</title><link>https://brpc.incubator.apache.org/docs/community/contributing/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/contributing/</guid><description>
+&lt;p>If you meet any problem or request a new feature, you&amp;rsquo;re welcome to &lt;a href="https://github.com/brpc/brpc/issues/new/choose">create an issue&lt;/a>.&lt;/p>
+&lt;p>If you can solve any of &lt;a href="https://github.com/brpc/brpc/issues">the issues&lt;/a>, you&amp;rsquo;re welcome to send the PR to us.&lt;/p>
+&lt;p>Before the PR:&lt;/p>
+&lt;ul>
+&lt;li>Make sure your code style conforms to &lt;a href="https://google.github.io/styleguide/cppguide.html">google C++ coding style&lt;/a>. Indentation is preferred to be 4 spaces.&lt;/li>
+&lt;li>The code appears where it should be. For example the code to support an extra protocol should not be put in general classes like server.cpp, channel.cpp, while a general modification would better not be hidden inside a very specific protocol.&lt;/li>
+&lt;li>Has unittests.&lt;/li>
+&lt;/ul>
+&lt;p>After the PR:&lt;/p>
+&lt;ul>
+&lt;li>Make sure the &lt;a href="https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests">travis-ci&lt;/a> passed.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
@@ -755,34 +823,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;li>community: add release doc by @lorinlee in #1582&lt;/li>
 &lt;li>Update release_cn.md by @tanzhongyi003 in #1588&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.0.0 version!&lt;/p></description></item><item><title>Docs: Committer Guide</title><link>https://brpc.incubator.apache.org/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/committer/</guid><description>
-&lt;p>Participants in the Apache community have the following roles: &lt;strong>Contributor&lt;/strong>, &lt;strong>Committer&lt;/strong>, and &lt;strong>PMC(Project Member Committee) member&lt;/strong>.&lt;/p>
-&lt;p>When an individual contribution is accepted by the project, he/she will automatically become a Contributor.
-Committer and PMC members are invited by the PMC after a consensus vote.&lt;/p>
-&lt;p>Here we will only discuss some guidelines for the bRPC community to invite Committer and PMC member in order to be able to effectively estimate developer participation in the community.&lt;/p>
-&lt;h2 id="the-apache-way">The Apache Way:&lt;/h2>
-&lt;p>Before anyone can become a Committer or PMC member of an Apache project, they should first understand &amp;ldquo;&lt;a href="https://apache.org/theapacheway/index.html">What&amp;rsquo;s TheApacheWay&lt;/a>&amp;rdquo;.&lt;/p>
-&lt;h2 id="guidance-for-committer">Guidance for Committer:&lt;/h2>
-&lt;p>Have significant feature contributions (not limited to code), or long-term participation in community building (bug fixing, code review, documentation translation and proofreading, community outreach, etc.)
-Participate in community discussions in public domain and have a positive impact.&lt;/p>
-&lt;h2 id="guidance-for-pmc-member">Guidance for PMC member:&lt;/h2>
-&lt;p>Be able to actively participate in community maintenance work, such as answering emails, organizing wiki, release management, code review, etc.
-Recognize the Apache community philosophy and be able to actively promote the community development.&lt;/p>
-&lt;h2 id="peer-review">Peer Review:&lt;/h2>
-&lt;p>The above requirements are highly subjective and cannot be measured quantitatively. Therefore, the PMC needs to form a regular review mechanism to discuss and invite people who meet the requirements.&lt;/p>
-&lt;p>Conduct a review every 1-2 months to nominate and discuss suitable candidates&lt;/p></description></item><item><title>Docs: Contributing</title><link>https://brpc.incubator.apache.org/docs/community/contributing/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/contributing/</guid><description>
-&lt;p>If you meet any problem or request a new feature, you&amp;rsquo;re welcome to &lt;a href="https://github.com/brpc/brpc/issues/new/choose">create an issue&lt;/a>.&lt;/p>
-&lt;p>If you can solve any of &lt;a href="https://github.com/brpc/brpc/issues">the issues&lt;/a>, you&amp;rsquo;re welcome to send the PR to us.&lt;/p>
-&lt;p>Before the PR:&lt;/p>
-&lt;ul>
-&lt;li>Make sure your code style conforms to &lt;a href="https://google.github.io/styleguide/cppguide.html">google C++ coding style&lt;/a>. Indentation is preferred to be 4 spaces.&lt;/li>
-&lt;li>The code appears where it should be. For example the code to support an extra protocol should not be put in general classes like server.cpp, channel.cpp, while a general modification would better not be hidden inside a very specific protocol.&lt;/li>
-&lt;li>Has unittests.&lt;/li>
-&lt;/ul>
-&lt;p>After the PR:&lt;/p>
-&lt;ul>
-&lt;li>Make sure the &lt;a href="https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests">travis-ci&lt;/a> passed.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Download bRPC</title><link>https://brpc.incubator.apache.org/docs/downloadbrpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/downloadbrpc/</guid><description>
+&lt;p>Thanks to all contributors for the 1.0.0 version!&lt;/p></description></item><item><title>Docs: Download bRPC</title><link>https://brpc.incubator.apache.org/docs/downloadbrpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/downloadbrpc/</guid><description>
 &lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more

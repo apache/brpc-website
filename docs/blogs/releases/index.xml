@@ -1,4 +1,45 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Release</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/</link><description>Recent content in Release on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/docs/blogs/releases/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Release</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/</link><description>Recent content in Release on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/docs/blogs/releases/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.3.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.3.0/</link><pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.3.0/</guid><description>
+&lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
+&lt;p>New features:&lt;/p>
+&lt;ul>
+&lt;li>Support gcc on linux arm64 by @jamesge&lt;/li>
+&lt;li>Support gcc version &amp;gt;= 11.2.0 by @wwbmmm in #1783&lt;/li>
+&lt;li>Support the latest version of bazel(default v4.2.2) by @hcoona in #1657&lt;/li>
+&lt;li>Support multi-dimension bvar, a powerful extension of bvar by @serverglen in #1608&lt;/li>
+&lt;li>Restruct event_dispatcher source file by @guodongxiaren in #1888&lt;/li>
+&lt;li>Add http retry with error code policy by @chenBright in #1927&lt;/li>
+&lt;li>Add Nacos naming service by @yyweii in #1922&lt;/li>
+&lt;li>Add customized server bvar prefix by @jenrryyou in #1854&lt;/li>
+&lt;li>Add escape log content before printing by @jamesge&lt;/li>
+&lt;/ul>
+&lt;p>Bugfix:&lt;/p>
+&lt;ul>
+&lt;li>Fix issues in FlatMap by @jamesge&lt;/li>
+&lt;li>Fix override issue in pb by @jamesge, @wwbmmm&lt;/li>
+&lt;li>Fix ALIGNAS/ALIGNOF/BAIDU_CACHELINE_ALIGMENT by @jamesge&lt;/li>
+&lt;li>Fix some warnings for clang and revert changes on ALIGNAS/ALIGNOF by @jamesge&lt;/li>
+&lt;li>Fix rpc_replay continue when failed to init channel by @ehds in #1938&lt;/li>
+&lt;li>Fix multi-dimension bvar compile error by @dabao085 in #1937&lt;/li>
+&lt;li>Fix bvar_dump_tabs default value problem by @yyweii in #1920&lt;/li>
+&lt;li>Fix butex_wait failed with timeout by @Huixxi in #1917&lt;/li>
+&lt;li>Fix rpc_replay can&amp;rsquo;t send request equably by @bumingchun in #1910&lt;/li>
+&lt;li>Fix compile warning due to DumpOptions object by @ml-haha in #1905&lt;/li>
+&lt;li>Fix test_bvar fail on m1 mac by @wwbmmm in #1901&lt;/li>
+&lt;li>Fix the slow test in brpc_socket_unittest.cpp by @zyearn in #1898&lt;/li>
+&lt;li>Fix the first bthread keytable on worker pthread will be deleted twice by @chenBright in #1884&lt;/li>
+&lt;li>Fix currently broken MacOS build by @zyearn in #1871&lt;/li>
+&lt;li>Fix ProcessHttpRequest supports for http2 by @dandyhuang in #1868&lt;/li>
+&lt;li>Fix get_value core caused by the sampler thread start too early by @Huixxi in #1863&lt;/li>
+&lt;li>Fix UDS ut failed on MacOS by @wwbmmm in #1843&lt;/li>
+&lt;li>Fix coredump cause by bad growth_non_responsive http request by @acelyc111 in #1278&lt;/li>
+&lt;li>Fix not to abort when checking the errorno with unicode string by @tobegit3hub in #1142&lt;/li>
+&lt;/ul>
+&lt;p>Other improvements:&lt;/p>
+&lt;ul>
+&lt;li>Improve/add documents by @wwbmmm, @JackBoosY, @morningman, @serverglen, @chenBright, @guodongxiaren, @xdh0817, @KaneVV1, @tanzhongyi003, @lzfhust, @Huixxi&lt;/li>
+&lt;li>Fix typos by @opheliaKyouko, @day253, @chenBright, @fansehep&lt;/li>
+&lt;/ul>
+&lt;p>Thanks to all contributors for the 1.3.0 version!&lt;/p></description></item><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
