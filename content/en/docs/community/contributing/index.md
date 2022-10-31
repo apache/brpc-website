@@ -1,9 +1,10 @@
 ---
 title: "Contribute Guide"
 linkTitle: "Contribute Guide"
-weight: 2
-date: 2022-09-13
+weight: 3
+date: 2022-09-14
 description: >
+  Contribute to bRPC
 ---
 If you meet any problem or request a new feature, you're welcome to [create an issue](https://github.com/brpc/brpc/issues/new/choose).
 

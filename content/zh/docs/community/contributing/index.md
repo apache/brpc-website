@@ -1,9 +1,10 @@
 ---
 title: "Contribute指南"
 linkTitle: "Contribute指南"
-weight: 2
+weight: 3
 date: 2022-09-13
 description: >
+    如何成为bRPC 做贡献
 ---
 如果你遇到问题或需要新功能，欢迎[创建issue](https://github.com/brpc/brpc/issues/new/choose)。
 
