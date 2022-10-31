@@ -1,7 +1,7 @@
 ---
-title: "Contributing"
-linkTitle: "Contributing"
-weight: 4
+title: "Contribute Guide"
+linkTitle: "Contribute Guide"
+weight: 2
 date: 2022-09-13
 description: >
 ---

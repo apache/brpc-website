@@ -1,7 +1,7 @@
 ---
 title: "安全"
 linkTitle: "安全"
-weight: 2
+weight: 5
 date: 2021-08-12
 description: >
   关于安全。
