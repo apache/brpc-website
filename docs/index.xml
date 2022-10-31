@@ -888,12 +888,12 @@ Recognize the Apache community philosophy and be able to actively promote the co
 &lt;li>Vote: including voting in mail group &lt;code>dev@brpc.apache.org&lt;/code> and &lt;code>general@incubator.apache.org&lt;/code>&lt;/li>
 &lt;li>Release announcement: including updating brpc website, sending announcement emails, posting WeChat official account announcements, merging the release branche into the master branch&lt;/li>
 &lt;/ol>
-&lt;h1 id="prepare-key">Prepare key&lt;/h1>
-&lt;h2 id="1-install-gpg">1. Install GPG&lt;/h2>
+&lt;h2 id="prepare-key">Prepare key&lt;/h2>
+&lt;h3 id="1-install-gpg">1. Install GPG&lt;/h3>
 &lt;p>Download the installation package from &lt;a href="https://www.gnupg.org/download/index.html">GnuPG official website&lt;/a>. The commands of GnuPG version 1.x and version 2.x are slightly different. The following instructions take the &lt;code>GnuPG-2.3.1&lt;/code> version (OSX) as an example.&lt;/p>
 &lt;p>After the installation is complete, execute the following command to check the version number.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-create-key">2. Create key&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-create-key">2. Create key&lt;/h3>
 &lt;p>After the installation is complete, execute the following command to create a key.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --full-gen-key
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Complete the key creation according to the prompts. Note that the mailbox should use the Apache email address, and the &lt;code>Real Name&lt;/code> can use Apache ID or GitHub ID:&lt;/p>
@@ -940,7 +940,7 @@ pub rsa4096 2021-10-17 [SC]
 C30F211F071894258497F46392E18A11B6585834
 uid LorinLee (lorinlee&amp;#39;s key) &amp;lt;lorinlee@apache.org&amp;gt;
 sub rsa4096 2021-10-17 [E]
-&lt;/code>&lt;/pre>&lt;h2 id="3-check-the-generated-key">3. Check the generated key&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="3-check-the-generated-key">3. Check the generated key&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --list-keys
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>output:&lt;/p>
 &lt;pre tabindex="0">&lt;code>gpg: checking the trustdb
@@ -953,10 +953,10 @@ C30F211F071894258497F46392E18A11B6585834
 uid [ultimate] LorinLee (lorinlee&amp;#39;s key) &amp;lt;lorinlee@apache.org&amp;gt;
 sub rsa4096 2021-10-17 [E]
 &lt;/code>&lt;/pre>&lt;p>Note that &lt;code>C30F211F071894258497F46392E18A11B6585834&lt;/code> is the public key.&lt;/p>
-&lt;h2 id="4-publish-the-public-key-to-server">4. Publish the public key to server&lt;/h2>
+&lt;h3 id="4-publish-the-public-key-to-server">4. Publish the public key to server&lt;/h3>
 &lt;p>Execute the following command:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --keyserver hkp://pgp.mit.edu --send-key C30F211F071894258497F46392E18A11B6585834
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5-generate-fingerprint-and-upload-to-apache-user-profile">5. Generate fingerprint and upload to apache user profile&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="5-generate-fingerprint-and-upload-to-apache-user-profile">5. Generate fingerprint and upload to apache user profile&lt;/h3>
 &lt;p>Since the public key server has no verifying mechanism, anyone can upload the public key in your name, so there is no way to guarantee the reliability of the public key on the server. Usually, you can publish a public key fingerprint on your website and let others check the downloaded public key.&lt;/p>
 &lt;p>Execute the following command to view the fingerprint.&lt;/p>
 &lt;pre tabindex="0">&lt;code>gpg --fingerprint lorinlee # user id
@@ -968,22 +968,22 @@ C30F 211F 0718 9425 8497 F463 92E1 8A11 B658 5834
 uid [ultimate] LorinLee (lorinlee&amp;#39;s key) &amp;lt;lorinlee@apache.org&amp;gt;
 sub rsa4096 2021-10-17 [E]
 &lt;/code>&lt;/pre>&lt;p>Paste the above fingerprint &lt;code>C30F 211F 0718 9425 8497 F463 92E1 8A11 B658 5834&lt;/code> into the &lt;code>OpenPGP Public Key Primary Fingerprint:&lt;/code> field of your Apache user information on &lt;a href="https://id.apache.org">https://id.apache.org&lt;/a>.&lt;/p>
-&lt;h1 id="prepare-release-package">Prepare release package&lt;/h1>
-&lt;h2 id="1-create-release-branch">1. Create release branch&lt;/h2>
+&lt;h2 id="prepare-release-package">Prepare release package&lt;/h2>
+&lt;h3 id="1-create-release-branch">1. Create release branch&lt;/h3>
 &lt;p>If you are releasing a new MINOR version, like &lt;code>1.0.0&lt;/code>, you need to create a new branch &lt;code>release-1.0&lt;/code> from master.&lt;/p>
 &lt;p>If you are releasing a new PATCH version from existing MINOR version, like &lt;code>1.0.1&lt;/code>, you only need to modify the existing &lt;code>release-1.0&lt;/code> branch and add the content to be released.&lt;/p>
 &lt;p>The code modification during the release process are performed on the release branch (such as &lt;code>release-1.0&lt;/code>). After the release is complete, please merge the release branch back into the master branch.&lt;/p>
-&lt;h2 id="2-update-version-in-source-code">2. Update version in source code&lt;/h2>
-&lt;h3 id="update-release_version-file">Update RELEASE_VERSION file&lt;/h3>
+&lt;h3 id="2-update-version-in-source-code">2. Update version in source code&lt;/h3>
+&lt;h4 id="update-release_version-file">Update RELEASE_VERSION file&lt;/h4>
 &lt;p>Edit the &lt;code>RELEASE_VERSION&lt;/code> file in the project root directory, update the version number, and submit it to the code repository. For example, the &lt;code>1.0.0&lt;/code> version of the file is:&lt;/p>
 &lt;pre tabindex="0">&lt;code>1.0.0
-&lt;/code>&lt;/pre>&lt;h3 id="update-cmakeliststxt-file">Update CMakeLists.txt file&lt;/h3>
+&lt;/code>&lt;/pre>&lt;h4 id="update-cmakeliststxt-file">Update CMakeLists.txt file&lt;/h4>
 &lt;p>Edit the &lt;code>CMakeLists.txt&lt;/code> file in the project root directory, update the version number, and submit it to the code repository. For example:&lt;/p>
 &lt;pre tabindex="0">&lt;code>set(BRPC_VERSION 1.0.0)
-&lt;/code>&lt;/pre>&lt;h3 id="update-packagerpmbrpcspec-file">Update /package/rpm/brpc.spec file&lt;/h3>
+&lt;/code>&lt;/pre>&lt;h4 id="update-packagerpmbrpcspec-file">Update /package/rpm/brpc.spec file&lt;/h4>
 &lt;p>Edit the &lt;code>/package/rpm/brpc.spec&lt;/code> file in the project root directory, update the version number, and submit it to the code repository. For example:&lt;/p>
 &lt;pre tabindex="0">&lt;code>Version: 1.0.0
-&lt;/code>&lt;/pre>&lt;h2 id="3-create-releasing-tag">3. Create releasing tag&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="3-create-releasing-tag">3. Create releasing tag&lt;/h3>
 &lt;p>push the release branch to tag, For example:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone -b release-1.0 git@github.com:apache/incubator-brpc.git ~/incubator-brpc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -992,18 +992,18 @@ sub rsa4096 2021-10-17 [E]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git tag -a 1.0.0 -m &lt;span style="color:#4e9a06">&amp;#34;release 1.0.0&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push origin --tags
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4-create-releasing-package">4. Create releasing package&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="4-create-releasing-package">4. Create releasing package&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git archive --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>tar 1.0.0 --prefix&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>apache-brpc-1.0.0-incubating-src/ &lt;span style="color:#000;font-weight:bold">|&lt;/span> gzip &amp;gt; apache-brpc-1.0.0-incubating-src.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5-generate-gpg-signature">5. Generate GPG signature&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="5-generate-gpg-signature">5. Generate GPG signature&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg -u lorinlee@apache.org --armor --output apache-brpc-1.0.0-incubating-src.tar.gz.asc --detach-sign apache-brpc-1.0.0-incubating-src.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --verify apache-brpc-1.0.0-incubating-src.tar.gz.asc apache-brpc-1.0.0-incubating-src.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="6-generate-sha512-sum">6. Generate SHA512 sum&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="6-generate-sha512-sum">6. Generate SHA512 sum&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sha512sum apache-brpc-1.0.0-incubating-src.tar.gz &amp;gt; apache-brpc-1.0.0-incubating-src.tar.gz.sha512
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sha512sum --check apache-brpc-1.0.0-incubating-src.tar.gz.sha512
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="publish-to-apache-svn-repository">Publish to Apache SVN repository&lt;/h1>
-&lt;h2 id="1-checkout-distdevbrpc-directory">1. checkout dist/dev/brpc directory&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="publish-to-apache-svn-repository">Publish to Apache SVN repository&lt;/h2>
+&lt;h3 id="1-checkout-distdevbrpc-directory">1. checkout dist/dev/brpc directory&lt;/h3>
 &lt;p>If there is no local working directory, create a local working directory first. Clone the Apache SVN repository, username needs to use your own Apache LDAP username:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mkdir -p ~/brpc_svn/dev/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -1012,10 +1012,10 @@ sub rsa4096 2021-10-17 [E]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>svn --username&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>lorinlee co https://dist.apache.org/repos/dist/dev/incubator/brpc/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/brpc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-add-gpg-public-key">2. Add GPG public key&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-add-gpg-public-key">2. Add GPG public key&lt;/h3>
 &lt;p>A new release manager must add the key into KEYS file for the first time.&lt;/p>
 &lt;pre tabindex="0">&lt;code>(gpg --list-sigs lorinlee &amp;amp;&amp;amp; gpg -a --export lorinlee) &amp;gt;&amp;gt; KEYS
-&lt;/code>&lt;/pre>&lt;h2 id="3-add-the-releasing-package-to-svn-directory">3. Add the releasing package to SVN directory&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="3-add-the-releasing-package-to-svn-directory">3. Add the releasing package to SVN directory&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mkdir -p ~/brpc_svn/dev/brpc/1.0.0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/brpc/1.0.0
@@ -1025,17 +1025,17 @@ sub rsa4096 2021-10-17 [E]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.asc ~/brpc_svn/dev/brpc/1.0.0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.sha512 ~/brpc_svn/dev/brpc/1.0.0
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4-submit-svn">4. Submit SVN&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="4-submit-svn">4. Submit SVN&lt;/h3>
 &lt;p>Return to the parent directory and use the Apache LDAP account to submit SVN&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/brpc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>svn add *
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>svn --username&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>lorinlee commit -m &lt;span style="color:#4e9a06">&amp;#34;release 1.0.0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="verify-release">Verify release&lt;/h1>
-&lt;h2 id="1-verify-sha512-sum">1. Verify SHA512 sum&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="verify-release">Verify release&lt;/h2>
+&lt;h3 id="1-verify-sha512-sum">1. Verify SHA512 sum&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sha512sum --check apache-brpc-1.0.0-incubating-src.tar.gz.sha512
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-verify-gpg-signature">2. Verify GPG signature&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-verify-gpg-signature">2. Verify GPG signature&lt;/h3>
 &lt;p>First import the publisher&amp;rsquo;s public key. Import KEYS from the svn repository to the local. (The person who releases the version does not need to import it again. The person who verify needs to import it.)&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS &amp;gt;&amp;gt; KEYS
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -1061,8 +1061,8 @@ Do you really want to set this key to ultimate trust? (y/N) y
 gpg&amp;gt; save
 &lt;/code>&lt;/pre>&lt;p>Then verify the GPG signature:&lt;/p>
 &lt;pre tabindex="0">&lt;code>gpg --verify apache-brpc-1.0.0-incubating-src.tar.gz.asc apache-brpc-1.0.0-incubating-src.tar.gz
-&lt;/code>&lt;/pre>&lt;h2 id="3-check-release-content">3. Check release content&lt;/h2>
-&lt;h3 id="1-compare-the-difference-of-between-the-source-code-package-and-github-tag">1. Compare the difference of between the source code package and github tag&lt;/h3>
+&lt;/code>&lt;/pre>&lt;h3 id="3-check-release-content">3. Check release content&lt;/h3>
+&lt;h4 id="1-compare-the-difference-of-between-the-source-code-package-and-github-tag">1. Compare the difference of between the source code package and github tag&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl -Lo tag-1.0.0.tar.gz https://github.com/apache/incubator-brpc/archive/refs/tags/1.0.0.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf tag-1.0.0.tar.gz
@@ -1070,7 +1070,7 @@ gpg&amp;gt; save
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf apache-brpc-1.0.0-incubating-src.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>diff -r incubator-brpc-1.0.0 apache-brpc-1.0.0-incubating-src
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-check-file-content">2. Check file content&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-check-file-content">2. Check file content&lt;/h4>
 &lt;ul>
 &lt;li>Check whether the source code package contains unnecessary files, which makes the tarball too large&lt;/li>
 &lt;li>LICENSE and NOTICE files exist&lt;/li>
@@ -1088,8 +1088,8 @@ gpg&amp;gt; save
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h1 id="vote-in-apache-brpc-community">Vote in Apache brpc community&lt;/h1>
-&lt;h2 id="1-vote-stage">1. Vote stage&lt;/h2>
+&lt;h2 id="vote-in-apache-brpc-community">Vote in Apache brpc community&lt;/h2>
+&lt;h3 id="1-vote-stage">1. Vote stage&lt;/h3>
 &lt;ol>
 &lt;li>
 &lt;p>Send a voting email to &lt;code>dev@brpc.apache.org&lt;/code>. PPMC needs to check the correctness of the version according to the document before voting. After at least 72 hours and 3 +1 PPMC member votes, you can move to the next stage.&lt;/p>
@@ -1098,7 +1098,7 @@ gpg&amp;gt; save
 &lt;p>Announce the voting results and send the voting results to &lt;a href="mailto:dev@brpc.apache.org">dev@brpc.apache.org&lt;/a> 。&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;h2 id="2-vote-email-template">2. Vote email template&lt;/h2>
+&lt;h3 id="2-vote-email-template">2. Vote email template&lt;/h3>
 &lt;ol>
 &lt;li>Apache brpc community vote email template&lt;/li>
 &lt;/ol>
@@ -1157,19 +1157,19 @@ Vote thread: xxx (vote email link in https://lists.apache.org/)
 Thank you to all the above members to help us to verify and vote for the 1.0.0 release. We will move to IPMC voting shortly.
 Regards,
 LorinLee
-&lt;/code>&lt;/pre>&lt;h2 id="3-vote-not-passed">3. Vote not passed&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="3-vote-not-passed">3. Vote not passed&lt;/h3>
 &lt;p>If the community vote is not passed, please modify the code of the release branch, package and vote again.&lt;/p>
-&lt;h1 id="vote-in-apache-incubator-community">Vote in Apache incubator community&lt;/h1>
-&lt;h2 id="1-update-gpg-signature">1. Update GPG Signature&lt;/h2>
+&lt;h2 id="vote-in-apache-incubator-community">Vote in Apache incubator community&lt;/h2>
+&lt;h3 id="1-update-gpg-signature">1. Update GPG Signature&lt;/h3>
 &lt;pre tabindex="0">&lt;code>svn delete https://dist.apache.org/repos/dist/release/incubator/brpc/KEYS -m &amp;#34;delete KEYS&amp;#34;
 svn cp https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS https://dist.apache.org/repos/dist/release/incubator/brpc/KEYS -m &amp;#34;update brpc KEYS&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>After commit the svn, access &lt;a href="https://downloads.apache.org/incubator/brpc/KEYS">https://downloads.apache.org/incubator/brpc/KEYS&lt;/a>, check whether the content is updated. It may take several minutes to wait for the content to be updated before continuing.&lt;/p>
-&lt;h2 id="2-vote-stage">2. Vote stage&lt;/h2>
+&lt;h3 id="2-vote-stage">2. Vote stage&lt;/h3>
 &lt;ol>
 &lt;li>Send voting email to &lt;code>general@incubator.apache.org&lt;/code>. IPMC will vote. After at least 72 hours and 3 +1 IPMC member tickets are counted, you can move to the next stage.&lt;/li>
 &lt;li>Announce the voting results by sending the voting results to &lt;code>general@incubator.apache.org&lt;/code>.&lt;/li>
 &lt;/ol>
-&lt;h2 id="3-vote-email-template">3. Vote email template&lt;/h2>
+&lt;h3 id="3-vote-email-template">3. Vote email template&lt;/h3>
 &lt;ol>
 &lt;li>Apache Incubator community vote email template&lt;/li>
 &lt;/ol>
@@ -1232,19 +1232,19 @@ sending out the announcement soon.
 Regards,
 Lorin Lee
 Apache brpc (Incubating) community
-&lt;/code>&lt;/pre>&lt;h1 id="finish-the-release">Finish the release&lt;/h1>
-&lt;h2 id="1-move-the-release-package-from-apache-svn-directory-distdev-to-distrelease">1. Move the release package from Apache SVN directory dist/dev to dist/release&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h2 id="finish-the-release">Finish the release&lt;/h2>
+&lt;h3 id="1-move-the-release-package-from-apache-svn-directory-distdev-to-distrelease">1. Move the release package from Apache SVN directory dist/dev to dist/release&lt;/h3>
 &lt;pre tabindex="0">&lt;code>svn mv https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0 https://dist.apache.org/repos/dist/release/incubator/brpc/1.0.0 -m &amp;#34;release brpc 1.0.0&amp;#34;
-&lt;/code>&lt;/pre>&lt;h2 id="2-create-github-release">2. Create github release&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="2-create-github-release">2. Create github release&lt;/h3>
 &lt;ol>
 &lt;li>On the &lt;a href="https://github.com/apache/incubator-brpc/tags">GitHub Releases page&lt;/a> Click the corresponding version of to create a new Release&lt;/li>
 &lt;li>Edit the version number and version description, and click &lt;code>Publish release&lt;/code>&lt;/li>
 &lt;/ol>
-&lt;h2 id="3-update-download-page">3. Update download page&lt;/h2>
+&lt;h3 id="3-update-download-page">3. Update download page&lt;/h3>
 &lt;p>After waiting and confirming that the new release is synchronized to the Apache image, update the following page: &lt;a href="https://brpc.apache.org/docs/downloadbrpc/">https://brpc.apache.org/docs/downloadbrpc/&lt;/a> by change the code in &lt;a href="https://github.com/apache/incubator-brpc-website/">https://github.com/apache/incubator-brpc-website/&lt;/a>. Please update both Chinese and English.&lt;/p>
 &lt;p>The download links of GPG signature files and hash check files should use this prefix: &lt;code>https://downloads.apache.org/incubator/brpc/&lt;/code>&lt;/p>
 &lt;p>The download link of the code package should use this prefix: &lt;code>https://dlcdn.apache.org/incubator/brpc/&lt;/code>&lt;/p>
-&lt;h2 id="4-send-email-to-announce-release-finished">4. Send email to announce release finished&lt;/h2>
+&lt;h3 id="4-send-email-to-announce-release-finished">4. Send email to announce release finished&lt;/h3>
 &lt;p>Send mail to &lt;code>dev@brpc.apache.org&lt;/code>, &lt;code>general@incubator.apache.org&lt;/code>, and &lt;code>announce@apache.org&lt;/code> to announce the completion of release.&lt;/p>
 &lt;p>Note: The email account must use &lt;strong>personal apache email&lt;/strong>, and the email content must be &lt;strong>plain text format&lt;/strong> (&amp;ldquo;plain text mode&amp;rdquo; can be selected in gmail). And email to &lt;code>announce@apache.org&lt;/code> mail group will be delivered after manual review. Please wait patiently after sending the email, and it will be passed within one day.&lt;/p>
 &lt;p>The announcement email template:&lt;/p>
@@ -1277,9 +1277,9 @@ We would like to thank all contributors of the Apache brpc community and
 Incubating community who made this release possible!
 Best Regards,
 Apache brpc (Incubating) community
-&lt;/code>&lt;/pre>&lt;h2 id="5-publish-wechat-official-account-announcement">5. Publish WeChat official account announcement&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="5-publish-wechat-official-account-announcement">5. Publish WeChat official account announcement&lt;/h3>
 &lt;p>Reference &lt;a href="https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg">https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg&lt;/a>.&lt;/p>
-&lt;h2 id="6-update-master-branch">6. Update master branch&lt;/h2>
+&lt;h3 id="6-update-master-branch">6. Update master branch&lt;/h3>
 &lt;p>After the release is completed, merge the release branch into the master branch&lt;/p></description></item><item><title>Docs: Security</title><link>https://brpc.incubator.apache.org/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/community/security/</guid><description>
 &lt;p>The Apache Software Foundation takes a rigorous stance on eliminating security issues in its software projects. Likewise, Apache bRPC is also vigilant and takes security issues related to its features and functionality into the highest consideration.&lt;/p>
 &lt;p>If you have any concerns regarding bRPC’s security, or you discover a vulnerability or potential threat, please don’t hesitate to get in touch with the &lt;a href="http://www.apache.org/security/">Apache Security Team&lt;/a> by dropping an email at &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>.&lt;/p>

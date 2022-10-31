@@ -1469,12 +1469,12 @@ Committer 和 PMC 成员在共识投票后由 PMC 邀请。&lt;/p>
 &lt;li>投票：包括在dev@brpc邮件群里投票，以及在general@incubator.apache.org邮件群里投票&lt;/li>
 &lt;li>发版通告：包括更新brpc网站，发邮件，发微信公众号公告，合并发布分支到master分支&lt;/li>
 &lt;/ol>
-&lt;h1 id="签名准备">签名准备&lt;/h1>
-&lt;h2 id="1-安装-gpg">1. 安装 GPG&lt;/h2>
+&lt;h2 id="签名准备">签名准备&lt;/h2>
+&lt;h3 id="1-安装-gpg">1. 安装 GPG&lt;/h3>
 &lt;p>在&lt;a href="https://www.gnupg.org/download/index.html">GnuPG官网&lt;/a>下载安装包。 GnuPG的1.x版本和2.x版本的命令有细微差别，下列说明以&lt;code>GnuPG-2.3.1&lt;/code>版本（OSX）为例。&lt;/p>
 &lt;p>安装完成后，执行以下命令查看版本号。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-创建-key">2. 创建 key&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-创建-key">2. 创建 key&lt;/h3>
 &lt;p>安装完成后，执行以下命令创建key。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --full-gen-key
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>根据提示完成创建key，注意邮箱要使用Apache邮件地址，&lt;code>Real Name&lt;/code>使用姓名Pinyin、Apache ID或GitHub ID等均可：&lt;/p>
@@ -1521,7 +1521,7 @@ pub rsa4096 2021-10-17 [SC]
 C30F211F071894258497F46392E18A11B6585834
 uid LorinLee (lorinlee&amp;#39;s key) &amp;lt;lorinlee@apache.org&amp;gt;
 sub rsa4096 2021-10-17 [E]
-&lt;/code>&lt;/pre>&lt;h2 id="3-查看生成的key">3. 查看生成的key&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="3-查看生成的key">3. 查看生成的key&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --list-keys
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>执行结果：&lt;/p>
 &lt;pre tabindex="0">&lt;code>gpg: checking the trustdb
@@ -1534,10 +1534,10 @@ C30F211F071894258497F46392E18A11B6585834
 uid [ultimate] LorinLee (lorinlee&amp;#39;s key) &amp;lt;lorinlee@apache.org&amp;gt;
 sub rsa4096 2021-10-17 [E]
 &lt;/code>&lt;/pre>&lt;p>其中 &lt;code>C30F211F071894258497F46392E18A11B6585834&lt;/code> 为公钥ID。&lt;/p>
-&lt;h2 id="4-将公钥公布到服务器">4. 将公钥公布到服务器&lt;/h2>
+&lt;h3 id="4-将公钥公布到服务器">4. 将公钥公布到服务器&lt;/h3>
 &lt;p>命令如下：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg --keyserver hkp://pgp.mit.edu --send-key C30F211F071894258497F46392E18A11B6585834
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5-生成-fingerprint-并上传到-apache-用户信息中">5. 生成 fingerprint 并上传到 apache 用户信息中&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="5-生成-fingerprint-并上传到-apache-用户信息中">5. 生成 fingerprint 并上传到 apache 用户信息中&lt;/h3>
 &lt;p>由于公钥服务器没有检查机制，任何人都可以用你的名义上传公钥，所以没有办法保证服务器上的公钥的可靠性。通常，你可以在⽹站上公布一个公钥指纹，让其他⼈核对下载到的公钥是否为真。fingerprint参数生成公钥指纹。&lt;/p>
 &lt;p>执行如下命令查看 fingerprint：&lt;/p>
 &lt;pre tabindex="0">&lt;code>gpg --fingerprint lorinlee（用户ID）
@@ -1549,22 +1549,22 @@ C30F 211F 0718 9425 8497 F463 92E1 8A11 B658 5834
 uid [ultimate] LorinLee (lorinlee&amp;#39;s key) &amp;lt;lorinlee@apache.org&amp;gt;
 sub rsa4096 2021-10-17 [E]
 &lt;/code>&lt;/pre>&lt;p>将上面的 fingerprint &lt;code>C30F 211F 0718 9425 8497 F463 92E1 8A11 B658 5834&lt;/code> 粘贴到⾃己Apache⽤户信息 &lt;a href="https://id.apache.org">https://id.apache.org&lt;/a> 的&lt;code>OpenPGP Public Key Primary Fingerprint:&lt;/code>字段中。&lt;/p>
-&lt;h1 id="发布包准备">发布包准备&lt;/h1>
-&lt;h2 id="1-拉出发版分支">1. 拉出发版分支&lt;/h2>
+&lt;h2 id="发布包准备">发布包准备&lt;/h2>
+&lt;h3 id="1-拉出发版分支">1. 拉出发版分支&lt;/h3>
 &lt;p>如果是发布新的2位版本，如&lt;code>1.0.0&lt;/code>，则需要从master拉出新的分支&lt;code>release-1.0&lt;/code>。&lt;/p>
 &lt;p>如果是在已有的2位版本上发布新的3位版本，如&lt;code>1.0.1&lt;/code>版本，则只需要在已有的&lt;code>release-1.0&lt;/code>分支上修改加上要发布的内容。&lt;/p>
 &lt;p>发版过程中的操作都在release分支（如&lt;code>release-1.0&lt;/code>）上操作，如果发版过程发现代码有问题需要修改，也在该分支上进行修改。发版完成后，将该分支合回master分支。&lt;/p>
-&lt;h2 id="2-编辑-release_version-文件">2. 编辑 RELEASE_VERSION 文件&lt;/h2>
-&lt;h3 id="更新release_version文件">更新RELEASE_VERSION文件&lt;/h3>
+&lt;h3 id="2-编辑-release_version-文件">2. 编辑 RELEASE_VERSION 文件&lt;/h3>
+&lt;h4 id="更新release_version文件">更新RELEASE_VERSION文件&lt;/h4>
 &lt;p>编辑项目根目录下&lt;code>RELEASE_VERSION&lt;/code>文件，更新版本号，并提交至代码仓库，本文以&lt;code>1.0.0&lt;/code>版本为例，文件内容为：&lt;/p>
 &lt;pre tabindex="0">&lt;code>1.0.0
-&lt;/code>&lt;/pre>&lt;h3 id="更新cmakeliststxt文件">更新CMakeLists.txt文件&lt;/h3>
+&lt;/code>&lt;/pre>&lt;h4 id="更新cmakeliststxt文件">更新CMakeLists.txt文件&lt;/h4>
 &lt;p>编辑项目根目录下&lt;code>CMakeLists.txt&lt;/code>文件，更新版本号，并提交至代码仓库，本文以&lt;code>1.0.0&lt;/code>版本为例，修改BRPC_VERSION为：&lt;/p>
 &lt;pre tabindex="0">&lt;code>set(BRPC_VERSION 1.0.0)
-&lt;/code>&lt;/pre>&lt;h3 id="更新packagerpmbrpcspec文件">更新/package/rpm/brpc.spec文件&lt;/h3>
+&lt;/code>&lt;/pre>&lt;h4 id="更新packagerpmbrpcspec文件">更新/package/rpm/brpc.spec文件&lt;/h4>
 &lt;p>编辑项目根目录下&lt;code>/package/rpm/brpc.spec&lt;/code>文件，更新版本号，并提交至代码仓库，本文以&lt;code>1.0.0&lt;/code>版本为例，修改Version为：&lt;/p>
 &lt;pre tabindex="0">&lt;code>Version: 1.0.0
-&lt;/code>&lt;/pre>&lt;h2 id="3-创建发布-tag">3. 创建发布 tag&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="3-创建发布-tag">3. 创建发布 tag&lt;/h3>
 &lt;p>拉取发布分支，并推送tag&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone -b release-1.0 git@github.com:apache/incubator-brpc.git ~/incubator-brpc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -1573,18 +1573,18 @@ sub rsa4096 2021-10-17 [E]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git tag -a 1.0.0 -m &lt;span style="color:#4e9a06">&amp;#34;release 1.0.0&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push origin --tags
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4-打包发布包">4. 打包发布包&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="4-打包发布包">4. 打包发布包&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git archive --format&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>tar 1.0.0 --prefix&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>apache-brpc-1.0.0-incubating-src/ &lt;span style="color:#000;font-weight:bold">|&lt;/span> gzip &amp;gt; apache-brpc-1.0.0-incubating-src.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5-生成签名文件">5. 生成签名文件&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="5-生成签名文件">5. 生成签名文件&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>gpg -u lorinlee@apache.org --armor --output apache-brpc-1.0.0-incubating-src.tar.gz.asc --detach-sign apache-brpc-1.0.0-incubating-src.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --verify apache-brpc-1.0.0-incubating-src.tar.gz.asc apache-brpc-1.0.0-incubating-src.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="6-生成哈希文件">6. 生成哈希文件&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="6-生成哈希文件">6. 生成哈希文件&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sha512sum apache-brpc-1.0.0-incubating-src.tar.gz &amp;gt; apache-brpc-1.0.0-incubating-src.tar.gz.sha512
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sha512sum --check apache-brpc-1.0.0-incubating-src.tar.gz.sha512
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="发布至apache-svn仓库">发布至Apache SVN仓库&lt;/h1>
-&lt;h2 id="1-检出-distdev-下的-brpc-仓库目录">1. 检出 dist/dev 下的 brpc 仓库目录&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="发布至apache-svn仓库">发布至Apache SVN仓库&lt;/h2>
+&lt;h3 id="1-检出-distdev-下的-brpc-仓库目录">1. 检出 dist/dev 下的 brpc 仓库目录&lt;/h3>
 &lt;p>如无本地工作目录，则先创建本地工作目录。将Apache SVN仓库克隆下来，username需要使用自己的Apache LDAP用户名&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mkdir -p ~/brpc_svn/dev/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -1593,10 +1593,10 @@ sub rsa4096 2021-10-17 [E]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>svn --username&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>lorinlee co https://dist.apache.org/repos/dist/dev/incubator/brpc/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/brpc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-添加gpg公钥">2. 添加GPG公钥&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-添加gpg公钥">2. 添加GPG公钥&lt;/h3>
 &lt;p>仅第一次部署的账号需要添加，只要KEYS中包含已经部署过的账户的公钥即可。&lt;/p>
 &lt;pre tabindex="0">&lt;code>(gpg --list-sigs lorinlee &amp;amp;&amp;amp; gpg -a --export lorinlee) &amp;gt;&amp;gt; KEYS
-&lt;/code>&lt;/pre>&lt;h2 id="3-将待发布的代码包添加至svn目录">3. 将待发布的代码包添加至SVN目录&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="3-将待发布的代码包添加至svn目录">3. 将待发布的代码包添加至SVN目录&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mkdir -p ~/brpc_svn/dev/brpc/1.0.0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/brpc/1.0.0
@@ -1606,17 +1606,17 @@ sub rsa4096 2021-10-17 [E]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.asc ~/brpc_svn/dev/brpc/1.0.0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.sha512 ~/brpc_svn/dev/brpc/1.0.0
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4-提交svn">4. 提交SVN&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="4-提交svn">4. 提交SVN&lt;/h3>
 &lt;p>退回到上级目录，使用Apache LDAP账号提交SVN&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/brpc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>svn add *
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>svn --username&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>lorinlee commit -m &lt;span style="color:#4e9a06">&amp;#34;release 1.0.0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="检查发布结果">检查发布结果&lt;/h1>
-&lt;h2 id="1-检查sha512哈希">1. 检查sha512哈希&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="检查发布结果">检查发布结果&lt;/h2>
+&lt;h3 id="1-检查sha512哈希">1. 检查sha512哈希&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sha512sum --check apache-brpc-1.0.0-incubating-src.tar.gz.sha512
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-检查gpg签名">2. 检查GPG签名&lt;/h2>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-检查gpg签名">2. 检查GPG签名&lt;/h3>
 &lt;p>首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS &amp;gt;&amp;gt; KEYS
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -1642,8 +1642,8 @@ Do you really want to set this key to ultimate trust? (y/N) y
 gpg&amp;gt; save
 &lt;/code>&lt;/pre>&lt;p>然后进行gpg签名检查。&lt;/p>
 &lt;pre tabindex="0">&lt;code>gpg --verify apache-brpc-1.0.0-incubating-src.tar.gz.asc apache-brpc-1.0.0-incubating-src.tar.gz
-&lt;/code>&lt;/pre>&lt;h2 id="3-检查发布内容">3. 检查发布内容&lt;/h2>
-&lt;h3 id="1-对比源码包与github上的tag内容差异">1. 对比源码包与github上的tag内容差异&lt;/h3>
+&lt;/code>&lt;/pre>&lt;h3 id="3-检查发布内容">3. 检查发布内容&lt;/h3>
+&lt;h4 id="1-对比源码包与github上的tag内容差异">1. 对比源码包与github上的tag内容差异&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl -Lo tag-1.0.0.tar.gz https://github.com/apache/incubator-brpc/archive/refs/tags/1.0.0.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf tag-1.0.0.tar.gz
@@ -1651,7 +1651,7 @@ gpg&amp;gt; save
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf apache-brpc-1.0.0-incubating-src.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>diff -r incubator-brpc-1.0.0 apache-brpc-1.0.0-incubating-src
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-检查源码包的文件内容">2. 检查源码包的文件内容&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-检查源码包的文件内容">2. 检查源码包的文件内容&lt;/h4>
 &lt;ul>
 &lt;li>检查源码包是否包含由于包含不必要文件，致使tarball过于庞大&lt;/li>
 &lt;li>存在LICENSE和NOTICE文件&lt;/li>
@@ -1669,13 +1669,13 @@ gpg&amp;gt; save
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h1 id="在apache-brpc社区发起投票">在Apache brpc社区发起投票&lt;/h1>
-&lt;h2 id="1-投票阶段">1. 投票阶段&lt;/h2>
+&lt;h2 id="在apache-brpc社区发起投票">在Apache brpc社区发起投票&lt;/h2>
+&lt;h3 id="1-投票阶段">1. 投票阶段&lt;/h3>
 &lt;ol>
 &lt;li>发起投票邮件到dev@brpc.apache.org。PPMC需要先按文档检查版本的正确性，然后再进行投票。经过至少72小时并统计到3个+1 PPMC member票后，即可进入下一阶段。&lt;/li>
 &lt;li>宣布投票结果，发起投票结果邮件到dev@brpc.apache.org。&lt;/li>
 &lt;/ol>
-&lt;h2 id="2-投票邮件模板">2. 投票邮件模板&lt;/h2>
+&lt;h3 id="2-投票邮件模板">2. 投票邮件模板&lt;/h3>
 &lt;ol>
 &lt;li>Apache brpc 社区投票邮件模板&lt;/li>
 &lt;/ol>
@@ -1734,19 +1734,19 @@ Vote thread: xxx (vote email link in https://lists.apache.org/)
 Thank you to all the above members to help us to verify and vote for the 1.0.0 release. We will move to IPMC voting shortly.
 Regards,
 LorinLee
-&lt;/code>&lt;/pre>&lt;h2 id="3-投票未通过">3. 投票未通过&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="3-投票未通过">3. 投票未通过&lt;/h3>
 &lt;p>若社区投票未通过，则在release分支对代码仓库进行修改，重新打包，发起投票。&lt;/p>
-&lt;h1 id="在apache-incubator社区发起投票">在Apache Incubator社区发起投票&lt;/h1>
-&lt;h2 id="1-更新gpg签名">1. 更新GPG签名&lt;/h2>
+&lt;h2 id="在apache-incubator社区发起投票">在Apache Incubator社区发起投票&lt;/h2>
+&lt;h3 id="1-更新gpg签名">1. 更新GPG签名&lt;/h3>
 &lt;pre tabindex="0">&lt;code>svn delete https://dist.apache.org/repos/dist/release/incubator/brpc/KEYS -m &amp;#34;delete KEYS&amp;#34;
 svn cp https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS https://dist.apache.org/repos/dist/release/incubator/brpc/KEYS -m &amp;#34;update brpc KEYS&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>提交完svn后，访问 &lt;a href="https://downloads.apache.org/incubator/brpc/KEYS">https://downloads.apache.org/incubator/brpc/KEYS&lt;/a>，检查内容有没有更新，可能需要等几分钟时间，等内容更新了，再继续下一步。&lt;/p>
-&lt;h2 id="2-投票阶段">2. 投票阶段&lt;/h2>
+&lt;h3 id="2-投票阶段">2. 投票阶段&lt;/h3>
 &lt;ol>
 &lt;li>发起投票邮件到general@incubator.apache.org。IPMC会进行投票。经过至少72小时并统计到3个+1 IPMC member票后，即可进入下一阶段。&lt;/li>
 &lt;li>宣布投票结果，发起投票结果邮件到general@incubator.apache.org。&lt;/li>
 &lt;/ol>
-&lt;h2 id="3-投票邮件模板">3. 投票邮件模板&lt;/h2>
+&lt;h3 id="3-投票邮件模板">3. 投票邮件模板&lt;/h3>
 &lt;ol>
 &lt;li>Apache Incubator 社区投票邮件模板&lt;/li>
 &lt;/ol>
@@ -1809,17 +1809,17 @@ sending out the announcement soon.
 Regards,
 Lorin Lee
 Apache brpc (Incubating) community
-&lt;/code>&lt;/pre>&lt;h1 id="完成发布">完成发布&lt;/h1>
-&lt;h2 id="1-将发布包从apache-svn仓库-distdev-移动至-distrelease">1. 将发布包从Apache SVN仓库 dist/dev 移动至 dist/release&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h2 id="完成发布">完成发布&lt;/h2>
+&lt;h3 id="1-将发布包从apache-svn仓库-distdev-移动至-distrelease">1. 将发布包从Apache SVN仓库 dist/dev 移动至 dist/release&lt;/h3>
 &lt;pre tabindex="0">&lt;code>svn mv https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0 https://dist.apache.org/repos/dist/release/incubator/brpc/1.0.0 -m &amp;#34;release brpc 1.0.0&amp;#34;
-&lt;/code>&lt;/pre>&lt;h2 id="2-github版本发布">2. Github版本发布&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="2-github版本发布">2. Github版本发布&lt;/h3>
 &lt;p>在 &lt;a href="https://github.com/apache/incubator-brpc/tags">GitHub Releases 页面&lt;/a>的对应版本上点击，创建新的Release页面
 编辑版本号及版本说明，并点击 Publish release&lt;/p>
-&lt;h2 id="3-更新下载页面">3. 更新下载页面&lt;/h2>
+&lt;h3 id="3-更新下载页面">3. 更新下载页面&lt;/h3>
 &lt;p>等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：&lt;a href="https://brpc.apache.org/docs/downloadbrpc/">https://brpc.apache.org/docs/downloadbrpc/&lt;/a>, 更新方式在 &lt;a href="https://github.com/apache/incubator-brpc-website/">https://github.com/apache/incubator-brpc-website/&lt;/a> 仓库中，注意中英文都要更新。&lt;/p>
 &lt;p>GPG签名文件和哈希校验文件的下载链接应该使用这个前缀：https://downloads.apache.org/incubator/brpc/&lt;/p>
 &lt;p>代码包的下载链接应该使用这个前缀：https://dlcdn.apache.org/incubator/brpc/&lt;/p>
-&lt;h2 id="4-发送邮件通知发布完成">4. 发送邮件通知发布完成&lt;/h2>
+&lt;h3 id="4-发送邮件通知发布完成">4. 发送邮件通知发布完成&lt;/h3>
 &lt;p>发送邮件到dev@brpc.apache.org、general@incubator.apache.org、和announce@apache.org通知完成版本发布。&lt;/p>
 &lt;p>注意：发邮件账号必须使用&lt;strong>个人apache邮箱&lt;/strong>，且邮件内容必须是&lt;strong>纯文本格式&lt;/strong>（可在gmail选择&amp;quot;纯文本模式&amp;quot;）。announce@apache.org 邮件组需要经过人工审核才能送达，发出邮件后请耐心等待，一般会在一天之内通过。&lt;/p>
 &lt;p>通知邮件模板如下：&lt;/p>
@@ -1852,9 +1852,9 @@ We would like to thank all contributors of the Apache brpc community and
 Incubating community who made this release possible!
 Best Regards,
 Apache brpc (Incubating) community
-&lt;/code>&lt;/pre>&lt;h2 id="发布微信公众号公告">发布微信公众号公告&lt;/h2>
+&lt;/code>&lt;/pre>&lt;h3 id="发布微信公众号公告">发布微信公众号公告&lt;/h3>
 &lt;p>参考 &lt;a href="https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg">https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg&lt;/a>.&lt;/p>
-&lt;h2 id="更新master分支">更新master分支&lt;/h2>
+&lt;h3 id="更新master分支">更新master分支&lt;/h3>
 &lt;p>发版完成后，将release分支合并到master分支.&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</guid><description>
 &lt;p>11月30日，随着committer lorin lee在apache基金会的孵化邮件组发出vote close的邮件， apache brpc 1.0.0的发版投票结果是通过。&lt;/p>
 &lt;p>下载地址在这里：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
