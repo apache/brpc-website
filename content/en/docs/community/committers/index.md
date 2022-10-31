@@ -1,6 +1,6 @@
 ---
 title: "Committers"
-linkTitle: "bRPC Committers"
+linkTitle: "Committers"
 weight: 6
 date: 2022-10-31
 description: >
