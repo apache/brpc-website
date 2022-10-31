@@ -1,7 +1,7 @@
 ---
 title: "Release指南"
 linkTitle: "Release指南"
-weight: 4
+weight: 5
 date: 2022-10-31
 description: >
   如何发布一个bRPC Release版本.
