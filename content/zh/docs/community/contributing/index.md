@@ -1,7 +1,7 @@
 ---
-title: "贡献"
-linkTitle: "贡献"
-weight: 4
+title: "Contribute指南"
+linkTitle: "Contribute指南"
+weight: 2
 date: 2022-09-13
 description: >
 ---
