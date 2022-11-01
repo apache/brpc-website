@@ -4,7 +4,7 @@ linkTitle: "安全"
 weight: 7
 date: 2021-08-12
 description: >
-  关于安全。
+  关于安全
 ---
 Apache Software Foundation 在消除其软件项目中的安全问题方面采取了严格的立场。Apache bRPC(Incubating) 也十分关注与其特性和功能相关的安全问题。
 
