@@ -4,7 +4,7 @@ linkTitle: "Release Guide"
 weight: 5
 date: 2022-10-31
 description: >
-  How to publish a bRPC release.
+  How to publish a bRPC release
 ---
 brpc apache release guide step by step
 ===
