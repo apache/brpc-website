@@ -8,7 +8,7 @@ aliases:
 menu:
   main:
     weight: 40
-description: 关于Apache bRPC社区。
+description: 关于Apache bRPC社区
 ---
 <!--
 {% comment %}
