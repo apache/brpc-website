@@ -6,7 +6,7 @@ weight: 1
 menu:
   main:
     weight: 40
-description: About bRPC community.
+description: About bRPC community
 ---
 <!--
 {% comment %}
