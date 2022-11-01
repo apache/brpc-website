@@ -4,7 +4,7 @@ linkTitle: "Committer Guide"
 weight: 4
 date: 2021-08-12
 description: >
-  How to be a bRPC Committer.
+  How to be a bRPC Committer
 ---
 # Introduction
 
