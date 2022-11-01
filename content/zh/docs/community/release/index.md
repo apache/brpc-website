@@ -4,7 +4,7 @@ linkTitle: "Release指南"
 weight: 5
 date: 2022-10-31
 description: >
-  如何发布一个bRPC Release版本.
+  如何发布一个bRPC Release版本
 ---
 brpc 发布apache release 版本流程step by step
 ===
