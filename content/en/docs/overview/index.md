@@ -41,7 +41,7 @@ Common doubts on RPC:
 
 # What is ![brpc](/images/docs/logo.png)?
 
-An industrial-grade RPC framework used throughout [Baidu](http://ir.baidu.com/phoenix.zhtml?c=188488&p=irol-irhome), with 1,000,000+ instances(not counting clients) and thousands kinds of services, called "**baidu-rpc**" inside Baidu. Only C++ implementation is opensourced right now.
+brpc is an Industrial-grade RPC framework using C++ Language, which is often used in high performance system such as Search, Storage, Machine learning, Advertisement, Recommendation etc.
 
 You can use it to:
 * Build a server that can talk in multiple protocols (**on same port**), or access all sorts of services
