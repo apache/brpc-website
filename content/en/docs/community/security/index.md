@@ -4,7 +4,7 @@ linkTitle: "Security"
 weight: 6
 date: 2021-08-12
 description: >
-  About security.
+  About security
 ---
 The Apache Software Foundation takes a rigorous stance on eliminating security issues in its software projects. Likewise, Apache bRPC is also vigilant and takes security issues related to its features and functionality into the highest consideration.
 
