@@ -261,8 +261,6 @@ __asm (
 
 参考资料
 1. https://zhuanlan.zhihu.com/p/148314164
-2. http://wiki.baidu.com/display/RPC/bthread
-3. http://jinke.me/2018-09-14-coroutine-context-switch/
-4. http://cons.mit.edu/fa18/x86-64-architecture-guide.html
-5. https://blog.csdn.net/thisinnocence/article/details/50936470
-6. http://wiki.baidu.com/pages/viewpage.action?pageId=1303526733
+2. http://jinke.me/2018-09-14-coroutine-context-switch/
+3. http://cons.mit.edu/fa18/x86-64-architecture-guide.html
+4. https://blog.csdn.net/thisinnocence/article/details/50936470
