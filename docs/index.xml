@@ -1396,8 +1396,7 @@ succeed.&lt;/p>
 &lt;p>See &lt;a href="https://github.com/apache/incubator-brpc/issues">https://github.com/apache/incubator-brpc/issues&lt;/a>&lt;/p></description></item><item><title>Docs: Users</title><link>https://brpc.incubator.apache.org/docs/users/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/users/</guid><description>
 &lt;div id="overview">
 &lt;div class="contain" style="width: auto; margin: 0 auto">
-&lt;h2 class="section-head">Used by&lt;/h2>
-&lt;h3>Providing your info on &lt;a href="https://github.com/apache/incubator-brpc/issues/1640">Wanted: who’s using bRPC&lt;/a> to help improving bRPC better&lt;/h3>
+&lt;h1 class="section-head">Used by&lt;/h1>
 &lt;td align="center" valign="middle">
 &lt;a href="http://home.baidu.com/index.html" target="_blank">
 &lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/baidu_logo.svg">
@@ -1416,31 +1415,6 @@ succeed.&lt;/p>
 &lt;td align="center" valign="middle">
 &lt;a href="https://www.bilibili.com/" target="_blank">
 &lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/bilibili_logo.png">
-&lt;/a>
-&lt;/td>
-&lt;td align="center" valign="middle">
-&lt;a href="https://bigo.tv/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/bigo_logo.png">
-&lt;/a>
-&lt;/td>
-&lt;td align="center" valign="middle">
-&lt;a href="https://www.didiglobal.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/didi_logo.png">
-&lt;/a>
-&lt;/td>
-&lt;td align="center" valign="middle">
-&lt;a href="https://www.capitalonline.net/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/cdsshouyun_logo.png">
-&lt;/a>
-&lt;/td>
-&lt;td align="center" valign="middle">
-&lt;a href="https://www.amap.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/gaode_logo.png">
-&lt;/a>
-&lt;/td>
-&lt;td align="center" valign="middle">
-&lt;a href="https://www.weibo.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/weibo_logo.svg">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
