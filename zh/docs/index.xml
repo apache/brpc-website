@@ -649,11 +649,9 @@ limitations under the License.
 &lt;p>参考资料&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/148314164">https://zhuanlan.zhihu.com/p/148314164&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://wiki.baidu.com/display/RPC/bthread">http://wiki.baidu.com/display/RPC/bthread&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://jinke.me/2018-09-14-coroutine-context-switch/">http://jinke.me/2018-09-14-coroutine-context-switch/&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://cons.mit.edu/fa18/x86-64-architecture-guide.html">http://cons.mit.edu/fa18/x86-64-architecture-guide.html&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.csdn.net/thisinnocence/article/details/50936470">https://blog.csdn.net/thisinnocence/article/details/50936470&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://wiki.baidu.com/pages/viewpage.action?pageId=1303526733">http://wiki.baidu.com/pages/viewpage.action?pageId=1303526733&lt;/a>&lt;/li>
 &lt;/ol></description></item><item><title>Docs: brpc初学者指南</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</guid><description>
 &lt;p>(作者简介：lorinlee，是brpc新进committer，在字节跳动负责图数据库相关工作）&lt;/p>
 &lt;p>Apache brpc(incubating) 是一款优秀的工业级 C++ RPC 框架，其兼具高性能、兼容多种协议、周边工具完善等多种优点于一身，已在国内多个大厂广泛使用。&lt;/p>
