@@ -68,7 +68,7 @@
 &lt;li>I don&amp;rsquo;t need replies. With some inductions, we know that in your scenario requests can be dropped at any stage because the client is always unaware of the situation. Are you really sure this is acceptable? Even if you don&amp;rsquo;t need the reply, we recommend sending back small-sized replies, which are unlikely to be performance bottlenecks and will probably provide valuable clues when debugging complex bugs.&lt;/li>
 &lt;/ul>
 &lt;h1 id="what-is-brpcimagesdocslogopng">What is &lt;img src="https://brpc.incubator.apache.org/images/docs/logo.png" alt="brpc">?&lt;/h1>
-&lt;p>An industrial-grade RPC framework used throughout &lt;a href="http://ir.baidu.com/phoenix.zhtml?c=188488&amp;amp;p=irol-irhome">Baidu&lt;/a>, with 1,000,000+ instances(not counting clients) and thousands kinds of services, called &amp;ldquo;&lt;strong>baidu-rpc&lt;/strong>&amp;rdquo; inside Baidu. Only C++ implementation is opensourced right now.&lt;/p>
+&lt;p>brpc is an Industrial-grade RPC framework using C++ Language, which is often used in high performance system such as Search, Storage, Machine learning, Advertisement, Recommendation etc.&lt;/p>
 &lt;p>You can use it to:&lt;/p>
 &lt;ul>
 &lt;li>Build a server that can talk in multiple protocols (&lt;strong>on same port&lt;/strong>), or access all sorts of services

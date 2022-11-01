@@ -75,7 +75,7 @@
 &lt;li>我的场景不需要回复。简单推理可知，你的场景中请求可丢可不丢，可处理也可不处理，因为client总是无法感知，你真的确认这是OK的？即使场景真的不需要，我们仍然建议用最小的结构体回复，因为这不大会是瓶颈，并且追查复杂bug时可能是很有价值的线索。&lt;/li>
 &lt;/ul>
 &lt;h1 id="什么是brpcimagesdocslogopng">什么是&lt;img src="https://brpc.incubator.apache.org/images/docs/logo.png" alt="brpc">?&lt;/h1>
-&lt;p>百度内最常使用的工业级RPC框架, 有1,000,000+个实例(不包含client)和上千种服务, 在百度内叫做&amp;rdquo;&lt;strong>baidu-rpc&lt;/strong>&amp;quot;. 目前只开源C++版本。&lt;/p>
+&lt;p>brpc是用c++语言编写的工业级RPC框架，常用于搜索、存储、机器学习、广告、推荐等高性能系统。&lt;/p>
 &lt;p>你可以使用它：&lt;/p>
 &lt;ul>
 &lt;li>搭建能在&lt;strong>一个端口&lt;/strong>支持多协议的服务, 或访问各种服务
@@ -98,7 +98,7 @@
 &lt;/ul>
 &lt;h1 id="brpc的优势">brpc的优势&lt;/h1>
 &lt;h3 id="更友好的接口">更友好的接口&lt;/h3>
-&lt;p>只有三个(主要的)用户类: &lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">Server&lt;/a>, &lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/channel.h">Channel&lt;/a>, &lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/controller.h">Controller&lt;/a>, 分别对应server端，client端，参数集合. 你不必推敲诸如&amp;quot;如何初始化XXXManager&amp;quot;, &amp;ldquo;如何组合各种组件&amp;rdquo;, &amp;ldquo;XXXController的XXXContext间的关系是什么&amp;rdquo;。要做的很简单:&lt;/p>
+&lt;p>只有三个(主要的)用户类: &lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">Server&lt;/a>, &lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/channel.h">Channel&lt;/a>, &lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/controller.h">Controller&lt;/a>, 分别对应server端，client端，参数集合. 你不必推敲诸如&amp;quot;如何初始化XXXManager&amp;rdquo;, &amp;ldquo;如何组合各种组件&amp;rdquo;, &amp;ldquo;XXXController的XXXContext间的关系是什么&amp;rdquo;。要做的很简单:&lt;/p>
 &lt;ul>
 &lt;li>建服务? 包含&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/server.h">brpc/server.h&lt;/a>并参考注释或&lt;a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/server.cpp">示例&lt;/a>.&lt;/li>
 &lt;li>访问服务? 包含&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/channel.h">brpc/channel.h&lt;/a>并参考注释或&lt;a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/client.cpp">示例&lt;/a>.&lt;/li>
