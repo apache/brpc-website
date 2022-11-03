@@ -94,8 +94,6 @@ The Docsy template currently includes built-in integration with the following to
 
 * [**GitHub**](https://github.com): Get in-page links directly to your GitHub repo and provide your users with a
    convenient pathway to providing feedback, opening issues, and even suggesting changes through Pull Requests.
-* [**Google Analytics**](https://analytics.google.com/analytics/web/): Easily connect your Google Analytics account to your 
-   site.
 * [**Google Custom Search**](https://cse.google.com/cse/): Use Google Custom Search for in-site search queries, or 
   configure your site to search the web.
 * [**Algolia Docsearch**](https://community.algolia.com/docsearch/): Let your users search your site with Algolia Docsearch.
