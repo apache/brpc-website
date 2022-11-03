@@ -1,10 +1,10 @@
 ---
-title: "贡献者"
+title: "贡献者列表"
 linkTitle: "贡献者列表"
 weight: 6
 date: 2022-10-31
 description: >
-  贡献者列表
+  bRPC 贡献者列表
 ---
 ## bRRC 贡献者列表
 
