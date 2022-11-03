@@ -9,18 +9,6 @@ description: >
 
 ## Adding Analytics
 
-The Docsy theme contains built-in support for [Google Analytics](https://analytics.google.com/analytics/web/) via Hugo's [internal template](https://gohugo.io/templates/internal/#google-analytics), which is included in the theme. Once you set Analytics up as described below, usage information for your site (such as page views) is sent to your Google Analytics account.
-
-### Setup
-
-1. Ensure you have [set up a Google Analytics property](https://support.google.com/analytics/answer/1042508) for your site: this gives you an Analytics ID to add to your config, which Docsy in turn adds to all your site's pages.
-1. Open `config.toml`.
-1. Enable Google Analytics by setting the Tracking ID property to your site's Analytics ID.
-
-        [services.googleAnalytics]
-        id = "UA-00000000-0"
-
-1. Save and close `config.toml`.
 1. Ensure that your site is built with `HUGO_ENV="production"`, as Docsy only adds Analytics tracking to production-ready sites. You can specify this variable as a command line flag to Hugo: 
 
     ```
@@ -111,9 +99,6 @@ Here's what the 4 columns represent:
   and 1. When users click **No** a value of 0 is sent to Google Analytics. When users click 
   **Yes** a value of 1 is sent. You can think of it as a percentage. If a page has an
   **Avg. Value** of 0.67, it means that 67% of users clicked **Yes** and 33% clicked **No**.
-
-[events]: https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-[PR]: https://github.com/google/docsy/pull/1/files
 
 The underlying Google Analytics infrastructure that stores the "was this page helpful?" data is 
 called [Events][events]. See [docsy pull request #1][PR] to see exactly
