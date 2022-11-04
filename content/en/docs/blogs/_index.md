@@ -5,6 +5,6 @@ linkTitle: Blog
 weight: 90000
 menu:
   main:
-    weight: 2
+    weight: 50
 description: About bRPC blogs.
 ---

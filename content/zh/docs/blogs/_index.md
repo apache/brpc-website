@@ -4,6 +4,6 @@ linkTitle: "博客"
 weight: 90000
 menu:
   main:
-    weight: 30
+    weight: 50
 description: bRPC相关博客文章。
 ---

@@ -6,7 +6,7 @@ date: 2020-03-02
 author: "bRPC Team"
 menu:
   main:
-    weight: 50
+    weight: 60
 description: >
   在<a href="https://github.com/apache/incubator-brpc/issues/1640">Wanted: who’s using bRPC</a> 上面提交你的使用场景来帮助bRPC变的更好
 ---

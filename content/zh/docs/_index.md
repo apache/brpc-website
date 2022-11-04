@@ -4,7 +4,7 @@ linkTitle: "文档"
 weight: 20
 menu:
   main:
-    weight: 20
+    weight: 30
 ---
 
 bRPC 官方文档。

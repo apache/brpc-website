@@ -131,11 +131,11 @@ no = 'Sorry to hear that. Please <a href="https://github.com/apache/incubator-br
 
 [[menu.main]]
     name = "GitHub"
-    weight = 1
+    weight = 10
     url = "https://github.com/apache/incubator-brpc/"
 [[menu.main]]
     name = "Download"
-    weight = 2
+    weight = 20
     url = "https://brpc.apache.org/download"
 
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
