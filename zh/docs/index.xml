@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 文档</title><link>https://brpc.incubator.apache.org/zh/docs/</link><description>Recent content in 文档 on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/zh/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.3.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.3.0/</link><pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.3.0/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 文档</title><link>https://brpc.apache.org/zh/docs/</link><description>Recent content in 文档 on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.apache.org/zh/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.3.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.3.0/</link><pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.3.0/</guid><description>
 &lt;h2 id="apache-brpc-130发布支持arm64平台和多维度bvar">Apache bRPC 1.3.0发布，支持arm64平台和多维度bvar&lt;/h2>
 &lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.3.0版本发布，支持arm64平台和多维度bvar，同时Star数量也突破14k，并新增四位企业级用户：欢聚时代、Doris、BaikalDB和数美科技（nextdata）。&lt;/p>
 &lt;p>bRPC官网：https://brpc.apache.org/&lt;/p>
@@ -44,7 +44,7 @@
 &lt;li>文档改进@wwbmmm, @JackBoosY, @morningman, @serverglen, @chenBright, @guodongxiaren, @xdh0817, @KaneVV1, @tanzhongyi003, @lzfhust, @Huixxi&lt;/li>
 &lt;li>修正错别字@opheliaKyouko, @day253, @chenBright, @fansehep&lt;/li>
 &lt;/ul>
-&lt;p>感谢所有关心和为bRPC做出贡献的开发者！&lt;/p></description></item><item><title>Docs: bRPC简介</title><link>https://brpc.incubator.apache.org/zh/docs/overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/overview/</guid><description>
+&lt;p>感谢所有关心和为bRPC做出贡献的开发者！&lt;/p></description></item><item><title>Docs: bRPC简介</title><link>https://brpc.apache.org/zh/docs/overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/overview/</guid><description>
 &lt;h1 id="什么是rpc">什么是RPC?&lt;/h1>
 &lt;p>互联网上的机器大都通过&lt;a href="http://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP协议&lt;/a>相互访问，但TCP/IP只是往远端发送了一段二进制数据，为了建立服务还有很多问题需要抽象：&lt;/p>
 &lt;ul>
@@ -56,7 +56,7 @@
 &lt;li>&amp;hellip;&lt;/li>
 &lt;/ul>
 &lt;p>&lt;a href="http://en.wikipedia.org/wiki/Remote_procedure_call">RPC&lt;/a>可以解决这些问题，它把网络交互类比为“client访问server上的函数”：client向server发送request后开始等待，直到server收到、处理、回复client后，client又再度恢复并根据response做出反应。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc.png" alt="rpc.png">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc.png" alt="rpc.png">&lt;/p>
 &lt;p>我们来看看上面的一些问题是如何解决的：&lt;/p>
 &lt;ul>
 &lt;li>数据需要序列化，&lt;a href="https://github.com/google/protobuf">protobuf&lt;/a>在这方面做的不错。用户填写protobuf::Message类型的request，RPC结束后，从同为protobuf::Message类型的response中取出结果。protobuf有较好的前后兼容性，方便业务调整字段。http广泛使用&lt;a href="http://www.json.org/">json&lt;/a>作为序列化方法。&lt;/li>
@@ -74,7 +74,7 @@
 &lt;li>我传输的是流数据，RPC表达不了。事实上brpc中很多协议支持传递流式数据，包括&lt;a href="../client/access-httph2/#%E6%8C%81%E7%BB%AD%E4%B8%8B%E8%BD%BD">http中的ProgressiveReader&lt;/a>, h2的streams, &lt;a href="../client/streaming-rpc/">streaming rpc&lt;/a>, 和专门的流式协议RTMP。&lt;/li>
 &lt;li>我的场景不需要回复。简单推理可知，你的场景中请求可丢可不丢，可处理也可不处理，因为client总是无法感知，你真的确认这是OK的？即使场景真的不需要，我们仍然建议用最小的结构体回复，因为这不大会是瓶颈，并且追查复杂bug时可能是很有价值的线索。&lt;/li>
 &lt;/ul>
-&lt;h1 id="什么是brpcimagesdocslogopng">什么是&lt;img src="https://brpc.incubator.apache.org/images/docs/logo.png" alt="brpc">?&lt;/h1>
+&lt;h1 id="什么是brpcimagesdocslogopng">什么是&lt;img src="https://brpc.apache.org/images/docs/logo.png" alt="brpc">?&lt;/h1>
 &lt;p>brpc是用c++语言编写的工业级RPC框架，常用于搜索、存储、机器学习、广告、推荐等高性能系统。&lt;/p>
 &lt;p>你可以使用它：&lt;/p>
 &lt;ul>
@@ -123,7 +123,7 @@
 &lt;li>尽量少的锁。高QPS服务可以充分利用一台机器的CPU。比如为处理请求&lt;a href="../rpc-in-depth/memory-management/">创建bthread&lt;/a>, &lt;a href="../rpc-in-depth/timer-keeping/">设置超时&lt;/a>, 根据回复&lt;a href="../rpc-in-depth/bthread_id/">找到RPC上下文&lt;/a>, &lt;a href="../bvar/bvar/">记录性能计数器&lt;/a>都是高度并发的。即使服务的QPS超过50万，用户也很少在&lt;a href="../builtin-services/contention_profiler/">contention profiler&lt;/a>)中看到框架造成的锁竞争。&lt;/li>
 &lt;li>服务器线程数自动调节。传统的服务器需要根据下游延时的调整自身的线程数，否则吞吐可能会受影响。在brpc中，每个请求均运行在新建立的&lt;a href="../bthread/bthread/">bthread&lt;/a>中，请求结束后线程就结束了，所以天然会根据负载自动调节线程数。&lt;/li>
 &lt;/ul>
-&lt;p>brpc和其他实现的性能对比见&lt;a href="../benchmark/">这里&lt;/a>。&lt;/p></description></item><item><title>Docs: 社区</title><link>https://brpc.incubator.apache.org/zh/docs/community/community/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/community/</guid><description>
+&lt;p>brpc和其他实现的性能对比见&lt;a href="../benchmark/">这里&lt;/a>。&lt;/p></description></item><item><title>Docs: 社区</title><link>https://brpc.apache.org/zh/docs/community/community/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/community/</guid><description>
 &lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more
@@ -165,7 +165,7 @@ limitations under the License.
 &lt;h3 id="源代码">源代码&lt;/h3>
 &lt;p>可以通过github上的&lt;a href="https://github.com/apache/incubator-brpc">源代码库&lt;/a>访问项目源代码。&lt;/p>
 &lt;h3 id="网站源代码">网站源代码&lt;/h3>
-&lt;p>可以通过github上的&lt;a href="https://github.com/apache/incubator-brpc-website">网站源代码库&lt;/a>访问项目网站源代码。&lt;/p></description></item><item><title>Docs: 邮件列表</title><link>https://brpc.incubator.apache.org/zh/docs/community/mailing_list/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/mailing_list/</guid><description>
+&lt;p>可以通过github上的&lt;a href="https://github.com/apache/incubator-brpc-website">网站源代码库&lt;/a>访问项目网站源代码。&lt;/p></description></item><item><title>Docs: 邮件列表</title><link>https://brpc.apache.org/zh/docs/community/mailing_list/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/mailing_list/</guid><description>
 &lt;h3 id="关于邮件列表">关于邮件列表&lt;/h3>
 &lt;p>邮件列表（Mailing List）是我们公开讨论并记录的地方，在使用 bRPC 的过程中，如果您发现任何问题，有新的想法、建议都可以通过 Apache 邮件列表参与到 bRPC 的社区建设中。&lt;/p>
 &lt;p>如果你有一个特定的问题想要问，建议使用 &lt;a href="https://github.com/apache/incubator-brpc/issues/new/choose">GitHub Issue&lt;/a> 报 Bug 或提需求，这是一种更有效率的方式。&lt;/p>
@@ -183,7 +183,7 @@ limitations under the License.
 &lt;h5 id="4-接收欢迎邮件">4. 接收欢迎邮件&lt;/h5>
 &lt;p>完成第三步之后，将会受到一封标题为WELCOME to &lt;a href="mailto:dev@brpc.apache.org">dev@brpc.apache.org&lt;/a> 的欢迎邮件。至此，订阅邮件列表的工作已经完成了，社区的动态都会通过邮件的方式通知您。&lt;/p>
 &lt;h5 id="5-发起邮件讨论可选">5. 发起邮件讨论（可选）&lt;/h5>
-&lt;p>成功订阅邮件列表后，若想发起讨论，直接往 &lt;a href="mailto:dev@brpc.apache.org">dev@brpc.apache.org&lt;/a> 发送邮件即可，所有订阅了邮件列表的人都会收到邮件。&lt;/p></description></item><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.2.0/</guid><description>
+&lt;p>成功订阅邮件列表后，若想发起讨论，直接往 &lt;a href="mailto:dev@brpc.apache.org">dev@brpc.apache.org&lt;/a> 发送邮件即可，所有订阅了邮件列表的人都会收到邮件。&lt;/p></description></item><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.2.0/</guid><description>
 &lt;h2 id="apache-brpc-120发布支持apple-silicon">Apache bRPC 1.2.0发布，支持Apple Silicon&lt;/h2>
 &lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.2.0版本发布，支持Apple Silicon。&lt;/p>
 &lt;p>下载链接：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
@@ -222,7 +222,7 @@ limitations under the License.
 &lt;li>文档改进 by @wwbmmm, @tanzhongyi003, @guodongxiaren, @372046933, @wasphin, @hawkxiang, @TousakaRin, @Huixxi, @serverglen&lt;/li>
 &lt;li>修正拼写错误 by @jamesge, @cyberkillor&lt;/li>
 &lt;/ul>
-&lt;p>感谢所有关心和为bRPC做出贡献的开发者！&lt;/p></description></item><item><title>Docs: bRPC源码解析·bthread机制</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/sourcecodes/bthread/</link><pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/sourcecodes/bthread/</guid><description>
+&lt;p>感谢所有关心和为bRPC做出贡献的开发者！&lt;/p></description></item><item><title>Docs: bRPC源码解析·bthread机制</title><link>https://brpc.apache.org/zh/docs/blogs/sourcecodes/bthread/</link><pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/sourcecodes/bthread/</guid><description>
 &lt;h2 id="bthread简介">bthread简介&lt;/h2>
 &lt;p>官方文档：https://brpc.apache.org/zh/docs/bthread/bthread/&lt;/p>
 &lt;p>bthread是bRPC使用的M:N线程库，类似协程，即用户态线程，也因此bthread的切换不会陷入内核，不会进行一系列内存同步等耗时操作，从bthread_benchmark中可以看到bthread的创建时间和调度时间相较pthread有着数量级的提升，将大量的bthread映射至少量的内核线程pthread上执行，降低内核上下文切换开销，在充分利用多核的同时，具有更好的cache locality。&lt;/p>
@@ -461,7 +461,7 @@ limitations under the License.
 &lt;/tbody>
 &lt;/table>
 &lt;p>初始化过程可由下图直观表示：
-&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_make_fcontext.png" alt="bthread_make_fcontext">&lt;/p>
+&lt;img src="https://brpc.apache.org/images/docs/bthread_make_fcontext.png" alt="bthread_make_fcontext">&lt;/p>
 &lt;h3 id="协程的切换部分">协程的切换部分&lt;/h3>
 &lt;p>实现协程上下文切换有很多种方法，本质要做的都是保存和恢复寄存器和栈信息。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">inline&lt;/span> &lt;span style="color:#204a87;font-weight:bold">void&lt;/span> &lt;span style="color:#000">jump_stack&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">ContextualStack&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">from&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ContextualStack&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">to&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
@@ -645,14 +645,14 @@ limitations under the License.
 &lt;/tbody>
 &lt;/table>
 &lt;p>在协程切换过程中有两种情况，第一种为新协程是通过bthread_make_fcontext函数刚刚创建的栈，另一种是已经运行过的栈，这两种过程分别如下图所示：
-&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_jump_fcontext.png" alt="bthread_jump_fcontext">&lt;/p>
+&lt;img src="https://brpc.apache.org/images/docs/bthread_jump_fcontext.png" alt="bthread_jump_fcontext">&lt;/p>
 &lt;p>参考资料&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/148314164">https://zhuanlan.zhihu.com/p/148314164&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://jinke.me/2018-09-14-coroutine-context-switch/">http://jinke.me/2018-09-14-coroutine-context-switch/&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://cons.mit.edu/fa18/x86-64-architecture-guide.html">http://cons.mit.edu/fa18/x86-64-architecture-guide.html&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.csdn.net/thisinnocence/article/details/50936470">https://blog.csdn.net/thisinnocence/article/details/50936470&lt;/a>&lt;/li>
-&lt;/ol></description></item><item><title>Docs: brpc初学者指南</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</guid><description>
+&lt;/ol></description></item><item><title>Docs: brpc初学者指南</title><link>https://brpc.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</guid><description>
 &lt;p>(作者简介：lorinlee，是brpc新进committer，在字节跳动负责图数据库相关工作）&lt;/p>
 &lt;p>Apache brpc(incubating) 是一款优秀的工业级 C++ RPC 框架，其兼具高性能、兼容多种协议、周边工具完善等多种优点于一身，已在国内多个大厂广泛使用。&lt;/p>
 &lt;p>有不少同学对brpc感兴趣，但还没有找到合适的路径，不知道如何学习。笔者是来自字节跳动的研发工程师，也曾遇到相同的困扰，后来通过自己的一些摸索，成为了brpc committer，期间也总结了一些经验，希望对大家有所帮助。&lt;/p>
@@ -847,7 +847,7 @@ bvar目录下是指标收集的实现。&lt;/p>
 &lt;p>如果想提PR，但对做什么有些迷茫，可以参考一些label下的issue，比如 &amp;ldquo;good first issue&amp;rdquo;，&amp;ldquo;help wanted&amp;rdquo; 等，都比较适合初学者。当慢慢熟悉后，可以尝试解决 &amp;ldquo;enhancement&amp;rdquo;，&amp;ldquo;official&amp;rdquo;，&amp;ldquo;feature&amp;rdquo;，&amp;ldquo;bug&amp;rdquo; 等label下的问题。&lt;/p>
 &lt;h2 id="结语">结语&lt;/h2>
 &lt;p>brpc是一个优秀的C++项目，值得大家学习它的设计与实现。但brpc同时也是相对有些复杂的项目，其有13w+行代码，需要一定的学习过程。&lt;/p>
-&lt;p>本文推荐了大家一些学习的入手点，希望能帮助大家更好地入门，并在学习过程中有丰厚的收获。当然，也期待大家在熟悉brpc之后，能够参与到brpc的贡献中，帮助到大量brpc的使用者。&lt;/p></description></item><item><title>Docs: 开始</title><link>https://brpc.incubator.apache.org/zh/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/getting_started/</guid><description>
+&lt;p>本文推荐了大家一些学习的入手点，希望能帮助大家更好地入门，并在学习过程中有丰厚的收获。当然，也期待大家在熟悉brpc之后，能够参与到brpc的贡献中，帮助到大量brpc的使用者。&lt;/p></description></item><item><title>Docs: 开始</title><link>https://brpc.apache.org/zh/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/getting_started/</guid><description>
 &lt;h1 id="构建">构建&lt;/h1>
 &lt;p>brpc鼓励静态链接依赖，以便于每个运行brpc服务的机器不必再安装依赖。&lt;/p>
 &lt;p>brpc有如下依赖：&lt;/p>
@@ -1023,7 +1023,7 @@ bvar目录下是指标收集的实现。&lt;/p>
 &lt;p>brpc默认&lt;strong>不&lt;/strong>链接 &lt;a href="http://goog-perftools.sourceforge.net/doc/tcmalloc.html">tcmalloc&lt;/a>。用户按需要链接tcmalloc。&lt;/p>
 &lt;p>和glibc内置的ptmalloc相比，tcmalloc通常能提升性能。然而不同版本的tcmalloc可能表现迥异。例如：tcmalloc 2.1与 tcmalloc 1.7和2.5相比，可能会让brpc的多线程样例性能显著恶化（tcmalloc中的一个自旋锁导致的）。甚至不同的小版本号之间变现也可能不同。当你的程序表现不符合预期的时候，移除tcmalloc然后尝试其他版本。&lt;/p>
 &lt;p>用gcc4.8.2编译然后链接更早版本GCC编译的tcmalloc，可能会让程序中main()函数之前挂掉或者死锁，例如：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/tcmalloc_stuck.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/tcmalloc_stuck.png" alt="img">&lt;/p>
 &lt;p>当你遇到这个问题的时候，请用同一个GCC重新编译tcmalloc。&lt;/p>
 &lt;p>另外一个使用tcmalloc的常见问题是，它不会像 ptmalloc一样及时地归还内存给系统。因此当有一个无效的内存访问的时候，程序可能不会直接挂掉，取而代之的是它可能在一个不相关的地方挂掉，或者甚至一直不挂掉。当你的程序出现怪异的内存问题的时候，尝试移除tcmalloc。&lt;/p>
 &lt;p>如果你要使用&lt;a href="../builtin-services/cpu_profiler">cpu profiler&lt;/a>或&lt;a href="../builtin-services/heap_profiler">heap profiler&lt;/a>，要链接&lt;code>libtcmalloc_and_profiler.a&lt;/code>。这两个 profiler都是基于tcmalloc的。而&lt;a href="../builtin-services/contention_profiler">contention profiler&lt;/a>不需要tcmalloc。&lt;/p>
@@ -1035,7 +1035,7 @@ bvar目录下是指标收集的实现。&lt;/p>
 &lt;h2 id="thrift-093-0110">thrift: 0.9.3-0.11.0&lt;/h2>
 &lt;p>无已知问题。&lt;/p>
 &lt;h1 id="实例追踪">实例追踪&lt;/h1>
-&lt;p>我们提供了一个程序去帮助你追踪和监控所有brpc实例。 只需要在某处运行 &lt;a href="https://github.com/brpc/brpc/tree/master/tools/trackme_server/">trackme_server&lt;/a> 然后再带着 -trackme_server=SERVER参数启动需要被追踪的实例。trackme_server将从实例周期性地收到ping消息然后打印日志。您可以从日志中聚合实例地址，并调用实例的内置服务以获取更多信息。&lt;/p></description></item><item><title>Docs: 性能基准</title><link>https://brpc.incubator.apache.org/zh/docs/benchmark/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/benchmark/</guid><description>
+&lt;p>我们提供了一个程序去帮助你追踪和监控所有brpc实例。 只需要在某处运行 &lt;a href="https://github.com/brpc/brpc/tree/master/tools/trackme_server/">trackme_server&lt;/a> 然后再带着 -trackme_server=SERVER参数启动需要被追踪的实例。trackme_server将从实例周期性地收到ping消息然后打印日志。您可以从日志中聚合实例地址，并调用实例的内置服务以获取更多信息。&lt;/p></description></item><item><title>Docs: 性能基准</title><link>https://brpc.apache.org/zh/docs/benchmark/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/benchmark/</guid><description>
 &lt;h1 id="序言">序言&lt;/h1>
 &lt;p>在多核的前提下，性能和线程是紧密联系在一起的。线程间的跳转对高频IO操作的性能有决定性作用: 一次跳转意味着至少3-20微秒的延时，由于每个核心的L1 cache独立（我们的cpu L2 cache也是独立的），随之而来是大量的cache miss，一些变量的读取、写入延时会从纳秒级上升几百倍至微秒级: 等待cpu把对应的cacheline同步过来。有时这带来了一个出乎意料的结果，当每次的处理都很简短时，一个多线程程序未必比一个单线程程序更快。因为前者可能在每次付出了大的切换代价后只做了一点点“正事”，而后者在不停地做“正事”。不过单线程也是有代价的，它工作良好的前提是“正事”都很快，否则一旦某次变慢就使后续的所有“正事”都被延迟了。在一些处理时间普遍较短的程序中，使用（多个不相交的）单线程能最大程度地”做正事“，由于每个请求的处理时间确定，延时表现也很稳定，各种http server正是这样。但我们的检索服务要做的事情可就复杂多了，有大量的后端服务需要访问，广泛存在的长尾请求使每次处理的时间无法确定，排序策略也越来越复杂。如果还是使用（多个不相交的）单线程的话，一次难以预计的性能抖动，或是一个大请求可能导致后续一堆请求被延迟。&lt;/p>
 &lt;p>为了避免请求之间相互影响，请求级的线程跳转是brpc必须付出的代价，我们能做的是使&lt;a href="../rpc-in-depth/io#the-full-picture">线程跳转最优化&lt;/a>。不过，对服务的性能测试还不能很好地体现这点。测试中的处理往往极为简单，使得线程切换的影响空前巨大，通过控制多线程和单线程处理的比例，我们可以把一个测试服务的qps从100万到500万操纵自如（同机），这损伤了性能测试结果的可信度。要知道，真实的服务并不是在累加一个数字，或者echo一个字符串，一个qps几百万的echo程序没有指导意义。鉴于此，在发起性能测试一年后（15年底），在brpc又经历了1200多次改动后，我们需要review所有的测试，加强其中的线程因素，以获得对真实场景有明确意义的结果。具体来说:&lt;/p>
@@ -1099,7 +1099,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;h2 id="同机单client单server在不同请求下的qps越高越好">同机单client→单server在不同请求下的QPS（越高越好）&lt;/h2>
 &lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">单机1&lt;/a>上。图中的数值均为用户数据的字节数，实际的请求尺寸还要包括协议头，一般会增加40字节左右。&lt;/p>
 &lt;p>（X轴是用户数据的字节数，Y轴是对应的QPS）&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/qps_vs_reqsize.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/qps_vs_reqsize.png" alt="img">&lt;/p>
 &lt;p>以_mc结尾的曲线代表client和server保持多个连接（线程数个），在本测试中会有更好的表现。&lt;/p>
 &lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
 &lt;ul>
@@ -1112,7 +1112,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;h2 id="同机单client单server在不同线程数下的qps越高越好">同机单client→单server在不同线程数下的QPS（越高越好）&lt;/h2>
 &lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">单机1&lt;/a>上。&lt;/p>
 &lt;p>（X轴是线程数，Y轴是对应的QPS）&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/qps_vs_threadnum.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/qps_vs_threadnum.png" alt="img">&lt;/p>
 &lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
 &lt;p>brpc: 随着发送线程增加，QPS在快速增加，有很好的多线程扩展性。&lt;/p>
 &lt;p>UB和thrift: 8个线程下高于brpc，但超过8个线程后被brpc迅速超过，thrift继续“平移”，UB出现了明显下降。&lt;/p>
@@ -1121,7 +1121,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">单机1&lt;/a>上。考虑到不同RPC的处理能力，我们选择了一个较低、在不少系统中会达到的的QPS: 1万。&lt;/p>
 &lt;p>本测试中有1%的长尾请求耗时5毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
 &lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/latency_cdf.png" alt="img">&lt;/p>
 &lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>brpc: 平均延时短，几乎没有被长尾影响。&lt;/li>
@@ -1133,7 +1133,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;h2 id="跨机多client单server的qps越高越好">跨机多client→单server的QPS（越高越好）&lt;/h2>
 &lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机1&lt;/a>上。&lt;/p>
 &lt;p>（X轴是client数，Y轴是对应的QPS）&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/qps_vs_multi_client.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/qps_vs_multi_client.png" alt="img">&lt;/p>
 &lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>brpc: 随着cilent增加，server的QPS在快速增加，有不错的client扩展性。&lt;/li>
@@ -1147,7 +1147,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机1&lt;/a>上。负载均衡算法为round-robin或RPC默认提供的。由于有32个client且一些RPC的单client能力不佳，我们为每个client仅设定了2500QPS，这是一个真实业务系统能达到的数字。&lt;/p>
 &lt;p>本测试中有1%的长尾请求耗时15毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
 &lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/multi_client_latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/multi_client_latency_cdf.png" alt="img">&lt;/p>
 &lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>brpc: 平均延时短，几乎没有被长尾影响。&lt;/li>
@@ -1160,7 +1160,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机2&lt;/a>上。20台每台运行4个client，多线程同步访问10台server。负载均衡算法为round-robin或RPC默认提供的。由于gRPC访问多server较麻烦且有很大概率仍表现不佳，这个测试不包含gRPC。&lt;/p>
 &lt;p>本测试中有1%的长尾请求耗时10毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
 &lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/multi_server_latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/multi_server_latency_cdf.png" alt="img">&lt;/p>
 &lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>brpc和UB: 平均延时短，几乎没有被长尾影响。&lt;/li>
@@ -1172,7 +1172,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机2&lt;/a>上。14台每台运行4个client，多线程同步访问8台server，这些server还会同步访问另外8台server。负载均衡算法为round-robin或RPC默认提供的。由于gRPC访问多server较麻烦且有很大概率仍表现不佳，这个测试不包含gRPC。&lt;/p>
 &lt;p>本测试中有1%的长尾请求耗时10毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
 &lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/twolevel_server_latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/twolevel_server_latency_cdf.png" alt="img">&lt;/p>
 &lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>brpc: 平均延时短，几乎没有被长尾影响。&lt;/li>
@@ -1187,7 +1187,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>thrift: 单机的平均延时和吞吐尚可，多机的平均延时明显高于brpc和UB。吞吐的扩展性较差，提高线程数和client数几乎不能提升吞吐。&lt;/p>
 &lt;p>sofa-pbrpc: 处理小包的吞吐尚可，大包的吞吐显著低于其他RPC，延时受长尾影响很大。&lt;/p>
 &lt;p>hulu-pbrpc: 单机表现和sofa-pbrpc类似，但多机的延时表现极差。&lt;/p>
-&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: Contribute指南</title><link>https://brpc.incubator.apache.org/zh/docs/community/contributing/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/contributing/</guid><description>
+&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: Contribute指南</title><link>https://brpc.apache.org/zh/docs/community/contributing/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/contributing/</guid><description>
 &lt;p>如果你遇到问题或需要新功能，欢迎&lt;a href="https://github.com/brpc/brpc/issues/new/choose">创建issue&lt;/a>。&lt;/p>
 &lt;p>如果你可以解决某个&lt;a href="https://github.com/brpc/brpc/issues">issue&lt;/a>, 欢迎发送PR。&lt;/p>
 &lt;p>发送PR前请确认：&lt;/p>
@@ -1199,7 +1199,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>提交PR后请确认：&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests">travis-ci&lt;/a>成功通过。&lt;/li>
-&lt;/ul></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.1.0/</guid><description>
+&lt;/ul></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.1.0/</guid><description>
 &lt;h2 id="apache-brpc-110-发布支持ipv6和uds">Apache bRPC 1.1.0 发布，支持IPV6和UDS&lt;/h2>
 &lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.1.0版本发布！&lt;/p>
 &lt;p>下载链接：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
@@ -1239,7 +1239,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;li>文档改进 by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/li>
 &lt;li>修正拼写错误 by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
 &lt;/ul>
-&lt;p>感谢上述所有1.1.0版本的贡献者！&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/releases/1.0.0/</guid><description>
+&lt;p>感谢上述所有1.1.0版本的贡献者！&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.0.0/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.0.0/</guid><description>
 &lt;p>11月30日，随着committer lorin lee在apache基金会的孵化邮件组发出vote close的邮件， apache brpc 1.0.0的发版投票结果是通过。&lt;/p>
 &lt;p>下载地址在这里：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
 &lt;p>&lt;a href="../../../../../docs/blogs/releases/1.0.0/">点击查看1.0.0版本的主要变更&lt;/a>&lt;/p>
@@ -1276,7 +1276,7 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;li>
 &lt;p>陈章义 艰难但关键的一个版本，期待早日毕业。&lt;/p>
 &lt;/li>
-&lt;/ol></description></item><item><title>Docs: Committer指南</title><link>https://brpc.incubator.apache.org/zh/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/committer/</guid><description>
+&lt;/ol></description></item><item><title>Docs: Committer指南</title><link>https://brpc.apache.org/zh/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/committer/</guid><description>
 &lt;h1 id="简介">简介&lt;/h1>
 &lt;p>Apache社区的参与者具有以下角色：&lt;strong>贡献者（Contributor）&lt;/strong>、&lt;strong>提交者（Committer）&lt;/strong> 和 &lt;strong>PMC（项目成员委员会）成员&lt;/strong>。&lt;/p>
 &lt;p>当个人贡献被项目接受时，他/她将自动成为贡献者。
@@ -1376,7 +1376,7 @@ Committer 和 PMC 成员在共识投票后由 PMC 邀请。&lt;/p>
 &lt;li>在private@brpc中和dev中announce new PPMC&lt;/li>
 &lt;li>设定他的权限，通过访问https://whimsy.apache.org/roster/ppmc/brpc&lt;/li>
 &lt;li>帮他订阅private邮件组，参见https://whimsy.apache.org/committers/moderationhelper.cgi&lt;/li>
-&lt;/ol></description></item><item><title>Docs: Release指南</title><link>https://brpc.incubator.apache.org/zh/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/release/</guid><description>
+&lt;/ol></description></item><item><title>Docs: Release指南</title><link>https://brpc.apache.org/zh/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/release/</guid><description>
 &lt;h1 id="brpc-发布apache-release-版本流程step-by-step">brpc 发布apache release 版本流程step by step&lt;/h1>
 &lt;p>概述：分为如下几个步骤&lt;/p>
 &lt;ol>
@@ -1771,7 +1771,7 @@ Apache brpc (Incubating) community
 &lt;/code>&lt;/pre>&lt;h3 id="发布微信公众号公告">发布微信公众号公告&lt;/h3>
 &lt;p>参考 &lt;a href="https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg">https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg&lt;/a>.&lt;/p>
 &lt;h3 id="更新master分支">更新master分支&lt;/h3>
-&lt;p>发版完成后，将release分支合并到master分支.&lt;/p></description></item><item><title>Docs: 贡献者列表</title><link>https://brpc.incubator.apache.org/zh/docs/community/committers/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/committers/</guid><description>
+&lt;p>发版完成后，将release分支合并到master分支.&lt;/p></description></item><item><title>Docs: 贡献者列表</title><link>https://brpc.apache.org/zh/docs/community/committers/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/committers/</guid><description>
 &lt;h2 id="brrc-贡献者列表">bRRC 贡献者列表&lt;/h2>
 &lt;p>bRPC 的发展离不开其背后很多人的卓越贡献，感谢每一个人的帮助与支持，更希望以后能有更多的人助力 bRPC 的成长。&lt;/p>
 &lt;h3 id="pmc">PMC&lt;/h3>
@@ -1925,10 +1925,10 @@ Apache brpc (Incubating) community
 &lt;/tr>
 &lt;/table>
 &lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;p>在&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">bRPC贡献者&lt;/a>列表中，记录了所有为bRPC出过贡献的人，感谢的所有&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">贡献者&lt;/a>，一起帮助 bRPC 更好地发展。&lt;/p></description></item><item><title>Docs: 安全</title><link>https://brpc.incubator.apache.org/zh/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/security/</guid><description>
+&lt;p>在&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">bRPC贡献者&lt;/a>列表中，记录了所有为bRPC出过贡献的人，感谢的所有&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">贡献者&lt;/a>，一起帮助 bRPC 更好地发展。&lt;/p></description></item><item><title>Docs: 安全</title><link>https://brpc.apache.org/zh/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/security/</guid><description>
 &lt;p>Apache Software Foundation 在消除其软件项目中的安全问题方面采取了严格的立场。Apache bRPC(Incubating) 也十分关注与其特性和功能相关的安全问题。&lt;/p>
 &lt;p>如果您对 bRPC 的安全性感到担忧，或者您发现了漏洞或潜在的威胁，请不要犹豫与 &lt;a href="http://www.apache.org/security/">Apache 安全团队&lt;/a> 联系，发送邮件至 &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>。 在邮件中请指明项目名称为 bRPC，并提供相关问题或潜在威胁的描述。同时推荐重现和复制安全问题的方法。在评估和分析调查结果后，Apache 安全团队和 bRPC 社区将直接与您回复。&lt;/p>
-&lt;p>&lt;strong>请注意&lt;/strong> 在提交安全邮件之前，请勿在公共领域披露安全电子邮件报告的安全问题。&lt;/p></description></item><item><title>Docs: 下载bRPC</title><link>https://brpc.incubator.apache.org/zh/docs/downloadbrpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/downloadbrpc/</guid><description>
+&lt;p>&lt;strong>请注意&lt;/strong> 在提交安全邮件之前，请勿在公共领域披露安全电子邮件报告的安全问题。&lt;/p></description></item><item><title>Docs: 下载bRPC</title><link>https://brpc.apache.org/zh/docs/downloadbrpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/downloadbrpc/</guid><description>
 &lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more
@@ -1986,7 +1986,7 @@ limitations under the License.
 &lt;/tr>
 &lt;!--tr>
 &lt;td>Release Notes&lt;/td>
-&lt;td>&lt;a href="https://brpc.incubator.apache.org/releases/spark/{{ site.data.project.latest_release }}/release-notes">{{ site.data.project.latest_release }}&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://brpc.apache.org/releases/spark/{{ site.data.project.latest_release }}/release-notes">{{ site.data.project.latest_release }}&lt;/a>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
@@ -1995,69 +1995,69 @@ limitations under the License.
 &lt;/table>
 &lt;p>选择&lt;em>tar&lt;/em>或&lt;em>zip&lt;/em>格式的源发行版，并使用相应的&lt;em>pgp&lt;/em>签名（使用&lt;a href="https://downloads.apache.org/incubator/brpc/KEYS">密钥&lt;/a>中的提交者文件）进行&lt;a href="https://www.apache.org/dyn/closer.cgi#verify">验证&lt;/a>。如果您无法做到这一点，可以使用&lt;em>md5&lt;/em>哈希文件检查下载是否已完成。&lt;/p>
 &lt;p>为了快速下载，当前的源发行版托管在镜像服务器上；较旧的源发行版在&lt;a href="https://archive.apache.org/dist/incubator/brpc/">存档&lt;/a>中。如果从镜像下载失败，请重试，第二次下载可能会成功。&lt;/p>
-&lt;p>为了安全起见，哈希文件和签名文件始终托管在&lt;a href="https://www.apache.org">Apache&lt;/a>上。&lt;/p></description></item><item><title>Docs: FAQ</title><link>https://brpc.incubator.apache.org/zh/docs/faq/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/faq/</guid><description>
-&lt;p>查看 &lt;a href="https://github.com/apache/incubator-brpc/issues">https://github.com/apache/incubator-brpc/issues&lt;/a>&lt;/p></description></item><item><title>Docs: 用户</title><link>https://brpc.incubator.apache.org/zh/docs/users/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/users/</guid><description>
+&lt;p>为了安全起见，哈希文件和签名文件始终托管在&lt;a href="https://www.apache.org">Apache&lt;/a>上。&lt;/p></description></item><item><title>Docs: FAQ</title><link>https://brpc.apache.org/zh/docs/faq/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/faq/</guid><description>
+&lt;p>查看 &lt;a href="https://github.com/apache/incubator-brpc/issues">https://github.com/apache/incubator-brpc/issues&lt;/a>&lt;/p></description></item><item><title>Docs: 用户</title><link>https://brpc.apache.org/zh/docs/users/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/users/</guid><description>
 &lt;div id="overview">
 &lt;div class="contain" style="width: auto; margin: 0 auto">
 &lt;h1 class="section-head">谁在使用&lt;/h1>
 &lt;td align="center" valign="middle">
 &lt;a href="http://home.baidu.com/index.html" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/baidu_logo.svg">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/baidu_logo.svg">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://www.iqiyi.com" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/iqiyi_logo.png">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/iqiyi_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://bytedance.com/zh/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/bytedance_logo.svg">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/bytedance_logo.svg">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://www.bilibili.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/bilibili_logo.png">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/bilibili_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://www.vivo.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/vivo_logo.png">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/vivo_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://www.xiaohongshu.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/redbook_logo.png">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/redbook_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://www.4paradigm.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/4paradigm_logo.png">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/4paradigm_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://zuoyebang.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/zuoyebang_logo.png">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/zuoyebang_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="http://www.huanju.cn/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/joyy_logo.png">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/joyy_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://doris.apache.org/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/doris_logo.svg">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/doris_logo.svg">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://github.com/baidu/BaikalDB/wiki" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/baikaldb_logo.png">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/baikaldb_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;td align="center" valign="middle">
 &lt;a href="https://www.ishumei.com/" target="_blank">
-&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.incubator.apache.org/images/community/nextdata_logo.png">
+&lt;img width="222px" style="margin: 0 10px;" src="https://brpc.apache.org/images/community/nextdata_logo.png">
 &lt;/a>
 &lt;/td>
 &lt;/div>

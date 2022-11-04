@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 客户端</title><link>https://brpc.incubator.apache.org/zh/docs/client/</link><description>Recent content in 客户端 on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/zh/docs/client/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 基础功能</title><link>https://brpc.incubator.apache.org/zh/docs/client/basics/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/basics/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 客户端</title><link>https://brpc.apache.org/zh/docs/client/</link><description>Recent content in 客户端 on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/zh/docs/client/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 基础功能</title><link>https://brpc.apache.org/zh/docs/client/basics/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/basics/</guid><description>
 &lt;h1 id="示例程序">示例程序&lt;/h1>
 &lt;p>Echo的&lt;a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/client.cpp">client端代码&lt;/a>。&lt;/p>
 &lt;h1 id="事实速查">事实速查&lt;/h1>
@@ -51,11 +51,11 @@
 &lt;p>当&lt;code>load_balancer_name&lt;/code>为NULL或空时，此Init等同于连接单台server的Init，&lt;code>naming_service_url&lt;/code>应该是&amp;quot;ip:port&amp;quot;或&amp;quot;域名:port&amp;quot;。你可以通过这个Init函数统一Channel的初始化方式。比如你可以把&lt;code>naming_service_url&lt;/code>和&lt;code>load_balancer_name&lt;/code>放在配置文件中，要连接单台server时把&lt;code>load_balancer_name&lt;/code>置空，要连接服务集群时则设置一个有效的算法名称。&lt;/p>
 &lt;h2 id="命名服务">命名服务&lt;/h2>
 &lt;p>命名服务把一个名字映射为可修改的机器列表，在client端的位置如下：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/ns.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/ns.png" alt="img">&lt;/p>
 &lt;p>有了命名服务后client记录的是一个名字，而不是每一台下游机器。而当下游机器变化时，就只需要修改命名服务中的列表，而不需要逐台修改每个上游。这个过程也常被称为“解耦上下游”。当然在具体实现上，上游会记录每一台下游机器，并定期向命名服务请求或被推送最新的列表，以避免在RPC请求时才去访问命名服务。使用命名服务一般不会对访问性能造成影响，对命名服务的压力也很小。&lt;/p>
 &lt;p>&lt;code>naming_service_url&lt;/code>的一般形式是&amp;quot;&lt;strong>protocol://service_name&lt;/strong>&amp;quot;&lt;/p>
 &lt;h3 id="bnsbns-name">bns://&amp;lt;bns-name&amp;gt;&lt;/h3>
-&lt;p>BNS是百度内常用的命名服务，比如bns://rdev.matrix.all，其中&amp;quot;bns&amp;quot;是protocol，&amp;ldquo;rdev.matrix.all&amp;quot;是service-name。相关一个gflag是-ns_access_interval: &lt;img src="https://brpc.incubator.apache.org/images/docs/ns_access_interval.png" alt="img">&lt;/p>
+&lt;p>BNS是百度内常用的命名服务，比如bns://rdev.matrix.all，其中&amp;quot;bns&amp;quot;是protocol，&amp;ldquo;rdev.matrix.all&amp;quot;是service-name。相关一个gflag是-ns_access_interval: &lt;img src="https://brpc.apache.org/images/docs/ns_access_interval.png" alt="img">&lt;/p>
 &lt;p>如果BNS中显示不为空，但Channel却说找不到服务器，那么有可能BNS列表中的机器状态位（status）为非0，含义为机器不可用，所以不会被加入到server候选集中．状态位可通过命令行查看：&lt;/p>
 &lt;p>&lt;code>get_instance_by_service [bns_node_name] -s&lt;/code>&lt;/p>
 &lt;h3 id="filepath">file://&amp;lt;path&amp;gt;&lt;/h3>
@@ -103,7 +103,7 @@
 &lt;p>如果对性能有更高的要求，或要限制大集群中连接的数量，可以使用单连接并给相同的VIP加上不同的tag以建立多个连接。相比连接池一般连接数量更小，系统调用开销更低，但如果tag不够多，仍可能出现RS热点。&lt;/p>
 &lt;h3 id="命名服务过滤器">命名服务过滤器&lt;/h3>
 &lt;p>当命名服务获得机器列表后，可以自定义一个过滤器进行筛选，最后把结果传递给负载均衡：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/ns_filter.jpg" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/ns_filter.jpg" alt="img">&lt;/p>
 &lt;p>过滤器的接口如下：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">// naming_service_filter.h
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">NamingServiceFilter&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
@@ -137,7 +137,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="负载均衡">负载均衡&lt;/h2>
 &lt;p>当下游机器超过一台时，我们需要分割流量，此过程一般称为负载均衡，在client端的位置如下图所示：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/lb.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/lb.png" alt="img">&lt;/p>
 &lt;p>理想的算法是每个请求都得到及时的处理，且任意机器crash对全局影响较小。但由于client端无法及时获得server端的延迟或拥塞，而且负载均衡算法不能耗费太多的cpu，一般来说用户得根据具体的场景选择合适的算法，目前rpc提供的算法有（通过load_balancer_name指定）：&lt;/p>
 &lt;h3 id="rr">rr&lt;/h3>
 &lt;p>即round robin，总是选择列表中的下一台服务器，结尾的下一台是开头，无需其他设置。比如有3台机器a,b,c，那么brpc会依次向a, b, c, a, b, c, &amp;hellip;发送请求。注意这个算法的前提是服务器的配置，网络条件，负载都是类似的。&lt;/p>
@@ -937,7 +937,7 @@
 &lt;h3 id="q-fail-to-connect-to-xxxxxxxxxxxx-connection-refused">Q: Fail to connect to xx.xx.xx.xx:xxxx, Connection refused&lt;/h3>
 &lt;p>一般是对端server没打开端口（很可能挂了）。&lt;/p>
 &lt;h3 id="q-经常遇到至另一个机房的connection-timedout">Q: 经常遇到至另一个机房的Connection timedout&lt;/h3>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/connection_timedout.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/connection_timedout.png" alt="img">&lt;/p>
 &lt;p>这个就是连接超时了，调大连接和RPC超时：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">struct&lt;/span> &lt;span style="color:#000">ChannelOptions&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">...&lt;/span>
@@ -967,7 +967,7 @@
 &lt;h3 id="q-为什么c-clientserver-能够互相通信-和其他语言的clientserver-通信会报序列化失败的错误">Q: 为什么C++ client/server 能够互相通信， 和其他语言的client/server 通信会报序列化失败的错误&lt;/h3>
 &lt;p>检查一下C++ 版本是否开启了压缩 (Controller::set_compress_type), 目前其他语言的rpc框架还没有实现压缩，互相返回会出现问题。&lt;/p>
 &lt;h1 id="附client端基本流程">附:Client端基本流程&lt;/h1>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/client_side.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/client_side.png" alt="img">&lt;/p>
 &lt;p>主要步骤：&lt;/p>
 &lt;ol>
 &lt;li>创建一个&lt;a href="https://github.com/brpc/brpc/blob/master/src/bthread/id.h">bthread_id&lt;/a>作为本次RPC的correlation_id。&lt;/li>
@@ -983,7 +983,7 @@
 &lt;li>收到response后，提取出其中的correlation_id，在O(1)时间内找到对应的Controller。这个过程中不需要查找全局哈希表，有良好的多核扩展性。&lt;/li>
 &lt;li>根据协议格式反序列化response。&lt;/li>
 &lt;li>调用Controller::OnRPCReturned，可能会根据错误码判断是否需要重试，或让RPC结束。如果是异步发送，调用用户回调。最后摧毁correlation_id唤醒Join着的线程。&lt;/li>
-&lt;/ol></description></item><item><title>Docs: 错误码</title><link>https://brpc.incubator.apache.org/zh/docs/client/error-code/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/error-code/</guid><description>
+&lt;/ol></description></item><item><title>Docs: 错误码</title><link>https://brpc.apache.org/zh/docs/client/error-code/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/error-code/</guid><description>
 &lt;p>brpc使用&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/controller.h">brpc::Controller&lt;/a>设置和获取一次RPC的参数，&lt;code>Controller::ErrorCode()&lt;/code>和&lt;code>Controller::ErrorText()&lt;/code>则分别是该次RPC的错误码和错误描述，RPC结束后才能访问，否则结果未定义。ErrorText()由Controller的基类google::protobuf::RpcController定义，ErrorCode()则是brpc::Controller定义的。Controller还有个Failed()方法告知该次RPC是否失败，这三者的关系是：&lt;/p>
 &lt;ul>
 &lt;li>当Failed()为true时，ErrorCode()一定为非0，ErrorText()则为非空。&lt;/li>
@@ -1159,7 +1159,7 @@
 &lt;li>优先使用系统错误码，它们的值和含义一般是固定不变的。&lt;/li>
 &lt;li>多个交互的模块使用同一份错误码定义，防止后续修改时产生不一致。&lt;/li>
 &lt;li>使用BAIDU_REGISTER_ERRNO描述新错误码，以确保同一个进程内错误码是互斥的。&lt;/li>
-&lt;/ul></description></item><item><title>Docs: 组合channels</title><link>https://brpc.incubator.apache.org/zh/docs/client/combo-channels/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/combo-channels/</guid><description>
+&lt;/ul></description></item><item><title>Docs: 组合channels</title><link>https://brpc.apache.org/zh/docs/client/combo-channels/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/combo-channels/</guid><description>
 &lt;p>随着服务规模的增大，对下游的访问流程会越来越复杂，其中往往包含多个同时发起的RPC或有复杂的层次结构。但这类代码的多线程陷阱很多，用户可能写出了bug也不自知，复现和调试也比较困难。而且实现要么只能支持同步的情况，要么得为异步重写一套。以&amp;quot;在多个异步RPC完成后运行一些代码&amp;quot;为例，它的同步实现一般是异步地发起多个RPC，然后逐个等待各自完成；它的异步实现一般是用一个带计数器的回调，每当一个RPC完成时计数器减一，直到0时调用回调。可以看到它的缺点：&lt;/p>
 &lt;ul>
 &lt;li>同步和异步代码不一致。用户无法轻易地从一个模式转为另一种模式。从设计的角度，不一致暗示了没有抓住本质。&lt;/li>
@@ -1179,7 +1179,7 @@
 &lt;p>任何brpc::ChannelBase的子类都可以加入ParallelChannel，包括ParallelChannel和其他组合Channel。用户可以设置ParallelChannelOptions.fail_limit来控制访问的最大失败次数，当失败的访问达到这个数目时，RPC会立刻结束而不等待超时。&lt;/p>
 &lt;p>一个sub channel可多次加入同一个ParallelChannel。当你需要对同一个服务发起多次异步访问并等待它们完成的话，这很有用。&lt;/p>
 &lt;p>ParallelChannel的内部结构大致如下：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/pchan.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/pchan.png" alt="img">&lt;/p>
 &lt;h2 id="插入sub-channel">插入sub channel&lt;/h2>
 &lt;p>可通过如下接口把sub channel插入ParallelChannel：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000">AddChannel&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">brpc&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">ChannelBase&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">sub_channel&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
@@ -1514,7 +1514,7 @@ TRACE: 09-06 11:17:50: * 0 client.cpp:226] Sending EchoRequest at qps=123743 lat
 TRACE: 09-06 11:17:48: * 0 server.cpp:192] S[0]=20063 S[1]=230027 S[2]=230098 [total=480188]
 TRACE: 09-06 11:17:49: * 0 server.cpp:192] S[0]=0 S[1]=245961 S[2]=245888 [total=491849]
 TRACE: 09-06 11:17:50: * 0 server.cpp:192] S[0]=0 S[1]=250198 S[2]=250150 [total=500348]
-&lt;/code>&lt;/pre>&lt;p>在真实的线上环境中，我们会逐渐地增加4分库的server，同时下掉3分库中的server。DynamicParititonChannel会按照每种分库方式的容量动态切分流量。当某个时刻3分库的容量变为0时，我们便平滑地把Server从3分库变为了4分库，同时并没有修改Client的代码。&lt;/p></description></item><item><title>Docs: 访问http:h2</title><link>https://brpc.incubator.apache.org/zh/docs/client/access-httph2/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/access-httph2/</guid><description>
+&lt;/code>&lt;/pre>&lt;p>在真实的线上环境中，我们会逐渐地增加4分库的server，同时下掉3分库中的server。DynamicParititonChannel会按照每种分库方式的容量动态切分流量。当某个时刻3分库的容量变为0时，我们便平滑地把Server从3分库变为了4分库，同时并没有修改Client的代码。&lt;/p></description></item><item><title>Docs: 访问http:h2</title><link>https://brpc.apache.org/zh/docs/client/access-httph2/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/access-httph2/</guid><description>
 &lt;h1 id="示例">示例&lt;/h1>
 &lt;p>&lt;a href="https://github.com/brpc/brpc/blob/master/example/http_c++/http_client.cpp">example/http_c++&lt;/a>&lt;/p>
 &lt;h1 id="关于h2">关于h2&lt;/h1>
@@ -1686,7 +1686,7 @@ MyProgressiveReader就是用户实现ProgressiveReader的实例。用户可以�
 &lt;h1 id="访问带认证的server">访问带认证的Server&lt;/h1>
 &lt;p>根据Server的认证方式生成对应的auth_data，并设置为http header &amp;ldquo;Authorization&amp;quot;的值。比如用的是curl，那就加上选项&lt;code>-H &amp;quot;Authorization : &amp;lt;auth_data&amp;gt;&amp;quot;。&lt;/code>&lt;/p>
 &lt;h1 id="发送https请求">发送https请求&lt;/h1>
-&lt;p>https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启客户端SSL的一般性方法见&lt;a href="../basics/#%E5%BC%80%E5%90%AFssl">这里&lt;/a>。为方便使用，brpc会对https开头的uri自动开启SSL。&lt;/p></description></item><item><title>Docs: 访问gRPC</title><link>https://brpc.incubator.apache.org/zh/docs/client/access-grpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/access-grpc/</guid><description>
+&lt;p>https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。开启客户端SSL的一般性方法见&lt;a href="../basics/#%E5%BC%80%E5%90%AFssl">这里&lt;/a>。为方便使用，brpc会对https开头的uri自动开启SSL。&lt;/p></description></item><item><title>Docs: 访问gRPC</title><link>https://brpc.apache.org/zh/docs/client/access-grpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/access-grpc/</guid><description>
 &lt;p>http/h2协议的基本用法见&lt;a href="../access-httph2/">http_client&lt;/a>和&lt;a href="../../server/serve-httph2/">http_service&lt;/a>&lt;/p>
 &lt;p>下文中的小节名均为可填入ChannelOptions.protocol中的协议名。冒号后的内容是协议参数，用于动态选择衍生行为，但基本协议仍然是http/1.x或http/2，故这些协议在服务端只会被显示为http或h2/h2c。&lt;/p>
 &lt;h1 id="httpjson-h2json">http:json, h2:json&lt;/h1>
@@ -1704,7 +1704,7 @@ MyProgressiveReader就是用户实现ProgressiveReader的实例。用户可以�
 &lt;p>gRPC默认序列化是pb二进制格式，所以&amp;quot;h2:grpc&amp;quot;和&amp;quot;h2:grpc+proto&amp;quot;等价。&lt;/p>
 &lt;p>TODO: gRPC其他配置&lt;/p>
 &lt;h1 id="h2grpcjson">h2:grpc+json&lt;/h1>
-&lt;p>这个协议相比h2:grpc就是用json序列化结果代替pb序列化结果。gRPC未必直接支持这个格式，如grpc-go用户可参考&lt;a href="https://github.com/johanbrandhorst/grpc-json-example/blob/master/codec/json.go">这里&lt;/a>注册相应的codec后才支持。&lt;/p></description></item><item><title>Docs: 访问thrift</title><link>https://brpc.incubator.apache.org/zh/docs/client/access-thrift/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/access-thrift/</guid><description>
+&lt;p>这个协议相比h2:grpc就是用json序列化结果代替pb序列化结果。gRPC未必直接支持这个格式，如grpc-go用户可参考&lt;a href="https://github.com/johanbrandhorst/grpc-json-example/blob/master/codec/json.go">这里&lt;/a>注册相应的codec后才支持。&lt;/p></description></item><item><title>Docs: 访问thrift</title><link>https://brpc.apache.org/zh/docs/client/access-thrift/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/access-thrift/</guid><description>
 &lt;p>&lt;a href="https://thrift.apache.org/">thrift&lt;/a>是应用较广的RPC框架，最初由Facebook发布，后交由Apache维护。为了和thrift服务互通，同时解决thrift原生方案在多线程安全、易用性、并发能力等方面的一系列问题，brpc实现并支持thrift在NonBlocking模式下的协议(FramedProtocol), 下文均直接称为thrift协议。&lt;/p>
 &lt;p>示例程序：&lt;a href="https://github.com/brpc/brpc/tree/master/example/thrift_extension_c++/">example/thrift_extension_c++&lt;/a>&lt;/p>
 &lt;p>相比使用原生方案的优势有：&lt;/p>
@@ -1898,7 +1898,7 @@ MyProgressiveReader就是用户实现ProgressiveReader的实例。用户可以�
 &lt;td>93%&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>Docs: 访问UB</title><link>https://brpc.incubator.apache.org/zh/docs/client/access-ub/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/access-ub/</guid><description>
+&lt;/table></description></item><item><title>Docs: 访问UB</title><link>https://brpc.apache.org/zh/docs/client/access-ub/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/access-ub/</guid><description>
 &lt;p>brpc可通过多种方式访问用ub搭建的服务。&lt;/p>
 &lt;h1 id="ubrpc-by-protobuf">ubrpc (by protobuf)&lt;/h1>
 &lt;p>r31687后，brpc支持通过protobuf访问ubrpc，不需要baidu-rpc-ub，也不依赖idl-compiler。（也可以让protobuf服务被ubrpc client访问，方法见&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md#%E4%BD%BF%E7%94%A8ubrpc%E7%9A%84%E6%9C%8D%E5%8A%A1">使用ubrpc的服务&lt;/a>）。&lt;/p>
@@ -2220,7 +2220,7 @@ uint32_t EchoWithMultiArgs(EchoRequest req1, EchoRequest req2, out EchoResponse 
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">channel&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">CallMethod&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">NULL&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">cntl&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">request&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">response&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">NULL&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span> &lt;span style="color:#8f5902;font-style:italic">// 假设channel已经通过之前所述方法Init成功
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">// Process response. response.data() is the buffer, response.size() is the length.
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: 访问redis</title><link>https://brpc.incubator.apache.org/zh/docs/client/access-redis/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/access-redis/</guid><description>
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: 访问redis</title><link>https://brpc.apache.org/zh/docs/client/access-redis/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/access-redis/</guid><description>
 &lt;p>&lt;a href="http://redis.io/">redis&lt;/a>是最近几年比较火的缓存服务，相比memcached在server端提供了更多的数据结构和操作方法，简化了用户的开发工作。为了使用户更快捷地访问redis并充分利用bthread的并发能力，brpc直接支持redis协议。示例程序：&lt;a href="https://github.com/brpc/brpc/tree/master/example/redis_c++/">example/redis_c++&lt;/a>&lt;/p>
 &lt;p>相比使用&lt;a href="https://github.com/redis/hiredis">hiredis&lt;/a>(官方client)的优势有：&lt;/p>
 &lt;ul>
@@ -2428,7 +2428,7 @@ redis 127.0.0.1:6379&amp;gt; client setname brpc-cli
 OK
 redis 127.0.0.1:6379&amp;gt; client getname
 &amp;#34;brpc-cli&amp;#34;
-&lt;/code>&lt;/pre></description></item><item><title>Docs: 访问memcached</title><link>https://brpc.incubator.apache.org/zh/docs/client/access-memcached/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/access-memcached/</guid><description>
+&lt;/code>&lt;/pre></description></item><item><title>Docs: 访问memcached</title><link>https://brpc.apache.org/zh/docs/client/access-memcached/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/access-memcached/</guid><description>
 &lt;p>&lt;a href="http://memcached.org/">memcached&lt;/a>是常用的缓存服务，为了使用户更快捷地访问memcached并充分利用bthread的并发能力，brpc直接支持memcache协议。示例程序：&lt;a href="https://github.com/brpc/brpc/tree/master/example/memcache_c++/">example/memcache_c++&lt;/a>&lt;/p>
 &lt;p>&lt;strong>注意&lt;/strong>：brpc只支持memcache的二进制协议。memcached在1.3前只有文本协议，但在当前看来支持的意义甚微。如果你的memcached早于1.3，升级版本。&lt;/p>
 &lt;p>相比使用&lt;a href="http://libmemcached.org/libMemcached.html">libmemcached&lt;/a>(官方client)的优势有：&lt;/p>
@@ -2506,7 +2506,7 @@ redis 127.0.0.1:6379&amp;gt; client getname
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">bool&lt;/span> &lt;span style="color:#000">PopVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">std&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">string&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">version&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="访问memcached集群">访问memcached集群&lt;/h1>
 &lt;p>建立一个使用c_md5负载均衡算法的channel就能访问挂载在对应命名服务下的memcached集群了。注意每个MemcacheRequest应只包含一个操作或确保所有的操作是同一个key。如果request包含了多个操作，在当前实现下这些操作总会送向同一个server，假如对应的key分布在多个server上，那么结果就不对了，这个情况下你必须把一个request分开为多个，每个包含一个操作。&lt;/p>
-&lt;p>或者你可以沿用常见的&lt;a href="https://github.com/twitter/twemproxy">twemproxy&lt;/a>方案。这个方案虽然需要额外部署proxy，还增加了延时，但client端仍可以像访问单点一样的访问它。&lt;/p></description></item><item><title>Docs: 流式RPC</title><link>https://brpc.incubator.apache.org/zh/docs/client/streaming-rpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/streaming-rpc/</guid><description>
+&lt;p>或者你可以沿用常见的&lt;a href="https://github.com/twitter/twemproxy">twemproxy&lt;/a>方案。这个方案虽然需要额外部署proxy，还增加了延时，但client端仍可以像访问单点一样的访问它。&lt;/p></description></item><item><title>Docs: 流式RPC</title><link>https://brpc.apache.org/zh/docs/client/streaming-rpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/streaming-rpc/</guid><description>
 &lt;h1 id="概述">概述&lt;/h1>
 &lt;p>在一些应用场景中， client或server需要向对面发送大量数据，这些数据非常大或者持续地在产生以至于无法放在一个RPC的附件中。比如一个分布式系统的不同节点间传递replica或snapshot。client/server之间虽然可以通过多次RPC把数据切分后传输过去，但存在如下问题：&lt;/p>
 &lt;ul>
@@ -2613,19 +2613,19 @@ redis 127.0.0.1:6379&amp;gt; client getname
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">// been received
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">// This function could be called multiple times without side-effects
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000">StreamClose&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">StreamId&lt;/span> &lt;span style="color:#000">stream_id&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Backup request</title><link>https://brpc.incubator.apache.org/zh/docs/client/backup-request/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/backup-request/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Backup request</title><link>https://brpc.apache.org/zh/docs/client/backup-request/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/backup-request/</guid><description>
 &lt;p>有时为了保证可用性，需要同时访问两路服务，哪个先返回就取哪个。在brpc中，这有多种做法：&lt;/p>
 &lt;h1 id="当后端server可以挂在一个命名服务内时">当后端server可以挂在一个命名服务内时&lt;/h1>
 &lt;p>Channel开启backup request。这个Channel会先向其中一个server发送请求，如果在ChannelOptions.backup_request_ms后还没回来，再向另一个server发送。之后哪个先回来就取哪个。在设置了合理的backup_request_ms后，大部分时候只会发一个请求，对后端服务只有一倍压力。&lt;/p>
 &lt;p>示例代码见&lt;a href="https://github.com/brpc/brpc/blob/master/example/backup_request_c++">example/backup_request_c++&lt;/a>。这个例子中，client设定了在2ms后发送backup request，server在碰到偶数位的请求后会故意睡眠20ms以触发backup request。&lt;/p>
 &lt;p>运行后，client端和server端的日志分别如下，“index”是请求的编号。可以看到server端在收到第一个请求后会故意sleep 20ms，client端之后发送另一个同样index的请求，最终的延时并没有受到故意sleep的影响。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/backup_request_1.png" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/backup_request_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/backup_request_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/backup_request_2.png" alt="img">&lt;/p>
 &lt;p>/rpcz也显示client在2ms后触发了backup超时并发出了第二个请求。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/backup_request_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/backup_request_3.png" alt="img">&lt;/p>
 &lt;h2 id="选择合理的backup_request_ms">选择合理的backup_request_ms&lt;/h2>
 &lt;p>可以观察brpc默认提供的latency_cdf图，或自行添加。cdf图的y轴是延时（默认微秒），x轴是小于y轴延时的请求的比例。在下图中，选择backup_request_ms=2ms可以大约覆盖95.5%的请求，选择backup_request_ms=10ms则可以覆盖99.99%的请求。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/backup_request_4.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/backup_request_4.png" alt="img">&lt;/p>
 &lt;p>自行添加的方法：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">#include&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;lt;bvar/bvar.h&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">#include&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;lt;butil/time.h&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
@@ -2641,12 +2641,12 @@ redis 127.0.0.1:6379&amp;gt; client getname
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">// 好了，在/vars中会显示my_func_qps, my_func_latency, my_func_latency_cdf等很多计数器。
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="当后端server不能挂在一个命名服务内时">当后端server不能挂在一个命名服务内时&lt;/h1>
 &lt;p>【推荐】建立一个开启backup request的SelectiveChannel，其中包含两个sub channel。访问这个SelectiveChannel和上面的情况类似，会先访问一个sub channel，如果在ChannelOptions.backup_request_ms后没返回，再访问另一个sub channel。如果一个sub channel对应一个集群，这个方法就是在两个集群间做互备。SelectiveChannel的例子见&lt;a href="https://github.com/brpc/brpc/tree/master/example/selective_echo_c++">example/selective_echo_c++&lt;/a>，具体做法请参考上面的过程。&lt;/p>
-&lt;p>【不推荐】发起两个异步RPC后Join它们，它们的done内是相互取消的逻辑。示例代码见&lt;a href="https://github.com/brpc/brpc/tree/master/example/cancel_c++">example/cancel_c++&lt;/a>。这种方法的问题是总会发两个请求，对后端服务有两倍压力，这个方法怎么算都是不经济的，你应该尽量避免用这个方法。&lt;/p></description></item><item><title>Docs: Dummy server</title><link>https://brpc.incubator.apache.org/zh/docs/client/dummy-server/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/client/dummy-server/</guid><description>
+&lt;p>【不推荐】发起两个异步RPC后Join它们，它们的done内是相互取消的逻辑。示例代码见&lt;a href="https://github.com/brpc/brpc/tree/master/example/cancel_c++">example/cancel_c++&lt;/a>。这种方法的问题是总会发两个请求，对后端服务有两倍压力，这个方法怎么算都是不经济的，你应该尽量避免用这个方法。&lt;/p></description></item><item><title>Docs: Dummy server</title><link>https://brpc.apache.org/zh/docs/client/dummy-server/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/dummy-server/</guid><description>
 &lt;p>如果你的程序只使用了brpc的client或根本没有使用brpc，但你也想使用brpc的内置服务，只要在程序中启动一个空的server就行了，这种server我们称为&lt;strong>dummy server&lt;/strong>。&lt;/p>
 &lt;h1 id="使用了brpc的client">使用了brpc的client&lt;/h1>
 &lt;p>只要在程序运行目录建立dummy_server.port文件，填入一个端口号（比如8888），程序会马上在这个端口上启动一个dummy server。在浏览器中访问它的内置服务，便可看到同进程内的所有bvar。
-&lt;img src="https://brpc.incubator.apache.org/images/docs/dummy_server_1.png" alt="img"> &lt;img src="https://brpc.incubator.apache.org/images/docs/dummy_server_2.png" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/dummy_server_3.png" alt="img">&lt;/p>
+&lt;img src="https://brpc.apache.org/images/docs/dummy_server_1.png" alt="img"> &lt;img src="https://brpc.apache.org/images/docs/dummy_server_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/dummy_server_3.png" alt="img">&lt;/p>
 &lt;h1 id="没有使用brpc">没有使用brpc&lt;/h1>
 &lt;p>你必须手动加入dummy server。你得先查看&lt;a href="../../getting_started/">Getting Started&lt;/a>如何下载和编译brpc，然后在程序入口处加入如下代码片段：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">#include&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;lt;brpc/server.h&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">

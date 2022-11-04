@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 深入RPC</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/</link><description>Recent content in 深入RPC on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 支持新协议</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/new-protocol/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/new-protocol/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 深入RPC</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/</link><description>Recent content in 深入RPC on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/zh/docs/rpc-in-depth/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 支持新协议</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/new-protocol/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/new-protocol/</guid><description>
 &lt;h1 id="server端多协议">server端多协议&lt;/h1>
 &lt;p>brpc server一个端口支持多种协议，大部分时候这对部署和运维更加方便。由于不同协议的格式大相径庭，严格地来说，一个端口很难无二义地支持所有协议。出于解耦和可扩展性的考虑，也不太可能集中式地构建一个针对所有协议的分类器。我们的做法就是把协议归三类后逐个尝试：&lt;/p>
 &lt;ul>
@@ -108,7 +108,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">RegisterProtocol&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">PROTOCOL_HTTP&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">http_protocol&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">!=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">exit&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: 原子指令</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/atomic-instructions/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/atomic-instructions/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: 原子指令</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/atomic-instructions/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/atomic-instructions/</guid><description>
 &lt;p>我们都知道多核编程常用锁避免多个线程在修改同一个数据时产生&lt;a href="http://en.wikipedia.org/wiki/Race_condition">race condition&lt;/a>。当锁成为性能瓶颈时，我们又总想试着绕开它，而不可避免地接触了原子指令。但在实践中，用原子指令写出正确的代码是一件非常困难的事，琢磨不透的race condition、&lt;a href="https://en.wikipedia.org/wiki/ABA_problem">ABA problem&lt;/a>、&lt;a href="https://en.wikipedia.org/wiki/Memory_barrier">memory fence&lt;/a>很烧脑，这篇文章试图通过介绍&lt;a href="http://en.wikipedia.org/wiki/Symmetric_multiprocessing">SMP&lt;/a>架构下的原子指令帮助大家入门。C++11正式引入了&lt;a href="http://en.cppreference.com/w/cpp/atomic/atomic">原子指令&lt;/a>，我们就以其语法描述。&lt;/p>
 &lt;p>顾名思义，原子指令是&lt;strong>对软件&lt;/strong>不可再分的指令，比如x.fetch_add(n)指原子地给x加上n，这个指令&lt;strong>对软件&lt;/strong>要么没做，要么完成，不会观察到中间状态。常见的原子指令有：&lt;/p>
 &lt;table>
@@ -235,7 +235,7 @@
 &lt;li>lock-free和wait-free必须处理更多更复杂的race condition和ABA problem，完成相同目的的代码比用锁更复杂。代码越多，耗时就越长。&lt;/li>
 &lt;li>使用mutex的算法变相带“后退”效果。后退(backoff)指出现竞争时尝试另一个途径以临时避免竞争，mutex出现竞争时会使调用者睡眠，使拿到锁的那个线程可以很快地独占完成一系列流程，总体吞吐可能反而高了。&lt;/li>
 &lt;/ul>
-&lt;p>mutex导致低性能往往是因为临界区过大（限制了并发度），或竞争过于激烈（上下文切换开销变得突出）。lock-free/wait-free算法的价值在于其保证了一个或所有线程始终在做有用的事，而不是绝对的高性能。但在一种情况下lock-free和wait-free算法的性能多半更高：就是算法本身可以用少量原子指令实现。实现锁也是要用原子指令的，当算法本身用一两条指令就能完成的时候，相比额外用锁肯定是更快了。&lt;/p></description></item><item><title>Docs: IO</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/io/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/io/</guid><description>
+&lt;p>mutex导致低性能往往是因为临界区过大（限制了并发度），或竞争过于激烈（上下文切换开销变得突出）。lock-free/wait-free算法的价值在于其保证了一个或所有线程始终在做有用的事，而不是绝对的高性能。但在一种情况下lock-free和wait-free算法的性能多半更高：就是算法本身可以用少量原子指令实现。实现锁也是要用原子指令的，当算法本身用一两条指令就能完成的时候，相比额外用锁肯定是更快了。&lt;/p></description></item><item><title>Docs: IO</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/io/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/io/</guid><description>
 &lt;p>一般有三种操作IO的方式：&lt;/p>
 &lt;ul>
 &lt;li>blocking IO: 发起IO操作后阻塞当前线程直到IO结束，标准的同步IO，如默认行为的posix &lt;a href="http://linux.die.net/man/2/read">read&lt;/a>和&lt;a href="http://linux.die.net/man/2/write">write&lt;/a>。&lt;/li>
@@ -251,7 +251,7 @@
 &lt;h1 id="发消息">发消息&lt;/h1>
 &lt;p>&amp;ldquo;消息”指向连接写出的有边界的二进制串，可能是发向上游client的response或下游server的request。多个线程可能会同时向一个fd发送消息，而写fd又是非原子的，所以如何高效率地排队不同线程写出的数据包是这里的关键。brpc使用一种wait-free MPSC链表来实现这个功能。所有待写出的数据都放在一个单链表节点中，next指针初始化为一个特殊值(Socket::WriteRequest::UNCONNECTED)。当一个线程想写出数据前，它先尝试和对应的链表头(Socket::_write_head)做原子交换，返回值是交换前的链表头。如果返回值为空，说明它获得了写出的权利，它会在原地写一次数据。否则说明有另一个线程在写，它把next指针指向返回的头以让链表连通。正在写的线程之后会看到新的头并写出这块数据。&lt;/p>
 &lt;p>这套方法可以让写竞争是wait-free的，而获得写权利的线程虽然在原理上不是wait-free也不是lock-free，可能会被一个值仍为UNCONNECTED的节点锁定（这需要发起写的线程正好在原子交换后，在设置next指针前，仅仅一条指令的时间内被OS换出），但在实践中很少出现。在当前的实现中，如果获得写权利的线程一下子无法写出所有的数据，会启动一个KeepWrite线程继续写，直到所有的数据都被写出。这套逻辑非常复杂，大致原理如下图，细节请阅读&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/socket.cpp">socket.cpp&lt;/a>。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/write.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/write.png" alt="img">&lt;/p>
 &lt;p>由于brpc的写出总能很快地返回，调用线程可以更快地处理新任务，后台KeepWrite写线程也能每次拿到一批任务批量写出，在大吞吐时容易形成流水线效应而提高IO效率。&lt;/p>
 &lt;h1 id="socket">Socket&lt;/h1>
 &lt;p>和fd相关的数据均在&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/socket.h">Socket&lt;/a>中，是rpc最复杂的结构之一，这个结构的独特之处在于用64位的SocketId指代Socket对象以方便在多线程环境下使用fd。常用的三个方法：&lt;/p>
@@ -265,20 +265,20 @@
 &lt;p>由于SocketUniquePtr只要有效，其中的数据就不会变，这个机制使用户不用关心麻烦的race conditon和ABA problem，可以放心地对共享的fd进行操作。这种方法也规避了隐式的引用计数，内存的ownership明确，程序的质量有很好的保证。brpc中有大量的SocketUniquePtr和SocketId，它们确实简化了我们的开发。&lt;/p>
 &lt;p>事实上，Socket不仅仅用于管理原生的fd，它也被用来管理其他资源。比如SelectiveChannel中的每个Sub Channel都被置入了一个Socket中，这样SelectiveChannel可以像普通channel选择下游server那样选择一个Sub Channel进行发送。这个假Socket甚至还实现了健康检查。Streaming RPC也使用了Socket以复用wait-free的写出过程。&lt;/p>
 &lt;h1 id="the-full-picture">The full picture&lt;/h1>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_flow.png" alt="img">&lt;/p></description></item><item><title>Docs: 线程模型简介</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/threading-overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/threading-overview/</guid><description>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_flow.png" alt="img">&lt;/p></description></item><item><title>Docs: 线程模型简介</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/threading-overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/threading-overview/</guid><description>
 &lt;h1 id="常见线程模型">常见线程模型&lt;/h1>
 &lt;h2 id="连接独占线程或进程">连接独占线程或进程&lt;/h2>
 &lt;p>在这个模型中，线程/进程处理来自绑定连接的消息，在连接断开前不退也不做其他事情。当连接数逐渐增多时，线程/进程占用的资源和上下文切换成本会越来越大，性能很差，这就是&lt;a href="http://en.wikipedia.org/wiki/C10k_problem">C10K问题&lt;/a>的来源。这种方法常见于早期的web server，现在很少使用。&lt;/p>
 &lt;h2 id="单线程reactorhttpenwikipediaorgwikireactor_pattern">单线程&lt;a href="http://en.wikipedia.org/wiki/Reactor_pattern">reactor&lt;/a>&lt;/h2>
 &lt;p>以&lt;a href="http://libevent.org/">libevent&lt;/a>, &lt;a href="http://software.schmorp.de/pkg/libev.html">libev&lt;/a>等event-loop库为典型。这个模型一般由一个event dispatcher等待各类事件，待事件发生后&lt;strong>原地&lt;/strong>调用对应的event handler，全部调用完后等待更多事件，故为&amp;quot;loop&amp;quot;。这个模型的实质是把多段逻辑按事件触发顺序交织在一个系统线程中。一个event-loop只能使用一个核，故此类程序要么是IO-bound，要么是每个handler有确定的较短的运行时间（比如http server)，否则一个耗时漫长的回调就会卡住整个程序，产生高延时。在实践中这类程序不适合多开发者参与，一个人写了阻塞代码可能就会拖慢其他代码的响应。由于event handler不会同时运行，不太会产生复杂的race condition，一些代码不需要锁。此类程序主要靠使用更多线程或部署更多进程增加扩展性。&lt;/p>
 &lt;p>单线程reactor的运行方式及问题如下图所示：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/threading_overview_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/threading_overview_1.png" alt="img">&lt;/p>
 &lt;h2 id="n1线程库">N:1线程库&lt;/h2>
 &lt;p>又称为&lt;a href="http://en.wikipedia.org/wiki/Fiber_(computer_science)">Fiber&lt;/a>，以&lt;a href="http://www.gnu.org/software/pth/pth-manual.html">GNU Pth&lt;/a>, &lt;a href="http://state-threads.sourceforge.net/index.html">StateThreads&lt;/a>等为典型，一般是把N个用户线程映射入一个系统线程。同时只运行一个用户线程，调用阻塞函数时才会切换至其他用户线程。N:1线程库与单线程reactor在能力上等价，但事件回调被替换为了上下文(栈,寄存器,signals)，运行回调变成了跳转至上下文。和event loop库一样，单个N:1线程库无法充分发挥多核性能，只适合一些特定的程序。只有一个系统线程对CPU cache较为友好，加上舍弃对signal mask的支持的话，用户线程间的上下文切换可以很快(100~200ns)。N:1线程库的性能一般和event loop库差不多，扩展性也主要靠多线程或多进程。&lt;/p>
 &lt;h2 id="多线程reactor">多线程reactor&lt;/h2>
 &lt;p>以&lt;a href="http://www.boost.org/doc/libs/1_56_0/doc/html/boost_asio.html">boost::asio&lt;/a>为典型。一般由一个或多个线程分别运行event dispatcher，待事件发生后把event handler交给一个worker线程执行。 这个模型是单线程reactor的自然扩展，可以利用多核。由于共用地址空间使得线程间交互变得廉价，worker thread间一般会更及时地均衡负载，而多进程一般依赖更前端的服务来分割流量，一个设计良好的多线程reactor程序往往能比同一台机器上的多个单线程reactor进程更均匀地使用不同核心。不过由于&lt;a href="../atomic-instructions/#cacheline">cache一致性&lt;/a>的限制，多线程reactor并不能获得线性于核心数的性能，在特定的场景中，粗糙的多线程reactor实现跑在24核上甚至没有精致的单线程reactor实现跑在1个核上快。由于多线程reactor包含多个worker线程，单个event handler阻塞未必会延缓其他handler，所以event handler未必得非阻塞，除非所有的worker线程都被阻塞才会影响到整体进展。事实上，大部分RPC框架都使用了这个模型，且回调中常有阻塞部分，比如同步等待访问下游的RPC返回。&lt;/p>
 &lt;p>多线程reactor的运行方式及问题如下：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/threading_overview_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/threading_overview_2.png" alt="img">&lt;/p>
 &lt;h2 id="mn线程库">M:N线程库&lt;/h2>
 &lt;p>即把M个用户线程映射入N个系统线程。M:N线程库可以决定一段代码何时开始在哪运行，并何时结束，相比多线程reactor在调度上具备更多的灵活度。但实现全功能的M:N线程库是困难的，它一直是个活跃的研究话题。我们这里说的M:N线程库特别针对编写网络服务，在这一前提下一些需求可以简化，比如没有时间片抢占，没有(完备的)优先级等。M:N线程库可以在用户态也可以在内核中实现，用户态的实现以新语言为主，比如GHC threads和goroutine，这些语言可以围绕线程库设计全新的关键字并拦截所有相关的API。而在现有语言中的实现往往得修改内核，比如&lt;a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd627187(v=vs.85).aspx">Windows UMS&lt;/a>和google SwitchTo(虽然是1:1，但基于它可以实现M:N的效果)。相比N:1线程库，M:N线程库在使用上更类似于系统线程，需要用锁或消息传递保证代码的线程安全。&lt;/p>
 &lt;h1 id="问题">问题&lt;/h1>
@@ -287,7 +287,7 @@
 &lt;p>当event dispatcher把任务递给worker线程时，用户逻辑很可能从一个核心跳到另一个核心，并等待相应的cacheline同步过来，并不很快。如果worker的逻辑能直接运行于event dispatcher所在的核心上就好了，因为大部分时候尽快运行worker的优先级高于获取新事件。类似的是收到response后最好在当前核心唤醒正在同步等待RPC的线程。&lt;/p>
 &lt;h2 id="异步编程">异步编程&lt;/h2>
 &lt;p>异步编程中的流程控制对于专家也充满了陷阱。任何挂起操作，如sleep一会儿或等待某事完成，都意味着用户需要显式地保存状态，并在回调函数中恢复状态。异步代码往往得写成状态机的形式。当挂起较少时，这有点麻烦，但还是可把握的。问题在于一旦挂起发生在条件判断、循环、子函数中，写出这样的状态机并能被很多人理解和维护，几乎是不可能的，而这在分布式系统中又很常见，因为一个节点往往要与多个节点同时交互。另外如果唤醒可由多种事件触发（比如fd有数据或超时了），挂起和恢复的过程容易出现race condition，对多线程编码能力要求很高。语法糖(比如lambda)可以让编码不那么“麻烦”，但无法降低难度。&lt;/p>
-&lt;p>共享指针在异步编程中很普遍，这看似方便，但也使内存的ownership变得难以捉摸，如果内存泄漏了，很难定位哪里没有释放；如果segment fault了，也不知道哪里多释放了一下。大量使用引用计数的用户代码很难控制代码质量，容易长期在内存问题上耗费时间。如果引用计数还需要手动维护，保持质量就更难了，维护者也不会愿意改进。没有上下文会使得&lt;a href="http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII&lt;/a>无法充分发挥作用, 有时需要在callback之外lock，callback之内unlock，实践中很容易出错。&lt;/p></description></item><item><title>Docs: 负载均衡</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/load-balancing/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/load-balancing/</guid><description>
+&lt;p>共享指针在异步编程中很普遍，这看似方便，但也使内存的ownership变得难以捉摸，如果内存泄漏了，很难定位哪里没有释放；如果segment fault了，也不知道哪里多释放了一下。大量使用引用计数的用户代码很难控制代码质量，容易长期在内存问题上耗费时间。如果引用计数还需要手动维护，保持质量就更难了，维护者也不会愿意改进。没有上下文会使得&lt;a href="http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII&lt;/a>无法充分发挥作用, 有时需要在callback之外lock，callback之内unlock，实践中很容易出错。&lt;/p></description></item><item><title>Docs: 负载均衡</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/load-balancing/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/load-balancing/</guid><description>
 &lt;p>上游一般通过命名服务发现所有的下游节点，并通过多种负载均衡方法把流量分配给下游节点。当下游节点出现问题时，它可能会被隔离以提高负载均衡的效率。被隔离的节点定期被健康检查，成功后重新加入正常节点。&lt;/p>
 &lt;h1 id="命名服务">命名服务&lt;/h1>
 &lt;p>在brpc中，&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/naming_service.h">NamingService&lt;/a>用于获得服务名对应的所有节点。一个直观的做法是定期调用一个函数以获取最新的节点列表。但这会带来一定的延时（定期调用的周期一般在若干秒左右），作为通用接口不太合适。特别当命名服务提供事件通知时(比如zk)，这个特性没有被利用。所以我们反转了控制权：不是我们调用用户函数，而是用户在获得列表后调用我们的接口，对应&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/naming_service.h">NamingServiceActions&lt;/a>。当然我们还是得启动进行这一过程的函数，对应NamingService::RunNamingService。下面以三个实现解释这套方式：&lt;/p>
@@ -304,13 +304,13 @@ file://&amp;lt;file-path&amp;gt; # load addresses from the file
 list://addr1,addr2,... # use the addresses separated by comma
 http://&amp;lt;url&amp;gt; # Domain Naming Service, aka DNS.
 &lt;/code>&lt;/pre>&lt;p>这套方式是可扩展的，实现了新的NamingService后在&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/global.cpp">global.cpp&lt;/a>中依葫芦画瓢注册下就行了，如下图所示：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/register_ns.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/register_ns.png" alt="img">&lt;/p>
 &lt;p>看到这些熟悉的字符串格式，容易联想到ftp:// zk:// galileo://等等都是可以支持的。用户在新建Channel时传入这类NamingService描述，并能把这些描述写在各类配置文件中。&lt;/p>
 &lt;h1 id="负载均衡">负载均衡&lt;/h1>
 &lt;p>brpc中&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/load_balancer.h">LoadBalancer&lt;/a>从多个服务节点中选择一个节点，目前的实现见&lt;a href="../../client/basics/#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">负载均衡&lt;/a>。&lt;/p>
 &lt;p>Load balancer最重要的是如何让不同线程中的负载均衡不互斥，解决这个问题的技术是&lt;a href="../locality-aware/#doublybuffereddata">DoublyBufferedData&lt;/a>。&lt;/p>
 &lt;p>和NamingService类似，我们使用字符串来指代一个load balancer，在global.cpp中注册：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/register_lb.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/register_lb.png" alt="img">&lt;/p>
 &lt;h1 id="健康检查">健康检查&lt;/h1>
 &lt;p>对于那些无法连接却仍在NamingService的节点，brpc会定期连接它们，成功后对应的Socket将被”复活“，并可能被LoadBalancer选择上，这个过程就是健康检查。注意：被健康检查或在LoadBalancer中的节点一定在NamingService中。换句话说，只要一个节点不从NamingService删除，它要么是正常的（会被LoadBalancer选上），要么在做健康检查。&lt;/p>
 &lt;p>传统的做法是使用一个线程做所有连接的健康检查，brpc简化了这个过程：为需要的连接动态创建一个bthread专门做健康检查（Socket::HealthCheckThread）。这个线程的生命周期被对应连接管理。具体来说，当Socket被SetFailed后，健康检查线程就可能启动（如果SocketOptions.health_check_interval为正数的话）：&lt;/p>
@@ -318,7 +318,7 @@ http://&amp;lt;url&amp;gt; # Domain Naming Service, aka DNS.
 &lt;li>健康检查线程先在确保没有其他人在使用Socket了后关闭连接。目前是通过对Socket的引用计数判断的。这个方法之所以有效在于Socket被SetFailed后就不能被Address了，所以引用计数只减不增。&lt;/li>
 &lt;li>定期连接直到远端机器被连接上，在这个过程中，如果Socket析构了，那么该线程也就随之退出了。&lt;/li>
 &lt;li>连上后复活Socket(Socket::Revive)，这样Socket就又能被其他地方，包括LoadBalancer访问到了（通过Socket::Address）。&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Locality-aware</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/locality-aware/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/locality-aware/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Locality-aware</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/locality-aware/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/locality-aware/</guid><description>
 &lt;h1 id="概述">概述&lt;/h1>
 &lt;p>LALB全称Locality-aware load balancing，是一个能把请求及时、自动地送到延时最低的下游的负载均衡算法，特别适合混合部署环境。该算法产生自DP系统，现已加入brpc！&lt;/p>
 &lt;p>LALB可以解决的问题：&lt;/p>
@@ -351,14 +351,14 @@ http://&amp;lt;url&amp;gt; # Domain Naming Service, aka DNS.
 &lt;/ul>
 &lt;p>故稳定状态时L1和L2应当是趋同的。当L1小于L2时，节点1会更获得相比其QPS1更大的W1，从而在未来获得更多的流量，直到&lt;strong>其延时高于平均值或没有更多的流量。&lt;/strong>&lt;/p>
 &lt;p>注意这个算法并不是按照延时的比例来分流，不是说一个下游30ms，另一个60ms，它们的流量比例就是60 / 30。而是30ms的节点会一直获得流量直到它的延时高于60ms，或者没有更多流量了。以下图为例，曲线1和曲线2分别是节点1和节点2的延时与吞吐关系图，随着吞吐增大延时会逐渐升高，接近极限吞吐时，延时会飙升。左下的虚线标记了QPS=400时的延时，此时虽然节点1的延时有所上升，但还未高于节点2的基本延时（QPS=0时的延时），所以所有流量都会分给节点1，而不是按它们基本延时的比例（图中大约2:1）。当QPS继续上升达到1600时，分流比例会在两个节点延时相等时平衡，图中为9 : 7。很明显这个比例是高度非线性的，取决于不同曲线的组合，和单一指标的比例关系没有直接关联。在真实系统中，延时和吞吐的曲线也在动态变化着，分流比例更加动态。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/lalb_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/lalb_1.png" alt="img">&lt;/p>
 &lt;p>我们用一个例子来看一下具体的分流过程。启动3台server，逻辑分别是sleep 1ms，2ms，3ms，对于client来说这些值就是延时。启动client（50个同步访问线程）后每秒打印的分流结果如下：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/lalb_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/lalb_2.png" alt="img">&lt;/p>
 &lt;p>S[n]代表第n台server。由于S[1]和S[2]的平均延时大于1ms，LALB会发现这点并降低它们的权值。它们的权值会继续下降，直到被算法设定的最低值拦住。这时停掉server，反转延时并重新启动，即逻辑分别为sleep 3ms，2ms，1ms，运行一段时候后分流效果如下：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/lalb_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/lalb_3.png" alt="img">&lt;/p>
 &lt;p>刚重连上server时，client还是按之前的权值把大部分流量都分给了S[0]，但由于S[0]的延时从1ms上升到了3ms，client的qps也降到了原来的1/3。随着数据积累，LALB逐渐发现S[2]才是最快的，而把大部分流量切换了过去。同样的服务如果用rr或random访问，则qps会显著下降：&lt;/p>
-&lt;p>&amp;ldquo;rr&amp;rdquo; or &amp;ldquo;random&amp;rdquo;: &lt;img src="https://brpc.incubator.apache.org/images/docs/lalb_4.png" alt="img">&lt;/p>
-&lt;p>&amp;ldquo;la&amp;rdquo; : &lt;img src="https://brpc.incubator.apache.org/images/docs/lalb_5.png" alt="img">&lt;/p>
+&lt;p>&amp;ldquo;rr&amp;rdquo; or &amp;ldquo;random&amp;rdquo;: &lt;img src="https://brpc.apache.org/images/docs/lalb_4.png" alt="img">&lt;/p>
+&lt;p>&amp;ldquo;la&amp;rdquo; : &lt;img src="https://brpc.apache.org/images/docs/lalb_5.png" alt="img">&lt;/p>
 &lt;p>真实的场景中不会有这么显著的差异，但你应该能看到差别了。&lt;/p>
 &lt;p>这有很多应用场景：&lt;/p>
 &lt;ul>
@@ -437,7 +437,7 @@ http://&amp;lt;url&amp;gt; # Domain Naming Service, aka DNS.
 &lt;li>反馈时扣除发出时间和未结束次数。&lt;/li>
 &lt;li>框架保证每个选择总对应一次反馈。&lt;/li>
 &lt;/ul>
-&lt;p>这样“当前时间 - 发出时间之和 / 未结束次数”便是未结束RPC的平均耗时，我们称之为inflight delay。当inflight delay大于平均延时时，我们就线性地惩罚节点权值，即weight = base_weight * avg_latency / inflight_delay。当发向一个节点的请求没有在平均延时内回来时，它的权值就会很快下降，从而纠正我们的行为，这比等待超时快多了。不过这没有考虑延时的正常抖动，我们还得有方差，方差可以来自统计，也可简单线性于平均延时。不管怎样，有了方差bound后，当inflight delay &amp;gt; avg_latency + max(bound * 3, MIN_BOUND)时才会惩罚权值。3是正态分布中的经验数值。&lt;/p></description></item><item><title>Docs: 一致性哈希</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/consistent-hashing/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/consistent-hashing/</guid><description>
+&lt;p>这样“当前时间 - 发出时间之和 / 未结束次数”便是未结束RPC的平均耗时，我们称之为inflight delay。当inflight delay大于平均延时时，我们就线性地惩罚节点权值，即weight = base_weight * avg_latency / inflight_delay。当发向一个节点的请求没有在平均延时内回来时，它的权值就会很快下降，从而纠正我们的行为，这比等待超时快多了。不过这没有考虑延时的正常抖动，我们还得有方差，方差可以来自统计，也可简单线性于平均延时。不管怎样，有了方差bound后，当inflight delay &amp;gt; avg_latency + max(bound * 3, MIN_BOUND)时才会惩罚权值。3是正态分布中的经验数值。&lt;/p></description></item><item><title>Docs: 一致性哈希</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/consistent-hashing/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/consistent-hashing/</guid><description>
 &lt;h1 id="概述">概述&lt;/h1>
 &lt;p>一些场景希望同样的请求尽量落到一台机器上，比如访问缓存集群时，我们往往希望同一种请求能落到同一个后端上，以充分利用其上已有的缓存，不同的机器承载不同的稳定working set。而不是随机地散落到所有机器上，那样的话会迫使所有机器缓存所有的内容，最终由于存不下形成颠簸而表现糟糕。 我们都知道hash能满足这个要求，比如当有n台服务器时，输入x总是会发送到第hash(x) % n台服务器上。但当服务器变为m台时，hash(x) % n和hash(x) % m很可能都不相等，这会使得几乎所有请求的发送目的地都发生变化，如果目的地是缓存服务，所有缓存将失效，继而对原本被缓存遮挡的数据库或计算服务造成请求风暴，触发雪崩。一致性哈希是一种特殊的哈希算法，在增加服务器时，发向每个老节点的请求中只会有一部分转向新节点，从而实现平滑的迁移。&lt;a href="http://blog.phpdr.net/wp-content/uploads/2012/08/Consistent-Hashing-and-Random-Trees.pdf">这篇论文&lt;/a>中提出了一致性hash的概念。&lt;/p>
 &lt;p>一致性hash满足以下四个性质：&lt;/p>
@@ -449,7 +449,7 @@ http://&amp;lt;url&amp;gt; # Domain Naming Service, aka DNS.
 &lt;/ul>
 &lt;h1 id="实现方式">实现方式&lt;/h1>
 &lt;p>所有server的32位hash值在32位整数值域上构成一个环(Hash Ring)，环上的每个区间和一个server唯一对应，如果一个key落在某个区间内， 它就被分流到对应的server上。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/chash.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/chash.png" alt="img">&lt;/p>
 &lt;p>当删除一个server的，它对应的区间会归属于相邻的server，所有的请求都会跑过去。当增加一个server时，它会分割某个server的区间并承载落在这个区间上的所有请求。单纯使用Hash Ring很难满足我们上节提到的属性，主要两个问题：&lt;/p>
 &lt;ul>
 &lt;li>在机器数量较少的时候， 区间大小会不平衡。&lt;/li>
@@ -469,7 +469,7 @@ http://&amp;lt;url&amp;gt; # Domain Naming Service, aka DNS.
 &lt;h1 id="虚拟节点个数">虚拟节点个数&lt;/h1>
 &lt;p>通过-chash_num_replicas可设置默认的虚拟节点个数，默认值为100。对于某些特殊场合，对虚拟节点个数有自定义的需求，可以通过将&lt;em>load_balancer_name&lt;/em>加上参数replicas=&lt;num>配置，如：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">channel&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Init&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;http://...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;c_murmurhash:replicas=150&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">options&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: 内存管理</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/memory-management/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/memory-management/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: 内存管理</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/memory-management/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/memory-management/</guid><description>
 &lt;p>内存管理总是程序中的重要一环，在多线程时代，一个好的内存分配大都在如下两点间权衡：&lt;/p>
 &lt;ul>
 &lt;li>线程间竞争少。内存分配的粒度大都比较小，对性能敏感，如果不同的线程在大多数分配时会竞争同一份资源或同一把锁，性能将会非常糟糕，原因无外乎和cache一致性有关，已被大量的malloc方案证明。&lt;/li>
@@ -497,12 +497,12 @@ http://&amp;lt;url&amp;gt; # Domain Naming Service, aka DNS.
 &lt;h1 id="生成bthread_t">生成bthread_t&lt;/h1>
 &lt;p>用户期望通过创建bthread获得更高的并发度，所以创建bthread必须很快。 在目前的实现中创建一个bthread的平均耗时小于200ns。如果每次都要从头创建，是不可能这么快的。创建过程更像是从一个bthread池子中取一个实例，我们又同时需要一个id来指代一个bthread，所以这儿正是ResourcePool的用武之地。bthread在代码中被称作Task，其结构被称为TaskMeta，定义在&lt;a href="https://github.com/brpc/brpc/blob/master/src/bthread/task_meta.h">task_meta.h&lt;/a>中，所有的TaskMeta由ResourcePool&lt;TaskMeta>分配。&lt;/p>
 &lt;p>bthread的大部分函数都需要在O(1)时间内通过bthread_t访问到TaskMeta，并且当bthread_t失效后，访问应返回NULL以让函数做出返回错误。解决方法是：bthread_t由32位的版本和32位的偏移量组成。版本解决&lt;a href="http://en.wikipedia.org/wiki/ABA_problem">ABA问题&lt;/a>，偏移量由ResourcePool&lt;TaskMeta>分配。查找时先通过偏移量获得TaskMeta，再检查版本，如果版本不匹配，说明bthread失效了。注意：这只是大概的说法，在多线程环境下，即使版本相等，bthread仍可能随时失效，在不同的bthread函数中处理方法都是不同的，有些函数会加锁，有些则能忍受版本不相等。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/resource_pool.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/resource_pool.png" alt="img">&lt;/p>
 &lt;p>这种id生成方式在brpc中应用广泛，brpc中的SocketId，bthread_id_t也是用类似的方法分配的。&lt;/p>
 &lt;h1 id="栈">栈&lt;/h1>
 &lt;p>使用ResourcePool加快创建的副作用是：一个pool中所有bthread的栈必须是一样大的。这似乎限制了用户的选择，不过基于我们的观察，大部分用户并不关心栈的具体大小，而只需要两种大小的栈：尺寸普通但数量较少，尺寸小但数量众多。所以我们用不同的pool管理不同大小的栈，用户可以根据场景选择。两种栈分别对应属性BTHREAD_ATTR_NORMAL（栈默认为1M）和BTHREAD_ATTR_SMALL（栈默认为32K）。用户还可以指定BTHREAD_ATTR_LARGE，这个属性的栈大小和pthread一样，由于尺寸较大，bthread不会对其做caching，创建速度较慢。server默认使用BTHREAD_ATTR_NORMAL运行用户代码。&lt;/p>
 &lt;p>栈使用&lt;a href="http://linux.die.net/man/2/mmap">mmap&lt;/a>分配，bthread还会用mprotect分配4K的guard page以检测栈溢出。由于mmap+mprotect不能超过max_map_count（默认为65536），当bthread非常多后可能要调整此参数。另外当有很多bthread时，内存问题可能不仅仅是栈，也包括各类用户和系统buffer。&lt;/p>
-&lt;p>goroutine在1.3前通过&lt;a href="https://gcc.gnu.org/wiki/SplitStacks">segmented stacks&lt;/a>动态地调整栈大小，发现有&lt;a href="https://docs.google.com/document/d/1wAaf1rYoM4S4gtnPh0zOlGzWtrZFQ5suE8qr2sD8uWQ/pub">hot split&lt;/a>问题后换成了变长连续栈（类似于vector resizing，只适合内存托管的语言）。由于bthread基本只会在64位平台上使用，虚存空间庞大，对变长栈需求不明确。加上segmented stacks的性能有影响，bthread暂时没有变长栈的计划。&lt;/p></description></item><item><title>Docs: Timer keeping</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/timer-keeping/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/timer-keeping/</guid><description>
+&lt;p>goroutine在1.3前通过&lt;a href="https://gcc.gnu.org/wiki/SplitStacks">segmented stacks&lt;/a>动态地调整栈大小，发现有&lt;a href="https://docs.google.com/document/d/1wAaf1rYoM4S4gtnPh0zOlGzWtrZFQ5suE8qr2sD8uWQ/pub">hot split&lt;/a>问题后换成了变长连续栈（类似于vector resizing，只适合内存托管的语言）。由于bthread基本只会在64位平台上使用，虚存空间庞大，对变长栈需求不明确。加上segmented stacks的性能有影响，bthread暂时没有变长栈的计划。&lt;/p></description></item><item><title>Docs: Timer keeping</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/timer-keeping/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/timer-keeping/</guid><description>
 &lt;p>在几点几分做某件事是RPC框架的基本需求，这件事比看上去难。&lt;/p>
 &lt;p>让我们先来看看系统提供了些什么： posix系统能以&lt;a href="http://man7.org/linux/man-pages/man2/timer_create.2.html">signal方式&lt;/a>告知timer触发，不过signal逼迫我们使用全局变量，写&lt;a href="https://docs.oracle.com/cd/E19455-01/806-5257/gen-26/index.html">async-signal-safe&lt;/a>的函数，在面向用户的编程框架中，我们应当尽力避免使用signal。linux自2.6.27后能以&lt;a href="http://man7.org/linux/man-pages/man2/timerfd_create.2.html">fd方式&lt;/a>通知timer触发，这个fd可以放到epoll中和传输数据的fd统一管理。唯一问题是：这是个系统调用，且我们不清楚它在多线程下的表现。&lt;/p>
 &lt;p>为什么这么关注timer的开销?让我们先来看一下RPC场景下一般是怎么使用timer的：&lt;/p>
@@ -549,7 +549,7 @@ http://&amp;lt;url&amp;gt; # Domain Naming Service, aka DNS.
 &lt;li>epoll_wait的超时精度是毫秒，较差。pthread_cond_timedwait的超时使用timespec，精度到纳秒，一般是60微秒左右的延时。&lt;/li>
 &lt;li>出于性能考虑，TimerThread使用wall-time，而不是单调时间，可能受到系统时间调整的影响。具体来说，如果在测试中把系统时间往前或往后调一个小时，程序行为将完全undefined。未来可能会让用户选择单调时间。&lt;/li>
 &lt;li>在cpu支持nonstop_tsc和constant_tsc的机器上，brpc和bthread会优先使用基于rdtsc的cpuwide_time_us。那两个flag表示rdtsc可作为wall-time使用，不支持的机器上会转而使用较慢的内核时间。我们的机器（Intel Xeon系列）大都有那两个flag。rdtsc作为wall-time使用时是否会受到系统调整时间的影响，未测试不清楚。&lt;/li>
-&lt;/ul></description></item><item><title>Docs: bthread_id</title><link>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/bthread_id/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/rpc-in-depth/bthread_id/</guid><description>
+&lt;/ul></description></item><item><title>Docs: bthread_id</title><link>https://brpc.apache.org/zh/docs/rpc-in-depth/bthread_id/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/rpc-in-depth/bthread_id/</guid><description>
 &lt;p>bthread_id是一个特殊的同步结构，它可以互斥RPC过程中的不同环节，也可以O(1)时间内找到RPC上下文(即Controller)。注意，这里我们谈论的是bthread_id_t，不是bthread_t（bthread的tid），这个名字起的确实不太好，容易混淆。&lt;/p>
 &lt;p>具体来说，bthread_id解决的问题有：&lt;/p>
 &lt;ul>

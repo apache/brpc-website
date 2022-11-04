@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 源码解析</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/sourcecodes/</link><description>Recent content in 源码解析 on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/zh/docs/blogs/sourcecodes/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC源码解析·bthread机制</title><link>https://brpc.incubator.apache.org/zh/docs/blogs/sourcecodes/bthread/</link><pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/blogs/sourcecodes/bthread/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 源码解析</title><link>https://brpc.apache.org/zh/docs/blogs/sourcecodes/</link><description>Recent content in 源码解析 on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.apache.org/zh/docs/blogs/sourcecodes/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC源码解析·bthread机制</title><link>https://brpc.apache.org/zh/docs/blogs/sourcecodes/bthread/</link><pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/sourcecodes/bthread/</guid><description>
 &lt;h2 id="bthread简介">bthread简介&lt;/h2>
 &lt;p>官方文档：https://brpc.apache.org/zh/docs/bthread/bthread/&lt;/p>
 &lt;p>bthread是bRPC使用的M:N线程库，类似协程，即用户态线程，也因此bthread的切换不会陷入内核，不会进行一系列内存同步等耗时操作，从bthread_benchmark中可以看到bthread的创建时间和调度时间相较pthread有着数量级的提升，将大量的bthread映射至少量的内核线程pthread上执行，降低内核上下文切换开销，在充分利用多核的同时，具有更好的cache locality。&lt;/p>
@@ -237,7 +237,7 @@
 &lt;/tbody>
 &lt;/table>
 &lt;p>初始化过程可由下图直观表示：
-&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_make_fcontext.png" alt="bthread_make_fcontext">&lt;/p>
+&lt;img src="https://brpc.apache.org/images/docs/bthread_make_fcontext.png" alt="bthread_make_fcontext">&lt;/p>
 &lt;h3 id="协程的切换部分">协程的切换部分&lt;/h3>
 &lt;p>实现协程上下文切换有很多种方法，本质要做的都是保存和恢复寄存器和栈信息。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">inline&lt;/span> &lt;span style="color:#204a87;font-weight:bold">void&lt;/span> &lt;span style="color:#000">jump_stack&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">ContextualStack&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">from&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ContextualStack&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">to&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
@@ -421,7 +421,7 @@
 &lt;/tbody>
 &lt;/table>
 &lt;p>在协程切换过程中有两种情况，第一种为新协程是通过bthread_make_fcontext函数刚刚创建的栈，另一种是已经运行过的栈，这两种过程分别如下图所示：
-&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_jump_fcontext.png" alt="bthread_jump_fcontext">&lt;/p>
+&lt;img src="https://brpc.apache.org/images/docs/bthread_jump_fcontext.png" alt="bthread_jump_fcontext">&lt;/p>
 &lt;p>参考资料&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/148314164">https://zhuanlan.zhihu.com/p/148314164&lt;/a>&lt;/li>

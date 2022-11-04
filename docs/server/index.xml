@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Server</title><link>https://brpc.incubator.apache.org/docs/server/</link><description>Recent content in Server on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/docs/server/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Basics</title><link>https://brpc.incubator.apache.org/docs/server/basics/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/basics/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Server</title><link>https://brpc.apache.org/docs/server/</link><description>Recent content in Server on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/docs/server/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Basics</title><link>https://brpc.apache.org/docs/server/basics/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/basics/</guid><description>
 &lt;h1 id="example">Example&lt;/h1>
 &lt;p>&lt;a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/server.cpp">server-side code&lt;/a> of Echo.&lt;/p>
 &lt;h1 id="fill-the-proto">Fill the .proto&lt;/h1>
@@ -742,7 +742,7 @@ process_io_write_second
 &lt;/code>&lt;/pre>&lt;h3 id="q-json-string-123-cant-be-converted-to-protobuf-message">Q: json string &amp;ldquo;[1,2,3]&amp;rdquo; can&amp;rsquo;t be converted to protobuf message&lt;/h3>
 &lt;p>This is not a valid json string, which must be a json object enclosed with braces {}.&lt;/p>
 &lt;h1 id="psworkflow-at-server-side">PS:Workflow at server-side&lt;/h1>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/server_side.png" alt="img">&lt;/p></description></item><item><title>Docs: Serve http:h2</title><link>https://brpc.incubator.apache.org/docs/server/serve-httph2/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/serve-httph2/</guid><description>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/server_side.png" alt="img">&lt;/p></description></item><item><title>Docs: Serve http:h2</title><link>https://brpc.apache.org/docs/server/serve-httph2/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/serve-httph2/</guid><description>
 &lt;p>This document talks about ordinary htt/h2 services rather than protobuf services accessible via http/h2.
 http/h2 services in brpc have to declare interfaces with empty request and response in a .proto file. This requirement keeps all service declarations inside proto files rather than scattering in code, configurations, and proto files.&lt;/p>
 &lt;h1 id="example">Example&lt;/h1>
@@ -957,13 +957,13 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 &lt;li>At most one asterisk is allowed in a path.&lt;/li>
 &lt;/ul>
 &lt;p>The path after asterisk can be obtained by &lt;code>cntl.http_request().unresolved_path()&lt;/code>, which is always normalized, namely no slashes at the beginning or the end, and no repeated slashes in the middle. For example:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/restful_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/restful_1.png" alt="img">&lt;/p>
 &lt;p>or:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/restful_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/restful_2.png" alt="img">&lt;/p>
 &lt;p>in which unresolved_path are both &lt;code>foo/bar&lt;/code>. The extra slashes at the left, the right, or the middle are removed.&lt;/p>
 &lt;p>Note that &lt;code>cntl.http_request().uri().path()&lt;/code> is not ensured to be normalized, which is &lt;code>&amp;quot;//v1//queue//stats//foo///bar//////&amp;quot;&lt;/code> and &lt;code>&amp;quot;//vars///foo////bar/////&amp;quot;&lt;/code> respectively in the above example.&lt;/p>
 &lt;p>The built-in service page of &lt;code>/status&lt;/code> shows customized URLs after the methods, in form of &lt;code>@URL1 @URL2&lt;/code> &amp;hellip;&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/restful_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/restful_3.png" alt="img">&lt;/p>
 &lt;h1 id="http-parameters">HTTP Parameters&lt;/h1>
 &lt;h2 id="http-headers">HTTP headers&lt;/h2>
 &lt;p>HTTP headers are a series of key/value pairs, some of them are defined by the HTTP specification, while others are free to use.&lt;/p>
@@ -1009,7 +1009,7 @@ http/h2 services in brpc have to declare interfaces with empty request and respo
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For example, following code implements redirection with status code 302:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">cntl&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span>&lt;span style="color:#000">http_response&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">set_status_code&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">brpc&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">HTTP_STATUS_FOUND&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">cntl&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span>&lt;span style="color:#000">http_response&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">SetHeader&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Location&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;http://bj.bs.bae.baidu.com/family/image001(4979).jpg&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/302.png" alt="img">&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://brpc.apache.org/images/docs/302.png" alt="img">&lt;/p>
 &lt;h2 id="query-string">Query String&lt;/h2>
 &lt;p>As mentioned in above &lt;a href="#http-headers">HTTP headers&lt;/a>, query strings are interpreted in common convention, whose form is &lt;code>key1=value1&amp;amp;key2=value2&amp;amp;…&lt;/code>. Keys without values are acceptable as well and accessible by &lt;code>GetQuery&lt;/code> which returns an empty string. Such keys are often used as boolean flags. Full API are defined in &lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/uri.h">uri.h&lt;/a>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">std&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">string&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">time_value&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">cntl&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span>&lt;span style="color:#000">http_request&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">uri&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">GetQuery&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;time&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
@@ -1110,7 +1110,7 @@ gen-delims = &amp;#34;:&amp;#34; / &amp;#34;/&amp;#34; / &amp;#34;?&amp;#34; / &
 sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;#34; / &amp;#34;&amp;#39;&amp;#34; / &amp;#34;(&amp;#34; / &amp;#34;)&amp;#34;
 / &amp;#34;*&amp;#34; / &amp;#34;+&amp;#34; / &amp;#34;,&amp;#34; / &amp;#34;;&amp;#34; / &amp;#34;=&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>Base64 encoded string may end with &lt;code>=&lt;/code> which is a reserved character (take &lt;code>?wi=NDgwMDB8dGVzdA==&amp;amp;anothorkey=anothervalue&lt;/code> as an example). The strings may be parsed successfully, or may be not, depending on the implementation which should not be assumed in principle.&lt;/p>
-&lt;p>One solution is to remove the trailing &lt;code>=&lt;/code> which does not affect the &lt;a href="http://en.wikipedia.org/wiki/Base64#Padding">Base64 decoding&lt;/a>. Another method is to &lt;a href="https://en.wikipedia.org/wiki/Percent-encoding">percent-encode&lt;/a> the URI, and do percent-decoding before Base64 decoding.&lt;/p></description></item><item><title>Docs: Serve gRPC</title><link>https://brpc.incubator.apache.org/docs/server/serve-grpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/serve-grpc/</guid><description>
+&lt;p>One solution is to remove the trailing &lt;code>=&lt;/code> which does not affect the &lt;a href="http://en.wikipedia.org/wiki/Base64#Padding">Base64 decoding&lt;/a>. Another method is to &lt;a href="https://en.wikipedia.org/wiki/Percent-encoding">percent-encode&lt;/a> the URI, and do percent-decoding before Base64 decoding.&lt;/p></description></item><item><title>Docs: Serve gRPC</title><link>https://brpc.apache.org/docs/server/serve-grpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/serve-grpc/</guid><description>
 &lt;p>Basics for accessing and serving http/h2 in brpc are listed in &lt;a href="../../client/access-httph2/">http_client&lt;/a> and &lt;a href="../serve-httph2/">http_service&lt;/a>.&lt;/p>
 &lt;p>Following section names are protocol names that can be directly set to ChannelOptions.protocol. The content after colon is parameters for the protocol to select derivative behaviors dynamically, but the base protocol is still http/1.x or http/2. As a result, these protocols are displayed at server-side as http or h2/h2c only.&lt;/p>
 &lt;h1 id="httpjson-h2json">http:json, h2:json&lt;/h1>
@@ -1128,7 +1128,7 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;p>gRPC serializes message into pb wire format by default, so &amp;ldquo;h2:grpc&amp;rdquo; and &amp;ldquo;h2:grpc+proto&amp;rdquo; are just same.&lt;/p>
 &lt;p>TODO: Other configurations for gRPC&lt;/p>
 &lt;h1 id="h2grpcjson">h2:grpc+json&lt;/h1>
-&lt;p>Comparing to h2:grpc, this protocol serializes messages into json instead of pb, which may not be supported by gRPC directly. For example, grpc-go users may reference &lt;a href="https://github.com/johanbrandhorst/grpc-json-example/blob/master/codec/json.go">here&lt;/a> to register the corresponding codec and turn on the support.&lt;/p></description></item><item><title>Docs: Serve thrift</title><link>https://brpc.incubator.apache.org/docs/server/serve-thrift/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/serve-thrift/</guid><description>
+&lt;p>Comparing to h2:grpc, this protocol serializes messages into json instead of pb, which may not be supported by gRPC directly. For example, grpc-go users may reference &lt;a href="https://github.com/johanbrandhorst/grpc-json-example/blob/master/codec/json.go">here&lt;/a> to register the corresponding codec and turn on the support.&lt;/p></description></item><item><title>Docs: Serve thrift</title><link>https://brpc.apache.org/docs/server/serve-thrift/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/serve-thrift/</guid><description>
 &lt;p>&lt;a href="https://thrift.apache.org/">thrift&lt;/a> is a RPC framework used widely in various environments, which was developed by Facebook and adopted by Apache later. In order to interact with thrift servers and solves issues on thread-safety, usabilities and concurrencies, brpc directly supports the thrift protocol that is used by thrift in NonBlocking mode.&lt;/p>
 &lt;p>Example: &lt;a href="https://github.com/brpc/brpc/tree/master/example/thrift_extension_c++/">example/thrift_extension_c++&lt;/a>.&lt;/p>
 &lt;p>Advantages compared to the official solution:&lt;/p>
@@ -1321,7 +1321,7 @@ Read &lt;a href="https://thrift.apache.org/docs/install/debian">Official wiki&lt
 &lt;td>93%&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>Docs: Serve Nshead</title><link>https://brpc.incubator.apache.org/docs/server/serve-nshead/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/serve-nshead/</guid><description>
+&lt;/table></description></item><item><title>Docs: Serve Nshead</title><link>https://brpc.apache.org/docs/server/serve-nshead/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/serve-nshead/</guid><description>
 &lt;p>ub是百度内广泛使用的老RPC框架，在迁移ub服务时不可避免地需要&lt;a href="../../client/access-ub/">访问ub-server&lt;/a>或被ub-client访问。ub使用的协议种类很多，但都以nshead作为二进制包的头部，这类服务在brpc中统称为&amp;quot;&lt;strong>nshead service&lt;/strong>&amp;quot;。&lt;/p>
 &lt;p>nshead后大都使用mcpack/compack作为序列化格式，注意这不是“协议”。&amp;ldquo;协议&amp;quot;除了序列化格式，还涉及到各种特殊字段的定义，一种序列化格式可能会衍生出很多协议。ub没有定义标准协议，所以即使都使用mcpack或compack，产品线的通信协议也是五花八门，无法互通。鉴于此，我们提供了一套接口，让用户能够灵活的处理自己产品线的协议，同时享受brpc提供的builtin services等一系列框架福利。&lt;/p>
 &lt;h1 id="使用ubrpc的服务">使用ubrpc的服务&lt;/h1>
@@ -1509,7 +1509,7 @@ Read &lt;a href="https://thrift.apache.org/docs/install/debian">Official wiki&lt
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">google&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">protobuf&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">Message&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">pb_res&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">NsheadMessage&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">nshead_res&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Server push</title><link>https://brpc.incubator.apache.org/docs/server/server-push/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/server-push/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Server push</title><link>https://brpc.apache.org/docs/server/server-push/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/server-push/</guid><description>
 &lt;h1 id="server-push">Server push&lt;/h1>
 &lt;p>What &amp;ldquo;server push&amp;rdquo; refers to is: server sends a message to client after occurrence of an event, rather than passively replying the client as in ordinary RPCs. Following two methods are recommended to implement server push in brpc.&lt;/p>
 &lt;h2 id="remote-event">Remote event&lt;/h2>
@@ -1525,7 +1525,7 @@ Read &lt;a href="https://thrift.apache.org/docs/install/debian">Official wiki&lt
 &lt;p>The client wants a given URL to be called with necessary parameters when the event occurs. In this pattern, server can reply the client directly when it receives the registration request, because the event is not triggered by the end of the RPC. In addition, since the callback is just a URL, which can be stored in databases and message queues, this pattern is very flexible and widely used in business systems.&lt;/p>
 &lt;p>URL and parameters must contain enough information to make the callback know that which notification corresponds to which request, because the client may care about more than one event at the same time, or an event may be registered more than once due to network jitter or restarting machines etc. If the URL path is fixed, the client should place an unique ID in the registration request and the server should put the ID unchanged in response. Or the client generates an unique path for each registration so that each request is distinguishable from each other naturally. These methods are actually same in essense, just different positions for unique identifiers.&lt;/p>
 &lt;p>Callbacks should deal with &lt;a href="https://en.wikipedia.org/wiki/Idempotence">idempotence&lt;/a>. The server may retry and send more than one notifications after encountering network problems. If the first notification has been successful, follow-up notifications should not have effects. The &amp;ldquo;remote event&amp;rdquo; pattern guarantees idempotency at the layer of RPC, which ensures that the done is called once and only once.&lt;/p>
-&lt;p>In order to avoid missing important notifications, users often need to combine RPC and message queues flexibly. RPC is much better at latency and efficiency than message queue, but due to limited memory, server needs to stop sending RPC after several failed retries and do more important things with the memory. It&amp;rsquo;s better to move the notification task into a persistent message queue at the moment, which is capable of retrying during a very long time. With the idempotence in URL callback, most notifications are sent reliably and in-time.&lt;/p></description></item><item><title>Docs: Avalanche</title><link>https://brpc.incubator.apache.org/docs/server/avalanche/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/avalanche/</guid><description>
+&lt;p>In order to avoid missing important notifications, users often need to combine RPC and message queues flexibly. RPC is much better at latency and efficiency than message queue, but due to limited memory, server needs to stop sending RPC after several failed retries and do more important things with the memory. It&amp;rsquo;s better to move the notification task into a persistent message queue at the moment, which is capable of retrying during a very long time. With the idempotence in URL callback, most notifications are sent reliably and in-time.&lt;/p></description></item><item><title>Docs: Avalanche</title><link>https://brpc.apache.org/docs/server/avalanche/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/avalanche/</guid><description>
 &lt;p>“雪崩”指的是访问服务集群时绝大部分请求都超时，且在流量减少时仍无法恢复的现象。下面解释这个现象的来源。&lt;/p>
 &lt;p>当流量超出服务的最大qps时，服务将无法正常服务；当流量恢复正常时（小于服务的处理能力），积压的请求会被处理，虽然其中很大一部分可能会因为处理的不及时而超时，但服务本身一般还是会恢复正常的。这就相当于一个水池有一个入水口和一个出水口，如果入水量大于出水量，水池子终将盛满，多出的水会溢出来。但如果入水量降到出水量之下，一段时间后水池总会排空。雪崩并不是单一服务能产生的。&lt;/p>
 &lt;p>如果一个请求经过两个服务，情况就有所不同了。比如请求访问A服务，A服务又访问了B服务。当B被打满时，A处的client会大量超时，如果A处的client在等待B返回时也阻塞了A的服务线程（常见），且使用了固定个数的线程池（常见），那么A处的最大qps就从&lt;strong>线程数 / 平均延时&lt;/strong>，降到了&lt;strong>线程数 / 超时&lt;/strong>。由于超时往往是平均延时的3至4倍，A处的最大qps会相应地下降3至4倍，从而产生比B处更激烈的拥塞。如果A还有类似的上游，拥塞会继续传递上去。但这个过程还是可恢复的。B处的流量终究由最前端的流量触发，只要最前端的流量回归正常，B处的流量总会慢慢降下来直到能正常回复大多数请求，从而让A恢复正常。&lt;/p>
@@ -1544,16 +1544,16 @@ Read &lt;a href="https://thrift.apache.org/docs/install/debian">Official wiki&lt
 &lt;ol>
 &lt;li>评估server的最大并发，设置合理的max_concurrency值。这个默认是不设的，也就是不限制。无论程序是同步还是异步，用户都可以通过 &lt;strong>最大qps * 非拥塞时的延时&lt;/strong>（秒）来评估最大并发，原理见&lt;a href="https://en.wikipedia.org/wiki/Little%27s_law">little&amp;rsquo;s law&lt;/a>，这两个量都可以在brpc中的内置服务中看到。max_concurrency与最大并发相等或大一些就行了。&lt;/li>
 &lt;li>注意考察重试发生时的行为，特别是在定制RetryPolicy时。如果你只是用默认的brpc重试，一般是安全的。但用户程序也常会自己做重试，比如通过一个Channel访问失败后，去访问另外一个Channel，这种情况下要想清楚重试发生时最差情况下请求量会放大几倍，服务是否可承受。&lt;/li>
-&lt;/ol></description></item><item><title>Docs: Debug server issues</title><link>https://brpc.incubator.apache.org/docs/server/debug-server-issues/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/debug-server-issues/</guid><description>
+&lt;/ol></description></item><item><title>Docs: Debug server issues</title><link>https://brpc.apache.org/docs/server/debug-server-issues/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/debug-server-issues/</guid><description>
 &lt;h1 id="1-check-the-number-of-worker-threads">1. Check the number of worker threads&lt;/h1>
 &lt;p>Check &lt;strong>/vars/bthread_worker_count&lt;/strong> and &lt;strong>/vars/bthread_worker_usage&lt;/strong>, which is the number of worker threads in total and being used, respectively.&lt;/p>
 &lt;blockquote>
 &lt;p>The number of usage and count being close means that worker threads are not enough.&lt;/p>
 &lt;/blockquote>
 &lt;p>For example, there are 24 worker threads in the following figure, among which 23.93 worker threads are being used, indicating all the worker threads are full of jobs and not enough.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/full_worker_usage.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/full_worker_usage.png" alt="img">&lt;/p>
 &lt;p>There are 2.36 worker threads being used in the following figure. Apparently the worker threads are enough.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/normal_worker_usage.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/normal_worker_usage.png" alt="img">&lt;/p>
 &lt;p>These two figures can be seen directly by putting /vars/bthread_worker_count;bthread_worker_usage?expand after service url, just like &lt;a href="http://brpc.baidu.com:8765/vars/bthread_worker_count;bthread_worker_usage?expand">this&lt;/a>.&lt;/p>
 &lt;h1 id="2-check-cpu-usage">2. Check CPU usage&lt;/h1>
 &lt;p>Check /vars/system_core_&lt;strong>count&lt;/strong> and /vars/process_cpu_&lt;strong>usage&lt;/strong>, which is the number of cpu core available and being used, respectively.&lt;/p>
@@ -1561,9 +1561,9 @@ Read &lt;a href="https://thrift.apache.org/docs/install/debian">Official wiki&lt
 &lt;p>The number of usage and count being close means that cpus are enough.&lt;/p>
 &lt;/blockquote>
 &lt;p>In the following figure the number of cores is 24, while the number of cores being used is 20.9, which means CPU is bottleneck.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/high_cpu_usage.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/high_cpu_usage.png" alt="img">&lt;/p>
 &lt;p>The number of cores being used in the figure below is 2.06, then CPU is sufficient.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/normal_cpu_usage.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/normal_cpu_usage.png" alt="img">&lt;/p>
 &lt;h1 id="3-locate-problems">3. Locate problems&lt;/h1>
 &lt;p>The number of process_cpu_usage being close to bthread_worker_usage means it is a cpu-bound program and worker threads are doing calculations in most of the time.&lt;/p>
 &lt;p>The number of process_cpu_usage being much less than bthread_worker_usage means it is an io-bound program and worker threads are blocking in most of the time.&lt;/p>
@@ -1572,7 +1572,7 @@ Read &lt;a href="https://thrift.apache.org/docs/install/debian">Official wiki&lt
 &lt;p>The possible reason may be the poor performance of single server or uneven distribution to upstreams.&lt;/p>
 &lt;h3 id="exclude-the-suspect-of-uneven-distribution-to-upstreams">exclude the suspect of uneven distribution to upstreams&lt;/h3>
 &lt;p>Enter qps at [vars]((&lt;a href="http://brpc.baidu.com:8765/vars">http://brpc.baidu.com:8765/vars&lt;/a>) page of different services to check whether qps is as expected, just like this:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_creation_qps.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/bthread_creation_qps.png" alt="img">&lt;/p>
 &lt;p>Or directly visit using curl in command line, like this:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ curl brpc.baidu.com:8765/vars/*qps*
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bthread_creation_qps : &lt;span style="color:#0000cf;font-weight:bold">95&lt;/span>
@@ -1590,26 +1590,26 @@ Read &lt;a href="https://thrift.apache.org/docs/install/debian">Official wiki&lt
 &lt;p>If blocking is inevitable, please consider asynchronous method.&lt;/p>
 &lt;h3 id="exclude-the-suspect-of-working-threads-are-not-enough">exclude the suspect of working threads are not enough&lt;/h3>
 &lt;p>If working threads are not enough, you can try to dynamically adjust the number of threads. Switch to the /flags page and click the (R) in the right of bthread_concurrency:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_concurrency_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/bthread_concurrency_1.png" alt="img">&lt;/p>
 &lt;p>Just enter the new thread number and confirm:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_concurrency_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/bthread_concurrency_2.png" alt="img">&lt;/p>
 &lt;p>Back to the /flags page, you can see that bthread_concurrency has become the new value.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_concurrency_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/bthread_concurrency_3.png" alt="img">&lt;/p>
 &lt;p>However, adjusting the number of threads may not be useful. If the worker threads are largely blocked by visiting downstreams, it is useless to adjust the thread number since the real bottleneck is in the back-end and adjusting the thread number to a larger value just make the blocking time of each thread become longer.&lt;/p>
 &lt;p>For example, in our example, the worker threads are still full of work after the thread number is resized.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/full_worker_usage_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/full_worker_usage_2.png" alt="img">&lt;/p>
 &lt;h3 id="exclude-the-suspect-of-lock">exclude the suspect of lock&lt;/h3>
 &lt;p>If the program is blocked by some lock, it can also present features of io-bound. First use &lt;a href="../../builtin-services/contention_profiler">contention profiler&lt;/a> to check the contention status of locks.&lt;/p>
 &lt;h3 id="use-rpcz">use rpcz&lt;/h3>
 &lt;p>rpcz can help you see all the recent requests and the time(us) spent in each phase while processing them.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz.png" alt="img">&lt;/p>
 &lt;p>Click on a span link to see when the RPC started, the spent time in each phase and when it ended.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz_2.png" alt="img">&lt;/p>
 &lt;p>This is a typical example that server is blocked severely. It takes 20ms from receiving the request to starting running, indicating that the server does not have enough worker threads to get the job done in time.&lt;/p>
 &lt;p>For now the information of this span is less, we can add some in the program. You can use TRACEPRINTF print logs to rpcz. Printed content is embedded in the time stream of rpcz.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/trace_printf.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/trace_printf.png" alt="img">&lt;/p>
 &lt;p>After Re-running, you can check the span and it really contains the content we added by TRACEPRINTF.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz_3.png" alt="img">&lt;/p>
 &lt;p>Before running to the first TRACEPRINTF, the user callback has already run for 2051ms(suppose it meets our expectation), followed by foobar() that took 8036ms, which is expected to return very fast. The range has been further reduced.&lt;/p>
 &lt;p>Repeat this process until you find the function that caused the problem.&lt;/p>
 &lt;h2 id="use-bvar">Use bvar&lt;/h2>
@@ -1632,13 +1632,13 @@ Read &lt;a href="https://thrift.apache.org/docs/install/debian">Official wiki&lt
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">...&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After rerunning the program, enter foobar in the search box of vars. The result is shown as below:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/foobar_bvar.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/foobar_bvar.png" alt="img">&lt;/p>
 &lt;p>Click on a bvar and you can see a dynamic figure. For example, after clicking on cdf:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/foobar_latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/foobar_latency_cdf.png" alt="img">&lt;/p>
 &lt;p>Depending on the distribution of delays, you can infer the overall behavior of this function, how it behaves for most requests and how it behaves for long tails.&lt;/p>
 &lt;p>You can continue this process in the subroutine, add more bvar, compare the different distributions, and finally locate the source.&lt;/p>
 &lt;h3 id="use-brpc-client-only">Use brpc client only&lt;/h3>
-&lt;p>You have to open the dummy server to provide built-in services, see &lt;a href="../../client/dummy-server/">here&lt;/a>.&lt;/p></description></item><item><title>Docs: Auto ConcurrencyLimiter</title><link>https://brpc.incubator.apache.org/docs/server/auto-concurrencylimiter/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/auto-concurrencylimiter/</guid><description>
+&lt;p>You have to open the dummy server to provide built-in services, see &lt;a href="../../client/dummy-server/">here&lt;/a>.&lt;/p></description></item><item><title>Docs: Auto ConcurrencyLimiter</title><link>https://brpc.apache.org/docs/server/auto-concurrencylimiter/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/auto-concurrencylimiter/</guid><description>
 &lt;h1 id="自适应限流">自适应限流&lt;/h1>
 &lt;p>服务的处理能力是有客观上限的。当请求速度超过服务的处理速度时，服务就会过载。&lt;/p>
 &lt;p>如果服务持续过载，会导致越来越多的请求积压，最终所有的请求都必须等待较长时间才能被处理，从而使整个服务处于瘫痪状态。&lt;/p>
@@ -1741,8 +1741,8 @@ max_qps = current_qps * ema_alpha / 10 + (1 - ema_alpha / 10) * max_qps
 &lt;li>gradient算法中的max_concurrency / latency从概念上和qps有关联（根据little&amp;rsquo;s law)，但可能严重脱节。比如在重测
 min_latency前，若所有latency都小于min_latency，那么max_concurrency会不断下降甚至到0；但按照本算法，max_qps和min_latency仍然是稳定的，它们计算出的max_concurrency也不会剧烈变动。究其本质，gradient算法在迭代max_concurrency时，latency并不能代表实际并发为max_concurrency时的延时，两者是脱节的，所以max_concurrency / latency的实际物理含义不明，与qps可能差异甚大，最后导致了很大的偏差。&lt;/li>
 &lt;li>gradient算法的queue_size推荐为sqrt(max_concurrency)，这是不合理的。netflix对queue_size的理解大概是代表各种不可控环节的缓存，比如socket里的，和max_concurrency存在一定的正向关系情有可原。但在我们的理解中，这部分queue_size作用微乎其微，没有或用常量即可。我们关注的queue_size是给concurrency上升留出的探索空间: max_concurrency的更新是有延迟的，在并发从低到高的增长过程中，queue_size的作用就是在max_concurrency更新前不限制qps上升。而当concurrency高时，服务可能已经过载了，queue_size就应该小一点，防止进一步恶化延时。这里的queue_size和并发是反向关系。&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Media Server</title><link>https://brpc.incubator.apache.org/docs/server/media-server/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/media-server/</guid><description>
-&lt;p>See &lt;a href="https://github.com/brpc/media-server">media-server&lt;/a>.&lt;/p></description></item><item><title>Docs: json2pb</title><link>https://brpc.incubator.apache.org/docs/server/json2pb/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/server/json2pb/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Media Server</title><link>https://brpc.apache.org/docs/server/media-server/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/media-server/</guid><description>
+&lt;p>See &lt;a href="https://github.com/brpc/media-server">media-server&lt;/a>.&lt;/p></description></item><item><title>Docs: json2pb</title><link>https://brpc.apache.org/docs/server/json2pb/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/server/json2pb/</guid><description>
 &lt;p>brpc支持json和protobuf间的&lt;strong>双向&lt;/strong>转化，实现于&lt;a href="https://github.com/brpc/brpc/tree/master/src/json2pb/">json2pb&lt;/a>，json解析使用&lt;a href="https://github.com/miloyip/rapidjson">rapidjson&lt;/a>。此功能对pb2.x和3.x均有效。pb3内置了&lt;a href="https://developers.google.com/protocol-buffers/docs/proto3#json">转换json&lt;/a>的功能。&lt;/p>
 &lt;p>by design, 通过HTTP + json访问protobuf服务是对外服务的常见方式，故转化必须精准，转化规则列举如下。&lt;/p>
 &lt;h2 id="message">message&lt;/h2>

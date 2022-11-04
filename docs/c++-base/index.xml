@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – C++ Base</title><link>https://brpc.incubator.apache.org/docs/c++-base/</link><description>Recent content in C++ Base on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/docs/c++-base/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: IOBuf</title><link>https://brpc.incubator.apache.org/docs/c++-base/iobuf/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/c++-base/iobuf/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – C++ Base</title><link>https://brpc.apache.org/docs/c++-base/</link><description>Recent content in C++ Base on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/docs/c++-base/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: IOBuf</title><link>https://brpc.apache.org/docs/c++-base/iobuf/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/c++-base/iobuf/</guid><description>
 &lt;p>brpc uses &lt;a href="https://github.com/brpc/brpc/blob/master/src/butil/iobuf.h">butil::IOBuf&lt;/a> as data structure for attachment in some protocols and HTTP body. It&amp;rsquo;s a non-contiguous zero-copied buffer, proved in previous projects, and good at performance. The interface of &lt;code>IOBuf&lt;/code> is similar to &lt;code>std::string&lt;/code>, but not the same.&lt;/p>
 &lt;p>If you&amp;rsquo;ve used the &lt;code>BufHandle&lt;/code> in Kylin before, you should notice the convenience of &lt;code>IOBuf&lt;/code>: the former one is badly encapsulated, leaving the internal structure directly in front of users, who must carefully handle the referential countings, very error prone and leading to bugs.&lt;/p>
 &lt;h1 id="what-iobuf-can">What IOBuf can:&lt;/h1>
@@ -75,7 +75,7 @@
 &lt;td>1467171&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>Docs: Streaming Log</title><link>https://brpc.incubator.apache.org/docs/c++-base/streaming-log/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/c++-base/streaming-log/</guid><description>
+&lt;/table></description></item><item><title>Docs: Streaming Log</title><link>https://brpc.apache.org/docs/c++-base/streaming-log/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/c++-base/streaming-log/</guid><description>
 &lt;h1 id="name">Name&lt;/h1>
 &lt;p>streaming_log - Print log to std::ostreams&lt;/p>
 &lt;h1 id="synopsis">SYNOPSIS&lt;/h1>
@@ -277,7 +277,7 @@ TRACE: ... item3
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8f5902;font-style:italic">// restore the old sink.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">logging&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">SetLogSink&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">old_sink&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: FlatMap</title><link>https://brpc.incubator.apache.org/docs/c++-base/flatmap/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/c++-base/flatmap/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: FlatMap</title><link>https://brpc.apache.org/docs/c++-base/flatmap/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/c++-base/flatmap/</guid><description>
 &lt;h1 id="name">NAME&lt;/h1>
 &lt;p>FlatMap - Maybe the fastest hashmap, with tradeoff of space.&lt;/p>
 &lt;h1 id="example">EXAMPLE&lt;/h1>
@@ -402,7 +402,7 @@ TRACE: 12-30 13:19:53: * 0 [test_flat_map.cpp:637] Seeking 10000 from FlatMap/Al
 &lt;li>&lt;a href="http://en.wikipedia.org/wiki/Open_addressing">闭链哈希&lt;/a>(closed hashing or open addressing): 闭链的初衷是减少内存跳转，桶不再是链表入口，而只需要记录一对key/value与一些标记，当桶被占时，按照不同的探查方法直到找到空桶为止。比如线性探查就是查找下一个桶，二次探查是按1,2,4,9&amp;hellip;平方数位移查找。优点是：当表很空时或冲突较少时，查找只需要一次访存，也不需要管理节点内存池。但仅此而已，这个方法带来了更多缺点：桶个数必须大于元素个数，resize后之前的内存全部失效，难以并发. 更关键的是聚集效应：当区域内元素较多时（超过70%，其实不算多），大量元素的实际桶和它们应在的桶有较大位移。这使哈希表的主要操作都要扫过一大片内存才能找到元素，性能不稳定难以预测。闭链哈希表在很多人的印象中“很快”，但在复杂的应用中往往不如开链哈希表，并且可能是数量级的慢。闭链有一些衍生版本试图解决这个问题，比如&lt;a href="http://en.wikipedia.org/wiki/Hopscotch_hashing">Hopscotch hashing&lt;/a>。&lt;/li>
 &lt;li>混合开链和闭链：一般是把桶数组中的一部分拿出来作为容纳冲突元素的空间，典型如&lt;a href="http://en.wikipedia.org/wiki/Coalesced_hashing">Coalesced hashing&lt;/a>，但这种结构没有解决开链的内存跳转问题，结构又比闭链复杂很多，工程效果并不好。&lt;/li>
 &lt;li>多次哈希：一般用多个哈希表代替一个哈希表，当发生冲突时（用另一个哈希值）尝试另一个哈希表。典型如&lt;a href="http://en.wikipedia.org/wiki/Cuckoo_hashing">Cuckoo hashing&lt;/a>，这个结构也没有解决内存跳转。&lt;/li>
-&lt;/ul></description></item><item><title>Docs: bRPC Training Materials</title><link>https://brpc.incubator.apache.org/docs/c++-base/brpc-training-materials/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/c++-base/brpc-training-materials/</guid><description>
+&lt;/ul></description></item><item><title>Docs: bRPC Training Materials</title><link>https://brpc.apache.org/docs/c++-base/brpc-training-materials/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/c++-base/brpc-training-materials/</guid><description>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/brpc_intro.pptx">bRPC外功修炼宝典&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/en/tutorial_on_building_services.pptx">A tutorial on building large-scale services&lt;/a>&lt;/li>

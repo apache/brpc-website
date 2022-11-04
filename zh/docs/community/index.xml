@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 社区</title><link>https://brpc.incubator.apache.org/zh/docs/community/</link><description>Recent content in 社区 on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/zh/docs/community/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 社区</title><link>https://brpc.incubator.apache.org/zh/docs/community/community/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/community/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 社区</title><link>https://brpc.apache.org/zh/docs/community/</link><description>Recent content in 社区 on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/zh/docs/community/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 社区</title><link>https://brpc.apache.org/zh/docs/community/community/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/community/</guid><description>
 &lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more
@@ -40,7 +40,7 @@ limitations under the License.
 &lt;h3 id="源代码">源代码&lt;/h3>
 &lt;p>可以通过github上的&lt;a href="https://github.com/apache/incubator-brpc">源代码库&lt;/a>访问项目源代码。&lt;/p>
 &lt;h3 id="网站源代码">网站源代码&lt;/h3>
-&lt;p>可以通过github上的&lt;a href="https://github.com/apache/incubator-brpc-website">网站源代码库&lt;/a>访问项目网站源代码。&lt;/p></description></item><item><title>Docs: 邮件列表</title><link>https://brpc.incubator.apache.org/zh/docs/community/mailing_list/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/mailing_list/</guid><description>
+&lt;p>可以通过github上的&lt;a href="https://github.com/apache/incubator-brpc-website">网站源代码库&lt;/a>访问项目网站源代码。&lt;/p></description></item><item><title>Docs: 邮件列表</title><link>https://brpc.apache.org/zh/docs/community/mailing_list/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/mailing_list/</guid><description>
 &lt;h3 id="关于邮件列表">关于邮件列表&lt;/h3>
 &lt;p>邮件列表（Mailing List）是我们公开讨论并记录的地方，在使用 bRPC 的过程中，如果您发现任何问题，有新的想法、建议都可以通过 Apache 邮件列表参与到 bRPC 的社区建设中。&lt;/p>
 &lt;p>如果你有一个特定的问题想要问，建议使用 &lt;a href="https://github.com/apache/incubator-brpc/issues/new/choose">GitHub Issue&lt;/a> 报 Bug 或提需求，这是一种更有效率的方式。&lt;/p>
@@ -58,7 +58,7 @@ limitations under the License.
 &lt;h5 id="4-接收欢迎邮件">4. 接收欢迎邮件&lt;/h5>
 &lt;p>完成第三步之后，将会受到一封标题为WELCOME to &lt;a href="mailto:dev@brpc.apache.org">dev@brpc.apache.org&lt;/a> 的欢迎邮件。至此，订阅邮件列表的工作已经完成了，社区的动态都会通过邮件的方式通知您。&lt;/p>
 &lt;h5 id="5-发起邮件讨论可选">5. 发起邮件讨论（可选）&lt;/h5>
-&lt;p>成功订阅邮件列表后，若想发起讨论，直接往 &lt;a href="mailto:dev@brpc.apache.org">dev@brpc.apache.org&lt;/a> 发送邮件即可，所有订阅了邮件列表的人都会收到邮件。&lt;/p></description></item><item><title>Docs: Contribute指南</title><link>https://brpc.incubator.apache.org/zh/docs/community/contributing/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/contributing/</guid><description>
+&lt;p>成功订阅邮件列表后，若想发起讨论，直接往 &lt;a href="mailto:dev@brpc.apache.org">dev@brpc.apache.org&lt;/a> 发送邮件即可，所有订阅了邮件列表的人都会收到邮件。&lt;/p></description></item><item><title>Docs: Contribute指南</title><link>https://brpc.apache.org/zh/docs/community/contributing/</link><pubDate>Tue, 13 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/contributing/</guid><description>
 &lt;p>如果你遇到问题或需要新功能，欢迎&lt;a href="https://github.com/brpc/brpc/issues/new/choose">创建issue&lt;/a>。&lt;/p>
 &lt;p>如果你可以解决某个&lt;a href="https://github.com/brpc/brpc/issues">issue&lt;/a>, 欢迎发送PR。&lt;/p>
 &lt;p>发送PR前请确认：&lt;/p>
@@ -70,7 +70,7 @@ limitations under the License.
 &lt;p>提交PR后请确认：&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests">travis-ci&lt;/a>成功通过。&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Committer指南</title><link>https://brpc.incubator.apache.org/zh/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/committer/</guid><description>
+&lt;/ul></description></item><item><title>Docs: Committer指南</title><link>https://brpc.apache.org/zh/docs/community/committer/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/committer/</guid><description>
 &lt;h1 id="简介">简介&lt;/h1>
 &lt;p>Apache社区的参与者具有以下角色：&lt;strong>贡献者（Contributor）&lt;/strong>、&lt;strong>提交者（Committer）&lt;/strong> 和 &lt;strong>PMC（项目成员委员会）成员&lt;/strong>。&lt;/p>
 &lt;p>当个人贡献被项目接受时，他/她将自动成为贡献者。
@@ -170,7 +170,7 @@ Committer 和 PMC 成员在共识投票后由 PMC 邀请。&lt;/p>
 &lt;li>在private@brpc中和dev中announce new PPMC&lt;/li>
 &lt;li>设定他的权限，通过访问https://whimsy.apache.org/roster/ppmc/brpc&lt;/li>
 &lt;li>帮他订阅private邮件组，参见https://whimsy.apache.org/committers/moderationhelper.cgi&lt;/li>
-&lt;/ol></description></item><item><title>Docs: Release指南</title><link>https://brpc.incubator.apache.org/zh/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/release/</guid><description>
+&lt;/ol></description></item><item><title>Docs: Release指南</title><link>https://brpc.apache.org/zh/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/release/</guid><description>
 &lt;h1 id="brpc-发布apache-release-版本流程step-by-step">brpc 发布apache release 版本流程step by step&lt;/h1>
 &lt;p>概述：分为如下几个步骤&lt;/p>
 &lt;ol>
@@ -565,7 +565,7 @@ Apache brpc (Incubating) community
 &lt;/code>&lt;/pre>&lt;h3 id="发布微信公众号公告">发布微信公众号公告&lt;/h3>
 &lt;p>参考 &lt;a href="https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg">https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg&lt;/a>.&lt;/p>
 &lt;h3 id="更新master分支">更新master分支&lt;/h3>
-&lt;p>发版完成后，将release分支合并到master分支.&lt;/p></description></item><item><title>Docs: 贡献者列表</title><link>https://brpc.incubator.apache.org/zh/docs/community/committers/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/committers/</guid><description>
+&lt;p>发版完成后，将release分支合并到master分支.&lt;/p></description></item><item><title>Docs: 贡献者列表</title><link>https://brpc.apache.org/zh/docs/community/committers/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/committers/</guid><description>
 &lt;h2 id="brrc-贡献者列表">bRRC 贡献者列表&lt;/h2>
 &lt;p>bRPC 的发展离不开其背后很多人的卓越贡献，感谢每一个人的帮助与支持，更希望以后能有更多的人助力 bRPC 的成长。&lt;/p>
 &lt;h3 id="pmc">PMC&lt;/h3>
@@ -719,7 +719,7 @@ Apache brpc (Incubating) community
 &lt;/tr>
 &lt;/table>
 &lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;p>在&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">bRPC贡献者&lt;/a>列表中，记录了所有为bRPC出过贡献的人，感谢的所有&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">贡献者&lt;/a>，一起帮助 bRPC 更好地发展。&lt;/p></description></item><item><title>Docs: 安全</title><link>https://brpc.incubator.apache.org/zh/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/community/security/</guid><description>
+&lt;p>在&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">bRPC贡献者&lt;/a>列表中，记录了所有为bRPC出过贡献的人，感谢的所有&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">贡献者&lt;/a>，一起帮助 bRPC 更好地发展。&lt;/p></description></item><item><title>Docs: 安全</title><link>https://brpc.apache.org/zh/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/security/</guid><description>
 &lt;p>Apache Software Foundation 在消除其软件项目中的安全问题方面采取了严格的立场。Apache bRPC(Incubating) 也十分关注与其特性和功能相关的安全问题。&lt;/p>
 &lt;p>如果您对 bRPC 的安全性感到担忧，或者您发现了漏洞或潜在的威胁，请不要犹豫与 &lt;a href="http://www.apache.org/security/">Apache 安全团队&lt;/a> 联系，发送邮件至 &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>。 在邮件中请指明项目名称为 bRPC，并提供相关问题或潜在威胁的描述。同时推荐重现和复制安全问题的方法。在评估和分析调查结果后，Apache 安全团队和 bRPC 社区将直接与您回复。&lt;/p>
 &lt;p>&lt;strong>请注意&lt;/strong> 在提交安全邮件之前，请勿在公共领域披露安全电子邮件报告的安全问题。&lt;/p></description></item></channel></rss>

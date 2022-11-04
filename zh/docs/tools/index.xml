@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 工具</title><link>https://brpc.incubator.apache.org/zh/docs/tools/</link><description>Recent content in 工具 on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/zh/docs/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: rpc_press</title><link>https://brpc.incubator.apache.org/zh/docs/tools/rpc_press/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/tools/rpc_press/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 工具</title><link>https://brpc.apache.org/zh/docs/tools/</link><description>Recent content in 工具 on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/zh/docs/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: rpc_press</title><link>https://brpc.apache.org/zh/docs/tools/rpc_press/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/tools/rpc_press/</guid><description>
 &lt;p>rpc_press无需写代码就压测各种rpc server，目前支持的协议有：&lt;/p>
 &lt;ul>
 &lt;li>baidu_std&lt;/li>
@@ -55,9 +55,9 @@
 TRACE: 01-30 16:10:04: * 0 src/brpc/server.cpp:733] Server[dummy_servers] is serving on port=8888.
 TRACE: 01-30 16:10:04: * 0 src/brpc/server.cpp:742] Check out http://xxx.com:8888 in your web browser.&amp;lt;/code&amp;gt;
 &lt;/code>&lt;/pre>&lt;p>dummy_server启动时会在终端打印日志，一般按住ctrl点击那个链接可以直接打开对应的内置服务页面，就像这样：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_press_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_press_1.png" alt="img">&lt;/p>
 &lt;p>切换到vars页面，在Search框中输入rpc_press可以看到当前压力的延时分布情况:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_press_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_press_2.png" alt="img">&lt;/p>
 &lt;p>你可以通过-dummy_port参数修改dummy_server的端口，请确保端口可以在浏览器中访问。&lt;/p>
 &lt;p>如果你无法打开浏览器，命令行中也会定期打印信息：&lt;/p>
 &lt;pre tabindex="0">&lt;code>2016/01/30-16:19:01 sent:101 success:101 error:0 total_error:0 total_sent:28379
@@ -84,15 +84,15 @@ max 199 us
 &lt;/code>&lt;/pre>&lt;p>上方的字段含义应该是自解释的，在此略过。下方是延时信息，第一项&amp;quot;avg&amp;quot;是10秒内的平均延时，最后一项&amp;quot;max&amp;quot;是10秒内的最大延时，其余以百分号结尾的则代表延时分位值，即有左侧这么多比例的请求延时小于右侧的延时（单位微秒）。一般性能测试需要关注99%之后的长尾区域。&lt;/p>
 &lt;h1 id="faq">FAQ&lt;/h1>
 &lt;p>&lt;strong>Q: 如果下游是基于j-protobuf框架的服务模块，压力工具该如何配置？&lt;/strong>&lt;/p>
-&lt;p>A：因为协议兼容性问题，启动rpc_press的时候需要带上-baidu_protocol_use_fullname=false&lt;/p></description></item><item><title>Docs: rpc_replay</title><link>https://brpc.incubator.apache.org/zh/docs/tools/rpc_replay/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/tools/rpc_replay/</guid><description>
+&lt;p>A：因为协议兼容性问题，启动rpc_press的时候需要带上-baidu_protocol_use_fullname=false&lt;/p></description></item><item><title>Docs: rpc_replay</title><link>https://brpc.apache.org/zh/docs/tools/rpc_replay/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/tools/rpc_replay/</guid><description>
 &lt;p>r31658后，brpc能随机地把一部分请求写入一些文件中，并通过rpc_replay工具回放。目前支持的协议有：baidu_std, hulu_pbrpc, sofa_pbrpc。&lt;/p>
 &lt;h1 id="获取工具">获取工具&lt;/h1>
 &lt;p>先按照&lt;a href="../../getting_started/">Getting Started&lt;/a>编译好brpc，再去tools/rpc_replay编译。&lt;/p>
 &lt;p>在CentOS 6.3上如果出现找不到libssl.so.4的错误，可执行&lt;code>ln -s /usr/lib64/libssl.so.6 libssl.so.4临时解决&lt;/code>&lt;/p>
 &lt;h1 id="采样">采样&lt;/h1>
 &lt;p>brpc通过如下flags打开和控制如何保存请求，包含(R)后缀的flag都可以动态设置。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_replay_1.png" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_replay_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_replay_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_replay_2.png" alt="img">&lt;/p>
 &lt;p>参数说明：&lt;/p>
 &lt;ul>
 &lt;li>-rpc_dump是主开关，关闭时其他以rpc_dump开头的flag都无效。当打开-rpc_dump后，brpc会以一定概率采集请求，如果服务的qps很高，brpc会调节采样比例，使得每秒钟采样的请求个数不超过-bvar_collector_expected_per_second对应的值。这个值在目前同样影响rpcz和contention profiler，一般不用改动，以后会对不同的应用独立开来。&lt;/li>
@@ -102,7 +102,7 @@ max 199 us
 &lt;/ul>
 &lt;p>brpc通过一个&lt;a href="https://github.com/brpc/brpc/blob/master/src/bvar/collector.h">bvar::Collector&lt;/a>来汇总来自不同线程的被采样请求，不同线程之间没有竞争，开销很小。&lt;/p>
 &lt;p>写出的内容依次存放在rpc_dump_dir目录下的多个文件内，这个目录默认在./rpc_dump_&lt;app>，其中&lt;app>是程序名。不同程序在同一个目录下同时采样时会写入不同的目录。如果程序启动时rpc_dump_dir已经存在了，目录将被清空。目录中的每个文件以requests.yyyymmdd_hhmmss_uuuuus命名，以保证按时间有序方便查找，比如：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_replay_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_replay_3.png" alt="img">&lt;/p>
 &lt;p>目录下的文件数不超过rpc_dump_max_files，超过后最老的文件被删除从而给新文件腾出位置。&lt;/p>
 &lt;p>文件是二进制格式，格式与baidu_std协议的二进制格式类似，每个请求的binary layout如下：&lt;/p>
 &lt;pre tabindex="0">&lt;code>&amp;#34;PRPC&amp;#34; (4 bytes magic string)
@@ -126,7 +126,7 @@ serialized request (body_size - meta_size bytes, including attachment)
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="回放">回放&lt;/h1>
 &lt;p>brpc在&lt;a href="https://github.com/brpc/brpc/tree/master/tools/rpc_replay/">tools/rpc_replay&lt;/a>提供了默认的回放工具。运行方式如下：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_replay_4.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_replay_4.png" alt="img">&lt;/p>
 &lt;p>主要参数说明：&lt;/p>
 &lt;ul>
 &lt;li>-dir指定了存放采样文件的目录&lt;/li>
@@ -141,7 +141,7 @@ serialized request (body_size - meta_size bytes, including attachment)
 &lt;li>-use_bthread：使用bthread发送，默认是。&lt;/li>
 &lt;/ul>
 &lt;p>rpc_replay会默认启动一个仅监控用的dummy server。打开后可查看回放的状况。其中rpc_replay_error是回放失败的次数。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_replay_5.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_replay_5.png" alt="img">&lt;/p>
 &lt;p>如果你无法打开浏览器，命令行中也会定期打印信息：&lt;/p>
 &lt;pre tabindex="0">&lt;code>2016/01/30-16:19:01 sent:101 success:101 error:0 total_error:0 total_sent:28379
 2016/01/30-16:19:02 sent:101 success:101 error:0 total_error:0 total_sent:28480
@@ -164,7 +164,7 @@ avg 122 us
 99.9% 199 us
 99.99% 199 us
 max 199 us
-&lt;/code>&lt;/pre>&lt;p>上方的字段含义应该是自解释的，在此略过。下方是延时信息，第一项&amp;quot;avg&amp;quot;是10秒内的平均延时，最后一项&amp;quot;max&amp;quot;是10秒内的最大延时，其余以百分号结尾的则代表延时分位值，即有左侧这么多比例的请求延时小于右侧的延时（单位微秒）。性能测试需要关注99%之后的长尾区域。&lt;/p></description></item><item><title>Docs: rpc_view</title><link>https://brpc.incubator.apache.org/zh/docs/tools/rpc_view/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/tools/rpc_view/</guid><description>
+&lt;/code>&lt;/pre>&lt;p>上方的字段含义应该是自解释的，在此略过。下方是延时信息，第一项&amp;quot;avg&amp;quot;是10秒内的平均延时，最后一项&amp;quot;max&amp;quot;是10秒内的最大延时，其余以百分号结尾的则代表延时分位值，即有左侧这么多比例的请求延时小于右侧的延时（单位微秒）。性能测试需要关注99%之后的长尾区域。&lt;/p></description></item><item><title>Docs: rpc_view</title><link>https://brpc.apache.org/zh/docs/tools/rpc_view/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/tools/rpc_view/</guid><description>
 &lt;p>rpc_view可以转发端口被限的server的内置服务。像百度内如果一个服务的端口不在8000-8999，就只能在命令行下使用curl查看它的内置服务，没有历史趋势和动态曲线，也无法点击链接，排查问题不方便。rpc_view是一个特殊的http proxy：把对它的所有访问都转为对目标server的访问。只要把rpc_view的端口能在浏览器中被访问，我们就能通过它看到原本不能直接看到的server了。&lt;/p>
 &lt;h1 id="获取工具">获取工具&lt;/h1>
 &lt;p>先按照&lt;a href="../../getting_started/">Getting Started&lt;/a>编译好brpc，再去tools/rpc_view编译。&lt;/p>
@@ -176,15 +176,15 @@ max 199 us
 TRACE: 02-14 12:12:20: * 0 src/brpc/server.cpp:762] Server[rpc_view_server] is serving on port=8888.
 TRACE: 02-14 12:12:20: * 0 src/brpc/server.cpp:771] Check out http://XXX.com:8888 in web browser.
 &lt;/code>&lt;/pre>&lt;p>打开rpc_view在8888端口提供的页面（在secureCRT中按住ctrl点url）：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_view_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_view_1.png" alt="img">&lt;/p>
 &lt;p>这个页面正是目标server的内置服务，右下角的提示告诉我们这是rpc_view提供的。这个页面和真实的内置服务基本是一样的，你可以做任何操作。&lt;/p>
 &lt;h1 id="更换目标server">更换目标server&lt;/h1>
 &lt;p>你可以随时停掉rpc_view并更换目标server，不过你觉得麻烦的话，也可以在浏览器上操作：给url加上?changetarget=&lt;new-server-address>就行了。&lt;/p>
 &lt;p>假如我们之前停留在原目标server的/connections页面：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_view_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_view_2.png" alt="img">&lt;/p>
 &lt;p>加上?changetarge后就跳到新目标server的/connections页面了。接下来点击其他tab都会显示新目标server的。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpc_view_3.png" alt="img">&lt;/p></description></item><item><title>Docs: benchmark_http</title><link>https://brpc.incubator.apache.org/zh/docs/tools/benchmark_http/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/tools/benchmark_http/</guid><description>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpc_view_3.png" alt="img">&lt;/p></description></item><item><title>Docs: benchmark_http</title><link>https://brpc.apache.org/zh/docs/tools/benchmark_http/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/tools/benchmark_http/</guid><description>
 &lt;p>可代替&lt;a href="https://httpd.apache.org/docs/2.2/programs/ab.html">ab&lt;/a>测试http server极限性能。ab功能较多但年代久远，有时本身可能会成为瓶颈。benchmark_http基本上就是一个brpc http client，性能很高，功能较少，一般压测够用了。&lt;/p>
 &lt;p>使用方法：&lt;/p>
-&lt;p>首先你得&lt;a href="../../getting_started/">下载和编译&lt;/a>了brpc源码，然后去example/http_c++目录编译，成功后应该能看到benchmark_http。&lt;/p></description></item><item><title>Docs: parallel_http</title><link>https://brpc.incubator.apache.org/zh/docs/tools/parallel_http/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/tools/parallel_http/</guid><description>
+&lt;p>首先你得&lt;a href="../../getting_started/">下载和编译&lt;/a>了brpc源码，然后去example/http_c++目录编译，成功后应该能看到benchmark_http。&lt;/p></description></item><item><title>Docs: parallel_http</title><link>https://brpc.apache.org/zh/docs/tools/parallel_http/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/tools/parallel_http/</guid><description>
 &lt;p>parallel_http能同时访问大量的http服务（几万个），适合在命令行中查询线上所有server的内置信息，供其他工具进一步过滤和聚合。curl很难做到这点，即使多个curl以后台的方式运行，并行度一般也只有百左右，访问几万台机器需要等待极长的时间。&lt;/p></description></item></channel></rss>

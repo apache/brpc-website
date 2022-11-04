@@ -1,11 +1,11 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Builtin Services</title><link>https://brpc.incubator.apache.org/docs/builtin-services/</link><description>Recent content in Builtin Services on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/docs/builtin-services/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: builtin services</title><link>https://brpc.incubator.apache.org/docs/builtin-services/buildin_services/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/builtin-services/buildin_services/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Builtin Services</title><link>https://brpc.apache.org/docs/builtin-services/</link><description>Recent content in Builtin Services on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/docs/builtin-services/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: builtin services</title><link>https://brpc.apache.org/docs/builtin-services/buildin_services/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/builtin-services/buildin_services/</guid><description>
 &lt;h1 id="builtin-services">Builtin Services&lt;/h1>
 &lt;p>Builtin services expose internal status of servers in different pespectives, making development and debugging over brpc more efficient. brpc serves builting services via HTTP, which can be easily accessed through curl and web browsers. Servers respond plain text or html according to &lt;code>User-Agent&lt;/code> in the request header, or you may append &lt;code>?console=1&lt;/code> to the uri to force the server to respond in plain text. Check the &lt;a href="http://brpc.baidu.com:8765/">example&lt;/a> running on our dev machine(only accessible from Baidu internal) for more details. If the port is forbidden from where you run curl or web browser (e.g. not all ports are accessible from a web browser inside Baidu), you can use &lt;a href="../../tools/rpc_view/">rpc_view&lt;/a> for proxying.&lt;/p>
 &lt;p>Following 2 screenshots show accesses to builtin services from a web browser and a terminal respectively. Note that the logo is the codename inside Baidu, and being modified to brpc in opensourced version.&lt;/p>
 &lt;p>&lt;strong>From a web browser&lt;/strong>&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/builtin_service_more.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/builtin_service_more.png" alt="img">&lt;/p>
 &lt;p>&lt;strong>From a terminal&lt;/strong>&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/builtin_service_from_console.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/builtin_service_from_console.png" alt="img">&lt;/p>
 &lt;h1 id="security-mode">Security Mode&lt;/h1>
 &lt;p>To avoid potential attacks and information leaks, builtin services &lt;strong>must&lt;/strong> be hidden on servers that may be accessed from public, including the ones proxied by nginx or other http servers. Click &lt;a href="../../server/basics/#security-mode">here&lt;/a> for more details.&lt;/p>
 &lt;h1 id="main-services">Main services:&lt;/h1>
@@ -19,17 +19,17 @@
 &lt;p>&lt;a href="../contention_profiler/">contention profiler&lt;/a>: analyzes lock contentions.&lt;/p>
 &lt;h1 id="other-services">Other services&lt;/h1>
 &lt;p>&lt;a href="http://brpc.baidu.com:8765/version">/version&lt;/a> shows version of the server. Call Server::set_version() to specify version of the server, or brpc would generate a default version like &lt;code>brpc_server_&amp;lt;service-name1&amp;gt;_&amp;lt;service-name2&amp;gt; ...&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/version_service.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/version_service.png" alt="img">&lt;/p>
 &lt;p>&lt;a href="http://brpc.baidu.com:8765/health">/health&lt;/a> shows whether this server is alive or not.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/health_service.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/health_service.png" alt="img">&lt;/p>
 &lt;p>&lt;a href="http://brpc.baidu.com:8765/protobufs">/protobufs&lt;/a> shows scheme of all protobuf messages inside the server.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/protobufs_service.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/protobufs_service.png" alt="img">&lt;/p>
 &lt;p>&lt;a href="http://brpc.baidu.com:8765/vlog">/vlog&lt;/a> shows all the &lt;a href="../../c++-base/streaming-log/#vlog">VLOG&lt;/a> that can be enabled(not working with glog).&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/vlog_service.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/vlog_service.png" alt="img">&lt;/p>
 &lt;p>/dir: browses all files on the server, convenient but too dangerous, disabled by default.&lt;/p>
-&lt;p>/threads: displays information of all threads of the process, hurting performance significantly when being turned on, disabled by default.&lt;/p></description></item><item><title>Docs: status</title><link>https://brpc.incubator.apache.org/docs/builtin-services/status/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/builtin-services/status/</guid><description>
+&lt;p>/threads: displays information of all threads of the process, hurting performance significantly when being turned on, disabled by default.&lt;/p></description></item><item><title>Docs: status</title><link>https://brpc.apache.org/docs/builtin-services/status/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/builtin-services/status/</guid><description>
 &lt;p>&lt;a href="http://brpc.baidu.com:8765/status">/status&lt;/a> shows primary statistics of services inside the server. The data sources are same with &lt;a href="../vars/">/vars&lt;/a>, but stats are grouped differently.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/status.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/status.png" alt="img">&lt;/p>
 &lt;p>Meanings of the fields above:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>non_service_error&lt;/strong>: number of errors raised outside processing code of the service. When a valid service is obtained, the subsequent error is regarded as &lt;em>service_error&lt;/em>, otherwise it is regarded as &lt;em>non_service_error&lt;/em> (such as request parsing failed, service name does not exist, request concurrency exceeding limit, etc.). As a contrast, failing to access back-end servers during the processing is an error of the service, not a &lt;em>non_service_error&lt;/em>. Even if the response written out successfully stands for failure, the error is counted into the service rather than &lt;em>non_service_error&lt;/em>.&lt;/li>
@@ -54,7 +54,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For example:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/status_2.png" alt="img">&lt;/p></description></item><item><title>Docs: vars</title><link>https://brpc.incubator.apache.org/docs/builtin-services/vars/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/builtin-services/vars/</guid><description>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/status_2.png" alt="img">&lt;/p></description></item><item><title>Docs: vars</title><link>https://brpc.apache.org/docs/builtin-services/vars/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/builtin-services/vars/</guid><description>
 &lt;p>&lt;a href="https://github.com/brpc/brpc/tree/master/src/bvar/">bvar&lt;/a> is a set of counters to record and view miscellaneous statistics conveniently in multi-threaded applications. The implementation reduces cache bouncing by storing data in thread local storage(TLS), being much faster than UbMonitor(a legacy counting library inside Baidu) and even atomic operations in highly contended scenarios. brpc integrates bvar by default, namely all exposed bvars in a server are accessible through &lt;a href="http://brpc.baidu.com:8765/vars">/vars&lt;/a>, and a single bvar is addressable by &lt;a href="http://brpc.baidu.com:8765/vars/rpc_socket_count">/vars/VARNAME&lt;/a>. Read &lt;a href="../../bvar/bvar/">bvar&lt;/a> to know how to add bvars for your program. brpc extensively use bvar to expose internal status. If you are looking for an utility to collect and display metrics of your application, consider bvar in the first place. bvar definitely can&amp;rsquo;t replace all counters, essentially it moves contentions occurred during write to read: which needs to combine all data written by all threads and becomes much slower than an ordinary read. If read and write on the counter are both frequent or decisions need to be made based on latest values, you should not use bvar.&lt;/p>
 &lt;h2 id="query-methods">Query methods&lt;/h2>
 &lt;p>&lt;a href="http://brpc.baidu.com:8765/vars">/vars&lt;/a> : List all exposed bvars&lt;/p>
@@ -62,9 +62,9 @@
 &lt;p>&lt;a href="http://brpc.baidu.com:8765/vars/pid;process_cpu_usage;rpc_controller_count">/vars/NAME1,NAME2,NAME3&lt;/a>：List bvars whose names are either &lt;code>NAME1&lt;/code>, &lt;code>NAME2&lt;/code> or &lt;code>NAME3&lt;/code>.&lt;/p>
 &lt;p>&lt;a href="http://brpc.baidu.com:8765/vars/rpc_server*_count;iobuf_blo$k_*">/vars/foo*,b$r&lt;/a>: List bvars whose names match given wildcard patterns. Note that &lt;code>$&lt;/code> matches a single character instead of &lt;code>?&lt;/code> which is a reserved character in URL.&lt;/p>
 &lt;p>Following animation shows how to find bvars with wildcard patterns. You can copy and paste the URL to others who will see same bvars that you see. (values may change)&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/vars_1.gif" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/vars_1.gif" alt="img">&lt;/p>
 &lt;p>There&amp;rsquo;s a search box in the upper-left corner on /vars page, in which you can type part of the names to locate bvars. Different patterns are separated by &lt;code>,&lt;/code> &lt;code>:&lt;/code> or space.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/vars_2.gif" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/vars_2.gif" alt="img">&lt;/p>
 &lt;p>/vars is accessible from terminal as well:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ curl brpc.baidu.com:8765/vars/bthread*
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bthread_creation_count : &lt;span style="color:#0000cf;font-weight:bold">125134&lt;/span>
@@ -83,12 +83,12 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bthread_worker_usage : 1.01056
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="view-historical-trends">View historical trends&lt;/h2>
 &lt;p>Clicking on most of the numerical bvars shows historical trends. Each clickable bvar records values in recent &lt;em>60 seconds, 60 minutes, 24 hours and 30 days&lt;/em>, which are &lt;em>174&lt;/em> numbers in total. 1000 clickable bvars take roughly 1M memory.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/vars_3.gif" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/vars_3.gif" alt="img">&lt;/p>
 &lt;h2 id="calculate-and-view-percentiles">Calculate and view percentiles&lt;/h2>
 &lt;p>x-ile (short for x-th percentile) is the value ranked at N * x%-th position amongst a group of ordered values. E.g. If there&amp;rsquo;re 1000 values inside a time window, sort them in ascending order first. The 500-th value(1000 * 50%) in the ordered list is 50-ile(a.k.a median), the 990-th(1000 * 99%) value is 99-ile, the 999-th value is 99.9-ile. Percentiles give more information on how latencies distribute than mean values, and being helpful for analyzing behavior of the system more accurately. Industrial-grade services often require SLA to be not less than 99.97% (the requirement for 2nd-level services inside Baidu, &amp;gt;=99.99% for 1st-level services), even if a system has good average latencies, a bad long-tail area may still break SLA. Percentiles do help analyzing the long-tail area.&lt;/p>
 &lt;p>Percentiles can be plotted as a CDF or percentiles-over-time curve.&lt;/p>
 &lt;p>&lt;strong>Following diagram plots percentiles as CDF&lt;/strong>, where the X-axis is the ratio(ranked-position/total-number) and the Y-axis is the corresponding percentile. E.g. The Y value corresponding to X=50% is 50-ile. If a system requires that &amp;ldquo;99.9% requests need to be processed within Y milliseconds&amp;rdquo;, you should check the Y at 99.9%.&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/vars_4.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/vars_4.png" alt="img">&lt;/p>
 &lt;p>Why do we call it &lt;a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">CDF&lt;/a> ? When a Y=y is chosen, the corresponding X means &amp;ldquo;percentage of values &amp;lt;= y&amp;rdquo;. Since values are sampled randomly (and uniformly), the X can be viewed as &amp;ldquo;probability of values &amp;lt;= y&amp;rdquo;, or P(values &amp;lt;= y), which is just the definition of CDF.&lt;/p>
 &lt;p>Derivative of the CDF is &lt;a href="https://en.wikipedia.org/wiki/Probability_density_function">PDF&lt;/a>. If we divide the Y-axis of the CDF into many small-range segments, calculate the difference between X values of both ends of each segment, and use the difference as new value for X-axis, a PDF curve would be plotted, just like a normal distribution rotated 90 degrees clockwise. However density of the median is often much higher than others in a PDF and probably make long-tail area very flat and hard to read. As a result, systems prefer showing distributions in CDF rather than PDF.&lt;/p>
 &lt;p>Here&amp;rsquo;re 2 simple rules to check if a CDF curve is good or not:&lt;/p>
@@ -98,10 +98,10 @@
 &lt;/ul>
 &lt;p>A CDF with slowly ascending curve and small long-tail area is great in practice.&lt;/p>
 &lt;p>&lt;strong>Following diagram plots percentiles over time&lt;/strong> and has four curves. The X-axis is time and Y-axis from top to bottom are 99.9% 99% 90% 50% percentiles respectively, plotted in lighter and lighter colors (from orange to yellow).&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/vars_5.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/vars_5.png" alt="img">&lt;/p>
 &lt;p>Hovering mouse over the curves shows corresponding values at the time. The tooltip in above diagram means &amp;ldquo;The 99% percentile of latency before 39 seconds is 330 &lt;strong>microseconds&lt;/strong>&amp;rdquo;. The diagram does not include the 99.99-ile curve which is usually significantly higher than others, making others hard to read. You may click bvars ended with &amp;ldquo;_latency_9999&amp;rdquo; to read the 99.99-ile curve separately. This diagram shows how percentiles change over time, which is helpful to analyze performance regressions of systems.&lt;/p>
 &lt;p>brpc calculates latency distributions of services automatically, which do not need users to add manually. The metrics are as follows:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/vars_6.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/vars_6.png" alt="img">&lt;/p>
 &lt;p>&lt;code>bvar::LatencyRecorder&lt;/code> is able to calculate latency distributions of any code, as depicted below. (checkout &lt;a href="../../bvar/bvar-c++/">bvar-c++&lt;/a> for details):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">#include&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;lt;bvar/bvar.h&amp;gt;&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>
@@ -114,9 +114,9 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">...&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If the application already starts a brpc server, values like &lt;code>client_latency&lt;/code>, &lt;code>client_latency_cdf&lt;/code> can be viewed from &lt;code>/vars&lt;/code> as follows. Clicking them to see (dynamically-updated) curves:&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/vars_7.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/vars_7.png" alt="img">&lt;/p>
 &lt;h2 id="non-brpc-server">Non brpc server&lt;/h2>
-&lt;p>If your program only uses brpc client or even not use brpc, and you also want to view the curves, check &lt;a href="../../client/dummy-server/">here&lt;/a>.&lt;/p></description></item><item><title>Docs: connections</title><link>https://brpc.incubator.apache.org/docs/builtin-services/connections/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/builtin-services/connections/</guid><description>
+&lt;p>If your program only uses brpc client or even not use brpc, and you also want to view the curves, check &lt;a href="../../client/dummy-server/">here&lt;/a>.&lt;/p></description></item><item><title>Docs: connections</title><link>https://brpc.apache.org/docs/builtin-services/connections/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/builtin-services/connections/</guid><description>
 &lt;p>&lt;a href="http://brpc.baidu.com:8765/connections">connections服务&lt;/a>可以查看所有的连接。一个典型的页面如下：&lt;/p>
 &lt;p>server_socket_count: 5&lt;/p>
 &lt;table>
@@ -284,9 +284,9 @@
 &lt;li>SocketId ：内部id，用于debug，用户不用关心。&lt;/li>
 &lt;/ul>
 &lt;p>典型截图分别如下所示：&lt;/p>
-&lt;p>单连接：&lt;img src="https://brpc.incubator.apache.org/images/docs/single_conn.png" alt="img">&lt;/p>
-&lt;p>连接池：&lt;img src="https://brpc.incubator.apache.org/images/docs/pooled_conn.png" alt="img">&lt;/p>
-&lt;p>短连接：&lt;img src="https://brpc.incubator.apache.org/images/docs/short_conn.png" alt="img">&lt;/p></description></item><item><title>Docs: flags</title><link>https://brpc.incubator.apache.org/docs/builtin-services/flags/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/builtin-services/flags/</guid><description>
+&lt;p>单连接：&lt;img src="https://brpc.apache.org/images/docs/single_conn.png" alt="img">&lt;/p>
+&lt;p>连接池：&lt;img src="https://brpc.apache.org/images/docs/pooled_conn.png" alt="img">&lt;/p>
+&lt;p>短连接：&lt;img src="https://brpc.apache.org/images/docs/short_conn.png" alt="img">&lt;/p></description></item><item><title>Docs: flags</title><link>https://brpc.apache.org/docs/builtin-services/flags/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/builtin-services/flags/</guid><description>
 &lt;p>brpc使用gflags管理配置。如果你的程序也使用gflags，那么你应该已经可以修改和brpc相关的flags，你可以浏览&lt;a href="http://brpc.baidu.com:8765/flags">flags服务&lt;/a>了解每个flag的具体功能。如果你的程序还没有使用gflags，我们建议你使用，原因如下：&lt;/p>
 &lt;ul>
 &lt;li>命令行和文件均可传入，前者方便做测试，后者适合线上运维。放在文件中的gflags可以reload。而configure只支持从文件读取配置。&lt;/li>
@@ -326,21 +326,21 @@ conf/gflags.conf: No such file or directory
 &lt;p>/flags/foo*,b$r：查询名字与某一统配符匹配的gflag，注意用$代替?匹配单个字符，因为?在url中有特殊含义。&lt;/p>
 &lt;p>访问/flags/NAME?setvalue=VALUE即可动态修改一个gflag的值，validator会被调用。&lt;/p>
 &lt;p>为了防止误修改，需要动态修改的gflag必须有validator，显示此类gflag名字时有(R)后缀。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/reloadable_flags.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/reloadable_flags.png" alt="img">&lt;/p>
 &lt;p>&lt;em>修改成功后会显示如下信息&lt;/em>：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/flag_setvalue.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/flag_setvalue.png" alt="img">&lt;/p>
 &lt;p>&lt;em>尝试修改不允许修改的gflag会显示如下错误信息&lt;/em>：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/set_flag_reject.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/set_flag_reject.png" alt="img">&lt;/p>
 &lt;p>&lt;em>设置一个不允许的值会显示如下错误（flag值不会变化）&lt;/em>：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/set_flag_invalid_value.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/set_flag_invalid_value.png" alt="img">&lt;/p>
 &lt;p>r31658之后支持可视化地修改，在浏览器上访问时将看到(R)下多了下划线：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/the_r_after_flag.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/the_r_after_flag.png" alt="img">&lt;/p>
 &lt;p>点击后在一个独立页面可视化地修改对应的flag：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/set_flag_with_form.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/set_flag_with_form.png" alt="img">&lt;/p>
 &lt;p>填入true后确定：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/set_flag_with_form_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/set_flag_with_form_2.png" alt="img">&lt;/p>
 &lt;p>返回/flags可以看到对应的flag已经被修改了：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/set_flag_with_form_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/set_flag_with_form_3.png" alt="img">&lt;/p>
 &lt;p>关于重载gflags，重点关注：&lt;/p>
 &lt;ul>
 &lt;li>避免在一段代码中多次调用同一个gflag，应把该gflag的值保存下来并调用该值。因为gflag的值随时可能变化，而产生意想不到的结果。&lt;/li>
@@ -359,7 +359,7 @@ conf/gflags.conf: No such file or directory
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Name &lt;span style="color:#000;font-weight:bold">|&lt;/span> Value &lt;span style="color:#000;font-weight:bold">|&lt;/span> Description &lt;span style="color:#000;font-weight:bold">|&lt;/span> Defined At
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>---------------------------------------
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>health_check_interval &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>R&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> seconds between consecutive health-checkings &lt;span style="color:#000;font-weight:bold">|&lt;/span> src/brpc/socket_map.cpp
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>1.0.251.32399后增加了-immutable_flags，打开后所有的gflags将不能被动态修改。当一个服务对某个gflag值比较敏感且不希望在线上被误改，可打开这个开关。打开这个开关的同时也意味着你无法动态修改线上的配置，每次修改都要重启程序，对于还在调试阶段或待收敛阶段的程序不建议打开。&lt;/p></description></item><item><title>Docs: rpcz</title><link>https://brpc.incubator.apache.org/docs/builtin-services/rpcz/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/builtin-services/rpcz/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>1.0.251.32399后增加了-immutable_flags，打开后所有的gflags将不能被动态修改。当一个服务对某个gflag值比较敏感且不希望在线上被误改，可打开这个开关。打开这个开关的同时也意味着你无法动态修改线上的配置，每次修改都要重启程序，对于还在调试阶段或待收敛阶段的程序不建议打开。&lt;/p></description></item><item><title>Docs: rpcz</title><link>https://brpc.apache.org/docs/builtin-services/rpcz/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/builtin-services/rpcz/</guid><description>
 &lt;p>用户能通过/rpcz看到最近请求的详细信息，并可以插入注释（annotation），不同于tracing system（如&lt;a href="http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/36356.pdf">dapper&lt;/a>）以全局视角看到整体系统的延时分布，rpcz更多是一个调试工具，虽然角色有所不同，但在brpc中rpcz和tracing的数据来源是一样的。当每秒请求数小于1万时，rpcz会记录所有的请求，超过1万时，rpcz会随机忽略一些请求把采样数控制在1万左右。rpcz可以淘汰时间窗口之前的数据，通过-span_keeping_seconds选项设置，默认1小时。&lt;a href="http://brpc.baidu.com:8765/rpcz">一个长期运行的例子&lt;/a>。&lt;/p>
 &lt;p>关于开销：我们的实现完全规避了线程竞争，开销极小，在qps 30万的测试场景中，观察不到明显的性能变化，对大部分应用而言应该是“free”的。即使采集了几千万条请求，rpcz也不会增加很多内存，一般在50兆以内。rpcz会占用一些磁盘空间（就像日志一样），如果设定为存一个小时的数据，一般在几百兆左右。&lt;/p>
 &lt;h2 id="开关方法">开关方法&lt;/h2>
@@ -407,17 +407,17 @@ conf/gflags.conf: No such file or directory
 &lt;/tbody>
 &lt;/table>
 &lt;p>若启动时未加-enable_rpcz，则可在启动后访问SERVER_URL/rpcz/enable动态开启rpcz，访问SERVER_URL/rpcz/disable则关闭，这两个链接等价于访问SERVER_URL/flags/enable_rpcz?setvalue=true和SERVER_URL/flags/enable_rpcz?setvalue=false。在r31010之后，rpc在html版本中增加了一个按钮可视化地开启和关闭。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz_4.png" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz_5.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz_4.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz_5.png" alt="img">&lt;/p>
 &lt;p>如果只是brpc client或没有使用brpc，看&lt;a href="../../client/dummy-server/">这里&lt;/a>。&lt;/p>
 &lt;h2 id="数据展现">数据展现&lt;/h2>
 &lt;p>/rpcz展现的数据分为两层。&lt;/p>
 &lt;h3 id="第一层">第一层&lt;/h3>
 &lt;p>看到最新请求的概况，点击链接进入第二层。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz_6.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz_6.png" alt="img">&lt;/p>
 &lt;h3 id="第二层">第二层&lt;/h3>
 &lt;p>看到某系列(trace)或某个请求(span)的详细信息。一般通过点击链接进入，也可以把trace=和span=作为query-string拼出链接&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz_7.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz_7.png" alt="img">&lt;/p>
 &lt;p>内容说明：&lt;/p>
 &lt;ul>
 &lt;li>时间分为了绝对时间（如2015/01/21-20:20:30.817392，小数点后精确到微秒）和前一个时间的差值（如. 19，代表19微秒)。&lt;/li>
@@ -429,7 +429,7 @@ conf/gflags.conf: No such file or directory
 &lt;h2 id="annotation">Annotation&lt;/h2>
 &lt;p>只要你使用了brpc，就可以使用&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/traceprintf.h">TRACEPRINTF&lt;/a>打印内容到事件流中，比如：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">TRACEPRINTF&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Hello rpcz %d&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">123&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这条annotation会按其发生时间插入到对应请求的rpcz中。从这个角度看，rpcz是请求级的日志。如果你用TRACEPRINTF打印了沿路的上下文，便可看到请求在每个阶段停留的时间，牵涉到的数据集和参数。这是个很有用的功能。&lt;/p></description></item><item><title>Docs: cpu profiler</title><link>https://brpc.incubator.apache.org/docs/builtin-services/cpu_profiler/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/builtin-services/cpu_profiler/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这条annotation会按其发生时间插入到对应请求的rpcz中。从这个角度看，rpcz是请求级的日志。如果你用TRACEPRINTF打印了沿路的上下文，便可看到请求在每个阶段停留的时间，牵涉到的数据集和参数。这是个很有用的功能。&lt;/p></description></item><item><title>Docs: cpu profiler</title><link>https://brpc.apache.org/docs/builtin-services/cpu_profiler/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/builtin-services/cpu_profiler/</guid><description>
 &lt;p>brpc可以分析程序中的热点函数。&lt;/p>
 &lt;h1 id="开启方法">开启方法&lt;/h1>
 &lt;ol>
@@ -469,7 +469,7 @@ WARNING: 12-26 10:01:25: * 0 [src/brpc/input_messenger.cpp:132][4294969345] Auth
 &lt;/ul>
 &lt;p>热点分析一般开始于找到最大的框最粗的线考察其来源及去向。&lt;/p>
 &lt;p>cpu profiler的原理是在定期被调用的SIGPROF handler中采样所在线程的栈，由于handler（在linux 2.6后）会被随机地摆放于活跃线程的栈上运行，cpu profiler在运行一段时间后能以很大的概率采集到所有活跃线程中的活跃函数，最后根据栈代表的函数调用关系汇总为调用图，并把地址转换成符号，这就是我们看到的结果图了。采集频率由环境变量CPUPROFILE_FREQUENCY控制，默认100，即每秒钟100次或每10ms一次。在实践中cpu profiler对原程序的影响不明显。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/echo_cpu_profiling.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/echo_cpu_profiling.png" alt="img">&lt;/p>
 &lt;p>在Linux下，你也可以使用&lt;a href="https://github.com/brpc/brpc/blob/master/tools/pprof">pprof&lt;/a>或gperftools中的pprof进行profiling。&lt;/p>
 &lt;p>比如&lt;code>pprof --text localhost:9002 --seconds=5&lt;/code>的意思是统计运行在本机9002端口的server的cpu情况，时长5秒。一次运行的例子如下：&lt;/p>
 &lt;pre tabindex="0">&lt;code>$ tools/pprof --text 0.0.0.0:9002 --seconds=5
@@ -522,7 +522,7 @@ Total: 2954 samples
 &lt;li>安装llvm-symbolizer（将函数符号转化为函数名），直接用brew安装即可：&lt;code>brew install llvm&lt;/code>&lt;/li>
 &lt;/ol>
 &lt;h1 id="火焰图">火焰图&lt;/h1>
-&lt;p>若需要结果以火焰图的方式展示，请下载并安装&lt;a href="https://github.com/brendangregg/FlameGraph">FlameGraph&lt;/a>工具，将环境变量FLAMEGRAPH_PL_PATH正确设置到本地的/path/to/flamegraph.pl后启动server即可。&lt;/p></description></item><item><title>Docs: heap profiler</title><link>https://brpc.incubator.apache.org/docs/builtin-services/heap_profiler/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/builtin-services/heap_profiler/</guid><description>
+&lt;p>若需要结果以火焰图的方式展示，请下载并安装&lt;a href="https://github.com/brendangregg/FlameGraph">FlameGraph&lt;/a>工具，将环境变量FLAMEGRAPH_PL_PATH正确设置到本地的/path/to/flamegraph.pl后启动server即可。&lt;/p></description></item><item><title>Docs: heap profiler</title><link>https://brpc.apache.org/docs/builtin-services/heap_profiler/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/builtin-services/heap_profiler/</guid><description>
 &lt;p>brpc可以分析内存是被哪些函数占据的。heap profiler的原理是每分配满一些内存就采样调用处的栈，“一些”由环境变量TCMALLOC_SAMPLE_PARAMETER控制，默认524288，即512K字节。根据栈表现出的函数调用关系汇总为我们看到的结果图。在实践中heap profiler对原程序的影响不明显。&lt;/p>
 &lt;h1 id="开启方法">开启方法&lt;/h1>
 &lt;ol>
@@ -552,17 +552,17 @@ http://localhost:9002/pprof/symbol doesn&amp;#39;t exist
 &lt;pre tabindex="0">&lt;code>FATAL: 12-26 10:01:25: * 0 [src/brpc/policy/giano_authenticator.cpp:65][4294969345] Giano fails to verify credentical, 70003
 WARNING: 12-26 10:01:25: * 0 [src/brpc/input_messenger.cpp:132][4294969345] Authentication failed, remote side(127.0.0.1:22989) of sockfd=5, close it
 &lt;/code>&lt;/pre>&lt;h1 id="图示">图示&lt;/h1>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/heap_profiler_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/heap_profiler_1.png" alt="img">&lt;/p>
 &lt;p>左上角是当前程序通过malloc分配的内存总量，顺着箭头上的数字可以看到内存来自哪些函数。&lt;/p>
 &lt;p>点击左上角的text选择框可以查看文本格式的结果，有时候这种按分配量排序的形式更方便。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/heap_profiler_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/heap_profiler_2.png" alt="img">&lt;/p>
 &lt;p>左上角的两个选择框作用分别是：&lt;/p>
 &lt;ul>
 &lt;li>View：当前正在看的profile。选择&amp;lt;new profile&amp;gt;表示新建一个。新建完毕后，View选择框中会出现新profile，URL也会被修改为对应的地址。这意味着你可以通过粘贴URL分享结果，点击链接的人将看到和你一模一样的结果，而不是重做profiling的结果。你可以在框中选择之前的profile查看。历史profiie保留最近的32个，可通过&lt;a href="http://brpc.baidu.com:8765/flags/max_profiles_kept">&amp;ndash;max_profiles_kept&lt;/a>调整。&lt;/li>
 &lt;li>Diff：和选择的profile做对比。&lt;none>表示什么都不选。如果你选择了之前的某个profile，那么将看到View框中的profile相比Diff框中profile的变化量。&lt;/li>
 &lt;/ul>
 &lt;p>下图演示了勾选Diff和Text的效果。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/heap_profiler_3.gif" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/heap_profiler_3.gif" alt="img">&lt;/p>
 &lt;p>在Linux下，你也可以使用pprof脚本（tools/pprof）在命令行中查看文本格式结果：&lt;/p>
 &lt;pre tabindex="0">&lt;code>$ tools/pprof --text db-rpc-dev00.db01:8765/pprof/heap
 Fetching /pprof/heap profile from http://db-rpc-dev00.db01:8765/pprof/heap to
@@ -607,12 +607,12 @@ Total: 38.9 MB
 0.0 0.0% 100.0% 1.5 3.9% std::basic_string
 0.0 0.0% 100.0% 3.5 9.0% std::string::_Rep::_S_create
 &lt;/code>&lt;/pre>&lt;p>brpc还提供一个类似的growth profiler分析内存的分配去向（不考虑释放）。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/growth_profiler.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/growth_profiler.png" alt="img">&lt;/p>
 &lt;h1 id="macos的额外配置">MacOS的额外配置&lt;/h1>
 &lt;ol>
 &lt;li>安装&lt;a href="https://github.com/google/pprof">standalone pprof&lt;/a>，并把下载的pprof二进制文件路径写入环境变量GOOGLE_PPROF_BINARY_PATH中&lt;/li>
 &lt;li>安装llvm-symbolizer（将函数符号转化为函数名），直接用brew安装即可：&lt;code>brew install llvm&lt;/code>&lt;/li>
-&lt;/ol></description></item><item><title>Docs: contention profiler</title><link>https://brpc.incubator.apache.org/docs/builtin-services/contention_profiler/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/builtin-services/contention_profiler/</guid><description>
+&lt;/ol></description></item><item><title>Docs: contention profiler</title><link>https://brpc.apache.org/docs/builtin-services/contention_profiler/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/builtin-services/contention_profiler/</guid><description>
 &lt;p>brpc可以分析花在等待锁上的时间及发生等待的函数。&lt;/p>
 &lt;h1 id="开启方法">开启方法&lt;/h1>
 &lt;p>按需开启。无需配置，不依赖tcmalloc，不需要链接frame pointer或libunwind。如果只是brpc client或没有使用brpc，看&lt;a href="../../client/dummy-server/">这里&lt;/a>。&lt;/p>
@@ -640,8 +640,8 @@ Total: 38.9 MB
 &lt;/table>
 &lt;p>如果一秒内竞争锁的次数Ｎ超过了1000，那么每把锁会有1000/N的概率被采集。在我们的各类测试场景中（qps在10万-60万不等）没有观察到被采集程序的性能有明显变化。&lt;/p>
 &lt;p>我们通过实际例子来看下如何使用contention profiler，点击“contention”按钮（more左侧）后就会开启默认10秒的分析过程。下图是libraft中的一个示例程序的锁状况，这个程序是3个节点复制组的leader，qps在10-12万左右。左上角的&lt;strong>Total seconds: 2.449&lt;/strong>是采集时间内（10秒）在锁上花费的所有等待时间。注意是“等待”，无竞争的锁不会被采集也不会出现在下图中。顺着箭头往下走能看到每份时间来自哪些函数。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/raft_contention_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/raft_contention_1.png" alt="img">&lt;/p>
 &lt;p>上图有点大，让我们放大一个局部看看。下图红框中的0.768是这个局部中最大的数字，它代表raft::LogManager::get_entry在等待涉及到bvar::detail::UniqueLockBase的函数上共等待了0.768秒（10秒内）。我们如果觉得这个时间不符合预期，就可以去排查代码。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/raft_contention_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/raft_contention_2.png" alt="img">&lt;/p>
 &lt;p>点击上方的count选择框，可以查看锁的竞争次数。选择后左上角变为了&lt;strong>Total samples: 439026&lt;/strong>，代表采集时间内总共的锁竞争次数（估算）。图中箭头上的数字也相应地变为了次数，而不是时间。对比同一份结果的时间和次数，可以更深入地理解竞争状况。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/raft_contention_3.png" alt="img">&lt;/p></description></item></channel></rss>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/raft_contention_3.png" alt="img">&lt;/p></description></item></channel></rss>

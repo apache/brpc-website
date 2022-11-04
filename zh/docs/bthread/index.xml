@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – bthread</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/</link><description>Recent content in bthread on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/zh/docs/bthread/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bthread</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/bthread/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/bthread/bthread/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – bthread</title><link>https://brpc.apache.org/zh/docs/bthread/</link><description>Recent content in bthread on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/zh/docs/bthread/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bthread</title><link>https://brpc.apache.org/zh/docs/bthread/bthread/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/bthread/bthread/</guid><description>
 &lt;p>&lt;a href="https://github.com/brpc/brpc/tree/master/src/bthread">bthread&lt;/a>是brpc使用的M:N线程库，目的是在提高程序的并发度的同时，降低编码难度，并在核数日益增多的CPU上提供更好的scalability和cache locality。”M:N“是指M个bthread会映射至N个pthread，一般M远大于N。由于linux当下的pthread实现(&lt;a href="http://en.wikipedia.org/wiki/Native_POSIX_Thread_Library">NPTL&lt;/a>)是1:1的，M个bthread也相当于映射至N个&lt;a href="http://en.wikipedia.org/wiki/Light-weight_process">LWP&lt;/a>。bthread的前身是Distributed Process(DP)中的fiber，一个N:1的合作式线程库，等价于event-loop库，但写的是同步代码。&lt;/p>
 &lt;h1 id="goals">Goals&lt;/h1>
 &lt;ul>
@@ -48,7 +48,7 @@
 &lt;/ul>
 &lt;h5 id="qbthread会有channelhttpsgobyexamplecomchannels吗">Q：bthread会有&lt;a href="https://gobyexample.com/channels">Channel&lt;/a>吗？&lt;/h5>
 &lt;p>不会。channel代表的是两点间的关系，而很多现实问题是多点的，这个时候使用channel最自然的解决方案就是：有一个角色负责操作某件事情或某个资源，其他线程都通过channel向这个角色发号施令。如果我们在程序中设置N个角色，让它们各司其职，那么程序就能分类有序地运转下去。所以使用channel的潜台词就是把程序划分为不同的角色。channel固然直观，但是有代价：额外的上下文切换。做成任何事情都得等到被调用处被调度，处理，回复，调用处才能继续。这个再怎么优化，再怎么尊重cache locality，也是有明显开销的。另外一个现实是：用channel的代码也不好写。由于业务一致性的限制，一些资源往往被绑定在一起，所以一个角色很可能身兼数职，但它做一件事情时便无法做另一件事情，而事情又有优先级。各种打断、跳出、继续形成的最终代码异常复杂。&lt;/p>
-&lt;p>我们需要的往往是buffered channel，扮演的是队列和有序执行的作用，bthread提供了&lt;a href="../execution-queue">ExecutionQueue&lt;/a>，可以完成这个目的。&lt;/p></description></item><item><title>Docs: bthread or not</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/bthread-or-not/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/bthread/bthread-or-not/</guid><description>
+&lt;p>我们需要的往往是buffered channel，扮演的是队列和有序执行的作用，bthread提供了&lt;a href="../execution-queue">ExecutionQueue&lt;/a>，可以完成这个目的。&lt;/p></description></item><item><title>Docs: bthread or not</title><link>https://brpc.apache.org/zh/docs/bthread/bthread-or-not/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/bthread/bthread-or-not/</guid><description>
 &lt;p>brpc提供了&lt;a href="../../client/basics/#%E5%BC%82%E6%AD%A5%E8%AE%BF%E9%97%AE">异步接口&lt;/a>，所以一个常见的问题是：我应该用异步接口还是bthread？&lt;/p>
 &lt;p>短回答：延时不高时你应该先用简单易懂的同步接口，不行的话用异步接口，只有在需要多核并行计算时才用bthread。&lt;/p>
 &lt;h1 id="同步或异步">同步或异步&lt;/h1>
@@ -98,7 +98,7 @@
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>另外当你有类似线程池的需求时，像执行一类job的线程池时，也可以用bthread代替。如果对job的执行顺序有要求，你可以使用基于bthread的&lt;a href="../execution-queue">ExecutionQueue&lt;/a>。&lt;/p></description></item><item><title>Docs: Execution Queue</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/execution-queue/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/bthread/execution-queue/</guid><description>
+&lt;p>另外当你有类似线程池的需求时，像执行一类job的线程池时，也可以用bthread代替。如果对job的执行顺序有要求，你可以使用基于bthread的&lt;a href="../execution-queue">ExecutionQueue&lt;/a>。&lt;/p></description></item><item><title>Docs: Execution Queue</title><link>https://brpc.apache.org/zh/docs/bthread/execution-queue/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/bthread/execution-queue/</guid><description>
 &lt;h1 id="概述">概述&lt;/h1>
 &lt;p>类似于kylin的ExecMan, &lt;a href="https://github.com/brpc/brpc/blob/master/src/bthread/execution_queue.h">ExecutionQueue&lt;/a>提供了异步串行执行的功能。ExecutionQueue的相关技术最早使用在RPC中实现&lt;a href="../../rpc-in-depth/io#%E5%8F%91%E6%B6%88%E6%81%AF">多线程向同一个fd写数据&lt;/a>. 在r31345之后加入到bthread。 ExecutionQueue 提供了如下基本功能:&lt;/p>
 &lt;ul>
@@ -246,7 +246,7 @@ TaskHandle* handle);
 // 0: Success
 // 1: The task is executing
 int execution_queue_cancel(const TaskHandle&amp;amp; h);
-&lt;/code>&lt;/pre>&lt;p>返回非0仅仅意味着ExecutionQueue已经将对应的task递给过execute, 真实的逻辑中可能将这个task缓存在另外的容器中，所以这并不意味着逻辑上的task已经结束，你需要在自己的业务上保证这一点.&lt;/p></description></item><item><title>Docs: thread-local</title><link>https://brpc.incubator.apache.org/zh/docs/bthread/thread-local/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/bthread/thread-local/</guid><description>
+&lt;/code>&lt;/pre>&lt;p>返回非0仅仅意味着ExecutionQueue已经将对应的task递给过execute, 真实的逻辑中可能将这个task缓存在另外的容器中，所以这并不意味着逻辑上的task已经结束，你需要在自己的业务上保证这一点.&lt;/p></description></item><item><title>Docs: thread-local</title><link>https://brpc.apache.org/zh/docs/bthread/thread-local/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/bthread/thread-local/</guid><description>
 &lt;p>本页说明bthread下使用pthread-local可能会导致的问题。bthread-local的使用方法见&lt;a href="../../server/basics/#bthread-local">这里&lt;/a>。&lt;/p>
 &lt;h1 id="thread-local问题">thread-local问题&lt;/h1>
 &lt;p>调用阻塞的bthread函数后，所在的pthread很可能改变，这使&lt;a href="http://linux.die.net/man/3/pthread_getspecific">pthread_getspecific&lt;/a>，&lt;a href="https://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/Thread_002dLocal.html">gcc __thread&lt;/a>和c++11

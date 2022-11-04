@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 服务端</title><link>https://brpc.incubator.apache.org/zh/docs/server/</link><description>Recent content in 服务端 on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.incubator.apache.org/zh/docs/server/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 基础功能</title><link>https://brpc.incubator.apache.org/zh/docs/server/basics/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/basics/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 服务端</title><link>https://brpc.apache.org/zh/docs/server/</link><description>Recent content in 服务端 on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/zh/docs/server/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 基础功能</title><link>https://brpc.apache.org/zh/docs/server/basics/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/basics/</guid><description>
 &lt;h1 id="示例程序">示例程序&lt;/h1>
 &lt;p>Echo的&lt;a href="https://github.com/brpc/brpc/blob/master/example/echo_c++/server.cpp">server端代码&lt;/a>。&lt;/p>
 &lt;h1 id="填写proto文件">填写proto文件&lt;/h1>
@@ -742,7 +742,7 @@ process_io_write_second
 &lt;/code>&lt;/pre>&lt;h3 id="q-json串123没法直接转为protobuf-message">Q: json串&amp;quot;[1,2,3]&amp;ldquo;没法直接转为protobuf message&lt;/h3>
 &lt;p>这不是标准的json。最外层必须是花括号{}包围的json object。&lt;/p>
 &lt;h1 id="附server端基本流程">附:Server端基本流程&lt;/h1>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/server_side.png" alt="img">&lt;/p></description></item><item><title>Docs: 搭建http:h2服务</title><link>https://brpc.incubator.apache.org/zh/docs/server/serve-httph2/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/serve-httph2/</guid><description>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/server_side.png" alt="img">&lt;/p></description></item><item><title>Docs: 搭建http:h2服务</title><link>https://brpc.apache.org/zh/docs/server/serve-httph2/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/serve-httph2/</guid><description>
 &lt;p>这里指我们通常说的http/h2服务，而不是可通过http/h2访问的pb服务。&lt;/p>
 &lt;p>虽然用不到pb消息，但brpc中的http/h2服务接口也得定义在proto文件中，只是request和response都是空的结构体。这确保了所有的服务声明集中在proto文件中，而不是散列在proto文件、程序、配置等多个地方。&lt;/p>
 &lt;p>#示例
@@ -957,13 +957,13 @@ process_io_write_second
 &lt;li>一个路径中只能出现一个星号。&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>cntl.http_request().unresolved_path()&lt;/code> 对应星号(*)匹配的部分，保证normalized：开头结尾都不包含斜杠(/)，中间斜杠不重复。比如：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/restful_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/restful_1.png" alt="img">&lt;/p>
 &lt;p>或&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/restful_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/restful_2.png" alt="img">&lt;/p>
 &lt;p>unresolved_path都是&lt;code>&amp;quot;foo/bar&amp;quot;&lt;/code>，左右、中间多余的斜杠被移除了。&lt;/p>
 &lt;p>注意：&lt;code>cntl.http_request().uri().path()&lt;/code>不保证normalized，这两个例子中分别为&lt;code>&amp;quot;//v1//queue//stats//foo///bar//////&amp;quot;&lt;/code>和&lt;code>&amp;quot;//vars///foo////bar/////&amp;quot;&lt;/code>&lt;/p>
 &lt;p>/status页面上的方法名后会加上所有相关的URL，形式是：@URL1 @URL2 &amp;hellip;&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/restful_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/restful_3.png" alt="img">&lt;/p>
 &lt;h1 id="http参数">HTTP参数&lt;/h1>
 &lt;h2 id="http-headers">HTTP headers&lt;/h2>
 &lt;p>http header是一系列key/value对，有些由HTTP协议规定有特殊含义，其余则由用户自由设定。&lt;/p>
@@ -1008,7 +1008,7 @@ process_io_write_second
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>比如，以下代码以302错误实现重定向：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">cntl&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span>&lt;span style="color:#000">http_response&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">set_status_code&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">brpc&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">HTTP_STATUS_FOUND&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">cntl&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span>&lt;span style="color:#000">http_response&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">SetHeader&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Location&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;http://bj.bs.bae.baidu.com/family/image001(4979).jpg&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/302.png" alt="img">&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://brpc.apache.org/images/docs/302.png" alt="img">&lt;/p>
 &lt;h2 id="query-string">Query String&lt;/h2>
 &lt;p>如上面的&lt;a href="#http-headers">HTTP headers&lt;/a>中提到的那样，我们按约定成俗的方式来理解query string，即key1=value1&amp;amp;key2=value2&amp;amp;&amp;hellip;。只有key而没有value也是可以的，仍然会被GetQuery查询到，只是值为空字符串，这常被用做bool型的开关。接口定义在&lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/uri.h">uri.h&lt;/a>。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c++" data-lang="c++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">std&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">string&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">time_value&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">cntl&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">-&amp;gt;&lt;/span>&lt;span style="color:#000">http_request&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">uri&lt;/span>&lt;span style="color:#000;font-weight:bold">().&lt;/span>&lt;span style="color:#000">GetQuery&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;time&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
@@ -1109,7 +1109,7 @@ gen-delims = &amp;#34;:&amp;#34; / &amp;#34;/&amp;#34; / &amp;#34;?&amp;#34; / &
 sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;#34; / &amp;#34;&amp;#39;&amp;#34; / &amp;#34;(&amp;#34; / &amp;#34;)&amp;#34;
 / &amp;#34;*&amp;#34; / &amp;#34;+&amp;#34; / &amp;#34;,&amp;#34; / &amp;#34;;&amp;#34; / &amp;#34;=&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>但Base64 编码后的字符串中，会以&amp;rdquo;=&amp;ldquo;或者&amp;rdquo;==&amp;ldquo;作为结尾，比如: ?wi=NDgwMDB8dGVzdA==&amp;amp;anothorkey=anothervalue。这个字段可能会被正确解析，也可能不会，取决于具体实现，原则上不应做任何假设.&lt;/p>
-&lt;p>一个解决方法是删除末尾的&amp;rdquo;=&amp;quot;, 不影响Base64的&lt;a href="http://en.wikipedia.org/wiki/Base64#Padding">正常解码&lt;/a>; 第二个方法是在对这个URI做&lt;a href="https://en.wikipedia.org/wiki/Percent-encoding">percent encoding&lt;/a>，解码时先做percent decoding再用Base64.&lt;/p></description></item><item><title>Docs: 搭建gRPC服务</title><link>https://brpc.incubator.apache.org/zh/docs/server/serve-grpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/serve-grpc/</guid><description>
+&lt;p>一个解决方法是删除末尾的&amp;rdquo;=&amp;quot;, 不影响Base64的&lt;a href="http://en.wikipedia.org/wiki/Base64#Padding">正常解码&lt;/a>; 第二个方法是在对这个URI做&lt;a href="https://en.wikipedia.org/wiki/Percent-encoding">percent encoding&lt;/a>，解码时先做percent decoding再用Base64.&lt;/p></description></item><item><title>Docs: 搭建gRPC服务</title><link>https://brpc.apache.org/zh/docs/server/serve-grpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/serve-grpc/</guid><description>
 &lt;p>http/h2协议的基本用法见&lt;a href="../../client/access-httph2/">http_client&lt;/a>和&lt;a href="../serve-httph2/">http_service&lt;/a>&lt;/p>
 &lt;p>下文中的小节名均为可填入ChannelOptions.protocol中的协议名。冒号后的内容是协议参数，用于动态选择衍生行为，但基本协议仍然是http/1.x或http/2，故这些协议在服务端只会被显示为http或h2/h2c。&lt;/p>
 &lt;h1 id="httpjson-h2json">http:json, h2:json&lt;/h1>
@@ -1127,7 +1127,7 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;p>gRPC默认序列化是pb二进制格式，所以&amp;quot;h2:grpc&amp;quot;和&amp;quot;h2:grpc+proto&amp;quot;等价。&lt;/p>
 &lt;p>TODO: gRPC其他配置&lt;/p>
 &lt;h1 id="h2grpcjson">h2:grpc+json&lt;/h1>
-&lt;p>这个协议相比h2:grpc就是用json序列化结果代替pb序列化结果。gRPC未必直接支持这个格式，如grpc-go用户可参考&lt;a href="https://github.com/johanbrandhorst/grpc-json-example/blob/master/codec/json.go">这里&lt;/a>注册相应的codec后才支持。&lt;/p></description></item><item><title>Docs: 搭建thrift服务</title><link>https://brpc.incubator.apache.org/zh/docs/server/serve-thrift/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/serve-thrift/</guid><description>
+&lt;p>这个协议相比h2:grpc就是用json序列化结果代替pb序列化结果。gRPC未必直接支持这个格式，如grpc-go用户可参考&lt;a href="https://github.com/johanbrandhorst/grpc-json-example/blob/master/codec/json.go">这里&lt;/a>注册相应的codec后才支持。&lt;/p></description></item><item><title>Docs: 搭建thrift服务</title><link>https://brpc.apache.org/zh/docs/server/serve-thrift/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/serve-thrift/</guid><description>
 &lt;p>&lt;a href="https://thrift.apache.org/">thrift&lt;/a>是应用较广的RPC框架，最初由Facebook发布，后交由Apache维护。为了和thrift服务互通，同时解决thrift原生方案在多线程安全、易用性、并发能力等方面的一系列问题，brpc实现并支持thrift在NonBlocking模式下的协议(FramedProtocol), 下文均直接称为thrift协议。&lt;/p>
 &lt;p>示例程序：&lt;a href="https://github.com/brpc/brpc/tree/master/example/thrift_extension_c++/">example/thrift_extension_c++&lt;/a>&lt;/p>
 &lt;p>相比使用原生方案的优势有：&lt;/p>
@@ -1321,7 +1321,7 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;td>93%&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>Docs: 搭建Nshead服务</title><link>https://brpc.incubator.apache.org/zh/docs/server/serve-nshead/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/serve-nshead/</guid><description>
+&lt;/table></description></item><item><title>Docs: 搭建Nshead服务</title><link>https://brpc.apache.org/zh/docs/server/serve-nshead/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/serve-nshead/</guid><description>
 &lt;p>ub是百度内广泛使用的老RPC框架，在迁移ub服务时不可避免地需要&lt;a href="../../client/access-ub/">访问ub-server&lt;/a>或被ub-client访问。ub使用的协议种类很多，但都以nshead作为二进制包的头部，这类服务在brpc中统称为&amp;quot;&lt;strong>nshead service&lt;/strong>&amp;quot;。&lt;/p>
 &lt;p>nshead后大都使用mcpack/compack作为序列化格式，注意这不是“协议”。&amp;ldquo;协议&amp;quot;除了序列化格式，还涉及到各种特殊字段的定义，一种序列化格式可能会衍生出很多协议。ub没有定义标准协议，所以即使都使用mcpack或compack，产品线的通信协议也是五花八门，无法互通。鉴于此，我们提供了一套接口，让用户能够灵活的处理自己产品线的协议，同时享受brpc提供的builtin services等一系列框架福利。&lt;/p>
 &lt;h1 id="使用ubrpc的服务">使用ubrpc的服务&lt;/h1>
@@ -1509,7 +1509,7 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#000">google&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">protobuf&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">Message&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">pb_res&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">NsheadMessage&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">nshead_res&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: 推送</title><link>https://brpc.incubator.apache.org/zh/docs/server/server-push/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/server-push/</guid><description>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: 推送</title><link>https://brpc.apache.org/zh/docs/server/server-push/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/server-push/</guid><description>
 &lt;h1 id="server-push">Server push&lt;/h1>
 &lt;p>server push指的是server端发生某事件后立刻向client端发送消息，而不是像通常的RPC访问中那样被动地回复client。brpc中推荐以如下两种方式实现推送。&lt;/p>
 &lt;h1 id="远程事件">远程事件&lt;/h1>
@@ -1525,16 +1525,16 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;p>client希望在事件发生时调用一个给定的URL，并附上必要的参数。在这个模式中，server在收到client注册请求时可以直接回复，因为事件不由注册用RPC的结束触发。由于回调只是一个URL，可以存放于数据库或经消息队列流转，这个模式灵活性很高，在业务系统中使用广泛。&lt;/p>
 &lt;p>URL和参数中必须有足够的信息使回调知道这次调用对应某次注册，因为client未必一次只关心一个事件，即使一个事件也可能由于网络抖动、机器重启等因素注册多次。如果回调是固定路径，client应在注册请求中置入一个唯一ID，在回调时带回。或者client为每次注册生成唯一路径，自然也可以区分。本质上这两种形式是一样的，只是唯一标志符出现的位置不同。&lt;/p>
 &lt;p>回调应处理&lt;a href="https://en.wikipedia.org/wiki/Idempotence">幂等问题&lt;/a>，server为了确保不漏通知，在网络出现问题时往往会多次重试，如果第一次的通知已经成功了，后续的通知就应该不产生效果。上节“远程事件”模式中的幂等性由RPC代劳，它会确保done只被调用一次。&lt;/p>
-&lt;p>为了避免重要的通知被漏掉，用户往往还需灵活组合RPC和消息队列。RPC的时效性和开销都明显好于消息队列，但由于内存有限，在重试过一些次数后仍然失败的话，server就得把这部分内存空出来去做其他事情了。这时把通知放到消息队列中，利用其持久化能力做较长时间的重试直至成功，辅以回调的幂等性，就能使绝大部分通知既及时又不会被漏掉。&lt;/p></description></item><item><title>Docs: 高效率排查server卡顿</title><link>https://brpc.incubator.apache.org/zh/docs/server/debug-server-issues/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/debug-server-issues/</guid><description>
+&lt;p>为了避免重要的通知被漏掉，用户往往还需灵活组合RPC和消息队列。RPC的时效性和开销都明显好于消息队列，但由于内存有限，在重试过一些次数后仍然失败的话，server就得把这部分内存空出来去做其他事情了。这时把通知放到消息队列中，利用其持久化能力做较长时间的重试直至成功，辅以回调的幂等性，就能使绝大部分通知既及时又不会被漏掉。&lt;/p></description></item><item><title>Docs: 高效率排查server卡顿</title><link>https://brpc.apache.org/zh/docs/server/debug-server-issues/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/debug-server-issues/</guid><description>
 &lt;h1 id="1检查工作线程的数量">1.检查工作线程的数量&lt;/h1>
 &lt;p>查看 &lt;strong>/vars/bthread_worker_count&lt;/strong> 和 &lt;strong>/vars/bthread_worker_usage&lt;/strong>。分别是工作线程的个数，和正在被使用的工作线程个数。&lt;/p>
 &lt;blockquote>
 &lt;p>如果usage和count接近，说明线程不够用了。&lt;/p>
 &lt;/blockquote>
 &lt;p>比如，下图中有24个工作线程，正在使用的是23.93个，说明所有的工作线程都被打满了，不够用了。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/full_worker_usage.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/full_worker_usage.png" alt="img">&lt;/p>
 &lt;p>下图中正在使用的只有2.36个，工作线程明显是足够的。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/normal_worker_usage.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/normal_worker_usage.png" alt="img">&lt;/p>
 &lt;p>把 /vars/bthread_worker_count;bthread_worker_usage?expand 拼在服务url后直接看到这两幅图，就像&lt;a href="http://brpc.baidu.com:8765/vars/bthread_worker_count;bthread_worker_usage?expand">这样&lt;/a>。&lt;/p>
 &lt;h1 id="2检查cpu的使用程度">2.检查CPU的使用程度&lt;/h1>
 &lt;p>查看 /vars/system_core_&lt;strong>count&lt;/strong> 和 /vars/process_cpu_&lt;strong>usage&lt;/strong>。分别是cpu核心的个数，和正在使用的cpu核数。&lt;/p>
@@ -1542,9 +1542,9 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;p>如果usage和count接近，说明CPU不够用了。&lt;/p>
 &lt;/blockquote>
 &lt;p>下图中cpu核数为24，正在使用的核心数是20.9个，CPU是瓶颈了。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/high_cpu_usage.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/high_cpu_usage.png" alt="img">&lt;/p>
 &lt;p>下图中正在使用的核心数是2.06，CPU是够用的。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/normal_cpu_usage.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/normal_cpu_usage.png" alt="img">&lt;/p>
 &lt;h1 id="3定位问题">3.定位问题&lt;/h1>
 &lt;p>如果process_cpu_usage和bthread_worker_usage接近，说明是cpu-bound，工作线程大部分时间在做计算。&lt;/p>
 &lt;p>如果process_cpu_usage明显小于bthread_worker_usage，说明是io-bound，工作线程大部分时间在阻塞。&lt;/p>
@@ -1553,7 +1553,7 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;p>原因可能是单机性能不足，或上游分流不均。&lt;/p>
 &lt;h3 id="排除上游分流不均的嫌疑">排除上游分流不均的嫌疑&lt;/h3>
 &lt;p>在不同服务的&lt;a href="http://brpc.baidu.com:8765/vars">vars界面&lt;/a>输入qps，查看不同的qps是否符合预期，就像这样：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_creation_qps.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/bthread_creation_qps.png" alt="img">&lt;/p>
 &lt;p>或者在命令行中用curl直接访问，像这样：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ curl brpc.baidu.com:8765/vars/*qps*
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bthread_creation_qps : &lt;span style="color:#0000cf;font-weight:bold">95&lt;/span>
@@ -1571,26 +1571,26 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;p>如果阻塞无法避免，考虑用异步。&lt;/p>
 &lt;h3 id="排除工作线程数不够的嫌疑">排除工作线程数不够的嫌疑&lt;/h3>
 &lt;p>如果线程数不够，你可以尝试动态调大工作线程数，切换到/flags页面，点击bthread_concurrency右边的(R):&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_concurrency_1.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/bthread_concurrency_1.png" alt="img">&lt;/p>
 &lt;p>进入后填入新的线程数确认即可：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_concurrency_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/bthread_concurrency_2.png" alt="img">&lt;/p>
 &lt;p>回到/flags界面可以看到bthread_concurrency已变成了新值。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/bthread_concurrency_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/bthread_concurrency_3.png" alt="img">&lt;/p>
 &lt;p>不过，调大线程数未必有用。如果工作线程是由于访问下游而大量阻塞，调大工作线程数是没有用的。因为真正的瓶颈在于后端的，调大线程后只是让每个线程的阻塞时间变得更长。&lt;/p>
 &lt;p>比如在我们这的例子中，调大线程后新增的工作线程仍然被打满了。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/full_worker_usage_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/full_worker_usage_2.png" alt="img">&lt;/p>
 &lt;h3 id="排除锁的嫌疑">排除锁的嫌疑&lt;/h3>
 &lt;p>如果程序被某把锁挡住了，也可能呈现出“io-bound”的特征。先用&lt;a href="../../builtin-services/contention_profiler">contention profiler&lt;/a>排查锁的竞争状况。&lt;/p>
 &lt;h3 id="使用rpcz">使用rpcz&lt;/h3>
 &lt;p>rpcz可以帮助你看到最近的所有请求，和处理它们时在每个阶段花费的时间（单位都是微秒）。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz.png" alt="img">&lt;/p>
 &lt;p>点击一个span链接后看到该次RPC何时开始，每个阶段花费的时间，何时结束。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz_2.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz_2.png" alt="img">&lt;/p>
 &lt;p>这是一个典型的server在严重阻塞的例子。从接收到请求到开始运行花费了20ms，说明server已经没有足够的工作线程来及时完成工作了。&lt;/p>
 &lt;p>现在这个span的信息比较少，我们去程序里加一些。你可以使用TRACEPRINTF向rpcz打印日志。打印内容会嵌入在rpcz的时间流中。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/trace_printf.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/trace_printf.png" alt="img">&lt;/p>
 &lt;p>重新运行后，查看一个span，里面的打印内容果然包含了我们增加的TRACEPRINTF。&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/rpcz_3.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/rpcz_3.png" alt="img">&lt;/p>
 &lt;p>在运行到第一条TRACEPRINTF前，用户回调已运行了2051微秒（假设这符合我们的预期），紧接着foobar()却花费了8036微秒，我们本来以为这个函数会很快返回的。范围进一步缩小了。&lt;/p>
 &lt;p>重复这个过程，直到找到那个造成问题的函数。&lt;/p>
 &lt;h3 id="使用bvar">使用bvar&lt;/h3>
@@ -1613,13 +1613,13 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000;font-weight:bold">...&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重新运行程序后，在vars的搜索框中键入foobar，显示如下：&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/foobar_bvar.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/foobar_bvar.png" alt="img">&lt;/p>
 &lt;p>点击一个bvar可以看到动态图，比如点击cdf后看到&lt;/p>
-&lt;p>&lt;img src="https://brpc.incubator.apache.org/images/docs/foobar_latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/foobar_latency_cdf.png" alt="img">&lt;/p>
 &lt;p>根据延时的分布，你可以推测出这个函数的整体行为，对大多数请求表现如何，对长尾表现如何。&lt;/p>
 &lt;p>你可以在子函数中继续这个过程，增加更多bvar，并比对不同的分布，最后定位来源。&lt;/p>
 &lt;h3 id="只使用了brpc-client">只使用了brpc client&lt;/h3>
-&lt;p>得打开dummy server提供内置服务，方法见&lt;a href="../../client/dummy-server/">这里&lt;/a>。&lt;/p></description></item><item><title>Docs: 雪崩</title><link>https://brpc.incubator.apache.org/zh/docs/server/avalanche/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/avalanche/</guid><description>
+&lt;p>得打开dummy server提供内置服务，方法见&lt;a href="../../client/dummy-server/">这里&lt;/a>。&lt;/p></description></item><item><title>Docs: 雪崩</title><link>https://brpc.apache.org/zh/docs/server/avalanche/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/avalanche/</guid><description>
 &lt;p>“雪崩”指的是访问服务集群时绝大部分请求都超时，且在流量减少时仍无法恢复的现象。下面解释这个现象的来源。&lt;/p>
 &lt;p>当流量超出服务的最大qps时，服务将无法正常服务；当流量恢复正常时（小于服务的处理能力），积压的请求会被处理，虽然其中很大一部分可能会因为处理的不及时而超时，但服务本身一般还是会恢复正常的。这就相当于一个水池有一个入水口和一个出水口，如果入水量大于出水量，水池子终将盛满，多出的水会溢出来。但如果入水量降到出水量之下，一段时间后水池总会排空。雪崩并不是单一服务能产生的。&lt;/p>
 &lt;p>如果一个请求经过两个服务，情况就有所不同了。比如请求访问A服务，A服务又访问了B服务。当B被打满时，A处的client会大量超时，如果A处的client在等待B返回时也阻塞了A的服务线程（常见），且使用了固定个数的线程池（常见），那么A处的最大qps就从&lt;strong>线程数 / 平均延时&lt;/strong>，降到了&lt;strong>线程数 / 超时&lt;/strong>。由于超时往往是平均延时的3至4倍，A处的最大qps会相应地下降3至4倍，从而产生比B处更激烈的拥塞。如果A还有类似的上游，拥塞会继续传递上去。但这个过程还是可恢复的。B处的流量终究由最前端的流量触发，只要最前端的流量回归正常，B处的流量总会慢慢降下来直到能正常回复大多数请求，从而让A恢复正常。&lt;/p>
@@ -1638,7 +1638,7 @@ sub-delims = &amp;#34;!&amp;#34; / &amp;#34;$&amp;#34; / &amp;#34;&amp;amp;&amp;
 &lt;ol>
 &lt;li>评估server的最大并发，设置合理的max_concurrency值。这个默认是不设的，也就是不限制。无论程序是同步还是异步，用户都可以通过 &lt;strong>最大qps * 非拥塞时的延时&lt;/strong>（秒）来评估最大并发，原理见&lt;a href="https://en.wikipedia.org/wiki/Little%27s_law">little&amp;rsquo;s law&lt;/a>，这两个量都可以在brpc中的内置服务中看到。max_concurrency与最大并发相等或大一些就行了。&lt;/li>
 &lt;li>注意考察重试发生时的行为，特别是在定制RetryPolicy时。如果你只是用默认的brpc重试，一般是安全的。但用户程序也常会自己做重试，比如通过一个Channel访问失败后，去访问另外一个Channel，这种情况下要想清楚重试发生时最差情况下请求量会放大几倍，服务是否可承受。&lt;/li>
-&lt;/ol></description></item><item><title>Docs: 自适应限流</title><link>https://brpc.incubator.apache.org/zh/docs/server/auto-concurrencylimiter/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/auto-concurrencylimiter/</guid><description>
+&lt;/ol></description></item><item><title>Docs: 自适应限流</title><link>https://brpc.apache.org/zh/docs/server/auto-concurrencylimiter/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/auto-concurrencylimiter/</guid><description>
 &lt;h1 id="自适应限流">自适应限流&lt;/h1>
 &lt;p>服务的处理能力是有客观上限的。当请求速度超过服务的处理速度时，服务就会过载。&lt;/p>
 &lt;p>如果服务持续过载，会导致越来越多的请求积压，最终所有的请求都必须等待较长时间才能被处理，从而使整个服务处于瘫痪状态。&lt;/p>
@@ -1741,8 +1741,8 @@ max_qps = current_qps * ema_alpha / 10 + (1 - ema_alpha / 10) * max_qps
 &lt;li>gradient算法中的max_concurrency / latency从概念上和qps有关联（根据little&amp;rsquo;s law)，但可能严重脱节。比如在重测
 min_latency前，若所有latency都小于min_latency，那么max_concurrency会不断下降甚至到0；但按照本算法，max_qps和min_latency仍然是稳定的，它们计算出的max_concurrency也不会剧烈变动。究其本质，gradient算法在迭代max_concurrency时，latency并不能代表实际并发为max_concurrency时的延时，两者是脱节的，所以max_concurrency / latency的实际物理含义不明，与qps可能差异甚大，最后导致了很大的偏差。&lt;/li>
 &lt;li>gradient算法的queue_size推荐为sqrt(max_concurrency)，这是不合理的。netflix对queue_size的理解大概是代表各种不可控环节的缓存，比如socket里的，和max_concurrency存在一定的正向关系情有可原。但在我们的理解中，这部分queue_size作用微乎其微，没有或用常量即可。我们关注的queue_size是给concurrency上升留出的探索空间: max_concurrency的更新是有延迟的，在并发从低到高的增长过程中，queue_size的作用就是在max_concurrency更新前不限制qps上升。而当concurrency高时，服务可能已经过载了，queue_size就应该小一点，防止进一步恶化延时。这里的queue_size和并发是反向关系。&lt;/li>
-&lt;/ul></description></item><item><title>Docs: 流媒体服务</title><link>https://brpc.incubator.apache.org/zh/docs/server/media-server/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/media-server/</guid><description>
-&lt;p>查看&lt;a href="https://github.com/brpc/media-server">media-server&lt;/a>.&lt;/p></description></item><item><title>Docs: json2pb</title><link>https://brpc.incubator.apache.org/zh/docs/server/json2pb/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/zh/docs/server/json2pb/</guid><description>
+&lt;/ul></description></item><item><title>Docs: 流媒体服务</title><link>https://brpc.apache.org/zh/docs/server/media-server/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/media-server/</guid><description>
+&lt;p>查看&lt;a href="https://github.com/brpc/media-server">media-server&lt;/a>.&lt;/p></description></item><item><title>Docs: json2pb</title><link>https://brpc.apache.org/zh/docs/server/json2pb/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/server/json2pb/</guid><description>
 &lt;p>brpc支持json和protobuf间的&lt;strong>双向&lt;/strong>转化，实现于&lt;a href="https://github.com/brpc/brpc/tree/master/src/json2pb/">json2pb&lt;/a>，json解析使用&lt;a href="https://github.com/miloyip/rapidjson">rapidjson&lt;/a>。此功能对pb2.x和3.x均有效。pb3内置了&lt;a href="https://developers.google.com/protocol-buffers/docs/proto3#json">转换json&lt;/a>的功能。&lt;/p>
 &lt;p>by design, 通过HTTP + json访问protobuf服务是对外服务的常见方式，故转化必须精准，转化规则列举如下。&lt;/p>
 &lt;h2 id="message">message&lt;/h2>

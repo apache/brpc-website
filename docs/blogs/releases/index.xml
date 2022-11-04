@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Release</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/</link><description>Recent content in Release on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.incubator.apache.org/docs/blogs/releases/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.3.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.3.0/</link><pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.3.0/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Release</title><link>https://brpc.apache.org/docs/blogs/releases/</link><description>Recent content in Release on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.apache.org/docs/blogs/releases/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.3.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.3.0/</link><pubDate>Tue, 25 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.3.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
@@ -39,7 +39,7 @@
 &lt;li>Improve/add documents by @wwbmmm, @JackBoosY, @morningman, @serverglen, @chenBright, @guodongxiaren, @xdh0817, @KaneVV1, @tanzhongyi003, @lzfhust, @Huixxi&lt;/li>
 &lt;li>Fix typos by @opheliaKyouko, @day253, @chenBright, @fansehep&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.3.0 version!&lt;/p></description></item><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.2.0/</guid><description>
+&lt;p>Thanks to all contributors for the 1.3.0 version!&lt;/p></description></item><item><title>Docs: bRPC 1.2.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.2.0/</link><pubDate>Sun, 07 Aug 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.2.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
@@ -74,7 +74,7 @@
 &lt;li>Improve documents by @wwbmmm, @tanzhongyi003, @guodongxiaren, @372046933, @wasphin, @hawkxiang, @TousakaRin, @Huixxi, @serverglen&lt;/li>
 &lt;li>Fix typos by @jamesge, @cyberkillor&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.1.0/</guid><description>
+&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.1.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
@@ -110,7 +110,7 @@
 &lt;li>Improve documents by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/li>
 &lt;li>Fix typos by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.1.0 version!&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.incubator.apache.org/docs/blogs/releases/1.0.0/</guid><description>
+&lt;p>Thanks to all contributors for the 1.1.0 version!&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.0.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.0.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
