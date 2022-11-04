@@ -1,7 +1,7 @@
 ---
 title: "开始"
 linkTitle: "开始"
-weight: 2
+weight: 3
 date: 2021-08-12
 description: >
   快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。

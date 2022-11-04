@@ -2,7 +2,7 @@
 title: "bRPC overview"
 linkTitle: "Overview"
 weight: 1
-date: 2021-08-12
+date: 2021-08-15
 description: >
   The basic description of bRPC.
 ---

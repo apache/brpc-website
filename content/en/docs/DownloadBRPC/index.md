@@ -1,10 +1,10 @@
 ---
 title: "Download bRPC"
 linkTitle: "Download bRPC"
-weight: 12
+weight: 2
 aliases: 
 - "/download"
-date: 2021-08-12
+date: 2021-08-16
 description: >
   Download bRPC Release Version.
 ---

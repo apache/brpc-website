@@ -1,7 +1,7 @@
 ---
 title: "Getting started"
 linkTitle: "Getting started"
-weight: 2
+weight: 3
 date: 2021-08-12
 description: >
   Read getting started for building steps and play with [examples](https://github.com/apache/incubator-brpc/tree/master/example).

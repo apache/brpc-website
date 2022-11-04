@@ -1,7 +1,7 @@
 ---
 title: "性能基准"
 linkTitle: "性能基准"
-weight: 2
+weight: 4
 date: 2021-08-12
 description: >
   比较bRPC和其他RPC框架。

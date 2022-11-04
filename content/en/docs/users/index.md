@@ -1,6 +1,7 @@
 ---
 title: "Users"
 linkTitle: "Users"
+weight: 14
 date: 2020-03-02
 author: "bRPC Team"
 menu:

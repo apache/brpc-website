@@ -1,7 +1,7 @@
 ---
 title: "Performance benchmark"
 linkTitle: "Performance benchmark"
-weight: 2
+weight: 4
 date: 2021-08-12
 description: >
   A comparison between brpc and other implementations.
