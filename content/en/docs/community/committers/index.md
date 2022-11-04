@@ -155,6 +155,14 @@ Thank you all your help!
         <td>Committer</td>
         <td>apache</td>
     </tr>
+    <tr>
+        <td><a href="https://github.com/chenBright"><img width="64" src="https://avatars.githubusercontent.com/u/12249635?v=4"></a></td>
+        <td>Guangming Chen</td>
+        <td>guangmingchen</td>
+        <td><a href="http://github.com/chenBright">chenBright</a></td>
+        <td>Committer</td>
+        <td>apache</td>
+    </tr>
 </table>
 
 ### Contributors
