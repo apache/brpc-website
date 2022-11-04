@@ -2,6 +2,8 @@
 title: "Download bRPC"
 linkTitle: "Download bRPC"
 weight: 12
+aliases: 
+- "/download"
 date: 2021-08-12
 description: >
   Download bRPC Release Version.
