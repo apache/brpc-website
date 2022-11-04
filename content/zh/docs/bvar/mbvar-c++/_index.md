@@ -33,7 +33,7 @@ description: >
     - [bvar::LatencyRecorder](#bvarlatencyrecorder)
     - [bvar::Status](#bvarstatus)
 
-# mbvar Introduction
+## mbvar Introduction
 
 多维度mbvar使用文档
 
@@ -78,12 +78,12 @@ int process_request(const std::list<std::string>& request_label) {
 } // namespace foo
 ```
 
-# bvar::MVariables
+## bvar::MVariables
 MVariale是MultiDimension(多维度统计)的基类，主要提供全局注册、列举、查询和dump等功能。
 
-## expose
-
 ### expose
+
+#### expose
 
 用户在创建mbvar变量(bvar::MultiDimension)的时候，如果使用一个参数的构造函数(共有三个构造函数)，这个mbvar并未注册到任何全局结构中(当然也不会dump到本地文件)，在这种情况下，mbvar纯粹是一个更快的多维度计数器。我们称把一个mbvar注册到全局表中的行为为“曝光”，可以通过expose函数曝光：
 
@@ -134,7 +134,7 @@ int process_request(const std::list<std::string>& request_label) {
 } // namespace foo
 ```
 
-### expose_as
+#### expose_as
 
 为了避免重名，mbvar的名字应加上前缀，建议为\<namespace\>\_\<module\>\_\<name\>。为了方便使用，我们提供了expose_as函数，接收一个前缀。
 ```c++
@@ -156,7 +156,7 @@ public
 };
 ```
 
-## Export all MVariable
+### Export all MVariable
 提供dump_exposed函数导出进程中所有已曝光的mbvar：
 
 ```c++
@@ -248,7 +248,7 @@ LOG(INFO) << "Successfully set mbvar_dump_format to prometheus";
 一方面这些gflag类型都是std::string，直接覆盖是线程不安全的；另一方面不会触发validator（检查正确性的回调），所以也不会启动后台导出线程。
 
 
-## count
+### count
 统计相关函数
 ```c++
 class MVariable {
@@ -259,7 +259,7 @@ public:
 };
 ```
 
-### count_exposed
+#### count_exposed
 
 获取目前已经曝光的多维度统计项mbvar的个数，注意：这里是多维度统计项(多维度mbvar变量)，而不是维度数。
 ```c++
@@ -288,7 +288,7 @@ size_t count_exposed() {
 > 一般情况下用不到count_系列统计函数，如果有特殊需求，也不建议频繁调用。
 
 
-## list
+### list
 ```c++
 class MVariable {
 public:
@@ -298,7 +298,7 @@ public:
 };
 ```
 
-### list_exposed
+#### list_exposed
 获取所有曝光的多维度统计项mbvar名称
 ```c++
 #include <bvar/bvar.h>
@@ -329,11 +329,11 @@ size_t mbvar_list_exposed(std::vector<std::string>* names) {
 } // namespace foo
 ```
 
-# bvar::MultiDimension
+## bvar::MultiDimension
 
 多维度统计的实现，主要提供bvar的获取、列举等功能。
 
-## constructor
+### constructor
 
 有三个构造函数：
 ```c++
@@ -398,7 +398,7 @@ bvar::MultiDimension<bvar::Adder<int> > g_request_count("foo_bar", "request_coun
 } // namespace foo
 ```
 
-## stats
+### stats
 ```c++
 template <typename T>
 class MultiDimension : public MVariable {
@@ -411,7 +411,7 @@ public:
 };
 ```
 
-### get_stats
+#### get_stats
 根据指定label获取对应的单维度统计项bvar
 ```c++
 #include <bvar/bvar.h>
@@ -454,7 +454,7 @@ int get_request_count(const std::list<std::string>& request_label) {
 
 label对应的单维度统计项bvar存储在多维度统计项(mbvar)中，当mbvar析构的时候会释放自身所有bvar，所以用户必须保证在mbvar的生命周期之内操作bvar，在mbvar生命周期外访问bvar的行为未定义，极有可能出core。
 
-## count
+### count
 ```c++
 class MVariable {
 public:
@@ -474,7 +474,7 @@ public:
 };
 ```
 
-### count_labels
+#### count_labels
 
 获取多维度统计项的labels个数，用户在创建多维度(bvar::MultiDimension)统计项的时候，需要提供类型为std::list\<std::string\>的labels变量，我们提供了count_labels函数，返回labels的长度。
 
@@ -496,7 +496,7 @@ size_t count_labels() {
 } // namespace foo
 ```
 
-### count_stats
+#### count_stats
 
 获取多维度(bvar::MultiDimension)统计项的维度(stats)数
 ```c++
@@ -536,7 +536,7 @@ size_t count_stats() {
 } // namespace foo
 ```
 
-## list
+### list
 ```c++
 template <typename T>
 class MultiDimension : public MVariable {
@@ -547,7 +547,7 @@ public:
 };
 ```
 
-### list_stats
+#### list_stats
 获取一个多维度统计项下所有labels组合列表
 
 ```c++
@@ -600,9 +600,9 @@ size_t list_stats(std::vector<std::list<std::string> > *stats_names) {
 
 一般情况下用户不需要获取labels组合列表，如果有特殊需求，也不建议频繁调用，否则可能影响get_stats的写入性能。
 
-## template
+### template
 
-### bvar::Adder
+#### bvar::Adder
 顾名思义，用于累加
 ```c++
 #include <bvar/bvar.h>
@@ -630,7 +630,7 @@ int request_cost_total(const std::list<std::string>& request_labels) {
 } // namespace foo
 ```
 
-### bvar::Maxer
+#### bvar::Maxer
 用于取最大值，运算符为std::max
 ```c++
 #include <bvar/bvar.h>
@@ -659,7 +659,7 @@ int request_cost_max(const std::list<std::string>& request_labels) {
 } // namespace foo
 ```
 
-### bvar::Miner
+#### bvar::Miner
 用于取最小值，运算符为std::min
 ```c++
 #include <bvar/bvar.h>
@@ -688,7 +688,7 @@ int request_cost_min(const std::list<std::string>& request_labels) {
 } // namespace foo
 ```
 
-### bvar::IntRecorder
+#### bvar::IntRecorder
 用于计算平均值。
 ```c++
 #include <bvar/bvar.h>
@@ -717,7 +717,7 @@ int request_cost_avg(const std::list<std::string>& request_labels) {
 } // namespace foo
 ```
 
-### bvar::LatencyRecorder
+#### bvar::LatencyRecorder
 专用于计算latency和qps的计数器。只需填入latency数据，就能获取latency / max_latency / qps / count，统计窗口是bvar_dump_interval。
 ```c++
 #include <bvar/bvar.h>
@@ -753,7 +753,7 @@ void request_cost_latency(const std::list<std::string>& request_labels) {
 } // namespace foo
 ```
 
-### bvar::Status
+#### bvar::Status
 记录和显示一个值，拥有额外的set_value函数。
 ```c++
 #include <bvar/bvar.h>
