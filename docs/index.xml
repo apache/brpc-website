@@ -39,7 +39,7 @@
 &lt;li>Improve/add documents by @wwbmmm, @JackBoosY, @morningman, @serverglen, @chenBright, @guodongxiaren, @xdh0817, @KaneVV1, @tanzhongyi003, @lzfhust, @Huixxi&lt;/li>
 &lt;li>Fix typos by @opheliaKyouko, @day253, @chenBright, @fansehep&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.3.0 version!&lt;/p></description></item><item><title>Docs: bRPC overview</title><link>https://brpc.apache.org/docs/overview/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/overview/</guid><description>
+&lt;p>Thanks to all contributors for the 1.3.0 version!&lt;/p></description></item><item><title>Docs: bRPC overview</title><link>https://brpc.apache.org/docs/overview/</link><pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/overview/</guid><description>
 &lt;h1 id="what-is-rpc">What is RPC?&lt;/h1>
 &lt;p>Most machines on internet communicate with each other via &lt;a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP&lt;/a>. However, TCP/IP only guarantees reliable data transmissions. We need to abstract more to build services:&lt;/p>
 &lt;ul>
@@ -218,7 +218,133 @@ limitations under the License.
 &lt;li>Improve documents by @wwbmmm, @tanzhongyi003, @guodongxiaren, @372046933, @wasphin, @hawkxiang, @TousakaRin, @Huixxi, @serverglen&lt;/li>
 &lt;li>Fix typos by @jamesge, @cyberkillor&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: Getting started</title><link>https://brpc.apache.org/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/getting_started/</guid><description>
+&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: Download bRPC</title><link>https://brpc.apache.org/docs/downloadbrpc/</link><pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/downloadbrpc/</guid><description>
+&lt;!--
+{% comment %}
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements. See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to you under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+{% endcomment %}
+-->
+&lt;h2 id="apache-brpc-incubating-downloads">Apache bRPC (incubating) Downloads&lt;/h2>
+&lt;p>Apache bRPC (incubating) is released as a source artifact.
+We are pleased to announce our 1.3.0 release as below.&lt;/p>
+&lt;h3 id="release-candidate">Release Candidate&lt;/h3>
+&lt;!--when pass vote, we can change it back to Release Artifacts
+-->
+&lt;table class="table table-hover sortable">
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;b>Name&lt;/b>&lt;/th>
+&lt;th>&lt;b>Archive&lt;/b>&lt;/th>
+&lt;th>&lt;b>SHA-512&lt;/b>&lt;/th>
+&lt;th>&lt;b>Signature&lt;/b>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Apache bRPC (incubating) 1.3.0 (tar.gz)&lt;/td>
+&lt;td>&lt;a href="https://dlcdn.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Apache bRPC (incubating) 1.2.0 (tar.gz)&lt;/td>
+&lt;td>&lt;a href="https://dlcdn.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Apache bRPC (incubating) 1.1.0 (tar.gz)&lt;/td>
+&lt;td>&lt;a href="https://dlcdn.apache.org/incubator/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Apache bRPC (incubating) 1.0.0 (tar.gz)&lt;/td>
+&lt;td>&lt;a href="https://dlcdn.apache.org/incubator/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;!--tr>
+&lt;td>Release Notes&lt;/td>
+&lt;td>&lt;a href="https://brpc.apache.org/releases/spark/{{ site.data.project.latest_release }}/release-notes">{{ site.data.project.latest_release }}&lt;/a>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr-->
+&lt;/tbody>
+&lt;/table>
+&lt;p>Choose a source distribution in either &lt;em>tar&lt;/em> or &lt;em>zip&lt;/em> format,
+and &lt;a href="https://www.apache.org/dyn/closer.cgi#verify">verify&lt;/a>
+using the corresponding &lt;em>pgp&lt;/em> signature (using the committer file in
+&lt;a href="https://downloads.apache.org/incubator/brpc/KEYS">KEYS&lt;/a>).
+If you cannot do that, the &lt;em>md5&lt;/em> hash file may be used to check that the
+download has completed OK.&lt;/p>
+&lt;p>For fast downloads, current source distributions are hosted on mirror servers;
+older source distributions are in the
+&lt;a href="https://archive.apache.org/dist/incubator/brpc/">archive&lt;/a>.
+If a download from a mirror fails, retry, and the second download will likely
+succeed.&lt;/p>
+&lt;p>For security, hash and signature files are always hosted at
+&lt;a href="https://www.apache.org">Apache&lt;/a>.&lt;/p></description></item><item><title>Docs: Contribute Guide</title><link>https://brpc.apache.org/docs/community/contributing/</link><pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/contributing/</guid><description>
+&lt;p>If you meet any problem or request a new feature, you&amp;rsquo;re welcome to &lt;a href="https://github.com/brpc/brpc/issues/new/choose">create an issue&lt;/a>.&lt;/p>
+&lt;p>If you can solve any of &lt;a href="https://github.com/brpc/brpc/issues">the issues&lt;/a>, you&amp;rsquo;re welcome to send the PR to us.&lt;/p>
+&lt;p>Before the PR:&lt;/p>
+&lt;ul>
+&lt;li>Make sure your code style conforms to &lt;a href="https://google.github.io/styleguide/cppguide.html">google C++ coding style&lt;/a>. Indentation is preferred to be 4 spaces.&lt;/li>
+&lt;li>The code appears where it should be. For example the code to support an extra protocol should not be put in general classes like server.cpp, channel.cpp, while a general modification would better not be hidden inside a very specific protocol.&lt;/li>
+&lt;li>Has unittests.&lt;/li>
+&lt;/ul>
+&lt;p>After the PR:&lt;/p>
+&lt;ul>
+&lt;li>Make sure the &lt;a href="https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests">travis-ci&lt;/a> passed.&lt;/li>
+&lt;/ul></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.1.0/</guid><description>
+&lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
+&lt;p>New features:&lt;/p>
+&lt;ul>
+&lt;li>Support ipv6 and unix domain socket by @wwbmmm in #1560&lt;/li>
+&lt;li>Support protobuf 3.19.x by @hcoona in #1679&lt;/li>
+&lt;li>Support http protocol dump and replay by @guodongxiaren in #1503&lt;/li>
+&lt;li>Support nshead protocol dump and replay by @wwbmmm in #1486&lt;/li>
+&lt;li>Support parse proto-text format http request body by @hiberabyss in #1690&lt;/li>
+&lt;li>Support deliver timeout from client to server for baidu_std protocol by @wwbmmm in #1472&lt;/li>
+&lt;li>Support inherit span on bthread create by @wwbmmm in #1494&lt;/li>
+&lt;li>Add rpc_replay BUILD file by @taoxu in #1677&lt;/li>
+&lt;li>Add brpc server Start(PortRange, const ServerOptions*) by @serverglen in #1460&lt;/li>
+&lt;li>Add FlatMap insert(const std::pair&amp;lt;key_type, mapped_type&amp;gt;&amp;amp; kv) by @serverglen in #1468&lt;/li>
+&lt;li>Add server eps bvar @serverglen in #1483&lt;/li>
+&lt;/ul>
+&lt;p>Bugfix:&lt;/p>
+&lt;ul>
+&lt;li>Fix CheckHealth not set has_request_code bug by @serverglen in #1502&lt;/li>
+&lt;li>Fix a bug that server will send unexpected data frame to client if there are errors occur during processing stream create request by @jenrryyou in #1516&lt;/li>
+&lt;li>Fix LA selection runs too long by @KaneVV1 in #1567&lt;/li>
+&lt;li>Fix HttpResponse error by @jl2005 in #1620&lt;/li>
+&lt;li>Fix bvar status compile error by @zwkno1 in #1625&lt;/li>
+&lt;li>Fix InputMessenger client side retry policy by @ehds in #1680&lt;/li>
+&lt;li>Fix work_stealing_queue_unittest for ARM by @TKONIY in #1709&lt;/li>
+&lt;li>Fix LatencyRecorder qps not accurate by @wwbmmm in #1708&lt;/li>
+&lt;li>Fix compile error after gcc11 with &amp;ndash;std=c++20 by @hiberabyss in #1719&lt;/li>
+&lt;li>Fix unstable UT link error by @wwbmmm in #1711&lt;/li>
+&lt;li>Fix Thrift download url to avoid pr build failed by @yangzhg in #1725&lt;/li>
+&lt;li>Remove grpc ParseH2Settings warning log by @yanjianglu in #1599&lt;/li>
+&lt;/ul>
+&lt;p>Other improvements:&lt;/p>
+&lt;ul>
+&lt;li>Improve documents by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/li>
+&lt;li>Fix typos by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
+&lt;/ul>
+&lt;p>Thanks to all contributors for the 1.1.0 version!&lt;/p></description></item><item><title>Docs: Getting started</title><link>https://brpc.apache.org/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/getting_started/</guid><description>
 &lt;h1 id="build">BUILD&lt;/h1>
 &lt;p>brpc prefers static linkages of deps, so that they don&amp;rsquo;t have to be installed on every machine running the app.&lt;/p>
 &lt;p>brpc depends on following packages:&lt;/p>
@@ -406,207 +532,7 @@ Don&amp;rsquo;t use new types in proto3 and start the proto file with &lt;code>s
 &lt;h2 id="thrift-093-0110">thrift: 0.9.3-0.11.0&lt;/h2>
 &lt;p>no known issues.&lt;/p>
 &lt;h1 id="track-instances">Track instances&lt;/h1>
-&lt;p>We provide a program to help you to track and monitor all brpc instances. Just run &lt;a href="https://github.com/brpc/brpc/tree/master/tools/trackme_server/">trackme_server&lt;/a> somewhere and launch need-to-be-tracked instances with -trackme_server=SERVER. The trackme_server will receive pings from instances periodically and print logs when it does. You can aggregate instance addresses from the log and call builtin services of the instances for further information.&lt;/p></description></item><item><title>Docs: Performance benchmark</title><link>https://brpc.apache.org/docs/benchmark/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/benchmark/</guid><description>
-&lt;h1 id="序言">序言&lt;/h1>
-&lt;p>在多核的前提下，性能和线程是紧密联系在一起的。线程间的跳转对高频IO操作的性能有决定性作用: 一次跳转意味着至少3-20微秒的延时，由于每个核心的L1 cache独立（我们的cpu L2 cache也是独立的），随之而来是大量的cache miss，一些变量的读取、写入延时会从纳秒级上升几百倍至微秒级: 等待cpu把对应的cacheline同步过来。有时这带来了一个出乎意料的结果，当每次的处理都很简短时，一个多线程程序未必比一个单线程程序更快。因为前者可能在每次付出了大的切换代价后只做了一点点“正事”，而后者在不停地做“正事”。不过单线程也是有代价的，它工作良好的前提是“正事”都很快，否则一旦某次变慢就使后续的所有“正事”都被延迟了。在一些处理时间普遍较短的程序中，使用（多个不相交的）单线程能最大程度地”做正事“，由于每个请求的处理时间确定，延时表现也很稳定，各种http server正是这样。但我们的检索服务要做的事情可就复杂多了，有大量的后端服务需要访问，广泛存在的长尾请求使每次处理的时间无法确定，排序策略也越来越复杂。如果还是使用（多个不相交的）单线程的话，一次难以预计的性能抖动，或是一个大请求可能导致后续一堆请求被延迟。&lt;/p>
-&lt;p>为了避免请求之间相互影响，请求级的线程跳转是brpc必须付出的代价，我们能做的是使&lt;a href="../rpc-in-depth/io#the-full-picture">线程跳转最优化&lt;/a>。不过，对服务的性能测试还不能很好地体现这点。测试中的处理往往极为简单，使得线程切换的影响空前巨大，通过控制多线程和单线程处理的比例，我们可以把一个测试服务的qps从100万到500万操纵自如（同机），这损伤了性能测试结果的可信度。要知道，真实的服务并不是在累加一个数字，或者echo一个字符串，一个qps几百万的echo程序没有指导意义。鉴于此，在发起性能测试一年后（15年底），在brpc又经历了1200多次改动后，我们需要review所有的测试，加强其中的线程因素，以获得对真实场景有明确意义的结果。具体来说:&lt;/p>
-&lt;ul>
-&lt;li>请求不应等长，要有长尾。这能考察RPC能否让请求并发，否则一个慢请求会影响大量后续请求。&lt;/li>
-&lt;li>要有多级server的场景。server内用client访问下游server，这能考察server和client的综合表现。&lt;/li>
-&lt;li>要有一个client访问多个server的场景。这能考察负载均衡是否足够并发，真实场景中很少一个client只访问一个server。&lt;/li>
-&lt;/ul>
-&lt;p>我们希望这套测试场景对其他服务的性能测试有借鉴意义。&lt;/p>
-&lt;h1 id="测试目标">测试目标&lt;/h1>
-&lt;h2 id="ub">UB&lt;/h2>
-&lt;p>百度在08年开发的RPC框架，在百度产品线广泛使用，已被brpc代替。UB的每个请求独占一个连接(连接池)，在大规模服务中每台机器都需要保持大量的连接，限制了其使用场景，像百度的分布式系统没有用UB。UB只支持nshead+mcpack协议，也没怎么考虑扩展性，所以增加新协议和新功能往往要调整大段代码，在实践中大部分人“知难而退”了。UB缺乏调试和运维接口，服务的运行状态对用户基本是黑盒，只能靠低效地打日志来追踪问题，服务出现问题时常要拉上维护者一起排查，效率很低。UB有多个变种:&lt;/p>
-&lt;ul>
-&lt;li>ubrpc: 百度在10年基于UB开发的RPC框架，用.idl文件(类似.proto)描述数据的schema，而不是手动打包。这个RPC有被使用，但不广泛。&lt;/li>
-&lt;/ul>
-&lt;ul>
-&lt;li>nova_pbrpc: 百度网盟团队在12年基于UB开发的RPC框架，用protobuf代替mcpack作为序列化方法，协议是nshead + user&amp;rsquo;s protobuf。&lt;/li>
-&lt;li>public_pbrpc: 百度在13年初基于UB开发的RPC框架，用protobuf代替mcpack作为序列化方法，但协议与nova_pbrpc不同，大致是nshead + meta protobuf。meta protobuf中有个string字段包含user&amp;rsquo;s protobuf。由于用户数据要序列化两次，这个RPC的性能很差，没有被推广开来。&lt;/li>
-&lt;/ul>
-&lt;p>我们以在百度网盟团队广泛使用的nova_pbrpc为UB的代表。测试时其代码为r10500。早期的UB支持CPOOL和XPOOL，分别使用&lt;a href="http://linux.die.net/man/2/select">select&lt;/a>和&lt;a href="http://kircher-schwanninger.de/michael/publications/lf.pdf">leader-follower模型&lt;/a>，后来提供了EPOLL，使用&lt;a href="http://man7.org/linux/man-pages/man7/epoll.7.html">epoll&lt;/a>处理多路连接。鉴于产品线大都是用EPOLL模型，我们的UB配置也使用EPOLL。UB只支持&lt;a href="../client/basics/#connection-type">连接池&lt;/a>，结果用“&lt;strong>ubrpc_mc&lt;/strong>&amp;ldquo;指代（mc代表&amp;quot;multiple
-connection&amp;rdquo;）。虽然这个名称不太准确（见上文对ubrpc的介绍），但在本文的语境下，请默认ubrpc = UB。&lt;/p>
-&lt;h2 id="hulu-pbrpc">hulu-pbrpc&lt;/h2>
-&lt;p>百度在13年基于saber(kylin变种)和protobuf实现的RPC框架，hulu在多线程实现上有较多问题，已被brpc代替，测试时其代码为&lt;code>pbrpc_2-0-15-27959_PD_BL&lt;/code>。hulu-pbrpc只支持单连接，结果用“&lt;strong>hulu-pbrpc&lt;/strong>&amp;ldquo;指代。&lt;/p>
-&lt;h2 id="brpc">brpc&lt;/h2>
-&lt;p>INF在2014年底开发至今的rpc产品，支持百度内所有协议（不限于protobuf），并第一次统一了百度主要分布式系统和业务线的RPC框架。测试时代码为r31906。brpc既支持单连接也支持连接池，前者的结果用&amp;rdquo;&lt;strong>baidu-rpc&lt;/strong>&amp;ldquo;指代，后者用“&lt;strong>baidu-rpc_mc&lt;/strong>&amp;ldquo;指代。&lt;/p>
-&lt;h2 id="sofa-pbrpc">sofa-pbrpc&lt;/h2>
-&lt;p>百度大搜团队在13年基于boost::asio和protobuf实现的RPC框架，有多个版本，咨询相关同学后，确认ps/opensource下的和github上的较新，且会定期同步。故测试使用使用ps/opensource下的版本。测试时其代码为&lt;code>sofa-pbrpc_1-0-2_BRANCH&lt;/code>。sofa-pbrpc只支持单连接，结果用“&lt;strong>sofa-pbrpc&lt;/strong>”指代。&lt;/p>
-&lt;h2 id="apache-thrift">apache thrift&lt;/h2>
-&lt;p>thrift是由facebook最早在07年开发的序列化方法和rpc框架，包含独特的序列化格式和IDL，支持很多编程语言。开源后改名&lt;a href="https://thrift.apache.org/">apache thrift&lt;/a>，fb自己有一个&lt;a href="https://github.com/facebook/fbthrift">fbthrift分支&lt;/a>，我们使用的是apache thrift。测试时其代码为&lt;code>thrift_0-9-1-400_PD_BL&lt;/code>。thrift的缺点是: 代码看似分层清晰，client和server选择很多，但没有一个足够通用，每个server实现都只能解决很小一块场景，每个client都线程不安全，实际使用很麻烦。由于thrift没有线程安全的client，所以每个线程中都得建立一个client，使用独立的连接。在测试中thrift其实是占了其他实现的便宜: 它的client不需要处理多线程问题。thrift的结果用&amp;rdquo;&lt;strong>thrift_mc&lt;/strong>&amp;ldquo;指代。&lt;/p>
-&lt;h2 id="grpc">gRPC&lt;/h2>
-&lt;p>由google开发的rpc框架，使用http/2和protobuf 3.0，测试时其代码为&lt;a href="https://github.com/grpc/grpc/tree/release-0_11">https://github.com/grpc/grpc/tree/release-0_11&lt;/a>。gRPC并不是stubby，定位更像是为了推广http/2和protobuf 3.0，但鉴于很多人对它的表现很感兴趣，我们也（很麻烦地）把它加了进来。gRPC的结果用&amp;rdquo;&lt;strong>grpc&lt;/strong>&amp;ldquo;指代。&lt;/p>
-&lt;h1 id="测试方法">测试方法&lt;/h1>
-&lt;p>如序言中解释的那样，性能数字有巨大的调整空间。这里的关键在于，我们对RPC的底线要求是什么，脱离了这个底线，测试中的表现就严重偏离真实环境中的了。&lt;/p>
-&lt;p>这个底线我们认为是&lt;strong>RPC必须能处理长尾&lt;/strong>。&lt;/p>
-&lt;p>在百度的环境中，这是句大白话，哪个产品线，哪个系统没有长尾呢？作为承载大部分服务的RPC框架自然得处理好长尾，减少长尾对正常请求的影响。但在实现层面，这个问题对设计的影响太大了。如果测试中没有长尾，那么RPC实现就可以假设每个请求都差不多快，这时候最优的方法是用多个线程独立地处理请求。由于没有上下文切换和cache一致性同步，程序的性能会显著高于多个线程协作时的表现。&lt;/p>
-&lt;p>比如简单的echo程序，处理一个请求只需要200-300纳秒，单个线程可以达到300-500万的吞吐。但如果多个线程协作，即使在极其流畅的系统中，也要付出3-5微秒的上下文切换代价和1微秒的cache同步代价，这还没有考虑多个线程间的其他互斥逻辑，一般来说单个线程的吞吐很难超过10万，即使24核全部用满，吞吐也只有240万，不及一个线程。这正是以http server为典型的服务选用&lt;a href="../rpc-in-depth/threading-overview/#single-threaded-reactorhttpenwikipediaorgwikireactor_pattern">单线程模型&lt;/a>的原因（多个线程独立运行eventloop）: 大部分http请求的处理时间是可预测的，对下游的访问也不会有任何阻塞代码。这个模型可以最大化cpu利用率，同时提供可接受的延时。&lt;/p>
-&lt;p>多线程付出这么大的代价是为了&lt;strong>隔离请求间的影响&lt;/strong>。一个计算复杂或索性阻塞的过程不会影响到其他请求，1%的长尾最终只会影响到1%的性能。而多个独立的线程是保证不了这点的，一个请求进入了一个线程就等于“定了终生”，如果前面的请求慢了一下，那也只能跟着慢了。1%的长尾会影响远超1%的请求，最终表现不佳。换句话说，乍看上去多线程模型“慢”了，但在真实应用中反而会获得更好的综合性能。&lt;/p>
-&lt;p>延时能精确地体现出长尾的干扰作用，如果普通请求的延时没有被长尾请求干扰，就说明RPC成功地隔离了请求。而QPS无法体现这点，只要CPU都在忙，即使一个正常请求进入了挤满长尾的队列而被严重延迟，最终的QPS也变化不大。为了测量长尾的干扰作用，我们在涉及到延时的测试中都增加了1%的长尾请求。&lt;/p>
-&lt;h1 id="开始测试">开始测试&lt;/h1>
-&lt;h2 id="环境">环境&lt;/h2>
-&lt;p>性能测试使用的机器配置为:&lt;/p>
-&lt;ul>
-&lt;li>单机1: CPU开超线程24核，E5-2620 @ 2.00GHz；64GB内存；OS linux 2.6.32_1-15-0-0&lt;/li>
-&lt;li>多机1（15台+8台）: CPU均未开超线程12核，其中15台的CPU为E5-2420 @ 1.90GHz.，64GB内存，千兆网卡，无法开启多队列。其余8台为E5-2620 2.0GHz，千兆网卡，绑定多队列到前8个核。这些长期测试机器比较杂，跨了多个机房，测试中延时在1ms以上的就是这批机器。&lt;/li>
-&lt;li>多机2（30台）: CPU未开超线程12核，E5-2620 v3 @ 2.40GHz.；96GB内存；OS linux 2.6.32_1-17-0-0；万兆网卡，绑定多队列到前8个核。这是临时借用的新机器，配置非常好，都在广州机房，延时非常短，测试中延时在几百微秒的就是这批机器。&lt;/li>
-&lt;/ul>
-&lt;p>下面所有的曲线图是使用brpc开发的dashboard程序绘制的，去掉路径后可以看到和所有brpc
-server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&lt;/a>。&lt;/p>
-&lt;h2 id="配置">配置&lt;/h2>
-&lt;p>如无特殊说明，所有测试中的配置只是数量差异（线程数，请求大小，client个数etc），而不是模型差异。我们确保用户看到的qps和延时是同一个场景的不同维度，而不是无法统一的两个场景。&lt;/p>
-&lt;p>所有RPC server都配置了24个工作线程，这些线程一般运行用户的处理逻辑。关于每种RPC的特殊说明:&lt;/p>
-&lt;ul>
-&lt;li>UB: 配置了12个reactor线程，使用EPOOL模型。连接池限制数配置为线程个数（24）&lt;/li>
-&lt;li>hulu-pbrpc: 额外配置了12个IO线程。这些线程会处理fd读取，请求解析等任务。hulu有个“共享队列“的配置项，默认不打开，作用是把fd静态散列到多个线程中，由于线程间不再争抢，hulu的qps会显著提高，但会明显地被长尾影响（原因见&lt;a href="#%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95">测试方法&lt;/a>）。考虑到大部分使用者并不会去改配置，我们也选择不打开。&lt;/li>
-&lt;li>thrift: 额外配置了12个IO线程。这些线程会处理fd读取，请求解析等任务。thrift的client不支持多线程，每个线程得使用独立的client，连接也都是分开的。&lt;/li>
-&lt;li>sofa-pbrpc: 按照sofa同学的要求，把io_service_pool_size配置为24，work_thread_num配置为1。大概含义是使用独立的24组线程池，每组1个worker thread。和hulu不打开“共享队列”时类似，这个配置会显著提高sofa-pbrpc的QPS，但同时使它失去了处理长尾的能力。如果你在真实产品中使用，我们不建议这个配置。（而应该用io_service_pool_size=1, work_thread_num=24)&lt;/li>
-&lt;li>brpc: 尽管brpc的client运行在bthread中时会获得10%~20%的QPS提升和更低的延时，但测试中的client都运行统一的pthread中。&lt;/li>
-&lt;/ul>
-&lt;p>所有的RPC client都以多个线程同步方式发送，这种方法最接近于真实系统中的情况，在考察QPS时也兼顾了延时因素。&lt;/p>
-&lt;p>一种流行的方案是client不停地往连接中写入数据看server表现，这个方法的弊端在于: server一下子能读出大量请求，不同RPC的比拼变成了“for循环执行用户代码”的比拼，而不是分发请求的效率。在真实系统中server很少能同时读到超过4个请求。这个方法也完全放弃了延时，client其实是让server陷入了雪崩时才会进入的状态，所有请求都因大量排队而超时了。&lt;/p>
-&lt;h2 id="同机单client单server在不同请求下的qps越高越好">同机单client→单server在不同请求下的QPS（越高越好）&lt;/h2>
-&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">单机1&lt;/a>上。图中的数值均为用户数据的字节数，实际的请求尺寸还要包括协议头，一般会增加40字节左右。&lt;/p>
-&lt;p>（X轴是用户数据的字节数，Y轴是对应的QPS）&lt;/p>
-&lt;p>&lt;img src="https://brpc.apache.org/images/docs/qps_vs_reqsize.png" alt="img">&lt;/p>
-&lt;p>以_mc结尾的曲线代表client和server保持多个连接（线程数个），在本测试中会有更好的表现。&lt;/p>
-&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>brpc: 当请求包小于16KB时，单连接下的吞吐超过了多连接的ubrpc_mc和thrift_mc，随着请求包变大，内核对单个连接的写入速度成为瓶颈。而多连接下的brpc则达到了测试中最高的2.3GB/s。注意: 虽然使用连接池的brpc在发送大包时吞吐更高，但也会耗费更多的CPU（UB和thrift也是这样）。下图中的单连接brpc已经可以提供800多兆的吞吐，足以打满万兆网卡，而使用的CPU可能只有多链接下的1/2(写出过程是&lt;a href="../rpc-in-depth/io#sending-messages">wait-free的&lt;/a>)，真实系统中请优先使用单链接。&lt;/li>
-&lt;li>thrift: 初期明显低于brpc，随着包变大超过了单连接的brpc。&lt;/li>
-&lt;li>UB:和thrift类似的曲线，但平均要低4-5万QPS，在32K包时超过了单连接的brpc。整个过程中QPS几乎没变过。&lt;/li>
-&lt;li>gRPC: 初期几乎与UB平行，但低1万左右，超过8K开始下降。&lt;/li>
-&lt;li>hulu-pbrpc和sofa-pbrpc: 512字节前高于UB和gRPC，但之后就急转直下，相继垫底。这个趋势是写不够并发的迹象。&lt;/li>
-&lt;/ul>
-&lt;h2 id="同机单client单server在不同线程数下的qps越高越好">同机单client→单server在不同线程数下的QPS（越高越好）&lt;/h2>
-&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">单机1&lt;/a>上。&lt;/p>
-&lt;p>（X轴是线程数，Y轴是对应的QPS）&lt;/p>
-&lt;p>&lt;img src="https://brpc.apache.org/images/docs/qps_vs_threadnum.png" alt="img">&lt;/p>
-&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
-&lt;p>brpc: 随着发送线程增加，QPS在快速增加，有很好的多线程扩展性。&lt;/p>
-&lt;p>UB和thrift: 8个线程下高于brpc，但超过8个线程后被brpc迅速超过，thrift继续“平移”，UB出现了明显下降。&lt;/p>
-&lt;p>gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程时只有1倍的提升，多线程扩展性不佳。&lt;/p>
-&lt;h2 id="同机单client单server在固定qps下的延时cdfbuiltin-servicesvars统计和查看分位值越左越好越直越好">同机单client→单server在固定QPS下的延时&lt;a href="../builtin-services/vars/#%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%9F%A5%E7%9C%8B%E5%88%86%E4%BD%8D%E5%80%BC">CDF&lt;/a>（越左越好，越直越好）&lt;/h2>
-&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">单机1&lt;/a>上。考虑到不同RPC的处理能力，我们选择了一个较低、在不少系统中会达到的的QPS: 1万。&lt;/p>
-&lt;p>本测试中有1%的长尾请求耗时5毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
-&lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
-&lt;p>&lt;img src="https://brpc.apache.org/images/docs/latency_cdf.png" alt="img">&lt;/p>
-&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>brpc: 平均延时短，几乎没有被长尾影响。&lt;/li>
-&lt;li>UB和thrift: 平均延时比brpc高1毫秒，受长尾影响不大。&lt;/li>
-&lt;li>hulu-pbrpc: 走向和UB和thrift类似，但平均延时进一步增加了1毫秒。&lt;/li>
-&lt;li>gRPC : 初期不错，到长尾区域后表现糟糕，直接有一部分请求超时了。（反复测试都是这样，像是有bug）&lt;/li>
-&lt;li>sofa-pbrpc: 30%的普通请求（上图未显示）被长尾严重干扰。&lt;/li>
-&lt;/ul>
-&lt;h2 id="跨机多client单server的qps越高越好">跨机多client→单server的QPS（越高越好）&lt;/h2>
-&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机1&lt;/a>上。&lt;/p>
-&lt;p>（X轴是client数，Y轴是对应的QPS）&lt;/p>
-&lt;p>&lt;img src="https://brpc.apache.org/images/docs/qps_vs_multi_client.png" alt="img">&lt;/p>
-&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>brpc: 随着cilent增加，server的QPS在快速增加，有不错的client扩展性。&lt;/li>
-&lt;li>sofa-pbrpc: 随着client增加，server的QPS也在快速增加，但幅度不如brpc，client扩展性也不错。从16个client到32个client时的提升较小。&lt;/li>
-&lt;li>hulu-pbrpc: 随着client增加，server的QPS在增加，但幅度进一步小于sofa-pbrpc。&lt;/li>
-&lt;li>UB: 增加client几乎不能增加server的QPS。&lt;/li>
-&lt;li>thrift: 平均QPS低于UB，增加client几乎不能增加server的QPS。&lt;/li>
-&lt;li>gRPC: 垫底、增加client几乎不能增加server的QPS。&lt;/li>
-&lt;/ul>
-&lt;h2 id="跨机多client单server在固定qps下的延时cdfbuiltin-servicesvars统计和查看分位值越左越好越直越好">跨机多client→单server在固定QPS下的延时&lt;a href="../builtin-services/vars/#%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%9F%A5%E7%9C%8B%E5%88%86%E4%BD%8D%E5%80%BC">CDF&lt;/a>（越左越好，越直越好）&lt;/h2>
-&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机1&lt;/a>上。负载均衡算法为round-robin或RPC默认提供的。由于有32个client且一些RPC的单client能力不佳，我们为每个client仅设定了2500QPS，这是一个真实业务系统能达到的数字。&lt;/p>
-&lt;p>本测试中有1%的长尾请求耗时15毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
-&lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
-&lt;p>&lt;img src="https://brpc.apache.org/images/docs/multi_client_latency_cdf.png" alt="img">&lt;/p>
-&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>brpc: 平均延时短，几乎没有被长尾影响。&lt;/li>
-&lt;li>UB和thrift: 平均延时短，受长尾影响小，平均延时高于brpc&lt;/li>
-&lt;li>sofa-pbrpc: 14%的普通请求被长尾严重干扰。&lt;/li>
-&lt;li>hulu-pbrpc: 15%的普通请求被长尾严重干扰。&lt;/li>
-&lt;li>gRPC: 已经完全失控，非常糟糕。&lt;/li>
-&lt;/ul>
-&lt;h2 id="跨机多client多server在固定qps下的延时cdfbuiltin-servicesvars统计和查看分位值越左越好越直越好">跨机多client→多server在固定QPS下的延时&lt;a href="../builtin-services/vars/#%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%9F%A5%E7%9C%8B%E5%88%86%E4%BD%8D%E5%80%BC">CDF&lt;/a>（越左越好，越直越好）&lt;/h2>
-&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机2&lt;/a>上。20台每台运行4个client，多线程同步访问10台server。负载均衡算法为round-robin或RPC默认提供的。由于gRPC访问多server较麻烦且有很大概率仍表现不佳，这个测试不包含gRPC。&lt;/p>
-&lt;p>本测试中有1%的长尾请求耗时10毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
-&lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
-&lt;p>&lt;img src="https://brpc.apache.org/images/docs/multi_server_latency_cdf.png" alt="img">&lt;/p>
-&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>brpc和UB: 平均延时短，几乎没有被长尾影响。&lt;/li>
-&lt;li>thrift: 平均延时显著高于brpc和UB。&lt;/li>
-&lt;li>sofa-pbrpc: 2.5%的普通请求被长尾严重干扰。&lt;/li>
-&lt;li>hulu-pbrpc: 22%的普通请求被长尾严重干扰。&lt;/li>
-&lt;/ul>
-&lt;h2 id="跨机多client多server多server在固定qps下的延时cdfbuiltin-servicesvars统计和查看分位值越左越好越直越好">跨机多client→多server→多server在固定QPS下的延时&lt;a href="../builtin-services/vars/#%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%9F%A5%E7%9C%8B%E5%88%86%E4%BD%8D%E5%80%BC">CDF&lt;/a>（越左越好，越直越好）&lt;/h2>
-&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机2&lt;/a>上。14台每台运行4个client，多线程同步访问8台server，这些server还会同步访问另外8台server。负载均衡算法为round-robin或RPC默认提供的。由于gRPC访问多server较麻烦且有很大概率仍表现不佳，这个测试不包含gRPC。&lt;/p>
-&lt;p>本测试中有1%的长尾请求耗时10毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
-&lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
-&lt;p>&lt;img src="https://brpc.apache.org/images/docs/twolevel_server_latency_cdf.png" alt="img">&lt;/p>
-&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>brpc: 平均延时短，几乎没有被长尾影响。&lt;/li>
-&lt;li>UB: 平均延时短，长尾区域略差于brpc。&lt;/li>
-&lt;li>thrift: 平均延时显著高于brpc和UB。&lt;/li>
-&lt;li>sofa-pbrpc: 17%的普通请求被长尾严重干扰，其中2%的请求延时极长。&lt;/li>
-&lt;li>hulu-pbrpc: 基本消失在视野中，已无法正常工作。&lt;/li>
-&lt;/ul>
-&lt;h1 id="结论">结论&lt;/h1>
-&lt;p>brpc: 在吞吐，平均延时，长尾处理上都表现优秀。&lt;/p>
-&lt;p>UB: 平均延时和长尾处理的表现都不错，吞吐的扩展性较差，提高线程数和client数几乎不能提升吞吐。&lt;/p>
-&lt;p>thrift: 单机的平均延时和吞吐尚可，多机的平均延时明显高于brpc和UB。吞吐的扩展性较差，提高线程数和client数几乎不能提升吞吐。&lt;/p>
-&lt;p>sofa-pbrpc: 处理小包的吞吐尚可，大包的吞吐显著低于其他RPC，延时受长尾影响很大。&lt;/p>
-&lt;p>hulu-pbrpc: 单机表现和sofa-pbrpc类似，但多机的延时表现极差。&lt;/p>
-&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: Contribute Guide</title><link>https://brpc.apache.org/docs/community/contributing/</link><pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/contributing/</guid><description>
-&lt;p>If you meet any problem or request a new feature, you&amp;rsquo;re welcome to &lt;a href="https://github.com/brpc/brpc/issues/new/choose">create an issue&lt;/a>.&lt;/p>
-&lt;p>If you can solve any of &lt;a href="https://github.com/brpc/brpc/issues">the issues&lt;/a>, you&amp;rsquo;re welcome to send the PR to us.&lt;/p>
-&lt;p>Before the PR:&lt;/p>
-&lt;ul>
-&lt;li>Make sure your code style conforms to &lt;a href="https://google.github.io/styleguide/cppguide.html">google C++ coding style&lt;/a>. Indentation is preferred to be 4 spaces.&lt;/li>
-&lt;li>The code appears where it should be. For example the code to support an extra protocol should not be put in general classes like server.cpp, channel.cpp, while a general modification would better not be hidden inside a very specific protocol.&lt;/li>
-&lt;li>Has unittests.&lt;/li>
-&lt;/ul>
-&lt;p>After the PR:&lt;/p>
-&lt;ul>
-&lt;li>Make sure the &lt;a href="https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests">travis-ci&lt;/a> passed.&lt;/li>
-&lt;/ul></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.1.0/</guid><description>
-&lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
-&lt;p>New features:&lt;/p>
-&lt;ul>
-&lt;li>Support ipv6 and unix domain socket by @wwbmmm in #1560&lt;/li>
-&lt;li>Support protobuf 3.19.x by @hcoona in #1679&lt;/li>
-&lt;li>Support http protocol dump and replay by @guodongxiaren in #1503&lt;/li>
-&lt;li>Support nshead protocol dump and replay by @wwbmmm in #1486&lt;/li>
-&lt;li>Support parse proto-text format http request body by @hiberabyss in #1690&lt;/li>
-&lt;li>Support deliver timeout from client to server for baidu_std protocol by @wwbmmm in #1472&lt;/li>
-&lt;li>Support inherit span on bthread create by @wwbmmm in #1494&lt;/li>
-&lt;li>Add rpc_replay BUILD file by @taoxu in #1677&lt;/li>
-&lt;li>Add brpc server Start(PortRange, const ServerOptions*) by @serverglen in #1460&lt;/li>
-&lt;li>Add FlatMap insert(const std::pair&amp;lt;key_type, mapped_type&amp;gt;&amp;amp; kv) by @serverglen in #1468&lt;/li>
-&lt;li>Add server eps bvar @serverglen in #1483&lt;/li>
-&lt;/ul>
-&lt;p>Bugfix:&lt;/p>
-&lt;ul>
-&lt;li>Fix CheckHealth not set has_request_code bug by @serverglen in #1502&lt;/li>
-&lt;li>Fix a bug that server will send unexpected data frame to client if there are errors occur during processing stream create request by @jenrryyou in #1516&lt;/li>
-&lt;li>Fix LA selection runs too long by @KaneVV1 in #1567&lt;/li>
-&lt;li>Fix HttpResponse error by @jl2005 in #1620&lt;/li>
-&lt;li>Fix bvar status compile error by @zwkno1 in #1625&lt;/li>
-&lt;li>Fix InputMessenger client side retry policy by @ehds in #1680&lt;/li>
-&lt;li>Fix work_stealing_queue_unittest for ARM by @TKONIY in #1709&lt;/li>
-&lt;li>Fix LatencyRecorder qps not accurate by @wwbmmm in #1708&lt;/li>
-&lt;li>Fix compile error after gcc11 with &amp;ndash;std=c++20 by @hiberabyss in #1719&lt;/li>
-&lt;li>Fix unstable UT link error by @wwbmmm in #1711&lt;/li>
-&lt;li>Fix Thrift download url to avoid pr build failed by @yangzhg in #1725&lt;/li>
-&lt;li>Remove grpc ParseH2Settings warning log by @yanjianglu in #1599&lt;/li>
-&lt;/ul>
-&lt;p>Other improvements:&lt;/p>
-&lt;ul>
-&lt;li>Improve documents by @wwc7654321, @wwbmmm, @tanzhongyi003, @mahongweichina, @cdjingit, @dl239, @ehds&lt;/li>
-&lt;li>Fix typos by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
-&lt;/ul>
-&lt;p>Thanks to all contributors for the 1.1.0 version!&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.0.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.0.0/</guid><description>
+&lt;p>We provide a program to help you to track and monitor all brpc instances. Just run &lt;a href="https://github.com/brpc/brpc/tree/master/tools/trackme_server/">trackme_server&lt;/a> somewhere and launch need-to-be-tracked instances with -trackme_server=SERVER. The trackme_server will receive pings from instances periodically and print logs when it does. You can aggregate instance addresses from the log and call builtin services of the instances for further information.&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.0.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.0.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
@@ -762,7 +688,159 @@ Recognize the Apache community philosophy and be able to actively promote the co
 &lt;li>Announce new PPMC On private@brpc&lt;/li>
 &lt;li>Set his authority by visiting &lt;a href="https://whimsy.apache.org/roster/ppmc/brpc">https://whimsy.apache.org/roster/ppmc/brpc&lt;/a>&lt;/li>
 &lt;li>Help him subscribe to a private email group. See &lt;a href="https://whimsy.apache.org/committers/moderationhelper.cgi">https://whimsy.apache.org/committers/moderationhelper.cgi&lt;/a>&lt;/li>
-&lt;/ol></description></item><item><title>Docs: Release Guide</title><link>https://brpc.apache.org/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/release/</guid><description>
+&lt;/ol></description></item><item><title>Docs: Performance benchmark</title><link>https://brpc.apache.org/docs/benchmark/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/benchmark/</guid><description>
+&lt;h1 id="序言">序言&lt;/h1>
+&lt;p>在多核的前提下，性能和线程是紧密联系在一起的。线程间的跳转对高频IO操作的性能有决定性作用: 一次跳转意味着至少3-20微秒的延时，由于每个核心的L1 cache独立（我们的cpu L2 cache也是独立的），随之而来是大量的cache miss，一些变量的读取、写入延时会从纳秒级上升几百倍至微秒级: 等待cpu把对应的cacheline同步过来。有时这带来了一个出乎意料的结果，当每次的处理都很简短时，一个多线程程序未必比一个单线程程序更快。因为前者可能在每次付出了大的切换代价后只做了一点点“正事”，而后者在不停地做“正事”。不过单线程也是有代价的，它工作良好的前提是“正事”都很快，否则一旦某次变慢就使后续的所有“正事”都被延迟了。在一些处理时间普遍较短的程序中，使用（多个不相交的）单线程能最大程度地”做正事“，由于每个请求的处理时间确定，延时表现也很稳定，各种http server正是这样。但我们的检索服务要做的事情可就复杂多了，有大量的后端服务需要访问，广泛存在的长尾请求使每次处理的时间无法确定，排序策略也越来越复杂。如果还是使用（多个不相交的）单线程的话，一次难以预计的性能抖动，或是一个大请求可能导致后续一堆请求被延迟。&lt;/p>
+&lt;p>为了避免请求之间相互影响，请求级的线程跳转是brpc必须付出的代价，我们能做的是使&lt;a href="../rpc-in-depth/io#the-full-picture">线程跳转最优化&lt;/a>。不过，对服务的性能测试还不能很好地体现这点。测试中的处理往往极为简单，使得线程切换的影响空前巨大，通过控制多线程和单线程处理的比例，我们可以把一个测试服务的qps从100万到500万操纵自如（同机），这损伤了性能测试结果的可信度。要知道，真实的服务并不是在累加一个数字，或者echo一个字符串，一个qps几百万的echo程序没有指导意义。鉴于此，在发起性能测试一年后（15年底），在brpc又经历了1200多次改动后，我们需要review所有的测试，加强其中的线程因素，以获得对真实场景有明确意义的结果。具体来说:&lt;/p>
+&lt;ul>
+&lt;li>请求不应等长，要有长尾。这能考察RPC能否让请求并发，否则一个慢请求会影响大量后续请求。&lt;/li>
+&lt;li>要有多级server的场景。server内用client访问下游server，这能考察server和client的综合表现。&lt;/li>
+&lt;li>要有一个client访问多个server的场景。这能考察负载均衡是否足够并发，真实场景中很少一个client只访问一个server。&lt;/li>
+&lt;/ul>
+&lt;p>我们希望这套测试场景对其他服务的性能测试有借鉴意义。&lt;/p>
+&lt;h1 id="测试目标">测试目标&lt;/h1>
+&lt;h2 id="ub">UB&lt;/h2>
+&lt;p>百度在08年开发的RPC框架，在百度产品线广泛使用，已被brpc代替。UB的每个请求独占一个连接(连接池)，在大规模服务中每台机器都需要保持大量的连接，限制了其使用场景，像百度的分布式系统没有用UB。UB只支持nshead+mcpack协议，也没怎么考虑扩展性，所以增加新协议和新功能往往要调整大段代码，在实践中大部分人“知难而退”了。UB缺乏调试和运维接口，服务的运行状态对用户基本是黑盒，只能靠低效地打日志来追踪问题，服务出现问题时常要拉上维护者一起排查，效率很低。UB有多个变种:&lt;/p>
+&lt;ul>
+&lt;li>ubrpc: 百度在10年基于UB开发的RPC框架，用.idl文件(类似.proto)描述数据的schema，而不是手动打包。这个RPC有被使用，但不广泛。&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>nova_pbrpc: 百度网盟团队在12年基于UB开发的RPC框架，用protobuf代替mcpack作为序列化方法，协议是nshead + user&amp;rsquo;s protobuf。&lt;/li>
+&lt;li>public_pbrpc: 百度在13年初基于UB开发的RPC框架，用protobuf代替mcpack作为序列化方法，但协议与nova_pbrpc不同，大致是nshead + meta protobuf。meta protobuf中有个string字段包含user&amp;rsquo;s protobuf。由于用户数据要序列化两次，这个RPC的性能很差，没有被推广开来。&lt;/li>
+&lt;/ul>
+&lt;p>我们以在百度网盟团队广泛使用的nova_pbrpc为UB的代表。测试时其代码为r10500。早期的UB支持CPOOL和XPOOL，分别使用&lt;a href="http://linux.die.net/man/2/select">select&lt;/a>和&lt;a href="http://kircher-schwanninger.de/michael/publications/lf.pdf">leader-follower模型&lt;/a>，后来提供了EPOLL，使用&lt;a href="http://man7.org/linux/man-pages/man7/epoll.7.html">epoll&lt;/a>处理多路连接。鉴于产品线大都是用EPOLL模型，我们的UB配置也使用EPOLL。UB只支持&lt;a href="../client/basics/#connection-type">连接池&lt;/a>，结果用“&lt;strong>ubrpc_mc&lt;/strong>&amp;ldquo;指代（mc代表&amp;quot;multiple
+connection&amp;rdquo;）。虽然这个名称不太准确（见上文对ubrpc的介绍），但在本文的语境下，请默认ubrpc = UB。&lt;/p>
+&lt;h2 id="hulu-pbrpc">hulu-pbrpc&lt;/h2>
+&lt;p>百度在13年基于saber(kylin变种)和protobuf实现的RPC框架，hulu在多线程实现上有较多问题，已被brpc代替，测试时其代码为&lt;code>pbrpc_2-0-15-27959_PD_BL&lt;/code>。hulu-pbrpc只支持单连接，结果用“&lt;strong>hulu-pbrpc&lt;/strong>&amp;ldquo;指代。&lt;/p>
+&lt;h2 id="brpc">brpc&lt;/h2>
+&lt;p>INF在2014年底开发至今的rpc产品，支持百度内所有协议（不限于protobuf），并第一次统一了百度主要分布式系统和业务线的RPC框架。测试时代码为r31906。brpc既支持单连接也支持连接池，前者的结果用&amp;rdquo;&lt;strong>baidu-rpc&lt;/strong>&amp;ldquo;指代，后者用“&lt;strong>baidu-rpc_mc&lt;/strong>&amp;ldquo;指代。&lt;/p>
+&lt;h2 id="sofa-pbrpc">sofa-pbrpc&lt;/h2>
+&lt;p>百度大搜团队在13年基于boost::asio和protobuf实现的RPC框架，有多个版本，咨询相关同学后，确认ps/opensource下的和github上的较新，且会定期同步。故测试使用使用ps/opensource下的版本。测试时其代码为&lt;code>sofa-pbrpc_1-0-2_BRANCH&lt;/code>。sofa-pbrpc只支持单连接，结果用“&lt;strong>sofa-pbrpc&lt;/strong>”指代。&lt;/p>
+&lt;h2 id="apache-thrift">apache thrift&lt;/h2>
+&lt;p>thrift是由facebook最早在07年开发的序列化方法和rpc框架，包含独特的序列化格式和IDL，支持很多编程语言。开源后改名&lt;a href="https://thrift.apache.org/">apache thrift&lt;/a>，fb自己有一个&lt;a href="https://github.com/facebook/fbthrift">fbthrift分支&lt;/a>，我们使用的是apache thrift。测试时其代码为&lt;code>thrift_0-9-1-400_PD_BL&lt;/code>。thrift的缺点是: 代码看似分层清晰，client和server选择很多，但没有一个足够通用，每个server实现都只能解决很小一块场景，每个client都线程不安全，实际使用很麻烦。由于thrift没有线程安全的client，所以每个线程中都得建立一个client，使用独立的连接。在测试中thrift其实是占了其他实现的便宜: 它的client不需要处理多线程问题。thrift的结果用&amp;rdquo;&lt;strong>thrift_mc&lt;/strong>&amp;ldquo;指代。&lt;/p>
+&lt;h2 id="grpc">gRPC&lt;/h2>
+&lt;p>由google开发的rpc框架，使用http/2和protobuf 3.0，测试时其代码为&lt;a href="https://github.com/grpc/grpc/tree/release-0_11">https://github.com/grpc/grpc/tree/release-0_11&lt;/a>。gRPC并不是stubby，定位更像是为了推广http/2和protobuf 3.0，但鉴于很多人对它的表现很感兴趣，我们也（很麻烦地）把它加了进来。gRPC的结果用&amp;rdquo;&lt;strong>grpc&lt;/strong>&amp;ldquo;指代。&lt;/p>
+&lt;h1 id="测试方法">测试方法&lt;/h1>
+&lt;p>如序言中解释的那样，性能数字有巨大的调整空间。这里的关键在于，我们对RPC的底线要求是什么，脱离了这个底线，测试中的表现就严重偏离真实环境中的了。&lt;/p>
+&lt;p>这个底线我们认为是&lt;strong>RPC必须能处理长尾&lt;/strong>。&lt;/p>
+&lt;p>在百度的环境中，这是句大白话，哪个产品线，哪个系统没有长尾呢？作为承载大部分服务的RPC框架自然得处理好长尾，减少长尾对正常请求的影响。但在实现层面，这个问题对设计的影响太大了。如果测试中没有长尾，那么RPC实现就可以假设每个请求都差不多快，这时候最优的方法是用多个线程独立地处理请求。由于没有上下文切换和cache一致性同步，程序的性能会显著高于多个线程协作时的表现。&lt;/p>
+&lt;p>比如简单的echo程序，处理一个请求只需要200-300纳秒，单个线程可以达到300-500万的吞吐。但如果多个线程协作，即使在极其流畅的系统中，也要付出3-5微秒的上下文切换代价和1微秒的cache同步代价，这还没有考虑多个线程间的其他互斥逻辑，一般来说单个线程的吞吐很难超过10万，即使24核全部用满，吞吐也只有240万，不及一个线程。这正是以http server为典型的服务选用&lt;a href="../rpc-in-depth/threading-overview/#single-threaded-reactorhttpenwikipediaorgwikireactor_pattern">单线程模型&lt;/a>的原因（多个线程独立运行eventloop）: 大部分http请求的处理时间是可预测的，对下游的访问也不会有任何阻塞代码。这个模型可以最大化cpu利用率，同时提供可接受的延时。&lt;/p>
+&lt;p>多线程付出这么大的代价是为了&lt;strong>隔离请求间的影响&lt;/strong>。一个计算复杂或索性阻塞的过程不会影响到其他请求，1%的长尾最终只会影响到1%的性能。而多个独立的线程是保证不了这点的，一个请求进入了一个线程就等于“定了终生”，如果前面的请求慢了一下，那也只能跟着慢了。1%的长尾会影响远超1%的请求，最终表现不佳。换句话说，乍看上去多线程模型“慢”了，但在真实应用中反而会获得更好的综合性能。&lt;/p>
+&lt;p>延时能精确地体现出长尾的干扰作用，如果普通请求的延时没有被长尾请求干扰，就说明RPC成功地隔离了请求。而QPS无法体现这点，只要CPU都在忙，即使一个正常请求进入了挤满长尾的队列而被严重延迟，最终的QPS也变化不大。为了测量长尾的干扰作用，我们在涉及到延时的测试中都增加了1%的长尾请求。&lt;/p>
+&lt;h1 id="开始测试">开始测试&lt;/h1>
+&lt;h2 id="环境">环境&lt;/h2>
+&lt;p>性能测试使用的机器配置为:&lt;/p>
+&lt;ul>
+&lt;li>单机1: CPU开超线程24核，E5-2620 @ 2.00GHz；64GB内存；OS linux 2.6.32_1-15-0-0&lt;/li>
+&lt;li>多机1（15台+8台）: CPU均未开超线程12核，其中15台的CPU为E5-2420 @ 1.90GHz.，64GB内存，千兆网卡，无法开启多队列。其余8台为E5-2620 2.0GHz，千兆网卡，绑定多队列到前8个核。这些长期测试机器比较杂，跨了多个机房，测试中延时在1ms以上的就是这批机器。&lt;/li>
+&lt;li>多机2（30台）: CPU未开超线程12核，E5-2620 v3 @ 2.40GHz.；96GB内存；OS linux 2.6.32_1-17-0-0；万兆网卡，绑定多队列到前8个核。这是临时借用的新机器，配置非常好，都在广州机房，延时非常短，测试中延时在几百微秒的就是这批机器。&lt;/li>
+&lt;/ul>
+&lt;p>下面所有的曲线图是使用brpc开发的dashboard程序绘制的，去掉路径后可以看到和所有brpc
+server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&lt;/a>。&lt;/p>
+&lt;h2 id="配置">配置&lt;/h2>
+&lt;p>如无特殊说明，所有测试中的配置只是数量差异（线程数，请求大小，client个数etc），而不是模型差异。我们确保用户看到的qps和延时是同一个场景的不同维度，而不是无法统一的两个场景。&lt;/p>
+&lt;p>所有RPC server都配置了24个工作线程，这些线程一般运行用户的处理逻辑。关于每种RPC的特殊说明:&lt;/p>
+&lt;ul>
+&lt;li>UB: 配置了12个reactor线程，使用EPOOL模型。连接池限制数配置为线程个数（24）&lt;/li>
+&lt;li>hulu-pbrpc: 额外配置了12个IO线程。这些线程会处理fd读取，请求解析等任务。hulu有个“共享队列“的配置项，默认不打开，作用是把fd静态散列到多个线程中，由于线程间不再争抢，hulu的qps会显著提高，但会明显地被长尾影响（原因见&lt;a href="#%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95">测试方法&lt;/a>）。考虑到大部分使用者并不会去改配置，我们也选择不打开。&lt;/li>
+&lt;li>thrift: 额外配置了12个IO线程。这些线程会处理fd读取，请求解析等任务。thrift的client不支持多线程，每个线程得使用独立的client，连接也都是分开的。&lt;/li>
+&lt;li>sofa-pbrpc: 按照sofa同学的要求，把io_service_pool_size配置为24，work_thread_num配置为1。大概含义是使用独立的24组线程池，每组1个worker thread。和hulu不打开“共享队列”时类似，这个配置会显著提高sofa-pbrpc的QPS，但同时使它失去了处理长尾的能力。如果你在真实产品中使用，我们不建议这个配置。（而应该用io_service_pool_size=1, work_thread_num=24)&lt;/li>
+&lt;li>brpc: 尽管brpc的client运行在bthread中时会获得10%~20%的QPS提升和更低的延时，但测试中的client都运行统一的pthread中。&lt;/li>
+&lt;/ul>
+&lt;p>所有的RPC client都以多个线程同步方式发送，这种方法最接近于真实系统中的情况，在考察QPS时也兼顾了延时因素。&lt;/p>
+&lt;p>一种流行的方案是client不停地往连接中写入数据看server表现，这个方法的弊端在于: server一下子能读出大量请求，不同RPC的比拼变成了“for循环执行用户代码”的比拼，而不是分发请求的效率。在真实系统中server很少能同时读到超过4个请求。这个方法也完全放弃了延时，client其实是让server陷入了雪崩时才会进入的状态，所有请求都因大量排队而超时了。&lt;/p>
+&lt;h2 id="同机单client单server在不同请求下的qps越高越好">同机单client→单server在不同请求下的QPS（越高越好）&lt;/h2>
+&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">单机1&lt;/a>上。图中的数值均为用户数据的字节数，实际的请求尺寸还要包括协议头，一般会增加40字节左右。&lt;/p>
+&lt;p>（X轴是用户数据的字节数，Y轴是对应的QPS）&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/qps_vs_reqsize.png" alt="img">&lt;/p>
+&lt;p>以_mc结尾的曲线代表client和server保持多个连接（线程数个），在本测试中会有更好的表现。&lt;/p>
+&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>brpc: 当请求包小于16KB时，单连接下的吞吐超过了多连接的ubrpc_mc和thrift_mc，随着请求包变大，内核对单个连接的写入速度成为瓶颈。而多连接下的brpc则达到了测试中最高的2.3GB/s。注意: 虽然使用连接池的brpc在发送大包时吞吐更高，但也会耗费更多的CPU（UB和thrift也是这样）。下图中的单连接brpc已经可以提供800多兆的吞吐，足以打满万兆网卡，而使用的CPU可能只有多链接下的1/2(写出过程是&lt;a href="../rpc-in-depth/io#sending-messages">wait-free的&lt;/a>)，真实系统中请优先使用单链接。&lt;/li>
+&lt;li>thrift: 初期明显低于brpc，随着包变大超过了单连接的brpc。&lt;/li>
+&lt;li>UB:和thrift类似的曲线，但平均要低4-5万QPS，在32K包时超过了单连接的brpc。整个过程中QPS几乎没变过。&lt;/li>
+&lt;li>gRPC: 初期几乎与UB平行，但低1万左右，超过8K开始下降。&lt;/li>
+&lt;li>hulu-pbrpc和sofa-pbrpc: 512字节前高于UB和gRPC，但之后就急转直下，相继垫底。这个趋势是写不够并发的迹象。&lt;/li>
+&lt;/ul>
+&lt;h2 id="同机单client单server在不同线程数下的qps越高越好">同机单client→单server在不同线程数下的QPS（越高越好）&lt;/h2>
+&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">单机1&lt;/a>上。&lt;/p>
+&lt;p>（X轴是线程数，Y轴是对应的QPS）&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/qps_vs_threadnum.png" alt="img">&lt;/p>
+&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
+&lt;p>brpc: 随着发送线程增加，QPS在快速增加，有很好的多线程扩展性。&lt;/p>
+&lt;p>UB和thrift: 8个线程下高于brpc，但超过8个线程后被brpc迅速超过，thrift继续“平移”，UB出现了明显下降。&lt;/p>
+&lt;p>gRPC，hulu-pbrpc，sofa-pbrpc: 几乎重合，256个线程时相比1个线程时只有1倍的提升，多线程扩展性不佳。&lt;/p>
+&lt;h2 id="同机单client单server在固定qps下的延时cdfbuiltin-servicesvars统计和查看分位值越左越好越直越好">同机单client→单server在固定QPS下的延时&lt;a href="../builtin-services/vars/#%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%9F%A5%E7%9C%8B%E5%88%86%E4%BD%8D%E5%80%BC">CDF&lt;/a>（越左越好，越直越好）&lt;/h2>
+&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">单机1&lt;/a>上。考虑到不同RPC的处理能力，我们选择了一个较低、在不少系统中会达到的的QPS: 1万。&lt;/p>
+&lt;p>本测试中有1%的长尾请求耗时5毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
+&lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>brpc: 平均延时短，几乎没有被长尾影响。&lt;/li>
+&lt;li>UB和thrift: 平均延时比brpc高1毫秒，受长尾影响不大。&lt;/li>
+&lt;li>hulu-pbrpc: 走向和UB和thrift类似，但平均延时进一步增加了1毫秒。&lt;/li>
+&lt;li>gRPC : 初期不错，到长尾区域后表现糟糕，直接有一部分请求超时了。（反复测试都是这样，像是有bug）&lt;/li>
+&lt;li>sofa-pbrpc: 30%的普通请求（上图未显示）被长尾严重干扰。&lt;/li>
+&lt;/ul>
+&lt;h2 id="跨机多client单server的qps越高越好">跨机多client→单server的QPS（越高越好）&lt;/h2>
+&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机1&lt;/a>上。&lt;/p>
+&lt;p>（X轴是client数，Y轴是对应的QPS）&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/qps_vs_multi_client.png" alt="img">&lt;/p>
+&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>brpc: 随着cilent增加，server的QPS在快速增加，有不错的client扩展性。&lt;/li>
+&lt;li>sofa-pbrpc: 随着client增加，server的QPS也在快速增加，但幅度不如brpc，client扩展性也不错。从16个client到32个client时的提升较小。&lt;/li>
+&lt;li>hulu-pbrpc: 随着client增加，server的QPS在增加，但幅度进一步小于sofa-pbrpc。&lt;/li>
+&lt;li>UB: 增加client几乎不能增加server的QPS。&lt;/li>
+&lt;li>thrift: 平均QPS低于UB，增加client几乎不能增加server的QPS。&lt;/li>
+&lt;li>gRPC: 垫底、增加client几乎不能增加server的QPS。&lt;/li>
+&lt;/ul>
+&lt;h2 id="跨机多client单server在固定qps下的延时cdfbuiltin-servicesvars统计和查看分位值越左越好越直越好">跨机多client→单server在固定QPS下的延时&lt;a href="../builtin-services/vars/#%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%9F%A5%E7%9C%8B%E5%88%86%E4%BD%8D%E5%80%BC">CDF&lt;/a>（越左越好，越直越好）&lt;/h2>
+&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机1&lt;/a>上。负载均衡算法为round-robin或RPC默认提供的。由于有32个client且一些RPC的单client能力不佳，我们为每个client仅设定了2500QPS，这是一个真实业务系统能达到的数字。&lt;/p>
+&lt;p>本测试中有1%的长尾请求耗时15毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
+&lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/multi_client_latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>brpc: 平均延时短，几乎没有被长尾影响。&lt;/li>
+&lt;li>UB和thrift: 平均延时短，受长尾影响小，平均延时高于brpc&lt;/li>
+&lt;li>sofa-pbrpc: 14%的普通请求被长尾严重干扰。&lt;/li>
+&lt;li>hulu-pbrpc: 15%的普通请求被长尾严重干扰。&lt;/li>
+&lt;li>gRPC: 已经完全失控，非常糟糕。&lt;/li>
+&lt;/ul>
+&lt;h2 id="跨机多client多server在固定qps下的延时cdfbuiltin-servicesvars统计和查看分位值越左越好越直越好">跨机多client→多server在固定QPS下的延时&lt;a href="../builtin-services/vars/#%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%9F%A5%E7%9C%8B%E5%88%86%E4%BD%8D%E5%80%BC">CDF&lt;/a>（越左越好，越直越好）&lt;/h2>
+&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机2&lt;/a>上。20台每台运行4个client，多线程同步访问10台server。负载均衡算法为round-robin或RPC默认提供的。由于gRPC访问多server较麻烦且有很大概率仍表现不佳，这个测试不包含gRPC。&lt;/p>
+&lt;p>本测试中有1%的长尾请求耗时10毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
+&lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/multi_server_latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>brpc和UB: 平均延时短，几乎没有被长尾影响。&lt;/li>
+&lt;li>thrift: 平均延时显著高于brpc和UB。&lt;/li>
+&lt;li>sofa-pbrpc: 2.5%的普通请求被长尾严重干扰。&lt;/li>
+&lt;li>hulu-pbrpc: 22%的普通请求被长尾严重干扰。&lt;/li>
+&lt;/ul>
+&lt;h2 id="跨机多client多server多server在固定qps下的延时cdfbuiltin-servicesvars统计和查看分位值越左越好越直越好">跨机多client→多server→多server在固定QPS下的延时&lt;a href="../builtin-services/vars/#%E7%BB%9F%E8%AE%A1%E5%92%8C%E6%9F%A5%E7%9C%8B%E5%88%86%E4%BD%8D%E5%80%BC">CDF&lt;/a>（越左越好，越直越好）&lt;/h2>
+&lt;p>本测试运行在&lt;a href="#%E7%8E%AF%E5%A2%83">多机2&lt;/a>上。14台每台运行4个client，多线程同步访问8台server，这些server还会同步访问另外8台server。负载均衡算法为round-robin或RPC默认提供的。由于gRPC访问多server较麻烦且有很大概率仍表现不佳，这个测试不包含gRPC。&lt;/p>
+&lt;p>本测试中有1%的长尾请求耗时10毫秒，长尾请求的延时不计入结果，因为我们考察的是普通请求是否被及时处理了。&lt;/p>
+&lt;p>（X轴是延时（微秒），Y轴是小于X轴延时的请求比例）&lt;/p>
+&lt;p>&lt;img src="https://brpc.apache.org/images/docs/twolevel_server_latency_cdf.png" alt="img">&lt;/p>
+&lt;p>&lt;strong>分析&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>brpc: 平均延时短，几乎没有被长尾影响。&lt;/li>
+&lt;li>UB: 平均延时短，长尾区域略差于brpc。&lt;/li>
+&lt;li>thrift: 平均延时显著高于brpc和UB。&lt;/li>
+&lt;li>sofa-pbrpc: 17%的普通请求被长尾严重干扰，其中2%的请求延时极长。&lt;/li>
+&lt;li>hulu-pbrpc: 基本消失在视野中，已无法正常工作。&lt;/li>
+&lt;/ul>
+&lt;h1 id="结论">结论&lt;/h1>
+&lt;p>brpc: 在吞吐，平均延时，长尾处理上都表现优秀。&lt;/p>
+&lt;p>UB: 平均延时和长尾处理的表现都不错，吞吐的扩展性较差，提高线程数和client数几乎不能提升吞吐。&lt;/p>
+&lt;p>thrift: 单机的平均延时和吞吐尚可，多机的平均延时明显高于brpc和UB。吞吐的扩展性较差，提高线程数和client数几乎不能提升吞吐。&lt;/p>
+&lt;p>sofa-pbrpc: 处理小包的吞吐尚可，大包的吞吐显著低于其他RPC，延时受长尾影响很大。&lt;/p>
+&lt;p>hulu-pbrpc: 单机表现和sofa-pbrpc类似，但多机的延时表现极差。&lt;/p>
+&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: Release Guide</title><link>https://brpc.apache.org/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/release/</guid><description>
 &lt;h1 id="brpc-apache-release-guide-step-by-step">brpc apache release guide step by step&lt;/h1>
 &lt;p>Overview: divided into the following steps&lt;/p>
 &lt;ol>
@@ -1323,86 +1401,7 @@ Apache brpc (Incubating) community
 &lt;p>If you have any concerns regarding bRPC’s security, or you discover a vulnerability or potential threat, please don’t hesitate to get in touch with the &lt;a href="http://www.apache.org/security/">Apache Security Team&lt;/a> by dropping an email at &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>.&lt;/p>
 &lt;p>Please specify the project name as &amp;ldquo;bRPC&amp;rdquo; in the email, and provide a description of the relevant problem or potential threat. You are also urged to recommend how to reproduce and replicate the issue.&lt;/p>
 &lt;p>The Apache Security Team and the bRPC community will get back to you after assessing and analyzing the findings.&lt;/p>
-&lt;p>&lt;strong>Please note&lt;/strong> that the security issue should be reported on the security email first, before disclosing it on any public domain.&lt;/p></description></item><item><title>Docs: Download bRPC</title><link>https://brpc.apache.org/docs/downloadbrpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/downloadbrpc/</guid><description>
-&lt;!--
-{% comment %}
-Licensed to the Apache Software Foundation (ASF) under one or more
-contributor license agreements. See the NOTICE file distributed with
-this work for additional information regarding copyright ownership.
-The ASF licenses this file to you under the Apache License, Version 2.0
-(the "License"); you may not use this file except in compliance with
-the License. You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-{% endcomment %}
--->
-&lt;h2 id="apache-brpc-incubating-downloads">Apache bRPC (incubating) Downloads&lt;/h2>
-&lt;p>Apache bRPC (incubating) is released as a source artifact.
-We are pleased to announce our 1.3.0 release as below.&lt;/p>
-&lt;h3 id="release-candidate">Release Candidate&lt;/h3>
-&lt;!--when pass vote, we can change it back to Release Artifacts
--->
-&lt;table class="table table-hover sortable">
-&lt;thead>
-&lt;tr>
-&lt;th>&lt;b>Name&lt;/b>&lt;/th>
-&lt;th>&lt;b>Archive&lt;/b>&lt;/th>
-&lt;th>&lt;b>SHA-512&lt;/b>&lt;/th>
-&lt;th>&lt;b>Signature&lt;/b>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Apache bRPC (incubating) 1.3.0 (tar.gz)&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Apache bRPC (incubating) 1.2.0 (tar.gz)&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Apache bRPC (incubating) 1.1.0 (tar.gz)&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/incubator/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Apache bRPC (incubating) 1.0.0 (tar.gz)&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/incubator/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/incubator/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
-&lt;/tr>
-&lt;!--tr>
-&lt;td>Release Notes&lt;/td>
-&lt;td>&lt;a href="https://brpc.apache.org/releases/spark/{{ site.data.project.latest_release }}/release-notes">{{ site.data.project.latest_release }}&lt;/a>&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr-->
-&lt;/tbody>
-&lt;/table>
-&lt;p>Choose a source distribution in either &lt;em>tar&lt;/em> or &lt;em>zip&lt;/em> format,
-and &lt;a href="https://www.apache.org/dyn/closer.cgi#verify">verify&lt;/a>
-using the corresponding &lt;em>pgp&lt;/em> signature (using the committer file in
-&lt;a href="https://downloads.apache.org/incubator/brpc/KEYS">KEYS&lt;/a>).
-If you cannot do that, the &lt;em>md5&lt;/em> hash file may be used to check that the
-download has completed OK.&lt;/p>
-&lt;p>For fast downloads, current source distributions are hosted on mirror servers;
-older source distributions are in the
-&lt;a href="https://archive.apache.org/dist/incubator/brpc/">archive&lt;/a>.
-If a download from a mirror fails, retry, and the second download will likely
-succeed.&lt;/p>
-&lt;p>For security, hash and signature files are always hosted at
-&lt;a href="https://www.apache.org">Apache&lt;/a>.&lt;/p></description></item><item><title>Docs: FAQ</title><link>https://brpc.apache.org/docs/faq/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/faq/</guid><description>
-&lt;p>See &lt;a href="https://github.com/apache/incubator-brpc/issues">https://github.com/apache/incubator-brpc/issues&lt;/a>&lt;/p></description></item><item><title>Docs: Users</title><link>https://brpc.apache.org/docs/users/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/users/</guid><description>
+&lt;p>&lt;strong>Please note&lt;/strong> that the security issue should be reported on the security email first, before disclosing it on any public domain.&lt;/p></description></item><item><title>Docs: Users</title><link>https://brpc.apache.org/docs/users/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/users/</guid><description>
 &lt;div id="overview">
 &lt;div class="contain" style="width: auto; margin: 0 auto">
 &lt;h1 class="section-head">Used by&lt;/h1>
@@ -1467,4 +1466,5 @@ succeed.&lt;/p>
 &lt;/a>
 &lt;/td>
 &lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/div></description></item><item><title>Docs: FAQ</title><link>https://brpc.apache.org/docs/faq/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/faq/</guid><description>
+&lt;p>See &lt;a href="https://github.com/apache/incubator-brpc/issues">https://github.com/apache/incubator-brpc/issues&lt;/a>&lt;/p></description></item></channel></rss>
