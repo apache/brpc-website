@@ -2,6 +2,8 @@
 title: "下载bRPC"
 linkTitle: "下载bRPC"
 weight: 12
+aliases: 
+- "/zh/download"
 date: 2021-08-12
 description: >
   下载bRPC发行版。
