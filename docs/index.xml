@@ -757,7 +757,8 @@ Recognize the Apache community philosophy and be able to actively promote the co
 &lt;ol>
 &lt;li>Initiate discussion in the private@brpc . If there is no objection, continue&lt;/li>
 &lt;li>Open a Vote in private@brpc&lt;/li>
-&lt;li>Send an email to close the voting and notify &lt;a href="mailto:private@incubator.apache.org">private@incubator.apache.org&lt;/a>&lt;/li>
+&lt;li>If the vote is successful, sends a message to the PPMC private email list about the vote result&lt;/li>
+&lt;li>send a message to the IPMC (&lt;a href="mailto:private@incubator.apache.org">private@incubator.apache.org&lt;/a>) with a reference to the vote result&lt;/li>
 &lt;li>Announce new PPMC On private@brpc&lt;/li>
 &lt;li>Set his authority by visiting &lt;a href="https://whimsy.apache.org/roster/ppmc/brpc">https://whimsy.apache.org/roster/ppmc/brpc&lt;/a>&lt;/li>
 &lt;li>Help him subscribe to a private email group. See &lt;a href="https://whimsy.apache.org/committers/moderationhelper.cgi">https://whimsy.apache.org/committers/moderationhelper.cgi&lt;/a>&lt;/li>
