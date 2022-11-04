@@ -86,7 +86,8 @@ Doing these things will make everyone's job easier.
 
 1. Initiate discussion in the private@brpc . If there is no objection, continue
 2. Open a Vote in private@brpc 
-3. Send an email to close the voting and notify private@incubator.apache.org
-4. Announce new PPMC On private@brpc 
-5. Set his authority by visiting https://whimsy.apache.org/roster/ppmc/brpc
-6. Help him subscribe to a private email group. See https://whimsy.apache.org/committers/moderationhelper.cgi
+3. If the vote is successful, sends a message to the PPMC private email list about the vote result
+4. send a message to the IPMC (private@incubator.apache.org) with a reference to the vote result
+5. Announce new PPMC On private@brpc 
+6. Set his authority by visiting https://whimsy.apache.org/roster/ppmc/brpc
+7. Help him subscribe to a private email group. See https://whimsy.apache.org/committers/moderationhelper.cgi
