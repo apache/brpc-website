@@ -1,4 +1,4 @@
-baseURL = "https://brpc.incubator.apache.org/"
+baseURL = "https://brpc.apache.org/"
 title = "bRPC"
 
 enableRobotsTXT = true
