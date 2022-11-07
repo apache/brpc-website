@@ -7,10 +7,10 @@ menu:
     weight: 50
 date: 2022-11-07
 description: >
-  关于Apache基金会
+  关于Apache软件基金会
 ---
 
-## Apache Software Foundation
+## Apache 软件基金会
 
 * [基金会](https://www.apache.org/)
 * [版权](https://www.apache.org/licenses/)
