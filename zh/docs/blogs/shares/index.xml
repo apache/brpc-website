@@ -1,6 +1,6 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 分享</title><link>https://brpc.apache.org/zh/docs/blogs/shares/</link><description>Recent content in 分享 on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.apache.org/zh/docs/blogs/shares/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: brpc初学者指南</title><link>https://brpc.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</guid><description>
 &lt;p>(作者简介：lorinlee，是brpc新进committer，在字节跳动负责图数据库相关工作）&lt;/p>
-&lt;p>Apache brpc(incubating) 是一款优秀的工业级 C++ RPC 框架，其兼具高性能、兼容多种协议、周边工具完善等多种优点于一身，已在国内多个大厂广泛使用。&lt;/p>
+&lt;p>Apache bRPC(incubating) 是一款优秀的工业级 C++ RPC 框架，其兼具高性能、兼容多种协议、周边工具完善等多种优点于一身，已在国内多个大厂广泛使用。&lt;/p>
 &lt;p>有不少同学对brpc感兴趣，但还没有找到合适的路径，不知道如何学习。笔者是来自字节跳动的研发工程师，也曾遇到相同的困扰，后来通过自己的一些摸索，成为了brpc committer，期间也总结了一些经验，希望对大家有所帮助。&lt;/p>
 &lt;p>因此本文期望结合作者的经历，通过一些简单可行的步骤，帮助大家迈出探索brpc的脚步，学习它的设计与实现方式，以对大家日常的学习和工作有所帮助。也欢迎大家在熟悉brpc之后，参与到brpc的贡献中，比如文档完善、解决issue、bugfix、feature开发等等。&lt;/p>
 &lt;h2 id="文档">文档&lt;/h2>

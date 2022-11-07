@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-&lt;h2 id="apache-brpc-incubating-community">Apache brpc (incubating) Community&lt;/h2>
+&lt;h2 id="apache-brpc-incubating-community">Apache bRPC (incubating) Community&lt;/h2>
 &lt;p>Every volunteer project obtains its strength from the people involved in it. We invite you to participate as much or as little as you choose.&lt;/p>
 &lt;p>You can:&lt;/p>
 &lt;ul>
@@ -64,6 +64,7 @@ limitations under the License.
 &lt;p>If you can solve any of &lt;a href="https://github.com/brpc/brpc/issues">the issues&lt;/a>, you&amp;rsquo;re welcome to send the PR to us.&lt;/p>
 &lt;p>Before the PR:&lt;/p>
 &lt;ul>
+&lt;li>Fully comply with the &lt;a href="https://www.apache.org/foundation/policies/conduct.html">ASF Code of Conduct&lt;/a>.&lt;/li>
 &lt;li>Make sure your code style conforms to &lt;a href="https://google.github.io/styleguide/cppguide.html">google C++ coding style&lt;/a>. Indentation is preferred to be 4 spaces.&lt;/li>
 &lt;li>The code appears where it should be. For example the code to support an extra protocol should not be put in general classes like server.cpp, channel.cpp, while a general modification would better not be hidden inside a very specific protocol.&lt;/li>
 &lt;li>Has unittests.&lt;/li>

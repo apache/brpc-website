@@ -140,7 +140,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-&lt;h2 id="apache-brpc-孵化-社区">Apache brpc (孵化) 社区&lt;/h2>
+&lt;h2 id="apache-brpc-孵化-社区">Apache bRPC (孵化) 社区&lt;/h2>
 &lt;p>每个志愿者项目的力量都来自参与其中的人。我们邀请您尽可能多或少地参与。&lt;/p>
 &lt;p>你可以：&lt;/p>
 &lt;ul>
@@ -654,7 +654,7 @@ limitations under the License.
 &lt;li>&lt;a href="https://blog.csdn.net/thisinnocence/article/details/50936470">https://blog.csdn.net/thisinnocence/article/details/50936470&lt;/a>&lt;/li>
 &lt;/ol></description></item><item><title>Docs: brpc初学者指南</title><link>https://brpc.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/shares/brpc-guide-for-beginners/</guid><description>
 &lt;p>(作者简介：lorinlee，是brpc新进committer，在字节跳动负责图数据库相关工作）&lt;/p>
-&lt;p>Apache brpc(incubating) 是一款优秀的工业级 C++ RPC 框架，其兼具高性能、兼容多种协议、周边工具完善等多种优点于一身，已在国内多个大厂广泛使用。&lt;/p>
+&lt;p>Apache bRPC(incubating) 是一款优秀的工业级 C++ RPC 框架，其兼具高性能、兼容多种协议、周边工具完善等多种优点于一身，已在国内多个大厂广泛使用。&lt;/p>
 &lt;p>有不少同学对brpc感兴趣，但还没有找到合适的路径，不知道如何学习。笔者是来自字节跳动的研发工程师，也曾遇到相同的困扰，后来通过自己的一些摸索，成为了brpc committer，期间也总结了一些经验，希望对大家有所帮助。&lt;/p>
 &lt;p>因此本文期望结合作者的经历，通过一些简单可行的步骤，帮助大家迈出探索brpc的脚步，学习它的设计与实现方式，以对大家日常的学习和工作有所帮助。也欢迎大家在熟悉brpc之后，参与到brpc的贡献中，比如文档完善、解决issue、bugfix、feature开发等等。&lt;/p>
 &lt;h2 id="文档">文档&lt;/h2>
@@ -919,6 +919,7 @@ limitations under the License.
 &lt;p>如果你可以解决某个&lt;a href="https://github.com/brpc/brpc/issues">issue&lt;/a>, 欢迎发送PR。&lt;/p>
 &lt;p>发送PR前请确认：&lt;/p>
 &lt;ul>
+&lt;li>完全遵守&lt;a href="https://www.apache.org/foundation/policies/conduct.html">Apache软件基金会行为准则&lt;/a>。&lt;/li>
 &lt;li>你的代码符合&lt;a href="https://google.github.io/styleguide/cppguide.html">google C++代码规范&lt;/a>。缩进最好为4个空格。&lt;/li>
 &lt;li>代码出现的位置和其定位相符。比如对于某特定协议的扩展代码不该出现在server.cpp, channel.cpp这些较为通用的类中，而一些非常通用的改动也不该深藏在某个特定协议的cpp中。&lt;/li>
 &lt;li>有对应的单测代码。&lt;/li>
@@ -1995,7 +1996,17 @@ Apache brpc (Incubating) community
 &lt;p>在&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">bRPC贡献者&lt;/a>列表中，记录了所有为bRPC出过贡献的人，感谢的所有&lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">贡献者&lt;/a>，一起帮助 bRPC 更好地发展。&lt;/p></description></item><item><title>Docs: 安全</title><link>https://brpc.apache.org/zh/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/security/</guid><description>
 &lt;p>Apache Software Foundation 在消除其软件项目中的安全问题方面采取了严格的立场。Apache bRPC(Incubating) 也十分关注与其特性和功能相关的安全问题。&lt;/p>
 &lt;p>如果您对 bRPC 的安全性感到担忧，或者您发现了漏洞或潜在的威胁，请不要犹豫与 &lt;a href="http://www.apache.org/security/">Apache 安全团队&lt;/a> 联系，发送邮件至 &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>。 在邮件中请指明项目名称为 bRPC，并提供相关问题或潜在威胁的描述。同时推荐重现和复制安全问题的方法。在评估和分析调查结果后，Apache 安全团队和 bRPC 社区将直接与您回复。&lt;/p>
-&lt;p>&lt;strong>请注意&lt;/strong> 在提交安全邮件之前，请勿在公共领域披露安全电子邮件报告的安全问题。&lt;/p></description></item><item><title>Docs: 用户</title><link>https://brpc.apache.org/zh/docs/users/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/users/</guid><description>
+&lt;p>&lt;strong>请注意&lt;/strong> 在提交安全邮件之前，请勿在公共领域披露安全电子邮件报告的安全问题。&lt;/p></description></item><item><title>Docs: ASF</title><link>https://brpc.apache.org/zh/docs/asf/</link><pubDate>Mon, 07 Nov 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/asf/</guid><description>
+&lt;h2 id="apache-software-foundation">Apache Software Foundation&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.apache.org/">基金会&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.apache.org/licenses/">版权&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.apache.org/security/">安全&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.apache.org/events/current-event">活动&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.apache.org/foundation/sponsorship.html">捐赠&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://privacy.apache.org/policies/privacy-policy-public.html">隐私&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.apache.org/foundation/thanks.html">致谢&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Docs: 用户</title><link>https://brpc.apache.org/zh/docs/users/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/users/</guid><description>
 &lt;div id="overview">
 &lt;div class="contain" style="width: auto; margin: 0 auto">
 &lt;h1 class="section-head">谁在使用&lt;/h1>
