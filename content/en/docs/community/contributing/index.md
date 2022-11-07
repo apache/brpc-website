@@ -12,6 +12,7 @@ If you can solve any of [the issues](https://github.com/brpc/brpc/issues), you'r
 
 Before the PR:
 
+* Fully comply with the [ASF Code of Conduct](https://www.apache.org/foundation/policies/conduct.html).
 * Make sure your code style conforms to [google C++ coding style](https://google.github.io/styleguide/cppguide.html). Indentation is preferred to be 4 spaces.
 * The code appears where it should be. For example the code to support an extra protocol should not be put in general classes like server.cpp, channel.cpp, while a general modification would better not be hidden inside a very specific protocol.
 * Has unittests.

@@ -27,7 +27,7 @@ limitations under the License.
 {% endcomment %}
 -->
 
-## Apache brpc (incubating) Community
+## Apache bRPC (incubating) Community
 
 Every volunteer project obtains its strength from the people involved in it. We invite you to participate as much or as little as you choose.
 

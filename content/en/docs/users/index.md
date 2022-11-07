@@ -1,12 +1,12 @@
 ---
 title: "Users"
 linkTitle: "Users"
-weight: 14
+weight: 15
 date: 2020-03-02
 author: "bRPC Team"
 menu:
   main:
-    weight: 60
+    weight: 70
 description: >
   Providing your info on <a href="https://github.com/apache/incubator-brpc/issues/1640">Wanted: who’s using bRPC</a> to help improving bRPC better
 ---

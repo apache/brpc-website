@@ -1,7 +1,7 @@
 ---
 title: "FAQ"
 linkTitle: "FAQ"
-weight: 16
+weight: 17
 date: 2020-03-02
 author: "bRPC Team"
 description: >
