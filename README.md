@@ -1,10 +1,10 @@
 # Apache bRPC Website
  
-This project keeps all sources used for building up bRPC official website which's served at https://brpc.apache.org.
+This project keeps all sources used for building up Apache bRPC website which's served at https://brpc.apache.org.
 
 ## Overview
 
-The Apache bRPC docs are built using [Hugo](https://gohugo.io/) with the [Docsy](https://docsy.dev) theme.
+The Apache bRPC Website are built using [Hugo](https://gohugo.io/) with the [Docsy](https://docsy.dev) theme.
 This project contains the hugo project, markdown files, and theme configurations.
 
 ## Pre-requisites
