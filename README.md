@@ -1,4 +1,4 @@
-# bRPC Official Website
+# Apache bRPC Website
  
 This project keeps all sources used for building up bRPC official website which's served at https://brpc.apache.org.
 
