@@ -16,7 +16,7 @@
 #
 
 github:
-  description: Apache bRPC Documents
+  description: Apache bRPC Website
   homepage: https://brpc.apache.org
   labels:
     - brpc
