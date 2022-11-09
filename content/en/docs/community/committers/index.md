@@ -29,7 +29,7 @@ Thank you all your help!
         <td>jamesge</td>
         <td><a href="http://github.com/jamesge">jamesge</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>Bytedance</td>
     </tr>
     <tr>
         <td><a href="http://github.com/zyearn"><img width="64" src="https://avatars.githubusercontent.com/u/4475779?v=4"></a></td>
@@ -37,7 +37,7 @@ Thank you all your help!
         <td>jiashunzhu</td>
         <td><a href="http://github.com/zyearn">zyearn</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>Google</td>
     </tr>
     <tr>
         <td><a href="http://github.com/chenzhangyi"><img width="64" src="https://avatars.githubusercontent.com/u/6805583?v=4"></a></td>
@@ -45,7 +45,7 @@ Thank you all your help!
         <td>zychen</td>
         <td><a href="http://github.com/chenzhangyi">chenzhangyi</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>Momenta.AI</td>
     </tr>
     <tr>
         <td><a href="http://github.com/old-bear"><img width="64" src="https://avatars.githubusercontent.com/u/1525532?v=4"></a></td>
@@ -53,7 +53,7 @@ Thank you all your help!
         <td>jrjbear</td>
         <td><a href="http://github.com/old-bear">old-bear</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>Ant Group</td>
     </tr>
     <tr>
         <td><a href="http://github.com/ipconfigme"><img width="64" src="https://avatars.githubusercontent.com/u/2500750?v=4"></a></td>
@@ -61,7 +61,7 @@ Thank you all your help!
         <td>fisherman</td>
         <td><a href="http://github.com/ipconfigme">ipconfigme</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>Baidu</td>
     </tr>
     <tr>
         <td><a href="http://github.com/tanzhongyi003"><img width="64" src="https://avatars.githubusercontent.com/u/20179982?v=4"></a></td>
@@ -69,7 +69,7 @@ Thank you all your help!
         <td>jerrytan</td>
         <td><a href="http://github.com/tanzhongyi003">tanzhongyi003</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>4Paradigm</td>
     </tr>
     <tr>
         <td><a href="http://github.com/wwbmmm"><img width="64" src="https://avatars.githubusercontent.com/u/3894631?v=4"></a></td>
@@ -77,7 +77,7 @@ Thank you all your help!
         <td>wwbmmm</td>
         <td><a href="http://github.com/wwbmmm">wwbmmm</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>Baidu</td>
     </tr>
     <tr>
         <td><a href="http://github.com/TousakaRin"><img width="64" src="https://avatars.githubusercontent.com/u/8801314?v=4"></a></td>
@@ -85,7 +85,7 @@ Thank you all your help!
         <td>leander</td>
         <td><a href="http://github.com/TousakaRin">TousakaRin</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>ByteDance</td>
     </tr>
     <tr>
         <td><a href="http://github.com/cdjingit"><img width="64" src="https://avatars.githubusercontent.com/u/31362185?v=4"></a></td>
@@ -93,7 +93,7 @@ Thank you all your help!
         <td>caidj</td>
         <td><a href="http://github.com/cdjingit">cdjingit</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>Shopee</td>
     </tr>
     <tr>
         <td><a href="http://github.com/lorinlee"><img width="64" src="https://avatars.githubusercontent.com/u/16054841?v=4"></a></td>
@@ -101,7 +101,7 @@ Thank you all your help!
         <td>lorinlee</td>
         <td><a href="http://github.com/lorinlee">lorinlee</a></td>
         <td>PPMC</td>
-        <td>apache</td>
+        <td>Freelancer</td>
     </tr>
 </table>
 
@@ -121,7 +121,7 @@ Thank you all your help!
         <td>gydong</td>
         <td><a href="http://github.com/gydong">gydong</a></td>
         <td>Committer</td>
-        <td>apache</td>
+        <td>Tencent</td>
     </tr>
     <tr>
         <td><a href="http://github.com/guodongxiaren"><img width="64" src="https://avatars.githubusercontent.com/u/5945107?v=4"></a></td>
@@ -129,7 +129,7 @@ Thank you all your help!
         <td>guodong</td>
         <td><a href="http://github.com/guodongxiaren">guodongxiaren</a></td>
         <td>Committer</td>
-        <td>apache</td>
+        <td>Tencent</td>
     </tr>
     <tr>
         <td><a href="http://github.com/serverglen"><img width="64" src="https://avatars.githubusercontent.com/u/38067377?v=4"></a></td>
@@ -137,7 +137,7 @@ Thank you all your help!
         <td>serverglen</td>
         <td><a href="http://github.com/serverglen">serverglen</a></td>
         <td>Committer</td>
-        <td>apache</td>
+        <td>Baidu</td>
     </tr>
     <tr>
         <td><a href="http://github.com/wasphin"><img width="64" src="https://avatars.githubusercontent.com/u/1237906?v=4"></a></td>
@@ -145,7 +145,7 @@ Thank you all your help!
         <td>xiaofeng</td>
         <td><a href="http://github.com/wasphin">wasphin</a></td>
         <td>Committer</td>
-        <td>apache</td>
+        <td>Baidu</td>
     </tr>
     <tr>
         <td><a href="http://github.com/Huixxi"><img width="64" src="https://avatars.githubusercontent.com/u/21335093?v=4"></a></td>
@@ -153,7 +153,7 @@ Thank you all your help!
         <td>huixxi</td>
         <td><a href="http://github.com/Huixxi">Huixxi</a></td>
         <td>Committer</td>
-        <td>apache</td>
+        <td>Baidu</td>
     </tr>
     <tr>
         <td><a href="https://github.com/chenBright"><img width="64" src="https://avatars.githubusercontent.com/u/12249635?v=4"></a></td>
@@ -161,7 +161,7 @@ Thank you all your help!
         <td>guangmingchen</td>
         <td><a href="http://github.com/chenBright">chenBright</a></td>
         <td>Committer</td>
-        <td>apache</td>
+        <td>YY</td>
     </tr>
 </table>
 
