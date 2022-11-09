@@ -104,6 +104,7 @@ bRPC 的发展离不开其背后很多人的卓越贡献，感谢每一个人的
 </table>
 
 ### Committers
+
 <table class="table table-hover">
     <tr>
         <th><b>Photo</b></th>
