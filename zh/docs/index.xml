@@ -847,7 +847,7 @@ bvar目录下是指标收集的实现。&lt;/p>
 &lt;p>如果想提PR，但对做什么有些迷茫，可以参考一些label下的issue，比如 &amp;ldquo;good first issue&amp;rdquo;，&amp;ldquo;help wanted&amp;rdquo; 等，都比较适合初学者。当慢慢熟悉后，可以尝试解决 &amp;ldquo;enhancement&amp;rdquo;，&amp;ldquo;official&amp;rdquo;，&amp;ldquo;feature&amp;rdquo;，&amp;ldquo;bug&amp;rdquo; 等label下的问题。&lt;/p>
 &lt;h2 id="结语">结语&lt;/h2>
 &lt;p>brpc是一个优秀的C++项目，值得大家学习它的设计与实现。但brpc同时也是相对有些复杂的项目，其有13w+行代码，需要一定的学习过程。&lt;/p>
-&lt;p>本文推荐了大家一些学习的入手点，希望能帮助大家更好地入门，并在学习过程中有丰厚的收获。当然，也期待大家在熟悉brpc之后，能够参与到brpc的贡献中，帮助到大量brpc的使用者。&lt;/p></description></item><item><title>Docs: 下载bRPC</title><link>https://brpc.apache.org/zh/docs/downloadbrpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/downloadbrpc/</guid><description>
+&lt;p>本文推荐了大家一些学习的入手点，希望能帮助大家更好地入门，并在学习过程中有丰厚的收获。当然，也期待大家在熟悉brpc之后，能够参与到brpc的贡献中，帮助到大量brpc的使用者。&lt;/p></description></item><item><title>Docs: 下载</title><link>https://brpc.apache.org/zh/docs/downloadbrpc/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/downloadbrpc/</guid><description>
 &lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more

@@ -218,7 +218,7 @@ limitations under the License.
 &lt;li>Improve documents by @wwbmmm, @tanzhongyi003, @guodongxiaren, @372046933, @wasphin, @hawkxiang, @TousakaRin, @Huixxi, @serverglen&lt;/li>
 &lt;li>Fix typos by @jamesge, @cyberkillor&lt;/li>
 &lt;/ul>
-&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: Download bRPC</title><link>https://brpc.apache.org/docs/downloadbrpc/</link><pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/downloadbrpc/</guid><description>
+&lt;p>Thanks to all contributors for the 1.2.0 version!&lt;/p></description></item><item><title>Docs: Download</title><link>https://brpc.apache.org/docs/downloadbrpc/</link><pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/downloadbrpc/</guid><description>
 &lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more
