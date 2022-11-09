@@ -1,9 +1,14 @@
 ---
-title: "下载bRPC"
-linkTitle: "下载bRPC"
+title: "下载"
+linkTitle: "下载"
 weight: 2
-aliases: 
+menu:
+  main:
+    weight: 20
+aliases:
 - "/zh/download"
+- "/zh/downloadbrpc"
+- "/zh/docs/downloadbrpc"
 date: 2021-08-12
 description: >
   下载bRPC发行版。
@@ -26,12 +31,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-## 下载 Apache bRPC (incubating) 
+## 下载 Apache bRPC (incubating)
 
 Apache bRPC（孵化）作为源工件发布。我们很高兴宣布我们的1.3.0版本已经发布如下了！
 
 
-### 候选版本 
+### 候选版本
 <!--when pass vote, we can change it back to Release Artifacts
 -->
 <table class="table table-hover sortable">

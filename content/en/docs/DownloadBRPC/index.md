@@ -1,9 +1,14 @@
 ---
-title: "Download bRPC"
-linkTitle: "Download bRPC"
+title: "Download"
+linkTitle: "Download"
 weight: 2
-aliases: 
+menu:
+  main:
+    weight: 20
+aliases:
 - "/download"
+- "/downloadbrpc"
+- "/docs/downloadbrpc"
 date: 2021-08-16
 description: >
   Download bRPC Release Version.
@@ -32,7 +37,7 @@ Apache bRPC (incubating) is released as a source artifact.
 We are pleased to announce our 1.3.0 release as below.
 
 
-### Release Candidate 
+### Release Candidate
 <!--when pass vote, we can change it back to Release Artifacts
 -->
 <table class="table table-hover sortable">
