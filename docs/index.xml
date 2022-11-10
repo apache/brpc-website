@@ -1253,88 +1253,66 @@ Apache brpc (Incubating) community
 &lt;th>&lt;b>Full Name&lt;/b>&lt;/th>
 &lt;th>&lt;b>Apache ID&lt;/b>&lt;/th>
 &lt;th>&lt;b>GitHub&lt;/b>&lt;/th>
-&lt;th>&lt;b>Role&lt;/b>&lt;/th>
-&lt;th>&lt;b>Affiliation&lt;/b>&lt;/th>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/jamesge">&lt;img width="64" src="https://avatars.githubusercontent.com/u/6566535?v=4">&lt;/a>&lt;/td>
 &lt;td>James Ge&lt;/td>
 &lt;td>jamesge&lt;/td>
 &lt;td>&lt;a href="http://github.com/jamesge">jamesge&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>Bytedance&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/zyearn">&lt;img width="64" src="https://avatars.githubusercontent.com/u/4475779?v=4">&lt;/a>&lt;/td>
 &lt;td>Jiashun Zhu&lt;/td>
 &lt;td>jiashunzhu&lt;/td>
 &lt;td>&lt;a href="http://github.com/zyearn">zyearn&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>Google&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/chenzhangyi">&lt;img width="64" src="https://avatars.githubusercontent.com/u/6805583?v=4">&lt;/a>&lt;/td>
 &lt;td>Zhangyi Chen&lt;/td>
 &lt;td>zychen&lt;/td>
 &lt;td>&lt;a href="http://github.com/chenzhangyi">chenzhangyi&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>Momenta.AI&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/old-bear">&lt;img width="64" src="https://avatars.githubusercontent.com/u/1525532?v=4">&lt;/a>&lt;/td>
 &lt;td>Bear Jiang&lt;/td>
 &lt;td>jrjbear&lt;/td>
 &lt;td>&lt;a href="http://github.com/old-bear">old-bear&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>Ant Group&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/ipconfigme">&lt;img width="64" src="https://avatars.githubusercontent.com/u/2500750?v=4">&lt;/a>&lt;/td>
 &lt;td>Yao Wang&lt;/td>
 &lt;td>fisherman&lt;/td>
 &lt;td>&lt;a href="http://github.com/ipconfigme">ipconfigme&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>Baidu&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/tanzhongyi003">&lt;img width="64" src="https://avatars.githubusercontent.com/u/20179982?v=4">&lt;/a>&lt;/td>
 &lt;td>Jerry Tan&lt;/td>
 &lt;td>jerrytan&lt;/td>
 &lt;td>&lt;a href="http://github.com/tanzhongyi003">tanzhongyi003&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>4Paradigm&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/wwbmmm">&lt;img width="64" src="https://avatars.githubusercontent.com/u/3894631?v=4">&lt;/a>&lt;/td>
 &lt;td>Wang Weibing&lt;/td>
 &lt;td>wwbmmm&lt;/td>
 &lt;td>&lt;a href="http://github.com/wwbmmm">wwbmmm&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>Baidu&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/TousakaRin">&lt;img width="64" src="https://avatars.githubusercontent.com/u/8801314?v=4">&lt;/a>&lt;/td>
 &lt;td>He Lei&lt;/td>
 &lt;td>leander&lt;/td>
 &lt;td>&lt;a href="http://github.com/TousakaRin">TousakaRin&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>ByteDance&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/cdjingit">&lt;img width="64" src="https://avatars.githubusercontent.com/u/31362185?v=4">&lt;/a>&lt;/td>
 &lt;td>Cai Daojin&lt;/td>
 &lt;td>caidj&lt;/td>
 &lt;td>&lt;a href="http://github.com/cdjingit">cdjingit&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>Shopee&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/lorinlee">&lt;img width="64" src="https://avatars.githubusercontent.com/u/16054841?v=4">&lt;/a>&lt;/td>
 &lt;td>Lorin Lee&lt;/td>
 &lt;td>lorinlee&lt;/td>
 &lt;td>&lt;a href="http://github.com/lorinlee">lorinlee&lt;/a>&lt;/td>
-&lt;td>PPMC&lt;/td>
-&lt;td>Freelancer&lt;/td>
 &lt;/tr>
 &lt;/table>
 &lt;h3 id="committers">Committers&lt;/h3>
@@ -1344,56 +1322,42 @@ Apache brpc (Incubating) community
 &lt;th>&lt;b>Full Name&lt;/b>&lt;/th>
 &lt;th>&lt;b>Apache ID&lt;/b>&lt;/th>
 &lt;th>&lt;b>GitHub&lt;/b>&lt;/th>
-&lt;th>&lt;b>Role&lt;/b>&lt;/th>
-&lt;th>&lt;b>Affiliation&lt;/b>&lt;/th>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/gydong">&lt;img width="64" src="https://avatars.githubusercontent.com/u/3294444?v=4">&lt;/a>&lt;/td>
 &lt;td>Mou Gaidong&lt;/td>
 &lt;td>gydong&lt;/td>
 &lt;td>&lt;a href="http://github.com/gydong">gydong&lt;/a>&lt;/td>
-&lt;td>Committer&lt;/td>
-&lt;td>Tencent&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/guodongxiaren">&lt;img width="64" src="https://avatars.githubusercontent.com/u/5945107?v=4">&lt;/a>&lt;/td>
 &lt;td>Wang wei&lt;/td>
 &lt;td>guodong&lt;/td>
 &lt;td>&lt;a href="http://github.com/guodongxiaren">guodongxiaren&lt;/a>&lt;/td>
-&lt;td>Committer&lt;/td>
-&lt;td>Tencent&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/serverglen">&lt;img width="64" src="https://avatars.githubusercontent.com/u/38067377?v=4">&lt;/a>&lt;/td>
 &lt;td>Shuai Liu&lt;/td>
 &lt;td>serverglen&lt;/td>
 &lt;td>&lt;a href="http://github.com/serverglen">serverglen&lt;/a>&lt;/td>
-&lt;td>Committer&lt;/td>
-&lt;td>Baidu&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/wasphin">&lt;img width="64" src="https://avatars.githubusercontent.com/u/1237906?v=4">&lt;/a>&lt;/td>
 &lt;td>Wang Xiaofeng&lt;/td>
 &lt;td>xiaofeng&lt;/td>
 &lt;td>&lt;a href="http://github.com/wasphin">wasphin&lt;/a>&lt;/td>
-&lt;td>Committer&lt;/td>
-&lt;td>Baidu&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="http://github.com/Huixxi">&lt;img width="64" src="https://avatars.githubusercontent.com/u/21335093?v=4">&lt;/a>&lt;/td>
 &lt;td>Xiguo Hu&lt;/td>
 &lt;td>huixxi&lt;/td>
 &lt;td>&lt;a href="http://github.com/Huixxi">Huixxi&lt;/a>&lt;/td>
-&lt;td>Committer&lt;/td>
-&lt;td>Baidu&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="https://github.com/chenBright">&lt;img width="64" src="https://avatars.githubusercontent.com/u/12249635?v=4">&lt;/a>&lt;/td>
 &lt;td>Guangming Chen&lt;/td>
 &lt;td>guangmingchen&lt;/td>
 &lt;td>&lt;a href="http://github.com/chenBright">chenBright&lt;/a>&lt;/td>
-&lt;td>Committer&lt;/td>
-&lt;td>YY&lt;/td>
 &lt;/tr>
 &lt;/table>
 &lt;h3 id="contributors">Contributors&lt;/h3>
