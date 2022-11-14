@@ -6,7 +6,7 @@ date: 2021-08-12
 description: >
   Read getting started for building steps and play with [examples](https://github.com/apache/incubator-brpc/tree/master/example).
 ---
-# BUILD
+## BUILD
 
 brpc prefers static linkages of deps, so that they don't have to be installed on every machine running the app.
 
@@ -16,15 +16,16 @@ brpc depends on following packages:
 * [protobuf](https://github.com/google/protobuf): Serializations of messages, interfaces of services.
 * [leveldb](https://github.com/google/leveldb): Required by [/rpcz](../builtin-services/rpcz/) to record RPCs for tracing.
 
-# Supported Environment
+## Supported Environment
 
 * [Ubuntu/LinuxMint/WSL](#ubuntulinuxmintwsl)
 * [Fedora/CentOS](#fedoracentos)
 * [Linux with self-built deps](#linux-with-self-built-deps)
 * [MacOS](#macos)
+* [Docker](#docker)
 
-## Ubuntu/LinuxMint/WSL
-### Prepare deps
+### Ubuntu/LinuxMint/WSL
+#### Prepare deps
 
 Install dependencies:
 ```shell
@@ -47,7 +48,7 @@ sudo apt-get install -y cmake libgtest-dev && cd /usr/src/gtest && sudo cmake . 
 ```
 The directory of gtest source code may be changed, try `/usr/src/googletest/googletest` if `/usr/src/gtest` is not there.
 
-### Compile brpc with config_brpc.sh
+#### Compile brpc with config_brpc.sh
 git clone brpc, cd into the repo and run
 ```shell
 $ sh config_brpc.sh --headers=/usr/include --libs=/usr/lib
@@ -79,7 +80,7 @@ $ make
 $ sh run_tests.sh
 ```
 
-### Compile brpc with cmake
+#### Compile brpc with cmake
 ```shell
 cmake -B build && cmake --build build -j6
 ```
@@ -109,9 +110,9 @@ Examples link brpc statically, if you need to link the shared version, remove `C
 $ mkdir build && cd build && cmake -DBUILD_UNIT_TESTS=ON .. && make && make test
 ```
 
-## Fedora/CentOS
+### Fedora/CentOS
 
-### Prepare deps
+#### Prepare deps
 
 CentOS needs to install EPEL generally otherwise many packages are not available by default.
 ```shell
@@ -133,7 +134,7 @@ If you need to run tests, install and compile gtest-devel (which is not compiled
 sudo yum install gtest-devel
 ```
 
-### Compile brpc with config_brpc.sh
+#### Compile brpc with config_brpc.sh
 
 git clone brpc, cd into the repo and run
 
@@ -167,12 +168,12 @@ $ make
 $ sh run_tests.sh
 ```
 
-### Compile brpc with cmake
+#### Compile brpc with cmake
 Same with [here](#compile-brpc-with-cmake)
 
-## Linux with self-built deps
+### Linux with self-built deps
 
-### Prepare deps
+#### Prepare deps
 
 brpc builds itself to both static and shared libs by default, so it needs static and shared libs of deps to be built as well.
 
@@ -182,7 +183,7 @@ $ cmake . -DBUILD_SHARED_LIBS=1 -DBUILD_STATIC_LIBS=1
 $ make
 ```
 
-### Compile brpc
+#### Compile brpc
 
 Keep on with the gflags example, let `../gflags_dev` be where gflags is cloned.
 
@@ -211,18 +212,18 @@ $ sh config_brpc.sh --headers=.. --libs=..
 $ make
 ```
 
-### Compile brpc with cmake
+#### Compile brpc with cmake
 Same with [here](#compile-brpc-with-cmake)
 
-## MacOS
+### MacOS
 
 Note: With same environment, the performance of the MacOS version is worse than the Linux version. If your service is performance-critical, do not use MacOS as your production environment.
 
-### Apple Silicon
+#### Apple Silicon
 
 The code at master HEAD already supports M1 series chips. M2 series are not tested yet. Please feel free to report remaining warnings/errors to us by issues.
 
-### Prepare deps
+#### Prepare deps
 
 Install dependencies:
 ```shell
@@ -240,14 +241,14 @@ git clone https://github.com/google/googletest -b release-1.10.0 && cd googletes
 ```
 After the compilation, copy `include/` and `lib/` into `/usr/local/include` and `/usr/local/lib` respectively to expose gtest to all apps
 
-### OpenSSL
+#### OpenSSL
 
 openssl installed in Monterey may not be found at `/usr/local/opt/openssl`, instead it's probably put under `/opt/homebrew/Cellar`. If the compiler cannot find openssl：
 
 * Run `brew link openssl --force` first and check if `/user/local/opt/openssl` appears.
 * If above command does not work, consider making a soft link using `sudo ln -s /opt/homebrew/Cellar/openssl@3/3.0.3 /usr/local/opt/openssl`. Note that the installed openssl in above command may be put in different places in different environments, which could be revealed by running `brew info openssl`.
 
-### Compile brpc with config_brpc.sh
+#### Compile brpc with config_brpc.sh
 git clone brpc, cd into the repo and run
 ```shell
 $ sh config_brpc.sh --headers=/usr/local/include --libs=/usr/local/lib --cc=clang --cxx=clang++
@@ -285,12 +286,25 @@ $ make
 $ sh run_tests.sh
 ```
 
-### Compile brpc with cmake
+#### Compile brpc with cmake
 Same with [here](#compile-brpc-with-cmake)
 
-# Supported deps
+### Docker
+Compile brpc with docker:
 
-## GCC: 4.8-11.2
+```shell
+$ mkdir -p ~/brpc
+$ cd ~/brpc
+$ git clone https://github.com/apache/incubator-brpc.git
+$ cd incubator-brpc
+$ docker build -t brpc:master .
+$ docker images
+$ docker run -it brpc:master /bin/bash
+```
+
+## Supported deps
+
+#### GCC: 4.8-11.2
 
 c++11 is turned on by default to remove dependencies on boost (atomic).
 
@@ -300,15 +314,15 @@ Using other versions of gcc may generate warnings, contact us to fix.
 
 Adding `-D__const__=` to cxxflags in your makefiles is a must to avoid [errno issue in gcc4+](../bthread/thread-local/).
 
-## Clang: 3.5-4.0
+#### Clang: 3.5-4.0
 
 no known issues.
 
-## glibc: 2.12-2.25
+#### glibc: 2.12-2.25
 
 no known issues.
 
-## protobuf: 2.4+
+#### protobuf: 2.4+
 
 Be compatible with pb 3.x and pb 2.x with the same file:
 Don't use new types in proto3 and start the proto file with `syntax="proto2";`
@@ -316,15 +330,15 @@ Don't use new types in proto3 and start the proto file with `syntax="proto2";`
 
 Arena in pb 3.x is not supported yet.
 
-## gflags: 2.0-2.2.1
+#### gflags: 2.0-2.2.1
 
 no known issues.
 
-## openssl: 0.97-1.1
+#### openssl: 0.97-1.1
 
 required by https.
 
-## tcmalloc: 1.7-2.5
+#### tcmalloc: 1.7-2.5
 
 brpc does **not** link [tcmalloc](http://goog-perftools.sourceforge.net/doc/tcmalloc.html) by default. Users link tcmalloc on-demand.
 
@@ -342,18 +356,18 @@ If you want to use [cpu profiler](../builtin-services/cpu_profiler) or [heap pro
 
 When you remove tcmalloc, not only remove the linkage with tcmalloc but also the macro `-DBRPC_ENABLE_CPU_PROFILER`.
 
-## glog: 3.3+
+#### glog: 3.3+
 
 brpc implements a default [logging utility](../../src/butil/logging.h) which conflicts with glog. To replace this with glog, add *--with-glog* to config_brpc.sh or add `-DWITH_GLOG=ON` to cmake.
 
-## valgrind: 3.8+
+#### valgrind: 3.8+
 
 brpc detects valgrind automatically (and registers stacks of bthread). Older valgrind(say 3.2) is not supported.
 
-## thrift: 0.9.3-0.11.0
+#### thrift: 0.9.3-0.11.0
 
 no known issues.
 
-# Track instances
+## Track instances
 
 We provide a program to help you to track and monitor all brpc instances. Just run [trackme_server](https://github.com/brpc/brpc/tree/master/tools/trackme_server/) somewhere and launch need-to-be-tracked instances with -trackme_server=SERVER. The trackme_server will receive pings from instances periodically and print logs when it does. You can aggregate instance addresses from the log and call builtin services of the instances for further information.

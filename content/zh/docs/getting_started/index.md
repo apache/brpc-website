@@ -6,7 +6,7 @@ date: 2021-08-12
 description: >
   快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
 ---
-# 构建
+## 构建
 
 brpc鼓励静态链接依赖，以便于每个运行brpc服务的机器不必再安装依赖。
 
@@ -16,15 +16,16 @@ brpc有如下依赖：
 * [protobuf](https://github.com/google/protobuf): Serializations of messages, interfaces of services.
 * [leveldb](https://github.com/google/leveldb): Required by [rpcz](../builtin-services/rpcz/) to record RPCs for tracing.
 
-# 支持的环境
+## 支持的环境
 
 * [Ubuntu/LinuxMint/WSL](#ubuntulinuxmintwsl)
 * [Fedora/CentOS](#fedoracentos)
 * [自己构建依赖的Linux](#自己构建依赖的Linux)
 * [MacOS](#macos)
+* [Docker](#docker)
 
-## Ubuntu/LinuxMint/WSL
-### 依赖准备
+### Ubuntu/LinuxMint/WSL
+#### 依赖准备
 
 安装依赖：
 ```shell
@@ -47,7 +48,7 @@ sudo apt-get install -y cmake libgtest-dev && cd /usr/src/gtest && sudo cmake . 
 ```
 gtest源码目录可能变动，如果`/usr/src/gtest`不存在，请尝试`/usr/src/googletest/googletest`。
 
-### 使用config_brpc.sh编译brpc
+#### 使用config_brpc.sh编译brpc
 git克隆brpc，进入到项目目录，然后运行
 ```shell
 $ sh config_brpc.sh --headers=/usr/include --libs=/usr/lib
@@ -79,7 +80,7 @@ $ make
 $ sh run_tests.sh
 ```
 
-### 使用cmake编译brpc
+#### 使用cmake编译brpc
 ```shell
 cmake -B build && cmake --build build -j6
 ```
@@ -110,9 +111,9 @@ $ ./echo_client
 $ mkdir build && cd build && cmake -DBUILD_UNIT_TESTS=ON .. && make && make test
 ```
 
-## Fedora/CentOS
+### Fedora/CentOS
 
-### 依赖准备
+#### 依赖准备
 
 CentOS一般需要安装EPEL，否则很多包都默认不可用。
 ```shell
@@ -134,7 +135,7 @@ sudo yum install gperftools-devel
 sudo yum install gtest-devel
 ```
 
-### 使用config_brpc.sh编译brpc
+#### 使用config_brpc.sh编译brpc
 
 git克隆brpc，进入项目目录然后执行：
 
@@ -168,12 +169,12 @@ $ make
 $ sh run_tests.sh
 ```
 
-### 使用cmake编译brpc
+#### 使用cmake编译brpc
 参考[这里](#使用cmake编译brpc)
 
-## 自己构建依赖的Linux
+### 自己构建依赖的Linux
 
-### 依赖准备
+#### 依赖准备
 
 brpc默认会构建出静态库和共享库，因此它也需要依赖有静态库和共享库两个版本。
 
@@ -183,7 +184,7 @@ $ cmake . -DBUILD_SHARED_LIBS=1 -DBUILD_STATIC_LIBS=1
 $ make
 ```
 
-### 编译brpc
+#### 编译brpc
 
 还以gflags为例，`../gflags_dev`表示gflags被克隆的位置。
 
@@ -212,18 +213,18 @@ $ sh config_brpc.sh --headers=.. --libs=..
 $ make
 ```
 
-### 使用cmake编译brpc
+#### 使用cmake编译brpc
 参考[这里](#使用cmake编译brpc)
 
-## MacOS
+### MacOS
 
 注意：在相同硬件条件下，MacOS版brpc的性能可能明显差于Linux版。如果你的服务是性能敏感的，请不要使用MacOS作为你的生产环境。
 
-### Apple Silicon
+#### Apple Silicon
 
 master HEAD已支持M1系列芯片，M2还未测试。欢迎通过issues向我们报告遗留的warning/error。
 
-### 依赖准备
+#### 依赖准备
 
 安装依赖：
 ```shell
@@ -241,13 +242,13 @@ git clone https://github.com/google/googletest -b release-1.10.0 && cd googletes
 ```
 在编译完成后，复制`include/`和`lib/`目录到`/usr/local/include`和`/usr/local/lib`目录中，以便于让所有应用都能使用gtest。
 
-### OpenSSL
+#### OpenSSL
 Monterey中openssl的安装位置可能不再位于`/usr/local/opt/openssl`，很可能会在`/opt/homebrew/Cellar`目录下，如果编译时报告找不到openssl：
 
 * 先运行`brew link openssl --force`看看`/user/local/opt/openssl`是否出现了
 * 没有的话可以自行设置软链：`sudo ln -s /opt/homebrew/Cellar/openssl@3/3.0.3 /usr/local/opt/openssl`。请注意此命令中openssl的目录可能随环境变化而变化，可通过`brew info openssl`查看。
 
-### 使用config_brpc.sh编译brpc
+#### 使用config_brpc.sh编译brpc
 git克隆brpc，进入到项目目录然后运行：
 ```shell
 $ sh config_brpc.sh --headers=/usr/local/include --libs=/usr/local/lib --cc=clang --cxx=clang++
@@ -283,12 +284,25 @@ $ make
 $ sh run_tests.sh
 ```
 
-### 使用cmake编译brpc
+#### 使用cmake编译brpc
 参考[这里](#使用cmake编译brpc)
 
-# 支持的依赖
+### Docker
+使用docker 编译brpc：
 
-## GCC: 4.8-11.2
+```shell
+$ mkdir -p ~/brpc
+$ cd ~/brpc
+$ git clone https://github.com/apache/incubator-brpc.git
+$ cd incubator-brpc
+$ docker build -t brpc:master .
+$ docker images
+$ docker run -it brpc:master /bin/bash
+```
+
+## 支持的依赖
+
+#### GCC: 4.8-11.2
 
 c++11被默认启用，以去除去boost的依赖（比如atomic）。
 
@@ -298,15 +312,15 @@ GCC7中over-aligned的问题暂时被禁止。
 
 请在makefile中给cxxflags增加`-D__const__=`选项以避免[gcc4+中的errno问题](../bthread/thread-local/).
 
-## Clang: 3.5-4.0
+#### Clang: 3.5-4.0
 
 无已知问题。
 
-## glibc: 2.12-2.25
+#### glibc: 2.12-2.25
 
 无已知问题。
 
-## protobuf: 2.4+
+#### protobuf: 2.4+
 
 同一个文件兼容pb 3.x版本和pb 2.x版本：
 不要使用proto3新增的类型，并且在proto文件的起始位置添加`syntax=proto2;`声明。
@@ -314,15 +328,15 @@ GCC7中over-aligned的问题暂时被禁止。
 
 pb 3.x中的Arena至今没被支持。
 
-## gflags: 2.0-2.2.1
+#### gflags: 2.0-2.2.1
 
 无已知问题。
 
-## openssl: 0.97-1.1
+#### openssl: 0.97-1.1
 
 被https功能需要。
 
-## tcmalloc: 1.7-2.5
+#### tcmalloc: 1.7-2.5
 
 brpc默认**不**链接 [tcmalloc](http://goog-perftools.sourceforge.net/doc/tcmalloc.html)。用户按需要链接tcmalloc。
 
@@ -340,18 +354,18 @@ brpc默认**不**链接 [tcmalloc](http://goog-perftools.sourceforge.net/doc/tcm
 
 当你移除tcmalloc的时候，不仅要移除tcmalloc的链接，也要移除宏`-DBRPC_ENABLE_CPU_PROFILER`。
 
-## glog: 3.3+
+#### glog: 3.3+
 
 brpc实现了一个默认的[日志功能](../../src/butil/logging.h)它和glog冲突。要替换成glog，可以给config_brpc.sh增加*--with-glog*选项或者给cmake增加`-DWITH_GLOG=ON`选项。
 
-## valgrind: 3.8+
+#### valgrind: 3.8+
 
 brpc会自动检测valgrind（然后注册bthread的栈）。不支持老版本的valgrind（比如3.2）。
 
-## thrift: 0.9.3-0.11.0
+#### thrift: 0.9.3-0.11.0
 
 无已知问题。
 
-# 实例追踪
+## 实例追踪
 
 我们提供了一个程序去帮助你追踪和监控所有brpc实例。 只需要在某处运行 [trackme_server](https://github.com/brpc/brpc/tree/master/tools/trackme_server/) 然后再带着 -trackme_server=SERVER参数启动需要被追踪的实例。trackme_server将从实例周期性地收到ping消息然后打印日志。您可以从日志中聚合实例地址，并调用实例的内置服务以获取更多信息。
