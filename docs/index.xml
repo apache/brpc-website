@@ -346,7 +346,7 @@ succeed.&lt;/p>
 &lt;li>Fix typos by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
 &lt;/ul>
 &lt;p>Thanks to all contributors for the 1.1.0 version!&lt;/p></description></item><item><title>Docs: Getting started</title><link>https://brpc.apache.org/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/getting_started/</guid><description>
-&lt;h1 id="build">BUILD&lt;/h1>
+&lt;h2 id="build">BUILD&lt;/h2>
 &lt;p>brpc prefers static linkages of deps, so that they don&amp;rsquo;t have to be installed on every machine running the app.&lt;/p>
 &lt;p>brpc depends on following packages:&lt;/p>
 &lt;ul>
@@ -354,15 +354,16 @@ succeed.&lt;/p>
 &lt;li>&lt;a href="https://github.com/google/protobuf">protobuf&lt;/a>: Serializations of messages, interfaces of services.&lt;/li>
 &lt;li>&lt;a href="https://github.com/google/leveldb">leveldb&lt;/a>: Required by &lt;a href="../builtin-services/rpcz/">/rpcz&lt;/a> to record RPCs for tracing.&lt;/li>
 &lt;/ul>
-&lt;h1 id="supported-environment">Supported Environment&lt;/h1>
+&lt;h2 id="supported-environment">Supported Environment&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="#ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#fedoracentos">Fedora/CentOS&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#linux-with-self-built-deps">Linux with self-built deps&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#macos">MacOS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#docker">Docker&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL&lt;/h2>
-&lt;h3 id="prepare-deps">Prepare deps&lt;/h3>
+&lt;h3 id="ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL&lt;/h3>
+&lt;h4 id="prepare-deps">Prepare deps&lt;/h4>
 &lt;p>Install dependencies:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo apt-get install -y git g++ make libssl-dev libgflags-dev libprotobuf-dev libprotoc-dev protobuf-compiler libleveldb-dev
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you need to statically link leveldb:&lt;/p>
@@ -372,7 +373,7 @@ succeed.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you need to run tests, install and compile libgtest-dev (which is not compiled yet):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo apt-get install -y cmake libgtest-dev &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> /usr/src/gtest &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> sudo cmake . &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> sudo make &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> sudo mv libgtest* /usr/lib/ &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> -
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The directory of gtest source code may be changed, try &lt;code>/usr/src/googletest/googletest&lt;/code> if &lt;code>/usr/src/gtest&lt;/code> is not there.&lt;/p>
-&lt;h3 id="compile-brpc-with-config_brpcsh">Compile brpc with config_brpc.sh&lt;/h3>
+&lt;h4 id="compile-brpc-with-config_brpcsh">Compile brpc with config_brpc.sh&lt;/h4>
 &lt;p>git clone brpc, cd into the repo and run&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/include --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/lib
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
@@ -390,7 +391,7 @@ succeed.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87">test&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sh run_tests.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="compile-brpc-with-cmake">Compile brpc with cmake&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="compile-brpc-with-cmake">Compile brpc with cmake&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>cmake -B build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> cmake --build build -j6
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To help VSCode or Emacs(LSP) to understand code correctly, add &lt;code>-DCMAKE_EXPORT_COMPILE_COMMANDS=ON&lt;/code> to generate &lt;code>compile_commands.json&lt;/code>&lt;/p>
 &lt;p>To change compiler to clang, overwrite environment variable &lt;code>CC&lt;/code> and &lt;code>CXX&lt;/code> to &lt;code>clang&lt;/code> and &lt;code>clang++&lt;/code> respectively.&lt;/p>
@@ -405,8 +406,8 @@ succeed.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples link brpc statically, if you need to link the shared version, remove &lt;code>CMakeCache.txt&lt;/code> and cmake with &lt;code>-DLINK_SO=ON&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Run tests&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ mkdir build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> cmake -DBUILD_UNIT_TESTS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>ON .. &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> make &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> make &lt;span style="color:#204a87">test&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fedoracentos">Fedora/CentOS&lt;/h2>
-&lt;h3 id="prepare-deps-1">Prepare deps&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fedoracentos">Fedora/CentOS&lt;/h3>
+&lt;h4 id="prepare-deps-1">Prepare deps&lt;/h4>
 &lt;p>CentOS needs to install EPEL generally otherwise many packages are not available by default.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo yum install epel-release
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install dependencies:&lt;/p>
@@ -415,7 +416,7 @@ succeed.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo yum install gperftools-devel
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you need to run tests, install and compile gtest-devel (which is not compiled yet):&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo yum install gtest-devel
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="compile-brpc-with-config_brpcsh-1">Compile brpc with config_brpc.sh&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="compile-brpc-with-config_brpcsh-1">Compile brpc with config_brpc.sh&lt;/h4>
 &lt;p>git clone brpc, cd into the repo and run&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/include --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/lib64
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
@@ -433,15 +434,15 @@ succeed.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87">test&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sh run_tests.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="compile-brpc-with-cmake-1">Compile brpc with cmake&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="compile-brpc-with-cmake-1">Compile brpc with cmake&lt;/h4>
 &lt;p>Same with &lt;a href="#compile-brpc-with-cmake">here&lt;/a>&lt;/p>
-&lt;h2 id="linux-with-self-built-deps">Linux with self-built deps&lt;/h2>
-&lt;h3 id="prepare-deps-2">Prepare deps&lt;/h3>
+&lt;h3 id="linux-with-self-built-deps">Linux with self-built deps&lt;/h3>
+&lt;h4 id="prepare-deps-2">Prepare deps&lt;/h4>
 &lt;p>brpc builds itself to both static and shared libs by default, so it needs static and shared libs of deps to be built as well.&lt;/p>
 &lt;p>Take &lt;a href="https://github.com/gflags/gflags">gflags&lt;/a> as example, which does not build shared lib by default, you need to pass options to &lt;code>cmake&lt;/code> to change the behavior:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ cmake . -DBUILD_SHARED_LIBS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -DBUILD_STATIC_LIBS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="compile-brpc">Compile brpc&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="compile-brpc">Compile brpc&lt;/h4>
 &lt;p>Keep on with the gflags example, let &lt;code>../gflags_dev&lt;/code> be where gflags is cloned.&lt;/p>
 &lt;p>git clone brpc. cd into the repo and run&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;../gflags_dev /usr/include&amp;#34;&lt;/span> --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;../gflags_dev /usr/lib64&amp;#34;&lt;/span>
@@ -456,13 +457,13 @@ succeed.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> brpc_dev
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>.. --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>..
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="compile-brpc-with-cmake-2">Compile brpc with cmake&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="compile-brpc-with-cmake-2">Compile brpc with cmake&lt;/h4>
 &lt;p>Same with &lt;a href="#compile-brpc-with-cmake">here&lt;/a>&lt;/p>
-&lt;h2 id="macos">MacOS&lt;/h2>
+&lt;h3 id="macos">MacOS&lt;/h3>
 &lt;p>Note: With same environment, the performance of the MacOS version is worse than the Linux version. If your service is performance-critical, do not use MacOS as your production environment.&lt;/p>
-&lt;h3 id="apple-silicon">Apple Silicon&lt;/h3>
+&lt;h4 id="apple-silicon">Apple Silicon&lt;/h4>
 &lt;p>The code at master HEAD already supports M1 series chips. M2 series are not tested yet. Please feel free to report remaining warnings/errors to us by issues.&lt;/p>
-&lt;h3 id="prepare-deps-3">Prepare deps&lt;/h3>
+&lt;h4 id="prepare-deps-3">Prepare deps&lt;/h4>
 &lt;p>Install dependencies:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>brew install openssl git gnu-getopt coreutils gflags protobuf leveldb
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you need to enable cpu/heap profilers in examples:&lt;/p>
@@ -470,13 +471,13 @@ succeed.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you need to run tests, googletest is required. Run &lt;code>brew install googletest&lt;/code> first to see if it works. If not (old homebrew does not have googletest), you can download and compile googletest by your own:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>git clone https://github.com/google/googletest -b release-1.10.0 &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> googletest/googletest &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> mkdir build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> cmake -DCMAKE_CXX_FLAGS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-std=c++11&amp;#34;&lt;/span> .. &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> make
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After the compilation, copy &lt;code>include/&lt;/code> and &lt;code>lib/&lt;/code> into &lt;code>/usr/local/include&lt;/code> and &lt;code>/usr/local/lib&lt;/code> respectively to expose gtest to all apps&lt;/p>
-&lt;h3 id="openssl">OpenSSL&lt;/h3>
+&lt;h4 id="openssl">OpenSSL&lt;/h4>
 &lt;p>openssl installed in Monterey may not be found at &lt;code>/usr/local/opt/openssl&lt;/code>, instead it&amp;rsquo;s probably put under &lt;code>/opt/homebrew/Cellar&lt;/code>. If the compiler cannot find openssl：&lt;/p>
 &lt;ul>
 &lt;li>Run &lt;code>brew link openssl --force&lt;/code> first and check if &lt;code>/user/local/opt/openssl&lt;/code> appears.&lt;/li>
 &lt;li>If above command does not work, consider making a soft link using &lt;code>sudo ln -s /opt/homebrew/Cellar/openssl@3/3.0.3 /usr/local/opt/openssl&lt;/code>. Note that the installed openssl in above command may be put in different places in different environments, which could be revealed by running &lt;code>brew info openssl&lt;/code>.&lt;/li>
 &lt;/ul>
-&lt;h3 id="compile-brpc-with-config_brpcsh-2">Compile brpc with config_brpc.sh&lt;/h3>
+&lt;h4 id="compile-brpc-with-config_brpcsh-2">Compile brpc with config_brpc.sh&lt;/h4>
 &lt;p>git clone brpc, cd into the repo and run&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/local/include --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/local/lib --cc&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>clang --cxx&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>clang++
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
@@ -496,28 +497,37 @@ succeed.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87">test&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sh run_tests.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="compile-brpc-with-cmake-3">Compile brpc with cmake&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="compile-brpc-with-cmake-3">Compile brpc with cmake&lt;/h4>
 &lt;p>Same with &lt;a href="#compile-brpc-with-cmake">here&lt;/a>&lt;/p>
-&lt;h1 id="supported-deps">Supported deps&lt;/h1>
-&lt;h2 id="gcc-48-112">GCC: 4.8-11.2&lt;/h2>
+&lt;h3 id="docker">Docker&lt;/h3>
+&lt;p>Compile brpc with docker:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ mkdir -p ~/brpc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> ~/brpc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/apache/incubator-brpc.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> incubator-brpc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker build -t brpc:master .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker images
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run -it brpc:master /bin/bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="supported-deps">Supported deps&lt;/h2>
+&lt;h4 id="gcc-48-112">GCC: 4.8-11.2&lt;/h4>
 &lt;p>c++11 is turned on by default to remove dependencies on boost (atomic).&lt;/p>
 &lt;p>The over-aligned issues in GCC7 is suppressed temporarily now.&lt;/p>
 &lt;p>Using other versions of gcc may generate warnings, contact us to fix.&lt;/p>
 &lt;p>Adding &lt;code>-D__const__=&lt;/code> to cxxflags in your makefiles is a must to avoid &lt;a href="../bthread/thread-local/">errno issue in gcc4+&lt;/a>.&lt;/p>
-&lt;h2 id="clang-35-40">Clang: 3.5-4.0&lt;/h2>
+&lt;h4 id="clang-35-40">Clang: 3.5-4.0&lt;/h4>
 &lt;p>no known issues.&lt;/p>
-&lt;h2 id="glibc-212-225">glibc: 2.12-2.25&lt;/h2>
+&lt;h4 id="glibc-212-225">glibc: 2.12-2.25&lt;/h4>
 &lt;p>no known issues.&lt;/p>
-&lt;h2 id="protobuf-24">protobuf: 2.4+&lt;/h2>
+&lt;h4 id="protobuf-24">protobuf: 2.4+&lt;/h4>
 &lt;p>Be compatible with pb 3.x and pb 2.x with the same file:
 Don&amp;rsquo;t use new types in proto3 and start the proto file with &lt;code>syntax=&amp;quot;proto2&amp;quot;;&lt;/code>
 &lt;a href="https://github.com/brpc/brpc/blob/master/tools/add_syntax_equal_proto2_to_all.sh">tools/add_syntax_equal_proto2_to_all.sh&lt;/a>can add &lt;code>syntax=&amp;quot;proto2&amp;quot;&lt;/code> to all proto files without it.&lt;/p>
 &lt;p>Arena in pb 3.x is not supported yet.&lt;/p>
-&lt;h2 id="gflags-20-221">gflags: 2.0-2.2.1&lt;/h2>
+&lt;h4 id="gflags-20-221">gflags: 2.0-2.2.1&lt;/h4>
 &lt;p>no known issues.&lt;/p>
-&lt;h2 id="openssl-097-11">openssl: 0.97-1.1&lt;/h2>
+&lt;h4 id="openssl-097-11">openssl: 0.97-1.1&lt;/h4>
 &lt;p>required by https.&lt;/p>
-&lt;h2 id="tcmalloc-17-25">tcmalloc: 1.7-2.5&lt;/h2>
+&lt;h4 id="tcmalloc-17-25">tcmalloc: 1.7-2.5&lt;/h4>
 &lt;p>brpc does &lt;strong>not&lt;/strong> link &lt;a href="http://goog-perftools.sourceforge.net/doc/tcmalloc.html">tcmalloc&lt;/a> by default. Users link tcmalloc on-demand.&lt;/p>
 &lt;p>Comparing to ptmalloc embedded in glibc, tcmalloc often improves performance. However different versions of tcmalloc may behave really differently. For example, tcmalloc 2.1 may make multi-threaded examples in brpc perform significantly worse(due to a spinlock in tcmalloc) than the one using tcmalloc 1.7 and 2.5. Even different minor versions may differ. When you program behave unexpectedly, remove tcmalloc or try another version.&lt;/p>
 &lt;p>Code compiled with gcc 4.8.2 and linked to a tcmalloc compiled with earlier GCC may crash or deadlock before main(), E.g:&lt;/p>
@@ -526,13 +536,13 @@ Don&amp;rsquo;t use new types in proto3 and start the proto file with &lt;code>s
 &lt;p>Another common issue with tcmalloc is that it does not return memory to system as early as ptmalloc. So when there&amp;rsquo;s an invalid memory access, the program may not crash directly, instead it crashes at a unrelated place, or even not crash. When you program has weird memory issues, try removing tcmalloc.&lt;/p>
 &lt;p>If you want to use &lt;a href="../builtin-services/cpu_profiler">cpu profiler&lt;/a> or &lt;a href="../builtin-services/heap_profiler">heap profiler&lt;/a>, do link &lt;code>libtcmalloc_and_profiler.a&lt;/code>. These two profilers are based on tcmalloc. &lt;a href="../builtin-services/contention_profiler">contention profiler&lt;/a> does not require tcmalloc.&lt;/p>
 &lt;p>When you remove tcmalloc, not only remove the linkage with tcmalloc but also the macro &lt;code>-DBRPC_ENABLE_CPU_PROFILER&lt;/code>.&lt;/p>
-&lt;h2 id="glog-33">glog: 3.3+&lt;/h2>
+&lt;h4 id="glog-33">glog: 3.3+&lt;/h4>
 &lt;p>brpc implements a default &lt;a href="../../src/butil/logging.h">logging utility&lt;/a> which conflicts with glog. To replace this with glog, add &lt;em>&amp;ndash;with-glog&lt;/em> to config_brpc.sh or add &lt;code>-DWITH_GLOG=ON&lt;/code> to cmake.&lt;/p>
-&lt;h2 id="valgrind-38">valgrind: 3.8+&lt;/h2>
+&lt;h4 id="valgrind-38">valgrind: 3.8+&lt;/h4>
 &lt;p>brpc detects valgrind automatically (and registers stacks of bthread). Older valgrind(say 3.2) is not supported.&lt;/p>
-&lt;h2 id="thrift-093-0110">thrift: 0.9.3-0.11.0&lt;/h2>
+&lt;h4 id="thrift-093-0110">thrift: 0.9.3-0.11.0&lt;/h4>
 &lt;p>no known issues.&lt;/p>
-&lt;h1 id="track-instances">Track instances&lt;/h1>
+&lt;h2 id="track-instances">Track instances&lt;/h2>
 &lt;p>We provide a program to help you to track and monitor all brpc instances. Just run &lt;a href="https://github.com/brpc/brpc/tree/master/tools/trackme_server/">trackme_server&lt;/a> somewhere and launch need-to-be-tracked instances with -trackme_server=SERVER. The trackme_server will receive pings from instances periodically and print logs when it does. You can aggregate instance addresses from the log and call builtin services of the instances for further information.&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.0.0/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.0.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>

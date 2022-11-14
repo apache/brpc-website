@@ -968,7 +968,7 @@ limitations under the License.
 &lt;li>修正拼写错误 by @yangzhg, @egolearner, @PengyiPan, @Aaaaaaron, @ehds, @JiaoZiLang, @mapleFU&lt;/li>
 &lt;/ul>
 &lt;p>感谢上述所有1.1.0版本的贡献者！&lt;/p></description></item><item><title>Docs: 开始</title><link>https://brpc.apache.org/zh/docs/getting_started/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/getting_started/</guid><description>
-&lt;h1 id="构建">构建&lt;/h1>
+&lt;h2 id="构建">构建&lt;/h2>
 &lt;p>brpc鼓励静态链接依赖，以便于每个运行brpc服务的机器不必再安装依赖。&lt;/p>
 &lt;p>brpc有如下依赖：&lt;/p>
 &lt;ul>
@@ -976,15 +976,16 @@ limitations under the License.
 &lt;li>&lt;a href="https://github.com/google/protobuf">protobuf&lt;/a>: Serializations of messages, interfaces of services.&lt;/li>
 &lt;li>&lt;a href="https://github.com/google/leveldb">leveldb&lt;/a>: Required by &lt;a href="../builtin-services/rpcz/">rpcz&lt;/a> to record RPCs for tracing.&lt;/li>
 &lt;/ul>
-&lt;h1 id="支持的环境">支持的环境&lt;/h1>
+&lt;h2 id="支持的环境">支持的环境&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="#ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#fedoracentos">Fedora/CentOS&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#%E8%87%AA%E5%B7%B1%E6%9E%84%E5%BB%BA%E4%BE%9D%E8%B5%96%E7%9A%84Linux">自己构建依赖的Linux&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#macos">MacOS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#docker">Docker&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h2 id="ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL&lt;/h2>
-&lt;h3 id="依赖准备">依赖准备&lt;/h3>
+&lt;h3 id="ubuntulinuxmintwsl">Ubuntu/LinuxMint/WSL&lt;/h3>
+&lt;h4 id="依赖准备">依赖准备&lt;/h4>
 &lt;p>安装依赖：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo apt-get install -y git g++ make libssl-dev libgflags-dev libprotobuf-dev libprotoc-dev protobuf-compiler libleveldb-dev
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果你需要静态链接leveldb：&lt;/p>
@@ -994,7 +995,7 @@ limitations under the License.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果你要运行测试，那么要安装并编译libgtest-dev（它没有被默认编译）：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo apt-get install -y cmake libgtest-dev &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> /usr/src/gtest &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> sudo cmake . &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> sudo make &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> sudo mv libgtest* /usr/lib/ &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> -
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>gtest源码目录可能变动，如果&lt;code>/usr/src/gtest&lt;/code>不存在，请尝试&lt;code>/usr/src/googletest/googletest&lt;/code>。&lt;/p>
-&lt;h3 id="使用config_brpcsh编译brpc">使用config_brpc.sh编译brpc&lt;/h3>
+&lt;h4 id="使用config_brpcsh编译brpc">使用config_brpc.sh编译brpc&lt;/h4>
 &lt;p>git克隆brpc，进入到项目目录，然后运行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/include --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/lib
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
@@ -1012,7 +1013,7 @@ limitations under the License.
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87">test&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sh run_tests.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="使用cmake编译brpc">使用cmake编译brpc&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用cmake编译brpc">使用cmake编译brpc&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>cmake -B build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> cmake --build build -j6
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>要帮助VSCode或Emacs(LSP)去正确地理解代码，添加&lt;code>-DCMAKE_EXPORT_COMPILE_COMMANDS=ON&lt;/code>选项去生成&lt;code>compile_commands.json&lt;/code>。&lt;/p>
 &lt;p>要修改编译器为clang，请修改环境变量&lt;code>CC&lt;/code>和&lt;code>CXX&lt;/code>为&lt;code>clang&lt;/code>和&lt;code>clang++&lt;/code>。&lt;/p>
@@ -1027,8 +1028,8 @@ limitations under the License.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上述操作会链接brpc的静态库到样例中，如果你想链接brpc的共享库，请先移除&lt;code>CMakeCache.txt&lt;/code>，然后用&lt;code>-DLINK_SO=ON&lt;/code>选项重新执行cmake。&lt;/p>
 &lt;p>&lt;strong>运行测试&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ mkdir build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> cmake -DBUILD_UNIT_TESTS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>ON .. &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> make &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> make &lt;span style="color:#204a87">test&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="fedoracentos">Fedora/CentOS&lt;/h2>
-&lt;h3 id="依赖准备-1">依赖准备&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fedoracentos">Fedora/CentOS&lt;/h3>
+&lt;h4 id="依赖准备-1">依赖准备&lt;/h4>
 &lt;p>CentOS一般需要安装EPEL，否则很多包都默认不可用。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo yum install epel-release
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>安装依赖：&lt;/p>
@@ -1037,7 +1038,7 @@ limitations under the License.
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo yum install gperftools-devel
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果你要运行测试，那么要安装ligtest-dev:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo yum install gtest-devel
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="使用config_brpcsh编译brpc-1">使用config_brpc.sh编译brpc&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用config_brpcsh编译brpc-1">使用config_brpc.sh编译brpc&lt;/h4>
 &lt;p>git克隆brpc，进入项目目录然后执行：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;/usr/include&amp;#34;&lt;/span> --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;/usr/lib64 /usr/bin&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
@@ -1055,15 +1056,15 @@ limitations under the License.
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87">test&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sh run_tests.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="使用cmake编译brpc-1">使用cmake编译brpc&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用cmake编译brpc-1">使用cmake编译brpc&lt;/h4>
 &lt;p>参考&lt;a href="#%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91brpc">这里&lt;/a>&lt;/p>
-&lt;h2 id="自己构建依赖的linux">自己构建依赖的Linux&lt;/h2>
-&lt;h3 id="依赖准备-2">依赖准备&lt;/h3>
+&lt;h3 id="自己构建依赖的linux">自己构建依赖的Linux&lt;/h3>
+&lt;h4 id="依赖准备-2">依赖准备&lt;/h4>
 &lt;p>brpc默认会构建出静态库和共享库，因此它也需要依赖有静态库和共享库两个版本。&lt;/p>
 &lt;p>以&lt;a href="https://github.com/gflags/gflags">gflags&lt;/a>为例，它默认不够尖共享库，你需要给&lt;code>cmake&lt;/code>指定选项去改变这一行为：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ cmake . -DBUILD_SHARED_LIBS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -DBUILD_STATIC_LIBS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="编译brpc">编译brpc&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="编译brpc">编译brpc&lt;/h4>
 &lt;p>还以gflags为例，&lt;code>../gflags_dev&lt;/code>表示gflags被克隆的位置。&lt;/p>
 &lt;p>git克隆brpc。进入到项目目录然后运行：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;../gflags_dev /usr/include&amp;#34;&lt;/span> --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;../gflags_dev /usr/lib64&amp;#34;&lt;/span>
@@ -1078,13 +1079,13 @@ limitations under the License.
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> brpc_dev
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>.. --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>..
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="使用cmake编译brpc-2">使用cmake编译brpc&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用cmake编译brpc-2">使用cmake编译brpc&lt;/h4>
 &lt;p>参考&lt;a href="#%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91brpc">这里&lt;/a>&lt;/p>
-&lt;h2 id="macos">MacOS&lt;/h2>
+&lt;h3 id="macos">MacOS&lt;/h3>
 &lt;p>注意：在相同硬件条件下，MacOS版brpc的性能可能明显差于Linux版。如果你的服务是性能敏感的，请不要使用MacOS作为你的生产环境。&lt;/p>
-&lt;h3 id="apple-silicon">Apple Silicon&lt;/h3>
+&lt;h4 id="apple-silicon">Apple Silicon&lt;/h4>
 &lt;p>master HEAD已支持M1系列芯片，M2还未测试。欢迎通过issues向我们报告遗留的warning/error。&lt;/p>
-&lt;h3 id="依赖准备-3">依赖准备&lt;/h3>
+&lt;h4 id="依赖准备-3">依赖准备&lt;/h4>
 &lt;p>安装依赖：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>brew install openssl git gnu-getopt coreutils gflags protobuf leveldb
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果你要在样例中启用cpu/heap的profiler：&lt;/p>
@@ -1092,13 +1093,13 @@ limitations under the License.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果你要运行测试，需安装gtest。先运行&lt;code>brew install googletest&lt;/code>看看homebrew是否支持（老版本没有），没有的话请下载和编译googletest：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>git clone https://github.com/google/googletest -b release-1.10.0 &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> googletest/googletest &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> mkdir build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> build &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> cmake -DCMAKE_CXX_FLAGS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;-std=c++11&amp;#34;&lt;/span> .. &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> make
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在编译完成后，复制&lt;code>include/&lt;/code>和&lt;code>lib/&lt;/code>目录到&lt;code>/usr/local/include&lt;/code>和&lt;code>/usr/local/lib&lt;/code>目录中，以便于让所有应用都能使用gtest。&lt;/p>
-&lt;h3 id="openssl">OpenSSL&lt;/h3>
+&lt;h4 id="openssl">OpenSSL&lt;/h4>
 &lt;p>Monterey中openssl的安装位置可能不再位于&lt;code>/usr/local/opt/openssl&lt;/code>，很可能会在&lt;code>/opt/homebrew/Cellar&lt;/code>目录下，如果编译时报告找不到openssl：&lt;/p>
 &lt;ul>
 &lt;li>先运行&lt;code>brew link openssl --force&lt;/code>看看&lt;code>/user/local/opt/openssl&lt;/code>是否出现了&lt;/li>
 &lt;li>没有的话可以自行设置软链：&lt;code>sudo ln -s /opt/homebrew/Cellar/openssl@3/3.0.3 /usr/local/opt/openssl&lt;/code>。请注意此命令中openssl的目录可能随环境变化而变化，可通过&lt;code>brew info openssl&lt;/code>查看。&lt;/li>
 &lt;/ul>
-&lt;h3 id="使用config_brpcsh编译brpc-2">使用config_brpc.sh编译brpc&lt;/h3>
+&lt;h4 id="使用config_brpcsh编译brpc-2">使用config_brpc.sh编译brpc&lt;/h4>
 &lt;p>git克隆brpc，进入到项目目录然后运行：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sh config_brpc.sh --headers&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/local/include --libs&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/usr/local/lib --cc&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>clang --cxx&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>clang++
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
@@ -1118,28 +1119,37 @@ limitations under the License.
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> &lt;span style="color:#204a87">test&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sh run_tests.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="使用cmake编译brpc-3">使用cmake编译brpc&lt;/h3>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用cmake编译brpc-3">使用cmake编译brpc&lt;/h4>
 &lt;p>参考&lt;a href="#%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91brpc">这里&lt;/a>&lt;/p>
-&lt;h1 id="支持的依赖">支持的依赖&lt;/h1>
-&lt;h2 id="gcc-48-112">GCC: 4.8-11.2&lt;/h2>
+&lt;h3 id="docker">Docker&lt;/h3>
+&lt;p>使用docker 编译brpc：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ mkdir -p ~/brpc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> ~/brpc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/apache/incubator-brpc.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> incubator-brpc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker build -t brpc:master .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker images
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run -it brpc:master /bin/bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="支持的依赖">支持的依赖&lt;/h2>
+&lt;h4 id="gcc-48-112">GCC: 4.8-11.2&lt;/h4>
 &lt;p>c++11被默认启用，以去除去boost的依赖（比如atomic）。&lt;/p>
 &lt;p>GCC7中over-aligned的问题暂时被禁止。&lt;/p>
 &lt;p>使用其他版本的gcc可能会产生编译警告，请联系我们予以修复。&lt;/p>
 &lt;p>请在makefile中给cxxflags增加&lt;code>-D__const__=&lt;/code>选项以避免&lt;a href="../bthread/thread-local/">gcc4+中的errno问题&lt;/a>.&lt;/p>
-&lt;h2 id="clang-35-40">Clang: 3.5-4.0&lt;/h2>
+&lt;h4 id="clang-35-40">Clang: 3.5-4.0&lt;/h4>
 &lt;p>无已知问题。&lt;/p>
-&lt;h2 id="glibc-212-225">glibc: 2.12-2.25&lt;/h2>
+&lt;h4 id="glibc-212-225">glibc: 2.12-2.25&lt;/h4>
 &lt;p>无已知问题。&lt;/p>
-&lt;h2 id="protobuf-24">protobuf: 2.4+&lt;/h2>
+&lt;h4 id="protobuf-24">protobuf: 2.4+&lt;/h4>
 &lt;p>同一个文件兼容pb 3.x版本和pb 2.x版本：
 不要使用proto3新增的类型，并且在proto文件的起始位置添加&lt;code>syntax=proto2;&lt;/code>声明。
 &lt;a href="https://github.com/brpc/brpc/blob/master/tools/add_syntax_equal_proto2_to_all.sh">tools/add_syntax_equal_proto2_to_all.sh&lt;/a>这个脚本可以给所有没有这行声明的proto文件添加&lt;code>syntax=&amp;quot;proto2&amp;quot;&lt;/code>声明。&lt;/p>
 &lt;p>pb 3.x中的Arena至今没被支持。&lt;/p>
-&lt;h2 id="gflags-20-221">gflags: 2.0-2.2.1&lt;/h2>
+&lt;h4 id="gflags-20-221">gflags: 2.0-2.2.1&lt;/h4>
 &lt;p>无已知问题。&lt;/p>
-&lt;h2 id="openssl-097-11">openssl: 0.97-1.1&lt;/h2>
+&lt;h4 id="openssl-097-11">openssl: 0.97-1.1&lt;/h4>
 &lt;p>被https功能需要。&lt;/p>
-&lt;h2 id="tcmalloc-17-25">tcmalloc: 1.7-2.5&lt;/h2>
+&lt;h4 id="tcmalloc-17-25">tcmalloc: 1.7-2.5&lt;/h4>
 &lt;p>brpc默认&lt;strong>不&lt;/strong>链接 &lt;a href="http://goog-perftools.sourceforge.net/doc/tcmalloc.html">tcmalloc&lt;/a>。用户按需要链接tcmalloc。&lt;/p>
 &lt;p>和glibc内置的ptmalloc相比，tcmalloc通常能提升性能。然而不同版本的tcmalloc可能表现迥异。例如：tcmalloc 2.1与 tcmalloc 1.7和2.5相比，可能会让brpc的多线程样例性能显著恶化（tcmalloc中的一个自旋锁导致的）。甚至不同的小版本号之间变现也可能不同。当你的程序表现不符合预期的时候，移除tcmalloc然后尝试其他版本。&lt;/p>
 &lt;p>用gcc4.8.2编译然后链接更早版本GCC编译的tcmalloc，可能会让程序中main()函数之前挂掉或者死锁，例如：&lt;/p>
@@ -1148,13 +1158,13 @@ limitations under the License.
 &lt;p>另外一个使用tcmalloc的常见问题是，它不会像 ptmalloc一样及时地归还内存给系统。因此当有一个无效的内存访问的时候，程序可能不会直接挂掉，取而代之的是它可能在一个不相关的地方挂掉，或者甚至一直不挂掉。当你的程序出现怪异的内存问题的时候，尝试移除tcmalloc。&lt;/p>
 &lt;p>如果你要使用&lt;a href="../builtin-services/cpu_profiler">cpu profiler&lt;/a>或&lt;a href="../builtin-services/heap_profiler">heap profiler&lt;/a>，要链接&lt;code>libtcmalloc_and_profiler.a&lt;/code>。这两个 profiler都是基于tcmalloc的。而&lt;a href="../builtin-services/contention_profiler">contention profiler&lt;/a>不需要tcmalloc。&lt;/p>
 &lt;p>当你移除tcmalloc的时候，不仅要移除tcmalloc的链接，也要移除宏&lt;code>-DBRPC_ENABLE_CPU_PROFILER&lt;/code>。&lt;/p>
-&lt;h2 id="glog-33">glog: 3.3+&lt;/h2>
+&lt;h4 id="glog-33">glog: 3.3+&lt;/h4>
 &lt;p>brpc实现了一个默认的&lt;a href="../../src/butil/logging.h">日志功能&lt;/a>它和glog冲突。要替换成glog，可以给config_brpc.sh增加*&amp;ndash;with-glog*选项或者给cmake增加&lt;code>-DWITH_GLOG=ON&lt;/code>选项。&lt;/p>
-&lt;h2 id="valgrind-38">valgrind: 3.8+&lt;/h2>
+&lt;h4 id="valgrind-38">valgrind: 3.8+&lt;/h4>
 &lt;p>brpc会自动检测valgrind（然后注册bthread的栈）。不支持老版本的valgrind（比如3.2）。&lt;/p>
-&lt;h2 id="thrift-093-0110">thrift: 0.9.3-0.11.0&lt;/h2>
+&lt;h4 id="thrift-093-0110">thrift: 0.9.3-0.11.0&lt;/h4>
 &lt;p>无已知问题。&lt;/p>
-&lt;h1 id="实例追踪">实例追踪&lt;/h1>
+&lt;h2 id="实例追踪">实例追踪&lt;/h2>
 &lt;p>我们提供了一个程序去帮助你追踪和监控所有brpc实例。 只需要在某处运行 &lt;a href="https://github.com/brpc/brpc/tree/master/tools/trackme_server/">trackme_server&lt;/a> 然后再带着 -trackme_server=SERVER参数启动需要被追踪的实例。trackme_server将从实例周期性地收到ping消息然后打印日志。您可以从日志中聚合实例地址，并调用实例的内置服务以获取更多信息。&lt;/p></description></item><item><title>Docs: bRPC 1.0.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.0.0/</link><pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.0.0/</guid><description>
 &lt;p>11月30日，随着committer lorin lee在apache基金会的孵化邮件组发出vote close的邮件， apache brpc 1.0.0的发版投票结果是通过。&lt;/p>
 &lt;p>下载地址在这里：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
