@@ -12,7 +12,7 @@ description: >
 
 ## Apache Software Foundation
 
-* [Apache Software Foundation](https://www.apache.org/)
+* [Foundation](https://www.apache.org/)
 * [License](https://www.apache.org/licenses/)
 * [Security](https://www.apache.org/security/)
 * [Events](https://www.apache.org/events/current-event)
