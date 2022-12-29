@@ -25,11 +25,11 @@ $ npm install
 
 1. Clone this repository
 ```sh
-git clone https://github.com/apache/incubator-brpc-website.git
+git clone https://github.com/apache/brpc-website.git
 ```
 2. Change to root directory: 
 ```sh
-cd incubator-brpc-website
+cd brpc-website
 ```
 3. Run 
 ```sh
@@ -52,7 +52,7 @@ Please sent your PR to the master branch instead of asf-site.
 The structure of /content folder is as follows in which the files you will mainly modify. Take adding a new committer info to the **Community** page and adding a new bRPC release version info to **Download bRPC** page as an example, just find the `index.md` documents in their corresponding subfolder of /content then modify them. Or just click the **Edit this page/编辑本页** button on their pages and modify them directly. Modifying other files or pages is similar.
 
 ```
-incubator-brpc-website
+brpc-website
 - content
 | - en
 | | - docs

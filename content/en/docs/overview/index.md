@@ -51,7 +51,7 @@ You can use it to:
   * hadoop_rpc (may be opensourced)
   * [rdma](https://en.wikipedia.org/wiki/Remote_direct_memory_access) support (will be opensourced)
   * [thrift](../client/access-thrift/) support,  thread-safe, more friendly and performant than the official clients.
-  * all sorts of protocols used in Baidu: [baidu_std](https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md), [streaming_rpc](../client/streaming-rpc/), hulu_pbrpc, [sofa_pbrpc](https://github.com/baidu/sofa-pbrpc), nova_pbrpc, public_pbrpc, ubrpc, and nshead-based ones.
+  * all sorts of protocols used in Baidu: [baidu_std](https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md), [streaming_rpc](../client/streaming-rpc/), hulu_pbrpc, [sofa_pbrpc](https://github.com/baidu/sofa-pbrpc), nova_pbrpc, public_pbrpc, ubrpc, and nshead-based ones.
   * Build [HA](https://en.wikipedia.org/wiki/High_availability) distributed services using an industrial-grade implementation of [RAFT consensus algorithm](https://raft.github.io) which is opensourced at [braft](https://github.com/brpc/braft)
 * Servers can handle requests [synchronously](../server/basics/) or [asynchronously](../server/basics/#asynchronous-service).
 * Clients can access servers [synchronously](../client/basics/#synchronus-call), [asynchronously](../client/basics/#asynchronous-call), [semi-synchronously](../client/basics/#semi-synchronous-call), or use [combo channels](../client/combo-channels/) to simplify sharded or parallel accesses declaratively.

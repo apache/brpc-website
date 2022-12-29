@@ -130,4 +130,4 @@ bRPC 的发展离不开其背后很多人的卓越贡献，感谢每一个人的
 
 ### Contributors
 
-在[bRPC贡献者](https://github.com/apache/incubator-brpc/graphs/contributors)列表中，记录了所有为bRPC出过贡献的人，感谢的所有[贡献者](https://github.com/apache/incubator-brpc/graphs/contributors)，一起帮助 bRPC 更好地发展。
+在[bRPC贡献者](https://github.com/apache/brpc/graphs/contributors)列表中，记录了所有为bRPC出过贡献的人，感谢的所有[贡献者](https://github.com/apache/brpc/graphs/contributors)，一起帮助 bRPC 更好地发展。

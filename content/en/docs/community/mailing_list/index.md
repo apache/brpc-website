@@ -11,7 +11,7 @@ description: >
 
 Mailing list is where we discuss in public and keep everything tracked, When using or contributing to bRPC, if you encounter any problem, or you have any suggestions or new ideas, you can use the Apache mailing-list to participate in the community building.
 
-If you have a specific bug to report or feature request, we'd suggest you opening an issue on our [GitHub repo](https://github.com/apache/incubator-brpc/issues/new/choose), which is a more efficient way to report the details.
+If you have a specific bug to report or feature request, we'd suggest you opening an issue on our [GitHub repo](https://github.com/apache/brpc/issues/new/choose), which is a more efficient way to report the details.
 
 * [dev@brpc.apache.org](dev@brpc.apache.org) is for people who want to contribute code to bRPC. [subscribe](mailto:dev-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe), [unsubscribe](mailto:dev-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe), [archives](https://www.mail-archive.com/dev@brpc.apache.org/)
 * [commits@brpc.apache.org](commits@brpc.apache.org) is for commit messages and patches to bRPC. [subscribe](mailto:commits-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe), [unsubscribe](mailto:commits-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe), [archives](https://www.mail-archive.com/commits@brpc.apache.org/)

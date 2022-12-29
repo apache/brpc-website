@@ -173,9 +173,9 @@ Version:	1.0.0
 ### 3. 创建发布 tag
 拉取发布分支，并推送tag
 ```bash
-git clone -b release-1.0 git@github.com:apache/incubator-brpc.git ~/incubator-brpc
+git clone -b release-1.0 git@github.com:apache/brpc.git ~/brpc
 
-cd ~/incubator-brpc
+cd ~/brpc
 
 git tag -a 1.0.0 -m "release 1.0.0"
 
@@ -236,11 +236,11 @@ mkdir -p ~/brpc_svn/dev/brpc/1.0.0
 
 cd ~/brpc_svn/dev/brpc/1.0.0
 
-cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz ~/brpc_svn/dev/brpc/1.0.0
+cp ~/brpc/apache-brpc-1.0.0-incubating-src.tar.gz ~/brpc_svn/dev/brpc/1.0.0
 
-cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.asc ~/brpc_svn/dev/brpc/1.0.0
+cp ~/brpc/apache-brpc-1.0.0-incubating-src.tar.gz.asc ~/brpc_svn/dev/brpc/1.0.0
 
-cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.sha512 ~/brpc_svn/dev/brpc/1.0.0
+cp ~/brpc/apache-brpc-1.0.0-incubating-src.tar.gz.sha512 ~/brpc_svn/dev/brpc/1.0.0
 ```
 
 ### 4. 提交SVN
@@ -313,13 +313,13 @@ gpg --verify apache-brpc-1.0.0-incubating-src.tar.gz.asc apache-brpc-1.0.0-incub
 #### 1. 对比源码包与github上的tag内容差异
 
 ```bash
-curl -Lo tag-1.0.0.tar.gz https://github.com/apache/incubator-brpc/archive/refs/tags/1.0.0.tar.gz
+curl -Lo tag-1.0.0.tar.gz https://github.com/apache/brpc/archive/refs/tags/1.0.0.tar.gz
 
 tar xvzf tag-1.0.0.tar.gz
 
 tar xvzf apache-brpc-1.0.0-incubating-src.tar.gz
 
-diff -r incubator-brpc-1.0.0 apache-brpc-1.0.0-incubating-src
+diff -r brpc-1.0.0 apache-brpc-1.0.0-incubating-src
 ```
 
 #### 2. 检查源码包的文件内容
@@ -350,15 +350,15 @@ diff -r incubator-brpc-1.0.0 apache-brpc-1.0.0-incubating-src
 
 标题：
 ```
-[VOTE] Release Apache brpc (Incubating) 1.0.0
+[VOTE] Release Apache brpc 1.0.0
 ```
 
 正文：  
 注：`Release Commit ID`填写当前release发版分支最后一个commit的commit id。
 ```
-Hi Apache brpc (Incubating) Community,
+Hi Apache brpc Community,
 
-This is a call for vote to release Apache brpc (Incubating) version
+This is a call for vote to release Apache brpc version
 1.0.0
 
 [Release Note]
@@ -368,10 +368,10 @@ The release candidates:
 https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0/
 
 Git tag for the release:
-https://github.com/apache/incubator-brpc/releases/tag/1.0.0
+https://github.com/apache/brpc/releases/tag/1.0.0
 
 Release Commit ID:
-https://github.com/apache/incubator-brpc/commit/xxx
+https://github.com/apache/brpc/commit/xxx
 
 Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS
@@ -403,14 +403,14 @@ LorinLee
 
 标题：
 ```
-[Result] [VOTE] Release Apache brpc (Incubating) 1.0.0
+[Result] [VOTE] Release Apache brpc 1.0.0
 ```
 
 正文：
 ```
 Hi all,
 
-The vote to release Apache brpc (Incubating) 1.0.0 has passed.
+The vote to release Apache brpc 1.0.0 has passed.
 
 The vote PASSED with 3 binding +1, 3 non binding +1 and no -1 votes:
 
@@ -459,18 +459,18 @@ svn cp https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS https://dist.a
 
 标题：
 ```
-[VOTE] Release Apache brpc (Incubating) 1.0.0
+[VOTE] Release Apache brpc 1.0.0
 ```
 
 正文：
 ```
 Hi Incubator Community,
 
-This is a call for a vote to release Apache brpc(Incubating) version
+This is a call for a vote to release Apache brpc version
 1.0.0.
 
 The Apache brpc community has voted and approved the release of Apache
-brpc (Incubating) 1.0.0.
+brpc 1.0.0.
 
 We now kindly request the Incubator PMC members review and vote on this
 incubator release.
@@ -490,7 +490,7 @@ This release has been signed with a PGP available here:
 https://downloads.apache.org/incubator/brpc/KEYS
 
 Git tag for the release:
-https://github.com/apache/incubator-brpc/releases/tag/1.0.0
+https://github.com/apache/brpc/releases/tag/1.0.0
 
 Build guide and get started instructions can be found at:
 https://brpc.apache.org/docs/getting_started
@@ -505,14 +505,14 @@ Please vote accordingly:
 
 Regards,
 Lorin Lee
-Apache brpc (Incubating) community
+Apache brpc community
 ```
 
 2. Apache Incubator 社区宣布结果邮件模板
 
 标题：
 ```
-[Result] [VOTE] Release Apache brpc (Incubating) 1.0.0
+[Result] [VOTE] Release Apache brpc 1.0.0
 ```
 
 正文：
@@ -520,7 +520,7 @@ Apache brpc (Incubating) community
 Hi Incubator Community,
 
 Thanks to everyone that participated. The vote to release Apache
-brpc (Incubating) version 1.0.0 in general@incubator.apache.org
+brpc version 1.0.0 in general@incubator.apache.org
 is now closed.
 
 Vote thread: xxx
@@ -538,13 +538,13 @@ Non-binding votes:
 - ccc
 
 Many thanks for all our mentors helping us with the release procedure,
-and all IPMC helped us to review and vote for Apache brpc(Incubating)
-release. We will proceed with publishing the approved artifacts and
+and all IPMC helped us to review and vote for Apache brpc release.
+We will proceed with publishing the approved artifacts and
 sending out the announcement soon.
 
 Regards,
 Lorin Lee
-Apache brpc (Incubating) community
+Apache brpc community
 ```
 
 ## 完成发布
@@ -557,12 +557,12 @@ svn mv https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0 https://dist.
 
 ### 2. Github版本发布
 
-在 [GitHub Releases 页面](https://github.com/apache/incubator-brpc/tags)的对应版本上点击，创建新的Release页面
+在 [GitHub Releases 页面](https://github.com/apache/brpc/tags)的对应版本上点击，创建新的Release页面
 编辑版本号及版本说明，并点击 Publish release
 
 ### 3. 更新下载页面
 
-等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：<https://brpc.apache.org/docs/downloadbrpc/>, 更新方式在 <https://github.com/apache/incubator-brpc-website/> 仓库中，注意中英文都要更新。
+等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：<https://brpc.apache.org/docs/downloadbrpc/>, 更新方式在 <https://github.com/apache/brpc-website/> 仓库中，注意中英文都要更新。
 
 GPG签名文件和哈希校验文件的下载链接应该使用这个前缀：https://downloads.apache.org/incubator/brpc/
 
@@ -578,7 +578,7 @@ GPG签名文件和哈希校验文件的下载链接应该使用这个前缀：ht
 
 标题：
 ```
-[ANNOUNCE] Apache brpc (Incubating) 1.0.0 released
+[ANNOUNCE] Apache brpc 1.0.0 released
 ```
 
 正文：  
@@ -586,8 +586,8 @@ GPG签名文件和哈希校验文件的下载链接应该使用这个前缀：ht
 ```
 Hi all,
 
-The Apache brpc (Incubating) community is glad to announce the new release
-of Apache brpc (Incubating) 1.0.0.
+The Apache brpc community is glad to announce the new release
+of Apache brpc 1.0.0.
 
 brpc is an Industrial-grade RPC framework using C++ Language, which is
 often used in high performance systems such as Search, Storage,
@@ -605,12 +605,12 @@ The release is available for download at:
 https://brpc.apache.org/docs/downloadbrpc/
 
 The release notes can be found here:
-https://github.com/apache/incubator-brpc/releases/tag/1.0.0
+https://github.com/apache/brpc/releases/tag/1.0.0
 
 Website: http://brpc.apache.org/
 
-brpc(Incubating) Resources:
-- Issue: https://github.com/apache/incubator-brpc/issues/
+brpc Resources:
+- Issue: https://github.com/apache/brpc/issues/
 - Mailing list: dev@brpc.apache.org
 - Documents: https://brpc.apache.org/docs/
 
@@ -619,7 +619,7 @@ Incubating community who made this release possible!
 
 
 Best Regards,
-Apache brpc (Incubating) community
+Apache brpc community
 ```
 
 ### 发布微信公众号公告

@@ -10,7 +10,7 @@ description: >
 
 邮件列表（Mailing List）是我们公开讨论并记录的地方，在使用 bRPC 的过程中，如果您发现任何问题，有新的想法、建议都可以通过 Apache 邮件列表参与到 bRPC 的社区建设中。
 
-如果你有一个特定的问题想要问，建议使用 [GitHub Issue](https://github.com/apache/incubator-brpc/issues/new/choose) 报 Bug 或提需求，这是一种更有效率的方式。
+如果你有一个特定的问题想要问，建议使用 [GitHub Issue](https://github.com/apache/brpc/issues/new/choose) 报 Bug 或提需求，这是一种更有效率的方式。
 
 * [dev@brpc.apache.org](dev@brpc.apache.org)适用于希望为bRPC贡献代码的人。[订阅](mailto:dev-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe), [取消订阅](mailto:dev-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe), [存档](https://www.mail-archive.com/dev@brpc.apache.org/)
 * [commits@brpc.apache.org](commits@brpc.apache.org)用于向bRPC提交消息和修补程序。[订阅](mailto:commits-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe), [取消订阅](mailto:commits-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe), [存档](https://www.mail-archive.com/commits@brpc.apache.org/)

@@ -178,9 +178,9 @@ Version:	1.0.0
 push the release branch to tag, For example:
 
 ```bash
-git clone -b release-1.0 git@github.com:apache/incubator-brpc.git ~/incubator-brpc
+git clone -b release-1.0 git@github.com:apache/brpc.git ~/brpc
 
-cd ~/incubator-brpc
+cd ~/brpc
 
 git tag -a 1.0.0 -m "release 1.0.0"
 
@@ -241,11 +241,11 @@ mkdir -p ~/brpc_svn/dev/brpc/1.0.0
 
 cd ~/brpc_svn/dev/brpc/1.0.0
 
-cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz ~/brpc_svn/dev/brpc/1.0.0
+cp ~/brpc/apache-brpc-1.0.0-incubating-src.tar.gz ~/brpc_svn/dev/brpc/1.0.0
 
-cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.asc ~/brpc_svn/dev/brpc/1.0.0
+cp ~/brpc/apache-brpc-1.0.0-incubating-src.tar.gz.asc ~/brpc_svn/dev/brpc/1.0.0
 
-cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.sha512 ~/brpc_svn/dev/brpc/1.0.0
+cp ~/brpc/apache-brpc-1.0.0-incubating-src.tar.gz.sha512 ~/brpc_svn/dev/brpc/1.0.0
 ```
 
 ### 4. Submit SVN
@@ -320,13 +320,13 @@ gpg --verify apache-brpc-1.0.0-incubating-src.tar.gz.asc apache-brpc-1.0.0-incub
 #### 1. Compare the difference of between the source code package and github tag
 
 ```bash
-curl -Lo tag-1.0.0.tar.gz https://github.com/apache/incubator-brpc/archive/refs/tags/1.0.0.tar.gz
+curl -Lo tag-1.0.0.tar.gz https://github.com/apache/brpc/archive/refs/tags/1.0.0.tar.gz
 
 tar xvzf tag-1.0.0.tar.gz
 
 tar xvzf apache-brpc-1.0.0-incubating-src.tar.gz
 
-diff -r incubator-brpc-1.0.0 apache-brpc-1.0.0-incubating-src
+diff -r brpc-1.0.0 apache-brpc-1.0.0-incubating-src
 ```
 
 #### 2. Check file content
@@ -358,7 +358,7 @@ diff -r incubator-brpc-1.0.0 apache-brpc-1.0.0-incubating-src
 
 Title:
 ```
-[VOTE] Release Apache brpc (Incubating) 1.0.0
+[VOTE] Release Apache brpc 1.0.0
 ```
 
 Content:
@@ -366,9 +366,9 @@ Content:
 Note: `Release Commit ID` fills in the commit ID of the last commit of the current release branch.
 
 ```
-Hi Apache brpc (Incubating) Community,
+Hi Apache brpc Community,
 
-This is a call for vote to release Apache brpc (Incubating) version
+This is a call for vote to release Apache brpc version
 1.0.0
 
 [Release Note]
@@ -378,10 +378,10 @@ The release candidates:
 https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0/
 
 Git tag for the release:
-https://github.com/apache/incubator-brpc/releases/tag/1.0.0
+https://github.com/apache/brpc/releases/tag/1.0.0
 
 Release Commit ID:
-https://github.com/apache/incubator-brpc/commit/xxx
+https://github.com/apache/brpc/commit/xxx
 
 Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS
@@ -413,14 +413,14 @@ LorinLee
 
 Title:
 ```
-[Result] [VOTE] Release Apache brpc (Incubating) 1.0.0
+[Result] [VOTE] Release Apache brpc 1.0.0
 ```
 
 Content:
 ```
 Hi all,
 
-The vote to release Apache brpc (Incubating) 1.0.0 has passed.
+The vote to release Apache brpc 1.0.0 has passed.
 
 The vote PASSED with 3 binding +1, 3 non binding +1 and no -1 votes:
 
@@ -469,18 +469,18 @@ After commit the svn, access <https://downloads.apache.org/incubator/brpc/KEYS>,
 
 Title:
 ```
-[VOTE] Release Apache brpc (Incubating) 1.0.0
+[VOTE] Release Apache brpc 1.0.0
 ```
 
 Content:
 ```
 Hi Incubator Community,
 
-This is a call for a vote to release Apache brpc(Incubating) version
+This is a call for a vote to release Apache brpcversion
 1.0.0.
 
 The Apache brpc community has voted and approved the release of Apache
-brpc (Incubating) 1.0.0.
+brpc 1.0.0.
 
 We now kindly request the Incubator PMC members review and vote on this
 incubator release.
@@ -500,7 +500,7 @@ This release has been signed with a PGP available here:
 https://downloads.apache.org/incubator/brpc/KEYS
 
 Git tag for the release:
-https://github.com/apache/incubator-brpc/releases/tag/1.0.0
+https://github.com/apache/brpc/releases/tag/1.0.0
 
 Build guide and get started instructions can be found at:
 https://brpc.apache.org/docs/getting_started
@@ -515,14 +515,14 @@ Please vote accordingly:
 
 Regards,
 Lorin Lee
-Apache brpc (Incubating) community
+Apache brpc community
 ```
 
 2. Apache Incubator community announcement of vote result template
 
 Title:
 ```
-[Result] [VOTE] Release Apache brpc (Incubating) 1.0.0
+[Result] [VOTE] Release Apache brpc 1.0.0
 ```
 
 Content:
@@ -530,7 +530,7 @@ Content:
 Hi Incubator Community,
 
 Thanks to everyone that participated. The vote to release Apache
-brpc (Incubating) version 1.0.0 in general@incubator.apache.org
+brpc version 1.0.0 in general@incubator.apache.org
 is now closed.
 
 Vote thread: xxx
@@ -548,13 +548,13 @@ Non-binding votes:
 - ccc
 
 Many thanks for all our mentors helping us with the release procedure,
-and all IPMC helped us to review and vote for Apache brpc(Incubating)
-release. We will proceed with publishing the approved artifacts and
+and all IPMC helped us to review and vote for Apache brpc release.
+We will proceed with publishing the approved artifacts and
 sending out the announcement soon.
 
 Regards,
 Lorin Lee
-Apache brpc (Incubating) community
+Apache brpc community
 ```
 
 ## Finish the release
@@ -567,12 +567,12 @@ svn mv https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0 https://dist.
 
 ### 2. Create github release
 
-1. On the [GitHub Releases page](https://github.com/apache/incubator-brpc/tags) Click the corresponding version of to create a new Release
+1. On the [GitHub Releases page](https://github.com/apache/brpc/tags) Click the corresponding version of to create a new Release
 2. Edit the version number and version description, and click `Publish release`
 
 ### 3. Update download page
 
-After waiting and confirming that the new release is synchronized to the Apache image, update the following page: <https://brpc.apache.org/docs/downloadbrpc/> by change the code in <https://github.com/apache/incubator-brpc-website/>. Please update both Chinese and English.
+After waiting and confirming that the new release is synchronized to the Apache image, update the following page: <https://brpc.apache.org/docs/downloadbrpc/> by change the code in <https://github.com/apache/brpc-website/>. Please update both Chinese and English.
 
 The download links of GPG signature files and hash check files should use this prefix: `https://downloads.apache.org/incubator/brpc/`
 
@@ -588,7 +588,7 @@ The announcement email template:
 
 Title:
 ```
-[ANNOUNCE] Apache brpc (Incubating) 1.0.0 released
+[ANNOUNCE] Apache brpc 1.0.0 released
 ```
 
 Content:
@@ -598,8 +598,8 @@ Note: `Brief notes of this release` It is only necessary to list the main change
 ```
 Hi all,
 
-The Apache brpc (Incubating) community is glad to announce the new release
-of Apache brpc (Incubating) 1.0.0.
+The Apache brpc community is glad to announce the new release
+of Apache brpc 1.0.0.
 
 brpc is an Industrial-grade RPC framework using C++ Language, which is
 often used in high performance systems such as Search, Storage,
@@ -617,12 +617,12 @@ The release is available for download at:
 https://brpc.apache.org/docs/downloadbrpc/
 
 The release notes can be found here:
-https://github.com/apache/incubator-brpc/releases/tag/1.0.0
+https://github.com/apache/brpc/releases/tag/1.0.0
 
 Website: http://brpc.apache.org/
 
-brpc(Incubating) Resources:
-- Issue: https://github.com/apache/incubator-brpc/issues/
+brpcResources:
+- Issue: https://github.com/apache/brpc/issues/
 - Mailing list: dev@brpc.apache.org
 - Documents: https://brpc.apache.org/docs/
 
@@ -630,7 +630,7 @@ We would like to thank all contributors of the Apache brpc community and
 Incubating community who made this release possible!
 
 Best Regards,
-Apache brpc (Incubating) community
+Apache brpc community
 ```
 
 ### 5. Publish WeChat official account announcement

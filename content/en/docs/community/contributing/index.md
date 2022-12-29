@@ -19,4 +19,4 @@ Before the PR:
 
 After the PR:
 
-* Make sure the [travis-ci](https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests) passed.
+* Make sure the [travis-ci](https://app.travis-ci.com/github/apache/brpc/pull_requests) passed.

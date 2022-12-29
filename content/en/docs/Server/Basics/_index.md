@@ -304,7 +304,7 @@ As a correspondence, if cntl->response_attachment() is not empty and pb response
 
 Server detects supported protocols automatically, without assignment from users. `cntl->protocol()` gets the protocol being used. Server is able to accept connections with different protocols from one port, users don't need to assign different ports for different protocols. Even one connection may transport messages in multiple protocols, although we rarely do this (and not recommend). Supported protocols:
 
-- [The standard protocol used in Baidu](https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md), shown as "baidu_std", enabled by default.
+- [The standard protocol used in Baidu](https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md), shown as "baidu_std", enabled by default.
 
 - [Streaming RPC](../../client/streaming-rpc/), shown as "streaming_rpc", enabled by default.
 
@@ -350,7 +350,7 @@ Server detects supported protocols automatically, without assignment from users.
 
   As the name implies, messages in this protocol are composed by nshead+mcpack, the mcpack does not include special fields. Different from implementations based on NsheadService by users, this protocol uses mcpack2pb which makes the service capable of handling both mcpack and pb with one piece of code. Due to lack of fields to carry ErrorText, server can only close connections when errors occur.
 
-- Read [Implement NsheadService](https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md) for UB related protocols.
+- Read [Implement NsheadService](https://github.com/apache/brpc/blob/master/docs/cn/nshead_service.md) for UB related protocols.
 
 If you need more protocols, contact us.
 

@@ -4,7 +4,7 @@ linkTitle: "开始"
 weight: 3
 date: 2021-08-12
 description: >
-  快速搭建bRPC并尝试[样例代码](https://github.com/apache/incubator-brpc/tree/master/example)。
+  快速搭建bRPC并尝试[样例代码](https://github.com/apache/brpc/tree/master/example)。
 ---
 ## 构建
 
@@ -293,8 +293,8 @@ $ sh run_tests.sh
 ```shell
 $ mkdir -p ~/brpc
 $ cd ~/brpc
-$ git clone https://github.com/apache/incubator-brpc.git
-$ cd incubator-brpc
+$ git clone https://github.com/apache/brpc.git
+$ cd brpc
 $ docker build -t brpc:master .
 $ docker images
 $ docker run -it brpc:master /bin/bash

@@ -613,7 +613,7 @@ options.retry_policy = &g_my_retry_policy;
 
 ## 熔断
 
-具体方法见[这里](https://github.com/apache/incubator-brpc/blob/master/docs/cn/circuit_breaker.md)。
+具体方法见[这里](https://github.com/apache/brpc/blob/master/docs/cn/circuit_breaker.md)。
 
 ## 协议
 
@@ -621,14 +621,14 @@ Channel的默认协议是baidu_std，可通过设置ChannelOptions.protocol换�
 
 目前支持的有：
 
-- PROTOCOL_BAIDU_STD 或 “baidu_std"，即[百度标准协议](https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md)，默认为单连接。
+- PROTOCOL_BAIDU_STD 或 “baidu_std"，即[百度标准协议](https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md)，默认为单连接。
 - PROTOCOL_HTTP 或 ”http", http/1.0或http/1.1协议，默认为连接池(Keep-Alive)。
   - 访问普通http服务的方法见[访问http/h2服务](../access-httph2/)
-  - 通过http:json或http:proto访问pb服务的方法见[http/h2衍生协议](https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md)
+  - 通过http:json或http:proto访问pb服务的方法见[http/h2衍生协议](https://github.com/apache/brpc/blob/master/docs/cn/http_derivatives.md)
 - PROTOCOL_H2 或 ”h2", http/2协议，默认是单连接。
   - 访问普通h2服务的方法见[访问http/h2服务](../access-httph2/)。
-  - 通过h2:json或h2:proto访问pb服务的方法见[http/h2衍生协议](https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md)
-- "h2:grpc", [gRPC](https://grpc.io)的协议，也是h2的衍生协议，默认为单连接，具体见[h2:grpc](https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md#h2grpc)。
+  - 通过h2:json或h2:proto访问pb服务的方法见[http/h2衍生协议](https://github.com/apache/brpc/blob/master/docs/cn/http_derivatives.md)
+- "h2:grpc", [gRPC](https://grpc.io)的协议，也是h2的衍生协议，默认为单连接，具体见[h2:grpc](https://github.com/apache/brpc/blob/master/docs/cn/http_derivatives.md#h2grpc)。
 - PROTOCOL_THRIFT 或 "thrift"，[apache thrift](https://thrift.apache.org)的协议，默认为连接池, 具体方法见[访问thrift](../access-thrift/)。
 - PROTOCOL_MEMCACHE 或 "memcache"，memcached的二进制协议，默认为单连接。具体方法见[访问memcached](../access-memcached/)。
 - PROTOCOL_REDIS 或 "redis"，redis 1.2后的协议(也是hiredis支持的协议)，默认为单连接。具体方法见[访问Redis](../access-redis/)。
@@ -759,7 +759,7 @@ public:
 
 那么当用户并发调用RPC接口用单连接往同一个server发请求时，框架会自动保证：建立TCP连接后，连接上的第一个请求中会带有上述`GenerateCredential`产生的认证包，其余剩下的并发请求不会带有认证信息，依次排在第一个请求之后。整个发送过程依旧是并发的，并不会等第一个请求先返回。若server端认证成功，那么所有请求都能成功返回；若认证失败，一般server端则会关闭连接，这些请求则会收到相应错误。
 
-目前自带协议中支持客户端认证的有：[baidu_std](https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md)(默认协议), HTTP, hulu_pbrpc, ESP。对于自定义协议，一般可以在组装请求阶段，调用Authenticator接口生成认证串，来支持客户端认证。
+目前自带协议中支持客户端认证的有：[baidu_std](https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md)(默认协议), HTTP, hulu_pbrpc, ESP。对于自定义协议，一般可以在组装请求阶段，调用Authenticator接口生成认证串，来支持客户端认证。
 
 ## 重置
 

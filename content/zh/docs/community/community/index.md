@@ -47,7 +47,7 @@ limitations under the License.
 
 #### Bug报告
 
-发现bug? 在[问题追踪](https://github.com/apache/incubator-brpc/issues)页面中提交问题。
+发现bug? 在[问题追踪](https://github.com/apache/brpc/issues)页面中提交问题。
 
 在提交问题之前，请：
 
@@ -61,15 +61,15 @@ limitations under the License.
 
 我们也欢迎对新功能的增强请求。请求越具体，理由越充分，它被纳入未来版本的可能性就越大。
 
-  [https://github.com/apache/incubator-brpc/issues](https://github.com/apache/incubator-brpc/issues)
+  [https://github.com/apache/brpc/issues](https://github.com/apache/brpc/issues)
 
 
 ### 源代码
 
-可以通过github上的[源代码库](https://github.com/apache/incubator-brpc)访问项目源代码。
+可以通过github上的[源代码库](https://github.com/apache/brpc)访问项目源代码。
 
 
 ### 网站源代码
 
-可以通过github上的[网站源代码库](https://github.com/apache/incubator-brpc-website)访问项目网站源代码。
+可以通过github上的[网站源代码库](https://github.com/apache/brpc-website)访问项目网站源代码。
 
