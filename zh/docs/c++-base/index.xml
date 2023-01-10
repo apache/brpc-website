@@ -400,7 +400,7 @@ TRACE: 12-30 13:19:53: * 0 [test_flat_map.cpp:637] Seeking 10000 from FlatMap/Al
 &lt;li>多次哈希：一般用多个哈希表代替一个哈希表，当发生冲突时（用另一个哈希值）尝试另一个哈希表。典型如&lt;a href="http://en.wikipedia.org/wiki/Cuckoo_hashing">Cuckoo hashing&lt;/a>，这个结构也没有解决内存跳转。&lt;/li>
 &lt;/ul></description></item><item><title>Docs: bRPC培训材料</title><link>https://brpc.apache.org/zh/docs/c++-base/brpc-training-materials/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/c++-base/brpc-training-materials/</guid><description>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/brpc_intro.pptx">bRPC外功修炼宝典&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/en/tutorial_on_building_services.pptx">A tutorial on building large-scale services&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/en/brpc_internal.pptx">bRPC Internal&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/brpc_intro.pptx">bRPC外功修炼宝典&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/apache/brpc/blob/master/docs/en/tutorial_on_building_services.pptx">A tutorial on building large-scale services&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/apache/brpc/blob/master/docs/en/brpc_internal.pptx">bRPC Internal&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>

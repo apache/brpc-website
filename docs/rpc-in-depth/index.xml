@@ -2,7 +2,7 @@
 &lt;h1 id="multi-protocol-support-in-the-server-side">Multi-protocol support in the server side&lt;/h1>
 &lt;p>brpc server supports all protocols in the same port, and it makes deployment and maintenance more convenient in most of the time. Since the format of different protocols is very different, it is hard to support all protocols in the same port unambiguously. In consider of decoupling and extensibility, it is also hard to build a multiplexer for all protocols. Thus our way is to classify all protocols into three categories and try one by one:&lt;/p>
 &lt;ul>
-&lt;li>First-class protocol: Special characters are marked in front of the protocol data, for example, the data of protocol &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md">baidu_std&lt;/a> and hulu_pbrpc begins with &amp;lsquo;PRPC&amp;rsquo; and &amp;lsquo;HULU&amp;rsquo; respectively. Parser just check first four characters to know whether the protocol is matched. This class of protocol is checked first and all these protocols can share one TCP connection.&lt;/li>
+&lt;li>First-class protocol: Special characters are marked in front of the protocol data, for example, the data of protocol &lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md">baidu_std&lt;/a> and hulu_pbrpc begins with &amp;lsquo;PRPC&amp;rsquo; and &amp;lsquo;HULU&amp;rsquo; respectively. Parser just check first four characters to know whether the protocol is matched. This class of protocol is checked first and all these protocols can share one TCP connection.&lt;/li>
 &lt;li>Second-class protocol: Some complex protocols without special marked characters can only be detected after several input data are parsed. Currently only HTTP is classified into this category.&lt;/li>
 &lt;li>Third-class protocol: Special characters are in the middle of the protocol data, such as the magic number of nshead protocol is the 25th-28th characters. It is complex to handle this case because without reading first 28 bytes, we cannot determine whether the protocol is nshead. If it is tried before http, http messages less than 28 bytes may not be parsed, since the parser consider it as an incomplete nshead message.&lt;/li>
 &lt;/ul>
@@ -12,7 +12,7 @@
 &lt;h1 id="support-new-protocols">Support new protocols&lt;/h1>
 &lt;p>brpc is designed to add new protocols at any time, just proceed as follows:&lt;/p>
 &lt;blockquote>
-&lt;p>The protocol that begins with nshead has unified support, just read &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md">this&lt;/a>.&lt;/p>
+&lt;p>The protocol that begins with nshead has unified support, just read &lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/nshead_service.md">this&lt;/a>.&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="add-protocoltype">add ProtocolType&lt;/h2>
 &lt;p>Add new protocol type in ProtocolType in &lt;a href="https://github.com/brpc/brpc/blob/master/src/brpc/options.proto">options.proto&lt;/a>. If you need to add new protocol, please contact us to add it for you to make sure there is no conflict with protocols of others.&lt;/p>

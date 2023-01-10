@@ -442,25 +442,25 @@ If you need weighted round-robin, you should consider using &lt;a href="#wrr">wr
 &lt;h3 id="retrying-should-be-conservative">Retrying should be conservative&lt;/h3>
 &lt;p>Due to maintaining costs, even very large scale clusters are deployed with &amp;ldquo;just enough&amp;rdquo; instances to survive major defects, namely offline of one IDC, which is at most 1/2 of all machines. However aggressive retries may easily make pressures from all clients double or even tripple against servers, and make the whole cluster down: More and more requests stuck in buffers, because servers can&amp;rsquo;t process them in-time. All requests have to wait for a very long time to be processed and finally gets timed out, as if the whole cluster is crashed. The default retrying policy is safe generally: unless the connection is broken, retries are rarely sent. However users are able to customize starting conditions for retries by inheriting RetryPolicy, which may turn retries to be &amp;ldquo;a storm&amp;rdquo;. When you customized RetryPolicy, you need to carefully consider how clients and servers interact and design corresponding tests to verify that retries work as expected.&lt;/p>
 &lt;h2 id="circuit-breaker">Circuit breaker&lt;/h2>
-&lt;p>Check out &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/circuit_breaker.md">circuit_breaker&lt;/a> for more details.&lt;/p>
+&lt;p>Check out &lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/circuit_breaker.md">circuit_breaker&lt;/a> for more details.&lt;/p>
 &lt;h2 id="protocols">Protocols&lt;/h2>
 &lt;p>The default protocol used by Channel is baidu_std, which is changeable by setting ChannelOptions.protocol. The field accepts both enum and string.&lt;/p>
 &lt;p>Supported protocols:&lt;/p>
 &lt;ul>
-&lt;li>PROTOCOL_BAIDU_STD or &amp;ldquo;baidu_std&amp;rdquo;, which is &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md">the standard binary protocol inside Baidu&lt;/a>, using single connection by default.&lt;/li>
+&lt;li>PROTOCOL_BAIDU_STD or &amp;ldquo;baidu_std&amp;rdquo;, which is &lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md">the standard binary protocol inside Baidu&lt;/a>, using single connection by default.&lt;/li>
 &lt;li>PROTOCOL_HTTP or &amp;ldquo;http&amp;rdquo;, which is http/1.0 or http/1.1, using pooled connection by default (Keep-Alive).
 &lt;ul>
 &lt;li>Methods for accessing ordinary http services are listed in &lt;a href="../access-httph2/">Access http/h2&lt;/a>.&lt;/li>
-&lt;li>Methods for accessing pb services by using http:json or http:proto are listed in &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/en/http_derivatives.md">http/h2 derivatives&lt;/a>&lt;/li>
+&lt;li>Methods for accessing pb services by using http:json or http:proto are listed in &lt;a href="https://github.com/apache/brpc/blob/master/docs/en/http_derivatives.md">http/h2 derivatives&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>PROTOCOL_H2 or ”h2&amp;quot;, which is http/2, using single connection by default.
 &lt;ul>
 &lt;li>Methods for accessing ordinary h2 services are listed in &lt;a href="../access-httph2/">Access http/h2&lt;/a>.&lt;/li>
-&lt;li>Methods for accessing pb services by using h2:json or h2:proto are listed in &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/en/http_derivatives.md">http/h2 derivatives&lt;/a>&lt;/li>
+&lt;li>Methods for accessing pb services by using h2:json or h2:proto are listed in &lt;a href="https://github.com/apache/brpc/blob/master/docs/en/http_derivatives.md">http/h2 derivatives&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>&amp;ldquo;h2:grpc&amp;rdquo;, which is the protocol of &lt;a href="https://grpc.io">gRPC&lt;/a> and based on h2, using single connection by default, check out &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/en/http_derivatives.md#h2grpc">h2:grpc&lt;/a> for details.&lt;/li>
+&lt;li>&amp;ldquo;h2:grpc&amp;rdquo;, which is the protocol of &lt;a href="https://grpc.io">gRPC&lt;/a> and based on h2, using single connection by default, check out &lt;a href="https://github.com/apache/brpc/blob/master/docs/en/http_derivatives.md#h2grpc">h2:grpc&lt;/a> for details.&lt;/li>
 &lt;li>PROTOCOL_THRIFT or &amp;ldquo;thrift&amp;rdquo;, which is the protocol of &lt;a href="https://thrift.apache.org">apache thrift&lt;/a>, using pooled connection by default, check out &lt;a href="../access-thrift/">Access thrift&lt;/a> for details.&lt;/li>
 &lt;li>PROTOCOL_MEMCACHE or &amp;ldquo;memcache&amp;rdquo;, which is binary protocol of memcached, using &lt;strong>single connection&lt;/strong> by default. Check out &lt;a href="../access-memcached/">Access memcached&lt;/a> for details.&lt;/li>
 &lt;li>PROTOCOL_REDIS or &amp;ldquo;redis&amp;rdquo;, which is protocol of redis 1.2+ (the one supported by hiredis), using &lt;strong>single connection&lt;/strong> by default. Check out &lt;a href="../access-redis/">Access Redis&lt;/a> for details.&lt;/li>
@@ -671,7 +671,7 @@ Set ChannelOptions.mutable_ssl_options() to enable SSL. Refer to &lt;a href="htt
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#204a87;font-weight:bold">virtual&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000">GenerateCredential&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">std&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">string&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">auth_str&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>When the user calls the RPC interface with a single connection to the same server, the framework guarantee that once the TCP connection has been established, the first request on the connection will contain the authentication string generated by &lt;code>GenerateCredential&lt;/code>. Subsequent requests will not carried that string. The entire sending process is still highly concurrent since it won&amp;rsquo;t wait for the authentication result. If the verification succeeds, all requests return without error. Otherwise, if the verification fails, generally the server will close the connection and those requests will receive the corresponding error.&lt;/p>
-&lt;p>Currently only those protocols support client authentication: &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/">baidu_std&lt;/a> (default protocol), HTTP, hulu_pbrpc, ESP. For customized protocols, generally speaking, users could call the &lt;code>Authenticator&lt;/code>&amp;rsquo;s interface to generate authentication string during the request packing process in order to support authentication.&lt;/p>
+&lt;p>Currently only those protocols support client authentication: &lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/">baidu_std&lt;/a> (default protocol), HTTP, hulu_pbrpc, ESP. For customized protocols, generally speaking, users could call the &lt;code>Authenticator&lt;/code>&amp;rsquo;s interface to generate authentication string during the request packing process in order to support authentication.&lt;/p>
 &lt;h2 id="reset">Reset&lt;/h2>
 &lt;p>This method makes Controller back to the state as if it&amp;rsquo;s just created.&lt;/p>
 &lt;p>Don&amp;rsquo;t call Reset() during a RPC, which is undefined.&lt;/p>
@@ -1904,7 +1904,7 @@ Read &lt;a href="https://thrift.apache.org/docs/install/debian">Official wiki&lt
 &lt;/table></description></item><item><title>Docs: Access UB</title><link>https://brpc.apache.org/docs/client/access-ub/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/client/access-ub/</guid><description>
 &lt;p>brpc可通过多种方式访问用ub搭建的服务。&lt;/p>
 &lt;h1 id="ubrpc-by-protobuf">ubrpc (by protobuf)&lt;/h1>
-&lt;p>r31687后，brpc支持通过protobuf访问ubrpc，不需要baidu-rpc-ub，也不依赖idl-compiler。（也可以让protobuf服务被ubrpc client访问，方法见&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md#%E4%BD%BF%E7%94%A8ubrpc%E7%9A%84%E6%9C%8D%E5%8A%A1">使用ubrpc的服务&lt;/a>）。&lt;/p>
+&lt;p>r31687后，brpc支持通过protobuf访问ubrpc，不需要baidu-rpc-ub，也不依赖idl-compiler。（也可以让protobuf服务被ubrpc client访问，方法见&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/nshead_service.md#%E4%BD%BF%E7%94%A8ubrpc%E7%9A%84%E6%9C%8D%E5%8A%A1">使用ubrpc的服务&lt;/a>）。&lt;/p>
 &lt;p>&lt;strong>步骤：&lt;/strong>&lt;/p>
 &lt;ol>
 &lt;li>

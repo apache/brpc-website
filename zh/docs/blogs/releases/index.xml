@@ -3,7 +3,7 @@
 &lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.3.0版本发布，支持arm64平台和多维度bvar，同时Star数量也突破14k，并新增四位企业级用户：欢聚时代、Doris、BaikalDB和数美科技（nextdata）。&lt;/p>
 &lt;p>bRPC官网：https://brpc.apache.org/&lt;/p>
 &lt;p>下载链接：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
-&lt;p>Github Release Tag：https://github.com/apache/incubator-brpc/releases/tag/1.3.0&lt;/p>
+&lt;p>Github Release Tag：https://github.com/apache/brpc/releases/tag/1.3.0&lt;/p>
 &lt;h3 id="130版本的主要变更">1.3.0版本的主要变更：&lt;/h3>
 &lt;p>新功能&lt;/p>
 &lt;ul>
@@ -48,7 +48,7 @@
 &lt;h2 id="apache-brpc-120发布支持apple-silicon">Apache bRPC 1.2.0发布，支持Apple Silicon&lt;/h2>
 &lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.2.0版本发布，支持Apple Silicon。&lt;/p>
 &lt;p>下载链接：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
-&lt;p>Github Release Tag：https://github.com/apache/incubator-brpc/releases/tag/1.2.0&lt;/p>
+&lt;p>Github Release Tag：https://github.com/apache/brpc/releases/tag/1.2.0&lt;/p>
 &lt;h3 id="120版本的主要变更">1.2.0版本的主要变更：&lt;/h3>
 &lt;p>新功能&lt;/p>
 &lt;ul>
@@ -87,7 +87,7 @@
 &lt;h2 id="apache-brpc-110-发布支持ipv6和uds">Apache bRPC 1.1.0 发布，支持IPV6和UDS&lt;/h2>
 &lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.1.0版本发布！&lt;/p>
 &lt;p>下载链接：https://brpc.apache.org/docs/downloadbrpc/&lt;/p>
-&lt;p>Github Release Tag：https://github.com/apache/incubator-brpc/releases/tag/1.1.0&lt;/p>
+&lt;p>Github Release Tag：https://github.com/apache/brpc/releases/tag/1.1.0&lt;/p>
 &lt;h3 id="110版本的主要变更">1.1.0版本的主要变更：&lt;/h3>
 &lt;p>新功能&lt;/p>
 &lt;ul>

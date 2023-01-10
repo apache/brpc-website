@@ -180,7 +180,7 @@
 &lt;p>Server detects supported protocols automatically, without assignment from users. &lt;code>cntl-&amp;gt;protocol()&lt;/code> gets the protocol being used. Server is able to accept connections with different protocols from one port, users don&amp;rsquo;t need to assign different ports for different protocols. Even one connection may transport messages in multiple protocols, although we rarely do this (and not recommend). Supported protocols:&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md">The standard protocol used in Baidu&lt;/a>, shown as &amp;ldquo;baidu_std&amp;rdquo;, enabled by default.&lt;/p>
+&lt;p>&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md">The standard protocol used in Baidu&lt;/a>, shown as &amp;ldquo;baidu_std&amp;rdquo;, enabled by default.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;a href="../../client/streaming-rpc/">Streaming RPC&lt;/a>, shown as &amp;ldquo;streaming_rpc&amp;rdquo;, enabled by default.&lt;/p>
@@ -226,7 +226,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>As the name implies, messages in this protocol are composed by nshead+mcpack, the mcpack does not include special fields. Different from implementations based on NsheadService by users, this protocol uses mcpack2pb which makes the service capable of handling both mcpack and pb with one piece of code. Due to lack of fields to carry ErrorText, server can only close connections when errors occur.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Read &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md">Implement NsheadService&lt;/a> for UB related protocols.&lt;/p>
+&lt;p>Read &lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/nshead_service.md">Implement NsheadService&lt;/a> for UB related protocols.&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;p>If you need more protocols, contact us.&lt;/p>

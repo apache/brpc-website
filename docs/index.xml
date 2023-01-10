@@ -79,7 +79,7 @@
 &lt;li>hadoop_rpc (may be opensourced)&lt;/li>
 &lt;li>&lt;a href="https://en.wikipedia.org/wiki/Remote_direct_memory_access">rdma&lt;/a> support (will be opensourced)&lt;/li>
 &lt;li>&lt;a href="../client/access-thrift/">thrift&lt;/a> support, thread-safe, more friendly and performant than the official clients.&lt;/li>
-&lt;li>all sorts of protocols used in Baidu: &lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md">baidu_std&lt;/a>, &lt;a href="../client/streaming-rpc/">streaming_rpc&lt;/a>, hulu_pbrpc, &lt;a href="https://github.com/baidu/sofa-pbrpc">sofa_pbrpc&lt;/a>, nova_pbrpc, public_pbrpc, ubrpc, and nshead-based ones.&lt;/li>
+&lt;li>all sorts of protocols used in Baidu: &lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md">baidu_std&lt;/a>, &lt;a href="../client/streaming-rpc/">streaming_rpc&lt;/a>, hulu_pbrpc, &lt;a href="https://github.com/baidu/sofa-pbrpc">sofa_pbrpc&lt;/a>, nova_pbrpc, public_pbrpc, ubrpc, and nshead-based ones.&lt;/li>
 &lt;li>Build &lt;a href="https://en.wikipedia.org/wiki/High_availability">HA&lt;/a> distributed services using an industrial-grade implementation of &lt;a href="https://raft.github.io">RAFT consensus algorithm&lt;/a> which is opensourced at &lt;a href="https://github.com/brpc/braft">braft&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -139,7 +139,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-&lt;h2 id="apache-brpc-incubating-community">Apache bRPC (incubating) Community&lt;/h2>
+&lt;h2 id="apache-brpc-community">Apache bRPC Community&lt;/h2>
 &lt;p>Every volunteer project obtains its strength from the people involved in it. We invite you to participate as much or as little as you choose.&lt;/p>
 &lt;p>You can:&lt;/p>
 &lt;ul>
@@ -151,7 +151,7 @@ limitations under the License.
 &lt;p>Visit the &lt;a href="../contributing/">Contributing&lt;/a> page for more information.&lt;/p>
 &lt;h3 id="issue-tracker">Issue tracker&lt;/h3>
 &lt;h4 id="bug-reports">Bug Reports&lt;/h4>
-&lt;p>Found bug? Enter an issue in the &lt;a href="https://github.com/apache/incubator-brpc/issues">Issue Tracker&lt;/a>.&lt;/p>
+&lt;p>Found bug? Enter an issue in the &lt;a href="https://github.com/apache/brpc/issues">Issue Tracker&lt;/a>.&lt;/p>
 &lt;p>Before submitting an issue, please:&lt;/p>
 &lt;ul>
 &lt;li>Verify that the bug does in fact exist.&lt;/li>
@@ -160,14 +160,14 @@ limitations under the License.
 &lt;/ul>
 &lt;h4 id="feature-requests">Feature Requests&lt;/h4>
 &lt;p>Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.&lt;/p>
-&lt;p>&lt;a href="https://github.com/apache/incubator-brpc/issues">https://github.com/apache/incubator-brpc/issues&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/apache/brpc/issues">https://github.com/apache/brpc/issues&lt;/a>&lt;/p>
 &lt;h3 id="source-code">Source Code&lt;/h3>
-&lt;p>The project sources are accessible via the &lt;a href="https://github.com/apache/incubator-brpc">source code repository&lt;/a> which is on github.&lt;/p>
+&lt;p>The project sources are accessible via the &lt;a href="https://github.com/apache/brpc">source code repository&lt;/a> which is on github.&lt;/p>
 &lt;h3 id="website-source-code">Website Source Code&lt;/h3>
-&lt;p>The project website sources are accessible via the &lt;a href="https://github.com/apache/incubator-brpc-website">website source code repository&lt;/a> which is on github also.&lt;/p></description></item><item><title>Docs: Mailing List</title><link>https://brpc.apache.org/docs/community/mailing_list/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/mailing_list/</guid><description>
+&lt;p>The project website sources are accessible via the &lt;a href="https://github.com/apache/brpc-website">website source code repository&lt;/a> which is on github also.&lt;/p></description></item><item><title>Docs: Mailing List</title><link>https://brpc.apache.org/docs/community/mailing_list/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/mailing_list/</guid><description>
 &lt;h3 id="about-mailing-list">About Mailing List&lt;/h3>
 &lt;p>Mailing list is where we discuss in public and keep everything tracked, When using or contributing to bRPC, if you encounter any problem, or you have any suggestions or new ideas, you can use the Apache mailing-list to participate in the community building.&lt;/p>
-&lt;p>If you have a specific bug to report or feature request, we&amp;rsquo;d suggest you opening an issue on our &lt;a href="https://github.com/apache/incubator-brpc/issues/new/choose">GitHub repo&lt;/a>, which is a more efficient way to report the details.&lt;/p>
+&lt;p>If you have a specific bug to report or feature request, we&amp;rsquo;d suggest you opening an issue on our &lt;a href="https://github.com/apache/brpc/issues/new/choose">GitHub repo&lt;/a>, which is a more efficient way to report the details.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="dev@brpc.apache.org">dev@brpc.apache.org&lt;/a> is for people who want to contribute code to bRPC. &lt;a href="mailto:dev-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe">subscribe&lt;/a>, &lt;a href="mailto:dev-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe">unsubscribe&lt;/a>, &lt;a href="https://www.mail-archive.com/dev@brpc.apache.org/">archives&lt;/a>&lt;/li>
 &lt;li>&lt;a href="commits@brpc.apache.org">commits@brpc.apache.org&lt;/a> is for commit messages and patches to bRPC. &lt;a href="mailto:commits-subscribe@brpc.apache.org?subject=send%20this%20email%20to%20subscribe">subscribe&lt;/a>, &lt;a href="mailto:commits-unsubscribe@brpc.apache.org?subject=send%20this%20email%20to%20unsubscribe">unsubscribe&lt;/a>, &lt;a href="https://www.mail-archive.com/commits@brpc.apache.org/">archives&lt;/a>&lt;/li>
@@ -235,8 +235,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-&lt;h2 id="apache-brpc-incubating-downloads">Apache bRPC (incubating) Downloads&lt;/h2>
-&lt;p>Apache bRPC (incubating) is released as a source artifact.
+&lt;h2 id="apache-brpc-downloads">Apache bRPC Downloads&lt;/h2>
+&lt;p>Apache bRPC is released as a source artifact.
 We are pleased to announce our 1.3.0 release as below.&lt;/p>
 &lt;h3 id="release-candidate">Release Candidate&lt;/h3>
 &lt;!--when pass vote, we can change it back to Release Artifacts
@@ -308,7 +308,7 @@ succeed.&lt;/p>
 &lt;/ul>
 &lt;p>After the PR:&lt;/p>
 &lt;ul>
-&lt;li>Make sure the &lt;a href="https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests">travis-ci&lt;/a> passed.&lt;/li>
+&lt;li>Make sure the &lt;a href="https://app.travis-ci.com/github/apache/brpc/pull_requests">travis-ci&lt;/a> passed.&lt;/li>
 &lt;/ul></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.1.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
@@ -503,8 +503,8 @@ succeed.&lt;/p>
 &lt;p>Compile brpc with docker:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ mkdir -p ~/brpc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> ~/brpc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/apache/incubator-brpc.git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> incubator-brpc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/apache/brpc.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ &lt;span style="color:#204a87">cd&lt;/span> brpc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker build -t brpc:master .
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker images
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run -it brpc:master /bin/bash
@@ -957,9 +957,9 @@ sub rsa4096 2021-10-17 [E]
 &lt;pre tabindex="0">&lt;code>Version: 1.0.0
 &lt;/code>&lt;/pre>&lt;h3 id="3-create-releasing-tag">3. Create releasing tag&lt;/h3>
 &lt;p>push the release branch to tag, For example:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone -b release-1.0 git@github.com:apache/incubator-brpc.git ~/incubator-brpc
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone -b release-1.0 git@github.com:apache/brpc.git ~/brpc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/incubator-brpc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git tag -a 1.0.0 -m &lt;span style="color:#4e9a06">&amp;#34;release 1.0.0&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -992,11 +992,11 @@ sub rsa4096 2021-10-17 [E]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/brpc/1.0.0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz ~/brpc_svn/dev/brpc/1.0.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/brpc/apache-brpc-1.0.0-incubating-src.tar.gz ~/brpc_svn/dev/brpc/1.0.0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.asc ~/brpc_svn/dev/brpc/1.0.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/brpc/apache-brpc-1.0.0-incubating-src.tar.gz.asc ~/brpc_svn/dev/brpc/1.0.0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/incubator-brpc/apache-brpc-1.0.0-incubating-src.tar.gz.sha512 ~/brpc_svn/dev/brpc/1.0.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/brpc/apache-brpc-1.0.0-incubating-src.tar.gz.sha512 ~/brpc_svn/dev/brpc/1.0.0
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="4-submit-svn">4. Submit SVN&lt;/h3>
 &lt;p>Return to the parent directory and use the Apache LDAP account to submit SVN&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/brpc
@@ -1035,13 +1035,13 @@ gpg&amp;gt; save
 &lt;pre tabindex="0">&lt;code>gpg --verify apache-brpc-1.0.0-incubating-src.tar.gz.asc apache-brpc-1.0.0-incubating-src.tar.gz
 &lt;/code>&lt;/pre>&lt;h3 id="3-check-release-content">3. Check release content&lt;/h3>
 &lt;h4 id="1-compare-the-difference-of-between-the-source-code-package-and-github-tag">1. Compare the difference of between the source code package and github tag&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl -Lo tag-1.0.0.tar.gz https://github.com/apache/incubator-brpc/archive/refs/tags/1.0.0.tar.gz
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl -Lo tag-1.0.0.tar.gz https://github.com/apache/brpc/archive/refs/tags/1.0.0.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf tag-1.0.0.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xvzf apache-brpc-1.0.0-incubating-src.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>diff -r incubator-brpc-1.0.0 apache-brpc-1.0.0-incubating-src
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>diff -r brpc-1.0.0 apache-brpc-1.0.0-incubating-src
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-check-file-content">2. Check file content&lt;/h4>
 &lt;ul>
 &lt;li>Check whether the source code package contains unnecessary files, which makes the tarball too large&lt;/li>
@@ -1075,20 +1075,20 @@ gpg&amp;gt; save
 &lt;li>Apache brpc community vote email template&lt;/li>
 &lt;/ol>
 &lt;p>Title:&lt;/p>
-&lt;pre tabindex="0">&lt;code>[VOTE] Release Apache brpc (Incubating) 1.0.0
+&lt;pre tabindex="0">&lt;code>[VOTE] Release Apache brpc 1.0.0
 &lt;/code>&lt;/pre>&lt;p>Content:&lt;/p>
 &lt;p>Note: &lt;code>Release Commit ID&lt;/code> fills in the commit ID of the last commit of the current release branch.&lt;/p>
-&lt;pre tabindex="0">&lt;code>Hi Apache brpc (Incubating) Community,
-This is a call for vote to release Apache brpc (Incubating) version
+&lt;pre tabindex="0">&lt;code>Hi Apache brpc Community,
+This is a call for vote to release Apache brpc version
 1.0.0
 [Release Note]
 - xxx
 The release candidates:
 https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0/
 Git tag for the release:
-https://github.com/apache/incubator-brpc/releases/tag/1.0.0
+https://github.com/apache/brpc/releases/tag/1.0.0
 Release Commit ID:
-https://github.com/apache/incubator-brpc/commit/xxx
+https://github.com/apache/brpc/commit/xxx
 Keys to verify the Release Candidate:
 https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS
 The vote will be open for at least 72 hours or until the necessary number of
@@ -1112,10 +1112,10 @@ LorinLee
 &lt;li>Apache brpc community announcement of vote result template&lt;/li>
 &lt;/ol>
 &lt;p>Title:&lt;/p>
-&lt;pre tabindex="0">&lt;code>[Result] [VOTE] Release Apache brpc (Incubating) 1.0.0
+&lt;pre tabindex="0">&lt;code>[Result] [VOTE] Release Apache brpc 1.0.0
 &lt;/code>&lt;/pre>&lt;p>Content:&lt;/p>
 &lt;pre tabindex="0">&lt;code>Hi all,
-The vote to release Apache brpc (Incubating) 1.0.0 has passed.
+The vote to release Apache brpc 1.0.0 has passed.
 The vote PASSED with 3 binding +1, 3 non binding +1 and no -1 votes:
 Binding votes:
 - xxx
@@ -1146,13 +1146,13 @@ svn cp https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS https://dist.a
 &lt;li>Apache Incubator community vote email template&lt;/li>
 &lt;/ol>
 &lt;p>Title:&lt;/p>
-&lt;pre tabindex="0">&lt;code>[VOTE] Release Apache brpc (Incubating) 1.0.0
+&lt;pre tabindex="0">&lt;code>[VOTE] Release Apache brpc 1.0.0
 &lt;/code>&lt;/pre>&lt;p>Content:&lt;/p>
 &lt;pre tabindex="0">&lt;code>Hi Incubator Community,
-This is a call for a vote to release Apache brpc(Incubating) version
+This is a call for a vote to release Apache brpcversion
 1.0.0.
 The Apache brpc community has voted and approved the release of Apache
-brpc (Incubating) 1.0.0.
+brpc 1.0.0.
 We now kindly request the Incubator PMC members review and vote on this
 incubator release.
 brpc is an industrial-grade RPC framework with extremely high performance,
@@ -1165,7 +1165,7 @@ https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0/
 This release has been signed with a PGP available here:
 https://downloads.apache.org/incubator/brpc/KEYS
 Git tag for the release:
-https://github.com/apache/incubator-brpc/releases/tag/1.0.0
+https://github.com/apache/brpc/releases/tag/1.0.0
 Build guide and get started instructions can be found at:
 https://brpc.apache.org/docs/getting_started
 The vote will be open for at least 72 hours or until the necessary number
@@ -1176,16 +1176,16 @@ Please vote accordingly:
 [ ] -1 disapprove with the reason
 Regards,
 Lorin Lee
-Apache brpc (Incubating) community
+Apache brpc community
 &lt;/code>&lt;/pre>&lt;ol start="2">
 &lt;li>Apache Incubator community announcement of vote result template&lt;/li>
 &lt;/ol>
 &lt;p>Title:&lt;/p>
-&lt;pre tabindex="0">&lt;code>[Result] [VOTE] Release Apache brpc (Incubating) 1.0.0
+&lt;pre tabindex="0">&lt;code>[Result] [VOTE] Release Apache brpc 1.0.0
 &lt;/code>&lt;/pre>&lt;p>Content:&lt;/p>
 &lt;pre tabindex="0">&lt;code>Hi Incubator Community,
 Thanks to everyone that participated. The vote to release Apache
-brpc (Incubating) version 1.0.0 in general@incubator.apache.org
+brpc version 1.0.0 in general@incubator.apache.org
 is now closed.
 Vote thread: xxx
 The vote PASSED with 3 binding +1, 3 non binding +1 and no -1 votes:
@@ -1198,22 +1198,22 @@ Non-binding votes:
 - bbb
 - ccc
 Many thanks for all our mentors helping us with the release procedure,
-and all IPMC helped us to review and vote for Apache brpc(Incubating)
-release. We will proceed with publishing the approved artifacts and
+and all IPMC helped us to review and vote for Apache brpc release.
+We will proceed with publishing the approved artifacts and
 sending out the announcement soon.
 Regards,
 Lorin Lee
-Apache brpc (Incubating) community
+Apache brpc community
 &lt;/code>&lt;/pre>&lt;h2 id="finish-the-release">Finish the release&lt;/h2>
 &lt;h3 id="1-move-the-release-package-from-apache-svn-directory-distdev-to-distrelease">1. Move the release package from Apache SVN directory dist/dev to dist/release&lt;/h3>
 &lt;pre tabindex="0">&lt;code>svn mv https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0 https://dist.apache.org/repos/dist/release/incubator/brpc/1.0.0 -m &amp;#34;release brpc 1.0.0&amp;#34;
 &lt;/code>&lt;/pre>&lt;h3 id="2-create-github-release">2. Create github release&lt;/h3>
 &lt;ol>
-&lt;li>On the &lt;a href="https://github.com/apache/incubator-brpc/tags">GitHub Releases page&lt;/a> Click the corresponding version of to create a new Release&lt;/li>
+&lt;li>On the &lt;a href="https://github.com/apache/brpc/tags">GitHub Releases page&lt;/a> Click the corresponding version of to create a new Release&lt;/li>
 &lt;li>Edit the version number and version description, and click &lt;code>Publish release&lt;/code>&lt;/li>
 &lt;/ol>
 &lt;h3 id="3-update-download-page">3. Update download page&lt;/h3>
-&lt;p>After waiting and confirming that the new release is synchronized to the Apache image, update the following page: &lt;a href="https://brpc.apache.org/docs/downloadbrpc/">https://brpc.apache.org/docs/downloadbrpc/&lt;/a> by change the code in &lt;a href="https://github.com/apache/incubator-brpc-website/">https://github.com/apache/incubator-brpc-website/&lt;/a>. Please update both Chinese and English.&lt;/p>
+&lt;p>After waiting and confirming that the new release is synchronized to the Apache image, update the following page: &lt;a href="https://brpc.apache.org/docs/downloadbrpc/">https://brpc.apache.org/docs/downloadbrpc/&lt;/a> by change the code in &lt;a href="https://github.com/apache/brpc-website/">https://github.com/apache/brpc-website/&lt;/a>. Please update both Chinese and English.&lt;/p>
 &lt;p>The download links of GPG signature files and hash check files should use this prefix: &lt;code>https://downloads.apache.org/incubator/brpc/&lt;/code>&lt;/p>
 &lt;p>The download link of the code package should use this prefix: &lt;code>https://dlcdn.apache.org/incubator/brpc/&lt;/code>&lt;/p>
 &lt;h3 id="4-send-email-to-announce-release-finished">4. Send email to announce release finished&lt;/h3>
@@ -1221,12 +1221,12 @@ Apache brpc (Incubating) community
 &lt;p>Note: The email account must use &lt;strong>personal apache email&lt;/strong>, and the email content must be &lt;strong>plain text format&lt;/strong> (&amp;ldquo;plain text mode&amp;rdquo; can be selected in gmail). And email to &lt;code>announce@apache.org&lt;/code> mail group will be delivered after manual review. Please wait patiently after sending the email, and it will be passed within one day.&lt;/p>
 &lt;p>The announcement email template:&lt;/p>
 &lt;p>Title:&lt;/p>
-&lt;pre tabindex="0">&lt;code>[ANNOUNCE] Apache brpc (Incubating) 1.0.0 released
+&lt;pre tabindex="0">&lt;code>[ANNOUNCE] Apache brpc 1.0.0 released
 &lt;/code>&lt;/pre>&lt;p>Content:&lt;/p>
 &lt;p>Note: &lt;code>Brief notes of this release&lt;/code> It is only necessary to list the main changes of this release, without corresponding contributors and PR numbers. It is recommended to refer to the previous announcement email.&lt;/p>
 &lt;pre tabindex="0">&lt;code>Hi all,
-The Apache brpc (Incubating) community is glad to announce the new release
-of Apache brpc (Incubating) 1.0.0.
+The Apache brpc community is glad to announce the new release
+of Apache brpc 1.0.0.
 brpc is an Industrial-grade RPC framework using C++ Language, which is
 often used in high performance systems such as Search, Storage,
 Machine learning, Advertisement, Recommendation etc.
@@ -1239,16 +1239,16 @@ http://brpc.apache.org/
 The release is available for download at:
 https://brpc.apache.org/docs/downloadbrpc/
 The release notes can be found here:
-https://github.com/apache/incubator-brpc/releases/tag/1.0.0
+https://github.com/apache/brpc/releases/tag/1.0.0
 Website: http://brpc.apache.org/
-brpc(Incubating) Resources:
-- Issue: https://github.com/apache/incubator-brpc/issues/
+brpcResources:
+- Issue: https://github.com/apache/brpc/issues/
 - Mailing list: dev@brpc.apache.org
 - Documents: https://brpc.apache.org/docs/
 We would like to thank all contributors of the Apache brpc community and
 Incubating community who made this release possible!
 Best Regards,
-Apache brpc (Incubating) community
+Apache brpc community
 &lt;/code>&lt;/pre>&lt;h3 id="5-publish-wechat-official-account-announcement">5. Publish WeChat official account announcement&lt;/h3>
 &lt;p>Reference &lt;a href="https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg">https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg&lt;/a>.&lt;/p>
 &lt;h3 id="6-update-master-branch">6. Update master branch&lt;/h3>
@@ -1371,7 +1371,7 @@ Apache brpc (Incubating) community
 &lt;/tr>
 &lt;/table>
 &lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;p>Thanks to &lt;a href="https://github.com/apache/incubator-brpc/graphs/contributors">All the Contributors&lt;/a> making their effort to help bRPC getting better.&lt;/p></description></item><item><title>Docs: Security</title><link>https://brpc.apache.org/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/security/</guid><description>
+&lt;p>Thanks to &lt;a href="https://github.com/apache/brpc/graphs/contributors">All the Contributors&lt;/a> making their effort to help bRPC getting better.&lt;/p></description></item><item><title>Docs: Security</title><link>https://brpc.apache.org/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/security/</guid><description>
 &lt;p>The Apache Software Foundation takes a rigorous stance on eliminating security issues in its software projects. Likewise, Apache bRPC is also vigilant and takes security issues related to its features and functionality into the highest consideration.&lt;/p>
 &lt;p>If you have any concerns regarding bRPC’s security, or you discover a vulnerability or potential threat, please don’t hesitate to get in touch with the &lt;a href="http://www.apache.org/security/">Apache Security Team&lt;/a> by dropping an email at &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>.&lt;/p>
 &lt;p>Please specify the project name as &amp;ldquo;bRPC&amp;rdquo; in the email, and provide a description of the relevant problem or potential threat. You are also urged to recommend how to reproduce and replicate the issue.&lt;/p>
@@ -1452,4 +1452,4 @@ Apache brpc (Incubating) community
 &lt;/td>
 &lt;/div>
 &lt;/div></description></item><item><title>Docs: FAQ</title><link>https://brpc.apache.org/docs/faq/</link><pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/faq/</guid><description>
-&lt;p>See &lt;a href="https://github.com/apache/incubator-brpc/issues">https://github.com/apache/incubator-brpc/issues&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>See &lt;a href="https://github.com/apache/brpc/issues">https://github.com/apache/brpc/issues&lt;/a>&lt;/p></description></item></channel></rss>

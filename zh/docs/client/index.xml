@@ -441,25 +441,25 @@
 &lt;h3 id="重试应当保守">重试应当保守&lt;/h3>
 &lt;p>由于成本的限制，大部分线上server的冗余度是有限的，主要是满足多机房互备的需求。而激进的重试逻辑很容易导致众多client对server集群造成2-3倍的压力，最终使集群雪崩：由于server来不及处理导致队列越积越长，使所有的请求得经过很长的排队才被处理而最终超时，相当于服务停摆。默认的重试是比较安全的: 只要连接不断RPC就不会重试，一般不会产生大量的重试请求。用户可以通过RetryPolicy定制重试策略，但也可能使重试变成一场“风暴”。当你定制RetryPolicy时，你需要仔细考虑client和server的协作关系，并设计对应的异常测试，以确保行为符合预期。&lt;/p>
 &lt;h2 id="熔断">熔断&lt;/h2>
-&lt;p>具体方法见&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/circuit_breaker.md">这里&lt;/a>。&lt;/p>
+&lt;p>具体方法见&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/circuit_breaker.md">这里&lt;/a>。&lt;/p>
 &lt;h2 id="协议">协议&lt;/h2>
 &lt;p>Channel的默认协议是baidu_std，可通过设置ChannelOptions.protocol换为其他协议，这个字段既接受enum也接受字符串。&lt;/p>
 &lt;p>目前支持的有：&lt;/p>
 &lt;ul>
-&lt;li>PROTOCOL_BAIDU_STD 或 “baidu_std&amp;quot;，即&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md">百度标准协议&lt;/a>，默认为单连接。&lt;/li>
+&lt;li>PROTOCOL_BAIDU_STD 或 “baidu_std&amp;quot;，即&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md">百度标准协议&lt;/a>，默认为单连接。&lt;/li>
 &lt;li>PROTOCOL_HTTP 或 ”http&amp;quot;, http/1.0或http/1.1协议，默认为连接池(Keep-Alive)。
 &lt;ul>
 &lt;li>访问普通http服务的方法见&lt;a href="../access-httph2/">访问http/h2服务&lt;/a>&lt;/li>
-&lt;li>通过http:json或http:proto访问pb服务的方法见&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md">http/h2衍生协议&lt;/a>&lt;/li>
+&lt;li>通过http:json或http:proto访问pb服务的方法见&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/http_derivatives.md">http/h2衍生协议&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>PROTOCOL_H2 或 ”h2&amp;quot;, http/2协议，默认是单连接。
 &lt;ul>
 &lt;li>访问普通h2服务的方法见&lt;a href="../access-httph2/">访问http/h2服务&lt;/a>。&lt;/li>
-&lt;li>通过h2:json或h2:proto访问pb服务的方法见&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md">http/h2衍生协议&lt;/a>&lt;/li>
+&lt;li>通过h2:json或h2:proto访问pb服务的方法见&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/http_derivatives.md">http/h2衍生协议&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>&amp;ldquo;h2:grpc&amp;rdquo;, &lt;a href="https://grpc.io">gRPC&lt;/a>的协议，也是h2的衍生协议，默认为单连接，具体见&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/http_derivatives.md#h2grpc">h2:grpc&lt;/a>。&lt;/li>
+&lt;li>&amp;ldquo;h2:grpc&amp;rdquo;, &lt;a href="https://grpc.io">gRPC&lt;/a>的协议，也是h2的衍生协议，默认为单连接，具体见&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/http_derivatives.md#h2grpc">h2:grpc&lt;/a>。&lt;/li>
 &lt;li>PROTOCOL_THRIFT 或 &amp;ldquo;thrift&amp;rdquo;，&lt;a href="https://thrift.apache.org">apache thrift&lt;/a>的协议，默认为连接池, 具体方法见&lt;a href="../access-thrift/">访问thrift&lt;/a>。&lt;/li>
 &lt;li>PROTOCOL_MEMCACHE 或 &amp;ldquo;memcache&amp;rdquo;，memcached的二进制协议，默认为单连接。具体方法见&lt;a href="../access-memcached/">访问memcached&lt;/a>。&lt;/li>
 &lt;li>PROTOCOL_REDIS 或 &amp;ldquo;redis&amp;rdquo;，redis 1.2后的协议(也是hiredis支持的协议)，默认为单连接。具体方法见&lt;a href="../access-redis/">访问Redis&lt;/a>。&lt;/li>
@@ -669,7 +669,7 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#204a87;font-weight:bold">virtual&lt;/span> &lt;span style="color:#204a87;font-weight:bold">int&lt;/span> &lt;span style="color:#000">GenerateCredential&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">std&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">::&lt;/span>&lt;span style="color:#000">string&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">auth_str&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">const&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">};&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>那么当用户并发调用RPC接口用单连接往同一个server发请求时，框架会自动保证：建立TCP连接后，连接上的第一个请求中会带有上述&lt;code>GenerateCredential&lt;/code>产生的认证包，其余剩下的并发请求不会带有认证信息，依次排在第一个请求之后。整个发送过程依旧是并发的，并不会等第一个请求先返回。若server端认证成功，那么所有请求都能成功返回；若认证失败，一般server端则会关闭连接，这些请求则会收到相应错误。&lt;/p>
-&lt;p>目前自带协议中支持客户端认证的有：&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md">baidu_std&lt;/a>(默认协议), HTTP, hulu_pbrpc, ESP。对于自定义协议，一般可以在组装请求阶段，调用Authenticator接口生成认证串，来支持客户端认证。&lt;/p>
+&lt;p>目前自带协议中支持客户端认证的有：&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md">baidu_std&lt;/a>(默认协议), HTTP, hulu_pbrpc, ESP。对于自定义协议，一般可以在组装请求阶段，调用Authenticator接口生成认证串，来支持客户端认证。&lt;/p>
 &lt;h2 id="重置">重置&lt;/h2>
 &lt;p>调用Reset方法可让Controller回到刚创建时的状态。&lt;/p>
 &lt;p>别在RPC结束前重置Controller，行为是未定义的。&lt;/p>
@@ -1901,7 +1901,7 @@ MyProgressiveReader就是用户实现ProgressiveReader的实例。用户可以�
 &lt;/table></description></item><item><title>Docs: 访问UB</title><link>https://brpc.apache.org/zh/docs/client/access-ub/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/client/access-ub/</guid><description>
 &lt;p>brpc可通过多种方式访问用ub搭建的服务。&lt;/p>
 &lt;h1 id="ubrpc-by-protobuf">ubrpc (by protobuf)&lt;/h1>
-&lt;p>r31687后，brpc支持通过protobuf访问ubrpc，不需要baidu-rpc-ub，也不依赖idl-compiler。（也可以让protobuf服务被ubrpc client访问，方法见&lt;a href="https://github.com/apache/incubator-brpc/blob/master/docs/cn/nshead_service.md#%E4%BD%BF%E7%94%A8ubrpc%E7%9A%84%E6%9C%8D%E5%8A%A1">使用ubrpc的服务&lt;/a>）。&lt;/p>
+&lt;p>r31687后，brpc支持通过protobuf访问ubrpc，不需要baidu-rpc-ub，也不依赖idl-compiler。（也可以让protobuf服务被ubrpc client访问，方法见&lt;a href="https://github.com/apache/brpc/blob/master/docs/cn/nshead_service.md#%E4%BD%BF%E7%94%A8ubrpc%E7%9A%84%E6%9C%8D%E5%8A%A1">使用ubrpc的服务&lt;/a>）。&lt;/p>
 &lt;p>&lt;strong>步骤：&lt;/strong>&lt;/p>
 &lt;ol>
 &lt;li>
