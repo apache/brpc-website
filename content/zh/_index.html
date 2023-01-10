@@ -44,14 +44,14 @@ linkTitle = "bRPC"
         <li style="text-align:left">搭建能在一个端口支持多协议的服务, 或访问各种服务。</li>
         <ol style="text-align:left">
           <li>
-            restful http/https, h2/gRPC. 使用bRPC的http实现比libcurl方便多了。从其他语言通过HTTP/h2+json访问基于protobuf的协议.
+            restful http/https， h2/gRPC， 使用bRPC的http实现比libcurl方便多了。从其他语言通过HTTP/h2+json访问基于protobuf的协议。
           </li>
           <li>redis and memcached, 线程安全，比官方client更方便。</li>
           <li>rtmp/flv/hls, 可用于搭建流媒体服务。</li>
-          <li>hadoop_rpc (可能开源)</li>
-          <li>支持rdma(即将开源)</li>
+          <li>hadoop_rpc (可能开源)。</li>
+          <li>支持rdma(即将开源)。</li>
           <li>支持thrift, 线程安全，比官方client更方便。</li>
-          <li>各种百度内使用的协议: baidu_std, streaming_rpc, hulu_pbrpc, sofa_pbrpc], nova_pbrpc, public_pbrpc, ubrpc和使用nshead的各种协议。</li>
+          <li>各种百度内使用的协议: baidu_std, streaming_rpc, hulu_pbrpc, sofa_pbrpc, nova_pbrpc, public_pbrpc, ubrpc和使用nshead的各种协议。</li>
           <li>基于工业级的RAFT算法实现搭建高可用分布式系统，已在braft开源。</li>
         </ol> 
         <li style="text-align:left">Server能同步或异步处理请求。</li>
@@ -67,18 +67,11 @@ linkTitle = "bRPC"
 <div id="overview">
   <div class="contain">
     <p>
-      <img src="/images/egg-logo.png" style="max-width:100%" alt="The Apache Software Foundation" title="The Apache Software Foundation">
+      <img src="/images/asf_logo_apache.svg" style="max-width:30%" alt="The Apache Software Foundation" title="The Apache Software Foundation">
     </p>
     <h4>
-      bRPC is an <a href="http://incubator.apache.org/">Apache</a> Top-Level Project.
+      bRPC是<a href="http://incubator.apache.org/">Apache</a>基金会顶级开源项目(TLP)
     </h4>
-    <h6>
-      Apache Annotator is an effort undergoing incubation at The <a href="https://apache.org/">Apache Software Foundation (ASF)</a> 
-      sponsored by the Apache Incubator PMC. Incubation is required of all newly accepted projects until a further review indicates 
-      that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful 
-      ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does 
-      indicate that the project has yet to be fully endorsed by the ASF.
-    </h6>
   </div>
 </div>
 
