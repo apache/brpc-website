@@ -19,4 +19,4 @@ description: >
 
 提交PR后请确认：
 
-* [travis-ci](https://app.travis-ci.com/github/apache/incubator-brpc/pull_requests)成功通过。
+* [travis-ci](https://app.travis-ci.com/github/apache/brpc/pull_requests)成功通过。

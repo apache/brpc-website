@@ -8,7 +8,7 @@ menu:
   main:
     weight: 60
 description: >
-  在<a href="https://github.com/apache/incubator-brpc/issues/1640">Wanted: who’s using bRPC</a> 上面提交你的使用场景来帮助bRPC变的更好
+  在<a href="https://github.com/apache/brpc/issues/1640">Wanted: who’s using bRPC</a> 上面提交你的使用场景来帮助bRPC变的更好
 ---
 <div id="overview">
   <div class="contain" style="width: auto; margin: 0 auto">

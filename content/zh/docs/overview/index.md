@@ -55,7 +55,7 @@ brpc是用c++语言编写的工业级RPC框架，常用于搜索、存储、机�
   * hadoop_rpc(可能开源)
   * 支持[rdma](https://en.wikipedia.org/wiki/Remote_direct_memory_access)(即将开源)
   * 支持[thrift](../client/access-thrift/) , 线程安全，比官方client更方便
-  * 各种百度内使用的协议: [baidu_std](https://github.com/apache/incubator-brpc/blob/master/docs/cn/baidu_std.md), [streaming_rpc](../client/streaming-rpc/), hulu_pbrpc, [sofa_pbrpc](https://github.com/baidu/sofa-pbrpc), nova_pbrpc, public_pbrpc, ubrpc和使用nshead的各种协议.
+  * 各种百度内使用的协议: [baidu_std](https://github.com/apache/brpc/blob/master/docs/cn/baidu_std.md), [streaming_rpc](../client/streaming-rpc/), hulu_pbrpc, [sofa_pbrpc](https://github.com/baidu/sofa-pbrpc), nova_pbrpc, public_pbrpc, ubrpc和使用nshead的各种协议.
   * 基于工业级的[RAFT算法](https://raft.github.io)实现搭建[高可用](https://en.wikipedia.org/wiki/High_availability)分布式系统，已在[braft](https://github.com/brpc/braft)开源。
 * Server能[同步](../server/basics/)或[异步](../server/basics/#异步service)处理请求。
 * Client支持[同步](../client/basics/#同步访问)、[异步](../client/basics/#异步访问)、[半同步](../client/basics/#半同步)，或使用[组合channels](../client/combo-channels/)简化复杂的分库或并发访问。

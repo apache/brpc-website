@@ -7,4 +7,4 @@ author: "bRPC Team"
 description: >
   bRPC 常见问题
 ---
-查看 https://github.com/apache/incubator-brpc/issues
+查看 https://github.com/apache/brpc/issues

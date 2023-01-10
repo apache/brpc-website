@@ -7,4 +7,4 @@ author: "bRPC Team"
 description: >
   bRPC Issues.
 ---
-See https://github.com/apache/incubator-brpc/issues
+See https://github.com/apache/brpc/issues

@@ -27,7 +27,7 @@ limitations under the License.
 {% endcomment %}
 -->
 
-## Apache bRPC (incubating) Community
+## Apache bRPC Community
 
 Every volunteer project obtains its strength from the people involved in it. We invite you to participate as much or as little as you choose.
 
@@ -44,7 +44,7 @@ Visit the [Contributing](../contributing/) page for more information.
 
 #### Bug Reports
 
-Found bug? Enter an issue in the [Issue Tracker](https://github.com/apache/incubator-brpc/issues).
+Found bug? Enter an issue in the [Issue Tracker](https://github.com/apache/brpc/issues).
 
 Before submitting an issue, please:
 
@@ -58,14 +58,14 @@ Before submitting an issue, please:
 
 Enhancement requests for new features are also welcome. The more concrete and rationale the request is, the greater the chance it will incorporated into future releases.
 
-  [https://github.com/apache/incubator-brpc/issues](https://github.com/apache/incubator-brpc/issues)
+  [https://github.com/apache/brpc/issues](https://github.com/apache/brpc/issues)
 
 
 ### Source Code
 
-The project sources are accessible via the [source code repository](https://github.com/apache/incubator-brpc) which is on github.
+The project sources are accessible via the [source code repository](https://github.com/apache/brpc) which is on github.
 
 
 ### Website Source Code
 
-The project website sources are accessible via the [website source code repository](https://github.com/apache/incubator-brpc-website) which is on github also.
+The project website sources are accessible via the [website source code repository](https://github.com/apache/brpc-website) which is on github also.

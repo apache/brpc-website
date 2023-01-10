@@ -131,5 +131,5 @@ Thank you all your help!
 
 ### Contributors
 
-Thanks to [All the Contributors](https://github.com/apache/incubator-brpc/graphs/contributors) making their effort to help bRPC getting better.
+Thanks to [All the Contributors](https://github.com/apache/brpc/graphs/contributors) making their effort to help bRPC getting better.
 

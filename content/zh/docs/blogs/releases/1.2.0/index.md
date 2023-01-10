@@ -11,7 +11,7 @@ description: >
 
 下载链接：https://brpc.apache.org/docs/downloadbrpc/
 
-Github Release Tag：https://github.com/apache/incubator-brpc/releases/tag/1.2.0
+Github Release Tag：https://github.com/apache/brpc/releases/tag/1.2.0
 
 ### 1.2.0版本的主要变更：
 新功能

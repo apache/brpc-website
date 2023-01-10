@@ -31,9 +31,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-## Apache bRPC (incubating) Downloads
+## Apache bRPC Downloads
 
-Apache bRPC (incubating) is released as a source artifact.
+Apache bRPC is released as a source artifact.
 We are pleased to announce our 1.3.0 release as below.
 
 
