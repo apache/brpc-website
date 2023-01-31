@@ -304,7 +304,7 @@ $ docker run -it brpc:master /bin/bash
 
 #### GCC: 4.8-11.2
 
-c++11被默认启用，以去除去boost的依赖（比如atomic）。
+c++11被默认启用，以去除对boost的依赖（比如atomic）。
 
 GCC7中over-aligned的问题暂时被禁止。
 
