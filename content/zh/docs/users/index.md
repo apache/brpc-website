@@ -73,5 +73,10 @@ description: >
         <img width="222px" style="margin: 0 10px;" src="/images/community/nextdata_logo.png">
       </a>
     </td>
+    <td align="center" valign="middle">
+      <a href="http://www.eyou.com/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/eyou_logo.png">
+      </a>
+    </td>
   </div>
 </div>
