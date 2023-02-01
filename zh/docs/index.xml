@@ -1132,7 +1132,7 @@ limitations under the License.
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run -it brpc:master /bin/bash
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="支持的依赖">支持的依赖&lt;/h2>
 &lt;h4 id="gcc-48-112">GCC: 4.8-11.2&lt;/h4>
-&lt;p>c++11被默认启用，以去除去boost的依赖（比如atomic）。&lt;/p>
+&lt;p>c++11被默认启用，以去除对boost的依赖（比如atomic）。&lt;/p>
 &lt;p>GCC7中over-aligned的问题暂时被禁止。&lt;/p>
 &lt;p>使用其他版本的gcc可能会产生编译警告，请联系我们予以修复。&lt;/p>
 &lt;p>请在makefile中给cxxflags增加&lt;code>-D__const__=&lt;/code>选项以避免&lt;a href="../bthread/thread-local/">gcc4+中的errno问题&lt;/a>.&lt;/p>
