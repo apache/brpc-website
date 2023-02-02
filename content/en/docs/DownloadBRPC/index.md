@@ -53,26 +53,26 @@ We are pleased to announce our 1.3.0 release as below.
         <tr>
             <td>Apache bRPC (incubating) 1.3.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.asc">ASC</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
             <td>Apache bRPC (incubating) 1.2.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.asc">ASC</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
             <td>Apache bRPC (incubating) 1.1.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.asc">ASC</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
             <td>Apache bRPC (incubating) 1.0.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.asc">ASC</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.asc">ASC</a></td>
         </tr>
         <!--tr>
             <td>Release Notes</td>
