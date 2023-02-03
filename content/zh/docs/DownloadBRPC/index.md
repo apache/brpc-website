@@ -33,10 +33,11 @@ limitations under the License.
 -->
 ## 下载 Apache bRPC
 
-Apache bRPC 作为源工件发布。我们很高兴宣布我们的1.3.0版本已经发布如下了！
+Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.4.0 版本已经发布如下了！
 
 
-### 候选版本
+### 全部版本
+
 <!--when pass vote, we can change it back to Release Artifacts
 -->
 <table class="table table-hover sortable">
@@ -89,7 +90,7 @@ Apache bRPC 作为源工件发布。我们很高兴宣布我们的1.3.0版本已
     </tbody>
 </table>
 
-选择*tar*或*zip*格式的源发行版，并使用相应的*pgp*签名（使用[密钥](https://downloads.apache.org/brpc/KEYS)中的提交者文件）进行[验证](https://www.apache.org/dyn/closer.cgi#verify)。如果您无法做到这一点，可以使用*md5*哈希文件检查下载是否已完成。
+选择源码包，并使用相应的*pgp*签名（使用[密钥](https://downloads.apache.org/brpc/KEYS)中的提交者文件）进行[验证](https://www.apache.org/dyn/closer.cgi#verify)。如果您无法做到这一点，可以使用*md5*哈希文件检查下载是否已完成。
 
 为了快速下载，当前的源发行版托管在镜像服务器上；较旧的源发行版在[存档](https://archive.apache.org/dist/brpc/)中。如果从镜像下载失败，请重试，第二次下载可能会成功。
 
