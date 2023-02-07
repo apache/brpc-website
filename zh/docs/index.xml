@@ -1061,7 +1061,7 @@ limitations under the License.
 &lt;h3 id="自己构建依赖的linux">自己构建依赖的Linux&lt;/h3>
 &lt;h4 id="依赖准备-2">依赖准备&lt;/h4>
 &lt;p>brpc默认会构建出静态库和共享库，因此它也需要依赖有静态库和共享库两个版本。&lt;/p>
-&lt;p>以&lt;a href="https://github.com/gflags/gflags">gflags&lt;/a>为例，它默认不够尖共享库，你需要给&lt;code>cmake&lt;/code>指定选项去改变这一行为：&lt;/p>
+&lt;p>以&lt;a href="https://github.com/gflags/gflags">gflags&lt;/a>为例，它默认不构建共享库，你需要给&lt;code>cmake&lt;/code>指定选项去改变这一行为：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ cmake . -DBUILD_SHARED_LIBS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> -DBUILD_STATIC_LIBS&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="编译brpc">编译brpc&lt;/h4>
