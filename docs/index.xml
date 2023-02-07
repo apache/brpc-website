@@ -237,8 +237,8 @@ limitations under the License.
 -->
 &lt;h2 id="apache-brpc-downloads">Apache bRPC Downloads&lt;/h2>
 &lt;p>Apache bRPC is released as a source artifact.
-We are pleased to announce our 1.3.0 release as below.&lt;/p>
-&lt;h3 id="release-candidate">Release Candidate&lt;/h3>
+We are pleased to announce our 1.4.0 release as below.&lt;/p>
+&lt;h3 id="all-release">All Release&lt;/h3>
 &lt;!--when pass vote, we can change it back to Release Artifacts
 -->
 &lt;table class="table table-hover sortable">
@@ -252,28 +252,34 @@ We are pleased to announce our 1.3.0 release as below.&lt;/p>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
+&lt;td>Apache bRPC 1.4.0 (tar.gz)&lt;/td>
+&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.4.0/apache-brpc-1.4.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.4.0/apache-brpc-1.4.0-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.4.0/apache-brpc-1.4.0-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>Apache bRPC (incubating) 1.3.0 (tar.gz)&lt;/td>
 &lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.3.0/apache-brpc-1.3.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Apache bRPC (incubating) 1.2.0 (tar.gz)&lt;/td>
 &lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.2.0/apache-brpc-1.2.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Apache bRPC (incubating) 1.1.0 (tar.gz)&lt;/td>
 &lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.1.0/apache-brpc-1.1.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Apache bRPC (incubating) 1.0.0 (tar.gz)&lt;/td>
 &lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.0.0/apache-brpc-1.0.0-incubating-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;!--tr>
 &lt;td>Release Notes&lt;/td>
@@ -284,8 +290,7 @@ We are pleased to announce our 1.3.0 release as below.&lt;/p>
 &lt;/tr-->
 &lt;/tbody>
 &lt;/table>
-&lt;p>Choose a source distribution in either &lt;em>tar&lt;/em> or &lt;em>zip&lt;/em> format,
-and &lt;a href="https://www.apache.org/dyn/closer.cgi#verify">verify&lt;/a>
+&lt;p>Choose a source distribution and &lt;a href="https://www.apache.org/dyn/closer.cgi#verify">verify&lt;/a>
 using the corresponding &lt;em>pgp&lt;/em> signature (using the committer file in
 &lt;a href="https://downloads.apache.org/brpc/KEYS">KEYS&lt;/a>).
 If you cannot do that, the &lt;em>md5&lt;/em> hash file may be used to check that the
