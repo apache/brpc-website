@@ -1,3 +1,9 @@
+---
+title: "bRPC源码解析·butex机制"
+linkTitle: "bRPC源码解析·butex机制"
+weight: 3
+date: 2023-03-14
+---
 ## 背景
 由于brpc中引入了bthread，如果在bthread中使用了mutex等pthread同步原语，那么将会挂起当前pthread，导致该bthread_worker（pthread）将无法执行其他bthread，因此类似pthread和futex的关系，brpc引入butex来实现bthread粒度的挂起和唤醒以提高性能。
 ## 实现思路
