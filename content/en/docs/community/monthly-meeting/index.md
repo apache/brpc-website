@@ -7,9 +7,9 @@ description: >
   About Monthly Meeting
 ---
 
-### Monthly Meeting record
+### Monthly Meeting Record
 
-|  Month   | Host | Minutes of meeting |
+|  Month   | Host | Minutes Of Meeting |
 |  ----   | ----- | ------- |
 | 2023-02 | Wang Weibing | https://lists.apache.org/thread/opzmc74yhhokox0164f2o5wv60o74nct |
 | 2023-03 | Liu Shuai    | https://lists.apache.org/thread/38rswlzl51lqvl04bvf6ho0od8smrc4z |
