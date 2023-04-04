@@ -29,7 +29,7 @@ limitations under the License.
 {% endcomment %}
 -->
 
-## Apache bRPC (孵化) 社区
+## Apache bRPC 社区
 
 每个志愿者项目的力量都来自参与其中的人。我们邀请您尽可能多或少地参与。
 
