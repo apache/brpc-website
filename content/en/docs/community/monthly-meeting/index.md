@@ -7,7 +7,7 @@ description: >
   About Monthly Meeting
 ---
 
-### Monthly meeting record
+### Monthly Meeting record
 
 |  Month   | Host | Minutes of meeting |
 |  ----   | ----- | ------- |
