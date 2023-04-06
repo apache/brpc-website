@@ -8,8 +8,8 @@ date: 2023-03-27
 每个bthread_worker都有自己的work_stealing_queue，保存着待执行的bthread，当前的bthread_worker会从queue中pop数据进行处理，如果自己的queue为空，那么会尝试去其他的bthread_worker的queue中steal，所以为了避免锁的开销，brpc设计了lock-free的WorkStealingQueue。
 
 ## 实现细节
-work_stealing_queue不会发生pop和push并发的情况；可能发生并发的情况为，steal和steal，steal和push，steal和pop；
-work stealing queue的push和pop在bottom侧，steal在top侧。
+![work_stealing_queue](/images/docs/work_stealing_queue.PNG)
+work_stealing_queue如上图所示，push和pop在bottom侧，steal在top侧，不会发生pop和push并发的情况，可能发生并发的情况为，steal和steal，steal和push，steal和pop。
 ### 主要接口
 #### push
 ```c++
