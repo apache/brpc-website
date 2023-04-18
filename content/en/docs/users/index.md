@@ -78,6 +78,11 @@ description: >
         <img width="222px" style="margin: 0 10px;" src="/images/community/eyou_logo.png">
       </a>
     </td>
+    <td align="center" valign="middle">
+      <a href="http://www.didiglobal.com/" target="_blank">
+        <img width="222px" style="margin: 0 10px;" src="/images/community/didi_logo.png">
+      </a>
+    </td>
   </div>
 </div>
 
