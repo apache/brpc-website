@@ -47,7 +47,7 @@ repeated int32 numbers = 1;
 ```protobuf
 // protobuf
 message Foo {
-    required int32 numbers = 1;
+    repeated int32 numbers = 1;
 }
 // rapidjson
 [12, 17, 1, 24]
