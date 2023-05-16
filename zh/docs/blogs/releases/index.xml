@@ -1,4 +1,41 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 版本发布</title><link>https://brpc.apache.org/zh/docs/blogs/releases/</link><description>Recent content in 版本发布 on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.apache.org/zh/docs/blogs/releases/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.4.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.4.0/</link><pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.4.0/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – 版本发布</title><link>https://brpc.apache.org/zh/docs/blogs/releases/</link><description>Recent content in 版本发布 on bRPC</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://brpc.apache.org/zh/docs/blogs/releases/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: bRPC 1.5.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.5.0/</link><pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.5.0/</guid><description>
+&lt;h2 id="apache-brpc-150发布">Apache bRPC 1.5.0发布&lt;/h2>
+&lt;h3 id="新功能">新功能&lt;/h3>
+&lt;ul>
+&lt;li>DNS解析支持IPv6 by @jsl422 in #2139&lt;/li>
+&lt;li>支持为定时器采样线程和工作线程命名 by @ehds in #2136&lt;/li>
+&lt;li>支持为不同的方法配置不同的TimeoutConcurrentConf配置 @yanglimingcn in #2112&lt;/li>
+&lt;li>新增bvar is_hidden by @serverglen in #2205&lt;/li>
+&lt;li>在Status内置服务中新增服务器并发数 by @chenBright in #2097&lt;/li>
+&lt;li>新增“平均延迟”Prometheus指标 by @Huixxi in #2024&lt;/li>
+&lt;/ul>
+&lt;h3 id="bug修复">Bug修复&lt;/h3>
+&lt;ul>
+&lt;li>修复在RDMA示例中常量未使用问题 by @goldenbean in #2187&lt;/li>
+&lt;li>修复域名服务中主机名缓冲区长度问题 by @ehds in #2179&lt;/li>
+&lt;li>修复Socket内存泄漏问题 by @chenBright #2169&lt;/li>
+&lt;li>修复当名字服务启动失败时无法结束等待问题 by @chenBright #2162&lt;/li>
+&lt;li>修复libprotoc路径错误导致ci失败问题 by @guodongxiaren in #2132&lt;/li>
+&lt;li>修复周期名字服务退出问题 by @chenBright in #2123&lt;/li>
+&lt;/ul>
+&lt;h3 id="功能增强">功能增强&lt;/h3>
+&lt;ul>
+&lt;li>移除wordexp by @wwbmmm in #2218&lt;/li>
+&lt;li>针对仅修改markdown文档的变更跳过不必要的工作流检查 by @kiminno in #2175&lt;/li>
+&lt;li>优化当nbucket为0时拒绝初始化FlatMap by @jamesge&lt;/li>
+&lt;li>优化一些违反C++ ODR规则的代码 by @lrita in #2161&lt;/li>
+&lt;li>FlatMap和FlatSet支持自定义 allocator 内存分配器 by @old-bear in #2149&lt;/li>
+&lt;li>添加BasicStringPiece::const_pointer类型 by @lrita in #2141&lt;/li>
+&lt;li>PtrContainer增加运算符重载 by @chenBright in #2107&lt;/li>
+&lt;li>优化确保至少能收到一个请求用以更新average latency by @yanglimingcn in #2106&lt;/li>
+&lt;li>优化使用rdma时的cpu开销 by @Tuvie in #2100&lt;/li>
+&lt;/ul>
+&lt;h3 id="其他">其他&lt;/h3>
+&lt;ul>
+&lt;li>使用env查找bash by @wasphin&lt;/li>
+&lt;li>改进/添加文档 by @haihuju, @tanzhongyi003, @wwbmmm, @wasphin, @maheshrjl, @chenBright, @NIGHTFIGHTING, @Huixxi, @zuyu, @kiminno, @wy1433, @20083017, @Thunderbrook&lt;/li>
+&lt;/ul>
+&lt;p>感谢1.5.0版本的所有贡献者！&lt;/p></description></item><item><title>Docs: bRPC 1.4.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.4.0/</link><pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.4.0/</guid><description>
 &lt;h2 id="apache-brpc-140发布支持rdma">Apache bRPC 1.4.0发布，支持RDMA&lt;/h2>
 &lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.4.0版本发布，支持RDMA。&lt;/p>
 &lt;p>bRPC官网：https://brpc.apache.org/&lt;/p>

@@ -671,7 +671,50 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>thrift: 单机的平均延时和吞吐尚可，多机的平均延时明显高于brpc和UB。吞吐的扩展性较差，提高线程数和client数几乎不能提升吞吐。&lt;/p>
 &lt;p>sofa-pbrpc: 处理小包的吞吐尚可，大包的吞吐显著低于其他RPC，延时受长尾影响很大。&lt;/p>
 &lt;p>hulu-pbrpc: 单机表现和sofa-pbrpc类似，但多机的延时表现极差。&lt;/p>
-&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: Release Guide</title><link>https://brpc.apache.org/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/release/</guid><description>
+&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: bRPC 1.5.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.5.0/</link><pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.5.0/</guid><description>
+&lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
+&lt;h3 id="feature">Feature:&lt;/h3>
+&lt;ul>
+&lt;li>Support IPv6 for DNS resolve by @jsl422 in #2139&lt;/li>
+&lt;li>Support naming timer sampling and worker threads by @ehds in #2136&lt;/li>
+&lt;li>Support different TimeoutConcurrencyConf for different method by
+@yanglimingcn in #2112&lt;/li>
+&lt;li>Add bvar is_hidden by @serverglen in #2205&lt;/li>
+&lt;li>Add server concurrency in status builtin service by @chenBright in #2097&lt;/li>
+&lt;li>Add avg latency for prometheus metrics by @Huixxi in #2024&lt;/li>
+&lt;/ul>
+&lt;h3 id="bugfix">Bugfix:&lt;/h3>
+&lt;ul>
+&lt;li>Fix the issue of const unused in the example of RDMA by @goldenbean in #2187&lt;/li>
+&lt;li>Fix domain naming service host name buffer length by @ehds in #2179&lt;/li>
+&lt;li>Fix memory leak of socket by @chenBright #2169&lt;/li>
+&lt;li>Fix not end wait when ns fails to start by @chenBright #2162&lt;/li>
+&lt;li>Fix ci failed with wrong path of libprotoc by @guodongxiaren in #2132&lt;/li>
+&lt;li>Fix the periodic naming service quit problem by @chenBright in #2123&lt;/li>
+&lt;/ul>
+&lt;h3 id="enhancement">Enhancement:&lt;/h3>
+&lt;ul>
+&lt;li>Remove wordexp by @wwbmmm in #2218&lt;/li>
+&lt;li>Update github workflows to skip builds for markdown-file-only
+changes by @kiminno in #2175&lt;/li>
+&lt;li>Reject initializing FlatMap when nbucket is 0 by @jamesge&lt;/li>
+&lt;li>Optimize some codes that violates the C++ One Definition Rule
+[-Wodr] by @lrita in #2161&lt;/li>
+&lt;li>Add _Alloc template parameters for FlatMap and FlatSet by @old-bear in #2149&lt;/li>
+&lt;li>Add type BasicStringPiece::const_pointer by @lrita in #2141&lt;/li>
+&lt;li>Operator overloading of PtrContainer by @chenBright in #2107&lt;/li>
+&lt;li>Make sure we can receive at least one request @yanglimingcn in #2106&lt;/li>
+&lt;li>Reduce cpu overhead when using rdma by @Tuvie in #2100&lt;/li>
+&lt;/ul>
+&lt;h3 id="others">Others&lt;/h3>
+&lt;ul>
+&lt;li>Prefer to use env to find bash by @wasphin
+Improve/add documents by @haihuju, @tanzhongyi003, @wwbmmm, @wasphin,
+@maheshrjl, @chenBright, @NIGHTFIGHTING, @Huixxi, @zuyu, @kiminno,
+@wy1433, @20083017, @Thunderbrook&lt;/li>
+&lt;/ul>
+&lt;p>Full Changelog can be found at: &lt;a href="https://github.com/apache/brpc/compare/1.4.0...1.5.0">https://github.com/apache/brpc/compare/1.4.0...1.5.0&lt;/a>&lt;/p>
+&lt;p>Thanks to all contributors for the 1.5.0 version!&lt;/p></description></item><item><title>Docs: Release Guide</title><link>https://brpc.apache.org/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/release/</guid><description>
 &lt;h1 id="brpc-apache-release-guide-step-by-step">brpc apache release guide step by step&lt;/h1>
 &lt;p>Overview: divided into the following steps&lt;/p>
 &lt;ol>
@@ -1072,7 +1115,30 @@ Apache brpc community
 &lt;/code>&lt;/pre>&lt;h3 id="5-publish-wechat-official-account-announcement">5. Publish WeChat official account announcement&lt;/h3>
 &lt;p>Reference &lt;a href="https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg">https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg&lt;/a>.&lt;/p>
 &lt;h3 id="6-update-master-branch">6. Update master branch&lt;/h3>
-&lt;p>After the release is completed, merge the release branch into the master branch&lt;/p></description></item><item><title>Docs: bRPC 1.4.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.4.0/</link><pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.4.0/</guid><description>
+&lt;p>After the release is completed, merge the release branch into the master branch&lt;/p></description></item><item><title>Docs: CVE-2023-31039</title><link>https://brpc.apache.org/docs/community/security/cve-2023-31039-bugfix/</link><pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/security/cve-2023-31039-bugfix/</guid><description>
+&lt;p>&lt;strong>Severity&lt;/strong>: Important&lt;/p>
+&lt;p>&lt;strong>Affected Versions&lt;/strong>: Apache bRPC 0.9.0 before 1.5.0&lt;/p>
+&lt;p>&lt;strong>Description&lt;/strong>:
+Security vulnerability in Apache bRPC &amp;lt;1.5.0 on all platforms allows attackers to execute arbitrary code via ServerOptions::pid_file.
+An attacker that can influence the ServerOptions pid_file parameter with which the bRPC server is started can execute arbitrary code with the permissions of the bRPC process.&lt;/p>
+&lt;p>&lt;strong>Solution&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>upgrade to bRPC &amp;gt;= 1.5.0, download link: &lt;a href="https://dist.apache.org/repos/dist/release/brpc/1.5.0/">https://dist.apache.org/repos/dist/release/brpc/1.5.0/&lt;/a>&lt;/li>
+&lt;li>If you are using an old version of bRPC and hard to upgrade, you can apply this patch: &lt;a href="https://github.com/apache/brpc/pull/2218">https://github.com/apache/brpc/pull/2218&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Required Configurations&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>set brpc::ServerOptions::pid_file from user input&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Work Arounds&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Apply this patch: &lt;a href="https://github.com/apache/brpc/pull/2218">https://github.com/apache/brpc/pull/2218&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>References&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://brpc.apache.org">https://brpc.apache.org&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.cve.org/CVERecord?id=CVE-2023-31039">https://www.cve.org/CVERecord?id=CVE-2023-31039&lt;/a>&lt;/li>
+&lt;/ol></description></item><item><title>Docs: bRPC 1.4.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.4.0/</link><pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.4.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
 &lt;p>New features:&lt;/p>
 &lt;ul>
@@ -1248,12 +1314,7 @@ Apache brpc community
 &lt;/tr>
 &lt;/table>
 &lt;h3 id="contributors">Contributors&lt;/h3>
-&lt;p>Thanks to &lt;a href="https://github.com/apache/brpc/graphs/contributors">All the Contributors&lt;/a> making their effort to help bRPC getting better.&lt;/p></description></item><item><title>Docs: Security</title><link>https://brpc.apache.org/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/security/</guid><description>
-&lt;p>The Apache Software Foundation takes a rigorous stance on eliminating security issues in its software projects. Likewise, Apache bRPC is also vigilant and takes security issues related to its features and functionality into the highest consideration.&lt;/p>
-&lt;p>If you have any concerns regarding bRPC’s security, or you discover a vulnerability or potential threat, please don’t hesitate to get in touch with the &lt;a href="http://www.apache.org/security/">Apache Security Team&lt;/a> by dropping an email at &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>.&lt;/p>
-&lt;p>Please specify the project name as &amp;ldquo;bRPC&amp;rdquo; in the email, and provide a description of the relevant problem or potential threat. You are also urged to recommend how to reproduce and replicate the issue.&lt;/p>
-&lt;p>The Apache Security Team and the bRPC community will get back to you after assessing and analyzing the findings.&lt;/p>
-&lt;p>&lt;strong>Please note&lt;/strong> that the security issue should be reported on the security email first, before disclosing it on any public domain.&lt;/p></description></item><item><title>Docs: Monthly Meeting</title><link>https://brpc.apache.org/docs/community/monthly-meeting/</link><pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/monthly-meeting/</guid><description>
+&lt;p>Thanks to &lt;a href="https://github.com/apache/brpc/graphs/contributors">All the Contributors&lt;/a> making their effort to help bRPC getting better.&lt;/p></description></item><item><title>Docs: Monthly Meeting</title><link>https://brpc.apache.org/docs/community/monthly-meeting/</link><pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/monthly-meeting/</guid><description>
 &lt;h3 id="monthly-meeting-record">Monthly Meeting Record&lt;/h3>
 &lt;table>
 &lt;thead>

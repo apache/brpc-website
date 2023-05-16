@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bRPC – Security</title><link>https://brpc.apache.org/docs/community/security/</link><description>Recent content in Security on bRPC</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brpc.apache.org/docs/community/security/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: CVE-2023-31039</title><link>https://brpc.apache.org/docs/community/security/cve-2023-31039-bugfix/</link><pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/community/security/cve-2023-31039-bugfix/</guid><description>
+&lt;p>&lt;strong>Severity&lt;/strong>: Important&lt;/p>
+&lt;p>&lt;strong>Affected Versions&lt;/strong>: Apache bRPC 0.9.0 before 1.5.0&lt;/p>
+&lt;p>&lt;strong>Description&lt;/strong>:
+Security vulnerability in Apache bRPC &amp;lt;1.5.0 on all platforms allows attackers to execute arbitrary code via ServerOptions::pid_file.
+An attacker that can influence the ServerOptions pid_file parameter with which the bRPC server is started can execute arbitrary code with the permissions of the bRPC process.&lt;/p>
+&lt;p>&lt;strong>Solution&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>upgrade to bRPC &amp;gt;= 1.5.0, download link: &lt;a href="https://dist.apache.org/repos/dist/release/brpc/1.5.0/">https://dist.apache.org/repos/dist/release/brpc/1.5.0/&lt;/a>&lt;/li>
+&lt;li>If you are using an old version of bRPC and hard to upgrade, you can apply this patch: &lt;a href="https://github.com/apache/brpc/pull/2218">https://github.com/apache/brpc/pull/2218&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Required Configurations&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>set brpc::ServerOptions::pid_file from user input&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Work Arounds&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Apply this patch: &lt;a href="https://github.com/apache/brpc/pull/2218">https://github.com/apache/brpc/pull/2218&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>References&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://brpc.apache.org">https://brpc.apache.org&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.cve.org/CVERecord?id=CVE-2023-31039">https://www.cve.org/CVERecord?id=CVE-2023-31039&lt;/a>&lt;/li>
+&lt;/ol></description></item></channel></rss>

@@ -1587,7 +1587,44 @@ server一样的&lt;a href="../builtin-services/buildin_services/">内置服务&l
 &lt;p>thrift: 单机的平均延时和吞吐尚可，多机的平均延时明显高于brpc和UB。吞吐的扩展性较差，提高线程数和client数几乎不能提升吞吐。&lt;/p>
 &lt;p>sofa-pbrpc: 处理小包的吞吐尚可，大包的吞吐显著低于其他RPC，延时受长尾影响很大。&lt;/p>
 &lt;p>hulu-pbrpc: 单机表现和sofa-pbrpc类似，但多机的延时表现极差。&lt;/p>
-&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: Release指南</title><link>https://brpc.apache.org/zh/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/release/</guid><description>
+&lt;p>gRPC: 几乎在所有参与的测试中垫底，可能它的定位是给google cloud platform的用户提供一个多语言，对网络友好的实现，性能还不是要务。&lt;/p></description></item><item><title>Docs: bRPC 1.5.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.5.0/</link><pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.5.0/</guid><description>
+&lt;h2 id="apache-brpc-150发布">Apache bRPC 1.5.0发布&lt;/h2>
+&lt;h3 id="新功能">新功能&lt;/h3>
+&lt;ul>
+&lt;li>DNS解析支持IPv6 by @jsl422 in #2139&lt;/li>
+&lt;li>支持为定时器采样线程和工作线程命名 by @ehds in #2136&lt;/li>
+&lt;li>支持为不同的方法配置不同的TimeoutConcurrentConf配置 @yanglimingcn in #2112&lt;/li>
+&lt;li>新增bvar is_hidden by @serverglen in #2205&lt;/li>
+&lt;li>在Status内置服务中新增服务器并发数 by @chenBright in #2097&lt;/li>
+&lt;li>新增“平均延迟”Prometheus指标 by @Huixxi in #2024&lt;/li>
+&lt;/ul>
+&lt;h3 id="bug修复">Bug修复&lt;/h3>
+&lt;ul>
+&lt;li>修复在RDMA示例中常量未使用问题 by @goldenbean in #2187&lt;/li>
+&lt;li>修复域名服务中主机名缓冲区长度问题 by @ehds in #2179&lt;/li>
+&lt;li>修复Socket内存泄漏问题 by @chenBright #2169&lt;/li>
+&lt;li>修复当名字服务启动失败时无法结束等待问题 by @chenBright #2162&lt;/li>
+&lt;li>修复libprotoc路径错误导致ci失败问题 by @guodongxiaren in #2132&lt;/li>
+&lt;li>修复周期名字服务退出问题 by @chenBright in #2123&lt;/li>
+&lt;/ul>
+&lt;h3 id="功能增强">功能增强&lt;/h3>
+&lt;ul>
+&lt;li>移除wordexp by @wwbmmm in #2218&lt;/li>
+&lt;li>针对仅修改markdown文档的变更跳过不必要的工作流检查 by @kiminno in #2175&lt;/li>
+&lt;li>优化当nbucket为0时拒绝初始化FlatMap by @jamesge&lt;/li>
+&lt;li>优化一些违反C++ ODR规则的代码 by @lrita in #2161&lt;/li>
+&lt;li>FlatMap和FlatSet支持自定义 allocator 内存分配器 by @old-bear in #2149&lt;/li>
+&lt;li>添加BasicStringPiece::const_pointer类型 by @lrita in #2141&lt;/li>
+&lt;li>PtrContainer增加运算符重载 by @chenBright in #2107&lt;/li>
+&lt;li>优化确保至少能收到一个请求用以更新average latency by @yanglimingcn in #2106&lt;/li>
+&lt;li>优化使用rdma时的cpu开销 by @Tuvie in #2100&lt;/li>
+&lt;/ul>
+&lt;h3 id="其他">其他&lt;/h3>
+&lt;ul>
+&lt;li>使用env查找bash by @wasphin&lt;/li>
+&lt;li>改进/添加文档 by @haihuju, @tanzhongyi003, @wwbmmm, @wasphin, @maheshrjl, @chenBright, @NIGHTFIGHTING, @Huixxi, @zuyu, @kiminno, @wy1433, @20083017, @Thunderbrook&lt;/li>
+&lt;/ul>
+&lt;p>感谢1.5.0版本的所有贡献者！&lt;/p></description></item><item><title>Docs: Release指南</title><link>https://brpc.apache.org/zh/docs/community/release/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/release/</guid><description>
 &lt;h1 id="brpc-发布apache-release-版本流程step-by-step">brpc 发布apache release 版本流程step by step&lt;/h1>
 &lt;p>概述：分为如下几个步骤&lt;/p>
 &lt;ol>
@@ -1982,7 +2019,29 @@ Apache brpc community
 &lt;/code>&lt;/pre>&lt;h3 id="发布微信公众号公告">发布微信公众号公告&lt;/h3>
 &lt;p>参考 &lt;a href="https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg">https://mp.weixin.qq.com/s/DeFhpAV_AYsn_Xd1ylPTSg&lt;/a>.&lt;/p>
 &lt;h3 id="更新master分支">更新master分支&lt;/h3>
-&lt;p>发版完成后，将release分支合并到master分支.&lt;/p></description></item><item><title>Docs: bRPC 1.4.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.4.0/</link><pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.4.0/</guid><description>
+&lt;p>发版完成后，将release分支合并到master分支.&lt;/p></description></item><item><title>Docs: CVE-2023-31039漏洞修复</title><link>https://brpc.apache.org/zh/docs/community/security/cve-2023-31039-bugfix/</link><pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/security/cve-2023-31039-bugfix/</guid><description>
+&lt;p>&lt;strong>概述&lt;/strong>：&lt;br>
+本报告介绍了我们在 bRPC 项目代码中发现的 CVE-2023-31039 安全漏洞的修复情况。&lt;/p>
+&lt;p>&lt;strong>漏洞描述&lt;/strong>：&lt;br>
+该漏洞涉及在所有平台上的Apache bRPC &amp;lt; 1.5.0版本中，允许攻击者通过ServerOptions::pid_file 执行任意代码。&lt;/p>
+&lt;p>&lt;strong>触发条件&lt;/strong>：&lt;br>
+根据用户的输入来设置 brpc::ServerOptions::pid_file&lt;/p>
+&lt;p>&lt;strong>解决方案&lt;/strong>：&lt;br>
+我们已经修复了该漏洞，用户可通过以下方式规避此漏洞所带来的安全风险：&lt;/p>
+&lt;ul>
+&lt;li>升级到 bRPC &amp;gt;= 1.5.0，下载链接：
+&lt;a href="https://dist.apache.org/repos/dist/release/brpc/1.5.0/">https://dist.apache.org/repos/dist/release/brpc/1.5.0/&lt;/a>&lt;/li>
+&lt;li>如果您使用的是旧版本的 bRPC，并且很难升级，您可以应用此修补程序：
+&lt;a href="https://github.com/apache/brpc/pull/2218">https://github.com/apache/brpc/pull/2218&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>结论&lt;/strong>：&lt;br>
+该漏洞已在最新的 Apache bRPC Release 1.5.0 版本中得到修复，后续我们将继续致力于确保我们的项目安全。如果您发现任何其他安全问题，请立即向我们报告。&lt;/p>
+&lt;p>&lt;strong>参考&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.cve.org/CVERecord?id=CVE-2023-31039">https://www.cve.org/CVERecord?id=CVE-2023-31039&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>此致，&lt;br>
+Apache bRPC 社区&lt;/p></description></item><item><title>Docs: bRPC 1.4.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.4.0/</link><pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.4.0/</guid><description>
 &lt;h2 id="apache-brpc-140发布支持rdma">Apache bRPC 1.4.0发布，支持RDMA&lt;/h2>
 &lt;p>很高兴通知大家，Apache bRPC (孵化中) 1.4.0版本发布，支持RDMA。&lt;/p>
 &lt;p>bRPC官网：https://brpc.apache.org/&lt;/p>
@@ -2209,10 +2268,7 @@ Apache brpc community
 &lt;li>文档改进@wwbmmm, @JackBoosY, @morningman, @serverglen, @chenBright, @guodongxiaren, @xdh0817, @KaneVV1, @tanzhongyi003, @lzfhust, @Huixxi&lt;/li>
 &lt;li>修正错别字@opheliaKyouko, @day253, @chenBright, @fansehep&lt;/li>
 &lt;/ul>
-&lt;p>感谢所有关心和为bRPC做出贡献的开发者！&lt;/p></description></item><item><title>Docs: 安全</title><link>https://brpc.apache.org/zh/docs/community/security/</link><pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/security/</guid><description>
-&lt;p>Apache Software Foundation 在消除其软件项目中的安全问题方面采取了严格的立场。Apache bRPC 也十分关注与其特性和功能相关的安全问题。&lt;/p>
-&lt;p>如果您对 bRPC 的安全性感到担忧，或者您发现了漏洞或潜在的威胁，请不要犹豫与 &lt;a href="http://www.apache.org/security/">Apache 安全团队&lt;/a> 联系，发送邮件至 &lt;a href="mailto:security@apache.org">security@apache.org&lt;/a>。 在邮件中请指明项目名称为 bRPC，并提供相关问题或潜在威胁的描述。同时推荐重现和复制安全问题的方法。在评估和分析调查结果后，Apache 安全团队和 bRPC 社区将直接与您回复。&lt;/p>
-&lt;p>&lt;strong>请注意&lt;/strong> 在提交安全邮件之前，请勿在公共领域披露安全电子邮件报告的安全问题。&lt;/p></description></item><item><title>Docs: 月度会</title><link>https://brpc.apache.org/zh/docs/community/monthly-meeting/</link><pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/monthly-meeting/</guid><description>
+&lt;p>感谢所有关心和为bRPC做出贡献的开发者！&lt;/p></description></item><item><title>Docs: 月度会</title><link>https://brpc.apache.org/zh/docs/community/monthly-meeting/</link><pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/community/monthly-meeting/</guid><description>
 &lt;h3 id="月度会记录">月度会记录&lt;/h3>
 &lt;table>
 &lt;thead>
