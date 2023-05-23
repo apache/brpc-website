@@ -4,6 +4,7 @@ linkTitle: "bRPC源码解析·work_stealing_queue"
 weight: 3
 date: 2023-03-27
 ---
+(作者简介：KIDGINBROOK，在昆仑芯参与训练框架开发工作)
 ## 背景
 每个bthread_worker都有自己的work_stealing_queue，保存着待执行的bthread，当前的bthread_worker会从queue中pop数据进行处理，如果自己的queue为空，那么会尝试去其他的bthread_worker的queue中steal，所以为了避免锁的开销，brpc设计了lock-free的WorkStealingQueue。
 
