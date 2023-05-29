@@ -7,7 +7,7 @@ date: 2023-05-23
 (作者简介：KIDGINBROOK，在昆仑芯参与训练框架开发工作)
 
 ## 整体流程
-task_group负责对bthread的调度执行，一个task_group对应一个pthread，内部有两个执行队列，分别为_rq和_remote_rq，执行队列中存放着待执行的bthread。task_control为全局单例，内部有多个task_group。
+task_group负责对bthread的调度执行，一个task_group对应一个pthread，内部有两个执行队列，分别为_rq和_remote_rq，执行队列中存放着待执行的bthread，bthread创建的bthread会被存放在_rq，pthread创建的bthread会被存放在_remote_rq。task_control为全局单例，内部有多个task_group。
 ![bthread整体流程](/images/docs/bthread_schedule.PNG)
 
 ### 主要接口
@@ -34,6 +34,11 @@ void* TaskControl::worker_thread(void* arg) {
     tls_task_group = g;
     c->_nworkers << 1;
     g->run_main_task();
+    ...
+}
+TaskGroup* TaskControl::create_group() {
+    ...
+    g->init(FLAGS_task_group_runqueue_capacity);
     ...
 }
 ```
@@ -71,7 +76,7 @@ int TaskGroup::init(size_t runqueue_capacity) {
 
 ```
 
-每个worker会一直在while循环中，如果有可执行的bthread，wait_task会返回对应bthread的tid，否则当前worker会阻塞；wait_task(???)的具体逻辑是先去当前task_group的_remote_rq中pop，如果没有，则去其他的task_group的_rq和_remote_rq中pop。
+每个worker会一直在while循环中，如果有可执行的bthread，wait_task会返回对应bthread的tid，否则当前worker会阻塞；wait_task的具体逻辑是先去当前task_group的_remote_rq中pop，如果没有，则去其他的task_group的_rq和_remote_rq中pop。
 ```c++
 void TaskGroup::run_main_task() {
     bvar::PassiveStatus<double> cumulated_cputime(
