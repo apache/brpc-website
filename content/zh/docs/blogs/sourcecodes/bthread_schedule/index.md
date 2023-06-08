@@ -8,7 +8,7 @@ date: 2023-05-23
 
 ## 整体流程
 task_group负责对bthread的调度执行，一个task_group对应一个pthread，内部有两个执行队列，分别为_rq和_remote_rq，执行队列中存放着待执行的bthread，bthread创建的bthread会被存放在_rq，pthread创建的bthread会被存放在_remote_rq。task_control为全局单例，内部有多个task_group。
-![bthread整体流程](/images/docs/bthread_schedule.PNG)
+![bthread整体流程](/images/docs/bthread.png)
 
 ### 主要接口
 
