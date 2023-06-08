@@ -845,7 +845,7 @@ limitations under the License.
 &lt;p>(作者简介：KIDGINBROOK，在昆仑芯参与训练框架开发工作)&lt;/p>
 &lt;h2 id="整体流程">整体流程&lt;/h2>
 &lt;p>task_group负责对bthread的调度执行，一个task_group对应一个pthread，内部有两个执行队列，分别为_rq和_remote_rq，执行队列中存放着待执行的bthread，bthread创建的bthread会被存放在_rq，pthread创建的bthread会被存放在_remote_rq。task_control为全局单例，内部有多个task_group。
-&lt;img src="https://brpc.apache.org/images/docs/bthread_schedule.PNG" alt="bthread整体流程">&lt;/p>
+&lt;img src="https://brpc.apache.org/images/docs/bthread.png" alt="bthread整体流程">&lt;/p>
 &lt;h3 id="主要接口">主要接口&lt;/h3>
 &lt;h4 id="taskcontrol">TaskControl&lt;/h4>
 &lt;p>TaskControl是一个单例，下面是初始化的过程，主要逻辑即为创建_concurrency个worker(bthread_worker)线程，每个worker执行worker_thread函数&lt;/p>
