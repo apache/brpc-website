@@ -85,3 +85,4 @@ description: >
 | 04/24/2023 - 05/07/2023  | 王伟冰 | https://lists.apache.org/thread/25ocwx3n7kvmj0fd5zz5slwd0smt59r2
 | 05/08/2023 - 05/14/2023  | 蔡道进 | https://lists.apache.org/thread/676w7087klhsb2hwn9q2p5sj541frgpl
 | 05/22/2023 - 05/28/2023  | 刘帅 | https://lists.apache.org/thread/m2cpr83h5l1gpznowxhf58lrxndok1lp
+| 06/19/2023 - 06/25/2023  | 王伟冰 | https://lists.apache.org/thread/jto9mzcbsxw3273xrgwd116vvdl3o1gx
