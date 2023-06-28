@@ -192,7 +192,7 @@ int execution_queue_stop(ExecutionQueueId&amp;lt;T&amp;gt; id);
 // been executed
 template &amp;lt;typename T&amp;gt;
 int execution_queue_join(ExecutionQueueId&amp;lt;T&amp;gt; id);
-&lt;/code>&lt;/pre>&lt;p>stop和join都可以多次调用， 都会又合理的行为。stop可以随时调用而不用当心线程安全性问题。&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>stop和join都可以多次调用， 都会有合理的行为。stop可以随时调用而不用当心线程安全性问题。&lt;/p>
 &lt;p>和fd的close类似，如果stop不被调用, 相应的资源会永久泄露。&lt;/p>
 &lt;p>安全释放meta的时机: 可以在execute函数中收到iter.is_queue_stopped()==true的任务的时候释放，也可以等到join返回之后释放. 注意不要double-free&lt;/p>
 &lt;h3 id="提交任务">提交任务&lt;/h3>
