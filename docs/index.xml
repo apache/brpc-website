@@ -420,7 +420,7 @@ succeed.&lt;/p>
 &lt;h4 id="protobuf-24">protobuf: 2.4+&lt;/h4>
 &lt;p>Be compatible with pb 3.x and pb 2.x with the same file:
 Don&amp;rsquo;t use new types in proto3 and start the proto file with &lt;code>syntax=&amp;quot;proto2&amp;quot;;&lt;/code>
-&lt;a href="https://github.com/brpc/brpc/blob/master/tools/add_syntax_equal_proto2_to_all.sh">tools/add_syntax_equal_proto2_to_all.sh&lt;/a>can add &lt;code>syntax=&amp;quot;proto2&amp;quot;&lt;/code> to all proto files without it.&lt;/p>
+&lt;a href="https://github.com/brpc/brpc/blob/master/tools/add_syntax_equal_proto2_to_all.sh">tools/add_syntax_equal_proto2_to_all.sh&lt;/a> can add &lt;code>syntax=&amp;quot;proto2&amp;quot;&lt;/code> to all proto files without it.&lt;/p>
 &lt;p>Arena in pb 3.x is not supported yet.&lt;/p>
 &lt;h4 id="gflags-20-221">gflags: 2.0-2.2.1&lt;/h4>
 &lt;p>no known issues.&lt;/p>
@@ -436,7 +436,7 @@ Don&amp;rsquo;t use new types in proto3 and start the proto file with &lt;code>s
 &lt;p>If you want to use &lt;a href="../builtin-services/cpu_profiler">cpu profiler&lt;/a> or &lt;a href="../builtin-services/heap_profiler">heap profiler&lt;/a>, do link &lt;code>libtcmalloc_and_profiler.a&lt;/code>. These two profilers are based on tcmalloc. &lt;a href="../builtin-services/contention_profiler">contention profiler&lt;/a> does not require tcmalloc.&lt;/p>
 &lt;p>When you remove tcmalloc, not only remove the linkage with tcmalloc but also the macro &lt;code>-DBRPC_ENABLE_CPU_PROFILER&lt;/code>.&lt;/p>
 &lt;h4 id="glog-33">glog: 3.3+&lt;/h4>
-&lt;p>brpc implements a default &lt;a href="../../src/butil/logging.h">logging utility&lt;/a> which conflicts with glog. To replace this with glog, add &lt;em>&amp;ndash;with-glog&lt;/em> to config_brpc.sh or add &lt;code>-DWITH_GLOG=ON&lt;/code> to cmake.&lt;/p>
+&lt;p>brpc implements a default &lt;a href="../../src/butil/logging.h">logging utility&lt;/a> which conflicts with glog. To replace this with glog, add &lt;code>--with-glog&lt;/code> to config_brpc.sh or add &lt;code>-DWITH_GLOG=ON&lt;/code> to cmake.&lt;/p>
 &lt;h4 id="valgrind-38">valgrind: 3.8+&lt;/h4>
 &lt;p>brpc detects valgrind automatically (and registers stacks of bthread). Older valgrind(say 3.2) is not supported.&lt;/p>
 &lt;h4 id="thrift-093-0110">thrift: 0.9.3-0.11.0&lt;/h4>

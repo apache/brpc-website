@@ -1624,7 +1624,7 @@ butex_create_checked通过get_object拿到了一个Butex，然后将Butex中的v
 &lt;p>如果你要使用&lt;a href="../builtin-services/cpu_profiler">cpu profiler&lt;/a>或&lt;a href="../builtin-services/heap_profiler">heap profiler&lt;/a>，要链接&lt;code>libtcmalloc_and_profiler.a&lt;/code>。这两个 profiler都是基于tcmalloc的。而&lt;a href="../builtin-services/contention_profiler">contention profiler&lt;/a>不需要tcmalloc。&lt;/p>
 &lt;p>当你移除tcmalloc的时候，不仅要移除tcmalloc的链接，也要移除宏&lt;code>-DBRPC_ENABLE_CPU_PROFILER&lt;/code>。&lt;/p>
 &lt;h4 id="glog-33">glog: 3.3+&lt;/h4>
-&lt;p>brpc实现了一个默认的&lt;a href="../../src/butil/logging.h">日志功能&lt;/a>它和glog冲突。要替换成glog，可以给config_brpc.sh增加*&amp;ndash;with-glog*选项或者给cmake增加&lt;code>-DWITH_GLOG=ON&lt;/code>选项。&lt;/p>
+&lt;p>brpc实现了一个默认的&lt;a href="../../src/butil/logging.h">日志功能&lt;/a>它和glog冲突。要替换成glog，可以给config_brpc.sh增加&lt;code>--with-glog&lt;/code>选项或者给cmake增加&lt;code>-DWITH_GLOG=ON&lt;/code>选项。&lt;/p>
 &lt;h4 id="valgrind-38">valgrind: 3.8+&lt;/h4>
 &lt;p>brpc会自动检测valgrind（然后注册bthread的栈）。不支持老版本的valgrind（比如3.2）。&lt;/p>
 &lt;h4 id="thrift-093-0110">thrift: 0.9.3-0.11.0&lt;/h4>
