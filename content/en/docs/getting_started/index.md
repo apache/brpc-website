@@ -326,7 +326,7 @@ no known issues.
 
 Be compatible with pb 3.x and pb 2.x with the same file:
 Don't use new types in proto3 and start the proto file with `syntax="proto2";`
-[tools/add_syntax_equal_proto2_to_all.sh](https://github.com/brpc/brpc/blob/master/tools/add_syntax_equal_proto2_to_all.sh)can add `syntax="proto2"` to all proto files without it.
+[tools/add_syntax_equal_proto2_to_all.sh](https://github.com/brpc/brpc/blob/master/tools/add_syntax_equal_proto2_to_all.sh) can add `syntax="proto2"` to all proto files without it.
 
 Arena in pb 3.x is not supported yet.
 
@@ -358,7 +358,7 @@ When you remove tcmalloc, not only remove the linkage with tcmalloc but also the
 
 #### glog: 3.3+
 
-brpc implements a default [logging utility](../../src/butil/logging.h) which conflicts with glog. To replace this with glog, add *--with-glog* to config_brpc.sh or add `-DWITH_GLOG=ON` to cmake.
+brpc implements a default [logging utility](../../src/butil/logging.h) which conflicts with glog. To replace this with glog, add `--with-glog` to config_brpc.sh or add `-DWITH_GLOG=ON` to cmake.
 
 #### valgrind: 3.8+
 

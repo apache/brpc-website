@@ -356,7 +356,7 @@ brpc默认**不**链接 [tcmalloc](http://goog-perftools.sourceforge.net/doc/tcm
 
 #### glog: 3.3+
 
-brpc实现了一个默认的[日志功能](../../src/butil/logging.h)它和glog冲突。要替换成glog，可以给config_brpc.sh增加*--with-glog*选项或者给cmake增加`-DWITH_GLOG=ON`选项。
+brpc实现了一个默认的[日志功能](../../src/butil/logging.h)它和glog冲突。要替换成glog，可以给config_brpc.sh增加`--with-glog`选项或者给cmake增加`-DWITH_GLOG=ON`选项。
 
 #### valgrind: 3.8+
 
