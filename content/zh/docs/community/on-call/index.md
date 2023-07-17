@@ -88,3 +88,4 @@ description: >
 | 06/19/2023 - 06/25/2023  | 王伟冰 | https://lists.apache.org/thread/jto9mzcbsxw3273xrgwd116vvdl3o1gx
 | 06/26/2023 - 07/02/2023  | 蔡道进 | https://lists.apache.org/thread/rzkdbo5ojff9grs2bowwl95n0fsb4zts
 | 07/03/2023 - 07/09/2023  | 何磊 | https://lists.apache.org/thread/2kh8mq2wn4g0vzdn1czb7nj4t8l2hj9v
+| 07/10/2023 - 07/16/2023  | 刘帅 | https://lists.apache.org/thread/z6jcyqsy31rf1r626kjx2d2sykwtvhqz
