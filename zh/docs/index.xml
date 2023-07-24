@@ -2049,7 +2049,7 @@ sub rsa4096 2021-10-17 [E]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>svn --username&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>lorinlee co https://dist.apache.org/repos/dist/dev/incubator/brpc/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>svn --username&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>lorinlee co https://dist.apache.org/repos/dist/dev/brpc/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> ~/brpc_svn/dev/brpc
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-添加gpg公钥">2. 添加GPG公钥&lt;/h3>
@@ -2077,7 +2077,7 @@ sub rsa4096 2021-10-17 [E]
 &lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sha512sum --check apache-brpc-1.0.0-incubating-src.tar.gz.sha512
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-检查gpg签名">2. 检查GPG签名&lt;/h3>
 &lt;p>首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS &amp;gt;&amp;gt; KEYS
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl https://dist.apache.org/repos/dist/dev/brpc/KEYS &amp;gt;&amp;gt; KEYS
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gpg --import KEYS
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>设置信任该用户的签名，执行以下命令，填写发布人的用户名&lt;/p>
@@ -2148,13 +2148,13 @@ This is a call for vote to release Apache brpc version
 [Release Note]
 - xxx
 The release candidates:
-https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0/
+https://dist.apache.org/repos/dist/dev/brpc/1.0.0/
 Git tag for the release:
 https://github.com/apache/brpc/releases/tag/1.0.0
 Release Commit ID:
 https://github.com/apache/brpc/commit/xxx
 Keys to verify the Release Candidate:
-https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS
+https://dist.apache.org/repos/dist/dev/brpc/KEYS
 The vote will be open for at least 72 hours or until the necessary number of
 votes are reached.
 Please vote accordingly:
@@ -2197,9 +2197,9 @@ LorinLee
 &lt;p>若社区投票未通过，则在release分支对代码仓库进行修改，重新打包，发起投票。&lt;/p>
 &lt;h2 id="在apache-incubator社区发起投票">在Apache Incubator社区发起投票&lt;/h2>
 &lt;h3 id="1-更新gpg签名">1. 更新GPG签名&lt;/h3>
-&lt;pre tabindex="0">&lt;code>svn delete https://dist.apache.org/repos/dist/release/incubator/brpc/KEYS -m &amp;#34;delete KEYS&amp;#34;
-svn cp https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS https://dist.apache.org/repos/dist/release/incubator/brpc/KEYS -m &amp;#34;update brpc KEYS&amp;#34;
-&lt;/code>&lt;/pre>&lt;p>提交完svn后，访问 &lt;a href="https://downloads.apache.org/incubator/brpc/KEYS">https://downloads.apache.org/incubator/brpc/KEYS&lt;/a>，检查内容有没有更新，可能需要等几分钟时间，等内容更新了，再继续下一步。&lt;/p>
+&lt;pre tabindex="0">&lt;code>svn delete https://dist.apache.org/repos/dist/release/brpc/KEYS -m &amp;#34;delete KEYS&amp;#34;
+svn cp https://dist.apache.org/repos/dist/dev/brpc/KEYS https://dist.apache.org/repos/dist/release/brpc/KEYS -m &amp;#34;update brpc KEYS&amp;#34;
+&lt;/code>&lt;/pre>&lt;p>提交完svn后，访问 &lt;a href="https://downloads.apache.org/brpc/KEYS">https://downloads.apache.org/brpc/KEYS&lt;/a>，检查内容有没有更新，可能需要等几分钟时间，等内容更新了，再继续下一步。&lt;/p>
 &lt;h3 id="2-投票阶段">2. 投票阶段&lt;/h3>
 &lt;ol>
 &lt;li>发起投票邮件到general@incubator.apache.org。IPMC会进行投票。经过至少72小时并统计到3个+1 IPMC member票后，即可进入下一阶段。&lt;/li>
