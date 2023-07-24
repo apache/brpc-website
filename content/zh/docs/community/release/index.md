@@ -216,7 +216,7 @@ mkdir -p ~/brpc_svn/dev/
 
 cd ~/brpc_svn/dev/
 
-svn --username=lorinlee co https://dist.apache.org/repos/dist/dev/incubator/brpc/
+svn --username=lorinlee co https://dist.apache.org/repos/dist/dev/brpc/
 
 cd ~/brpc_svn/dev/brpc
 ```
@@ -267,7 +267,7 @@ sha512sum --check apache-brpc-1.0.0-incubating-src.tar.gz.sha512
 首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）
 
 ```bash
-curl https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS >> KEYS
+curl https://dist.apache.org/repos/dist/dev/brpc/KEYS >> KEYS
 
 gpg --import KEYS
 ```
@@ -365,7 +365,7 @@ This is a call for vote to release Apache brpc version
 - xxx
 
 The release candidates:
-https://dist.apache.org/repos/dist/dev/incubator/brpc/1.0.0/
+https://dist.apache.org/repos/dist/dev/brpc/1.0.0/
 
 Git tag for the release:
 https://github.com/apache/brpc/releases/tag/1.0.0
@@ -374,7 +374,7 @@ Release Commit ID:
 https://github.com/apache/brpc/commit/xxx
 
 Keys to verify the Release Candidate:
-https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS
+https://dist.apache.org/repos/dist/dev/brpc/KEYS
 
 The vote will be open for at least 72 hours or until the necessary number of
 votes are reached.
@@ -441,12 +441,12 @@ LorinLee
 ### 1. 更新GPG签名
 
 ```
-svn delete https://dist.apache.org/repos/dist/release/incubator/brpc/KEYS -m "delete KEYS"
+svn delete https://dist.apache.org/repos/dist/release/brpc/KEYS -m "delete KEYS"
 
-svn cp https://dist.apache.org/repos/dist/dev/incubator/brpc/KEYS https://dist.apache.org/repos/dist/release/incubator/brpc/KEYS -m "update brpc KEYS"
+svn cp https://dist.apache.org/repos/dist/dev/brpc/KEYS https://dist.apache.org/repos/dist/release/brpc/KEYS -m "update brpc KEYS"
 ```
 
-提交完svn后，访问 <https://downloads.apache.org/incubator/brpc/KEYS>，检查内容有没有更新，可能需要等几分钟时间，等内容更新了，再继续下一步。
+提交完svn后，访问 <https://downloads.apache.org/brpc/KEYS>，检查内容有没有更新，可能需要等几分钟时间，等内容更新了，再继续下一步。
 
 ### 2. 投票阶段
 
