@@ -3245,6 +3245,11 @@ Apache bRPC 社区&lt;/p></description></item><item><title>Docs: bRPC 1.4.0</tit
 &lt;td>刘帅&lt;/td>
 &lt;td>&lt;a href="https://lists.apache.org/thread/z6jcyqsy31rf1r626kjx2d2sykwtvhqz">https://lists.apache.org/thread/z6jcyqsy31rf1r626kjx2d2sykwtvhqz&lt;/a>&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>07/17/2023 - 07/30/2023&lt;/td>
+&lt;td>胡希国&lt;/td>
+&lt;td>&lt;a href="https://lists.apache.org/thread/csyqhpzkgvk3or9m4k2gt3f89stskx4l">https://lists.apache.org/thread/csyqhpzkgvk3or9m4k2gt3f89stskx4l&lt;/a>&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.1.0/</guid><description>
 &lt;h2 id="apache-brpc-110-发布支持ipv6和uds">Apache bRPC 1.1.0 发布，支持IPV6和UDS&lt;/h2>
