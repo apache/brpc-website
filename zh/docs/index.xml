@@ -780,7 +780,7 @@ limitations under the License.
 {% endcomment %}
 -->
 &lt;h2 id="下载-apache-brpc">下载 Apache bRPC&lt;/h2>
-&lt;p>Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.5.0 版本已经发布如下了！&lt;/p>
+&lt;p>Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.6.0 版本已经发布如下了！&lt;/p>
 &lt;h3 id="全部版本">全部版本&lt;/h3>
 &lt;!--when pass vote, we can change it back to Release Artifacts
 -->
@@ -794,6 +794,12 @@ limitations under the License.
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
+&lt;tr>
+&lt;td>Apache bRPC 1.6.0 (tar.gz)&lt;/td>
+&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;/tr>
 &lt;tr>
 &lt;td>Apache bRPC 1.5.0 (tar.gz)&lt;/td>
 &lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.5.0/apache-brpc-1.5.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
