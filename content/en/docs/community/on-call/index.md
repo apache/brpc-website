@@ -89,3 +89,4 @@ Determine the type of Issue, e.g. bug, enhancement, discussion, etc
 | 06/26/2023 - 07/02/2023  | Cai Daojin | https://lists.apache.org/thread/rzkdbo5ojff9grs2bowwl95n0fsb4zts
 | 07/03/2023 - 07/10/2023  | He Lei | https://lists.apache.org/thread/2kh8mq2wn4g0vzdn1czb7nj4t8l2hj9v
 | 07/10/2023 - 07/16/2023  | Liu Shuai | https://lists.apache.org/thread/z6jcyqsy31rf1r626kjx2d2sykwtvhqz
+| 08/07/2023 - 08/13/2023  | Lei Li | https://lists.apache.org/thread/g2tz50ymsvv3xb2dl3bjot1rfdp74rkj
