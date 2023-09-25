@@ -91,3 +91,5 @@ description: >
 | 07/10/2023 - 07/16/2023  | 刘帅 | https://lists.apache.org/thread/z6jcyqsy31rf1r626kjx2d2sykwtvhqz
 | 07/17/2023 - 07/30/2023  | 胡希国 | https://lists.apache.org/thread/csyqhpzkgvk3or9m4k2gt3f89stskx4l
 | 08/07/2023 - 08/13/2023  | 李磊 | https://lists.apache.org/thread/g2tz50ymsvv3xb2dl3bjot1rfdp74rkj
+| 08/21/2023 - 09/03/2023  | 蔡道进 | https://lists.apache.org/thread/f63wnl45l1s3v61681m9tgfpkr6dxptx
+| 09/18/2023 - 09/24/2023  | 刘帅 | https://lists.apache.org/thread/v4po2bwzn3fb7w7qbxfn8hgqzthyqb4b
