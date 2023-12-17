@@ -99,3 +99,4 @@ Determine the type of Issue, e.g. bug, enhancement, discussion, etc
 | 11/06/2023 - 11/12/2023  |  |
 | 11/13/2023 - 11/19/2023  |  |
 | 11/20/2023 - 11/26/2023  | Xiguo Hu | https://lists.apache.org/thread/7hhg555ykcq2sfh0qm71vp9pn4tvb39s
+| 12/04/2023 - 12/17/2023  | Lei Li | https://lists.apache.org/thread/h6mphr4tnmwyfkw4r99ko3vk0wpwpzlp
