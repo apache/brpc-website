@@ -340,7 +340,7 @@ pb 3.x中的Arena至今没被支持。
 
 brpc默认**不**链接 [tcmalloc](http://goog-perftools.sourceforge.net/doc/tcmalloc.html)。用户按需要链接tcmalloc。
 
-和glibc内置的ptmalloc相比，tcmalloc通常能提升性能。然而不同版本的tcmalloc可能表现迥异。例如：tcmalloc 2.1与 tcmalloc 1.7和2.5相比，可能会让brpc的多线程样例性能显著恶化（tcmalloc中的一个自旋锁导致的）。甚至不同的小版本号之间变现也可能不同。当你的程序表现不符合预期的时候，移除tcmalloc然后尝试其他版本。
+和glibc内置的ptmalloc相比，tcmalloc通常能提升性能。然而不同版本的tcmalloc可能表现迥异。例如：tcmalloc 2.1与 tcmalloc 1.7和2.5相比，可能会让brpc的多线程样例性能显著恶化（tcmalloc中的一个自旋锁导致的）。甚至不同的小版本号之间表现也可能不同。当你的程序表现不符合预期的时候，移除tcmalloc然后尝试其他版本。
 
 用gcc4.8.2编译然后链接更早版本GCC编译的tcmalloc，可能会让程序中main()函数之前挂掉或者死锁，例如：
 
