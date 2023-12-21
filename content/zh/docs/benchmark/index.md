@@ -85,7 +85,7 @@ server一样的[内置服务](../builtin-services/buildin_services/)。
 
 所有RPC server都配置了24个工作线程，这些线程一般运行用户的处理逻辑。关于每种RPC的特殊说明: 
 
-- UB: 配置了12个reactor线程，使用EPOOL模型。连接池限制数配置为线程个数（24）
+- UB: 配置了12个reactor线程，使用EPOLL模型。连接池限制数配置为线程个数（24）
 - hulu-pbrpc: 额外配置了12个IO线程。这些线程会处理fd读取，请求解析等任务。hulu有个“共享队列“的配置项，默认不打开，作用是把fd静态散列到多个线程中，由于线程间不再争抢，hulu的qps会显著提高，但会明显地被长尾影响（原因见[测试方法](#测试方法)）。考虑到大部分使用者并不会去改配置，我们也选择不打开。
 - thrift: 额外配置了12个IO线程。这些线程会处理fd读取，请求解析等任务。thrift的client不支持多线程，每个线程得使用独立的client，连接也都是分开的。
 - sofa-pbrpc: 按照sofa同学的要求，把io_service_pool_size配置为24，work_thread_num配置为1。大概含义是使用独立的24组线程池，每组1个worker thread。和hulu不打开“共享队列”时类似，这个配置会显著提高sofa-pbrpc的QPS，但同时使它失去了处理长尾的能力。如果你在真实产品中使用，我们不建议这个配置。（而应该用io_service_pool_size=1, work_thread_num=24)
@@ -107,7 +107,7 @@ server一样的[内置服务](../builtin-services/buildin_services/)。
 
 **分析**
 
- * brpc: 当请求包小于16KB时，单连接下的吞吐超过了多连接的ubrpc_mc和thrift_mc，随着请求包变大，内核对单个连接的写入速度成为瓶颈。而多连接下的brpc则达到了测试中最高的2.3GB/s。注意: 虽然使用连接池的brpc在发送大包时吞吐更高，但也会耗费更多的CPU（UB和thrift也是这样）。下图中的单连接brpc已经可以提供800多兆的吞吐，足以打满万兆网卡，而使用的CPU可能只有多链接下的1/2(写出过程是[wait-free的](../rpc-in-depth/io#发消息))，真实系统中请优先使用单链接。
+ * brpc: 当请求包小于16KB时，单连接下的吞吐超过了多连接的ubrpc_mc和thrift_mc，随着请求包变大，内核对单个连接的写入速度成为瓶颈。而多连接下的brpc则达到了测试中最高的2.3GB/s。注意: 虽然使用连接池的brpc在发送大包时吞吐更高，但也会耗费更多的CPU（UB和thrift也是这样）。下图中的单连接brpc已经可以提供800多兆的吞吐，足以打满万兆网卡，而使用的CPU可能只有多连接下的1/2(写出过程是[wait-free的](../rpc-in-depth/io#发消息))，真实系统中请优先使用单连接。
 * thrift: 初期明显低于brpc，随着包变大超过了单连接的brpc。
 * UB:和thrift类似的曲线，但平均要低4-5万QPS，在32K包时超过了单连接的brpc。整个过程中QPS几乎没变过。
 * gRPC: 初期几乎与UB平行，但低1万左右，超过8K开始下降。
