@@ -96,3 +96,4 @@ description: >
 | 10/16/2023 - 10/22/2023  | 李磊 | https://lists.apache.org/thread/ylkbpgwp1qv7bs1z1dbxw31lk9o2vqod
 | 10/23/2023 - 10/29/2023  | 王伟冰 | https://lists.apache.org/thread/pq87hnf6tdhx0lrdnqpv3dk4tr8wyyrd
 | 12/04/2023 - 12/17/2023  | 李磊 | https://lists.apache.org/thread/h6mphr4tnmwyfkw4r99ko3vk0wpwpzlp
+| 12/18/2023 - 12/24/2023  | 王伟冰 | https://lists.apache.org/thread/9vycfp3dldlogd17b5p5onbgbqm791nj
