@@ -1772,6 +1772,11 @@ Determine the type of Issue, e.g. bug, enhancement, discussion, etc&lt;/li>
 &lt;td>Wang Weibing&lt;/td>
 &lt;td>&lt;a href="https://lists.apache.org/thread/9vycfp3dldlogd17b5p5onbgbqm791nj">https://lists.apache.org/thread/9vycfp3dldlogd17b5p5onbgbqm791nj&lt;/a>&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>02/05/2024 - 02/18/2024&lt;/td>
+&lt;td>Lei Li&lt;/td>
+&lt;td>&lt;a href="https://lists.apache.org/thread/jp19mj4qtjwhvq4r61nhkps253s82shy">https://lists.apache.org/thread/jp19mj4qtjwhvq4r61nhkps253s82shy&lt;/a>&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.apache.org/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/docs/blogs/releases/1.1.0/</guid><description>
 &lt;h2 id="whats-changed">What&amp;rsquo;s Changed&lt;/h2>
