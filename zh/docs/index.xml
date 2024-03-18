@@ -3782,6 +3782,16 @@ Apache bRPC 社区&lt;/p></description></item><item><title>Docs: bRPC 1.4.0</tit
 &lt;td>王伟冰&lt;/td>
 &lt;td>&lt;a href="https://lists.apache.org/thread/v4bynz0w3z14mylq6gk4kp3g08y71nds">https://lists.apache.org/thread/v4bynz0w3z14mylq6gk4kp3g08y71nds&lt;/a>&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>03/04/2024 - 03/10/2024&lt;/td>
+&lt;td>何磊&lt;/td>
+&lt;td>&lt;a href="https://lists.apache.org/thread/4qzwspbzx5njd2759tmk8b8mdyx4ldqh">https://lists.apache.org/thread/4qzwspbzx5njd2759tmk8b8mdyx4ldqh&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>03/11/2024 - 03/17/2024&lt;/td>
+&lt;td>刘帅&lt;/td>
+&lt;td>&lt;a href="https://lists.apache.org/thread/6toz65lrntpj8wg66g87bsc52bbhowwk">https://lists.apache.org/thread/6toz65lrntpj8wg66g87bsc52bbhowwk&lt;/a>&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Docs: bRPC 1.1.0</title><link>https://brpc.apache.org/zh/docs/blogs/releases/1.1.0/</link><pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate><guid>https://brpc.apache.org/zh/docs/blogs/releases/1.1.0/</guid><description>
 &lt;h2 id="apache-brpc-110-发布支持ipv6和uds">Apache bRPC 1.1.0 发布，支持IPV6和UDS&lt;/h2>
