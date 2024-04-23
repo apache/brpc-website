@@ -168,7 +168,7 @@ limitations under the License.
 &lt;li>返回后，恢复%10、%11&lt;/li>
 &lt;li>从%eax中取出返回值&lt;/li>
 &lt;/ul>
-&lt;h3 id="x86_64含有16个64为整数寄存器">x86_64含有16个64为整数寄存器&lt;/h3>
+&lt;h3 id="x86_64含有16个64位整数寄存器">x86_64含有16个64位整数寄存器&lt;/h3>
 &lt;ul>
 &lt;li>%rsi、%rdi 用于字符串处理&lt;/li>
 &lt;li>%rsp、%rbp 栈相关，栈从高地址到低地址 %rsp&amp;ndash;&amp;gt;栈顶，push和pop会改变 %rbp&amp;ndash;&amp;gt;栈基址&lt;/li>
