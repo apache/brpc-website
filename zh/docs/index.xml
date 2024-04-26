@@ -795,6 +795,12 @@ limitations under the License.
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
+&lt;td>Apache bRPC 1.9.0 (tar.gz)&lt;/td>
+&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.9.0/apache-brpc-1.9.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.9.0/apache-brpc-1.9.0-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.9.0/apache-brpc-1.9.0-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>Apache bRPC 1.8.0 (tar.gz)&lt;/td>
 &lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.8.0/apache-brpc-1.8.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
 &lt;td>&lt;a href="https://downloads.apache.org/brpc/1.8.0/apache-brpc-1.8.0-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
