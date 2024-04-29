@@ -32,6 +32,7 @@ Determine the type of Issue, e.g. bug, enhancement, discussion, etc
 * He Lei @TousakaRin
 * Shuai Liu @serverglen
 * Huixxi @Huixxi
+* Yang Liming @yanglimingcn
 
 ### 5. On Call Record
 
