@@ -105,3 +105,4 @@ Determine the type of Issue, e.g. bug, enhancement, discussion, etc
 | 03/11/2024 - 03/17/2024  | Liu Shuai | https://lists.apache.org/thread/6toz65lrntpj8wg66g87bsc52bbhowwk
 | 03/25/2024 - 03/31/2024  | Lei Li | https://lists.apache.org/thread/cyj36gds2dtyj4nm848r1mpnkqjp51qh
 | 04/29/2024 - 05/05/2024  | Liu Shuai | https://lists.apache.org/thread/b0htz9ykgb35z3pfpdvsf114p7ctkgbw
+| 06/24/2024 - 06/30/2024  | Liu Shuai | https://lists.apache.org/thread/bmds2jpz93llqzpvyy5xopntbpodw8tw
