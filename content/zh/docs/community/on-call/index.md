@@ -105,4 +105,5 @@ description: >
 | 03/04/2024 - 03/10/2024  | 何磊 | https://lists.apache.org/thread/4qzwspbzx5njd2759tmk8b8mdyx4ldqh
 | 03/11/2024 - 03/17/2024  | 刘帅 | https://lists.apache.org/thread/6toz65lrntpj8wg66g87bsc52bbhowwk
 | 03/25/2024 - 03/31/2024  | 李磊 | https://lists.apache.org/thread/cyj36gds2dtyj4nm848r1mpnkqjp51qh
-| 04/29/2024 - 05/05/2024  | 刘帅 |https://lists.apache.org/thread/b0htz9ykgb35z3pfpdvsf114p7ctkgbw
+| 04/29/2024 - 05/05/2024  | 刘帅 | https://lists.apache.org/thread/b0htz9ykgb35z3pfpdvsf114p7ctkgbw
+| 06/24/2024 - 06/30/2024  | 刘帅 | https://lists.apache.org/thread/bmds2jpz93llqzpvyy5xopntbpodw8tw
