@@ -106,4 +106,19 @@ description: >
 | 03/11/2024 - 03/17/2024  | 刘帅 | https://lists.apache.org/thread/6toz65lrntpj8wg66g87bsc52bbhowwk
 | 03/25/2024 - 03/31/2024  | 李磊 | https://lists.apache.org/thread/cyj36gds2dtyj4nm848r1mpnkqjp51qh
 | 04/29/2024 - 05/05/2024  | 刘帅 | https://lists.apache.org/thread/b0htz9ykgb35z3pfpdvsf114p7ctkgbw
+| 05/06/2024 - 05/012/2024 | 胡希国 | https://lists.apache.org/thread/pgs35lpx36t0wo0jjrmodzkvxgqdj55o
+| 05/13/2024 - 05/19/2024  | 杨立明 | https://lists.apache.org/thread/9sjz8l0mdzqj136cl19bjvlwxr9ypgf0
+| 05/19/2024 - 05/26/2024  | 朱佳顺 | https://lists.apache.org/thread/jz4x8v1ggvhgjrqhl2w549vjlxlhnqh7
+| 05/27/2024 - 06/02/2024  | 李磊  | https://lists.apache.org/thread/qmpp52389zgk9tmz75n04q94cfv615pr 
+| 06/03/2024 - 06/10/2024  | 王伟冰 | https://lists.apache.org/thread/m82t378vjdwoczscp49b5vbrvqwftybb
+| 06/10/2024 - 06/16/2024  | 蔡道进 | https://lists.apache.org/thread/t8x0hp3oro1z65y519zpc8kq2hkcz1no
+| 06/17/2024 - 06/23/2024  | 何磊 | https://lists.apache.org/thread/ddomd78h2f7nscs81o9bc24gbckxjk2o
 | 06/24/2024 - 06/30/2024  | 刘帅 | https://lists.apache.org/thread/bmds2jpz93llqzpvyy5xopntbpodw8tw
+| 07/01/2024 - 07/07/2024  | 胡希国 | https://lists.apache.org/thread/k4r05sk8k0vks2ztsnpjz6pxgxxhy3jx
+| 07/08/2024 - 07/14/2024  | 朱佳顺 | https://lists.apache.org/thread/tc0t9mcfqldss71wbmw2r2s7lbtzknbd
+| 07/15/2024 - 07/21/2024  | 李磊 | https://lists.apache.org/thread/7ox4vk94yqvcs0mghrromt5gl6q7z68j
+| 07/22/2024 - 07/29/2024  | 王伟冰 | https://lists.apache.org/thread/ms43wjgph8ygmlhmyxx5sq3xhxhwm31d
+| 07/29/2024 - 08/04/2024  | 蔡道进 | https://lists.apache.org/thread/ttlh0l097m3rfc7c38rqchhz7gzxd9xg 
+| 08/05/2024 - 08/11/2024  | 何磊 | https://lists.apache.org/thread/g6vmztfhyyj422c8c37tjbn2qq0wjh97
+| 08/12/2024 - 08/18/2024  | 刘帅 | https://lists.apache.org/thread/sxpo7rqgw20coy0nf9k8bdpc88cmhypb
+
