@@ -120,3 +120,4 @@ Determine the type of Issue, e.g. bug, enhancement, discussion, etc
 | 07/29/2024 - 08/04/2024  | Cai Daojin | https://lists.apache.org/thread/ttlh0l097m3rfc7c38rqchhz7gzxd9xg 
 | 08/05/2024 - 08/11/2024  | He Lei | https://lists.apache.org/thread/g6vmztfhyyj422c8c37tjbn2qq0wjh97
 | 08/12/2024 - 08/18/2024  | Liu Shuai | https://lists.apache.org/thread/sxpo7rqgw20coy0nf9k8bdpc88cmhypb
+| 09/23/2024 - 10/07/2024  | Wang Weibing | https://lists.apache.org/thread/n7vtlkcof2q9noy5t91w6ltonygh0h60
