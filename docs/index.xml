@@ -161,7 +161,7 @@ limitations under the License.
 -->
 &lt;h2 id="apache-brpc-downloads">Apache bRPC Downloads&lt;/h2>
 &lt;p>Apache bRPC is released as a source artifact.
-We are pleased to announce our 1.10.0 release as below.&lt;/p>
+We are pleased to announce our 1.11.0 release as below.&lt;/p>
 &lt;h3 id="all-release">All Release&lt;/h3>
 &lt;!--when pass vote, we can change it back to Release Artifacts
 -->
@@ -175,6 +175,12 @@ We are pleased to announce our 1.10.0 release as below.&lt;/p>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
+&lt;tr>
+&lt;td>Apache bRPC 1.11.0 (tar.gz)&lt;/td>
+&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.11.0/apache-brpc-1.11.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.11.0/apache-brpc-1.11.0-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.11.0/apache-brpc-1.11.0-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;/tr>
 &lt;tr>
 &lt;td>Apache bRPC 1.10.0 (tar.gz)&lt;/td>
 &lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.10.0/apache-brpc-1.10.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
