@@ -81,6 +81,12 @@ Thank you all your help!
         <td>lorinlee</td>
         <td><a href="http://github.com/lorinlee">lorinlee</a></td>
     </tr>
+    <tr>
+        <td><a href="https://github.com/chenBright"><img width="64" src="https://avatars.githubusercontent.com/u/12249635?v=4"></a></td>
+        <td>Guangming Chen</td>
+        <td>guangmingchen</td>
+        <td><a href="http://github.com/chenBright">chenBright</a></td>
+    </tr>
 </table>
 
 ### Committers
@@ -120,12 +126,6 @@ Thank you all your help!
         <td>Xiguo Hu</td>
         <td>huixxi</td>
         <td><a href="http://github.com/Huixxi">Huixxi</a></td>
-    </tr>
-    <tr>
-        <td><a href="https://github.com/chenBright"><img width="64" src="https://avatars.githubusercontent.com/u/12249635?v=4"></a></td>
-        <td>Guangming Chen</td>
-        <td>guangmingchen</td>
-        <td><a href="http://github.com/chenBright">chenBright</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/Tuvie"><img width="64" src="https://avatars.githubusercontent.com/u/5780312?v=4"></a></td>
