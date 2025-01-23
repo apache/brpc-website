@@ -33,7 +33,7 @@ limitations under the License.
 -->
 ## 下载 Apache bRPC
 
-Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.12.0 版本已经发布如下了！
+Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.12.1 版本已经发布如下了！
 
 
 ### 全部版本
@@ -50,6 +50,12 @@ Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.12.0 版本
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td>Apache bRPC 1.12.1 (tar.gz)</td>
+            <td><a href="https://dlcdn.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz.asc">ASC</a></td>
+        </tr>
         <tr>
             <td>Apache bRPC 1.12.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz">tar.gz</a></td>

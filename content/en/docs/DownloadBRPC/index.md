@@ -34,7 +34,7 @@ limitations under the License.
 ## Apache bRPC Downloads
 
 Apache bRPC is released as a source artifact.
-We are pleased to announce our 1.12.0 release as below.
+We are pleased to announce our 1.12.1 release as below.
 
 
 ### All Release
@@ -50,6 +50,12 @@ We are pleased to announce our 1.12.0 release as below.
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td>Apache bRPC 1.12.1 (tar.gz)</td>
+            <td><a href="https://dlcdn.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz.asc">ASC</a></td>
+        </tr>
         <tr>
             <td>Apache bRPC 1.12.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz">tar.gz</a></td>
