@@ -122,4 +122,5 @@ description: >
 | 08/05/2024 - 08/11/2024  | 何磊 | https://lists.apache.org/thread/g6vmztfhyyj422c8c37tjbn2qq0wjh97
 | 08/12/2024 - 08/18/2024  | 刘帅 | https://lists.apache.org/thread/sxpo7rqgw20coy0nf9k8bdpc88cmhypb
 | 09/23/2024 - 10/07/2024  | 王伟冰 | https://lists.apache.org/thread/n7vtlkcof2q9noy5t91w6ltonygh0h60
+| 07/07/2025 - 07/13/2025  | 刘帅 | https://lists.apache.org/thread/mvr9kn7886z26mj33t18jr2mjh6swjmh
 
