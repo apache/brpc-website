@@ -51,10 +51,10 @@ Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.13.0 版本
     </thead>
     <tbody>
 	<tr>
-            <td>Apache bRPC 1.14.0 (tar.gz)</td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.14.0/apache-brpc-1.14.0-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://downloads.apache.org/brpc/1.14.0/apache-brpc-1.14.0-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://downloads.apache.org/brpc/1.14.0/apache-brpc-1.14.0-src.tar.gz.asc">ASC</a></td>
+            <td>Apache bRPC 1.14.1 (tar.gz)</td>
+            <td><a href="https://dlcdn.apache.org/brpc/1.14.1/apache-brpc-1.14.1-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.14.1/apache-brpc-1.14.1-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.14.1/apache-brpc-1.14.1-src.tar.gz.asc">ASC</a></td>
         </tr>
 	<tr>
             <td>Apache bRPC 1.13.0 (tar.gz)</td>
@@ -67,12 +67,6 @@ Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.13.0 版本
             <td><a href="https://dlcdn.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz">tar.gz</a></td>
             <td><a href="https://downloads.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz.sha512">SHA-512</a></td>
             <td><a href="https://downloads.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz.asc">ASC</a></td>
-        </tr>
-        <tr>
-            <td>Apache bRPC 1.12.0 (tar.gz)</td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://downloads.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://downloads.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
             <td>Apache bRPC 1.11.0 (tar.gz)</td>
@@ -109,12 +103,6 @@ Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.13.0 版本
             <td><a href="https://dlcdn.apache.org/brpc/1.6.1/apache-brpc-1.6.1-src.tar.gz">tar.gz</a></td>
             <td><a href="https://downloads.apache.org/brpc/1.6.1/apache-brpc-1.6.1-src.tar.gz.sha512">SHA-512</a></td>
             <td><a href="https://downloads.apache.org/brpc/1.6.1/apache-brpc-1.6.1-src.tar.gz.asc">ASC</a></td>
-        </tr>
-        <tr>
-            <td>Apache bRPC 1.6.0 (tar.gz)</td>
-            <td><a href="https://dlcdn.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz">tar.gz</a></td>
-            <td><a href="https://downloads.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz.sha512">SHA-512</a></td>
-            <td><a href="https://downloads.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz.asc">ASC</a></td>
         </tr>
         <tr>
             <td>Apache bRPC 1.5.0 (tar.gz)</td>
