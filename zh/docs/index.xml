@@ -795,10 +795,10 @@ limitations under the License.
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td>Apache bRPC 1.14.0 (tar.gz)&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.14.0/apache-brpc-1.14.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.14.0/apache-brpc-1.14.0-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.14.0/apache-brpc-1.14.0-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
+&lt;td>Apache bRPC 1.14.1 (tar.gz)&lt;/td>
+&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.14.1/apache-brpc-1.14.1-src.tar.gz">tar.gz&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.14.1/apache-brpc-1.14.1-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.14.1/apache-brpc-1.14.1-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Apache bRPC 1.13.0 (tar.gz)&lt;/td>
@@ -811,12 +811,6 @@ limitations under the License.
 &lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz">tar.gz&lt;/a>&lt;/td>
 &lt;td>&lt;a href="https://downloads.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
 &lt;td>&lt;a href="https://downloads.apache.org/brpc/1.12.1/apache-brpc-1.12.1-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Apache bRPC 1.12.0 (tar.gz)&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.12.0/apache-brpc-1.12.0-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Apache bRPC 1.11.0 (tar.gz)&lt;/td>
@@ -853,12 +847,6 @@ limitations under the License.
 &lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.6.1/apache-brpc-1.6.1-src.tar.gz">tar.gz&lt;/a>&lt;/td>
 &lt;td>&lt;a href="https://downloads.apache.org/brpc/1.6.1/apache-brpc-1.6.1-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
 &lt;td>&lt;a href="https://downloads.apache.org/brpc/1.6.1/apache-brpc-1.6.1-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Apache bRPC 1.6.0 (tar.gz)&lt;/td>
-&lt;td>&lt;a href="https://dlcdn.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz">tar.gz&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz.sha512">SHA-512&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://downloads.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz.asc">ASC&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Apache bRPC 1.5.0 (tar.gz)&lt;/td>
