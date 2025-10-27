@@ -34,7 +34,7 @@ limitations under the License.
 ## Apache bRPC Downloads
 
 Apache bRPC is released as a source artifact.
-We are pleased to announce our 1.13.0 release as below.
+We are pleased to announce our 1.15.0 release as below.
 
 
 ### All Release
