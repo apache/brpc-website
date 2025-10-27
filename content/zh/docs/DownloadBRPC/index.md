@@ -33,7 +33,7 @@ limitations under the License.
 -->
 ## 下载 Apache bRPC
 
-Apache bRPC 作为源工件发布。我们很高兴宣布我们的 1.13.0 版本已经发布如下了！
+Apache bRPC 作为源构建发布，我们很高兴地宣布1.15.0版本已发布！
 
 
 ### 全部版本
