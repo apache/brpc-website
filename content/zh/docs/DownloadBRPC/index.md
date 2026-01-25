@@ -33,7 +33,7 @@ limitations under the License.
 -->
 ## 下载 Apache bRPC
 
-Apache bRPC 作为源构建发布，我们很高兴地宣布1.15.0版本已发布！
+Apache bRPC 作为源构建发布，我们很高兴地宣布1.16.0版本已发布！
 
 
 ### 全部版本
@@ -50,19 +50,25 @@ Apache bRPC 作为源构建发布，我们很高兴地宣布1.15.0版本已发�
         </tr>
     </thead>
     <tbody>
-		<tr>
+        <tr>
+            <td>Apache bRPC 1.16.0 (tar.gz)</td>
+            <td><a href="https://dlcdn.apache.org/brpc/1.16.0/apache-brpc-1.16.0-src.tar.gz">tar.gz</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.16.0/apache-brpc-1.16.0-src.tar.gz.sha512">SHA-512</a></td>
+            <td><a href="https://downloads.apache.org/brpc/1.16.0/apache-brpc-1.16.0-src.tar.gz.asc">ASC</a></td>
+        </tr>
+        <tr>
             <td>Apache bRPC 1.15.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/brpc/1.15.0/apache-brpc-1.15.0-src.tar.gz">tar.gz</a></td>
             <td><a href="https://downloads.apache.org/brpc/1.15.0/apache-brpc-1.15.0-src.tar.gz.sha512">SHA-512</a></td>
             <td><a href="https://downloads.apache.org/brpc/1.15.0/apache-brpc-1.15.0-src.tar.gz.asc">ASC</a></td>
         </tr>
-		<tr>
+        <tr>
             <td>Apache bRPC 1.14.1 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/brpc/1.14.1/apache-brpc-1.14.1-src.tar.gz">tar.gz</a></td>
             <td><a href="https://downloads.apache.org/brpc/1.14.1/apache-brpc-1.14.1-src.tar.gz.sha512">SHA-512</a></td>
             <td><a href="https://downloads.apache.org/brpc/1.14.1/apache-brpc-1.14.1-src.tar.gz.asc">ASC</a></td>
         </tr>
-		<tr>
+        <tr>
             <td>Apache bRPC 1.13.0 (tar.gz)</td>
             <td><a href="https://dlcdn.apache.org/brpc/1.13.0/apache-brpc-1.13.0-src.tar.gz">tar.gz</a></td>
             <td><a href="https://downloads.apache.org/brpc/1.13.0/apache-brpc-1.13.0-src.tar.gz.sha512">SHA-512</a></td>
