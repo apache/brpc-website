@@ -138,6 +138,12 @@ bRPC 的发展离不开其背后很多人的卓越贡献，感谢每一个人的
         <td>zchuango</td>
         <td><a href="https://github.com/zchuango">zchuango</a></td>
     </tr>
+    <tr>
+        <td><a href="https://github.com/yanglimingcn"><img width="64" src="https://avatars.githubusercontent.com/u/7091130?v=4"></a></td>
+        <td>Liming Yang</td>
+        <td>yangliming</td>
+        <td><a href="https://github.com/yanglimingcn">yanglimingcn</a></td>
+    </tr>
 </table>
 
 ### Contributors
