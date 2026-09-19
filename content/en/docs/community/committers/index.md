@@ -133,6 +133,12 @@ Thank you all your help!
         <td>lizhaogeng</td>
         <td><a href="http://github.com/Tuvie">Tuvie</a></td>
     </tr>
+    <tr>
+        <td><a href="https://github.com/zchuango"><img width="64" src="https://avatars.githubusercontent.com/u/237737874?v=4"></a></td>
+        <td>Chuang Zhang</td>
+        <td>zchuango</td>
+        <td><a href="https://github.com/zchuango">zchuango</a></td>
+    </tr>
 </table>
 
 ### Contributors

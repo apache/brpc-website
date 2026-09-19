@@ -132,6 +132,12 @@ bRPC 的发展离不开其背后很多人的卓越贡献，感谢每一个人的
         <td>lizhaogeng</td>
         <td><a href="http://github.com/Tuvie">Tuvie</a></td>
     </tr>
+    <tr>
+        <td><a href="https://github.com/zchuango"><img width="64" src="https://avatars.githubusercontent.com/u/237737874?v=4"></a></td>
+        <td>Chuang Zhang</td>
+        <td>zchuango</td>
+        <td><a href="https://github.com/zchuango">zchuango</a></td>
+    </tr>
 </table>
 
 ### Contributors
